@@ -7,13 +7,11 @@ window.onload = function() {
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [
-      SwaggerUIBundle.presets.apis,
-      SwaggerUIStandalonePreset
+      SwaggerUIBundle.presets.apis
     ],
     plugins: [
       SwaggerUIBundle.plugins.DownloadUrl
     ],
-    layout: "StandaloneLayout"
   });
 
   //</editor-fold>
