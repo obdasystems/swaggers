@@ -1,0 +1,628 @@
+swagger: '2.0'
+info:
+  title: MWS Ontology Drafts
+  description: 'Mastro Web Services: ontology drafts related routes'
+  contact:
+    name: Marco Ruzzi
+    url: http://www.obdasystems.com
+    email: marco.ruzzi@obdasystems.com
+  version: 3.0.0
+host: default-host
+basePath: /base/path
+schemes:
+  - http
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /ontologyDraft/download:
+    post:
+      description: Download the ontology draft {ontologyName} converted in OWL2
+      parameters:
+        - name: arg2
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/com.mwsx.model.rdfgraph.RDFGraph'
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - ONTOLOGY DRAFTS
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/com.mwsx.model.FileInfo'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /ontologyDraftInfos:
+    get:
+      description: Returns the list of all ontology drafts made by the user
+      parameters: []
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - ONTOLOGY DRAFTS
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/com.mwsx.model.rdfgraph.OntologyDraftInfo'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /ontologyDraft/{ontologyName}:
+    get:
+      description: Returns the ontology draft {ontologyName}
+      parameters:
+        - name: ontologyName
+          in: path
+          required: true
+          type: string
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - ONTOLOGY DRAFTS
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/com.mwsx.model.rdfgraph.RDFGraph'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+    put:
+      description: >-
+        Modifies the ontology draft {ontologyName} (called when using the
+        ontology builder to save the draft)
+      parameters:
+        - name: ontologyName
+          in: path
+          required: true
+          type: string
+        - name: arg3
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/com.mwsx.model.rdfgraph.RDFGraph'
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - ONTOLOGY DRAFTS
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/com.mwsx.model.rdfgraph.RDFGraph'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+    post:
+      description: Adds a new draft to the list of all ontology drafts
+      parameters:
+        - name: ontologyName
+          in: path
+          required: true
+          type: string
+        - name: arg3
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/com.mwsx.model.rdfgraph.RDFGraph'
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - ONTOLOGY DRAFTS
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/com.mwsx.model.rdfgraph.RDFGraph'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+    delete:
+      description: Deletes the ontology draft {ontologyName}
+      parameters:
+        - name: ontologyName
+          in: path
+          required: true
+          type: string
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - ONTOLOGY DRAFTS
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/com.mwsx.model.rdfgraph.RDFGraph'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /ontologyDraft/convertOWL:
+    post:
+      description: Convert an OWL file in RDFGraph model
+      parameters:
+        - name: arg2
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/com.mwsx.model.FileInfo'
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - ONTOLOGY DRAFTS
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/com.mwsx.model.rdfgraph.RDFGraph'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+definitions:
+  com.mwsx.model.rdfgraph.HierarchySuperclasses:
+    title: com.mwsx.model.rdfgraph.HierarchySuperclasses
+    type: object
+    properties:
+      classEntity:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.Entity'
+      complete:
+        type: boolean
+  com.mwsx.model.rdfgraph.RDFGraphMetadata:
+    title: com.mwsx.model.rdfgraph.RDFGraphMetadata
+    type: object
+    properties:
+      annotationProperties:
+        type: array
+        items:
+          type: string
+      iri:
+        type: string
+      defaultLanguage:
+        type: string
+      languages:
+        type: array
+        items:
+          type: string
+      name:
+        type: string
+      annotations:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.rdfgraph.Annotation'
+      version:
+        type: string
+      namespaces:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.rdfgraph.Namespace'
+  com.mwsx.model.rdfgraph.ClassInstanceEntity:
+    title: com.mwsx.model.rdfgraph.ClassInstanceEntity
+    type: object
+    properties:
+      parentClasses:
+        type: array
+        items:
+          type: string
+      shortIri:
+        type: string
+      dataProperties:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.rdfgraph.DataPropertyValue'
+  com.mwsx.model.rdfgraph.Node:
+    title: com.mwsx.model.rdfgraph.Node
+    type: object
+    properties:
+      labelPosition:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.Position'
+      position:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.Position'
+  com.mwsx.model.rdfgraph.ActionInvolvedElements:
+    title: com.mwsx.model.rdfgraph.ActionInvolvedElements
+    type: object
+    properties:
+      nodes:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.rdfgraph.Node'
+      hierarchies:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.rdfgraph.Hierarchy'
+      edges:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.rdfgraph.Edge'
+  com.mwsx.model.rdfgraph.Edge:
+    title: com.mwsx.model.rdfgraph.Edge
+    type: object
+    properties:
+      sourceId:
+        type: string
+      targetId:
+        type: string
+      breakpoints:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.rdfgraph.Position'
+  com.mwsx.model.rdfgraph.Namespace:
+    title: com.mwsx.model.rdfgraph.Namespace
+    type: object
+    properties:
+      prefixes:
+        type: array
+        items:
+          type: string
+      value:
+        type: string
+  com.mwsx.model.rdfgraph.OntologyDraftInfo:
+    title: com.mwsx.model.rdfgraph.OntologyDraftInfo
+    type: object
+    properties:
+      iri:
+        type: string
+      name:
+        type: string
+      lastModification:
+        type: integer
+        format: int64
+      version:
+        type: string
+  com.mwsx.model.rdfgraph.Position:
+    title: com.mwsx.model.rdfgraph.Position
+    type: object
+    properties:
+      x:
+        type: number
+      'y':
+        type: number
+  com.mwsx.model.rdfgraph.Viewport:
+    title: com.mwsx.model.rdfgraph.Viewport
+    type: object
+    properties:
+      zoom:
+        type: number
+      pan:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.Position'
+  com.mwsx.model.rdfgraph.RDFGraph:
+    title: com.mwsx.model.rdfgraph.RDFGraph
+    type: object
+    properties:
+      metadata:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.RDFGraphMetadata'
+      creator:
+        type: string
+      classInstanceEntities:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.rdfgraph.ClassInstanceEntity'
+      entities:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.rdfgraph.Entity'
+      diagrams:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.rdfgraph.Diagram'
+      modelType:
+        type: string
+      config:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.RDFGraphConfig'
+      selectedDiagramId:
+        type: integer
+      actions:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.rdfgraph.Action'
+  com.mwsx.model.rdfgraph.FunctionPropertiesEnum:
+    title: com.mwsx.model.rdfgraph.FunctionPropertiesEnum
+    type: object
+    properties:
+      TRANSITIVE:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.FunctionPropertiesEnum'
+      IRREFLEXIVE:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.FunctionPropertiesEnum'
+      ASYMMETRIC:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.FunctionPropertiesEnum'
+      SYMMETRIC:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.FunctionPropertiesEnum'
+      FUNCTIONAL:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.FunctionPropertiesEnum'
+      REFLEXIVE:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.FunctionPropertiesEnum'
+      INVERSEFUNCTIONAL:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.FunctionPropertiesEnum'
+      value:
+        type: string
+      $VALUES:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.rdfgraph.FunctionPropertiesEnum'
+  com.mwsx.model.rdfgraph.ActionUser:
+    title: com.mwsx.model.rdfgraph.ActionUser
+    type: object
+    properties:
+      firstName:
+        type: string
+      lastName:
+        type: string
+      name:
+        type: string
+      email:
+        type: string
+  com.mwsx.model.rdfgraph.TypesEnum:
+    title: com.mwsx.model.rdfgraph.TypesEnum
+    type: object
+    properties:
+      SAME:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+      COMPLETE_DISJOINT_UNION:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+      COMPLEMENT:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+      INPUT:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+      ENUMERATION:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+      CLASS:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+      VALUE:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+      INSTANCE_OF:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+      MEMBERSHIP:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+      DISJOINT_UNION:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+      HAS_KEY:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+      INCLUSION:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+      value:
+        type: string
+      RANGE_RESTRICTION:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+      NEUTRAL:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+      $VALUES:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+      VALUE_DOMAIN:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+      ROLE_INVERSE:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+      ROLE_CHAIN:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+      LITERAL:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+      DIFFERENT:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+      DATATYPE_RESTRICTION:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+      OBJECT_PROPERTY:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+      COMPLETE_UNION:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+      PROPERTY_ASSERTION:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+      DOMAIN_RESTRICTION:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+      EQUIVALENCE:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+      FACET:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+      INTERSECTION:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+      DATA_PROPERTY:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+      CLASS_INSTANCE:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+      ATTRIBUTE_EDGE:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+      UNION:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+      INDIVIDUAL:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+  com.mwsx.model.rdfgraph.DataPropertyValue:
+    title: com.mwsx.model.rdfgraph.DataPropertyValue
+    type: object
+    properties:
+      iri:
+        type: string
+      datatype:
+        type: string
+      language:
+        type: string
+      value:
+        type: string
+  com.mwsx.model.rdfgraph.Annotation:
+    title: com.mwsx.model.rdfgraph.Annotation
+    type: object
+    properties:
+      datatype:
+        type: string
+      property:
+        type: string
+      language:
+        type: string
+      lexicalForm:
+        type: string
+  com.mwsx.model.rdfgraph.Diagram:
+    title: com.mwsx.model.rdfgraph.Diagram
+    type: object
+    properties:
+      nodes:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.rdfgraph.Node'
+      lastViewportState:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.Viewport'
+      name:
+        type: string
+      edges:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.rdfgraph.Edge'
+      id:
+        type: integer
+  com.mwsx.model.rdfgraph.Entity:
+    title: com.mwsx.model.rdfgraph.Entity
+    type: object
+    properties:
+      isDataPropertyFunctional:
+        type: boolean
+      datatype:
+        type: string
+      fullIri:
+        type: string
+      annotations:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.rdfgraph.Annotation'
+      functionProperties:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.rdfgraph.FunctionPropertiesEnum'
+  com.mwsx.model.rdfgraph.RDFGraphConfig:
+    title: com.mwsx.model.rdfgraph.RDFGraphConfig
+    type: object
+    properties:
+      entityNameType:
+        type: string
+      themes:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.rdfgraph.Theme'
+      renderers:
+        type: array
+        items:
+          type: string
+      language:
+        type: string
+      filters:
+        type: array
+        items:
+          type: string
+      widgets:
+        type: string
+      selectedTheme:
+        type: string
+  com.mwsx.model.rdfgraph.Action:
+    title: com.mwsx.model.rdfgraph.Action
+    type: object
+    properties:
+      subactions:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.rdfgraph.Action'
+      subject:
+        type: string
+      operationType:
+        type: string
+      involvedElements:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.ActionInvolvedElements'
+      user:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.ActionUser'
+      previousState:
+        type: string
+      timestamp:
+        type: integer
+        format: int64
+  com.mwsx.model.rdfgraph.Hierarchy:
+    title: com.mwsx.model.rdfgraph.Hierarchy
+    type: object
+    properties:
+      superclasses:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.rdfgraph.HierarchySuperclasses'
+      inputs:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.rdfgraph.Entity'
+      id:
+        type: string
+      type:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+  com.mwsx.model.FileInfo:
+    title: com.mwsx.model.FileInfo
+    type: object
+    properties:
+      fileName:
+        type: string
+      fileType:
+        type: string
+      content:
+        type: string
+  com.mwsx.model.rdfgraph.Theme:
+    title: com.mwsx.model.rdfgraph.Theme
+    type: object
+    properties:
+      name:
+        type: string
+      id:
+        type: string
+      colours:
+        type: string
