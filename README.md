@@ -11,4 +11,6 @@ This repository contains the definitions of the available APIs served by MWS.
 - [Grapholscape](https://obdasystems.github.io/swaggers/apis/rdf-graph)
 - [Sparqling](https://obdasystems.github.io/swaggers/apis/sparqling)
 - [Dashboards](https://obdasystems.github.io/swaggers/apis/dashboards)
-
+- [Data Quality](https://obdasystems.github.io/swaggers/apis/dataquality)
+- [Ontology Drafts](https://obdasystems.github.io/swaggers/apis/ontologydrafts)
+- [Query Catalog](https://obdasystems.github.io/swaggers/apis/querycatalog)
