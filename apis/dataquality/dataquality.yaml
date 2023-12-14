@@ -1,0 +1,1127 @@
+swagger: '2.0'
+info:
+  title: MWS Data Quality
+  description: 'Mastro Web Services: data quality related routes'
+  contact:
+    name: Marco Ruzzi
+    url: http://www.obdasystems.com
+    email: marco.ruzzi@obdasystems.com
+  version: 3.0.0
+host: default-host
+basePath: /base/path
+schemes:
+  - http
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}/status:
+    get:
+      description: Returns the running state of the specified check set
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+        - name: setId
+          in: path
+          required: true
+          type: string
+        - name: version
+          in: query
+          required: false
+          type: string
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA QUALITY
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/com.mwsx.model.DataQualityCheckSetStatus'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}/executionLogs/timestamp/{timestamp}:
+    get:
+      description: Returns the execution log of a check set run at the provided timestamp
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+        - name: setId
+          in: path
+          required: true
+          type: string
+        - name: timestamp
+          in: path
+          required: true
+          type: string
+        - name: version
+          in: query
+          required: false
+          type: string
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA QUALITY
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/com.mwsx.model.DataQualityCheckSetExecutionLog'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+    delete:
+      description: Deletes the execution log of a check set run at the provided timestamp
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+        - name: setId
+          in: path
+          required: true
+          type: string
+        - name: timestamp
+          in: path
+          required: true
+          type: string
+        - name: version
+          in: query
+          required: false
+          type: string
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA QUALITY
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/com.mwsx.model.DataQualityCheckSetExecutionLog'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}/executionLog/timestamps:
+    delete:
+      description: >-
+        Deletes all the data quality check set execution logs saved on the
+        server for the given ontology/version
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+        - name: setId
+          in: path
+          required: true
+          type: string
+        - name: version
+          in: query
+          required: false
+          type: string
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA QUALITY
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: integer
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}/stop:
+    put:
+      description: Stops the execution of the thread executing the specific check set
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+        - name: setId
+          in: path
+          required: true
+          type: string
+        - name: version
+          in: query
+          required: false
+          type: string
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA QUALITY
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: boolean
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /owlOntology/{name}/version/ontologyConstraints/sets/executionLogs:
+    get:
+      description: Returns all the execution logs of the given check set
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+        - name: version
+          in: query
+          required: false
+          type: string
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA QUALITY
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/com.mwsx.model.DataQualityCheckSetExecutionLogs'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /owlOntology/{name}/version/ontologyConstraints:
+    get:
+      description: Returns the available constraints defined over the ontology / version
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+        - name: version
+          in: query
+          required: false
+          type: string
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA QUALITY
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/com.mwsx.model.OntologyConstraints'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}/executionLogs/timestamps:
+    get:
+      description: >-
+        Returns a list of the available timestamps for a check set of the given
+        ontology/version
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+        - name: setId
+          in: path
+          required: true
+          type: string
+        - name: version
+          in: query
+          required: false
+          type: string
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA QUALITY
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              type: string
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /owlOntology/{name}/version/ontologyConstraints/set:
+    get:
+      description: Returns a list of the check sets available for the ontology / version
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+        - name: version
+          in: query
+          required: false
+          type: string
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA QUALITY
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/com.mwsx.model.DataQualityCheckSet'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+    post:
+      description: Create a new data quality check set
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+        - name: version
+          in: query
+          required: false
+          type: string
+        - name: arg4
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/com.mwsx.model.DataQualityCheckSet'
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA QUALITY
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: boolean
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /owlOntology/{name}/version/ontologyConstraints/sets/running:
+    get:
+      description: Returns the identifiers of the currently running check sets
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+        - name: version
+          in: query
+          required: false
+          type: string
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA QUALITY
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              type: string
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}/removeThread:
+    delete:
+      description: Deletes the execution thread of the specified check set from the server
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+        - name: setId
+          in: path
+          required: true
+          type: string
+        - name: version
+          in: query
+          required: false
+          type: string
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA QUALITY
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: boolean
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}:
+    get:
+      description: Returns a check set defined over the ontology / version
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+        - name: version
+          in: query
+          required: false
+          type: string
+        - name: setId
+          in: path
+          required: true
+          type: string
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA QUALITY
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/com.mwsx.model.DataQualityCheckSet'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+    put:
+      description: Updates the definition of a specific check set
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+        - name: version
+          in: query
+          required: false
+          type: string
+        - name: setId
+          in: path
+          required: true
+          type: string
+        - name: arg5
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/com.mwsx.model.DataQualityCheckSet'
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA QUALITY
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: boolean
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+    delete:
+      description: Deletes the given check set from
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+        - name: version
+          in: query
+          required: false
+          type: string
+        - name: setId
+          in: path
+          required: true
+          type: string
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA QUALITY
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/com.mwsx.model.DataQualityCheckSet'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}/executionLog:
+    get:
+      description: >-
+        Returns the execution log of the last execution of the specified check
+        set
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+        - name: setId
+          in: path
+          required: true
+          type: string
+        - name: version
+          in: query
+          required: false
+          type: string
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA QUALITY
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/com.mwsx.model.DataQualityCheckSetExecutionLogs'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+    put:
+      description: Returns the execution log of a data quality check set
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+        - name: setId
+          in: path
+          required: true
+          type: string
+        - name: version
+          in: query
+          required: false
+          type: string
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA QUALITY
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/com.mwsx.model.DataQualityCheckSetExecutionLog'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /owlOntology/{name}/version/ontologyConstraints/sets/dump:
+    post:
+      description: >-
+        Imports a data quality check set dump and returns a report of the
+        performed operation
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+        - name: version
+          in: query
+          required: false
+          type: string
+        - name: importMappingParameters
+          in: query
+          required: false
+          type: string
+        - name: arg5
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/com.mwsx.model.DataQualityCheckSetDump'
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA QUALITY
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/com.mwsx.model.DataQualityCheckSetImportReport'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}/start/{endpoint}:
+    put:
+      description: Starts a new execution of the given check set over a specific endpoint
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+        - name: setId
+          in: path
+          required: true
+          type: string
+        - name: endpoint
+          in: path
+          required: true
+          type: string
+        - name: version
+          in: query
+          required: false
+          type: string
+        - name: answersBufferSize
+          in: query
+          required: false
+          type: string
+        - name: autosave
+          in: query
+          required: false
+          type: string
+        - name: concurrentChecksNumber
+          in: query
+          required: false
+          type: string
+        - name: arg9
+          in: body
+          required: false
+          schema:
+            type: object
+            additionalProperties:
+              type: string
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA QUALITY
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: boolean
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}/dump:
+    get:
+      description: Returns the dump of a data quality check set
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+        - name: setId
+          in: path
+          required: true
+          type: string
+        - name: version
+          in: query
+          required: false
+          type: string
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA QUALITY
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/com.mwsx.model.DataQualityCheckSetDump'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+definitions:
+  com.mwsx.model.DataQualityCheckSetExecutionLog:
+    title: com.mwsx.model.DataQualityCheckSetExecutionLog
+    type: object
+    properties:
+      ontologyConstraints:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.DataQualityCheckExecutionLog'
+      endpoint:
+        type: string
+      endpointInfo:
+        $ref: '#/definitions/com.mwsx.model.Endpoint'
+      endTimestamp:
+        type: integer
+        format: int64
+      user:
+        type: string
+      checkSetId:
+        type: string
+      timestamp:
+        type: integer
+        format: int64
+  com.mwsx.model.IdentificationPath:
+    title: com.mwsx.model.IdentificationPath
+    type: object
+    properties:
+      path:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.IdentificationPathElement'
+  com.mwsx.model.DataQualityCheckSet:
+    title: com.mwsx.model.DataQualityCheckSet
+    type: object
+    properties:
+      ontologyConstraints:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.DataQualityCheck'
+      mappingParameters:
+        type: object
+        additionalProperties:
+          type: string
+      id:
+        type: string
+      user:
+        type: string
+  com.mwsx.model.Label:
+    title: com.mwsx.model.Label
+    type: object
+    properties:
+      lang:
+        type: string
+      content:
+        type: string
+  com.mwsx.model.DataQualityCheckSetExecutionLogs:
+    title: com.mwsx.model.DataQualityCheckSetExecutionLogs
+    type: object
+    properties:
+      executions:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.DataQualityCheckSetExecutionLog'
+  com.mwsx.model.DataQualityCheckSetImportReport:
+    title: com.mwsx.model.DataQualityCheckSetImportReport
+    type: object
+    properties:
+      actualCheckSet:
+        $ref: '#/definitions/com.mwsx.model.DataQualityCheckSet'
+      importReport:
+        type: object
+  com.mwsx.model.Entity:
+    title: com.mwsx.model.Entity
+    type: object
+    properties:
+      entityLabels:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.Label'
+      isDeprecated:
+        type: boolean
+      entityIRI:
+        type: string
+      entityType:
+        type: string
+      entityPrefixIRI:
+        type: string
+      entityRemainder:
+        type: string
+      entityID:
+        type: string
+  com.mwsx.model.DataQualityCheckStatus:
+    title: com.mwsx.model.DataQualityCheckStatus
+    type: object
+    properties:
+      resultsCount:
+        type: integer
+        format: int32
+      id:
+        type: string
+      queryExecutionId:
+        type: string
+      status:
+        type: string
+  com.mwsx.model.SubClassWithCardinalityAssertion:
+    title: com.mwsx.model.SubClassWithCardinalityAssertion
+    type: object
+    properties:
+      MIN_CARDINALITY_TYPE:
+        type: integer
+        format: int32
+      cardinalityType:
+        type: integer
+        format: int32
+      property:
+        $ref: '#/definitions/com.mwsx.model.Entity'
+      direct:
+        type: boolean
+      filler:
+        $ref: '#/definitions/com.mwsx.model.Entity'
+      EXACT_CARDINALITY_TYPE:
+        type: integer
+        format: int32
+      MAX_CARDINALITY_TYPE:
+        type: integer
+        format: int32
+      cardinality:
+        type: integer
+        format: int32
+  com.mwsx.model.SPARQLResult:
+    title: com.mwsx.model.SPARQLResult
+    type: object
+    properties:
+      shortIRI:
+        type: string
+      type:
+        type: string
+      lang:
+        type: string
+      value:
+        type: string
+  com.mwsx.model.IdentificationAssertion:
+    title: com.mwsx.model.IdentificationAssertion
+    type: object
+    properties:
+      identificationPaths:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.IdentificationPath'
+  com.mwsx.model.OntologyConstraints:
+    title: com.mwsx.model.OntologyConstraints
+    type: object
+    properties:
+      universals:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.SubClassWithForAllAssertion'
+      functionalities:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.FunctionalPropertyAssertion'
+      disjointnesses:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.DisjointClasses'
+      mandatories:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.MandatoryParticipationAssertion'
+      keys:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.HasKeyAssertion'
+      cardinalities:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.SubClassWithCardinalityAssertion'
+      identifications:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.IdentificationAssertion'
+  com.mwsx.model.DisjointClasses:
+    title: com.mwsx.model.DisjointClasses
+    type: object
+    properties:
+      disjointClass:
+        $ref: '#/definitions/com.mwsx.model.Entity'
+  com.mwsx.model.SPARQLResults:
+    title: com.mwsx.model.SPARQLResults
+    type: object
+    properties:
+      headTerms:
+        type: array
+        items:
+          type: string
+      headTypes:
+        type: object
+      construct:
+        type: boolean
+      results:
+        type: array
+        items:
+          type: array
+          items:
+            $ref: '#/definitions/com.mwsx.model.SPARQLResult'
+  com.mwsx.model.DataQualityCheckSetDump:
+    title: com.mwsx.model.DataQualityCheckSetDump
+    type: object
+    properties:
+      set:
+        $ref: '#/definitions/com.mwsx.model.DataQualityCheckSet'
+      constraints:
+        $ref: '#/definitions/com.mwsx.model.OntologyConstraints'
+  com.mwsx.model.MastroID:
+    title: com.mwsx.model.MastroID
+    type: object
+    properties:
+      mappingID:
+        type: string
+      datasourceID:
+        type: string
+      avpID:
+        type: string
+      ontologyID:
+        $ref: '#/definitions/com.mwsx.model.OntologyID'
+  com.mwsx.model.SubClassWithForAllAssertion:
+    title: com.mwsx.model.SubClassWithForAllAssertion
+    type: object
+    properties:
+      property:
+        $ref: '#/definitions/com.mwsx.model.Entity'
+      direct:
+        type: boolean
+      filler:
+        $ref: '#/definitions/com.mwsx.model.Entity'
+  com.mwsx.model.DataQualityCheckSetStatus:
+    title: com.mwsx.model.DataQualityCheckSetStatus
+    type: object
+    properties:
+      ontologyConstraints:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.DataQualityCheckStatus'
+      status:
+        type: string
+  com.mwsx.model.DataQualityCheckExecutionLog:
+    title: com.mwsx.model.DataQualityCheckExecutionLog
+    type: object
+    properties:
+      direct:
+        type: array
+        items:
+          type: boolean
+      errorMessage:
+        type: string
+      objectProperties:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.Entity'
+      priority:
+        type: integer
+        format: int32
+      type:
+        type: string
+      sqlQueries:
+        type: array
+        items:
+          type: string
+      cardinality:
+        type: integer
+        format: int32
+      executionTime:
+        type: integer
+        format: int32
+      dataProperties:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.Entity'
+      cardinalityType:
+        type: integer
+        format: int32
+      checkSemantics:
+        type: string
+      resultsCount:
+        type: integer
+        format: int32
+      property:
+        $ref: '#/definitions/com.mwsx.model.Entity'
+      filler:
+        $ref: '#/definitions/com.mwsx.model.Entity'
+      sparqlCode:
+        type: string
+      id:
+        type: string
+      results:
+        $ref: '#/definitions/com.mwsx.model.SPARQLResults'
+      entity:
+        $ref: '#/definitions/com.mwsx.model.Entity'
+      status:
+        type: string
+      disjointEntity:
+        $ref: '#/definitions/com.mwsx.model.Entity'
+  com.mwsx.model.Endpoint:
+    title: com.mwsx.model.Endpoint
+    type: object
+    properties:
+      restartNeeded:
+        type: boolean
+      name:
+        type: string
+      description:
+        type: string
+      user:
+        type: string
+      mastroID:
+        $ref: '#/definitions/com.mwsx.model.MastroID'
+  com.mwsx.model.DataQualityCheck:
+    title: com.mwsx.model.DataQualityCheck
+    type: object
+    properties:
+      id:
+        type: string
+      priority:
+        type: integer
+        format: int32
+  com.mwsx.model.OntologyID:
+    title: com.mwsx.model.OntologyID
+    type: object
+    properties:
+      ontologyVersion:
+        type: string
+      ontologyName:
+        type: string
+  com.mwsx.model.FunctionalPropertyAssertion:
+    title: com.mwsx.model.FunctionalPropertyAssertion
+    type: object
+    properties:
+      direct:
+        type: boolean
+  com.mwsx.model.HasKeyAssertion:
+    title: com.mwsx.model.HasKeyAssertion
+    type: object
+    properties:
+      dataProperties:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.Entity'
+      direct:
+        type: array
+        items:
+          type: boolean
+      objectProperties:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.Entity'
+  com.mwsx.model.IdentificationPathElement:
+    title: com.mwsx.model.IdentificationPathElement
+    type: object
+    properties:
+      inverse:
+        type: boolean
+      entity:
+        $ref: '#/definitions/com.mwsx.model.Entity'
+  com.mwsx.model.MandatoryParticipationAssertion:
+    title: com.mwsx.model.MandatoryParticipationAssertion
+    type: object
+    properties:
+      property:
+        $ref: '#/definitions/com.mwsx.model.Entity'
+      direct:
+        type: boolean
+      filler:
+        $ref: '#/definitions/com.mwsx.model.Entity'
