@@ -1,0 +1,798 @@
+swagger: '2.0'
+info:
+  title: MWS Data Sources
+  description: 'Mastro Web Services: data sources related routes'
+  contact:
+    name: Marco Ruzzi
+    url: http://www.obdasystems.com
+    email: marco.ruzzi@obdasystems.com
+  version: 3.0.0
+host: default-host
+basePath: /base/path
+schemes:
+  - http
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /datasource/{id}/table/{tableName}:
+    get:
+      description: >-
+        Returns the source table info available for the table tableName in the
+        catalog of a given datasource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+        - name: tableName
+          in: path
+          required: true
+          type: string
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA SOURCES
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/com.mwsx.model.SourceTableInfo'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /datasource:
+    get:
+      description: Returns all the data source definitions available
+      parameters: []
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA SOURCES
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: >-
+                #/definitions/it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceInfoEntry
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+    post:
+      description: Creates a new data source information
+      parameters:
+        - name: buildSchema
+          in: query
+          required: false
+          type: boolean
+        - name: arg3
+          in: body
+          required: false
+          schema:
+            $ref: >-
+              #/definitions/it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceInfoEntry
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA SOURCES
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: >-
+              #/definitions/it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceInfoEntry
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+    delete:
+      description: Deletes all the available data source information
+      parameters: []
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA SOURCES
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: >-
+                #/definitions/it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceInfoEntry
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /datasource/test:
+    post:
+      description: Test a given data source connection
+      parameters:
+        - name: arg2
+          in: body
+          required: false
+          schema:
+            $ref: >-
+              #/definitions/it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceInfoEntry
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA SOURCES
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/com.mwsx.model.SourceTables'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /datasource/{name}/downloadMetadata:
+    get:
+      description: Returns the data source information by its name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA SOURCES
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/com.mwsx.model.FileInfo'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /datasource/{id}/tables/results:
+    post:
+      description: Returns the preview of a given SQLQuery executed over a given datasource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+        - name: limit
+          in: query
+          required: false
+          type: integer
+          format: int32
+        - name: arg4
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/com.mwsx.model.SQLQuery'
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA SOURCES
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/com.mwsx.model.TableContentPreview'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /datasource/{name}/uploadMetadata:
+    put:
+      description: >-
+        Uploads the data source metadata information for the specified
+        datasource
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+        - name: arg3
+          in: body
+          required: false
+          schema:
+            $ref: >-
+              #/definitions/it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceMetadata
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA SOURCES
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: >-
+              #/definitions/it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceMetadata
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /datasource/{name}/metadata:
+    get:
+      description: Returns the data source information by its name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA SOURCES
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: >-
+              #/definitions/it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceMetadata
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /system/jdbcDriver/{driver}:
+    get:
+      description: Returns information about a specific JDBC driver
+      parameters:
+        - name: driver
+          in: path
+          required: true
+          type: string
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA SOURCES
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/com.mwsx.model.system.JDBCDriver'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+    put:
+      description: Adds information about a new JDBC driver to the system
+      parameters:
+        - name: driver
+          in: path
+          required: true
+          type: string
+        - name: arg3
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/com.mwsx.model.system.JDBCDriver'
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA SOURCES
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+    delete:
+      description: Adds information about a new JDBC driver to the system
+      parameters:
+        - name: driver
+          in: path
+          required: true
+          type: string
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA SOURCES
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /system/jdbcDrivers:
+    get:
+      description: Returns the available JDBC drivers
+      parameters: []
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA SOURCES
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/com.mwsx.model.system.JDBCDriver'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /datasource/{id}/tables:
+    get:
+      description: >-
+        Returns the list of SourceTables available in the catalog of a given
+        datasource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA SOURCES
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/com.mwsx.model.SourceTables'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /system/jdbcDriver:
+    post:
+      description: Adds information about a new JDBC driver to the system
+      parameters:
+        - name: arg2
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/com.mwsx.model.system.JDBCDriver'
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA SOURCES
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /datasource/{name}/updateMetadata:
+    put:
+      description: >-
+        Updates the data source metadata information retrieving it from the JDBC
+        connection
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA SOURCES
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: >-
+              #/definitions/it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceMetadata
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /datasource/drivers:
+    get:
+      description: No description available for this method
+      parameters: []
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA SOURCES
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              type: string
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /datasource/{name}:
+    get:
+      description: Returns the data source information by its name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA SOURCES
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: >-
+              #/definitions/it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceInfoEntry
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+    put:
+      description: Modifies the data source information by its name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+        - name: arg3
+          in: body
+          required: false
+          schema:
+            $ref: >-
+              #/definitions/it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceInfoEntry
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA SOURCES
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: >-
+              #/definitions/it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceInfoEntry
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+    delete:
+      description: Deletes a data source information by its name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - DATA SOURCES
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: >-
+              #/definitions/it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceInfoEntry
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+definitions:
+  com.mwsx.model.SQLQuery:
+    title: com.mwsx.model.SQLQuery
+    type: object
+    properties:
+      queryCode:
+        type: string
+      paramValues:
+        type: object
+        additionalProperties:
+          type: string
+      dbName:
+        type: string
+  it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceSchemaMetadata:
+    title: it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceSchemaMetadata
+    type: object
+    properties:
+      tables:
+        type: object
+        additionalProperties:
+          $ref: >-
+            #/definitions/it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceTableMetadata
+      views:
+        type: object
+        additionalProperties:
+          $ref: >-
+            #/definitions/it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceTableMetadata
+  it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceTableColumnMetadata:
+    title: >-
+      it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceTableColumnMetadata
+    type: object
+    properties:
+      size:
+        type: integer
+        format: int32
+      nullable:
+        type: string
+      generated:
+        type: string
+      dataTypeName:
+        type: string
+      decimals:
+        type: integer
+        format: int32
+      name:
+        type: string
+      dataTypeId:
+        type: integer
+        format: int32
+      ordinalPosition:
+        type: integer
+        format: int32
+  it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceInfoEntry:
+    title: it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceInfoEntry
+    type: object
+    properties:
+      jdbcDriver:
+        type: string
+      jdbcUrl:
+        type: string
+      description:
+        type: string
+      jdbcPassword:
+        type: string
+      id:
+        type: string
+      dataSourceUsername:
+        type: string
+      isMetadataPresent:
+        type: boolean
+      jdbcUsername:
+        type: string
+  it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceMetadata:
+    title: it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceMetadata
+    type: object
+    properties:
+      catalogName:
+        type: string
+      schemas:
+        type: array
+        items:
+          type: string
+      schemaMetadata:
+        type: object
+        additionalProperties:
+          $ref: >-
+            #/definitions/it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceSchemaMetadata
+      DEFAULT_SCHEMA_NAME:
+        type: string
+      dataSourceName:
+        type: string
+      info:
+        $ref: >-
+          #/definitions/it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceInfoEntry
+  com.mwsx.model.TableContentPreview:
+    title: com.mwsx.model.TableContentPreview
+    type: object
+    properties:
+      colNames:
+        type: array
+        items:
+          type: string
+      content:
+        type: array
+        items:
+          type: array
+          items:
+            type: string
+  it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceTableMetadata:
+    title: it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceTableMetadata
+    type: object
+    properties:
+      catalogName:
+        type: string
+      foreignKeys:
+        type: array
+        items:
+          $ref: >-
+            #/definitions/it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceForeignKeyMetadata
+      columns:
+        type: array
+        items:
+          $ref: >-
+            #/definitions/it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceTableColumnMetadata
+      keys:
+        $ref: >-
+          #/definitions/it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceKeyMetadata
+      name:
+        type: string
+      schemaName:
+        type: string
+  com.mwsx.model.SourceTables:
+    title: com.mwsx.model.SourceTables
+    type: object
+    properties:
+      tables:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.SourceTableInfo'
+  it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceKeyMetadata:
+    title: it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceKeyMetadata
+    type: object
+    properties:
+      columnNames:
+        type: array
+        items:
+          type: string
+      name:
+        type: string
+      columnPosition:
+        type: array
+        items:
+          type: integer
+      tableName:
+        type: string
+  it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceColumnReference:
+    title: it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceColumnReference
+    type: object
+    properties:
+      tableName:
+        type: string
+      columnName:
+        type: string
+  com.mwsx.model.FileInfo:
+    title: com.mwsx.model.FileInfo
+    type: object
+    properties:
+      fileName:
+        type: string
+      fileType:
+        type: string
+      content:
+        type: string
+  com.mwsx.model.SourceTableInfo:
+    title: com.mwsx.model.SourceTableInfo
+    type: object
+    properties:
+      columns:
+        type: array
+        items:
+          type: string
+      name:
+        type: string
+  com.mwsx.model.system.JDBCDriver:
+    title: com.mwsx.model.system.JDBCDriver
+    type: object
+    properties:
+      urlTemplate:
+        type: string
+      name:
+        type: string
+      version:
+        type: string
+  it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceForeignKeyMetadata:
+    title: it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceForeignKeyMetadata
+    type: object
+    properties:
+      references:
+        type: object
+        additionalProperties:
+          $ref: >-
+            #/definitions/it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceColumnReference
