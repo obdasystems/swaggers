@@ -15,5 +15,9 @@ This repository contains the definitions of the available APIs served by MWS.
   - [Knowledge Graphs](https://obdasystems.github.io/swaggers/apis/kg)
   - [Users and Roles](https://obdasystems.github.io/swaggers/apis/usersandroles)
   - [Data Sources](https://obdasystems.github.io/swaggers/apis/datasources)
+  - Authorization View Profiles
+  - Mapping Triplification
+  - VKG Snapshots
+  - Virtual Entities
 - [Grapholscape](https://obdasystems.github.io/swaggers/apis/rdf-graph)
 - [Sparqling](https://obdasystems.github.io/swaggers/apis/sparqling)
