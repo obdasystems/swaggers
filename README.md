@@ -14,6 +14,6 @@ This repository contains the definitions of the available APIs served by MWS.
 - [Data Quality](https://obdasystems.github.io/swaggers/apis/dataquality)
 - [Ontology Drafts](https://obdasystems.github.io/swaggers/apis/ontologydrafts)
 - [Query Catalog](https://obdasystems.github.io/swaggers/apis/querycatalog)
-- [Knowledge Graphs](https://obdasystems.github.io/swaggers/apis/knowledgegraphs)
+- [Knowledge Graphs](https://obdasystems.github.io/swaggers/apis/kg)
 - [Users and Roles](https://obdasystems.github.io/swaggers/apis/usersandroles)
-- [Data SOurces](https://obdasystems.github.io/swaggers/apis/datasources)
+- [Data Sources](https://obdasystems.github.io/swaggers/apis/datasources)
