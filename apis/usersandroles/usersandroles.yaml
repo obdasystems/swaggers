@@ -1,0 +1,427 @@
+swagger: '2.0'
+info:
+  title: MWS Permissions
+  description: 'Mastro Web Services: users and roles related routes'
+  contact:
+    name: Marco Ruzzi
+    url: http://www.obdasystems.com
+    email: marco.ruzzi@obdasystems.com
+  version: 3.0.0
+host: default-host
+basePath: /base/path
+schemes:
+  - http
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /roles:
+    get:
+      description: No description available for this method
+      parameters: []
+      produces:
+        - application/json
+      tags:
+        - USERS AND ROLES
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /user/{username}/passwd/reset:
+    put:
+      description: No description available for this method
+      parameters:
+        - name: username
+          in: path
+          required: true
+          type: string
+        - name: email
+          in: query
+          required: false
+          type: string
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - USERS AND ROLES
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /users:
+    get:
+      description: Returns the list of available users of this MWS installation
+      parameters: []
+      produces:
+        - application/json
+      tags:
+        - USERS AND ROLES
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/com.mwsx.model.User'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /user/{username}/passwd:
+    put:
+      description: Changes the user password for the user named <code>username</code>
+      parameters:
+        - name: username
+          in: path
+          required: true
+          type: string
+        - name: secret
+          in: query
+          required: false
+          type: string
+        - name: oldSecret
+          in: query
+          required: false
+          type: string
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - USERS AND ROLES
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/com.mwsx.model.User'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /user:
+    post:
+      description: Creates a new user
+      parameters:
+        - name: secret
+          in: query
+          required: false
+          type: string
+        - name: arg3
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/com.mwsx.model.User'
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - USERS AND ROLES
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/com.mwsx.model.User'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /role/{rolename}:
+    get:
+      description: No description available for this method
+      parameters:
+        - name: rolename
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      tags:
+        - USERS AND ROLES
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+    put:
+      description: No description available for this method
+      parameters:
+        - name: rolename
+          in: path
+          required: true
+          type: string
+        - name: arg3
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/com.mwsx.model.Role'
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - USERS AND ROLES
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+    delete:
+      description: No description available for this method
+      parameters:
+        - name: rolename
+          in: path
+          required: true
+          type: string
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - USERS AND ROLES
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /role/configurations:
+    get:
+      description: No description available for this method
+      parameters: []
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - USERS AND ROLES
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/com.mwsx.model.PermissionParameters'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /user/{username}:
+    get:
+      description: Returns the user names <code>username</code>
+      parameters:
+        - name: username
+          in: path
+          required: true
+          type: string
+      produces:
+        - application/json
+      tags:
+        - USERS AND ROLES
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/com.mwsx.model.User'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+    put:
+      description: Modifies the user identified by <code>username</code>
+      parameters:
+        - name: username
+          in: path
+          required: true
+          type: string
+        - name: arg3
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/com.mwsx.model.User'
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - USERS AND ROLES
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/com.mwsx.model.User'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+    delete:
+      description: No description available for this method
+      parameters:
+        - name: username
+          in: path
+          required: true
+          type: string
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - USERS AND ROLES
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /role:
+    post:
+      description: No description available for this method
+      parameters:
+        - name: arg2
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/com.mwsx.model.Role'
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - USERS AND ROLES
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+definitions:
+  com.mwsx.model.User:
+    title: com.mwsx.model.User
+    type: object
+    properties:
+      firstName:
+        type: string
+      lastName:
+        type: string
+      roles:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.Role'
+      name:
+        type: string
+      email:
+        type: string
+  com.mwsx.model.Permission:
+    title: com.mwsx.model.Permission
+    type: object
+    properties:
+      domain:
+        type: string
+      action:
+        type: string
+      id:
+        type: string
+  com.mwsx.model.PermissionParameters:
+    title: com.mwsx.model.PermissionParameters
+    type: object
+    properties:
+      domains:
+        type: array
+        items:
+          type: string
+      actions:
+        type: array
+        items:
+          type: string
+  com.mwsx.model.Role:
+    title: com.mwsx.model.Role
+    type: object
+    properties:
+      permissions:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.Permission'
+      name:
+        type: string
