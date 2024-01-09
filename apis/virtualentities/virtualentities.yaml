@@ -1,0 +1,601 @@
+swagger: '2.0'
+info:
+  title: Mastro Web Services (MWS)
+  description: 'Mastro Web Services: virtual entities related routes'
+  contact:
+    name: Marco Ruzzi
+    url: http://www.obdasystems.com
+    email: marco.ruzzi@obdasystems.com
+  version: 3.0.0
+host: default-host
+basePath: /base/path
+schemes:
+  - http
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /owlOntology/{name}/version/virtualEntity:
+    put:
+      description: Returns the virtual entity from a given ontology by its name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+        - name: version
+          in: query
+          required: false
+          type: string
+        - name: arg4
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/com.mwsx.model.SparqlingVirtualEntity'
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - VIRTUAL ENTITIES
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/com.mwsx.model.SparqlingVirtualEntity'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+    post:
+      description: Returns the virtual entity from a given ontology by its name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+        - name: version
+          in: query
+          required: false
+          type: string
+        - name: arg4
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/com.mwsx.model.SparqlingVirtualEntity'
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - VIRTUAL ENTITIES
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/com.mwsx.model.SparqlingVirtualEntity'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /owlOntology/{name}/version/virtualEntities:
+    get:
+      description: Returns the virtual entities available for a given ontology
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+        - name: version
+          in: query
+          required: false
+          type: string
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - VIRTUAL ENTITIES
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/com.mwsx.model.RequiresTypeDefinition'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+    delete:
+      description: Returns the virtual entities available for a given ontology
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+        - name: version
+          in: query
+          required: false
+          type: string
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - VIRTUAL ENTITIES
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/com.mwsx.model.SparqlingVirtualEntities'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /owlOntology/{name}/version/virtualEntities/export:
+    get:
+      description: Returns the virtual entities available for a given ontology
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+        - name: version
+          in: query
+          required: false
+          type: string
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - VIRTUAL ENTITIES
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/com.mwsx.model.SparqlingVirtualEntities'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /owlOntology/{name}/version/virtualEntity/{vname}:
+    get:
+      description: Returns the virtual entity from a given ontology by its name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+        - name: version
+          in: query
+          required: false
+          type: string
+        - name: vname
+          in: path
+          required: true
+          type: string
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - VIRTUAL ENTITIES
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/com.mwsx.model.SparqlingVirtualEntity'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+    delete:
+      description: Returns the virtual entity from a given ontology by its name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+        - name: version
+          in: query
+          required: false
+          type: string
+        - name: vname
+          in: path
+          required: true
+          type: string
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - VIRTUAL ENTITIES
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/com.mwsx.model.SparqlingVirtualEntity'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /owlOntology/{name}/version/virtualEntity/semantics:
+    post:
+      description: Returns the virtual entity from a given ontology by its name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+        - name: version
+          in: query
+          required: false
+          type: string
+        - name: arg4
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/com.mwsx.model.SparqlingVirtualEntity'
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - VIRTUAL ENTITIES
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+  /owlOntology/{name}/version/virtualEntities/import:
+    post:
+      description: Returns the virtual entities available for a given ontology
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+        - name: version
+          in: query
+          required: false
+          type: string
+        - name: additive
+          in: query
+          required: false
+          type: string
+        - name: arg5
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/com.mwsx.model.SparqlingVirtualEntities'
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      tags:
+        - VIRTUAL ENTITIES
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/com.mwsx.model.SparqlingVirtualEntities'
+        '401':
+          description: The user does not have sufficient privileges to invoke this service
+        '403':
+          description: User not authorized due to wrong credentials
+        '500':
+          description: An internal server error occurred while performing the request
+        '510':
+          description: This method is currently not implemented
+definitions:
+  com.mwsx.model.sparqling.GraphElement:
+    title: com.mwsx.model.sparqling.GraphElement
+    type: object
+    properties:
+      variables:
+        type: array
+        items:
+          type: string
+      entities:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.sparqling.Entity'
+      children:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.sparqling.GraphElement'
+      id:
+        type: string
+  com.mwsx.model.sparqling.Entity:
+    title: com.mwsx.model.sparqling.Entity
+    type: object
+    properties:
+      iri:
+        type: string
+      prefixedIri:
+        type: string
+      type:
+        type: string
+      labels:
+        type: object
+        additionalProperties:
+          type: string
+  com.mwsx.model.sparqling.Optional:
+    title: com.mwsx.model.sparqling.Optional
+    type: object
+    properties:
+      graphIds:
+        type: array
+        items:
+          type: string
+      id:
+        type: integer
+  com.mwsx.model.SPARQLQuery:
+    title: com.mwsx.model.SPARQLQuery
+    type: object
+    properties:
+      selectedMappingIds:
+        type: array
+        items:
+          type: string
+      chartConfiguration:
+        $ref: '#/definitions/com.mwsx.model.ChartConfiguration'
+      languages:
+        type: string
+      mappingParameters:
+        type: object
+        additionalProperties:
+          type: string
+      semantics:
+        type: string
+      constructCode:
+        type: string
+      queryTags:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.Tag'
+      queryDescription:
+        type: string
+      queryID:
+        type: string
+      queryCode:
+        type: string
+      isConstruct:
+        type: boolean
+      constructResultsRDFSyntax:
+        type: string
+      virtualEntityQueryInfos:
+        $ref: '#/definitions/com.ruzzi.connectors.virtual.VirtualEntityQueryInfos'
+  com.mwsx.model.RequiresTypeDefinition:
+    title: com.mwsx.model.RequiresTypeDefinition
+    type: object
+    properties:
+      name:
+        type: string
+  com.ruzzi.connectors.virtual.VirtualEntity:
+    title: com.ruzzi.connectors.virtual.VirtualEntity
+    type: object
+    properties:
+      signature:
+        type: array
+        items:
+          $ref: '#/definitions/com.ruzzi.connectors.virtual.VirtualEntityField'
+      name:
+        type: string
+      description:
+        type: string
+      sparqlCode:
+        type: string
+      semantics:
+        type: string
+  com.ruzzi.connectors.virtual.VirtualEntityField:
+    title: com.ruzzi.connectors.virtual.VirtualEntityField
+    type: object
+    properties:
+      fieldName:
+        type: string
+      isNullable:
+        type: boolean
+      isKey:
+        type: boolean
+      fieldType:
+        type: string
+  com.ruzzi.connectors.virtual.VirtualEntityQueryInfos:
+    title: com.ruzzi.connectors.virtual.VirtualEntityQueryInfos
+    type: object
+    properties:
+      virtualEntityname:
+        type: string
+      idSelection:
+        type: string
+      fieldFilters:
+        type: object
+        additionalProperties:
+          type: string
+  com.mwsx.model.sparqling.Function:
+    title: com.mwsx.model.sparqling.Function
+    type: object
+    properties:
+      name:
+        type: string
+      parameters:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.sparqling.VarOrConstant'
+  com.mwsx.model.ChartConfiguration:
+    title: com.mwsx.model.ChartConfiguration
+    type: object
+    properties:
+      yVariables:
+        type: array
+        items:
+          type: string
+      series:
+        type: string
+      xVariable:
+        type: string
+      chartType:
+        type: string
+      cutoff:
+        type: integer
+        format: int32
+  com.mwsx.model.sparqling.VarOrConstant:
+    title: com.mwsx.model.sparqling.VarOrConstant
+    type: object
+    properties:
+      constantType:
+        type: string
+      type:
+        type: string
+      value:
+        type: string
+  com.mwsx.model.sparqling.FilterExpression:
+    title: com.mwsx.model.sparqling.FilterExpression
+    type: object
+    properties:
+      parameters:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.sparqling.VarOrConstant'
+      operator:
+        type: string
+  com.mwsx.model.sparqling.GroupByElement:
+    title: com.mwsx.model.sparqling.GroupByElement
+    type: object
+    properties:
+      distinct:
+        type: boolean
+      aggregateFunction:
+        type: string
+  com.mwsx.model.SparqlingSPARQLQuery:
+    title: com.mwsx.model.SparqlingSPARQLQuery
+    type: object
+    properties:
+      queryGraph:
+        $ref: '#/definitions/com.mwsx.model.sparqling.QueryGraph'
+      sparqlQuery:
+        $ref: '#/definitions/com.mwsx.model.SPARQLQuery'
+      user:
+        type: string
+  com.mwsx.model.sparqling.Filter:
+    title: com.mwsx.model.sparqling.Filter
+    type: object
+    properties:
+      expression:
+        $ref: '#/definitions/com.mwsx.model.sparqling.FilterExpression'
+  com.mwsx.model.sparqling.HeadElement:
+    title: com.mwsx.model.sparqling.HeadElement
+    type: object
+    properties:
+      having:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.sparqling.Filter'
+      var:
+        type: string
+      ordering:
+        type: integer
+      function:
+        $ref: '#/definitions/com.mwsx.model.sparqling.Function'
+      alias:
+        type: string
+      id:
+        type: string
+      graphElementId:
+        type: string
+      groupBy:
+        $ref: '#/definitions/com.mwsx.model.sparqling.GroupByElement'
+  com.mwsx.model.SparqlingVirtualEntity:
+    title: com.mwsx.model.SparqlingVirtualEntity
+    type: object
+    properties:
+      sparqlingSPARQLQuery:
+        $ref: '#/definitions/com.mwsx.model.SparqlingSPARQLQuery'
+      entity:
+        $ref: '#/definitions/com.ruzzi.connectors.virtual.VirtualEntity'
+  com.mwsx.model.sparqling.QueryGraph:
+    title: com.mwsx.model.sparqling.QueryGraph
+    type: object
+    properties:
+      countStar:
+        type: boolean
+      head:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.sparqling.HeadElement'
+      offset:
+        type: integer
+      limit:
+        type: integer
+      distinct:
+        type: boolean
+      filters:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.sparqling.Filter'
+      optionals:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.sparqling.Optional'
+      sparql:
+        type: string
+      activeGraphElementId:
+        type: string
+      graph:
+        $ref: '#/definitions/com.mwsx.model.sparqling.GraphElement'
+  com.mwsx.model.SparqlingVirtualEntities:
+    title: com.mwsx.model.SparqlingVirtualEntities
+    type: object
+    properties:
+      entities:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.SparqlingVirtualEntity'
+  com.mwsx.model.Tag:
+    title: com.mwsx.model.Tag
+    type: object
+    properties:
+      color:
+        type: string
+      name:
+        type: string
+      description:
+        type: string
