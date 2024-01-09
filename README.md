@@ -7,6 +7,7 @@ This repository contains the definitions of the available APIs served by MWS.
 ## APIs
 
 - [MWS (whole specs)](https://obdasystems.github.io/swaggers/apis/mws)
+  - [Mappings](https://obdasystems.github.io/swaggers/apis/mappings)
   - [Endpoints](https://obdasystems.github.io/swaggers/apis/endpoints)
   - [Dashboards](https://obdasystems.github.io/swaggers/apis/dashboards)
   - [Data Quality](https://obdasystems.github.io/swaggers/apis/dataquality)
