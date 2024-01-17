@@ -570,6 +570,16 @@ components:
               type: array
               items:
                 $ref: "#/components/schemas/Position"
+            domainTyped:
+              type: boolean
+              default: true
+            rangeTyped:
+              type: boolean
+              default: true
+            domainMandatory:
+              type: boolean
+            rangeMandatory:
+              type: boolean
     Node:
       type: object
       allOf:
