@@ -578,8 +578,10 @@ components:
               default: true
             domainMandatory:
               type: boolean
+              default: false
             rangeMandatory:
               type: boolean
+              default: false
     Node:
       type: object
       allOf:
