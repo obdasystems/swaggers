@@ -693,6 +693,7 @@ components:
 
         ARCHI
           object-property
+          annotation-property
           instance-of
           input
           inclusion
@@ -708,6 +709,7 @@ components:
         - class
         - object-property
         - data-property
+        - annotation-property
         - individual
         - class-instance
         - domain-restriction
