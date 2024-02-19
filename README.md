@@ -22,3 +22,4 @@ This repository contains the definitions of the available APIs served by MWS.
   - [Virtual Entities](https://obdasystems.github.io/swaggers/apis/virtualentities)
 - [Grapholscape](https://obdasystems.github.io/swaggers/apis/rdf-graph)
 - [Sparqling](https://obdasystems.github.io/swaggers/apis/sparqling)
+- [Ontology Catalog](https://obdasystems.github.io/swaggers/apis/ontology-catalog)
