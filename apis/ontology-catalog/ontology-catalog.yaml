@@ -106,7 +106,7 @@ paths:
             application/json:
               schema:
                 $ref: 'https://obdasystems.github.io/swaggers/apis/mws/mws.yaml#/definitions/com.mwsx.model.SPARQLStatus'
-/ontologyCatalog/query/{queryID}/results:
+  /ontologyCatalog/query/{queryID}/results:
     get:
       description: Retrieve the results of a SPARQL query
       parameters:
