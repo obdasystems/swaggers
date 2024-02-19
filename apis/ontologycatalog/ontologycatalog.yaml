@@ -1,0 +1,52 @@
+openapi: 3.0.0
+servers:
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/PEPE_2/Grapholscape_Model/1.0.0
+info:
+  description: This is the API for managing the Ontology Catalog
+  version: 1.0.0
+  title: Ontology Catalog
+  contact:
+    email: info@obdasystems.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+paths: 
+  /addToOntologyCatalog:
+    post:
+      tags:
+      - Ontology Catalog
+      summary: Add an ontology to the catalog
+      description: Add to the triple store all the axioms and their provenance (quads)
+      operationId: addToCatalog
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: 'https://obdasystems.github.io/swaggers/apis/mws/mws.yaml#definitions/com.mwsx.model.OntologyID'
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema: 
+                type: boolean
+  /deleteFromOntologyCatalog:
+    post:
+      tags:
+      - Ontology Catalog
+      summary: Delete an ontology from the catalog
+      operationId: deleteFromCatalog
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: 'https://obdasystems.github.io/swaggers/apis/mws/mws.yaml#definitions/com.mwsx.model.OntologyID'
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema: 
+                type: boolean
+                
