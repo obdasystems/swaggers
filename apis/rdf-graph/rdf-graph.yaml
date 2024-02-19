@@ -472,6 +472,7 @@ components:
                     "data-property",
                     "value-domain",
                     "individual",
+                    "annotation-property",
                     "universal_quantifier",
                     "complement",
                     "has-key",
