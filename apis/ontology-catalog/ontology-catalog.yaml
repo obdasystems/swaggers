@@ -12,13 +12,20 @@ info:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
 paths: 
-  /addToOntologyCatalog:
-    put:
+  /ontologyCatalog:
+    post:
       tags:
       - Ontology Catalog
-      summary: Add an ontology to the catalog
-      description: Add to the triple store all the axioms and their provenance (quads)
-      operationId: addToCatalog
+      summary: Perform an action for ontology to the catalog
+      description: Modifies the ontology catalog byacoording to the action provided
+      operationId: editCatalog
+      parameters:
+        - name: action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: ['add', 'delete']
       requestBody:
         content:
           application/json:
@@ -31,25 +38,6 @@ paths:
             application/json:
               schema: 
                 type: boolean
-  /deleteFromOntologyCatalog:
-    put:
-      tags:
-      - Ontology Catalog
-      summary: Delete an ontology from the catalog
-      operationId: deleteFromCatalog
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: 'https://obdasystems.github.io/swaggers/apis/mws/mws.yaml#definitions/com.mwsx.model.OntologyID'
-      responses:
-        200:
-          description: Successful operation
-          content:
-            application/json:
-              schema: 
-                type: boolean
-                
   /ontologyCatalog/query/start:
     post:
       tags:
