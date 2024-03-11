@@ -409,10 +409,6 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/Entity"
-        classInstanceEntities:
-          type: array
-          items:
-            $ref: "#/components/schemas/ClassInstanceEntity"
         metadata:
           type: object
           required:
