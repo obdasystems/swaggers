@@ -687,8 +687,7 @@ components:
         NODI
           class
           data-property
-          class-instance (vkg)
-          individual (floaty)
+          individual
           union
           disjoint-union
 
@@ -712,7 +711,6 @@ components:
         - data-property
         - annotation-property
         - individual
-        - class-instance
         - domain-restriction
         - range-restriction
         - union
