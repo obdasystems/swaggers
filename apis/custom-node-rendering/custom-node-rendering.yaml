@@ -38,14 +38,14 @@ components:
                   properties:
                     aggregation:
                       type: string
-                    pathToDataProperty:
-                      $ref: "https://raw.githubusercontent.com/obdasystems/swaggers/main/apis/sparqling/sparqling.yaml#/components/schemas/OntologyPath"
             color:
               type: object
               allOf:
                 - $ref: "#/components/schemas/BasePropertyInfo"
                 - type: object
                   properties:
+                    aggregation:
+                      type: string
                     scale:
                       type: object
                       required:
@@ -77,6 +77,8 @@ components:
       type: object
       properties:
         inherited:
-          type: string
+          type: boolean
         dataPropertyIri:
           type: string
+        pathToDataProperty:
+                      $ref: "https://raw.githubusercontent.com/obdasystems/swaggers/main/apis/sparqling/sparqling.yaml#/components/schemas/OntologyPath"
