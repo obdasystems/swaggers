@@ -15,7 +15,7 @@ components:
       description: Map <classIri, CustomRendering>
       type: object
       additionalProperties:
-        $ref: '#/components/schemas/CustomNodeRendering'
+        $ref: "#/components/schemas/CustomNodeRendering"
     CustomNodeRendering:
       type: object
       properties:
@@ -43,6 +43,8 @@ components:
               allOf:
                 - $ref: "#/components/schemas/BasePropertyInfo"
                 - type: object
+                  required:
+                    - scale
                   properties:
                     aggregation:
                       type: string
@@ -60,9 +62,9 @@ components:
                           items:
                             type: number
             icon:
-              $ref: '#/components/schemas/BasePropertyInfo'
+              $ref: "#/components/schemas/BasePropertyInfo"
             location:
-              $ref: '#/components/schemas/BasePropertyInfo'
+              $ref: "#/components/schemas/BasePropertyInfo"
             coordinates:
               type: object
               required:
@@ -81,4 +83,4 @@ components:
         dataPropertyIri:
           type: string
         pathToDataProperty:
-                      $ref: "https://raw.githubusercontent.com/obdasystems/swaggers/main/apis/sparqling/sparqling.yaml#/components/schemas/OntologyPath"
+          $ref: "https://raw.githubusercontent.com/obdasystems/swaggers/main/apis/sparqling/sparqling.yaml#/components/schemas/OntologyPath"
