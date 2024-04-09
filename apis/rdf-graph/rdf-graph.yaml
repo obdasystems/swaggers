@@ -593,6 +593,8 @@ components:
               $ref: "#/components/schemas/Position"
             labelPosition:
               $ref: "#/components/schemas/Position"
+            geoPosition:
+              $ref: "#/components/schemas/Position"
     Namespace:
       type: object
       required:
