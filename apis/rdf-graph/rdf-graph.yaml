@@ -681,6 +681,10 @@ components:
           type: string
         datatype:
           type: string
+        renderingProperties:
+          type: array
+          items:
+            type: string
     TypesEnum:
       description: 
         Contiene tutti i tipi di nodi/archi orginirari dal Graphol per evitare di duplicare gli enumeratori.
