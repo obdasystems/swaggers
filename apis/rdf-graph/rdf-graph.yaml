@@ -477,6 +477,14 @@ components:
                     "complement",
                     "has-key",
                   ]
+            customNodeRendering:
+              type: object
+              additionalProperties:
+                $ref: "https://raw.githubusercontent.com/obdasystems/swaggers/main/apis/custom-node-rendering/custom-node-rendering.yaml#/components/schemas/CustomNodeRendering"
+            customFilters:
+              type: object
+              additionalProperties:
+                $ref: "#/components/schemas/VKGCustomFilter"
         selectedDiagramId:
           type: integer
         modelType:
@@ -488,6 +496,47 @@ components:
             $ref: "#/components/schemas/Action"
         creator:
           type: string
+    VKGCustomFilter:
+      type: object
+      required:
+        - active
+        - filters
+      properties:
+        active:
+          type: integer
+          enum: [0, 1, 2]
+        filters:
+          type: array
+          items:
+            $ref: "#/components/schemas/InstanceFilter"
+    InstanceFilter:
+      type: object
+      required:
+        - operator
+        - values
+        - property
+      properties:
+        operator:
+          type: string
+        valid:
+          type: boolean
+        values:
+          type: array
+          items:
+            type: string
+        rangeClasses:
+          type: array
+          items:
+            type: string
+        rangeDataProperty:
+          type: string
+        property:
+          type: object
+          properties:
+            iri:
+              type: string
+            type:
+              $ref: "#/components/schemas/TypesEnum"
     Theme:
       type: object
       required:
