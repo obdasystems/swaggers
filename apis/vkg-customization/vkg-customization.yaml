@@ -1,8 +1,8 @@
 openapi: 3.0.0
 info:
-  description: API for VKG custom node rendering
+  description: API for VKG customizations
   version: 1.0.0
-  title: VKG Custom Node Rendering API Model
+  title: VKG Custom Node Rendering and Custom Filters API Model
   contact:
     email: obdasystems@info.com
   license:
@@ -84,3 +84,44 @@ components:
           type: string
         pathToDataProperty:
           $ref: "https://raw.githubusercontent.com/obdasystems/swaggers/main/apis/sparqling/sparqling.yaml#/components/schemas/OntologyPath"
+    VKGCustomFilter:
+      type: object
+      required:
+        - active
+        - filters
+      properties:
+        active:
+          type: integer
+          enum: [0, 1, 2]
+        filters:
+          type: array
+          items:
+            $ref: "#/components/schemas/InstanceFilter"
+    InstanceFilter:
+      type: object
+      required:
+        - operator
+        - values
+        - property
+      properties:
+        operator:
+          type: string
+        valid:
+          type: boolean
+        values:
+          type: array
+          items:
+            type: string
+        rangeClasses:
+          type: array
+          items:
+            type: string
+        rangeDataProperty:
+          type: string
+        property:
+          type: object
+          properties:
+            iri:
+              type: string
+            type:
+              $ref: "https://raw.githubusercontent.com/obdasystems/swaggers/main/apis/rdf-graph/rdf-graph.yaml#/components/schemas/TypesEnum"
