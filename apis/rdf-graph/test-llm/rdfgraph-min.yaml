@@ -114,19 +114,15 @@ Entity:
       items:
         $ref: "#/components/schemas/FunctionPropertiesEnum"
 FunctionPropertiesEnum:
-  type: object
-  required:
-    - value
-    - iri
-  properties:
-    value:
-      type: string
-    iri:
-      type: string
-    language:
-      type: string
-    datatype:
-      type: string
+  type: string
+  enum:
+    - functional
+    - inverseFunctional
+    - transitive
+    - symmetric
+    - asymmetric
+    - reflexive
+    - irreflexive
 TypesEnum:
   type: object
   required:
