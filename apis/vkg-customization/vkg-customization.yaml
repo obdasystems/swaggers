@@ -84,6 +84,8 @@ components:
           type: string
         pathToDataProperty:
           $ref: "https://raw.githubusercontent.com/obdasystems/swaggers/main/apis/sparqling/sparqling.yaml#/components/schemas/OntologyPath"
+        log:
+          type: boolean
     VKGCustomFilter:
       type: object
       required:
