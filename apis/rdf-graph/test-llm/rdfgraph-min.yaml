@@ -1,38 +1,17 @@
 RDFGraph:
   type: object
   required:
-    - entities
-    - diagrams
+    - nodes
+    - edges
   properties:
-    diagrams:
-      type: array
-      items:
-        $ref: "#/components/schemas/Diagram"
-    entities:
-      type: array
-      items:
-        $ref: "#/components/schemas/Entity"
-Diagram:
-  type: object
-  required:
-    - id
-    - name
-    - elements
-  properties:
-    id:
-      type: integer
-    name:
-      type: string
     nodes:
       type: array
       items:
-        $ref: "#/components/schemas/Node"
+        $ref: "#/Element"
     edges:
       type: array
       items:
-        $ref: "#/components/schemas/Edge"
-    lastViewportState:
-      $ref: "#/components/schemas/Viewport"
+        $ref: "#/Edge"
 Element:
   type: object
   required:
@@ -43,9 +22,6 @@ Element:
       type: string
     originalId:
       type: string
-      description: >-
-        In case of replicated elements, this is the ID of the original element
-        replicated in multiple occurrences, all of them with different IDs
     diagramId:
       type: integer
     displayedName:
@@ -54,11 +30,11 @@ Element:
       type: string
     type:
       type: string
-      $ref: "#/components/schemas/TypesEnum"
+      $ref: "#/TypesEnum"
 Edge:
   type: object
   allOf:
-    - $ref: "#/components/schemas/Element"
+    - $ref: "#/Element"
     - type: object
       required:
         - sourceId
@@ -68,85 +44,10 @@ Edge:
           type: string
         targetId:
           type: string
-        breakpoints:
-          type: array
-          items:
-            $ref: "#/components/schemas/Position"
-Node:
-  type: object
-  allOf:
-    - $ref: "#/components/schemas/Element"
-    - type: object
-      properties:
-        position:
-          $ref: "#/components/schemas/Position"
-        labelPosition:
-          $ref: "#/components/schemas/Position"
-Namespace:
-  type: object
-  required:
-    - value
-    - prefixes
-  properties:
-    value:
-      type: string
-    prefixes:
-      type: array
-      items:
-        type: string
-Entity:
-  type: object
-  required:
-    - fullIri
-  properties:
-    fullIri:
-      type: string
-    annotations:
-      type: array
-      items:
-        $ref: "#/components/schemas/Annotation"
-    datatype:
-      type: string
-    isDataPropertyFunctional:
-      type: boolean
-    functionProperties:
-      type: array
-      items:
-        $ref: "#/components/schemas/FunctionPropertiesEnum"
-FunctionPropertiesEnum:
+TypesEnum:
   type: string
   enum:
-    - functional
-    - inverseFunctional
-    - transitive
-    - symmetric
-    - asymmetric
-    - reflexive
-    - irreflexive
-TypesEnum:
-  type: object
-  required:
-    - id
-    - type
-    - inputs
-    - superclasses
-  properties:
-    id:
-      type: string
-    type:
-      $ref: "#/components/schemas/TypesEnum"
-    inputs:
-      type: array
-      items:
-        $ref: "#/components/schemas/Entity"
-    superclasses:
-      type: array
-      items:
-        required:
-          - classEntity
-          - complete
-        properties:
-          classEntity:
-            $ref: "#/components/schemas/Entity"
-          complete:
-            type: boolean
+    - class
+    - object-property
+    - data-property
+    - attribute-edge
