@@ -738,6 +738,19 @@ paths:
         - QueryGraphFilter
       summary: Remove the filters.
       operationId: removeAllFilters
+      parameters:
+        - name: ontologyName
+          in: path
+          description: The name of the ontology
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The version of the ontology
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -868,6 +881,19 @@ paths:
         - QueryGraphOptional
       summary: Remove the optionals and move them back to the bgp.
       operationId: removeAllOptional
+      parameters:
+        - name: ontologyName
+          in: path
+          description: The name of the ontology
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The version of the ontology
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -1146,6 +1172,19 @@ paths:
         - QueryGraphHead
       summary: Reorder the head elements accrding to Query GRaph object.
       operationId: reorderHeadTerms
+      parameters:
+        - name: ontologyName
+          in: path
+          description: The name of the ontology
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The version of the ontology
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -1439,6 +1478,19 @@ paths:
       tags:
         - VKG
       summary: Return the CONSTRUCT query based on this Query Graph.
+      parameters:
+        - name: ontologyName
+          in: path
+          description: The name of the ontology
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The version of the ontology
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
