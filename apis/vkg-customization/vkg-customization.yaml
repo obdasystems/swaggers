@@ -43,8 +43,6 @@ components:
               allOf:
                 - $ref: "#/components/schemas/BasePropertyInfo"
                 - type: object
-                  required:
-                    - scale
                   properties:
                     aggregation:
                       type: string
