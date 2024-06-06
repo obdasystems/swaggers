@@ -21,5 +21,6 @@ This repository contains the definitions of the available APIs served by MWS.
   - [VKG Snapshots](https://obdasystems.github.io/swaggers/apis/vkgsnapshots)
   - [Virtual Entities](https://obdasystems.github.io/swaggers/apis/virtualentities)
 - [Grapholscape](https://obdasystems.github.io/swaggers/apis/rdf-graph)
+- [VKG Customization](https://obdasystems.github.io/swaggers/apis/vkg-customization)
 - [Sparqling](https://obdasystems.github.io/swaggers/apis/sparqling)
 - [Ontology Catalog](https://obdasystems.github.io/swaggers/apis/ontology-catalog)
