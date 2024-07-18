@@ -123,5 +123,7 @@ components:
           properties:
             iri:
               type: string
+            direct:
+              type: boolean
             type:
               $ref: "https://raw.githubusercontent.com/obdasystems/swaggers/main/apis/rdf-graph/rdf-graph.yaml#/components/schemas/TypesEnum"
