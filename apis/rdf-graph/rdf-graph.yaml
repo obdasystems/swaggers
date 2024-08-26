@@ -655,11 +655,13 @@ components:
     Annotation:
       type: object
       required:
-        - lexicalForm
+        - value
         - property
       properties:
-        lexicalForm:
+        value:
           type: string
+        hasIriValue:
+          type: boolean
         property:
           type: string
           example: rdfs:label
