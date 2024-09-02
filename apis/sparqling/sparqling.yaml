@@ -774,7 +774,7 @@ paths:
       tags:
         - QueryGraphOptional
       summary: Add the `graphElementId` to a new optional.
-      description:
+      description: |
         Create a new optional in the query and add the triple pattern(s)
         identified by the GraphElementId.
 
@@ -828,7 +828,7 @@ paths:
       tags:
         - QueryGraphOptional
       summary: Remove the graphElementId from the optional and move it back to the bgp.
-      description:
+      description: |
         Remove the triple pattern(s) identified by the `graphElementId`
         from all the optional that contains the graphElementId.
 
