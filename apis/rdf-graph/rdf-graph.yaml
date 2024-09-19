@@ -658,6 +658,10 @@ components:
         - value
         - property
       properties:
+        lexicalForm:
+          type: string
+          deprecated: true
+          description: Has been renamed to `value`, kept for back-compatibility.
         value:
           type: string
         hasIriValue:
