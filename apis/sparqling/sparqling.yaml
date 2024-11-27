@@ -1544,7 +1544,7 @@ paths:
         404:
           description: Ontology not uploaded
           content: {}
-  /owlOntology/{endpointName}/highligthsSharedViewsProps:
+  /endpoint/{endpointName}/highligthsSharedViewsProps:
     get:
         tags:
           - VKG
@@ -1598,7 +1598,47 @@ paths:
           404:
             description: Entity not found
             content: {}
-
+  /endpoint/{endpointName}/instanceShortestPath:
+    post:
+      tags:
+        - VKG
+      summary: Return the CONSTRUCT query based on the shortest path between an instance and another instance or class
+      parameters:
+        - name: endpointName
+          in: path
+          description: The name of the endpoint
+          required: true
+          schema:
+            type: string
+        - name: sourceInstanceIRI
+          in: query
+          schema:
+            type: string
+        - name: targetInstanceIRI
+          in: query
+          schema:
+            type: string
+        - name: distinct
+          in: query
+          schema:
+            type: boolean
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/OntologyPath"
+        required: true
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/xml:
+              schema:
+                description: THE SPARQL CONSTRUCT query that will compute the shortest path
+                type: string
+        404:
+          description: Ontology not uploaded
+          content: {}
 components:
   schemas:
     Highlights:
