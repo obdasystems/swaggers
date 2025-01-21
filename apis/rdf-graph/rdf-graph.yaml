@@ -11,7 +11,7 @@ info:
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
-paths: 
+paths:
   /ontologyDraftInfos:
     get:
       tags:
@@ -488,6 +488,10 @@ components:
             $ref: "#/components/schemas/Action"
         creator:
           type: string
+        constraints:
+          type: array
+          items:
+            $ref: "#/components/schemas/SHACLShape"
     Theme:
       type: object
       required:
@@ -692,7 +696,7 @@ components:
           items:
             type: string
     TypesEnum:
-      description: 
+      description:
         Contiene tutti i tipi di nodi/archi orginirari dal Graphol per evitare di duplicare gli enumeratori.
         Nella rappresentazione Floaty/vkg vengono usati questi valori.
 
@@ -765,8 +769,7 @@ components:
           format: float
         y:
           type: number
-          format: float      
-
+          format: float
     Hierarchy:
       type: object
       required:
@@ -794,6 +797,36 @@ components:
                 $ref: "#/components/schemas/Entity"
               complete:
                 type: boolean
+    SHACLShape:
+      type: object
+      required:
+        - type
+        - targetClass
+        - path
+      properties:
+        type:
+          type: string
+          enum:
+            [
+              "MinCount",
+              "MaxCount",
+              "MinExclusive",
+              "MaxExclusive",
+              "MinInclusive",
+              "MaxInclusive",
+              "MinLength",
+              "MaxLength",
+              "Pattern",
+              "In",
+            ]
+        targetClass:
+          type: string
+        path:
+          type: string
+        property:
+          type: string
+        constraintValue:
+          type: string
 
     Action:
       description:
@@ -934,7 +967,6 @@ components:
           $ref: "#/components/schemas/Namespace"
         previousState:
           $ref: "#/components/schemas/Namespace"
-    
     ActionInvolvedElements:
       description:
         Other elements involved in an action. Only for Remove actions.
