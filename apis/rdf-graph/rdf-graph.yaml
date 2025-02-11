@@ -818,6 +818,12 @@ components:
               "MaxLength",
               "Pattern",
               "In",
+              "Equals",
+              "Disjoint",
+              "LessThan",
+              "LessThanOrEquals",
+              "GreaterThan",
+              "GreaterThanOrEquals",
             ]
         targetClass:
           type: string
@@ -826,7 +832,9 @@ components:
         property:
           type: string
         constraintValue:
-          type: string
+          type: array
+          items:
+            type: string
 
     Action:
       description:
