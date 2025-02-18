@@ -11,7 +11,7 @@ info:
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
-  version: 1.0.3
+  version: 1.1.0
 servers:
   - url: http://localhost:8989/mws/rest/mwsx
 tags:
@@ -1398,17 +1398,15 @@ paths:
           required: true
           schema:
             type: string
-        - name: path
-          in: query
-          description: JSON serialization of '#/components/schemas/OntologyPath'.
-          required: true
-          schema:
-            type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/QueryGraph"
+              properties:
+                queryGraph:
+                  $ref: "#/components/schemas/QueryGraph"
+                ontologyPath:
+                  $ref: "#/components/schemas/OntologyPath"
         required: true
       responses:
         200:
@@ -1708,12 +1706,33 @@ components:
         $ref: "#/components/schemas/OntologyPath"
     OntologyPath:
       type: object
+      required:
+        - nodes
+        - edges
       properties:
-        entities:
+        nodes:
           type: array
-          description:
-            Starts with lastSelectedIRI and ends with clickedIRI. In between
-            the nodes and edges traversed in the path (ISA edge are marked as ISA)
+          description: The nodes of the ontology path
+          items:
+            $ref: "#/components/schemas/Entity"
+        edges:
+          type: array
+          description: The list of edges connecting two nodes
+          items:
+            $ref: "#/components/schemas/ObjectPropertiesMultiEdge"
+    ObjectPropertiesMultiEdge:
+      type: object
+      required:
+        - sourceClassIRI
+        - targetClassIRI
+        - objectProperties
+      properties:
+        sourceClassIRI:
+          type: string
+        targetClassIRI:
+          type: string
+        objectProperties:
+          type: array
           items:
             $ref: "#/components/schemas/Entity"
     QueryGraph:
