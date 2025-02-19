@@ -137,7 +137,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Paths"
+                type: array
+                $ref: "#/components/schemas/OntologyMultiPath"
         400:
           description: Invalid IRI supplied
           content: {}
@@ -1700,11 +1701,16 @@ components:
           type: array
           items:
             type: string
-    Paths:
-      type: array
-      items:
-        $ref: "#/components/schemas/OntologyPath"
     OntologyPath:
+      properties:
+        entities:
+          type: array
+          description:
+            Starts with lastSelectedIRI and ends with clickedIRI. In between
+            the nodes and edges traversed in the path (ISA edge are marked as ISA)
+          items:
+            $ref: "#/components/schemas/Entity"
+    OntologyMultiPath:
       type: object
       required:
         - nodes
