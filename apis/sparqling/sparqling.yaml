@@ -138,7 +138,8 @@ paths:
             application/json:
               schema:
                 type: array
-                $ref: "#/components/schemas/OntologyMultiPath"
+                items:
+                  $ref: "#/components/schemas/OntologyMultiPath"
         400:
           description: Invalid IRI supplied
           content: {}
