@@ -1,0 +1,9 @@
+title: FilterExpression
+type: object
+properties:
+  parameters:
+    type: array
+    items:
+      $ref: ./VarOrConstant.yaml
+  operator:
+    type: string

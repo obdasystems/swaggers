@@ -1,0 +1,8 @@
+openapi: 3.1.0
+info:
+  title: Mastro Web Services (MWS)
+  description: >-
+    This is the complete RESTFul APIs of Mastro: an Ontology-based Data
+    Management System
+  version: 3.0.0
+paths: {}

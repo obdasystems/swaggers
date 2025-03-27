@@ -1,0 +1,18 @@
+title: TreeNode
+type: object
+properties:
+  parent:
+    $ref: ./TreeNode.yaml
+  children:
+    type: array
+    items:
+      $ref: ./TreeNode.yaml
+  equivalents:
+    type: array
+    items:
+      $ref: ./Entity.yaml
+  numberOfMappings:
+    type: integer
+    format: int32
+  entity:
+    $ref: ./Entity.yaml

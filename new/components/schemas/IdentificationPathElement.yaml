@@ -1,0 +1,7 @@
+title: IdentificationPathElement
+type: object
+properties:
+  inverse:
+    type: boolean
+  entity:
+    $ref: ./Entity.yaml

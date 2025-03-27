@@ -1,0 +1,20 @@
+title: Action
+type: object
+properties:
+  subactions:
+    type: array
+    items:
+      $ref: ./Action.yaml
+  subject:
+    type: string
+  operationType:
+    type: string
+  involvedElements:
+    $ref: ./ActionInvolvedElements.yaml
+  user:
+    $ref: ./ActionUser.yaml
+  previousState:
+    type: string
+  timestamp:
+    type: integer
+    format: int64

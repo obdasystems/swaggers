@@ -1,0 +1,39 @@
+title: OntologyVersion
+type: object
+properties:
+  versionDescription:
+    type: array
+    items:
+      $ref: ./Label.yaml
+  numAxioms:
+    type: integer
+    format: int32
+  numIndividuals:
+    type: integer
+    format: int32
+  catalog:
+    $ref: ./OntologyCatalog.yaml
+  isGraphol:
+    type: boolean
+  individualInfos:
+    $ref: ./IndividualInfos.yaml
+  numObjectProperties:
+    type: integer
+    format: int32
+  numDataProperties:
+    type: integer
+    format: int32
+  versionDate:
+    type: integer
+    format: int64
+  numClasses:
+    type: integer
+    format: int32
+  versionID:
+    type: string
+  ontologyID:
+    type: string
+  isGScape:
+    type: boolean
+  versionOwner:
+    $ref: ./User.yaml

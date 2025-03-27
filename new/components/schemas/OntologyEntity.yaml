@@ -1,0 +1,19 @@
+title: Entity
+type: object
+properties:
+  entityLabels:
+    type: array
+    items:
+      $ref: ./Label.yaml
+  isDeprecated:
+    type: boolean
+  entityIRI:
+    type: string
+  entityType:
+    type: string
+  entityPrefixIRI:
+    type: string
+  entityRemainder:
+    type: string
+  entityID:
+    type: string

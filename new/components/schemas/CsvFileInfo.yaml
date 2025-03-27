@@ -1,0 +1,28 @@
+title: CsvFileInfo
+type: object
+properties:
+  numberOfTriples:
+    type: integer
+    format: int64
+  quoteChar:
+    type: string
+  escapeChar:
+    type: string
+  userFileName:
+    type: string
+  uploadDate:
+    type: integer
+    format: int64
+  importingTime:
+    type: integer
+    format: int64
+  serverFileName:
+    type: string
+  imported:
+    type: boolean
+  hasHeadersRow:
+    type: boolean
+  csvSeparator:
+    type: string
+  eolSequence:
+    type: string

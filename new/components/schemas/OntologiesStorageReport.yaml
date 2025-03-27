@@ -1,0 +1,13 @@
+title: OntologiesStorageReport
+type: object
+properties:
+  totalSize:
+    type: integer
+    format: int64
+  fileCount:
+    type: integer
+    format: int32
+  ontologies:
+    type: object
+    additionalProperties:
+      $ref: ./OntologyStorageReport.yaml

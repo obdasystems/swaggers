@@ -1,0 +1,11 @@
+title: FieldInfo
+type: object
+properties:
+  name:
+    type: string
+  innerType:
+    type: string
+  type:
+    type: string
+  isList:
+    type: boolean

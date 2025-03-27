@@ -1,0 +1,11 @@
+title: AnnotationAction
+type: object
+properties:
+  annotationActionSubject:
+    $ref: ./Annotation.yaml
+  onOntology:
+    type: boolean
+  annotationActionPreviousState:
+    $ref: ./Annotation.yaml
+  entity:
+    $ref: ./Entity.yaml

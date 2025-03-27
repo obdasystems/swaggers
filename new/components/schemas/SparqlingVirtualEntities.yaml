@@ -1,0 +1,7 @@
+title: SparqlingVirtualEntities
+type: object
+properties:
+  entities:
+    type: array
+    items:
+      $ref: ./SparqlingVirtualEntity.yaml

@@ -1,0 +1,9 @@
+title: Optional
+type: object
+properties:
+  graphIds:
+    type: array
+    items:
+      type: string
+  id:
+    type: integer

@@ -1,0 +1,45 @@
+title: DataPropertyInfo
+type: object
+properties:
+  iri:
+    $ref: ./IRI.yaml
+  subDataProperties:
+    type: array
+    items:
+      $ref: ./Entity.yaml
+  dataPropertyFunctional:
+    type: boolean
+  currentEntity:
+    $ref: ./Entity.yaml
+  equivalentDataProperties:
+    type: array
+    items:
+      $ref: ./Entity.yaml
+  superDataProperties:
+    type: array
+    items:
+      $ref: ./Entity.yaml
+  dataPropertyDescriptions:
+    type: array
+    items:
+      $ref: ./Label.yaml
+  dataPropertyDomain:
+    type: array
+    items:
+      $ref: ./Entity.yaml
+  dataPropertyRange:
+    type: array
+    items:
+      $ref: ./Entity.yaml
+  disjointDataProperties:
+    type: array
+    items:
+      $ref: ./Entity.yaml
+  entityDiagrams:
+    type: array
+    items:
+      $ref: ./DiagramNode.yaml
+  dataPropertyIndividuals:
+    type: array
+    items:
+      $ref: ./Entity.yaml

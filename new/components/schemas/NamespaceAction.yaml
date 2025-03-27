@@ -1,0 +1,7 @@
+title: NamespaceAction
+type: object
+properties:
+  namespaceActionSubject:
+    $ref: ./Namespace.yaml
+  namespaceActionPreviousState:
+    $ref: ./Namespace.yaml

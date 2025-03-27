@@ -1,0 +1,21 @@
+title: OBDATriplificationMappingReport
+type: object
+properties:
+  entityIRI:
+    type: string
+  triplesCount:
+    type: integer
+    format: int32
+  sqlCode:
+    type: string
+  startTime:
+    type: integer
+    format: int64
+  endTime:
+    type: integer
+    format: int64
+  error:
+    type: string
+  elapsedTime:
+    type: integer
+    format: int64

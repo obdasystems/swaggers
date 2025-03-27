@@ -1,0 +1,9 @@
+title: JDBCDriver
+type: object
+properties:
+  urlTemplate:
+    type: string
+  name:
+    type: string
+  version:
+    type: string

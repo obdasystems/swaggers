@@ -1,0 +1,7 @@
+title: AbstractDataQualityConstraint
+type: object
+properties:
+  id:
+    type: string
+  entity:
+    $ref: ./Entity.yaml

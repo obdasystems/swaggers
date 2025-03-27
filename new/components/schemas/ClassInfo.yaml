@@ -1,0 +1,61 @@
+title: ClassInfo
+type: object
+properties:
+  disjointClasses:
+    type: array
+    items:
+      $ref: ./Entity.yaml
+  iri:
+    $ref: ./IRI.yaml
+  currentEntity:
+    $ref: ./Entity.yaml
+  equivalentClasses:
+    type: array
+    items:
+      $ref: ./Entity.yaml
+  dataPropertiesIsDomainOf:
+    type: array
+    items:
+      $ref: ./Entity.yaml
+  disjointUnions:
+    type: array
+    items:
+      type: array
+      items:
+        $ref: ./Entity.yaml
+  classDescriptions:
+    type: array
+    items:
+      $ref: ./Label.yaml
+  classIndividuals:
+    type: array
+    items:
+      $ref: ./Entity.yaml
+  objectPropertiesIsRangeOf:
+    type: array
+    items:
+      $ref: ./Entity.yaml
+  objectPropertiesIsDomainOf:
+    type: array
+    items:
+      $ref: ./Entity.yaml
+  subClasses:
+    type: array
+    items:
+      $ref: ./Entity.yaml
+  objectPropertiesParticipations:
+    type: array
+    items:
+      $ref: ./Participation.yaml
+  dataPropertiesParticipations:
+    type: array
+    items:
+      $ref: ./Participation.yaml
+  entityDiagrams:
+    type: array
+    items:
+      $ref: ./DiagramNode.yaml
+  superClasses:
+    type: array
+    items:
+      $ref: ./Entity.yaml

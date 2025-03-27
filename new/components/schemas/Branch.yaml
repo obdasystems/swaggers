@@ -1,0 +1,13 @@
+title: Branch
+type: object
+properties:
+  direct:
+    type: boolean
+  objectPropertyIRI:
+    type: string
+  cyclic:
+    type: boolean
+  relatedClasses:
+    type: array
+    items:
+      type: string

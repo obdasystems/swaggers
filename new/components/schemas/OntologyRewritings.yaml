@@ -1,0 +1,7 @@
+title: OntologyRewritings
+type: object
+properties:
+  ontologyRewritings:
+    type: array
+    items:
+      type: string

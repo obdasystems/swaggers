@@ -1,0 +1,7 @@
+title: EdgeAction
+type: object
+properties:
+  edgeActionSubject:
+    $ref: ./Edge.yaml
+  edgeActionPreviousState:
+    $ref: ./Edge.yaml

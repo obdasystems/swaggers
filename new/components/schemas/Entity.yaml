@@ -1,0 +1,13 @@
+title: Entity
+type: object
+properties:
+  iri:
+    type: string
+  prefixedIri:
+    type: string
+  type:
+    type: string
+  labels:
+    type: object
+    additionalProperties:
+      type: string

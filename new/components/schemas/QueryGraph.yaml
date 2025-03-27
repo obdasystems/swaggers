@@ -1,0 +1,29 @@
+title: QueryGraph
+type: object
+properties:
+  countStar:
+    type: boolean
+  head:
+    type: array
+    items:
+      $ref: ./HeadElement.yaml
+  offset:
+    type: integer
+  limit:
+    type: integer
+  distinct:
+    type: boolean
+  filters:
+    type: array
+    items:
+      $ref: ./Filter.yaml
+  optionals:
+    type: array
+    items:
+      $ref: ./Optional.yaml
+  sparql:
+    type: string
+  activeGraphElementId:
+    type: string
+  graph:
+    $ref: ./GraphElement.yaml

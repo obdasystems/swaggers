@@ -1,0 +1,21 @@
+title: InclusionDependency
+type: object
+properties:
+  includedView:
+    $ref: ./InclusionView.yaml
+  description:
+    type: string
+  includingView:
+    $ref: ./InclusionView.yaml
+  inclusionMap:
+    type: array
+    items:
+      $ref: ./InclusionPair.yaml
+  quarantineReasons:
+    type: array
+    items:
+      type: string
+  id:
+    type: string
+  isQuarantined:
+    type: boolean

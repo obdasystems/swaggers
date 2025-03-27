@@ -1,0 +1,13 @@
+title: MappingInfo
+type: object
+properties:
+  mapping:
+    $ref: ./Mapping.yaml
+  mappingTemplates:
+    type: array
+    items:
+      type: string
+  mappingDBConnections:
+    type: array
+    items:
+      $ref: ./DatabaseConnection.yaml

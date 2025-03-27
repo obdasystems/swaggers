@@ -1,0 +1,9 @@
+title: ObjectPropertyTreeNode
+type: object
+properties:
+  children:
+    type: array
+    items:
+      $ref: ./ObjectPropertyTreeNode.yaml
+  info:
+    $ref: ./ObjectPropertyInfo.yaml

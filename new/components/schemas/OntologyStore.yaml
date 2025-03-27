@@ -1,0 +1,11 @@
+title: OntologyStore
+type: object
+properties:
+  basePath:
+    type: string
+  name:
+    type: string
+  ontologyList:
+    type: array
+    items:
+      $ref: ./OntologyInfo.yaml

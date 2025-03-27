@@ -1,0 +1,7 @@
+title: Position
+type: object
+properties:
+  x:
+    type: number
+  'y':
+    type: number

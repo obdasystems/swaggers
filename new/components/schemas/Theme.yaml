@@ -1,0 +1,9 @@
+title: Theme
+type: object
+properties:
+  name:
+    type: string
+  id:
+    type: string
+  colours:
+    type: string

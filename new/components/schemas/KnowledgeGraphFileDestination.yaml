@@ -1,0 +1,9 @@
+title: KnowledgeGraphFileDestination
+type: object
+properties:
+  fileNames:
+    type: array
+    items:
+      type: string
+  kgDestination:
+    $ref: ./KnowledgeGraphDestination.yaml

@@ -1,0 +1,14 @@
+title: Snapshot
+type: object
+properties:
+  sessions:
+    type: object
+    additionalProperties:
+      $ref: ./SessionSnapshot.yaml
+  systemParameters:
+    type: object
+    additionalProperties:
+      type: string
+  currentlyActiveSessionCount:
+    type: integer
+    format: int32

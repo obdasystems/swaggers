@@ -1,0 +1,7 @@
+title: Viewport
+type: object
+properties:
+  zoom:
+    type: number
+  pan:
+    $ref: ./Position.yaml

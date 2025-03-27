@@ -1,0 +1,8 @@
+title: KGOpeningEvent
+type: object
+properties:
+  iri:
+    type: string
+  timestamp:
+    type: integer
+    format: int64

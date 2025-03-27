@@ -1,0 +1,13 @@
+title: InstanceLabelType
+type: object
+properties:
+  description:
+    type: string
+  iri_short:
+    type: string
+  label:
+    type: string
+  type:
+    type: string
+  type_short:
+    type: string

@@ -1,0 +1,9 @@
+title: SubClassWithForAllAssertion
+type: object
+properties:
+  property:
+    $ref: ./Entity.yaml
+  direct:
+    type: boolean
+  filler:
+    $ref: ./Entity.yaml

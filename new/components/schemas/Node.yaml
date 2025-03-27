@@ -1,0 +1,7 @@
+title: Node
+type: object
+properties:
+  labelPosition:
+    $ref: ./Position.yaml
+  position:
+    $ref: ./Position.yaml

@@ -1,0 +1,11 @@
+title: Edge
+type: object
+properties:
+  sourceId:
+    type: string
+  targetId:
+    type: string
+  breakpoints:
+    type: array
+    items:
+      $ref: ./Position.yaml

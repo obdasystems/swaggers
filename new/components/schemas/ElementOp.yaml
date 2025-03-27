@@ -1,0 +1,11 @@
+title: ElementOp
+type: object
+properties:
+  subject:
+    $ref: ./OneOfElementOpSubject.yaml
+  involvedElements:
+    type: array
+    items:
+      $ref: ./OneOfElementOpInvolvedElementsItems.yaml
+  previousState:
+    $ref: ./OneOfElementOpPreviousState.yaml

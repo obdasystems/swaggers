@@ -1,0 +1,11 @@
+title: ViewMappings
+type: object
+properties:
+  sqlView:
+    $ref: ./SQLView.yaml
+  mappingAssertions:
+    type: array
+    items:
+      $ref: ./MappingAssertion.yaml
+  mappingDependencies:
+    $ref: ./MappingDependencies.yaml

@@ -1,0 +1,7 @@
+title: DiagramAction
+type: object
+properties:
+  diagramActionPreviousState:
+    $ref: ./Diagram.yaml
+  diagramActionSubject:
+    $ref: ./Diagram.yaml

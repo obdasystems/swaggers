@@ -1,0 +1,15 @@
+title: DenialConstraint
+type: object
+properties:
+  description:
+    type: string
+  constraint:
+    $ref: ./MappingBody.yaml
+  quarantineReasons:
+    type: array
+    items:
+      type: string
+  id:
+    type: string
+  isQuarantined:
+    type: boolean

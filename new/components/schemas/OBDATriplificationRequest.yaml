@@ -1,0 +1,21 @@
+title: OBDATriplificationRequest
+type: object
+properties:
+  mappingID:
+    type: string
+  entityIriFilter:
+    type: array
+    items:
+      type: string
+  ontologyVersion:
+    type: string
+  ontologyName:
+    type: string
+  mappingIdFilter:
+    type: array
+    items:
+      type: string
+  outputRdfFormat:
+    type: string
+  dataSource:
+    type: string

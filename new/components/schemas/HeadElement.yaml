@@ -1,0 +1,21 @@
+title: HeadElement
+type: object
+properties:
+  having:
+    type: array
+    items:
+      $ref: ./Filter.yaml
+  var:
+    type: string
+  ordering:
+    type: integer
+  function:
+    $ref: ./Function.yaml
+  alias:
+    type: string
+  id:
+    type: string
+  graphElementId:
+    type: string
+  groupBy:
+    $ref: ./GroupByElement.yaml

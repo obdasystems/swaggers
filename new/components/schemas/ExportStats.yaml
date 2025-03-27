@@ -1,0 +1,9 @@
+title: ExportStats
+type: object
+properties:
+  resultsNumber:
+    type: integer
+    format: int32
+  exportTime:
+    type: integer
+    format: int64

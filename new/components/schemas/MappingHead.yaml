@@ -1,0 +1,7 @@
+title: MappingHead
+type: object
+properties:
+  secondArg:
+    type: string
+  firstArg:
+    type: string

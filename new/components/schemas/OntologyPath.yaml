@@ -1,0 +1,7 @@
+title: OntologyPath
+type: object
+properties:
+  entities:
+    type: array
+    items:
+      $ref: ./Entity.yaml

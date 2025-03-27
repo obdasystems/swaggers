@@ -1,0 +1,9 @@
+title: DataQualityCheckSetStatus
+type: object
+properties:
+  ontologyConstraints:
+    type: array
+    items:
+      $ref: ./DataQualityCheckStatus.yaml
+  status:
+    type: string

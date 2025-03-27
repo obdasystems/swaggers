@@ -1,0 +1,29 @@
+title: RDFGraph
+type: object
+properties:
+  metadata:
+    $ref: ./RDFGraphMetadata.yaml
+  creator:
+    type: string
+  classInstanceEntities:
+    type: array
+    items:
+      $ref: ./ClassInstanceEntity.yaml
+  entities:
+    type: array
+    items:
+      $ref: ./Entity.yaml
+  diagrams:
+    type: array
+    items:
+      $ref: ./Diagram.yaml
+  modelType:
+    type: string
+  config:
+    $ref: ./RDFGraphConfig.yaml
+  selectedDiagramId:
+    type: integer
+  actions:
+    type: array
+    items:
+      $ref: ./Action.yaml

@@ -1,0 +1,9 @@
+title: ObjectValue
+type: object
+properties:
+  object_resource_short:
+    type: string
+  object_resource:
+    type: string
+  object_label:
+    type: string

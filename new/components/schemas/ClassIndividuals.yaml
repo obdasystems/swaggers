@@ -1,0 +1,9 @@
+title: ClassIndividuals
+type: object
+properties:
+  theClass:
+    $ref: ./Entity.yaml
+  individuals:
+    type: array
+    items:
+      $ref: ./Entity.yaml

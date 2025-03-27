@@ -1,0 +1,23 @@
+title: NewMappingFileInfo
+type: object
+properties:
+  prefixes:
+    type: array
+    items:
+      $ref: ./Prefix.yaml
+  mappingTemplates:
+    type: array
+    items:
+      type: string
+  newDatabaseConnection:
+    $ref: ./DatabaseConnection.yaml
+  newDatabaseConnectionDescription:
+    type: string
+  databaseConnectionName:
+    type: string
+  description:
+    type: string
+  id:
+    type: string
+  version:
+    type: string

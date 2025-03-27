@@ -1,0 +1,24 @@
+title: SubClassWithCardinalityAssertion
+type: object
+properties:
+  MIN_CARDINALITY_TYPE:
+    type: integer
+    format: int32
+  cardinalityType:
+    type: integer
+    format: int32
+  property:
+    $ref: ./Entity.yaml
+  direct:
+    type: boolean
+  filler:
+    $ref: ./Entity.yaml
+  EXACT_CARDINALITY_TYPE:
+    type: integer
+    format: int32
+  MAX_CARDINALITY_TYPE:
+    type: integer
+    format: int32
+  cardinality:
+    type: integer
+    format: int32

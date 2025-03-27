@@ -1,0 +1,9 @@
+title: HierarchyTree
+type: object
+properties:
+  objectPropertyTree:
+    $ref: ./TreeNode.yaml
+  classTree:
+    $ref: ./TreeNode.yaml
+  dataPropertyTree:
+    $ref: ./TreeNode.yaml

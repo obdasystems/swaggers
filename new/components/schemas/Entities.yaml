@@ -1,0 +1,23 @@
+title: Entities
+type: object
+properties:
+  dataPropertyEntities:
+    type: array
+    items:
+      $ref: ./Entity.yaml
+  classEntities:
+    type: array
+    items:
+      $ref: ./Entity.yaml
+  annotationPropertyEntities:
+    type: array
+    items:
+      $ref: ./Entity.yaml
+  objectPropertyEntities:
+    type: array
+    items:
+      $ref: ./Entity.yaml
+  namedIndividualEntities:
+    type: array
+    items:
+      $ref: ./Entity.yaml

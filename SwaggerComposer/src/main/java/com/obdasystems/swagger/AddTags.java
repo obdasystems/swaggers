@@ -7,7 +7,7 @@ import io.swagger.v3.parser.core.models.SwaggerParseResult;
 
 import java.io.File;
 
-public class Main {
+public class AddTags {
     public static void main(String[] args) throws Exception {
         SwaggerParseResult result = new OpenAPIParser().readLocation("new/mastro.yaml", null, null);
         OpenAPI openAPI = result.getOpenAPI();

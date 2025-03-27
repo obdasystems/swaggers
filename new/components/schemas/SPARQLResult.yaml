@@ -1,0 +1,11 @@
+title: SPARQLResult
+type: object
+properties:
+  shortIRI:
+    type: string
+  type:
+    type: string
+  lang:
+    type: string
+  value:
+    type: string

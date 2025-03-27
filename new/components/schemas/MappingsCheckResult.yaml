@@ -1,0 +1,13 @@
+title: MappingsCheckResult
+type: object
+properties:
+  messagesByMappingId:
+    type: object
+  mappingInfo:
+    $ref: ./MappingInfo.yaml
+  success:
+    type: boolean
+  deprecations:
+    type: array
+    items:
+      type: string

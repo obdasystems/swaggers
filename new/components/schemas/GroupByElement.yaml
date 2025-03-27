@@ -1,0 +1,7 @@
+title: GroupByElement
+type: object
+properties:
+  distinct:
+    type: boolean
+  aggregateFunction:
+    type: string

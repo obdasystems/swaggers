@@ -1,0 +1,19 @@
+title: DataSourceMetadata
+type: object
+properties:
+  catalogName:
+    type: string
+  schemas:
+    type: array
+    items:
+      type: string
+  schemaMetadata:
+    type: object
+    additionalProperties:
+      $ref: ./DataSourceSchemaMetadata.yaml
+  DEFAULT_SCHEMA_NAME:
+    type: string
+  dataSourceName:
+    type: string
+  info:
+    $ref: ./DataSourceInfoEntry.yaml

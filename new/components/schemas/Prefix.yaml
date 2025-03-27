@@ -1,0 +1,7 @@
+title: Prefix
+type: object
+properties:
+  prefix:
+    type: string
+  value:
+    type: string

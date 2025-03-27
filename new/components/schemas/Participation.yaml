@@ -1,0 +1,9 @@
+title: Participation
+type: object
+properties:
+  inverse:
+    type: boolean
+  property:
+    $ref: ./Entity.yaml
+  filler:
+    $ref: ./Entity.yaml

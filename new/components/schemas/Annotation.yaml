@@ -1,0 +1,11 @@
+title: Annotation
+type: object
+properties:
+  datatype:
+    type: string
+  property:
+    type: string
+  language:
+    type: string
+  lexicalForm:
+    type: string

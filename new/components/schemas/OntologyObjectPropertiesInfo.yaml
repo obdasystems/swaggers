@@ -1,0 +1,7 @@
+title: OntologyObjectPropertiesInfo
+type: object
+properties:
+  objectPropertiesInfo:
+    type: array
+    items:
+      $ref: ./ObjectPropertyInfo.yaml

@@ -1,0 +1,7 @@
+title: PropertyAction
+type: object
+properties:
+  propertyActionSubject:
+    $ref: ./Entity.yaml
+  propertyActionPreviousState:
+    $ref: ./Entity.yaml

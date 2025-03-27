@@ -1,0 +1,7 @@
+title: DataSourceColumnReference
+type: object
+properties:
+  tableName:
+    type: string
+  columnName:
+    type: string

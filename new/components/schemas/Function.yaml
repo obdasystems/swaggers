@@ -1,0 +1,9 @@
+title: Function
+type: object
+properties:
+  name:
+    type: string
+  parameters:
+    type: array
+    items:
+      $ref: ./VarOrConstant.yaml

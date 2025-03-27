@@ -1,0 +1,7 @@
+title: PrefixesList
+type: object
+properties:
+  prefixes:
+    type: array
+    items:
+      $ref: ./Prefix.yaml

@@ -1,0 +1,15 @@
+title: EmptyEntities
+type: object
+properties:
+  emptyObjectProperties:
+    type: array
+    items:
+      $ref: ./Entity.yaml
+  emptyDataProperties:
+    type: array
+    items:
+      $ref: ./Entity.yaml
+  emptyClasses:
+    type: array
+    items:
+      $ref: ./Entity.yaml

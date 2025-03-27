@@ -1,0 +1,12 @@
+title: EntityCount
+type: object
+properties:
+  count:
+    type: integer
+    format: int64
+  state:
+    type: string
+  error:
+    type: string
+  entity:
+    $ref: ./Entity.yaml

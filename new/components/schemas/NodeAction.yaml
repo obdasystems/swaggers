@@ -1,0 +1,7 @@
+title: NodeAction
+type: object
+properties:
+  nodeActionPreviousState:
+    $ref: ./Node.yaml
+  nodeActionSubject:
+    $ref: ./Node.yaml
