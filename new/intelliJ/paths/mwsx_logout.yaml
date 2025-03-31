@@ -1,0 +1,10 @@
+get:
+  summary: GET mwsx/logout
+  operationId: get__logout
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'

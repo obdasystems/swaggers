@@ -1,0 +1,10 @@
+get:
+  summary: GET mwsx/owlOntology/sparqling/test
+  operationId: test
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'

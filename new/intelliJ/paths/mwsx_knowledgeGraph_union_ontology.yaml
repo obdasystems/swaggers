@@ -1,0 +1,16 @@
+put:
+  summary: PUT mwsx/knowledgeGraph/union/ontology
+  operationId: patch__knowledgeGraph_union_ontology
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/KnowledgeGraphOntologyUnion'
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'

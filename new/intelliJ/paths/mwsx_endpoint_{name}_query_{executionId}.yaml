@@ -1,0 +1,21 @@
+delete:
+  summary: DELETE mwsx/endpoint/{name}/query/{executionId}
+  operationId: delete_query_execution_on_endpoint
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: executionId
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'

@@ -1,0 +1,102 @@
+type: object
+required:
+  - entities
+  - diagrams
+  - modelType
+  - metadata
+properties:
+  diagrams:
+    type: array
+    items:
+      $ref: ./Diagram.yaml
+  entities:
+    type: array
+    items:
+      $ref: ./Entity.yaml
+  classInstanceEntities:
+    type: array
+    items:
+      $ref: ./ClassInstanceEntity.yaml
+  metadata:
+    type: object
+    required:
+      - namespaces
+    properties:
+      name:
+        type: string
+      iri:
+        type: string
+      version:
+        type: string
+      languages:
+        type: array
+        items:
+          type: string
+      defaultLanguage:
+        type: string
+      namespaces:
+        type: array
+        items:
+          $ref: ./Namespace.yaml
+      annotations:
+        type: array
+        items:
+          $ref: ./Annotation.yaml
+      annotationProperties:
+        type: array
+        items:
+          type: string
+  config:
+    type: object
+    properties:
+      themes:
+        type: array
+        items:
+          $ref: ./Theme.yaml
+      selectedTheme:
+        type: string
+      language:
+        type: string
+      entityNameType:
+        type: string
+        enum:
+          - label
+          - prefixed_iri
+          - full_iri
+      renderers:
+        type: array
+        items:
+          type: string
+      widgets:
+        type: object
+      filters:
+        type: array
+        items:
+          type: string
+          enum:
+            - all
+            - data-property
+            - value-domain
+            - individual
+            - annotation-property
+            - universal_quantifier
+            - complement
+            - has-key
+  selectedDiagramId:
+    type: integer
+  modelType:
+    type: string
+    enum:
+      - ontology
+      - vkg
+      - rdf
+  actions:
+    type: array
+    items:
+      $ref: ./Action.yaml
+  creator:
+    type: string
+  constraints:
+    type: array
+    items:
+      $ref: ./SHACLShape.yaml

@@ -1,0 +1,8 @@
+type: object
+allOf:
+  - $ref: ./Action.yaml
+properties:
+  subject:
+    $ref: ./Entity.yaml
+  previousState:
+    $ref: ./Entity.yaml

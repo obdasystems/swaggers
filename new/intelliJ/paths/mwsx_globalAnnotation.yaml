@@ -1,0 +1,16 @@
+post:
+  summary: POST mwsx/globalAnnotation
+  operationId: post_global_annotation
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/Entity'
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'

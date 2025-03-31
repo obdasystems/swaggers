@@ -1,0 +1,16 @@
+get:
+  summary: GET mwsx/endpoint/{name}/exportThreads
+  operationId: get__owlOntology_name_version_query_ID_export_threads
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'

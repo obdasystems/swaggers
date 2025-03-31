@@ -1,0 +1,32 @@
+post:
+  summary: POST mwsx/owlOntology/{name}/version/ontologyConstraints/sets/dump
+  operationId: post_ontologyConstraints_checkSetId_import
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: version
+      in: query
+      required: true
+      schema:
+        type: string
+    - name: importMappingParameters
+      in: query
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/DataQualityCheckSetDump'
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'

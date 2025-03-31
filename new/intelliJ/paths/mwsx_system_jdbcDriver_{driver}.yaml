@@ -1,0 +1,54 @@
+get:
+  summary: GET mwsx/system/jdbcDriver/{driver}
+  operationId: getJdbcDriver
+  parameters:
+    - name: driver
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'
+delete:
+  summary: DELETE mwsx/system/jdbcDriver/{driver}
+  operationId: DELETEJdbcDrivers
+  parameters:
+    - name: driver
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'
+put:
+  summary: PUT mwsx/system/jdbcDriver/{driver}
+  operationId: putJdbcDrivers
+  parameters:
+    - name: driver
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/JDBCDriver'
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'

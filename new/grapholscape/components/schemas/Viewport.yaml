@@ -1,0 +1,10 @@
+type: object
+required:
+  - pan
+  - zoom
+properties:
+  pan:
+    $ref: ./Position.yaml
+  zoom:
+    type: number
+    format: float

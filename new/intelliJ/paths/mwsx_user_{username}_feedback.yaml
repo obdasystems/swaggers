@@ -1,0 +1,16 @@
+delete:
+  summary: DELETE mwsx/user/{username}/feedback
+  operationId: delete__user_feedback
+  parameters:
+    - name: username
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'

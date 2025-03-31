@@ -1,0 +1,22 @@
+put:
+  summary: PUT mwsx/knowledgeGraph/upload/import/csv
+  operationId: put__knowledgeGraph_upload_file_csv_import
+  parameters:
+    - name: synchronousMode
+      in: query
+      required: true
+      schema:
+        type: boolean
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/CsvImportInfo'
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'

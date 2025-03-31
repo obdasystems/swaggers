@@ -1,0 +1,54 @@
+get:
+  summary: GET mwsx/datasource/{name}
+  operationId: get__datasource
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'
+put:
+  summary: PUT mwsx/datasource/{name}
+  operationId: put__datasource
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/DataSourceInfoEntry'
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'
+delete:
+  summary: DELETE mwsx/datasource/{name}
+  operationId: delete__datasource
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'

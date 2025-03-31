@@ -1,0 +1,10 @@
+get:
+  summary: GET mwsx/mastro/version
+  operationId: get__mastro_version
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'

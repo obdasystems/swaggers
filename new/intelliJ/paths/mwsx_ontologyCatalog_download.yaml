@@ -1,0 +1,16 @@
+get:
+  summary: GET mwsx/ontologyCatalog/download
+  operationId: get_ontology_catalog_download
+  parameters:
+    - name: format
+      in: query
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'

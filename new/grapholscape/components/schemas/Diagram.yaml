@@ -1,0 +1,20 @@
+type: object
+required:
+  - id
+  - name
+  - elements
+properties:
+  id:
+    type: integer
+  name:
+    type: string
+  nodes:
+    type: array
+    items:
+      $ref: ./Node.yaml
+  edges:
+    type: array
+    items:
+      $ref: ./Edge.yaml
+  lastViewportState:
+    $ref: ./Viewport.yaml

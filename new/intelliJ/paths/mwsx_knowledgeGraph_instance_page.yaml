@@ -1,0 +1,31 @@
+get:
+  summary: GET mwsx/knowledgeGraph/instance/page
+  operationId: get__knowledgeGraph_instance_page
+  parameters:
+    - name: instanceIri
+      in: query
+      required: true
+      schema:
+        type: string
+    - name: kgIri
+      in: query
+      required: true
+      schema:
+        type: string
+    - name: namedGraph
+      in: query
+      required: true
+      schema:
+        type: string
+    - name: lang
+      in: query
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'

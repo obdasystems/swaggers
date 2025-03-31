@@ -1,0 +1,42 @@
+get:
+  summary: GET file
+  operationId: listFiles
+  parameters:
+    - name: name
+      in: query
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/FileInfo'
+options:
+  summary: OPTIONS file
+  operationId: options
+  responses:
+    '200':
+      description: OK
+      content:
+        '*/*':
+          schema:
+            $ref: '#/components/schemas/Response'
+put:
+  summary: PUT file
+  operationId: putFile
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/FileInfo'
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'

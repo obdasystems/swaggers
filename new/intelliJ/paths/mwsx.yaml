@@ -1,0 +1,10 @@
+get:
+  summary: GET mwsx
+  operationId: getMsg
+  responses:
+    '200':
+      description: OK
+      content:
+        '*/*':
+          schema:
+            type: string

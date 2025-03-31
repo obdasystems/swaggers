@@ -1,0 +1,43 @@
+get:
+  summary: GET ep/sparqlcount
+  operationId: getQueryResultCount
+  parameters:
+    - name: query
+      in: query
+      required: true
+      schema:
+        type: string
+    - name: reasoning
+      in: query
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'
+post:
+  summary: POST ep/sparqlcount
+  operationId: postQueryResultCount
+  parameters:
+    - name: reasoning
+      in: query
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          type: string
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'

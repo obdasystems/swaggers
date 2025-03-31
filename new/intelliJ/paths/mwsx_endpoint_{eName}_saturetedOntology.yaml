@@ -1,0 +1,22 @@
+post:
+  summary: POST mwsx/endpoint/{eName}/saturetedOntology
+  operationId: get__endpoint_ename_saturetedOntology
+  parameters:
+    - name: eName
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/OntologySaturationParameters'
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'

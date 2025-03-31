@@ -1,0 +1,58 @@
+put:
+  summary: PUT mwsx/owlOntology/{name}/version/vkg/catalog/{snapshotId}
+  operationId: put_vkg_snapshot
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: snapshotId
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: version
+      in: query
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/VKGSnapshot'
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'
+delete:
+  summary: DELETE mwsx/owlOntology/{name}/version/vkg/catalog/{snapshotId}
+  operationId: delete_vkg_snapshot
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: snapshotId
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: version
+      in: query
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'

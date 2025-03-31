@@ -1,0 +1,10 @@
+get:
+  summary: GET mwsx/error
+  operationId: simulate_error
+  responses:
+    '200':
+      description: OK
+      content:
+        '*/*':
+          schema:
+            $ref: '#/components/schemas/Response'

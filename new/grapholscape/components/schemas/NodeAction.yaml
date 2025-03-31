@@ -1,0 +1,10 @@
+type: object
+allOf:
+  - $ref: ./Action.yaml
+required:
+  - subject
+properties:
+  subject:
+    $ref: ./Node.yaml
+  previousState:
+    $ref: ./Node.yaml

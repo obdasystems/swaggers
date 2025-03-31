@@ -1,0 +1,17 @@
+type: object
+required:
+  - value
+  - iri
+properties:
+  value:
+    type: string
+  iri:
+    type: string
+  language:
+    type: string
+  datatype:
+    type: string
+  renderingProperties:
+    type: array
+    items:
+      type: string

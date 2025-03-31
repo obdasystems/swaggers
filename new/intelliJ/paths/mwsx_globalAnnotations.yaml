@@ -1,0 +1,10 @@
+get:
+  summary: GET mwsx/globalAnnotations
+  operationId: get_global_annotations
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'

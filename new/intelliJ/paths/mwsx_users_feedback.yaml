@@ -1,0 +1,10 @@
+get:
+  summary: GET mwsx/users/feedback
+  operationId: get__users_feedback
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'

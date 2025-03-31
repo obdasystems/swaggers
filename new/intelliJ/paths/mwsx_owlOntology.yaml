@@ -1,0 +1,36 @@
+get:
+  summary: GET mwsx/owlOntology
+  operationId: get__owlOntology
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'
+post:
+  summary: POST mwsx/owlOntology
+  operationId: post__owlOntology_name
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/Ontology'
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'
+delete:
+  summary: DELETE mwsx/owlOntology
+  operationId: delete__all_owlOntologies
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'

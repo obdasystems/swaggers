@@ -1,0 +1,54 @@
+get:
+  summary: GET mwsx/ontologyCatalog/querycatalog/query/{ID}
+  operationId: get_ontologycatalog_query_ID
+  parameters:
+    - name: ID
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'
+put:
+  summary: PUT mwsx/ontologyCatalog/querycatalog/query/{ID}
+  operationId: put_ontologycatalog_query_ID
+  parameters:
+    - name: ID
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/SPARQLQuery'
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'
+delete:
+  summary: DELETE mwsx/ontologyCatalog/querycatalog/query/{ID}
+  operationId: delete_ontologycatalog_query_ID
+  parameters:
+    - name: ID
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'

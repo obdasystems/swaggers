@@ -1,0 +1,16 @@
+put:
+  summary: PUT mwsx/triplify/{threadID}/stop
+  operationId: put_mappings_triplification_stop
+  parameters:
+    - name: threadID
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'

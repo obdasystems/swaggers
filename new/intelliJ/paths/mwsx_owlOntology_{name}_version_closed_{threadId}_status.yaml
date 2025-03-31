@@ -1,0 +1,31 @@
+get:
+  summary: GET mwsx/owlOntology/{name}/version/closed/{threadId}/status
+  operationId: get__owlOntology_name_version_closed_threadId_status
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: threadId
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: version
+      in: query
+      required: true
+      schema:
+        type: string
+    - name: format
+      in: query
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'

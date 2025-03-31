@@ -1,0 +1,47 @@
+post:
+  summary: POST mwsx/datasource
+  operationId: post__datasource
+  parameters:
+    - name: buildSchema
+      in: query
+      required: true
+      schema:
+        type: boolean
+    - name: schemasList
+      in: query
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/DataSourceInfoEntry'
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'
+get:
+  summary: GET mwsx/datasource
+  operationId: get__datasource_list
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'
+delete:
+  summary: DELETE mwsx/datasource
+  operationId: delete__all_datasource
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'

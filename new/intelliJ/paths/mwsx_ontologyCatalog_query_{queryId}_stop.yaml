@@ -1,0 +1,16 @@
+put:
+  summary: PUT mwsx/ontologyCatalog/query/{queryId}/stop
+  operationId: put_ontology_catalog_query_stop
+  parameters:
+    - name: queryId
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'

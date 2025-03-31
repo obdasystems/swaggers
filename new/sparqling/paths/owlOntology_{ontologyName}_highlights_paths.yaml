@@ -1,0 +1,53 @@
+get:
+  tags:
+    - OntologyGraph
+  summary: Find paths between selected class and clicked class.
+  description: >-
+    The results should be based on Dijkstra algorithm for shortest paths. ISA
+    wieght is 0 while role weight is 1.
+  operationId: highligthsPaths
+  parameters:
+    - name: ontologyName
+      in: path
+      description: The name of the ontology
+      required: true
+      schema:
+        type: string
+    - name: version
+      in: query
+      description: The version of the ontology
+      required: true
+      schema:
+        type: string
+    - name: lastSelectedIRI
+      in: query
+      description: The IRI of the entity clicked on the GRAPHOLscape ontology graph
+      required: true
+      schema:
+        type: string
+    - name: clickedIRI
+      in: query
+      description: The IRI of the entity clicked on the GRAPHOLscape ontology graph
+      required: true
+      schema:
+        type: string
+    - name: kShortest
+      in: query
+      description: Use the k-shortest algorithm to return the shortestpaths
+      schema:
+        type: boolean
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../components/schemas/OntologyMultiPath.yaml
+    '400':
+      description: Invalid IRI supplied
+      content: {}
+    '404':
+      description: Entity not found
+      content: {}

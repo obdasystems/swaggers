@@ -1,0 +1,14 @@
+type: object
+required:
+  - sourceClassIRI
+  - targetClassIRI
+  - objectProperties
+properties:
+  sourceClassIRI:
+    type: string
+  targetClassIRI:
+    type: string
+  objectProperties:
+    type: array
+    items:
+      $ref: ./Entity.yaml

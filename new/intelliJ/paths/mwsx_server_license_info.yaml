@@ -1,0 +1,10 @@
+get:
+  summary: GET mwsx/server/license/info
+  operationId: get_server_license_expiration_date
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'

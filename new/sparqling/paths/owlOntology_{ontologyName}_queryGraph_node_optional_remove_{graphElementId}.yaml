@@ -1,0 +1,64 @@
+put:
+  tags:
+    - QueryGraphOptional
+  summary: Remove the graphElementId from the optional and move it back to the bgp.
+  description: >
+    Remove the triple pattern(s) identified by the `graphElementId`
+
+    from all the optional that contains the graphElementId.
+
+
+    - If it is a class the query parameter
+
+    should be used and the triple pattern `?graphElementId rdf:type <classIRI>`
+
+    will be moved from the optional to the bgp.
+
+
+    - If it is a data property
+
+    the tp `?graphElementIdVar1 <graphElementIdDataPropertyIRI>
+    ?graphElementIdVar2`
+
+    will be moved from the optional to the bgp.
+
+
+    - If it is a object property the tps `?graphElementIdVar1
+    <graphElementIdDataPropertyIRI> ?graphElementIdVar2. ?graphElementIdVar2
+    rdf:type <classIRI>` will be moved from the optional to the bgp.
+  operationId: removeOptionalGraphElementId
+  parameters:
+    - name: ontologyName
+      in: path
+      description: The name of the ontology
+      required: true
+      schema:
+        type: string
+    - name: version
+      in: query
+      description: The version of the ontology
+      required: true
+      schema:
+        type: string
+    - name: graphElementId
+      in: path
+      description: The GraphElement that should be removed from the optional
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/QueryGraph.yaml
+    required: true
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/QueryGraph.yaml
+    '404':
+      description: GraphElement not found
+      content: {}

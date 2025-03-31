@@ -1,0 +1,32 @@
+post:
+  summary: POST mwsx/owlOntology/{name}/version/querycatalog/sparqling/import
+  operationId: post__owlOntology_name_version_querycatalog_sparqling_import
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: version
+      in: query
+      required: true
+      schema:
+        type: string
+    - name: additive
+      in: query
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/FileInfo'
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'

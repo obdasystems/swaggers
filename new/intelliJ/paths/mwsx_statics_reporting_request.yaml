@@ -1,0 +1,16 @@
+post:
+  summary: POST mwsx/statics/reporting/request
+  operationId: post_extract_issue_report
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/IssueReportRequest'
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'

@@ -1,0 +1,22 @@
+post:
+  summary: POST mwsx/endpoint/{name}/query/check
+  operationId: check_query_on_endpoint
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          $ref: '#/components/schemas/SPARQLQuery'
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'

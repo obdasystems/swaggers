@@ -1,0 +1,31 @@
+delete:
+  summary: DELETE mwsx/owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}
+  operationId: delete__owlOntology_name_version_mapping_ID_parameter
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: ID
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: paramName
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: version
+      in: query
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'

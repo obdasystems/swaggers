@@ -1,0 +1,90 @@
+get:
+  tags:
+    - Ontology Designer
+  summary: Returns the ontology draft {ontologyName}
+  operationId: getOntologyDraft
+  parameters:
+    - name: ontologyName
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/RDFGraph.yaml
+post:
+  tags:
+    - Ontology Designer
+  summary: Add to the list of all ontology drafts a new draft
+  operationId: postOntologyDrafts
+  parameters:
+    - name: ontologyName
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/RDFGraph.yaml
+  responses:
+    '200':
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../components/schemas/RDFGraph.yaml
+put:
+  tags:
+    - Ontology Designer
+  summary: >-
+    Modify the ontology draft {ontologyName} (called when using the ontology
+    builder to save the draft)
+  operationId: putOntologyDraft
+  parameters:
+    - name: ontologyName
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/RDFGraph.yaml
+  responses:
+    '200':
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../components/schemas/RDFGraph.yaml
+delete:
+  tags:
+    - Ontology Designer
+  summary: Delete the ontology draft {ontologyName}
+  operationId: deleteOntologyDraft
+  parameters:
+    - name: ontologyName
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../components/schemas/RDFGraph.yaml

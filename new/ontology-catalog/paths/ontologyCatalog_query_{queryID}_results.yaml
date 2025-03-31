@@ -1,0 +1,30 @@
+get:
+  description: Retrieve the results of a SPARQL query
+  parameters:
+    - name: queryID
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: pagesize
+      in: query
+      required: false
+      schema:
+        type: integer
+        format: int32
+    - name: offset
+      in: query
+      required: false
+      schema:
+        type: integer
+        format: int32
+  tags:
+    - Ontology Catalog
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: >-
+              https://obdasystems.github.io/swaggers/apis/mws/mws.yaml#/definitions/com.mwsx.model.SPARQLResults

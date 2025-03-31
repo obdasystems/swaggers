@@ -1,0 +1,12 @@
+get:
+  summary: GET file/list
+  operationId: filesNames
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: string

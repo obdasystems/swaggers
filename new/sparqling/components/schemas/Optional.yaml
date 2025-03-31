@@ -1,0 +1,9 @@
+type: object
+properties:
+  id:
+    type: integer
+  graphIds:
+    description: Path of ids that describe optional.
+    type: array
+    items:
+      type: string

@@ -1,0 +1,84 @@
+get:
+  summary: GET mwsx/owlOntology/{name}/version/query/{ID}
+  operationId: get__owlOntology_name_version_query_ID
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: ID
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: version
+      in: query
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'
+put:
+  summary: PUT mwsx/owlOntology/{name}/version/query/{ID}
+  operationId: put__owlOntology_name_version_query_ID
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: ID
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: version
+      in: query
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/SPARQLQuery'
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'
+delete:
+  summary: DELETE mwsx/owlOntology/{name}/version/query/{ID}
+  operationId: delete__owlOntology_name_version_query_ID
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: ID
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: version
+      in: query
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'

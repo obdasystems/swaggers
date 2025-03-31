@@ -1,0 +1,44 @@
+get:
+  tags:
+    - QueryGraphBGP
+  summary: This is the first route to call in order to build the query graph.
+  description: >-
+    Starting from only the clicked class get the query graph that will be
+    rendered by Sparqling, the query head, the sparql code. The sparql query
+    returned will be somthing like `select ?x { ?x a <clickedClassIRI>` }. The
+    variable `?x` should be called according to the entity remainder or label.
+    The variable will be added to the head of the query in order to create a
+    valid SPARQL query.
+  operationId: getQueryGraph
+  parameters:
+    - name: ontologyName
+      in: path
+      description: The name of the ontology
+      required: true
+      schema:
+        type: string
+    - name: version
+      in: query
+      description: The version of the ontology
+      required: true
+      schema:
+        type: string
+    - name: clickedClassIRI
+      in: query
+      description: The IRI of the entity clicked on the GRAPHOLscape ontology graph
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/QueryGraph.yaml
+    '400':
+      description: Invalid IRI supplied
+      content: {}
+    '404':
+      description: Entity not found
+      content: {}

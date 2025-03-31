@@ -1,0 +1,9 @@
+type: string
+enum:
+  - functional
+  - inverseFunctional
+  - transitive
+  - symmetric
+  - asymmetric
+  - reflexive
+  - irreflexive

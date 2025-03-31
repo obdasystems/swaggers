@@ -1,0 +1,21 @@
+put:
+  summary: PUT mwsx/endpoint/{name}/new-cq-query/{executionId}/stop
+  operationId: stop_new_cq_query_on_endpoint
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: executionId
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'

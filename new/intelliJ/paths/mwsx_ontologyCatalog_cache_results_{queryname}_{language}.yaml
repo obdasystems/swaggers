@@ -1,0 +1,21 @@
+get:
+  summary: GET mwsx/ontologyCatalog/cache/results/{queryname}/{language}
+  operationId: get_ontology_catalog_cache_manager_query_results_language
+  parameters:
+    - name: queryname
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: language
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'

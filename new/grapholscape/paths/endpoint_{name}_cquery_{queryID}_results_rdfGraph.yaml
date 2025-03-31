@@ -1,0 +1,35 @@
+get:
+  tags:
+    - VKG
+  summary: Returns RDFGraph for CONSTRUCT visualization
+  operationId: getRDFGraphConstruct
+  parameters:
+    - name: name
+      description: Endpoint name
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: queryID
+      description: Query execution id
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: pageSize
+      in: query
+      required: true
+      schema:
+        type: integer
+    - name: pageNumber
+      in: query
+      required: true
+      schema:
+        type: integer
+  responses:
+    '200':
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/RDFGraph.yaml

@@ -1,0 +1,33 @@
+get:
+  summary: >-
+    GET
+    mwsx/owlOntology/{name}/version/mapping/{mapID}/dataLineageProperty/{entityID}
+  operationId: get__owlOntology_name_version_mapID_entityID_dataLineageProperty
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: mapID
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: entityID
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: version
+      in: query
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'

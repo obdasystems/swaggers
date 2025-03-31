@@ -1,0 +1,28 @@
+get:
+  summary: GET mwsx/server/userlog/{username}
+  operationId: get_userlog_count
+  parameters:
+    - name: username
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: start
+      in: query
+      required: true
+      schema:
+        type: integer
+        format: int32
+    - name: length
+      in: query
+      required: true
+      schema:
+        type: integer
+        format: int32
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Response'
