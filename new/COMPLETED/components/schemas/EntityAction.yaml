@@ -1,7 +1,8 @@
-title: EntityAction
 type: object
+allOf:
+  - $ref: ./Action.yaml
 properties:
-  entityActionPreviousState:
+  subject:
     $ref: ./Entity.yaml
-  entityActionSubject:
+  previousState:
     $ref: ./Entity.yaml

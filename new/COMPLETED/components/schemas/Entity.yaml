@@ -1,11 +1,16 @@
-title: Entity
 type: object
 properties:
+  type:
+    type: string
+    enum:
+      - class
+      - objectProperty
+      - inverseObjectProperty
+      - dataProperty
+      - annotation
   iri:
     type: string
   prefixedIri:
-    type: string
-  type:
     type: string
   labels:
     type: object

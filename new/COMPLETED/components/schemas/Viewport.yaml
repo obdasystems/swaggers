@@ -1,7 +1,10 @@
-title: Viewport
 type: object
+required:
+  - pan
+  - zoom
 properties:
-  zoom:
-    type: number
   pan:
     $ref: ./Position.yaml
+  zoom:
+    type: number
+    format: float

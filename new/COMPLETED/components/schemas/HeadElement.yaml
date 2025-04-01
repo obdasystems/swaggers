@@ -1,21 +1,21 @@
-title: HeadElement
 type: object
 properties:
-  having:
-    type: array
-    items:
-      $ref: ./Filter.yaml
-  var:
-    type: string
-  ordering:
-    type: integer
-  function:
-    $ref: ./Function.yaml
-  alias:
-    type: string
   id:
     type: string
   graphElementId:
     type: string
+  var:
+    type: string
+  alias:
+    type: string
+  ordering:
+    description: 1 is ascending -1 descending 0 not defined
+    type: integer
+  function:
+    $ref: ./Function.yaml
   groupBy:
     $ref: ./GroupByElement.yaml
+  having:
+    type: array
+    items:
+      $ref: ./Filter.yaml

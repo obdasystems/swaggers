@@ -1,0 +1,55 @@
+put:
+  tags:
+    - QueryGraphBGP
+  summary: Join two GraphNodeElement in one.
+  description: >-
+    Starting from a query graph which has two nodes representing the same
+    class(es), it returns the query graph in which the two nodes have been
+    joined into a single one. The children of the selected nodes will be grouped
+    in `graphElementId1` and each time we add a children through the previous
+    routes they will be added to this node.
+  operationId: putQueryGraphJoin
+  parameters:
+    - name: ontologyName
+      in: path
+      description: The name of the ontology
+      required: true
+      schema:
+        type: string
+    - name: version
+      in: query
+      description: The version of the ontology
+      required: true
+      schema:
+        type: string
+    - name: graphElementId1
+      in: path
+      description: The id of the node of the selected class in the query graph.
+      required: true
+      schema:
+        type: string
+    - name: graphElementId2
+      in: path
+      description: The id of the node of the selected class in the query graph.
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/QueryGraph.yaml
+    required: true
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/QueryGraph.yaml
+    '400':
+      description: Invalid IRI supplied
+      content: {}
+    '404':
+      description: Entity not found
+      content: {}

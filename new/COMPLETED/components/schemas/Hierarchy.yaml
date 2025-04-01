@@ -1,15 +1,26 @@
-title: Hierarchy
 type: object
+required:
+  - id
+  - type
+  - inputs
+  - superclasses
 properties:
-  superclasses:
-    type: array
-    items:
-      $ref: ./HierarchySuperclasses.yaml
-  inputs:
-    type: array
-    items:
-      $ref: ./Entity.yaml
   id:
     type: string
   type:
     $ref: ./TypesEnum.yaml
+  inputs:
+    type: array
+    items:
+      $ref: ./Entity.yaml
+  superclasses:
+    type: array
+    items:
+      required:
+        - classEntity
+        - complete
+      properties:
+        classEntity:
+          $ref: ./Entity.yaml
+        complete:
+          type: boolean

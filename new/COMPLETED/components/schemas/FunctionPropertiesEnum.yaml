@@ -1,23 +1,9 @@
-title: FunctionPropertiesEnum
-type: object
-properties:
-  TRANSITIVE:
-    $ref: ./FunctionPropertiesEnum.yaml
-  IRREFLEXIVE:
-    $ref: ./FunctionPropertiesEnum.yaml
-  ASYMMETRIC:
-    $ref: ./FunctionPropertiesEnum.yaml
-  SYMMETRIC:
-    $ref: ./FunctionPropertiesEnum.yaml
-  FUNCTIONAL:
-    $ref: ./FunctionPropertiesEnum.yaml
-  REFLEXIVE:
-    $ref: ./FunctionPropertiesEnum.yaml
-  INVERSEFUNCTIONAL:
-    $ref: ./FunctionPropertiesEnum.yaml
-  value:
-    type: string
-  $VALUES:
-    type: array
-    items:
-      $ref: ./FunctionPropertiesEnum.yaml
+type: string
+enum:
+  - functional
+  - inverseFunctional
+  - transitive
+  - symmetric
+  - asymmetric
+  - reflexive
+  - irreflexive

@@ -1,0 +1,18 @@
+get:
+  description: Check the status of a SPARQL query
+  parameters:
+    - name: queryID
+      in: path
+      required: true
+      schema:
+        type: string
+  tags:
+    - Ontology Catalog
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: >-
+              https://obdasystems.github.io/swaggers/apis/mws/mws.yaml#/definitions/com.mwsx.model.SPARQLStatus

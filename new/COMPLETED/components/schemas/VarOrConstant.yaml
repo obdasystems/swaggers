@@ -1,9 +1,16 @@
-title: VarOrConstant
 type: object
 properties:
-  constantType:
-    type: string
   type:
     type: string
+    enum:
+      - var
+      - constant
+      - iri
   value:
     type: string
+  constantType:
+    type: string
+    enum:
+      - xsd:string
+      - xsd:decimal
+      - xsd:dateTime

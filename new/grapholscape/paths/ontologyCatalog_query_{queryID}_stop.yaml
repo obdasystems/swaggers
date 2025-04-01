@@ -1,0 +1,18 @@
+put:
+  tags:
+    - Ontology Catalog
+  summary: Stops a SPARQL query over the catalog
+  operationId: stopQuery
+  parameters:
+    - name: queryID
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            type: boolean

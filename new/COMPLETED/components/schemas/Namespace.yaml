@@ -1,9 +1,11 @@
-title: Namespace
 type: object
+required:
+  - value
+  - prefixes
 properties:
+  value:
+    type: string
   prefixes:
     type: array
     items:
       type: string
-  value:
-    type: string

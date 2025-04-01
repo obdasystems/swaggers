@@ -1,0 +1,15 @@
+type: object
+required:
+  - nodes
+  - edges
+properties:
+  nodes:
+    type: array
+    description: The nodes of the ontology path
+    items:
+      $ref: ./Entity.yaml
+  edges:
+    type: array
+    description: The list of edges connecting two nodes
+    items:
+      $ref: ./ObjectPropertiesMultiEdge.yaml

@@ -1,4 +1,3 @@
-title: Filter
 type: object
 properties:
   expression:

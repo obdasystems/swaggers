@@ -1,9 +1,10 @@
-title: HierarchyAction
 type: object
+required:
+  - diagramId
 properties:
-  diagramId:
-    type: string
   subject:
     $ref: ./Hierarchy.yaml
+  diagramId:
+    type: string
   previousState:
     $ref: ./Hierarchy.yaml

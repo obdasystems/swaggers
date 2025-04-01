@@ -1,17 +1,20 @@
-title: Diagram
 type: object
+required:
+  - id
+  - name
+  - elements
 properties:
+  id:
+    type: integer
+  name:
+    type: string
   nodes:
     type: array
     items:
       $ref: ./Node.yaml
-  lastViewportState:
-    $ref: ./Viewport.yaml
-  name:
-    type: string
   edges:
     type: array
     items:
       $ref: ./Edge.yaml
-  id:
-    type: integer
+  lastViewportState:
+    $ref: ./Viewport.yaml

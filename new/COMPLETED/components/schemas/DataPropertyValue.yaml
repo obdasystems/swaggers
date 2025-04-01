@@ -1,11 +1,17 @@
-title: DataPropertyValue
 type: object
+required:
+  - value
+  - iri
 properties:
-  iri:
+  value:
     type: string
-  datatype:
+  iri:
     type: string
   language:
     type: string
-  value:
+  datatype:
     type: string
+  renderingProperties:
+    type: array
+    items:
+      type: string

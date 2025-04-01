@@ -1,17 +1,23 @@
-title: GraphElement
 type: object
 properties:
+  id:
+    type: string
+    description: This id corrensopond to the variable when entity type is a class.
   variables:
     type: array
+    description: >-
+      This element could refer to one variable (if it's a class) or to two
+      variables (if it's a property)
     items:
       type: string
   entities:
     type: array
+    description: >-
+      It could have more than one entity only when entity type is a class (could
+      be derived after clicking on two borther classes)
     items:
       $ref: ./Entity.yaml
   children:
     type: array
     items:
       $ref: ./GraphElement.yaml
-  id:
-    type: string

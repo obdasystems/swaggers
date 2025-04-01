@@ -1,14 +1,13 @@
-title: VKGSnapshot
 type: object
 properties:
+  id:
+    type: string
   name:
+    type: string
+  description:
     type: string
   lastModification:
     type: integer
     format: int64
-  description:
-    type: string
-  id:
-    type: string
   rdfGraph:
     $ref: ./RDFGraph.yaml

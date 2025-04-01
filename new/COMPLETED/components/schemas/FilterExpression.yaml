@@ -1,9 +1,20 @@
-title: FilterExpression
 type: object
 properties:
+  operator:
+    type: string
+    enum:
+      - '='
+      - '!='
+      - <
+      - '>'
+      - <=
+      - '>='
+      - IN
+      - NOT IN
+      - REGEX
+      - ISBLANK
+      - NOT ISBLANK
   parameters:
     type: array
     items:
       $ref: ./VarOrConstant.yaml
-  operator:
-    type: string

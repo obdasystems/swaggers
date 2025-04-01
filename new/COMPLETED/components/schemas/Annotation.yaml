@@ -1,11 +1,20 @@
-title: Annotation
 type: object
+required:
+  - value
+  - property
 properties:
-  datatype:
+  lexicalForm:
     type: string
+    deprecated: true
+    description: Has been renamed to `value`, kept for back-compatibility.
+  value:
+    type: string
+  hasIriValue:
+    type: boolean
   property:
     type: string
+    example: rdfs:label
   language:
     type: string
-  lexicalForm:
+  datatype:
     type: string

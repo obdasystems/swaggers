@@ -1,9 +1,10 @@
-title: Theme
 type: object
+required:
+  - id
 properties:
-  name:
-    type: string
   id:
     type: string
-  colours:
+  name:
     type: string
+  colours:
+    type: object

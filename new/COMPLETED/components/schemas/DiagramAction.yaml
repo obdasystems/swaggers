@@ -1,7 +1,8 @@
-title: DiagramAction
 type: object
+allOf:
+  - $ref: ./Action.yaml
 properties:
-  diagramActionPreviousState:
+  subject:
     $ref: ./Diagram.yaml
-  diagramActionSubject:
+  previousState:
     $ref: ./Diagram.yaml

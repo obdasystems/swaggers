@@ -1,7 +1,11 @@
-title: Position
 type: object
+required:
+  - x
+  - 'y'
 properties:
   x:
     type: number
+    format: float
   'y':
     type: number
+    format: float

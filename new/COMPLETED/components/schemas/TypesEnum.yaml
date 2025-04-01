@@ -1,73 +1,47 @@
-title: TypesEnum
-type: object
-properties:
-  SAME:
-    $ref: ./TypesEnum.yaml
-  COMPLETE_DISJOINT_UNION:
-    $ref: ./TypesEnum.yaml
-  COMPLEMENT:
-    $ref: ./TypesEnum.yaml
-  INPUT:
-    $ref: ./TypesEnum.yaml
-  ENUMERATION:
-    $ref: ./TypesEnum.yaml
-  CLASS:
-    $ref: ./TypesEnum.yaml
-  VALUE:
-    $ref: ./TypesEnum.yaml
-  INSTANCE_OF:
-    $ref: ./TypesEnum.yaml
-  MEMBERSHIP:
-    $ref: ./TypesEnum.yaml
-  DISJOINT_UNION:
-    $ref: ./TypesEnum.yaml
-  HAS_KEY:
-    $ref: ./TypesEnum.yaml
-  INCLUSION:
-    $ref: ./TypesEnum.yaml
-  value:
-    type: string
-  RANGE_RESTRICTION:
-    $ref: ./TypesEnum.yaml
-  NEUTRAL:
-    $ref: ./TypesEnum.yaml
-  $VALUES:
-    type: array
-    items:
-      $ref: ./TypesEnum.yaml
-  VALUE_DOMAIN:
-    $ref: ./TypesEnum.yaml
-  ROLE_INVERSE:
-    $ref: ./TypesEnum.yaml
-  ROLE_CHAIN:
-    $ref: ./TypesEnum.yaml
-  LITERAL:
-    $ref: ./TypesEnum.yaml
-  DIFFERENT:
-    $ref: ./TypesEnum.yaml
-  DATATYPE_RESTRICTION:
-    $ref: ./TypesEnum.yaml
-  OBJECT_PROPERTY:
-    $ref: ./TypesEnum.yaml
-  COMPLETE_UNION:
-    $ref: ./TypesEnum.yaml
-  PROPERTY_ASSERTION:
-    $ref: ./TypesEnum.yaml
-  DOMAIN_RESTRICTION:
-    $ref: ./TypesEnum.yaml
-  EQUIVALENCE:
-    $ref: ./TypesEnum.yaml
-  FACET:
-    $ref: ./TypesEnum.yaml
-  INTERSECTION:
-    $ref: ./TypesEnum.yaml
-  DATA_PROPERTY:
-    $ref: ./TypesEnum.yaml
-  CLASS_INSTANCE:
-    $ref: ./TypesEnum.yaml
-  ATTRIBUTE_EDGE:
-    $ref: ./TypesEnum.yaml
-  UNION:
-    $ref: ./TypesEnum.yaml
-  INDIVIDUAL:
-    $ref: ./TypesEnum.yaml
+description: >-
+  Contiene tutti i tipi di nodi/archi orginirari dal Graphol per evitare di
+  duplicare gli enumeratori. Nella rappresentazione Floaty/vkg vengono usati
+  questi valori.
+
+  NODI class data-property class-instance (vkg) individual (floaty) union
+  disjoint-union iri (floaty iri range di annotazioni che non sono entità)
+
+  ARCHI object-property annotation-property instance-of input inclusion
+  equivalence attribute-edge union disjoint-union complete-union
+  complete-disjoint-union
+type: string
+enum:
+  - class
+  - object-property
+  - data-property
+  - annotation-property
+  - individual
+  - class-instance
+  - domain-restriction
+  - range-restriction
+  - union
+  - complete-union
+  - disjoint-union
+  - complete-disjoint-union
+  - complement
+  - intersection
+  - enumeration
+  - has-key
+  - role-inverse
+  - role-chain
+  - datatype-restriction
+  - value-domain
+  - property-assertion
+  - literal
+  - facet
+  - neutral
+  - value
+  - inclusion
+  - equivalence
+  - instance-of
+  - input
+  - same
+  - different
+  - membership
+  - attribute-edge
+  - iri

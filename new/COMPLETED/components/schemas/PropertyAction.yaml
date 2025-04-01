@@ -1,7 +1,8 @@
-title: PropertyAction
 type: object
+allOf:
+  - $ref: ./Action.yaml
 properties:
-  propertyActionSubject:
+  subject:
     $ref: ./Entity.yaml
-  propertyActionPreviousState:
+  previousState:
     $ref: ./Entity.yaml

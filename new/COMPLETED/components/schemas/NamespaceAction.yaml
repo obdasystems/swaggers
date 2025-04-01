@@ -1,7 +1,10 @@
-title: NamespaceAction
 type: object
+allOf:
+  - $ref: ./Action.yaml
+required:
+  - subject
 properties:
-  namespaceActionSubject:
+  subject:
     $ref: ./Namespace.yaml
-  namespaceActionPreviousState:
+  previousState:
     $ref: ./Namespace.yaml

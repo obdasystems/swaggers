@@ -1,15 +1,15 @@
-title: Highlights
 type: object
 properties:
-  dataProperties:
-    type: array
-    items:
-      type: string
   classes:
     type: array
+    description: Subclasses or brother classes
     items:
       type: string
   objectProperties:
     type: array
     items:
       $ref: ./Branch.yaml
+  dataProperties:
+    type: array
+    items:
+      type: string

@@ -1,7 +1,12 @@
-title: GroupByElement
 type: object
 properties:
   distinct:
     type: boolean
   aggregateFunction:
     type: string
+    enum:
+      - count
+      - sum
+      - min
+      - max
+      - average

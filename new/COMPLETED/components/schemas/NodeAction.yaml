@@ -1,7 +1,10 @@
-title: NodeAction
 type: object
+allOf:
+  - $ref: ./Action.yaml
+required:
+  - subject
 properties:
-  nodeActionPreviousState:
+  subject:
     $ref: ./Node.yaml
-  nodeActionSubject:
+  previousState:
     $ref: ./Node.yaml

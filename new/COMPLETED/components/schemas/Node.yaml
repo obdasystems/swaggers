@@ -1,7 +1,11 @@
-title: Node
 type: object
-properties:
-  labelPosition:
-    $ref: ./Position.yaml
-  position:
-    $ref: ./Position.yaml
+allOf:
+  - $ref: ./Element.yaml
+  - type: object
+    properties:
+      position:
+        $ref: ./Position.yaml
+      labelPosition:
+        $ref: ./Position.yaml
+      geoPosition:
+        $ref: ./Position.yaml

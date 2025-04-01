@@ -1,0 +1,49 @@
+put:
+  tags:
+    - QueryGraphBGP
+  summary: >-
+    Delete the GraphElement (and all its children) from the query graph and
+    head.
+  description: >-
+    This route is used when the user wants to delete a node from the query
+    graph. All the children of this node will be deleted as well as we do not
+    want to create query with completly separated branches. All the variables
+    that are going to be deleted should also be deleted from the head of the
+    query. **WARNING**, if the node has multiple occurrences (due to join
+    operations) every node should be deleted.
+  operationId: deleteGraphElementId
+  parameters:
+    - name: ontologyName
+      in: path
+      description: The name of the ontology
+      required: true
+      schema:
+        type: string
+    - name: version
+      in: query
+      description: The version of the ontology
+      required: true
+      schema:
+        type: string
+    - name: graphElementId
+      in: path
+      description: The GraphElement that should be deleted
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/QueryGraph.yaml
+    required: true
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/QueryGraph.yaml
+    '404':
+      description: GraphElement not found
+      content: {}

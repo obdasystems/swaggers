@@ -1,12 +1,10 @@
-title: OntologyDraftInfo
 type: object
 properties:
+  name:
+    type: string
   iri:
     type: string
-  name:
+  version:
     type: string
   lastModification:
     type: integer
-    format: int64
-  version:
-    type: string

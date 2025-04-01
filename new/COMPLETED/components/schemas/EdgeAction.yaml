@@ -1,7 +1,10 @@
-title: EdgeAction
 type: object
+allOf:
+  - $ref: ./Action.yaml
+required:
+  - subject
 properties:
-  edgeActionSubject:
+  subject:
     $ref: ./Edge.yaml
-  edgeActionPreviousState:
+  previousState:
     $ref: ./Edge.yaml

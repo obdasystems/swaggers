@@ -1,11 +1,11 @@
-title: Branch
 type: object
 properties:
-  direct:
-    type: boolean
   objectPropertyIRI:
     type: string
   cyclic:
+    type: boolean
+    description: It is true when domain and range are the same class.
+  direct:
     type: boolean
   relatedClasses:
     type: array
