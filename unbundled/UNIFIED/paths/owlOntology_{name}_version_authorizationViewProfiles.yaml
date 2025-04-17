@@ -18,7 +18,9 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: array
+            items:
+              $ref: ../components/schemas/AuthorizationViewProfileInfo.yaml
 post:
   summary: POST mwsx/owlOntology/{name}/version/authorizationViewProfiles
   operationId: post_authorizationViewProfiles
@@ -45,4 +47,4 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/AuthorizationViewProfileInfo.yaml

@@ -24,7 +24,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/DataSourceInfoEntry.yaml
 get:
   summary: GET mwsx/datasource
   operationId: get__datasource_list
@@ -34,7 +34,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/DataSourceInfoEntry.yaml
 delete:
   summary: DELETE mwsx/datasource
   operationId: delete__all_datasource
@@ -44,4 +44,4 @@ delete:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/DataSourceInfoEntry.yaml

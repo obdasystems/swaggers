@@ -29,7 +29,7 @@ put:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/AuthorizationViewProfileInfo.yaml
 delete:
   summary: DELETE mwsx/owlOntology/{name}/version/authorizationViewProfile/{avpId}
   operationId: delete_authorizationViewProfiles
@@ -55,4 +55,4 @@ delete:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/AuthorizationViewProfileInfo.yaml

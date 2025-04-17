@@ -29,7 +29,7 @@ put:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/Dashboard.yaml
 delete:
   summary: DELETE mwsx/owlOntology/{name}/version/dashboard/{dashboardId}
   operationId: delete__owlOntology_version_dashboards
@@ -55,4 +55,4 @@ delete:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/Dashboard.yaml

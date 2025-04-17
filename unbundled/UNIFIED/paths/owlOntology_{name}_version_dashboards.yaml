@@ -18,7 +18,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/Dashboards.yaml
 post:
   summary: POST mwsx/owlOntology/{name}/version/dashboards
   operationId: post__owlOntology_version_dashboards
@@ -45,4 +45,4 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/Dashboards.yaml
