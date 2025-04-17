@@ -1,0 +1,21 @@
+get:
+  summary: GET mwsx/endpoint/{name}/query/{queryID}/sqlDebugRewritings
+  operationId: get__owlOntology_name_version_query_ID_sqlDebugRewritings
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: queryID
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml

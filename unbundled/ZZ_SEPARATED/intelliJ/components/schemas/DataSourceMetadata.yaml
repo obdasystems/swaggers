@@ -1,0 +1,14 @@
+type: object
+properties:
+  info:
+    $ref: ./DataSourceInfoEntry.yaml
+  dataSourceName:
+    type: string
+  catalogName:
+    type: string
+  schemas:
+    type: array
+    items:
+      type: string
+  schemaMetadata:
+    type: string

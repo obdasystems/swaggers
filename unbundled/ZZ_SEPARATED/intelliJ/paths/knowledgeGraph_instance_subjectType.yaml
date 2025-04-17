@@ -1,0 +1,47 @@
+get:
+  summary: GET mwsx/knowledgeGraph/instance/subjectType
+  operationId: get__knowledgeGraph_instance_subjectType
+  parameters:
+    - name: kgIri
+      in: query
+      required: true
+      schema:
+        type: string
+    - name: namedGraph
+      in: query
+      required: true
+      schema:
+        type: string
+    - name: subject
+      in: query
+      required: true
+      schema:
+        type: string
+    - name: predicate
+      in: query
+      required: true
+      schema:
+        type: string
+    - name: type
+      in: query
+      required: true
+      schema:
+        type: string
+    - name: page
+      in: query
+      required: true
+      schema:
+        type: integer
+        format: int32
+    - name: lang
+      in: query
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml

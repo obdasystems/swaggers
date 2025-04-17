@@ -1,0 +1,32 @@
+delete:
+  summary: DELETE mwsx/knowledgeGraph/store/file/{name}
+  operationId: delete__knowledgeGraph_store_file
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml
+get:
+  summary: GET mwsx/knowledgeGraph/store/file/{name}
+  operationId: get__knowledgeGraph_store_file
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml

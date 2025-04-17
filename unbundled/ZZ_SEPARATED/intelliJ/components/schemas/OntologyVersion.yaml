@@ -1,0 +1,36 @@
+type: object
+properties:
+  ontologyID:
+    type: string
+  versionID:
+    type: string
+  ontologyIRI:
+    type: string
+  versionDescription:
+    type: array
+    items:
+      $ref: ./Label.yaml
+  versionDate:
+    type: integer
+    format: int64
+  numClasses:
+    type: integer
+    format: int32
+  numObjectProperties:
+    type: integer
+    format: int32
+  numDataProperties:
+    type: integer
+    format: int32
+  numAxioms:
+    type: integer
+    format: int32
+  numIndividuals:
+    type: integer
+    format: int32
+  versionOwner:
+    $ref: ./User.yaml
+  catalog:
+    $ref: ./OntologyCatalog.yaml
+  individualInfos:
+    $ref: ./IndividualInfos.yaml

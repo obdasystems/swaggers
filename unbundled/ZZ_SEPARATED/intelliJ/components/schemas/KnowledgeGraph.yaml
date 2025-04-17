@@ -1,0 +1,35 @@
+type: object
+properties:
+  kgIri:
+    type: string
+  kgTitle:
+    type: array
+    items:
+      $ref: ./Label.yaml
+  kgCreator:
+    $ref: ./User.yaml
+  kgPublisher:
+    $ref: ./Agent.yaml
+  kgContributors:
+    type: array
+    items:
+      $ref: ./User.yaml
+  kgRightsHolder:
+    $ref: ./Agent.yaml
+  kgCreationTs:
+    type: integer
+    format: int64
+  kgLastModifiedTs:
+    type: integer
+    format: int64
+  kgDescriptions:
+    type: array
+    items:
+      $ref: ./Label.yaml
+  kgTriples:
+    type: integer
+    format: int64
+  prefixes:
+    type: string
+  kgType:
+    type: string

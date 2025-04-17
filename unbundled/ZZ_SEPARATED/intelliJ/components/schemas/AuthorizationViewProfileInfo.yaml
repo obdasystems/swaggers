@@ -1,0 +1,12 @@
+type: object
+properties:
+  profile:
+    $ref: ./AuthorizationViewProfile.yaml
+  description:
+    type: string
+  ontologyName:
+    type: string
+  ontologyVersion:
+    type: string
+  mappingId:
+    type: string

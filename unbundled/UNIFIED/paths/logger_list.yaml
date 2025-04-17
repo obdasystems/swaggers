@@ -1,0 +1,10 @@
+get:
+  summary: GET mwsx/logger/list
+  operationId: get_set_service_logger_list
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml

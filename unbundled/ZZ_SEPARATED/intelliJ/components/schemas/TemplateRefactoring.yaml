@@ -1,0 +1,6 @@
+type: object
+properties:
+  oldTemplate:
+    type: string
+  newTemplate:
+    type: string

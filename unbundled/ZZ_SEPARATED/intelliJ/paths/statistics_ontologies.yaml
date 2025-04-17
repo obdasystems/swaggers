@@ -1,0 +1,56 @@
+get:
+  summary: GET mwsx/statistics/ontologies
+  operationId: get_ontologies_statistics
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml
+post:
+  summary: POST mwsx/statistics/ontologies
+  operationId: post_ontologies_statistics
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: ../components/schemas/OntologyUsageLog.yaml
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml
+put:
+  summary: PUT mwsx/statistics/ontologies
+  operationId: put_ontologies_statistics
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: ../components/schemas/OntologyUsageLog.yaml
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml
+delete:
+  summary: DELETE mwsx/statistics/ontologies
+  operationId: delete_ontologies_statistics
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml

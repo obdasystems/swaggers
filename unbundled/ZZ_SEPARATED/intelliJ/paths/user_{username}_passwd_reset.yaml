@@ -1,0 +1,21 @@
+put:
+  summary: PUT mwsx/user/{username}/passwd/reset
+  operationId: put__user_passwd_reset
+  parameters:
+    - name: username
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: email
+      in: query
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml

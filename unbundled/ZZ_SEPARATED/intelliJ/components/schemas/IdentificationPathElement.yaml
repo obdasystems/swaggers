@@ -1,0 +1,6 @@
+type: object
+properties:
+  entity:
+    $ref: ./Entity.yaml
+  inverse:
+    type: boolean

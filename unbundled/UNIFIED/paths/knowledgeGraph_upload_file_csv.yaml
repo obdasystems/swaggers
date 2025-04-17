@@ -1,0 +1,42 @@
+post:
+  summary: POST mwsx/knowledgeGraph/upload/file/csv
+  operationId: post__knowledgeGraph_upload_file_csv
+  parameters:
+    - name: hasHeadersRow
+      in: query
+      required: true
+      schema:
+        type: boolean
+    - name: csvSeparator
+      in: query
+      required: true
+      schema:
+        type: string
+    - name: quoteChar
+      in: query
+      required: true
+      schema:
+        type: string
+    - name: escapeChar
+      in: query
+      required: true
+      schema:
+        type: string
+    - name: eolSequence
+      in: query
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/FileInfo.yaml
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml

@@ -1,0 +1,8 @@
+type: object
+properties:
+  direct:
+    type: boolean
+  id:
+    type: string
+  entity:
+    $ref: ./Entity.yaml

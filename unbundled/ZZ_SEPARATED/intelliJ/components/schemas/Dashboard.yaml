@@ -1,0 +1,12 @@
+type: object
+properties:
+  title:
+    type: string
+  id:
+    type: string
+  description:
+    type: string
+  tabs:
+    type: array
+    items:
+      $ref: ./DashboardTab.yaml

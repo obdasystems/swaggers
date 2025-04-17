@@ -1,0 +1,10 @@
+get:
+  summary: GET mwsx/monolith/roles
+  operationId: get__monolith__roles
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml

@@ -1,0 +1,26 @@
+get:
+  summary: GET mwsx/taskScheduler/state
+  operationId: get__task_scheduler_state
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml
+put:
+  summary: PUT mwsx/taskScheduler/state
+  operationId: put__task_scheduler_state
+  parameters:
+    - name: action
+      in: query
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml

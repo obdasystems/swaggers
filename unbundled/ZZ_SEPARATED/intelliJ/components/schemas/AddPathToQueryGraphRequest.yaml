@@ -1,0 +1,6 @@
+type: object
+properties:
+  queryGraph:
+    $ref: ./QueryGraph.yaml
+  ontologyPath:
+    $ref: ./OntologyPath.yaml

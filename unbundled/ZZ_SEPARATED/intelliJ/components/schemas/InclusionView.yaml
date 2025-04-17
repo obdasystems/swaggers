@@ -1,0 +1,8 @@
+type: object
+properties:
+  sqlViewID:
+    type: string
+  termList:
+    type: array
+    items:
+      type: string

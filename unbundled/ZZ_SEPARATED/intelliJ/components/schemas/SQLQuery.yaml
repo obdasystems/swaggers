@@ -1,0 +1,8 @@
+type: object
+properties:
+  queryCode:
+    type: string
+  dbName:
+    type: string
+  paramValues:
+    type: string

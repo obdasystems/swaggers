@@ -1,0 +1,10 @@
+get:
+  summary: GET mwsx/owlOntology/queries/publicationRequests
+  operationId: get_query_publication_requests
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml

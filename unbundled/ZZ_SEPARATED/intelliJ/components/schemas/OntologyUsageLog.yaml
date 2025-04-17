@@ -1,0 +1,7 @@
+type: object
+properties:
+  ontology:
+    $ref: ./OntologyID.yaml
+  count:
+    type: integer
+    format: int32

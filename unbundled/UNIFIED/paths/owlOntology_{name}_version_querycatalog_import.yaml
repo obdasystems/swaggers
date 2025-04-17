@@ -1,0 +1,32 @@
+post:
+  summary: POST mwsx/owlOntology/{name}/version/querycatalog/import
+  operationId: get__owlOntology_name_version_querycatalog_import
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: version
+      in: query
+      required: true
+      schema:
+        type: string
+    - name: additive
+      in: query
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/FileInfo.yaml
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml

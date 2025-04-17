@@ -1,0 +1,22 @@
+post:
+  summary: POST mwsx/taskScheduler/jobs/entries/filter
+  operationId: post__task_scheduler_job_entries
+  parameters:
+    - name: mode
+      in: query
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: string
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml

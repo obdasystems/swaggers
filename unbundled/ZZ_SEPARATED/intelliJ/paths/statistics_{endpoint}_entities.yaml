@@ -1,0 +1,28 @@
+get:
+  summary: GET mwsx/statistics/{endpoint}/entities
+  operationId: get_statistics_endpoint_entities
+  parameters:
+    - name: endpoint
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: timestampStart
+      in: query
+      required: true
+      schema:
+        type: integer
+        format: int64
+    - name: timestampEnd
+      in: query
+      required: true
+      schema:
+        type: integer
+        format: int64
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml

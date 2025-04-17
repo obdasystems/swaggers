@@ -1,0 +1,10 @@
+get:
+  summary: GET mwsx/ontologyCatalog/query/results/export/formats
+  operationId: get_ontology_catalog_query_results_export_formats
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml

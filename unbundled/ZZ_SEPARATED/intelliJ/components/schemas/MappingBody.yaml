@@ -1,0 +1,10 @@
+type: object
+properties:
+  viewAtoms:
+    type: array
+    items:
+      $ref: ./MappingAtom.yaml
+  bip:
+    type: array
+    items:
+      $ref: ./MappingAtom.yaml

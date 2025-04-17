@@ -1,0 +1,9 @@
+type: object
+properties:
+  username:
+    type: string
+  timestamp:
+    type: integer
+    format: int64
+  queryCode:
+    type: string

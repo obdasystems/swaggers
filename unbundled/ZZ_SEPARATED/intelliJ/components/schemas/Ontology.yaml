@@ -1,0 +1,15 @@
+type: object
+properties:
+  ontologyID:
+    type: string
+  ontologyDescription:
+    type: string
+  ontologyVersions:
+    type: array
+    items:
+      $ref: ./OntologyVersion.yaml
+  ontologyOwner:
+    $ref: ./User.yaml
+  ontologyDate:
+    type: integer
+    format: int64

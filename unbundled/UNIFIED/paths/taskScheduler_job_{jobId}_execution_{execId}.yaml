@@ -1,0 +1,21 @@
+get:
+  summary: GET mwsx/taskScheduler/job/{jobId}/execution/{execId}
+  operationId: get__task_scheduler_job_entries_execution_id
+  parameters:
+    - name: jobId
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: execId
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml

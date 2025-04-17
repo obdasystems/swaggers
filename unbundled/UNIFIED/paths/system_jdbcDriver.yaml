@@ -1,0 +1,16 @@
+post:
+  summary: POST mwsx/system/jdbcDriver
+  operationId: postJdbcDrivers
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/JDBCDriver.yaml
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml

@@ -1,0 +1,31 @@
+type: object
+properties:
+  type:
+    type: string
+    enum:
+      - MINCOUNT
+      - MAXCOUNT
+      - MINEXCLUSIVE
+      - MAXEXCLUSIVE
+      - MININCLUSIVE
+      - MAXINCLUSIVE
+      - MINLENGTH
+      - MAXLENGTH
+      - PATTERN
+      - IN
+      - EQUALS
+      - DISJOINT
+      - LESSTHAN
+      - LESSTHANOREQUALS
+      - GREATERTHAN
+      - GREATERTHANOREQUALS
+  targetClass:
+    type: string
+  path:
+    type: string
+  property:
+    type: string
+  constraintValue:
+    type: array
+    items:
+      type: string

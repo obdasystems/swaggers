@@ -1,0 +1,16 @@
+put:
+  summary: PUT mwsx/knowledgeGraph/union/queryKg
+  operationId: patch__knowledgeGraph_union_queryKg
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/KnowledgeGraphDestinationQueryKg.yaml
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml

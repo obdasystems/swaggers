@@ -1,0 +1,21 @@
+get:
+  summary: GET mwsx/ontologyCatalog/query/{queryId}/results/export
+  operationId: get_ontology_catalog_query_results_export
+  parameters:
+    - name: queryId
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: format
+      in: query
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/octet-stream:
+          schema:
+            $ref: ../components/schemas/Response.yaml

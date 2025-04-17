@@ -1,0 +1,8 @@
+type: object
+properties:
+  template:
+    type: string
+  terms:
+    type: array
+    items:
+      type: string

@@ -1,0 +1,47 @@
+get:
+  summary: GET mwsx/ontologyCatalog
+  operationId: get_ontology_catalog
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml
+delete:
+  summary: DELETE mwsx/ontologyCatalog
+  operationId: delete_ontology_catalog
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml
+post:
+  summary: POST mwsx/ontologyCatalog
+  operationId: post_ontology_catalog
+  parameters:
+    - name: action
+      in: query
+      required: true
+      schema:
+        type: string
+    - name: overwrite
+      in: query
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/OntologyCatalogEntry.yaml
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml

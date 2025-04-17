@@ -1,0 +1,26 @@
+post:
+  summary: POST mwsx/owlOntology/{name}/version/query/{queryID}/publication
+  operationId: post__owlOntology_name_version_querycatalog_request_publication
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: queryID
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: version
+      in: query
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml

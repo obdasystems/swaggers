@@ -1,0 +1,10 @@
+type: object
+properties:
+  rating:
+    type: number
+    format: double
+  timestamp:
+    type: integer
+    format: int64
+  comment:
+    type: string

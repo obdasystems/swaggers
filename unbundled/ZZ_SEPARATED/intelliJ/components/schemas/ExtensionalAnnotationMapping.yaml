@@ -1,0 +1,10 @@
+type: object
+properties:
+  annotationProperty:
+    $ref: ./Entity.yaml
+  template:
+    $ref: ./MappingTemplate.yaml
+  subjectTemplate:
+    $ref: ./MappingTemplate.yaml
+  lang:
+    type: string

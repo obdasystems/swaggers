@@ -1,0 +1,202 @@
+openapi: 3.0.0
+servers:
+  - url: 'https://{tenant}/mws/rest/mwsx'
+    variables:
+      tenant:
+        default: localhost
+        description: Your localhost
+info:
+  description: >-
+    This is the API for managing Endpoints in Mastro. An endpoint
+    is used to expose the data in the ontology by means of a SPARQL
+    endpoint. The data is exposed by means of a set of SPARQL queries
+    that are executed in the DBMS after being processed as SQL queries 
+    by Mastro.
+  version: 1.0.0
+  title: Endpoints API model
+  contact:
+    email: info@obdasystems.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+paths:
+  /endpoints:
+    $ref: paths/endpoints.yaml
+  /endpoints/referencing/owlOntology/{name}/version:
+    $ref: paths/endpoints_referencing_owlOntology_{name}_version.yaml
+  /endpoints/referencing/owlOntology/{name}/version/mapping/{ID}:
+    $ref: paths/endpoints_referencing_owlOntology_{name}_version_mapping_{ID}.yaml
+  /endpoints/referencing/datasource/{name}:
+    $ref: paths/endpoints_referencing_datasource_{name}.yaml
+  /endpoints/running:
+    $ref: paths/endpoints_running.yaml
+  /endpoint/{name}:
+    $ref: paths/endpoint_{name}.yaml
+  /endpoint:
+    $ref: paths/endpoint.yaml
+  /endpoint/{name}/prefixes:
+    $ref: paths/endpoint_{name}_prefixes.yaml
+  /endpoint/{name}/start:
+    $ref: paths/endpoint_{name}_start.yaml
+  /endpoint/{name}/stop:
+    $ref: paths/endpoint_{name}_stop.yaml
+  /endpoint/{name}/status:
+    $ref: paths/endpoint_{name}_status.yaml
+  /endpoint/{name}/empties:
+    $ref: paths/endpoint_{name}_empties.yaml
+  /endpoint/{name}/emptyUnfoldingEntities:
+    $ref: paths/endpoint_{name}_emptyUnfoldingEntities.yaml
+  /endpoint/{name}/highlights/annotations:
+    $ref: paths/endpoint_{name}_highlights_annotations.yaml
+  /endpoint/{name}/query/count/{queryId}/stop:
+    $ref: paths/endpoint_{name}_query_count_{queryId}_stop.yaml
+  /endpoint/{name}/query/count/{queryId}:
+    $ref: paths/endpoint_{name}_query_count_{queryId}.yaml
+  /endpoint/{name}/query/count/{queryId}/result:
+    $ref: paths/endpoint_{name}_query_count_{queryId}_result.yaml
+  /endpoint/{name}/query/check:
+    $ref: paths/endpoint_{name}_query_check.yaml
+  /endpoint/{name}/query/quarantinedMappingsByEntity:
+    $ref: paths/endpoint_{name}_query_quarantinedMappingsByEntity.yaml
+  /endpoint/{name}/query/{queryID}/start:
+    $ref: paths/endpoint_{name}_query_{queryID}_start.yaml
+  /endpoint/{name}/query/{queryID}/stop:
+    $ref: paths/endpoint_{name}_query_{queryID}_stop.yaml
+  /endpoint/{name}/query/{queryID}/exportFile:
+    $ref: paths/endpoint_{name}_query_{queryID}_exportFile.yaml
+  /endpoint/{name}/query/{queryID}/fullSparqlDetails:
+    $ref: paths/endpoint_{name}_query_{queryID}_fullSparqlDetails.yaml
+  /endpoint/{name}/query/{queryID}/ontologyRewritings:
+    $ref: paths/endpoint_{name}_query_{queryID}_ontologyRewritings.yaml
+  /endpoint/{name}/query/{queryID}/viewRewritings:
+    $ref: paths/endpoint_{name}_query_{queryID}_viewRewritings.yaml
+  /endpoint/{name}/query/{queryID}/viewOptimizedRewritings:
+    $ref: paths/endpoint_{name}_query_{queryID}_viewOptimizedRewritings.yaml
+  /endpoint/{name}/query/{queryID}/sqlRewritings:
+    $ref: paths/endpoint_{name}_query_{queryID}_sqlRewritings.yaml
+  /endpoint/{name}/query/{queryID}/sqlDebugRewritings:
+    $ref: paths/endpoint_{name}_query_{queryID}_sqlDebugRewritings.yaml
+  /endpoint/{name}/query/{queryID}/results:
+    $ref: paths/endpoint_{name}_query_{queryID}_results.yaml
+  /endpoint/{name}/query/{queryID}/status:
+    $ref: paths/endpoint_{name}_query_{queryID}_status.yaml
+  /endpoint/{name}/queryRecordInfos:
+    $ref: paths/endpoint_{name}_queryRecordInfos.yaml
+  /endpoint/{name}/query/{queryID}/queryRecordInfo:
+    $ref: paths/endpoint_{name}_query_{queryID}_queryRecordInfo.yaml
+  /endpoint/{name}/query/exportQueryResults:
+    $ref: paths/endpoint_{name}_query_exportQueryResults.yaml
+  /endpoint/{name}/query/export/direct:
+    $ref: paths/endpoint_{name}_query_export_direct.yaml
+  /endpoint/{name}/exportThreads:
+    $ref: paths/endpoint_{name}_exportThreads.yaml
+  /endpoint/{name}/exported:
+    $ref: paths/endpoint_{name}_exported.yaml
+  /endpoint/{name}/exported/{fileName}:
+    $ref: paths/endpoint_{name}_exported_{fileName}.yaml
+  /endpoint/{name}/exportThread/{id}/status:
+    $ref: paths/endpoint_{name}_exportThread_{id}_status.yaml
+  /endpoint/{name}/exportThread/{id}/errors:
+    $ref: paths/endpoint_{name}_exportThread_{id}_errors.yaml
+  /endpoint/{name}/exportThread/{id}/stop:
+    $ref: paths/endpoint_{name}_exportThread_{id}_stop.yaml
+  /endpoint/{name}/exportThread/{id}/stats:
+    $ref: paths/endpoint_{name}_exportThread_{id}_stats.yaml
+  /endpoint/{name}/exportThread/{id}/file:
+    $ref: paths/endpoint_{name}_exportThread_{id}_file.yaml
+  /endpoint/{name}/exportThread/{id}/preview/{lines}:
+    $ref: paths/endpoint_{name}_exportThread_{id}_preview_{lines}.yaml
+  /endpoint/{name}/exportThread/{id}:
+    $ref: paths/endpoint_{name}_exportThread_{id}.yaml
+  /endpoint/{name}/cquery/start:
+    $ref: paths/endpoint_{name}_cquery_start.yaml
+  /endpoint/{name}/cquery/{queryID}/start:
+    $ref: paths/endpoint_{name}_cquery_{queryID}_start.yaml
+  /endpoint/{name}/cquery/{queryID}/status:
+    $ref: paths/endpoint_{name}_cquery_{queryID}_status.yaml
+  /endpoint/{name}/cquery/exportQueryResults:
+    $ref: paths/endpoint_{name}_cquery_exportQueryResults.yaml
+  /endpoint/{name}/cquery/{queryID}/export:
+    $ref: paths/endpoint_{name}_cquery_{queryID}_export.yaml
+  /endpoint/{name}/cquery/{queryID}/results:
+    $ref: paths/endpoint_{name}_cquery_{queryID}_results.yaml
+  /endpoint/{name}/cquery/{queryID}/results/triples:
+    $ref: paths/endpoint_{name}_cquery_{queryID}_results_triples.yaml
+  /endpoint/{name}/cquery/{queryID}/results/tabular:
+    $ref: paths/endpoint_{name}_cquery_{queryID}_results_tabular.yaml
+  /endpoint/{name}/cquery/{queryID}/results/rdfGraph:
+    $ref: paths/endpoint_{name}_cquery_{queryID}_results_rdfGraph.yaml
+  /endpoint/{eName}/countEntityInstances:
+    $ref: paths/endpoint_{eName}_countEntityInstances.yaml
+  /endpoint/{eName}/countEntityInstances/start:
+    $ref: paths/endpoint_{eName}_countEntityInstances_start.yaml
+  /endpoint/{eName}/countEntityInstances/stop:
+    $ref: paths/endpoint_{eName}_countEntityInstances_stop.yaml
+  /endpoint/{eName}/countEntityInstances/info:
+    $ref: paths/endpoint_{eName}_countEntityInstances_info.yaml
+  /endpoint/{eName}/instanceChecking/start:
+    $ref: paths/endpoint_{eName}_instanceChecking_start.yaml
+  /endpoint/{eName}/instanceChecking/{threadId}/stop:
+    $ref: paths/endpoint_{eName}_instanceChecking_{threadId}_stop.yaml
+  /endpoint/{eName}/instanceChecking/{threadId}/info:
+    $ref: paths/endpoint_{eName}_instanceChecking_{threadId}_info.yaml
+  /endpoint/{eName}/minMaxDataproperties/start:
+    $ref: paths/endpoint_{eName}_minMaxDataproperties_start.yaml
+  /endpoint/{eName}/minMaxDataproperties/stop:
+    $ref: paths/endpoint_{eName}_minMaxDataproperties_stop.yaml
+  /endpoint/{eName}/minMaxDataproperties/info:
+    $ref: paths/endpoint_{eName}_minMaxDataproperties_info.yaml
+  /endpoint/{name}/queries:
+    $ref: paths/endpoint_{name}_queries.yaml
+  /endpoint/{name}/queries/ids:
+    $ref: paths/endpoint_{name}_queries_ids.yaml
+  /endpoint/{name}/query/{executionId}:
+    $ref: paths/endpoint_{name}_query_{executionId}.yaml
+  /endpoint/{name}/query/start:
+    $ref: paths/endpoint_{name}_query_start.yaml
+  /endpoint/{name}/query/start-sync:
+    $ref: paths/endpoint_{name}_query_start-sync.yaml
+  /endpoint/{name}/query/count:
+    $ref: paths/endpoint_{name}_query_count.yaml
+  /endpoint/{name}/query/count/{queryId}/state:
+    $ref: paths/endpoint_{name}_query_count_{queryId}_state.yaml
+  /endpoint/{name}/query/count/{queryId}/error:
+    $ref: paths/endpoint_{name}_query_count_{queryId}_error.yaml
+  /endpoint/{name}/new-cq-query/start:
+    $ref: paths/endpoint_{name}_new-cq-query_start.yaml
+  /endpoint/{name}/new-cq-query/{executionId}/results:
+    $ref: paths/endpoint_{name}_new-cq-query_{executionId}_results.yaml
+  /endpoint/{name}/new-cq-query/{executionId}/status:
+    $ref: paths/endpoint_{name}_new-cq-query_{executionId}_status.yaml
+  /endpoint/{name}/new-cq-query/{executionId}/ontologyRewritings:
+    $ref: paths/endpoint_{name}_new-cq-query_{executionId}_ontologyRewritings.yaml
+  /endpoint/{name}/new-cq-query/{executionId}/viewRewritings:
+    $ref: paths/endpoint_{name}_new-cq-query_{executionId}_viewRewritings.yaml
+  /endpoint/{name}/new-cq-query/{executionId}/viewOptimizedRewritings:
+    $ref: >-
+      paths/endpoint_{name}_new-cq-query_{executionId}_viewOptimizedRewritings.yaml
+  /endpoint/{name}/new-cq-query/{executionId}/sqlRewritings:
+    $ref: paths/endpoint_{name}_new-cq-query_{executionId}_sqlRewritings.yaml
+  /endpoint/{name}/new-cq-query/{executionId}/sqlDebugRewritings:
+    $ref: paths/endpoint_{name}_new-cq-query_{executionId}_sqlDebugRewritings.yaml
+  /endpoint/{name}/new-cq-query/{executionId}/stop:
+    $ref: paths/endpoint_{name}_new-cq-query_{executionId}_stop.yaml
+  /endpoint/{name}/new-cq-query/{executionId}:
+    $ref: paths/endpoint_{name}_new-cq-query_{executionId}.yaml
+  /endpoint/{name}/virtualEntity/{veName}:
+    $ref: paths/endpoint_{name}_virtualEntity_{veName}.yaml
+  /endpoint/{eName}/mappingAnalysisReport:
+    $ref: paths/endpoint_{eName}_mappingAnalysisReport.yaml
+  /endpoint/{eName}/saturetedOntology:
+    $ref: paths/endpoint_{eName}_saturetedOntology.yaml
+  /endpoint/{endpointName}/highligthsSharedViewsProps:
+    $ref: paths/endpoint_{endpointName}_highligthsSharedViewsProps.yaml
+components: 
+  securitySchemes: 
+    api-key: 
+      $ref: './components/securitySchemes/api-key.yaml'
+    jwt:
+      $ref: './components/securitySchemes/jwt.yaml'
+security: 
+  - api-key: []
+  - jwt: []

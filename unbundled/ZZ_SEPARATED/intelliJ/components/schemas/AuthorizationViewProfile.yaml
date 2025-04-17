@@ -1,0 +1,16 @@
+type: object
+properties:
+  id:
+    type: string
+  classes:
+    type: array
+    items:
+      type: string
+  objectProperties:
+    type: array
+    items:
+      type: string
+  dataProperties:
+    type: array
+    items:
+      type: string

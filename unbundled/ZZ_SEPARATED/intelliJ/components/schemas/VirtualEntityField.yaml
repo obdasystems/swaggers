@@ -1,0 +1,6 @@
+type: object
+properties:
+  fieldName:
+    type: string
+  fieldType:
+    type: string

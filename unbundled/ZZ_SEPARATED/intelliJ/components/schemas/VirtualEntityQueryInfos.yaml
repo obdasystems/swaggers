@@ -1,0 +1,8 @@
+type: object
+properties:
+  virtualEntityname:
+    type: string
+  idSelection:
+    type: string
+  fieldFilters:
+    type: string

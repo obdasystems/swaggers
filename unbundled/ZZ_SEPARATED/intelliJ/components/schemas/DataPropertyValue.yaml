@@ -1,0 +1,10 @@
+type: object
+properties:
+  value:
+    type: string
+  iri:
+    type: string
+  language:
+    type: string
+  datatype:
+    type: string

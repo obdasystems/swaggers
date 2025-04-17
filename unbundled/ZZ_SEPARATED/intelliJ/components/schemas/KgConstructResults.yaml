@@ -1,0 +1,6 @@
+type: object
+properties:
+  execution:
+    $ref: ./SPARQLQueryExecution.yaml
+  source:
+    type: string

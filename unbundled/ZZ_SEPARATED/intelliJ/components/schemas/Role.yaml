@@ -1,0 +1,8 @@
+type: object
+properties:
+  name:
+    type: string
+  permissions:
+    type: array
+    items:
+      $ref: ./Permission.yaml

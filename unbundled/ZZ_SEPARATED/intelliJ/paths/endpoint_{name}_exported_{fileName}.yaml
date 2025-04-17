@@ -1,0 +1,42 @@
+get:
+  summary: GET mwsx/endpoint/{name}/exported/{fileName}
+  operationId: get__owlOntology_name_version_query_ID_exported_fileName
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: fileName
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml
+delete:
+  summary: DELETE mwsx/endpoint/{name}/exported/{fileName}
+  operationId: delete__owlOntology_name_version_query_ID_exported_fileName
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: fileName
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml

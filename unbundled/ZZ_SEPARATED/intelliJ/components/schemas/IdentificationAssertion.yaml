@@ -1,0 +1,10 @@
+type: object
+properties:
+  identificationPaths:
+    type: array
+    items:
+      $ref: ./IdentificationPath.yaml
+  id:
+    type: string
+  entity:
+    $ref: ./Entity.yaml

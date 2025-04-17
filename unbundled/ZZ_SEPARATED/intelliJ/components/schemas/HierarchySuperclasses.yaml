@@ -1,0 +1,6 @@
+type: object
+properties:
+  classEntity:
+    $ref: ./Entity.yaml
+  complete:
+    type: boolean

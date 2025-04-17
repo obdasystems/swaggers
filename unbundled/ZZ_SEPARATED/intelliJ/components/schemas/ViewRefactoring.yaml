@@ -1,0 +1,8 @@
+type: object
+properties:
+  viewName:
+    type: string
+  newSqlBody:
+    type: string
+  newDescription:
+    type: string

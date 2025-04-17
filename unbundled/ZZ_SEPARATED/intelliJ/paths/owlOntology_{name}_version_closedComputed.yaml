@@ -1,0 +1,26 @@
+get:
+  summary: GET mwsx/owlOntology/{name}/version/closedComputed
+  operationId: get__owlOntology_name_version_closed_computed
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: version
+      in: query
+      required: true
+      schema:
+        type: string
+    - name: format
+      in: query
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml

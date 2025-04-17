@@ -1,0 +1,24 @@
+type: object
+properties:
+  fullIri:
+    type: string
+  annotations:
+    type: array
+    items:
+      $ref: ./Annotation.yaml
+  datatype:
+    type: string
+  isDataPropertyFunctional:
+    type: boolean
+  functionProperties:
+    type: array
+    items:
+      type: string
+      enum:
+        - FUNCTIONAL
+        - INVERSEFUNCTIONAL
+        - TRANSITIVE
+        - SYMMETRIC
+        - ASYMMETRIC
+        - REFLEXIVE
+        - IRREFLEXIVE

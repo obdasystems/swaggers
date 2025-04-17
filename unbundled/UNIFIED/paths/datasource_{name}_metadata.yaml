@@ -1,0 +1,16 @@
+get:
+  summary: GET mwsx/datasource/{name}/metadata
+  operationId: get__datasource_metadata
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml

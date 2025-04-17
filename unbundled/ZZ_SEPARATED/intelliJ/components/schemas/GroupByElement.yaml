@@ -1,0 +1,12 @@
+type: object
+properties:
+  distinct:
+    type: boolean
+  aggregateFunction:
+    type: string
+    enum:
+      - COUNT
+      - SUM
+      - MIN
+      - MAX
+      - AVERAGE

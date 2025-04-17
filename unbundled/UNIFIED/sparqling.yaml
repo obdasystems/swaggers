@@ -48,6 +48,16 @@ paths:
     $ref: paths/owlOntology_{ontologyName}_highlights.yaml
   /owlOntology/{ontologyName}/highlights/paths:
     $ref: paths/owlOntology_{ontologyName}_highlights_paths.yaml
+  /owlOntology/{name}/highlights/paths/thread/start:
+    $ref: paths/owlOntology_{name}_highlights_paths_thread_start.yaml
+  /owlOntology/{name}/highlights/paths/thread/stop:
+    $ref: paths/owlOntology_{name}_highlights_paths_thread_stop.yaml
+  /owlOntology/{name}/highlights/paths/thread/result:
+    $ref: paths/owlOntology_{name}_highlights_paths_thread_result.yaml
+  /owlOntology/{name}/highlights/paths/thread/state:
+    $ref: paths/owlOntology_{name}_highlights_paths_thread_state.yaml
+  /owlOntology/{name}/highlights/paths/thread/error:
+      $ref: paths/owlOntology_{name}_highlights_paths_thread_error.yaml
   /owlOntology/{ontologyName}/queryGraph/node:
     $ref: paths/owlOntology_{ontologyName}_queryGraph_node.yaml
   /owlOntology/{ontologyName}/queryGraph/node/class/{graphElementId}:
@@ -124,3 +134,12 @@ paths:
     $ref: paths/endpoint_{endpointName}_highligthsSharedViewsProps.yaml
   /endpoint/{endpointName}/instanceShortestPath:
     $ref: paths/endpoint_{endpointName}_instanceShortestPath.yaml
+components: 
+  securitySchemes: 
+    api-key: 
+      $ref: './components/securitySchemes/api-key.yaml'
+    jwt:
+      $ref: './components/securitySchemes/jwt.yaml'
+security: 
+  - api-key: []
+  - jwt: []

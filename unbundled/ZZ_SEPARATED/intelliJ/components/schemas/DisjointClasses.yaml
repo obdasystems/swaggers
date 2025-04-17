@@ -1,0 +1,8 @@
+type: object
+properties:
+  disjointClass:
+    $ref: ./Entity.yaml
+  id:
+    type: string
+  entity:
+    $ref: ./Entity.yaml

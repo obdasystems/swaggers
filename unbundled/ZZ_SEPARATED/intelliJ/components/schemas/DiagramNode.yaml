@@ -1,0 +1,6 @@
+type: object
+properties:
+  nodeID:
+    type: string
+  diagramName:
+    type: string

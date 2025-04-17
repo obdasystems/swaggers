@@ -1,0 +1,30 @@
+type: object
+properties:
+  disjointnesses:
+    type: array
+    items:
+      $ref: ./DisjointClasses.yaml
+  functionalities:
+    type: array
+    items:
+      $ref: ./FunctionalPropertyAssertion.yaml
+  identifications:
+    type: array
+    items:
+      $ref: ./IdentificationAssertion.yaml
+  mandatories:
+    type: array
+    items:
+      $ref: ./MandatoryParticipationAssertion.yaml
+  cardinalities:
+    type: array
+    items:
+      $ref: ./SubClassWithCardinalityAssertion.yaml
+  keys:
+    type: array
+    items:
+      $ref: ./HasKeyAssertion.yaml
+  universals:
+    type: array
+    items:
+      $ref: ./SubClassWithForAllAssertion.yaml

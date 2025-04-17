@@ -1,0 +1,52 @@
+post:
+  summary: POST mwsx/owlOntology/{name}/version/loaderThreads/metadata
+  operationId: post__owlOntology_name_version_metadata_async
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: version
+      in: query
+      required: true
+      schema:
+        type: string
+    - name: newVersion
+      in: query
+      required: true
+      schema:
+        type: string
+    - name: action
+      in: query
+      required: true
+      schema:
+        type: string
+    - name: params
+      in: query
+      required: true
+      schema:
+        type: string
+    - name: computeEmpties
+      in: query
+      required: true
+      schema:
+        type: string
+    - name: computeGeneralConceptInclusions
+      in: query
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/OntologyCatalogOntologyMetadataSet.yaml
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml

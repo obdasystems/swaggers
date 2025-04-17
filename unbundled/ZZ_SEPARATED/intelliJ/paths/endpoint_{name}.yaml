@@ -1,0 +1,54 @@
+get:
+  summary: GET mwsx/endpoint/{name}
+  operationId: get_endpoint
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml
+delete:
+  summary: DELETE mwsx/endpoint/{name}
+  operationId: delete_endpoint
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml
+put:
+  summary: PUT mwsx/endpoint/{name}
+  operationId: put_endpoint
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      '*/*':
+        schema:
+          $ref: ../components/schemas/Endpoint.yaml
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml

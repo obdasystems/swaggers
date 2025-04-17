@@ -1,0 +1,37 @@
+openapi: 3.0.0
+servers:
+  - url: 'https://{tenant}/mws/rest/mwsx'
+    variables:
+      tenant:
+        default: localhost
+        description: Your localhost
+info:
+  description: >-
+    This is the API for managing Dashboards in Mastro. 
+    Dashboards are used to visualize data from the ontology
+    by means of saved SPARQL queries.
+  version: 1.0.0
+  title: Dashboards API model
+  contact:
+    email: info@obdasystems.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+paths:
+  /owlOntology/{name}/version/dashboards:
+    $ref: paths/owlOntology_{name}_version_dashboards.yaml
+  /owlOntology/{name}/version/dashboard/{dashboardId}/migrate:
+    $ref: paths/owlOntology_{name}_version_dashboard_{dashboardId}_migrate.yaml
+  /owlOntology/{name}/version/dashboards/migrate:
+    $ref: paths/owlOntology_{name}_version_dashboards_migrate.yaml
+  /owlOntology/{name}/version/dashboard/{dashboardId}:
+    $ref: paths/owlOntology_{name}_version_dashboard_{dashboardId}.yaml
+components: 
+  securitySchemes: 
+    api-key: 
+      $ref: './components/securitySchemes/api-key.yaml'
+    jwt:
+      $ref: './components/securitySchemes/jwt.yaml'
+security: 
+  - api-key: []
+  - jwt: []

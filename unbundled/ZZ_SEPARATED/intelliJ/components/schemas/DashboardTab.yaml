@@ -1,0 +1,12 @@
+type: object
+properties:
+  title:
+    type: string
+  cards:
+    type: array
+    items:
+      $ref: ./DashboardCard.yaml
+  compactType:
+    type: string
+  queryParametersValues:
+    type: string

@@ -1,0 +1,18 @@
+type: object
+properties:
+  id:
+    type: string
+  mappingDescription:
+    type: string
+  annotationProperty:
+    type: string
+  annotationSubjectIRI:
+    type: string
+  annotationValueContent:
+    type: string
+  annotationValueLang:
+    type: string
+  mappingBody:
+    $ref: ./MappingBody.yaml
+  userQuery:
+    type: string

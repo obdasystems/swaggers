@@ -1,0 +1,6 @@
+type: object
+properties:
+  entity:
+    $ref: ./VirtualEntity.yaml
+  sparqlingSPARQLQuery:
+    $ref: ./SparqlingSPARQLQuery.yaml

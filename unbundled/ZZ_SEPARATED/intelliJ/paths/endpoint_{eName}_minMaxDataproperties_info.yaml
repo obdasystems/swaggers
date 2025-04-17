@@ -1,0 +1,16 @@
+get:
+  summary: GET mwsx/endpoint/{eName}/minMaxDataproperties/info
+  operationId: get__endpoint_min_max_dataproperties
+  parameters:
+    - name: eName
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml

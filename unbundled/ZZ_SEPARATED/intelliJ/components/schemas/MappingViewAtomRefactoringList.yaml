@@ -1,0 +1,20 @@
+type: object
+properties:
+  refactoring:
+    $ref: ./MappingViewAtomRefactoring.yaml
+  mappingIds:
+    type: array
+    items:
+      type: string
+  keyIds:
+    type: array
+    items:
+      type: string
+  inclusionIds:
+    type: array
+    items:
+      type: string
+  denialIds:
+    type: array
+    items:
+      type: string

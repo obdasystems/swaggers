@@ -1,0 +1,18 @@
+type: object
+properties:
+  property:
+    $ref: ./Entity.yaml
+  direct:
+    type: boolean
+  filler:
+    $ref: ./Entity.yaml
+  cardinality:
+    type: integer
+    format: int32
+  cardinalityType:
+    type: integer
+    format: int32
+  id:
+    type: string
+  entity:
+    $ref: ./Entity.yaml

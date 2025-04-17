@@ -1,0 +1,56 @@
+get:
+  summary: GET mwsx/statistics/accesses
+  operationId: get_accesses_statistics
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml
+post:
+  summary: POST mwsx/statistics/accesses
+  operationId: post_accesses_statistics
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: ../components/schemas/AccessLog.yaml
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml
+put:
+  summary: PUT mwsx/statistics/accesses
+  operationId: put_accesses_statistics
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: ../components/schemas/AccessLog.yaml
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml
+delete:
+  summary: DELETE mwsx/statistics/accesses
+  operationId: delete_accesses_statistics
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml

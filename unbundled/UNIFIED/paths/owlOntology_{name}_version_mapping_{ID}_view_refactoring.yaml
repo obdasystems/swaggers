@@ -1,0 +1,64 @@
+post:
+  summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/view/refactoring
+  operationId: get__owlOntology_name_version_mapping_ID_views_refactoring
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: ID
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: version
+      in: query
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/ViewRefactoring.yaml
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml
+put:
+  summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/view/refactoring
+  operationId: post__owlOntology_name_version_mapping_ID_views_refactoring
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: ID
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: version
+      in: query
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/MappingViewAtomRefactoringList.yaml
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml

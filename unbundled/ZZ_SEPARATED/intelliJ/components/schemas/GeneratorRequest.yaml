@@ -1,0 +1,8 @@
+type: object
+properties:
+  prompt:
+    type: string
+  serviceUrl:
+    type: string
+  accessToken:
+    type: string

@@ -1,954 +1,935 @@
 openapi: 3.1.0
 info:
-  title: Mastro Web Services
-  description: RESTFul interface for Mastro
+  title: mastro API
+  description: mastro API
   version: 1.0.0
 servers:
-  - url: http://localhost:8989/mws/rest
+  - url: https://mastro
 paths:
-  /mwsx/owlOntology/{name}/version/avpOntologyTree:
-    $ref: paths/mwsx_owlOntology_{name}_version_avpOntologyTree.yaml
-  /mwsx/owlOntology/{name}/version/authorizationViewProfiles:
-    $ref: paths/mwsx_owlOntology_{name}_version_authorizationViewProfiles.yaml
-  /mwsx/owlOntology/{name}/version/authorizationViewProfile/{avpId}:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_authorizationViewProfile_{avpId}.yaml
-  /mwsx/ontologyDraftInfos:
-    $ref: paths/mwsx_ontologyDraftInfos.yaml
-  /mwsx/ontologyDraft/{ontologyName}:
-    $ref: paths/mwsx_ontologyDraft_{ontologyName}.yaml
-  /mwsx/ontologyDraft/download:
-    $ref: paths/mwsx_ontologyDraft_download.yaml
-  /mwsx/ontologyDraft/convertOWL:
-    $ref: paths/mwsx_ontologyDraft_convertOWL.yaml
-  /file:
-    $ref: paths/file.yaml
-  /file/list:
-    $ref: paths/file_list.yaml
-  /mwsx/owlOntology/{name}/version/ontologyConstraints:
-    $ref: paths/mwsx_owlOntology_{name}_version_ontologyConstraints.yaml
-  /mwsx/owlOntology/{name}/version/ontologyConstraints/set:
-    $ref: paths/mwsx_owlOntology_{name}_version_ontologyConstraints_set.yaml
-  /mwsx/owlOntology/{name}/version/ontologyConstraints/set/{setId}:
-    $ref: paths/mwsx_owlOntology_{name}_version_ontologyConstraints_set_{setId}.yaml
-  /mwsx/owlOntology/{name}/version/ontologyConstraints/set/{setId}/start/{endpoint}:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_ontologyConstraints_set_{setId}_start_{endpoint}.yaml
-  /mwsx/owlOntology/{name}/version/ontologyConstraints/set/{setId}/stop:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_ontologyConstraints_set_{setId}_stop.yaml
-  /mwsx/owlOntology/{name}/version/ontologyConstraints/set/{setId}/removeThread:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_ontologyConstraints_set_{setId}_removeThread.yaml
-  /mwsx/owlOntology/{name}/version/ontologyConstraints/set/{setId}/status:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_ontologyConstraints_set_{setId}_status.yaml
-  /mwsx/owlOntology/{name}/version/ontologyConstraints/sets/running:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_ontologyConstraints_sets_running.yaml
-  /mwsx/owlOntology/{name}/version/ontologyConstraints/sets/executionLogs:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_ontologyConstraints_sets_executionLogs.yaml
-  /mwsx/owlOntology/{name}/version/ontologyConstraints/set/{setId}/executionLog:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_ontologyConstraints_set_{setId}_executionLog.yaml
-  /mwsx/owlOntology/{name}/version/ontologyConstraints/set/{setId}/executionLogs/timestamps:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_ontologyConstraints_set_{setId}_executionLogs_timestamps.yaml
-  /mwsx/owlOntology/{name}/version/ontologyConstraints/set/{setId}/executionLogs/timestamp/{timestamp}:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_ontologyConstraints_set_{setId}_executionLogs_timestamp_{timestamp}.yaml
-  /mwsx/owlOntology/{name}/version/ontologyConstraints/set/{setId}/executionLog/timestamps:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_ontologyConstraints_set_{setId}_executionLog_timestamps.yaml
-  /mwsx/owlOntology/{name}/version/ontologyConstraints/set/{setId}/dump:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_ontologyConstraints_set_{setId}_dump.yaml
-  /mwsx/owlOntology/{name}/version/ontologyConstraints/sets/dump:
-    $ref: paths/mwsx_owlOntology_{name}_version_ontologyConstraints_sets_dump.yaml
-  /mwsx/owlOntology/sparqling/test:
-    $ref: paths/mwsx_owlOntology_sparqling_test.yaml
-  /mwsx/owlOntology/{name}/queryGraph/head/add/{graphElementId}:
-    $ref: paths/mwsx_owlOntology_{name}_queryGraph_head_add_{graphElementId}.yaml
-  /mwsx/owlOntology/{name}/queryGraph/path/{graphElementId}:
-    $ref: paths/mwsx_owlOntology_{name}_queryGraph_path_{graphElementId}.yaml
-  /mwsx/owlOntology/{name}/queryGraph/head/aggregation/{headTerm}:
-    $ref: paths/mwsx_owlOntology_{name}_queryGraph_head_aggregation_{headTerm}.yaml
-  /mwsx/owlOntology/{name}/queryGraph/countStar/{active}:
-    $ref: paths/mwsx_owlOntology_{name}_queryGraph_countStar_{active}.yaml
-  /mwsx/owlOntology/{name}/queryGraph/node/delete/{graphElementId}:
-    $ref: paths/mwsx_owlOntology_{name}_queryGraph_node_delete_{graphElementId}.yaml
-  /mwsx/owlOntology/{name}/queryGraph/node/delete/{graphElementId}/class:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_queryGraph_node_delete_{graphElementId}_class.yaml
-  /mwsx/owlOntology/{name}/queryGraph/head/delete/{headTerm}:
-    $ref: paths/mwsx_owlOntology_{name}_queryGraph_head_delete_{headTerm}.yaml
-  /mwsx/owlOntology/{name}/queryGraph/distinct:
-    $ref: paths/mwsx_owlOntology_{name}_queryGraph_distinct.yaml
-  /mwsx/owlOntology/{name}/queryGraph/node/filter/edit/{filterId}:
-    $ref: paths/mwsx_owlOntology_{name}_queryGraph_node_filter_edit_{filterId}.yaml
-  /mwsx/owlOntology/{name}/queryGraph/head/function/{headTerm}:
-    $ref: paths/mwsx_owlOntology_{name}_queryGraph_head_function_{headTerm}.yaml
-  /mwsx/owlOntology/{name}/queryGraph/node:
-    $ref: paths/mwsx_owlOntology_{name}_queryGraph_node.yaml
-  /mwsx/owlOntology/{name}/highlights:
-    $ref: paths/mwsx_owlOntology_{name}_highlights.yaml
-  /mwsx/endpoint/{endpointName}/highligthsSharedViewsProps:
-    $ref: paths/mwsx_endpoint_{endpointName}_highligthsSharedViewsProps.yaml
-  /mwsx/owlOntology/{name}/highlights/paths:
-    $ref: paths/mwsx_owlOntology_{name}_highlights_paths.yaml
-  /mwsx/owlOntology/{name}/highlights/paths/thread/start:
-    $ref: paths/mwsx_owlOntology_{name}_highlights_paths_thread_start.yaml
-  /mwsx/owlOntology/{name}/highlights/paths/thread/stop:
-    $ref: paths/mwsx_owlOntology_{name}_highlights_paths_thread_stop.yaml
-  /mwsx/owlOntology/{name}/highlights/paths/thread/result:
-    $ref: paths/mwsx_owlOntology_{name}_highlights_paths_thread_result.yaml
-  /mwsx/owlOntology/{name}/highlights/paths/thread/state:
-    $ref: paths/mwsx_owlOntology_{name}_highlights_paths_thread_state.yaml
-  /mwsx/owlOntology/{name}/highlights/paths/thread/error:
-    $ref: paths/mwsx_owlOntology_{name}_highlights_paths_thread_error.yaml
-  /mwsx/owlOntology/{name}/queryGraph/limit:
-    $ref: paths/mwsx_owlOntology_{name}_queryGraph_limit.yaml
-  /mwsx/owlOntology/{name}/queryGraph/node/filter/{filterId}:
-    $ref: paths/mwsx_owlOntology_{name}_queryGraph_node_filter_{filterId}.yaml
-  /mwsx/owlOntology/{name}/queryGraph/node/optional/{graphElementId}:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_queryGraph_node_optional_{graphElementId}.yaml
-  /mwsx/owlOntology/{name}/queryGraph/offset:
-    $ref: paths/mwsx_owlOntology_{name}_queryGraph_offset.yaml
-  /mwsx/owlOntology/{name}/queryGraph/head/orderBy/{headTerm}:
-    $ref: paths/mwsx_owlOntology_{name}_queryGraph_head_orderBy_{headTerm}.yaml
-  /mwsx/owlOntology/{name}/queryGraph/node/class/{graphElementId}:
-    $ref: paths/mwsx_owlOntology_{name}_queryGraph_node_class_{graphElementId}.yaml
-  /mwsx/owlOntology/{name}/queryGraph/node/dataProperty/{graphElementId}:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_queryGraph_node_dataProperty_{graphElementId}.yaml
-  /mwsx/owlOntology/{name}/queryGraph/node/annotation/{graphElementId}:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_queryGraph_node_annotation_{graphElementId}.yaml
-  /mwsx/owlOntology/{name}/queryGraph/node/join/{graphElementId1}/{graphElementId2}:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_queryGraph_node_join_{graphElementId1}_{graphElementId2}.yaml
-  /mwsx/owlOntology/{name}/queryGraph/node/objectProperty/{graphElementId}:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_queryGraph_node_objectProperty_{graphElementId}.yaml
-  /mwsx/owlOntology/{name}/queryGraph/node/filter/remove/all:
-    $ref: paths/mwsx_owlOntology_{name}_queryGraph_node_filter_remove_all.yaml
-  /mwsx/owlOntology/{name}/queryGraph/node/optional/remove/all:
-    $ref: paths/mwsx_owlOntology_{name}_queryGraph_node_optional_remove_all.yaml
-  /mwsx/owlOntology/{name}/queryGraph/node/filter/remove/{filterId}:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_queryGraph_node_filter_remove_{filterId}.yaml
-  /mwsx/owlOntology/{name}/queryGraph/node/optional/remove/{graphElementId}:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_queryGraph_node_optional_remove_{graphElementId}.yaml
-  /mwsx/owlOntology/{name}/queryGraph/head/rename/{headTerm}:
-    $ref: paths/mwsx_owlOntology_{name}_queryGraph_head_rename_{headTerm}.yaml
-  /mwsx/owlOntology/{name}/queryGraph/head/reorderHeadTerms:
-    $ref: paths/mwsx_owlOntology_{name}_queryGraph_head_reorderHeadTerms.yaml
-  /mwsx/owlOntology/{name}/instanceShortestPath:
-    $ref: paths/mwsx_owlOntology_{name}_instanceShortestPath.yaml
-  /mwsx/endpoint/{name}/instanceShortestPath:
-    $ref: paths/mwsx_endpoint_{name}_instanceShortestPath.yaml
-  /mwsx/owlOntology/{name}/constructify:
-    $ref: paths/mwsx_owlOntology_{name}_constructify.yaml
-  /mwsx/owlOntology/{name}/queryGraph/visualize:
-    $ref: paths/mwsx_owlOntology_{name}_queryGraph_visualize.yaml
-  /mwsx/triplify/start:
-    $ref: paths/mwsx_triplify_start.yaml
-  /mwsx/owlOntology/{name}/mappings/{mapID}/triplify/listThreads:
-    $ref: paths/mwsx_owlOntology_{name}_mappings_{mapID}_triplify_listThreads.yaml
-  /mwsx/owlOntology/{name}/mappings/{mapID}/triplify/listThreadProgresses:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_mappings_{mapID}_triplify_listThreadProgresses.yaml
-  /mwsx/triplify/stopAll:
-    $ref: paths/mwsx_triplify_stopAll.yaml
-  /mwsx/triplify/{threadID}/stop:
-    $ref: paths/mwsx_triplify_{threadID}_stop.yaml
-  /mwsx/triplify/{threadID}:
-    $ref: paths/mwsx_triplify_{threadID}.yaml
-  /mwsx/triplify/{threadID}/status:
-    $ref: paths/mwsx_triplify_{threadID}_status.yaml
-  /mwsx/triplify/{threadID}/report:
-    $ref: paths/mwsx_triplify_{threadID}_report.yaml
-  /mwsx/triplify/{threadID}/download:
-    $ref: paths/mwsx_triplify_{threadID}_download.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{mapID}/triplify/{datasource}:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_mapping_{mapID}_triplify_{datasource}.yaml
-  /mwsx/owlOntology/{name}/version/mapping:
-    $ref: paths/mwsx_owlOntology_{name}_version_mapping.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{mapID}:
-    $ref: paths/mwsx_owlOntology_{name}_version_mapping_{mapID}.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/checkDeprecation:
-    $ref: paths/mwsx_owlOntology_{name}_version_mapping_{ID}_checkDeprecation.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/count:
-    $ref: paths/mwsx_owlOntology_{name}_version_mapping_{ID}_count.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{mapID}/duplicate:
-    $ref: paths/mwsx_owlOntology_{name}_version_mapping_{mapID}_duplicate.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{mapID}/backup:
-    $ref: paths/mwsx_owlOntology_{name}_version_mapping_{mapID}_backup.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{mapID}/migrate:
-    $ref: paths/mwsx_owlOntology_{name}_version_mapping_{mapID}_migrate.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{mapID}/fixDeprecated:
-    $ref: paths/mwsx_owlOntology_{name}_version_mapping_{mapID}_fixDeprecated.yaml
-  /mwsx/owlOntology/{name}/version/mapping/check:
-    $ref: paths/mwsx_owlOntology_{name}_version_mapping_check.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/info:
-    $ref: paths/mwsx_owlOntology_{name}_version_mapping_{ID}_info.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/templates:
-    $ref: paths/mwsx_owlOntology_{name}_version_mapping_{ID}_templates.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/templates/refactoring:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_mapping_{ID}_templates_refactoring.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/template:
-    $ref: paths/mwsx_owlOntology_{name}_version_mapping_{ID}_template.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/assertions/{entityID}:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_mapping_{ID}_assertions_{entityID}.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/assertions:
-    $ref: paths/mwsx_owlOntology_{name}_version_mapping_{ID}_assertions.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}:
-    $ref: paths/mwsx_owlOntology_{name}_version_mapping_{ID}_assertion_{mapID}.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/views:
-    $ref: paths/mwsx_owlOntology_{name}_version_mapping_{ID}_views.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/view/{view_name}/referencedTables:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_mapping_{ID}_view_{view_name}_referencedTables.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/views/referencedTables:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_mapping_{ID}_views_referencedTables.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/view/{view_name}:
-    $ref: paths/mwsx_owlOntology_{name}_version_mapping_{ID}_view_{view_name}.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/view/refactoring:
-    $ref: paths/mwsx_owlOntology_{name}_version_mapping_{ID}_view_refactoring.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/views/{viewID}:
-    $ref: paths/mwsx_owlOntology_{name}_version_mapping_{ID}_views_{viewID}.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/annotations:
-    $ref: paths/mwsx_owlOntology_{name}_version_mapping_{ID}_annotations.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/annotation/{mapID}:
-    $ref: paths/mwsx_owlOntology_{name}_version_mapping_{ID}_annotation_{mapID}.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/generateIntensionalAnnotationsOntology:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_mapping_{ID}_generateIntensionalAnnotationsOntology.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/state:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_mapping_{ID}_annotationProcessorThread_{threadId}_state.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/error:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_mapping_{ID}_annotationProcessorThread_{threadId}_error.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/export:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_mapping_{ID}_annotationProcessorThread_{threadId}_export.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/stop:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_mapping_{ID}_annotationProcessorThread_{threadId}_stop.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_mapping_{ID}_annotationProcessorThread_{threadId}.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies:
-    $ref: paths/mwsx_owlOntology_{name}_version_mapping_{ID}_dependencies.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/inclusions:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_mapping_{ID}_dependencies_inclusions.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/inclusion/{incID}:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_mapping_{ID}_dependencies_inclusion_{incID}.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/keys:
-    $ref: paths/mwsx_owlOntology_{name}_version_mapping_{ID}_dependencies_keys.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/key/{keyID}:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_mapping_{ID}_dependencies_key_{keyID}.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/denials:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_mapping_{ID}_dependencies_denials.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/denial/{denyID}:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_mapping_{ID}_dependencies_denial_{denyID}.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/parameter:
-    $ref: paths/mwsx_owlOntology_{name}_version_mapping_{ID}_parameter.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/parameters:
-    $ref: paths/mwsx_owlOntology_{name}_version_mapping_{ID}_parameters.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_mapping_{ID}_parameter_{paramName}.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/parameters:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_mapping_{ID}_assertion_{mapID}_parameters.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/referencedTables:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_mapping_{ID}_assertion_{mapID}_referencedTables.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/testSQLQuery:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_mapping_{ID}_assertion_{mapID}_testSQLQuery.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/testCustomSQLQuery:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_mapping_{ID}_assertion_{mapID}_testCustomSQLQuery.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/testCustomSQLQuery:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_mapping_{ID}_assertion_testCustomSQLQuery.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/typeCheckingReport:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_mapping_{ID}_assertion_{mapID}_typeCheckingReport.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/view/{viewName}/parameters:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_mapping_{ID}_view_{viewName}_parameters.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}/views:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_mapping_{ID}_parameter_{paramName}_views.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}/assertions:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_mapping_{ID}_parameter_{paramName}_assertions.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{mapID}/query/{queryID}/delete:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_mapping_{mapID}_query_{queryID}_delete.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{mapID}/query/{queryID}/exportQueryReport:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_mapping_{mapID}_query_{queryID}_exportQueryReport.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{mapID}/suggestedTemplate/{entityID}:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_mapping_{mapID}_suggestedTemplate_{entityID}.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{mapID}/dataLineage/{entityID}:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_mapping_{mapID}_dataLineage_{entityID}.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{mapID}/dataLineageProperty/{entityID}:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_mapping_{mapID}_dataLineageProperty_{entityID}.yaml
-  /mwsx/owlOntology/{name}/version/mapping/{mapID}/dataLineageAnnotationProperty:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_mapping_{mapID}_dataLineageAnnotationProperty.yaml
-  /ep/sparql:
-    $ref: paths/ep_sparql.yaml
-  /ep/sparql/csv:
-    $ref: paths/ep_sparql_csv.yaml
-  /ep/sparqlcount:
-    $ref: paths/ep_sparqlcount.yaml
-  /mwsx:
-    $ref: paths/mwsx.yaml
-  /mwsx/log/{env}/{mode}:
-    $ref: paths/mwsx_log_{env}_{mode}.yaml
-  /mwsx/login:
-    $ref: paths/mwsx_login.yaml
-  /mwsx/logout:
-    $ref: paths/mwsx_logout.yaml
-  /mwsx/logout/{username}:
-    $ref: paths/mwsx_logout_{username}.yaml
-  /mwsx/mastro/version:
-    $ref: paths/mwsx_mastro_version.yaml
-  /mwsx/jena/version:
-    $ref: paths/mwsx_jena_version.yaml
-  /mwsx/owlapi/version:
-    $ref: paths/mwsx_owlapi_version.yaml
-  /mwsx/resources/ontologies:
-    $ref: paths/mwsx_resources_ontologies.yaml
-  /mwsx/resources/ontology/{name}/versions:
-    $ref: paths/mwsx_resources_ontology_{name}_versions.yaml
-  /mwsx/resources/ontology/{name}/version/mappings:
-    $ref: paths/mwsx_resources_ontology_{name}_version_mappings.yaml
-  /mwsx/resources/datasources:
-    $ref: paths/mwsx_resources_datasources.yaml
-  /mwsx/resources/endpoints:
-    $ref: paths/mwsx_resources_endpoints.yaml
-  /mwsx/owlOntology/{name}/version/dashboards:
-    $ref: paths/mwsx_owlOntology_{name}_version_dashboards.yaml
-  /mwsx/owlOntology/{name}/version/dashboard/{dashboardId}:
-    $ref: paths/mwsx_owlOntology_{name}_version_dashboard_{dashboardId}.yaml
-  /mwsx/owlOntology:
-    $ref: paths/mwsx_owlOntology.yaml
-  /mwsx/owlOntology/{name}:
-    $ref: paths/mwsx_owlOntology_{name}.yaml
-  /mwsx/owlOntology/{name}/folder:
-    $ref: paths/mwsx_owlOntology_{name}_folder.yaml
-  /mwsx/owlOntology/{name}/version/folder:
-    $ref: paths/mwsx_owlOntology_{name}_version_folder.yaml
-  /mwsx/owlOntology/{name}/version:
-    $ref: paths/mwsx_owlOntology_{name}_version.yaml
-  /mwsx/owlOntology/{name}/version/ignoredImports:
-    $ref: paths/mwsx_owlOntology_{name}_version_ignoredImports.yaml
-  /mwsx/owlOntology/{name}/version/closed:
-    $ref: paths/mwsx_owlOntology_{name}_version_closed.yaml
-  /mwsx/owlOntology/{name}/version/closed/{threadId}/status:
-    $ref: paths/mwsx_owlOntology_{name}_version_closed_{threadId}_status.yaml
-  /mwsx/owlOntology/{name}/version/closedComputed:
-    $ref: paths/mwsx_owlOntology_{name}_version_closedComputed.yaml
-  /mwsx/owlOntology/{name}/version/closingReport:
-    $ref: paths/mwsx_owlOntology_{name}_version_closingReport.yaml
-  /mwsx/owlOntology/{name}/version/closingReportComputed:
-    $ref: paths/mwsx_owlOntology_{name}_version_closingReportComputed.yaml
-  /mwsx/owlOntology/{name}/version/hierarchy/owl:
-    $ref: paths/mwsx_owlOntology_{name}_version_hierarchy_owl.yaml
-  /mwsx/owlOntology/{name}/version/loaderThreads:
-    $ref: paths/mwsx_owlOntology_{name}_version_loaderThreads.yaml
-  /mwsx/owlOntology/{name}/version/loaderThreads/metadata:
-    $ref: paths/mwsx_owlOntology_{name}_version_loaderThreads_metadata.yaml
-  /mwsx/owlOntology/{name}/version/loaderThread/{threadId}/status:
-    $ref: paths/mwsx_owlOntology_{name}_version_loaderThread_{threadId}_status.yaml
-  /mwsx/owlOntology/{name}/version/loaderThread/{threadId}/report:
-    $ref: paths/mwsx_owlOntology_{name}_version_loaderThread_{threadId}_report.yaml
-  /mwsx/owlOntology/{name}/importFromIRI:
-    $ref: paths/mwsx_owlOntology_{name}_importFromIRI.yaml
-  /mwsx/owlOntology/{name}/version/hierarchy:
-    $ref: paths/mwsx_owlOntology_{name}_version_hierarchy.yaml
-  /mwsx/owlOntology/{name}/version/catalog:
-    $ref: paths/mwsx_owlOntology_{name}_version_catalog.yaml
-  /mwsx/owlOntology/{name}/version/info:
-    $ref: paths/mwsx_owlOntology_{name}_version_info.yaml
-  /mwsx/owlOntology/{name}/version/entities/classes:
-    $ref: paths/mwsx_owlOntology_{name}_version_entities_classes.yaml
-  /mwsx/owlOntology/{name}/version/entities/objectProperties:
-    $ref: paths/mwsx_owlOntology_{name}_version_entities_objectProperties.yaml
-  /mwsx/owlOntology/{name}/version/entities/dataProperties:
-    $ref: paths/mwsx_owlOntology_{name}_version_entities_dataProperties.yaml
-  /mwsx/owlOntology/{name}/version/entities/annotationProperties:
-    $ref: paths/mwsx_owlOntology_{name}_version_entities_annotationProperties.yaml
-  /mwsx/owlOntology/{name}/version/entities:
-    $ref: paths/mwsx_owlOntology_{name}_version_entities.yaml
-  /mwsx/owlOntology/{name}/version/entity/{id}:
-    $ref: paths/mwsx_owlOntology_{name}_version_entity_{id}.yaml
-  /mwsx/owlOntology/{name}/version/alphabet/class/{ID}/logical:
-    $ref: paths/mwsx_owlOntology_{name}_version_alphabet_class_{ID}_logical.yaml
-  /mwsx/owlOntology/{name}/version/annotations:
-    $ref: paths/mwsx_owlOntology_{name}_version_annotations.yaml
-  /mwsx/owlOntology/{name}/version/alphabet/objectProperty/{ID}/logical:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_alphabet_objectProperty_{ID}_logical.yaml
-  /mwsx/owlOntology/{name}/version/alphabet/dataProperty/{ID}/logical:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_alphabet_dataProperty_{ID}_logical.yaml
-  /mwsx/owlOntology/{name}/version/alphabet/dataProperties/domainAndRange:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_alphabet_dataProperties_domainAndRange.yaml
-  /mwsx/owlOntology/{name}/version/graphol:
-    $ref: paths/mwsx_owlOntology_{name}_version_graphol.yaml
-  /mwsx/owlOntology/{name}/version/gscape:
-    $ref: paths/mwsx_owlOntology_{name}_version_gscape.yaml
-  /mwsx/owlOntology/{name}/version/graphol/check:
-    $ref: paths/mwsx_owlOntology_{name}_version_graphol_check.yaml
-  /mwsx/owlOntology/{name}/version/gscape/check:
-    $ref: paths/mwsx_owlOntology_{name}_version_gscape_check.yaml
-  /mwsx/owlOntology/{name}/version/owl:
-    $ref: paths/mwsx_owlOntology_{name}_version_owl.yaml
-  /mwsx/mastro/instances:
-    $ref: paths/mwsx_mastro_instances.yaml
-  /mwsx/lastLoaded/ontology:
-    $ref: paths/mwsx_lastLoaded_ontology.yaml
-  /mwsx/owlOntology/{name}/version/alphabet/individual/{ID}/logical:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_alphabet_individual_{ID}_logical.yaml
-  /mwsx/owlOntology/{name}/version/alphabet/search/individual:
-    $ref: paths/mwsx_owlOntology_{name}_version_alphabet_search_individual.yaml
-  /mwsx/ontologyDifference/{name}/vs/{otherName}:
-    $ref: paths/mwsx_ontologyDifference_{name}_vs_{otherName}.yaml
-  /mwsx/owlOntology/{name}/version/metadata:
-    $ref: paths/mwsx_owlOntology_{name}_version_metadata.yaml
-  /mwsx/owlOntology/{name}/version/metadata/missing:
-    $ref: paths/mwsx_owlOntology_{name}_version_metadata_missing.yaml
-  /mwsx/ontologyCatalog:
-    $ref: paths/mwsx_ontologyCatalog.yaml
-  /mwsx/ontologyCatalog/crossOntologiesMetadata:
-    $ref: paths/mwsx_ontologyCatalog_crossOntologiesMetadata.yaml
-  /mwsx/ontologyCatalog/query/start:
-    $ref: paths/mwsx_ontologyCatalog_query_start.yaml
-  /mwsx/ontologyCatalog/query/{queryId}/stop:
-    $ref: paths/mwsx_ontologyCatalog_query_{queryId}_stop.yaml
-  /mwsx/ontologyCatalog/query/{queryId}:
-    $ref: paths/mwsx_ontologyCatalog_query_{queryId}.yaml
-  /mwsx/ontologyCatalog/query/{queryId}/status:
-    $ref: paths/mwsx_ontologyCatalog_query_{queryId}_status.yaml
-  /mwsx/ontologyCatalog/query/{queryId}/results:
-    $ref: paths/mwsx_ontologyCatalog_query_{queryId}_results.yaml
-  /mwsx/ontologyCatalog/query/results/export/formats:
-    $ref: paths/mwsx_ontologyCatalog_query_results_export_formats.yaml
-  /mwsx/ontologyCatalog/query/{queryId}/results/export:
-    $ref: paths/mwsx_ontologyCatalog_query_{queryId}_results_export.yaml
-  /mwsx/ontologyCatalog/download:
-    $ref: paths/mwsx_ontologyCatalog_download.yaml
-  /mwsx/ontologyCatalog/cache/update:
-    $ref: paths/mwsx_ontologyCatalog_cache_update.yaml
-  /mwsx/ontologyCatalog/cache/update/languages/set:
-    $ref: paths/mwsx_ontologyCatalog_cache_update_languages_set.yaml
-  /mwsx/ontologyCatalog/cache/update/languages/add:
-    $ref: paths/mwsx_ontologyCatalog_cache_update_languages_add.yaml
-  /mwsx/ontologyCatalog/cache/results/{queryname}:
-    $ref: paths/mwsx_ontologyCatalog_cache_results_{queryname}.yaml
-  /mwsx/ontologyCatalog/cache/results/{queryname}/{language}:
-    $ref: paths/mwsx_ontologyCatalog_cache_results_{queryname}_{language}.yaml
-  /mwsx/ontologyCatalog/sparql11-endpoint/query:
-    $ref: paths/mwsx_ontologyCatalog_sparql11-endpoint_query.yaml
-  /mwsx/ontologyCatalog/sparql11-endpoint/update:
-    $ref: paths/mwsx_ontologyCatalog_sparql11-endpoint_update.yaml
-  /mwsx/globalAnnotations:
-    $ref: paths/mwsx_globalAnnotations.yaml
-  /mwsx/globalAnnotation:
-    $ref: paths/mwsx_globalAnnotation.yaml
-  /mwsx/globalAnnotation/{entityId}:
-    $ref: paths/mwsx_globalAnnotation_{entityId}.yaml
-  /mwsx/server/license/info:
-    $ref: paths/mwsx_server_license_info.yaml
-  /mwsx/server/storage/report:
-    $ref: paths/mwsx_server_storage_report.yaml
-  /mwsx/server/storage/{folder}:
-    $ref: paths/mwsx_server_storage_{folder}.yaml
-  /mwsx/server/systemSnapshot:
-    $ref: paths/mwsx_server_systemSnapshot.yaml
-  /mwsx/server/systemMemory:
-    $ref: paths/mwsx_server_systemMemory.yaml
-  /mwsx/server/userlog/{username}/count:
-    $ref: paths/mwsx_server_userlog_{username}_count.yaml
-  /mwsx/server/userlog/{username}:
-    $ref: paths/mwsx_server_userlog_{username}.yaml
-  /mwsx/logger/mastroapi:
-    $ref: paths/mwsx_logger_mastroapi.yaml
-  /mwsx/logger/service:
-    $ref: paths/mwsx_logger_service.yaml
-  /mwsx/logger:
-    $ref: paths/mwsx_logger.yaml
-  /mwsx/logger/class:
-    $ref: paths/mwsx_logger_class.yaml
-  /mwsx/logger/package:
-    $ref: paths/mwsx_logger_package.yaml
-  /mwsx/logger/list:
-    $ref: paths/mwsx_logger_list.yaml
-  /mwsx/logger/monitor:
-    $ref: paths/mwsx_logger_monitor.yaml
-  /mwsx/testpath:
-    $ref: paths/mwsx_testpath.yaml
-  /mwsx/error:
-    $ref: paths/mwsx_error.yaml
-  /mwsx/poststringasbody:
-    $ref: paths/mwsx_poststringasbody.yaml
-  /mwsx/statics/queryGenerator/:
-    $ref: paths/mwsx_statics_queryGenerator_.yaml
-  /mwsx/statics/sparql/extractProjectVarNames:
-    $ref: paths/mwsx_statics_sparql_extractProjectVarNames.yaml
-  /mwsx/statics/sparql/templateSize:
-    $ref: paths/mwsx_statics_sparql_templateSize.yaml
-  /mwsx/statics/reporting/request:
-    $ref: paths/mwsx_statics_reporting_request.yaml
-  /mwsx/owlOntology/{name}/version/virtualEntities:
-    $ref: paths/mwsx_owlOntology_{name}_version_virtualEntities.yaml
-  /mwsx/owlOntology/{name}/version/virtualEntities/export:
-    $ref: paths/mwsx_owlOntology_{name}_version_virtualEntities_export.yaml
-  /mwsx/owlOntology/{name}/version/virtualEntities/import:
-    $ref: paths/mwsx_owlOntology_{name}_version_virtualEntities_import.yaml
-  /mwsx/owlOntology/{name}/version/virtualEntity/{vname}:
-    $ref: paths/mwsx_owlOntology_{name}_version_virtualEntity_{vname}.yaml
-  /mwsx/owlOntology/{name}/version/virtualEntity:
-    $ref: paths/mwsx_owlOntology_{name}_version_virtualEntity.yaml
-  /mwsx/owlOntology/{name}/version/virtualEntity/semantics:
-    $ref: paths/mwsx_owlOntology_{name}_version_virtualEntity_semantics.yaml
-  /mwsx/datasource/{name}:
-    $ref: paths/mwsx_datasource_{name}.yaml
-  /mwsx/datasource/{name}/downloadMetadata:
-    $ref: paths/mwsx_datasource_{name}_downloadMetadata.yaml
-  /mwsx/datasource/{name}/metadata:
-    $ref: paths/mwsx_datasource_{name}_metadata.yaml
-  /mwsx/datasource/{name}/updateMetadata:
-    $ref: paths/mwsx_datasource_{name}_updateMetadata.yaml
-  /mwsx/datasource/{name}/uploadMetadata:
-    $ref: paths/mwsx_datasource_{name}_uploadMetadata.yaml
-  /mwsx/datasource:
-    $ref: paths/mwsx_datasource.yaml
-  /mwsx/datasource/drivers:
-    $ref: paths/mwsx_datasource_drivers.yaml
-  /mwsx/datasource/test:
-    $ref: paths/mwsx_datasource_test.yaml
-  /mwsx/datasource/schemas:
-    $ref: paths/mwsx_datasource_schemas.yaml
-  /mwsx/datasource/{id}/schemas:
-    $ref: paths/mwsx_datasource_{id}_schemas.yaml
-  /mwsx/datasource/schema/{schemaName}/tableNames:
-    $ref: paths/mwsx_datasource_schema_{schemaName}_tableNames.yaml
-  /mwsx/datasource/{id}/tables:
-    $ref: paths/mwsx_datasource_{id}_tables.yaml
-  /mwsx/datasource/{id}/tables/results:
-    $ref: paths/mwsx_datasource_{id}_tables_results.yaml
-  /mwsx/datasource/{id}/table/{tableName}:
-    $ref: paths/mwsx_datasource_{id}_table_{tableName}.yaml
-  /mwsx/system/jdbcDrivers:
-    $ref: paths/mwsx_system_jdbcDrivers.yaml
-  /mwsx/system/jdbcDriver/{driver}:
-    $ref: paths/mwsx_system_jdbcDriver_{driver}.yaml
-  /mwsx/system/jdbcDriver:
-    $ref: paths/mwsx_system_jdbcDriver.yaml
-  /mwsx/knowledgeGraphs:
-    $ref: paths/mwsx_knowledgeGraphs.yaml
-  /mwsx/knowledgeGraph:
-    $ref: paths/mwsx_knowledgeGraph.yaml
-  /mwsx/knowledgeGraph/info:
-    $ref: paths/mwsx_knowledgeGraph_info.yaml
-  /mwsx/knowledgeGraph/prefixes:
-    $ref: paths/mwsx_knowledgeGraph_prefixes.yaml
-  /mwsx/knowledgeGraph/folder:
-    $ref: paths/mwsx_knowledgeGraph_folder.yaml
-  /mwsx/knowledgeGraph/status:
-    $ref: paths/mwsx_knowledgeGraph_status.yaml
-  /mwsx/knowledgeGraph/status/list:
-    $ref: paths/mwsx_knowledgeGraph_status_list.yaml
-  /mwsx/lastLoaded/knowledgeGraph:
-    $ref: paths/mwsx_lastLoaded_knowledgeGraph.yaml
-  /mwsx/knowledgeGraph/file:
-    $ref: paths/mwsx_knowledgeGraph_file.yaml
-  /mwsx/knowledgeGraph/classes:
-    $ref: paths/mwsx_knowledgeGraph_classes.yaml
-  /mwsx/knowledgeGraph/classes/stats:
-    $ref: paths/mwsx_knowledgeGraph_classes_stats.yaml
-  /mwsx/knowledgeGraph/class/instances:
-    $ref: paths/mwsx_knowledgeGraph_class_instances.yaml
-  /mwsx/knowledgeGraph/namedGraphs:
-    $ref: paths/mwsx_knowledgeGraph_namedGraphs.yaml
-  /mwsx/knowledgeGraph/instances:
-    $ref: paths/mwsx_knowledgeGraph_instances.yaml
-  /mwsx/knowledgeGraph/union:
-    $ref: paths/mwsx_knowledgeGraph_union.yaml
-  /mwsx/knowledgeGraph/union/ontology:
-    $ref: paths/mwsx_knowledgeGraph_union_ontology.yaml
-  /mwsx/knowledgeGraph/union/queryKg:
-    $ref: paths/mwsx_knowledgeGraph_union_queryKg.yaml
-  /mwsx/knowledgeGraph/query/catalog:
-    $ref: paths/mwsx_knowledgeGraph_query_catalog.yaml
-  /mwsx/knowledgeGraph/query/catalog/export:
-    $ref: paths/mwsx_knowledgeGraph_query_catalog_export.yaml
-  /mwsx/knowledgeGraph/query/catalog/{queryID}:
-    $ref: paths/mwsx_knowledgeGraph_query_catalog_{queryID}.yaml
-  /mwsx/knowledgeGraph/query/start:
-    $ref: paths/mwsx_knowledgeGraph_query_start.yaml
-  /mwsx/knowledgeGraph/query/catalog/{queryID}/start:
-    $ref: paths/mwsx_knowledgeGraph_query_catalog_{queryID}_start.yaml
-  /mwsx/knowledgeGraph/query/{queryID}/stop:
-    $ref: paths/mwsx_knowledgeGraph_query_{queryID}_stop.yaml
-  /mwsx/knowledgeGraph/query/{queryID}/exportResults/{format}:
-    $ref: paths/mwsx_knowledgeGraph_query_{queryID}_exportResults_{format}.yaml
-  /mwsx/knowledgeGraph/query/{queryID}/status:
-    $ref: paths/mwsx_knowledgeGraph_query_{queryID}_status.yaml
-  /mwsx/knowledgeGraph/query/{queryId}:
-    $ref: paths/mwsx_knowledgeGraph_query_{queryId}.yaml
-  /mwsx/knowledgeGraph/query/{queryID}/results:
-    $ref: paths/mwsx_knowledgeGraph_query_{queryID}_results.yaml
-  /mwsx/knowledgeGraph/instance/page:
-    $ref: paths/mwsx_knowledgeGraph_instance_page.yaml
-  /mwsx/knowledgeGraph/instance/objectType:
-    $ref: paths/mwsx_knowledgeGraph_instance_objectType.yaml
-  /mwsx/knowledgeGraph/instance/subjectType:
-    $ref: paths/mwsx_knowledgeGraph_instance_subjectType.yaml
-  /mwsx/knowledgeGraph/store/file:
-    $ref: paths/mwsx_knowledgeGraph_store_file.yaml
-  /mwsx/knowledgeGraph/store/file/{name}:
-    $ref: paths/mwsx_knowledgeGraph_store_file_{name}.yaml
-  /mwsx/knowledgeGraph/upload/file:
-    $ref: paths/mwsx_knowledgeGraph_upload_file.yaml
-  /mwsx/knowledgeGraph/upload/import:
-    $ref: paths/mwsx_knowledgeGraph_upload_import.yaml
-  /mwsx/knowledgeGraph/delete/file:
-    $ref: paths/mwsx_knowledgeGraph_delete_file.yaml
-  /mwsx/knowledgeGraph/delete/file/triples:
-    $ref: paths/mwsx_knowledgeGraph_delete_file_triples.yaml
-  /mwsx/knowledgeGraph/upload/remove:
-    $ref: paths/mwsx_knowledgeGraph_upload_remove.yaml
-  /mwsx/knowledgeGraph/upload/files:
-    $ref: paths/mwsx_knowledgeGraph_upload_files.yaml
-  /mwsx/knowledgeGraph/union/queryOBDA:
-    $ref: paths/mwsx_knowledgeGraph_union_queryOBDA.yaml
-  /mwsx/knowledgeGraph/upload/file/csv:
-    $ref: paths/mwsx_knowledgeGraph_upload_file_csv.yaml
-  /mwsx/knowledgeGraph/upload/files/csv:
-    $ref: paths/mwsx_knowledgeGraph_upload_files_csv.yaml
-  /mwsx/knowledgeGraph/delete/file/csv/{fileName}:
-    $ref: paths/mwsx_knowledgeGraph_delete_file_csv_{fileName}.yaml
-  /mwsx/knowledgeGraph/file/csv/{fileName}/preview:
-    $ref: paths/mwsx_knowledgeGraph_file_csv_{fileName}_preview.yaml
-  /mwsx/knowledgeGraph/upload/import/csv:
-    $ref: paths/mwsx_knowledgeGraph_upload_import_csv.yaml
-  /mwsx/knowledgeGraph/upload/import/threads:
-    $ref: paths/mwsx_knowledgeGraph_upload_import_threads.yaml
-  /mwsx/knowledgeGraph/upload/import/thread:
-    $ref: paths/mwsx_knowledgeGraph_upload_import_thread.yaml
-  /mwsx/endpoints:
-    $ref: paths/mwsx_endpoints.yaml
-  /mwsx/endpoints/referencing/owlOntology/{name}/version:
-    $ref: paths/mwsx_endpoints_referencing_owlOntology_{name}_version.yaml
-  /mwsx/endpoints/referencing/owlOntology/{name}/version/mapping/{ID}:
-    $ref: >-
-      paths/mwsx_endpoints_referencing_owlOntology_{name}_version_mapping_{ID}.yaml
-  /mwsx/endpoints/referencing/datasource/{name}:
-    $ref: paths/mwsx_endpoints_referencing_datasource_{name}.yaml
-  /mwsx/endpoints/running:
-    $ref: paths/mwsx_endpoints_running.yaml
-  /mwsx/endpoint/{name}:
-    $ref: paths/mwsx_endpoint_{name}.yaml
-  /mwsx/endpoint:
-    $ref: paths/mwsx_endpoint.yaml
-  /mwsx/endpoint/{name}/prefixes:
-    $ref: paths/mwsx_endpoint_{name}_prefixes.yaml
-  /mwsx/endpoint/{name}/start:
-    $ref: paths/mwsx_endpoint_{name}_start.yaml
-  /mwsx/endpoint/{name}/stop:
-    $ref: paths/mwsx_endpoint_{name}_stop.yaml
-  /mwsx/endpoint/{name}/status:
-    $ref: paths/mwsx_endpoint_{name}_status.yaml
-  /mwsx/endpoint/{name}/empties:
-    $ref: paths/mwsx_endpoint_{name}_empties.yaml
-  /mwsx/endpoint/{name}/emptyUnfoldingEntities:
-    $ref: paths/mwsx_endpoint_{name}_emptyUnfoldingEntities.yaml
-  /mwsx/endpoint/{name}/highlights/annotations:
-    $ref: paths/mwsx_endpoint_{name}_highlights_annotations.yaml
-  /mwsx/endpoint/{name}/query/count/{queryId}/stop:
-    $ref: paths/mwsx_endpoint_{name}_query_count_{queryId}_stop.yaml
-  /mwsx/endpoint/{name}/query/count/{queryId}:
-    $ref: paths/mwsx_endpoint_{name}_query_count_{queryId}.yaml
-  /mwsx/endpoint/{name}/query/count/{queryId}/result:
-    $ref: paths/mwsx_endpoint_{name}_query_count_{queryId}_result.yaml
-  /mwsx/endpoint/{name}/query/check:
-    $ref: paths/mwsx_endpoint_{name}_query_check.yaml
-  /mwsx/endpoint/{name}/query/quarantinedMappingsByEntity:
-    $ref: paths/mwsx_endpoint_{name}_query_quarantinedMappingsByEntity.yaml
-  /mwsx/endpoint/{name}/query/{queryID}/start:
-    $ref: paths/mwsx_endpoint_{name}_query_{queryID}_start.yaml
-  /mwsx/endpoint/{name}/query/{queryID}/stop:
-    $ref: paths/mwsx_endpoint_{name}_query_{queryID}_stop.yaml
-  /mwsx/endpoint/{name}/query/{queryID}/exportFile:
-    $ref: paths/mwsx_endpoint_{name}_query_{queryID}_exportFile.yaml
-  /mwsx/endpoint/{name}/query/{queryID}/fullSparqlDetails:
-    $ref: paths/mwsx_endpoint_{name}_query_{queryID}_fullSparqlDetails.yaml
-  /mwsx/endpoint/{name}/query/{queryID}/ontologyRewritings:
-    $ref: paths/mwsx_endpoint_{name}_query_{queryID}_ontologyRewritings.yaml
-  /mwsx/endpoint/{name}/query/{queryID}/viewRewritings:
-    $ref: paths/mwsx_endpoint_{name}_query_{queryID}_viewRewritings.yaml
-  /mwsx/endpoint/{name}/query/{queryID}/viewOptimizedRewritings:
-    $ref: paths/mwsx_endpoint_{name}_query_{queryID}_viewOptimizedRewritings.yaml
-  /mwsx/endpoint/{name}/query/{queryID}/sqlRewritings:
-    $ref: paths/mwsx_endpoint_{name}_query_{queryID}_sqlRewritings.yaml
-  /mwsx/endpoint/{name}/query/{queryID}/sqlDebugRewritings:
-    $ref: paths/mwsx_endpoint_{name}_query_{queryID}_sqlDebugRewritings.yaml
-  /mwsx/endpoint/{name}/query/{queryID}/results:
-    $ref: paths/mwsx_endpoint_{name}_query_{queryID}_results.yaml
-  /mwsx/endpoint/{name}/query/{queryID}/status:
-    $ref: paths/mwsx_endpoint_{name}_query_{queryID}_status.yaml
-  /mwsx/endpoint/{name}/queryRecordInfos:
-    $ref: paths/mwsx_endpoint_{name}_queryRecordInfos.yaml
-  /mwsx/endpoint/{name}/query/{queryID}/queryRecordInfo:
-    $ref: paths/mwsx_endpoint_{name}_query_{queryID}_queryRecordInfo.yaml
-  /mwsx/endpoint/{name}/query/exportQueryResults:
-    $ref: paths/mwsx_endpoint_{name}_query_exportQueryResults.yaml
-  /mwsx/endpoint/{name}/query/export/direct:
-    $ref: paths/mwsx_endpoint_{name}_query_export_direct.yaml
-  /mwsx/endpoint/{name}/exportThreads:
-    $ref: paths/mwsx_endpoint_{name}_exportThreads.yaml
-  /mwsx/endpoint/{name}/exported:
-    $ref: paths/mwsx_endpoint_{name}_exported.yaml
-  /mwsx/endpoint/{name}/exported/{fileName}:
-    $ref: paths/mwsx_endpoint_{name}_exported_{fileName}.yaml
-  /mwsx/endpoint/{name}/exportThread/{id}/status:
-    $ref: paths/mwsx_endpoint_{name}_exportThread_{id}_status.yaml
-  /mwsx/endpoint/{name}/exportThread/{id}/errors:
-    $ref: paths/mwsx_endpoint_{name}_exportThread_{id}_errors.yaml
-  /mwsx/endpoint/{name}/exportThread/{id}/stop:
-    $ref: paths/mwsx_endpoint_{name}_exportThread_{id}_stop.yaml
-  /mwsx/endpoint/{name}/exportThread/{id}/stats:
-    $ref: paths/mwsx_endpoint_{name}_exportThread_{id}_stats.yaml
-  /mwsx/endpoint/{name}/exportThread/{id}/file:
-    $ref: paths/mwsx_endpoint_{name}_exportThread_{id}_file.yaml
-  /mwsx/endpoint/{name}/exportThread/{id}/preview/{lines}:
-    $ref: paths/mwsx_endpoint_{name}_exportThread_{id}_preview_{lines}.yaml
-  /mwsx/endpoint/{name}/exportThread/{id}:
-    $ref: paths/mwsx_endpoint_{name}_exportThread_{id}.yaml
-  /mwsx/endpoint/{name}/cquery/start:
-    $ref: paths/mwsx_endpoint_{name}_cquery_start.yaml
-  /mwsx/endpoint/{name}/cquery/{queryID}/start:
-    $ref: paths/mwsx_endpoint_{name}_cquery_{queryID}_start.yaml
-  /mwsx/endpoint/{name}/cquery/{queryID}/status:
-    $ref: paths/mwsx_endpoint_{name}_cquery_{queryID}_status.yaml
-  /mwsx/endpoint/{name}/cquery/exportQueryResults:
-    $ref: paths/mwsx_endpoint_{name}_cquery_exportQueryResults.yaml
-  /mwsx/endpoint/{name}/cquery/{queryID}/export:
-    $ref: paths/mwsx_endpoint_{name}_cquery_{queryID}_export.yaml
-  /mwsx/endpoint/{name}/cquery/{queryID}/results:
-    $ref: paths/mwsx_endpoint_{name}_cquery_{queryID}_results.yaml
-  /mwsx/endpoint/{name}/cquery/{queryID}/results/triples:
-    $ref: paths/mwsx_endpoint_{name}_cquery_{queryID}_results_triples.yaml
-  /mwsx/endpoint/{name}/cquery/{queryID}/results/tabular:
-    $ref: paths/mwsx_endpoint_{name}_cquery_{queryID}_results_tabular.yaml
-  /mwsx/endpoint/{name}/cquery/{queryID}/results/rdfGraph:
-    $ref: paths/mwsx_endpoint_{name}_cquery_{queryID}_results_rdfGraph.yaml
-  /mwsx/endpoint/{eName}/countEntityInstances:
-    $ref: paths/mwsx_endpoint_{eName}_countEntityInstances.yaml
-  /mwsx/endpoint/{eName}/countEntityInstances/start:
-    $ref: paths/mwsx_endpoint_{eName}_countEntityInstances_start.yaml
-  /mwsx/endpoint/{eName}/countEntityInstances/stop:
-    $ref: paths/mwsx_endpoint_{eName}_countEntityInstances_stop.yaml
-  /mwsx/endpoint/{eName}/countEntityInstances/info:
-    $ref: paths/mwsx_endpoint_{eName}_countEntityInstances_info.yaml
-  /mwsx/endpoint/{eName}/instanceChecking/start:
-    $ref: paths/mwsx_endpoint_{eName}_instanceChecking_start.yaml
-  /mwsx/endpoint/{eName}/instanceChecking/{threadId}/stop:
-    $ref: paths/mwsx_endpoint_{eName}_instanceChecking_{threadId}_stop.yaml
-  /mwsx/endpoint/{eName}/instanceChecking/{threadId}/info:
-    $ref: paths/mwsx_endpoint_{eName}_instanceChecking_{threadId}_info.yaml
-  /mwsx/endpoint/{eName}/minMaxDataproperties/start:
-    $ref: paths/mwsx_endpoint_{eName}_minMaxDataproperties_start.yaml
-  /mwsx/endpoint/{eName}/minMaxDataproperties/stop:
-    $ref: paths/mwsx_endpoint_{eName}_minMaxDataproperties_stop.yaml
-  /mwsx/endpoint/{eName}/minMaxDataproperties/info:
-    $ref: paths/mwsx_endpoint_{eName}_minMaxDataproperties_info.yaml
-  /mwsx/endpoint/{name}/queries:
-    $ref: paths/mwsx_endpoint_{name}_queries.yaml
-  /mwsx/endpoint/{name}/queries/ids:
-    $ref: paths/mwsx_endpoint_{name}_queries_ids.yaml
-  /mwsx/endpoint/{name}/query/{executionId}:
-    $ref: paths/mwsx_endpoint_{name}_query_{executionId}.yaml
-  /mwsx/endpoint/{name}/query/start:
-    $ref: paths/mwsx_endpoint_{name}_query_start.yaml
-  /mwsx/endpoint/{name}/query/start-sync:
-    $ref: paths/mwsx_endpoint_{name}_query_start-sync.yaml
-  /mwsx/endpoint/{name}/query/count:
-    $ref: paths/mwsx_endpoint_{name}_query_count.yaml
-  /mwsx/endpoint/{name}/query/count/{queryId}/state:
-    $ref: paths/mwsx_endpoint_{name}_query_count_{queryId}_state.yaml
-  /mwsx/endpoint/{name}/query/count/{queryId}/error:
-    $ref: paths/mwsx_endpoint_{name}_query_count_{queryId}_error.yaml
-  /mwsx/endpoint/{name}/new-cq-query/start:
-    $ref: paths/mwsx_endpoint_{name}_new-cq-query_start.yaml
-  /mwsx/endpoint/{name}/new-cq-query/{executionId}/results:
-    $ref: paths/mwsx_endpoint_{name}_new-cq-query_{executionId}_results.yaml
-  /mwsx/endpoint/{name}/new-cq-query/{executionId}/status:
-    $ref: paths/mwsx_endpoint_{name}_new-cq-query_{executionId}_status.yaml
-  /mwsx/endpoint/{name}/new-cq-query/{executionId}/ontologyRewritings:
-    $ref: >-
-      paths/mwsx_endpoint_{name}_new-cq-query_{executionId}_ontologyRewritings.yaml
-  /mwsx/endpoint/{name}/new-cq-query/{executionId}/viewRewritings:
-    $ref: paths/mwsx_endpoint_{name}_new-cq-query_{executionId}_viewRewritings.yaml
-  /mwsx/endpoint/{name}/new-cq-query/{executionId}/viewOptimizedRewritings:
-    $ref: >-
-      paths/mwsx_endpoint_{name}_new-cq-query_{executionId}_viewOptimizedRewritings.yaml
-  /mwsx/endpoint/{name}/new-cq-query/{executionId}/sqlRewritings:
-    $ref: paths/mwsx_endpoint_{name}_new-cq-query_{executionId}_sqlRewritings.yaml
-  /mwsx/endpoint/{name}/new-cq-query/{executionId}/sqlDebugRewritings:
-    $ref: >-
-      paths/mwsx_endpoint_{name}_new-cq-query_{executionId}_sqlDebugRewritings.yaml
-  /mwsx/endpoint/{name}/new-cq-query/{executionId}/stop:
-    $ref: paths/mwsx_endpoint_{name}_new-cq-query_{executionId}_stop.yaml
-  /mwsx/endpoint/{name}/new-cq-query/{executionId}:
-    $ref: paths/mwsx_endpoint_{name}_new-cq-query_{executionId}.yaml
-  /mwsx/endpoint/{name}/virtualEntity/{veName}:
-    $ref: paths/mwsx_endpoint_{name}_virtualEntity_{veName}.yaml
-  /mwsx/endpoint/{eName}/mappingAnalysisReport:
-    $ref: paths/mwsx_endpoint_{eName}_mappingAnalysisReport.yaml
-  /mwsx/endpoint/{eName}/saturetedOntology:
-    $ref: paths/mwsx_endpoint_{eName}_saturetedOntology.yaml
-  /mwsx/queryTags:
-    $ref: paths/mwsx_queryTags.yaml
-  /mwsx/queryTags/{tagName}:
-    $ref: paths/mwsx_queryTags_{tagName}.yaml
-  /mwsx/owlOntology/{name}/version/querycatalog:
-    $ref: paths/mwsx_owlOntology_{name}_version_querycatalog.yaml
-  /mwsx/owlOntology/{name}/version/querycatalog/converted2sparqling:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_querycatalog_converted2sparqling.yaml
-  /mwsx/owlOntology/{name}/version/query/{queryID}/publication:
-    $ref: paths/mwsx_owlOntology_{name}_version_query_{queryID}_publication.yaml
-  /mwsx/owlOntology/{name}/version/querycatalog/publicationRequests:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_querycatalog_publicationRequests.yaml
-  /mwsx/owlOntology/{name}/version/querycatalog/{userCatalog}/query/{queryID}/publication:
-    $ref: >-
-      paths/mwsx_owlOntology_{name}_version_querycatalog_{userCatalog}_query_{queryID}_publication.yaml
-  /mwsx/owlOntology/{name}/version/querycatalog/export:
-    $ref: paths/mwsx_owlOntology_{name}_version_querycatalog_export.yaml
-  /mwsx/owlOntology/{name}/version/querycatalog/import:
-    $ref: paths/mwsx_owlOntology_{name}_version_querycatalog_import.yaml
-  /mwsx/owlOntology/{name}/version/query/{ID}:
-    $ref: paths/mwsx_owlOntology_{name}_version_query_{ID}.yaml
-  /mwsx/owlOntology/{name}/version/query:
-    $ref: paths/mwsx_owlOntology_{name}_version_query.yaml
-  /mwsx/owlOntology/{name}/version/queries/sparqling:
-    $ref: paths/mwsx_owlOntology_{name}_version_queries_sparqling.yaml
-  /mwsx/owlOntology/{name}/version/query/sparqling/{ID}:
-    $ref: paths/mwsx_owlOntology_{name}_version_query_sparqling_{ID}.yaml
-  /mwsx/owlOntology/{name}/version/query/sparqling:
-    $ref: paths/mwsx_owlOntology_{name}_version_query_sparqling.yaml
-  /mwsx/owlOntology/{name}/version/querycatalog/sparqling/import:
-    $ref: paths/mwsx_owlOntology_{name}_version_querycatalog_sparqling_import.yaml
-  /mwsx/owlOntology/{name}/version/querycatalog/sparqling:
-    $ref: paths/mwsx_owlOntology_{name}_version_querycatalog_sparqling.yaml
-  /mwsx/owlOntology/{name}/version/querycatalog/sparqling/export:
-    $ref: paths/mwsx_owlOntology_{name}_version_querycatalog_sparqling_export.yaml
-  /mwsx/ontologyCatalog/querycatalog:
-    $ref: paths/mwsx_ontologyCatalog_querycatalog.yaml
-  /mwsx/ontologyCatalog/querycatalog/export:
-    $ref: paths/mwsx_ontologyCatalog_querycatalog_export.yaml
-  /mwsx/ontologyCatalog/querycatalog/import:
-    $ref: paths/mwsx_ontologyCatalog_querycatalog_import.yaml
-  /mwsx/ontologyCatalog/querycatalog/query/{ID}:
-    $ref: paths/mwsx_ontologyCatalog_querycatalog_query_{ID}.yaml
-  /mwsx/ontologyCatalog/querycatalog/query:
-    $ref: paths/mwsx_ontologyCatalog_querycatalog_query.yaml
-  /mwsx/owlOntology/queries/publicationRequests:
-    $ref: paths/mwsx_owlOntology_queries_publicationRequests.yaml
-  /mwsx/users:
-    $ref: paths/mwsx_users.yaml
-  /mwsx/user/{username}:
-    $ref: paths/mwsx_user_{username}.yaml
-  /mwsx/user:
-    $ref: paths/mwsx_user.yaml
-  /mwsx/user/{username}/passwd:
-    $ref: paths/mwsx_user_{username}_passwd.yaml
-  /mwsx/user/{username}/passwd/reset:
-    $ref: paths/mwsx_user_{username}_passwd_reset.yaml
-  /mwsx/roles:
-    $ref: paths/mwsx_roles.yaml
-  /mwsx/role/{rolename}:
-    $ref: paths/mwsx_role_{rolename}.yaml
-  /mwsx/role:
-    $ref: paths/mwsx_role.yaml
-  /mwsx/role/configurations:
-    $ref: paths/mwsx_role_configurations.yaml
-  /mwsx/monolith/roles:
-    $ref: paths/mwsx_monolith_roles.yaml
-  /mwsx/monolith/role/{rolename}:
-    $ref: paths/mwsx_monolith_role_{rolename}.yaml
-  /mwsx/users/feedback:
-    $ref: paths/mwsx_users_feedback.yaml
-  /mwsx/user/feedback:
-    $ref: paths/mwsx_user_feedback.yaml
-  /mwsx/user/{username}/feedback:
-    $ref: paths/mwsx_user_{username}_feedback.yaml
-  /mwsx/user/feedback/comment:
-    $ref: paths/mwsx_user_feedback_comment.yaml
-  /mwsx/statistics/accesses:
-    $ref: paths/mwsx_statistics_accesses.yaml
-  /mwsx/statistics/ontologies:
-    $ref: paths/mwsx_statistics_ontologies.yaml
-  /mwsx/statistics/{endpoint}/queries:
-    $ref: paths/mwsx_statistics_{endpoint}_queries.yaml
-  /mwsx/statistics/{endpoint}/entities:
-    $ref: paths/mwsx_statistics_{endpoint}_entities.yaml
-  /mwsx/owlOntology/{name}/version/vkg/catalog:
-    $ref: paths/mwsx_owlOntology_{name}_version_vkg_catalog.yaml
-  /mwsx/owlOntology/{name}/version/vkg/catalog/{snapshotId}:
-    $ref: paths/mwsx_owlOntology_{name}_version_vkg_catalog_{snapshotId}.yaml
-  /mwsx/owlOntology/{name}/version/vkg/catalog/export:
-    $ref: paths/mwsx_owlOntology_{name}_version_vkg_catalog_export.yaml
-  /mwsx/owlOntology/{name}/version/vkg/catalog/import:
-    $ref: paths/mwsx_owlOntology_{name}_version_vkg_catalog_import.yaml
-  /mwsx/owlOntology/{name}/version/vkg/node-rendering:
-    $ref: paths/mwsx_owlOntology_{name}_version_vkg_node-rendering.yaml
-  /mwsx/taskScheduler/state:
-    $ref: paths/mwsx_taskScheduler_state.yaml
-  /mwsx/taskScheduler/jobs:
-    $ref: paths/mwsx_taskScheduler_jobs.yaml
-  /mwsx/taskScheduler/jobs/available:
-    $ref: paths/mwsx_taskScheduler_jobs_available.yaml
-  /mwsx/taskScheduler/jobs/entries:
-    $ref: paths/mwsx_taskScheduler_jobs_entries.yaml
-  /mwsx/taskScheduler/jobs/entries/filter:
-    $ref: paths/mwsx_taskScheduler_jobs_entries_filter.yaml
-  /mwsx/taskScheduler/job/{jobId}/entry:
-    $ref: paths/mwsx_taskScheduler_job_{jobId}_entry.yaml
-  /mwsx/taskScheduler/job/{jobId}/execution/{execId}:
-    $ref: paths/mwsx_taskScheduler_job_{jobId}_execution_{execId}.yaml
-  /mwsx/taskScheduler/job/{jobId}/execution/entries:
-    $ref: paths/mwsx_taskScheduler_job_{jobId}_execution_entries.yaml
-  /mwsx/taskScheduler/job/{jobId}:
-    $ref: paths/mwsx_taskScheduler_job_{jobId}.yaml
-  /mwsx/taskScheduler/job/{jobId}/executionsIds:
-    $ref: paths/mwsx_taskScheduler_job_{jobId}_executionsIds.yaml
+  /owlOntology/{name}/version/avpOntologyTree:
+    $ref: paths/owlOntology_{name}_version_avpOntologyTree.yaml
+  /owlOntology/{name}/version/authorizationViewProfiles:
+    $ref: paths/owlOntology_{name}_version_authorizationViewProfiles.yaml
+  /owlOntology/{name}/version/authorizationViewProfile/{avpId}:
+    $ref: paths/owlOntology_{name}_version_authorizationViewProfile_{avpId}.yaml
+  /ontologyDraftInfos:
+    $ref: paths/ontologyDraftInfos.yaml
+  /ontologyDraft/{ontologyName}:
+    $ref: paths/ontologyDraft_{ontologyName}.yaml
+  /ontologyDraft/download:
+    $ref: paths/ontologyDraft_download.yaml
+  /ontologyDraft/convertOWL:
+    $ref: paths/ontologyDraft_convertOWL.yaml
+  /owlOntology/{name}/version/ontologyConstraints:
+    $ref: paths/owlOntology_{name}_version_ontologyConstraints.yaml
+  /owlOntology/{name}/version/ontologyConstraints/set:
+    $ref: paths/owlOntology_{name}_version_ontologyConstraints_set.yaml
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}:
+    $ref: paths/owlOntology_{name}_version_ontologyConstraints_set_{setId}.yaml
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}/start/{endpoint}:
+    $ref: >-
+      paths/owlOntology_{name}_version_ontologyConstraints_set_{setId}_start_{endpoint}.yaml
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}/stop:
+    $ref: paths/owlOntology_{name}_version_ontologyConstraints_set_{setId}_stop.yaml
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}/removeThread:
+    $ref: >-
+      paths/owlOntology_{name}_version_ontologyConstraints_set_{setId}_removeThread.yaml
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}/status:
+    $ref: >-
+      paths/owlOntology_{name}_version_ontologyConstraints_set_{setId}_status.yaml
+  /owlOntology/{name}/version/ontologyConstraints/sets/running:
+    $ref: paths/owlOntology_{name}_version_ontologyConstraints_sets_running.yaml
+  /owlOntology/{name}/version/ontologyConstraints/sets/executionLogs:
+    $ref: >-
+      paths/owlOntology_{name}_version_ontologyConstraints_sets_executionLogs.yaml
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}/executionLog:
+    $ref: >-
+      paths/owlOntology_{name}_version_ontologyConstraints_set_{setId}_executionLog.yaml
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}/executionLogs/timestamps:
+    $ref: >-
+      paths/owlOntology_{name}_version_ontologyConstraints_set_{setId}_executionLogs_timestamps.yaml
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}/executionLogs/timestamp/{timestamp}:
+    $ref: >-
+      paths/owlOntology_{name}_version_ontologyConstraints_set_{setId}_executionLogs_timestamp_{timestamp}.yaml
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}/executionLog/timestamps:
+    $ref: >-
+      paths/owlOntology_{name}_version_ontologyConstraints_set_{setId}_executionLog_timestamps.yaml
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}/dump:
+    $ref: paths/owlOntology_{name}_version_ontologyConstraints_set_{setId}_dump.yaml
+  /owlOntology/{name}/version/ontologyConstraints/sets/dump:
+    $ref: paths/owlOntology_{name}_version_ontologyConstraints_sets_dump.yaml
+  /owlOntology/sparqling/test:
+    $ref: paths/owlOntology_sparqling_test.yaml
+  /owlOntology/{name}/queryGraph/head/add/{graphElementId}:
+    $ref: paths/owlOntology_{name}_queryGraph_head_add_{graphElementId}.yaml
+  /owlOntology/{name}/queryGraph/path/{graphElementId}:
+    $ref: paths/owlOntology_{name}_queryGraph_path_{graphElementId}.yaml
+  /owlOntology/{name}/queryGraph/head/aggregation/{headTerm}:
+    $ref: paths/owlOntology_{name}_queryGraph_head_aggregation_{headTerm}.yaml
+  /owlOntology/{name}/queryGraph/countStar/{active}:
+    $ref: paths/owlOntology_{name}_queryGraph_countStar_{active}.yaml
+  /owlOntology/{name}/queryGraph/node/delete/{graphElementId}:
+    $ref: paths/owlOntology_{name}_queryGraph_node_delete_{graphElementId}.yaml
+  /owlOntology/{name}/queryGraph/node/delete/{graphElementId}/class:
+    $ref: >-
+      paths/owlOntology_{name}_queryGraph_node_delete_{graphElementId}_class.yaml
+  /owlOntology/{name}/queryGraph/head/delete/{headTerm}:
+    $ref: paths/owlOntology_{name}_queryGraph_head_delete_{headTerm}.yaml
+  /owlOntology/{name}/queryGraph/distinct:
+    $ref: paths/owlOntology_{name}_queryGraph_distinct.yaml
+  /owlOntology/{name}/queryGraph/node/filter/edit/{filterId}:
+    $ref: paths/owlOntology_{name}_queryGraph_node_filter_edit_{filterId}.yaml
+  /owlOntology/{name}/queryGraph/head/function/{headTerm}:
+    $ref: paths/owlOntology_{name}_queryGraph_head_function_{headTerm}.yaml
+  /owlOntology/{name}/queryGraph/node:
+    $ref: paths/owlOntology_{name}_queryGraph_node.yaml
+  /owlOntology/{name}/highlights:
+    $ref: paths/owlOntology_{name}_highlights.yaml
+  /endpoint/{endpointName}/highligthsSharedViewsProps:
+    $ref: paths/endpoint_{endpointName}_highligthsSharedViewsProps.yaml
+  /owlOntology/{name}/highlights/paths:
+    $ref: paths/owlOntology_{name}_highlights_paths.yaml
+  /owlOntology/{name}/highlights/paths/thread/start:
+    $ref: paths/owlOntology_{name}_highlights_paths_thread_start.yaml
+  /owlOntology/{name}/highlights/paths/thread/stop:
+    $ref: paths/owlOntology_{name}_highlights_paths_thread_stop.yaml
+  /owlOntology/{name}/highlights/paths/thread/result:
+    $ref: paths/owlOntology_{name}_highlights_paths_thread_result.yaml
+  /owlOntology/{name}/highlights/paths/thread/state:
+    $ref: paths/owlOntology_{name}_highlights_paths_thread_state.yaml
+  /owlOntology/{name}/highlights/paths/thread/error:
+    $ref: paths/owlOntology_{name}_highlights_paths_thread_error.yaml
+  /owlOntology/{name}/queryGraph/limit:
+    $ref: paths/owlOntology_{name}_queryGraph_limit.yaml
+  /owlOntology/{name}/queryGraph/node/filter/{filterId}:
+    $ref: paths/owlOntology_{name}_queryGraph_node_filter_{filterId}.yaml
+  /owlOntology/{name}/queryGraph/node/optional/{graphElementId}:
+    $ref: paths/owlOntology_{name}_queryGraph_node_optional_{graphElementId}.yaml
+  /owlOntology/{name}/queryGraph/offset:
+    $ref: paths/owlOntology_{name}_queryGraph_offset.yaml
+  /owlOntology/{name}/queryGraph/head/orderBy/{headTerm}:
+    $ref: paths/owlOntology_{name}_queryGraph_head_orderBy_{headTerm}.yaml
+  /owlOntology/{name}/queryGraph/node/class/{graphElementId}:
+    $ref: paths/owlOntology_{name}_queryGraph_node_class_{graphElementId}.yaml
+  /owlOntology/{name}/queryGraph/node/dataProperty/{graphElementId}:
+    $ref: >-
+      paths/owlOntology_{name}_queryGraph_node_dataProperty_{graphElementId}.yaml
+  /owlOntology/{name}/queryGraph/node/annotation/{graphElementId}:
+    $ref: paths/owlOntology_{name}_queryGraph_node_annotation_{graphElementId}.yaml
+  /owlOntology/{name}/queryGraph/node/join/{graphElementId1}/{graphElementId2}:
+    $ref: >-
+      paths/owlOntology_{name}_queryGraph_node_join_{graphElementId1}_{graphElementId2}.yaml
+  /owlOntology/{name}/queryGraph/node/objectProperty/{graphElementId}:
+    $ref: >-
+      paths/owlOntology_{name}_queryGraph_node_objectProperty_{graphElementId}.yaml
+  /owlOntology/{name}/queryGraph/node/filter/remove/all:
+    $ref: paths/owlOntology_{name}_queryGraph_node_filter_remove_all.yaml
+  /owlOntology/{name}/queryGraph/node/optional/remove/all:
+    $ref: paths/owlOntology_{name}_queryGraph_node_optional_remove_all.yaml
+  /owlOntology/{name}/queryGraph/node/filter/remove/{filterId}:
+    $ref: paths/owlOntology_{name}_queryGraph_node_filter_remove_{filterId}.yaml
+  /owlOntology/{name}/queryGraph/node/optional/remove/{graphElementId}:
+    $ref: >-
+      paths/owlOntology_{name}_queryGraph_node_optional_remove_{graphElementId}.yaml
+  /owlOntology/{name}/queryGraph/head/rename/{headTerm}:
+    $ref: paths/owlOntology_{name}_queryGraph_head_rename_{headTerm}.yaml
+  /owlOntology/{name}/queryGraph/head/reorderHeadTerms:
+    $ref: paths/owlOntology_{name}_queryGraph_head_reorderHeadTerms.yaml
+  /owlOntology/{name}/instanceShortestPath:
+    $ref: paths/owlOntology_{name}_instanceShortestPath.yaml
+  /endpoint/{name}/instanceShortestPath:
+    $ref: paths/endpoint_{name}_instanceShortestPath.yaml
+  /owlOntology/{name}/constructify:
+    $ref: paths/owlOntology_{name}_constructify.yaml
+  /owlOntology/{name}/queryGraph/visualize:
+    $ref: paths/owlOntology_{name}_queryGraph_visualize.yaml
+  /triplify/start:
+    $ref: paths/triplify_start.yaml
+  /owlOntology/{name}/mappings/{mapID}/triplify/listThreads:
+    $ref: paths/owlOntology_{name}_mappings_{mapID}_triplify_listThreads.yaml
+  /owlOntology/{name}/mappings/{mapID}/triplify/listThreadProgresses:
+    $ref: >-
+      paths/owlOntology_{name}_mappings_{mapID}_triplify_listThreadProgresses.yaml
+  /triplify/stopAll:
+    $ref: paths/triplify_stopAll.yaml
+  /triplify/{threadID}/stop:
+    $ref: paths/triplify_{threadID}_stop.yaml
+  /triplify/{threadID}:
+    $ref: paths/triplify_{threadID}.yaml
+  /triplify/{threadID}/status:
+    $ref: paths/triplify_{threadID}_status.yaml
+  /triplify/{threadID}/report:
+    $ref: paths/triplify_{threadID}_report.yaml
+  /triplify/{threadID}/download:
+    $ref: paths/triplify_{threadID}_download.yaml
+  /owlOntology/{name}/version/mapping/{mapID}/triplify/{datasource}:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{mapID}_triplify_{datasource}.yaml
+  /owlOntology/{name}/version/mapping:
+    $ref: paths/owlOntology_{name}_version_mapping.yaml
+  /owlOntology/{name}/version/mapping/{mapID}:
+    $ref: paths/owlOntology_{name}_version_mapping_{mapID}.yaml
+  /owlOntology/{name}/version/mapping/{ID}/checkDeprecation:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_checkDeprecation.yaml
+  /owlOntology/{name}/version/mapping/{ID}/count:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_count.yaml
+  /owlOntology/{name}/version/mapping/{mapID}/duplicate:
+    $ref: paths/owlOntology_{name}_version_mapping_{mapID}_duplicate.yaml
+  /owlOntology/{name}/version/mapping/{mapID}/backup:
+    $ref: paths/owlOntology_{name}_version_mapping_{mapID}_backup.yaml
+  /owlOntology/{name}/version/mapping/{mapID}/migrate:
+    $ref: paths/owlOntology_{name}_version_mapping_{mapID}_migrate.yaml
+  /owlOntology/{name}/version/mapping/{mapID}/fixDeprecated:
+    $ref: paths/owlOntology_{name}_version_mapping_{mapID}_fixDeprecated.yaml
+  /owlOntology/{name}/version/mapping/check:
+    $ref: paths/owlOntology_{name}_version_mapping_check.yaml
+  /owlOntology/{name}/version/mapping/{ID}/info:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_info.yaml
+  /owlOntology/{name}/version/mapping/{ID}/templates:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_templates.yaml
+  /owlOntology/{name}/version/mapping/{ID}/templates/refactoring:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_templates_refactoring.yaml
+  /owlOntology/{name}/version/mapping/{ID}/template:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_template.yaml
+  /owlOntology/{name}/version/mapping/{ID}/assertions/{entityID}:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_assertions_{entityID}.yaml
+  /owlOntology/{name}/version/mapping/{ID}/assertions:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_assertions.yaml
+  /owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_assertion_{mapID}.yaml
+  /owlOntology/{name}/version/mapping/{ID}/views:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_views.yaml
+  /owlOntology/{name}/version/mapping/{ID}/view/{view_name}/referencedTables:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_view_{view_name}_referencedTables.yaml
+  /owlOntology/{name}/version/mapping/{ID}/views/referencedTables:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_views_referencedTables.yaml
+  /owlOntology/{name}/version/mapping/{ID}/view/{view_name}:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_view_{view_name}.yaml
+  /owlOntology/{name}/version/mapping/{ID}/view/refactoring:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_view_refactoring.yaml
+  /owlOntology/{name}/version/mapping/{ID}/views/{viewID}:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_views_{viewID}.yaml
+  /owlOntology/{name}/version/mapping/{ID}/annotations:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_annotations.yaml
+  /owlOntology/{name}/version/mapping/{ID}/annotation/{mapID}:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_annotation_{mapID}.yaml
+  /owlOntology/{name}/version/mapping/{ID}/generateIntensionalAnnotationsOntology:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_generateIntensionalAnnotationsOntology.yaml
+  /owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/state:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_annotationProcessorThread_{threadId}_state.yaml
+  /owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/error:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_annotationProcessorThread_{threadId}_error.yaml
+  /owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/export:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_annotationProcessorThread_{threadId}_export.yaml
+  /owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/stop:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_annotationProcessorThread_{threadId}_stop.yaml
+  /owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_annotationProcessorThread_{threadId}.yaml
+  /owlOntology/{name}/version/mapping/{ID}/dependencies:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_dependencies.yaml
+  /owlOntology/{name}/version/mapping/{ID}/dependencies/inclusions:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_dependencies_inclusions.yaml
+  /owlOntology/{name}/version/mapping/{ID}/dependencies/inclusion/{incID}:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_dependencies_inclusion_{incID}.yaml
+  /owlOntology/{name}/version/mapping/{ID}/dependencies/keys:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_dependencies_keys.yaml
+  /owlOntology/{name}/version/mapping/{ID}/dependencies/key/{keyID}:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_dependencies_key_{keyID}.yaml
+  /owlOntology/{name}/version/mapping/{ID}/dependencies/denials:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_dependencies_denials.yaml
+  /owlOntology/{name}/version/mapping/{ID}/dependencies/denial/{denyID}:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_dependencies_denial_{denyID}.yaml
+  /owlOntology/{name}/version/mapping/{ID}/parameter:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_parameter.yaml
+  /owlOntology/{name}/version/mapping/{ID}/parameters:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_parameters.yaml
+  /owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_parameter_{paramName}.yaml
+  /owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/parameters:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_assertion_{mapID}_parameters.yaml
+  /owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/referencedTables:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_assertion_{mapID}_referencedTables.yaml
+  /owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/testSQLQuery:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_assertion_{mapID}_testSQLQuery.yaml
+  /owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/testCustomSQLQuery:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_assertion_{mapID}_testCustomSQLQuery.yaml
+  /owlOntology/{name}/version/mapping/{ID}/assertion/testCustomSQLQuery:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_assertion_testCustomSQLQuery.yaml
+  /owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/typeCheckingReport:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_assertion_{mapID}_typeCheckingReport.yaml
+  /owlOntology/{name}/version/mapping/{ID}/view/{viewName}/parameters:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_view_{viewName}_parameters.yaml
+  /owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}/views:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_parameter_{paramName}_views.yaml
+  /owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}/assertions:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_parameter_{paramName}_assertions.yaml
+  /owlOntology/{name}/version/mapping/{mapID}/query/{queryID}/delete:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{mapID}_query_{queryID}_delete.yaml
+  /owlOntology/{name}/version/mapping/{mapID}/query/{queryID}/exportQueryReport:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{mapID}_query_{queryID}_exportQueryReport.yaml
+  /owlOntology/{name}/version/mapping/{mapID}/suggestedTemplate/{entityID}:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{mapID}_suggestedTemplate_{entityID}.yaml
+  /owlOntology/{name}/version/mapping/{mapID}/dataLineage/{entityID}:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{mapID}_dataLineage_{entityID}.yaml
+  /owlOntology/{name}/version/mapping/{mapID}/dataLineageProperty/{entityID}:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{mapID}_dataLineageProperty_{entityID}.yaml
+  /owlOntology/{name}/version/mapping/{mapID}/dataLineageAnnotationProperty:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{mapID}_dataLineageAnnotationProperty.yaml
+  /log/{env}/{mode}:
+    $ref: paths/log_{env}_{mode}.yaml
+  /login:
+    $ref: paths/login.yaml
+  /logout:
+    $ref: paths/logout.yaml
+  /logout/{username}:
+    $ref: paths/logout_{username}.yaml
+  /mastro/version:
+    $ref: paths/mastro_version.yaml
+  /jena/version:
+    $ref: paths/jena_version.yaml
+  /owlapi/version:
+    $ref: paths/owlapi_version.yaml
+  /resources/ontologies:
+    $ref: paths/resources_ontologies.yaml
+  /resources/ontology/{name}/versions:
+    $ref: paths/resources_ontology_{name}_versions.yaml
+  /resources/ontology/{name}/version/mappings:
+    $ref: paths/resources_ontology_{name}_version_mappings.yaml
+  /resources/datasources:
+    $ref: paths/resources_datasources.yaml
+  /resources/endpoints:
+    $ref: paths/resources_endpoints.yaml
+  /owlOntology/{name}/version/dashboards:
+    $ref: paths/owlOntology_{name}_version_dashboards.yaml
+  /owlOntology/{name}/version/dashboard/{dashboardId}/migrate:
+    $ref: paths/owlOntology_{name}_version_dashboard_{dashboardId}_migrate.yaml
+  /owlOntology/{name}/version/dashboards/migrate:
+    $ref: paths/owlOntology_{name}_version_dashboards_migrate.yaml
+  /owlOntology/{name}/version/dashboard/{dashboardId}:
+    $ref: paths/owlOntology_{name}_version_dashboard_{dashboardId}.yaml
+  /owlOntology:
+    $ref: paths/owlOntology.yaml
+  /owlOntology/{name}:
+    $ref: paths/owlOntology_{name}.yaml
+  /owlOntology/{name}/folder:
+    $ref: paths/owlOntology_{name}_folder.yaml
+  /owlOntology/{name}/version/folder:
+    $ref: paths/owlOntology_{name}_version_folder.yaml
+  /owlOntology/{name}/version:
+    $ref: paths/owlOntology_{name}_version.yaml
+  /owlOntology/{name}/version/ignoredImports:
+    $ref: paths/owlOntology_{name}_version_ignoredImports.yaml
+  /owlOntology/{name}/version/closed:
+    $ref: paths/owlOntology_{name}_version_closed.yaml
+  /owlOntology/{name}/version/closed/{threadId}/status:
+    $ref: paths/owlOntology_{name}_version_closed_{threadId}_status.yaml
+  /owlOntology/{name}/version/closedComputed:
+    $ref: paths/owlOntology_{name}_version_closedComputed.yaml
+  /owlOntology/{name}/version/closingReport:
+    $ref: paths/owlOntology_{name}_version_closingReport.yaml
+  /owlOntology/{name}/version/closingReportComputed:
+    $ref: paths/owlOntology_{name}_version_closingReportComputed.yaml
+  /owlOntology/{name}/version/hierarchy/owl:
+    $ref: paths/owlOntology_{name}_version_hierarchy_owl.yaml
+  /owlOntology/{name}/version/loaderThreads:
+    $ref: paths/owlOntology_{name}_version_loaderThreads.yaml
+  /owlOntology/{name}/version/loaderThreads/metadata:
+    $ref: paths/owlOntology_{name}_version_loaderThreads_metadata.yaml
+  /owlOntology/{name}/version/loaderThread/{threadId}/status:
+    $ref: paths/owlOntology_{name}_version_loaderThread_{threadId}_status.yaml
+  /owlOntology/{name}/version/loaderThread/{threadId}/report:
+    $ref: paths/owlOntology_{name}_version_loaderThread_{threadId}_report.yaml
+  /owlOntology/{name}/importFromIRI:
+    $ref: paths/owlOntology_{name}_importFromIRI.yaml
+  /owlOntology/{name}/version/hierarchy:
+    $ref: paths/owlOntology_{name}_version_hierarchy.yaml
+  /owlOntology/{name}/version/catalog:
+    $ref: paths/owlOntology_{name}_version_catalog.yaml
+  /owlOntology/{name}/version/info:
+    $ref: paths/owlOntology_{name}_version_info.yaml
+  /owlOntology/{name}/version/entities/classes:
+    $ref: paths/owlOntology_{name}_version_entities_classes.yaml
+  /owlOntology/{name}/version/entities/objectProperties:
+    $ref: paths/owlOntology_{name}_version_entities_objectProperties.yaml
+  /owlOntology/{name}/version/entities/dataProperties:
+    $ref: paths/owlOntology_{name}_version_entities_dataProperties.yaml
+  /owlOntology/{name}/version/entities/annotationProperties:
+    $ref: paths/owlOntology_{name}_version_entities_annotationProperties.yaml
+  /owlOntology/{name}/version/entities:
+    $ref: paths/owlOntology_{name}_version_entities.yaml
+  /owlOntology/{name}/version/entity/{id}:
+    $ref: paths/owlOntology_{name}_version_entity_{id}.yaml
+  /owlOntology/{name}/version/alphabet/class/{ID}/logical:
+    $ref: paths/owlOntology_{name}_version_alphabet_class_{ID}_logical.yaml
+  /owlOntology/{name}/version/annotations:
+    $ref: paths/owlOntology_{name}_version_annotations.yaml
+  /owlOntology/{name}/version/alphabet/objectProperty/{ID}/logical:
+    $ref: paths/owlOntology_{name}_version_alphabet_objectProperty_{ID}_logical.yaml
+  /owlOntology/{name}/version/alphabet/dataProperty/{ID}/logical:
+    $ref: paths/owlOntology_{name}_version_alphabet_dataProperty_{ID}_logical.yaml
+  /owlOntology/{name}/version/alphabet/dataProperties/domainAndRange:
+    $ref: >-
+      paths/owlOntology_{name}_version_alphabet_dataProperties_domainAndRange.yaml
+  /owlOntology/{name}/version/graphol:
+    $ref: paths/owlOntology_{name}_version_graphol.yaml
+  /owlOntology/{name}/version/gscape:
+    $ref: paths/owlOntology_{name}_version_gscape.yaml
+  /owlOntology/{name}/version/shacl:
+    $ref: paths/owlOntology_{name}_version_shacl.yaml
+  /owlOntology/{name}/version/graphol/check:
+    $ref: paths/owlOntology_{name}_version_graphol_check.yaml
+  /owlOntology/{name}/version/gscape/check:
+    $ref: paths/owlOntology_{name}_version_gscape_check.yaml
+  /owlOntology/{name}/version/shacl/check:
+    $ref: paths/owlOntology_{name}_version_shacl_check.yaml
+  /owlOntology/{name}/version/owl:
+    $ref: paths/owlOntology_{name}_version_owl.yaml
+  /mastro/instances:
+    $ref: paths/mastro_instances.yaml
+  /lastLoaded/ontology:
+    $ref: paths/lastLoaded_ontology.yaml
+  /owlOntology/{name}/version/alphabet/individual/{ID}/logical:
+    $ref: paths/owlOntology_{name}_version_alphabet_individual_{ID}_logical.yaml
+  /owlOntology/{name}/version/alphabet/search/individual:
+    $ref: paths/owlOntology_{name}_version_alphabet_search_individual.yaml
+  /ontologyDifference/{name}/vs/{otherName}:
+    $ref: paths/ontologyDifference_{name}_vs_{otherName}.yaml
+  /owlOntology/{name}/version/metadata:
+    $ref: paths/owlOntology_{name}_version_metadata.yaml
+  /owlOntology/{name}/version/metadata/missing:
+    $ref: paths/owlOntology_{name}_version_metadata_missing.yaml
+  /ontologyCatalog:
+    $ref: paths/ontologyCatalog.yaml
+  /ontologyCatalog/crossOntologiesMetadata:
+    $ref: paths/ontologyCatalog_crossOntologiesMetadata.yaml
+  /ontologyCatalog/query/start:
+    $ref: paths/ontologyCatalog_query_start.yaml
+  /ontologyCatalog/query/{queryId}/stop:
+    $ref: paths/ontologyCatalog_query_{queryId}_stop.yaml
+  /ontologyCatalog/query/{queryId}:
+    $ref: paths/ontologyCatalog_query_{queryId}.yaml
+  /ontologyCatalog/query/{queryId}/status:
+    $ref: paths/ontologyCatalog_query_{queryId}_status.yaml
+  /ontologyCatalog/query/{queryId}/results:
+    $ref: paths/ontologyCatalog_query_{queryId}_results.yaml
+  /ontologyCatalog/query/results/export/formats:
+    $ref: paths/ontologyCatalog_query_results_export_formats.yaml
+  /ontologyCatalog/query/{queryId}/results/export:
+    $ref: paths/ontologyCatalog_query_{queryId}_results_export.yaml
+  /ontologyCatalog/download:
+    $ref: paths/ontologyCatalog_download.yaml
+  /ontologyCatalog/cache/update:
+    $ref: paths/ontologyCatalog_cache_update.yaml
+  /ontologyCatalog/cache/update/languages/set:
+    $ref: paths/ontologyCatalog_cache_update_languages_set.yaml
+  /ontologyCatalog/cache/update/languages/add:
+    $ref: paths/ontologyCatalog_cache_update_languages_add.yaml
+  /ontologyCatalog/cache/results/{queryname}:
+    $ref: paths/ontologyCatalog_cache_results_{queryname}.yaml
+  /ontologyCatalog/cache/results/{queryname}/{language}:
+    $ref: paths/ontologyCatalog_cache_results_{queryname}_{language}.yaml
+  /ontologyCatalog/sparql11-endpoint/query:
+    $ref: paths/ontologyCatalog_sparql11-endpoint_query.yaml
+  /ontologyCatalog/sparql11-endpoint/update:
+    $ref: paths/ontologyCatalog_sparql11-endpoint_update.yaml
+  /globalAnnotations:
+    $ref: paths/globalAnnotations.yaml
+  /globalAnnotation:
+    $ref: paths/globalAnnotation.yaml
+  /globalAnnotation/{entityId}:
+    $ref: paths/globalAnnotation_{entityId}.yaml
+  /server/license/info:
+    $ref: paths/server_license_info.yaml
+  /server/storage/report:
+    $ref: paths/server_storage_report.yaml
+  /server/storage/{folder}:
+    $ref: paths/server_storage_{folder}.yaml
+  /server/systemSnapshot:
+    $ref: paths/server_systemSnapshot.yaml
+  /server/systemMemory:
+    $ref: paths/server_systemMemory.yaml
+  /server/userlog/{username}/count:
+    $ref: paths/server_userlog_{username}_count.yaml
+  /server/userlog/{username}:
+    $ref: paths/server_userlog_{username}.yaml
+  /geocoding/servers:
+    $ref: paths/geocoding_servers.yaml
+  /geocoding/server/{serverId}:
+    $ref: paths/geocoding_server_{serverId}.yaml
+  /logger/mastroapi:
+    $ref: paths/logger_mastroapi.yaml
+  /logger/service:
+    $ref: paths/logger_service.yaml
+  /logger:
+    $ref: paths/logger.yaml
+  /logger/class:
+    $ref: paths/logger_class.yaml
+  /logger/package:
+    $ref: paths/logger_package.yaml
+  /logger/list:
+    $ref: paths/logger_list.yaml
+  /logger/monitor:
+    $ref: paths/logger_monitor.yaml
+  /testpath:
+    $ref: paths/testpath.yaml
+  /error:
+    $ref: paths/error.yaml
+  /poststringasbody:
+    $ref: paths/poststringasbody.yaml
+  /statics/queryGenerator/:
+    $ref: paths/statics_queryGenerator_.yaml
+  /statics/sparql/extractProjectVarNames:
+    $ref: paths/statics_sparql_extractProjectVarNames.yaml
+  /statics/sparql/templateSize:
+    $ref: paths/statics_sparql_templateSize.yaml
+  /statics/reporting/request:
+    $ref: paths/statics_reporting_request.yaml
+  /owlOntology/{name}/version/virtualEntities:
+    $ref: paths/owlOntology_{name}_version_virtualEntities.yaml
+  /owlOntology/{name}/version/virtualEntities/export:
+    $ref: paths/owlOntology_{name}_version_virtualEntities_export.yaml
+  /owlOntology/{name}/version/virtualEntities/import:
+    $ref: paths/owlOntology_{name}_version_virtualEntities_import.yaml
+  /owlOntology/{name}/version/virtualEntity/{vname}:
+    $ref: paths/owlOntology_{name}_version_virtualEntity_{vname}.yaml
+  /owlOntology/{name}/version/virtualEntity:
+    $ref: paths/owlOntology_{name}_version_virtualEntity.yaml
+  /owlOntology/{name}/version/virtualEntity/semantics:
+    $ref: paths/owlOntology_{name}_version_virtualEntity_semantics.yaml
+  /datasource/{name}:
+    $ref: paths/datasource_{name}.yaml
+  /datasource/{name}/downloadMetadata:
+    $ref: paths/datasource_{name}_downloadMetadata.yaml
+  /datasource/{name}/metadata:
+    $ref: paths/datasource_{name}_metadata.yaml
+  /datasource/{name}/updateMetadata:
+    $ref: paths/datasource_{name}_updateMetadata.yaml
+  /datasource/{name}/uploadMetadata:
+    $ref: paths/datasource_{name}_uploadMetadata.yaml
+  /datasource:
+    $ref: paths/datasource.yaml
+  /datasource/drivers:
+    $ref: paths/datasource_drivers.yaml
+  /datasource/test:
+    $ref: paths/datasource_test.yaml
+  /datasource/schemas:
+    $ref: paths/datasource_schemas.yaml
+  /datasource/{id}/schemas:
+    $ref: paths/datasource_{id}_schemas.yaml
+  /datasource/schema/{schemaName}/tableNames:
+    $ref: paths/datasource_schema_{schemaName}_tableNames.yaml
+  /datasource/{id}/tables:
+    $ref: paths/datasource_{id}_tables.yaml
+  /datasource/{id}/tables/results:
+    $ref: paths/datasource_{id}_tables_results.yaml
+  /datasource/{id}/table/{tableName}:
+    $ref: paths/datasource_{id}_table_{tableName}.yaml
+  /system/jdbcDrivers:
+    $ref: paths/system_jdbcDrivers.yaml
+  /system/jdbcDriver/{driver}:
+    $ref: paths/system_jdbcDriver_{driver}.yaml
+  /system/jdbcDriver:
+    $ref: paths/system_jdbcDriver.yaml
+  /knowledgeGraphs:
+    $ref: paths/knowledgeGraphs.yaml
+  /knowledgeGraph:
+    $ref: paths/knowledgeGraph.yaml
+  /knowledgeGraph/info:
+    $ref: paths/knowledgeGraph_info.yaml
+  /knowledgeGraph/prefixes:
+    $ref: paths/knowledgeGraph_prefixes.yaml
+  /knowledgeGraph/folder:
+    $ref: paths/knowledgeGraph_folder.yaml
+  /knowledgeGraph/status:
+    $ref: paths/knowledgeGraph_status.yaml
+  /knowledgeGraph/status/list:
+    $ref: paths/knowledgeGraph_status_list.yaml
+  /lastLoaded/knowledgeGraph:
+    $ref: paths/lastLoaded_knowledgeGraph.yaml
+  /knowledgeGraph/file:
+    $ref: paths/knowledgeGraph_file.yaml
+  /knowledgeGraph/classes:
+    $ref: paths/knowledgeGraph_classes.yaml
+  /knowledgeGraph/classes/stats:
+    $ref: paths/knowledgeGraph_classes_stats.yaml
+  /knowledgeGraph/class/instances:
+    $ref: paths/knowledgeGraph_class_instances.yaml
+  /knowledgeGraph/namedGraphs:
+    $ref: paths/knowledgeGraph_namedGraphs.yaml
+  /knowledgeGraph/instances:
+    $ref: paths/knowledgeGraph_instances.yaml
+  /knowledgeGraph/union:
+    $ref: paths/knowledgeGraph_union.yaml
+  /knowledgeGraph/union/ontology:
+    $ref: paths/knowledgeGraph_union_ontology.yaml
+  /knowledgeGraph/union/queryKg:
+    $ref: paths/knowledgeGraph_union_queryKg.yaml
+  /knowledgeGraph/query/catalog:
+    $ref: paths/knowledgeGraph_query_catalog.yaml
+  /knowledgeGraph/query/catalog/export:
+    $ref: paths/knowledgeGraph_query_catalog_export.yaml
+  /knowledgeGraph/query/catalog/{queryID}:
+    $ref: paths/knowledgeGraph_query_catalog_{queryID}.yaml
+  /knowledgeGraph/query/start:
+    $ref: paths/knowledgeGraph_query_start.yaml
+  /knowledgeGraph/query/catalog/{queryID}/start:
+    $ref: paths/knowledgeGraph_query_catalog_{queryID}_start.yaml
+  /knowledgeGraph/query/{queryID}/stop:
+    $ref: paths/knowledgeGraph_query_{queryID}_stop.yaml
+  /knowledgeGraph/query/{queryID}/exportResults:
+    $ref: paths/knowledgeGraph_query_{queryID}_exportResults.yaml
+  /knowledgeGraph/query/{queryID}/status:
+    $ref: paths/knowledgeGraph_query_{queryID}_status.yaml
+  /knowledgeGraph/query/{queryId}:
+    $ref: paths/knowledgeGraph_query_{queryId}.yaml
+  /knowledgeGraph/query/{queryID}/results:
+    $ref: paths/knowledgeGraph_query_{queryID}_results.yaml
+  /knowledgeGraph/instance/page:
+    $ref: paths/knowledgeGraph_instance_page.yaml
+  /knowledgeGraph/instance/objectType:
+    $ref: paths/knowledgeGraph_instance_objectType.yaml
+  /knowledgeGraph/instance/subjectType:
+    $ref: paths/knowledgeGraph_instance_subjectType.yaml
+  /knowledgeGraph/store/file:
+    $ref: paths/knowledgeGraph_store_file.yaml
+  /knowledgeGraph/store/file/{name}:
+    $ref: paths/knowledgeGraph_store_file_{name}.yaml
+  /knowledgeGraph/upload/file:
+    $ref: paths/knowledgeGraph_upload_file.yaml
+  /knowledgeGraph/upload/import:
+    $ref: paths/knowledgeGraph_upload_import.yaml
+  /knowledgeGraph/delete/file:
+    $ref: paths/knowledgeGraph_delete_file.yaml
+  /knowledgeGraph/delete/file/triples:
+    $ref: paths/knowledgeGraph_delete_file_triples.yaml
+  /knowledgeGraph/upload/remove:
+    $ref: paths/knowledgeGraph_upload_remove.yaml
+  /knowledgeGraph/upload/files:
+    $ref: paths/knowledgeGraph_upload_files.yaml
+  /knowledgeGraph/union/queryOBDA:
+    $ref: paths/knowledgeGraph_union_queryOBDA.yaml
+  /knowledgeGraph/upload/file/csv:
+    $ref: paths/knowledgeGraph_upload_file_csv.yaml
+  /knowledgeGraph/upload/files/csv:
+    $ref: paths/knowledgeGraph_upload_files_csv.yaml
+  /knowledgeGraph/delete/file/csv/{fileName}:
+    $ref: paths/knowledgeGraph_delete_file_csv_{fileName}.yaml
+  /knowledgeGraph/file/csv/{fileName}/preview:
+    $ref: paths/knowledgeGraph_file_csv_{fileName}_preview.yaml
+  /knowledgeGraph/upload/import/csv:
+    $ref: paths/knowledgeGraph_upload_import_csv.yaml
+  /knowledgeGraph/upload/import/threads:
+    $ref: paths/knowledgeGraph_upload_import_threads.yaml
+  /knowledgeGraph/upload/import/thread:
+    $ref: paths/knowledgeGraph_upload_import_thread.yaml
+  /endpoints:
+    $ref: paths/endpoints.yaml
+  /endpoints/referencing/owlOntology/{name}/version:
+    $ref: paths/endpoints_referencing_owlOntology_{name}_version.yaml
+  /endpoints/referencing/owlOntology/{name}/version/mapping/{ID}:
+    $ref: paths/endpoints_referencing_owlOntology_{name}_version_mapping_{ID}.yaml
+  /endpoints/referencing/datasource/{name}:
+    $ref: paths/endpoints_referencing_datasource_{name}.yaml
+  /endpoints/running:
+    $ref: paths/endpoints_running.yaml
+  /endpoint/{name}:
+    $ref: paths/endpoint_{name}.yaml
+  /endpoint:
+    $ref: paths/endpoint.yaml
+  /endpoint/{name}/prefixes:
+    $ref: paths/endpoint_{name}_prefixes.yaml
+  /endpoint/{name}/start:
+    $ref: paths/endpoint_{name}_start.yaml
+  /endpoint/{name}/stop:
+    $ref: paths/endpoint_{name}_stop.yaml
+  /endpoint/{name}/status:
+    $ref: paths/endpoint_{name}_status.yaml
+  /endpoint/{name}/empties:
+    $ref: paths/endpoint_{name}_empties.yaml
+  /endpoint/{name}/emptyUnfoldingEntities:
+    $ref: paths/endpoint_{name}_emptyUnfoldingEntities.yaml
+  /endpoint/{name}/highlights/annotations:
+    $ref: paths/endpoint_{name}_highlights_annotations.yaml
+  /endpoint/{name}/query/count/{queryId}/stop:
+    $ref: paths/endpoint_{name}_query_count_{queryId}_stop.yaml
+  /endpoint/{name}/query/count/{queryId}:
+    $ref: paths/endpoint_{name}_query_count_{queryId}.yaml
+  /endpoint/{name}/query/count/{queryId}/result:
+    $ref: paths/endpoint_{name}_query_count_{queryId}_result.yaml
+  /endpoint/{name}/query/check:
+    $ref: paths/endpoint_{name}_query_check.yaml
+  /endpoint/{name}/query/quarantinedMappingsByEntity:
+    $ref: paths/endpoint_{name}_query_quarantinedMappingsByEntity.yaml
+  /endpoint/{name}/query/{queryID}/start:
+    $ref: paths/endpoint_{name}_query_{queryID}_start.yaml
+  /endpoint/{name}/query/{queryID}/stop:
+    $ref: paths/endpoint_{name}_query_{queryID}_stop.yaml
+  /endpoint/{name}/query/{queryID}/exportFile:
+    $ref: paths/endpoint_{name}_query_{queryID}_exportFile.yaml
+  /endpoint/{name}/query/{queryID}/fullSparqlDetails:
+    $ref: paths/endpoint_{name}_query_{queryID}_fullSparqlDetails.yaml
+  /endpoint/{name}/query/{queryID}/ontologyRewritings:
+    $ref: paths/endpoint_{name}_query_{queryID}_ontologyRewritings.yaml
+  /endpoint/{name}/query/{queryID}/viewRewritings:
+    $ref: paths/endpoint_{name}_query_{queryID}_viewRewritings.yaml
+  /endpoint/{name}/query/{queryID}/viewOptimizedRewritings:
+    $ref: paths/endpoint_{name}_query_{queryID}_viewOptimizedRewritings.yaml
+  /endpoint/{name}/query/{queryID}/sqlRewritings:
+    $ref: paths/endpoint_{name}_query_{queryID}_sqlRewritings.yaml
+  /endpoint/{name}/query/{queryID}/sqlDebugRewritings:
+    $ref: paths/endpoint_{name}_query_{queryID}_sqlDebugRewritings.yaml
+  /endpoint/{name}/query/{queryID}/results:
+    $ref: paths/endpoint_{name}_query_{queryID}_results.yaml
+  /endpoint/{name}/query/{queryID}/status:
+    $ref: paths/endpoint_{name}_query_{queryID}_status.yaml
+  /endpoint/{name}/queryRecordInfos:
+    $ref: paths/endpoint_{name}_queryRecordInfos.yaml
+  /endpoint/{name}/query/{queryID}/queryRecordInfo:
+    $ref: paths/endpoint_{name}_query_{queryID}_queryRecordInfo.yaml
+  /endpoint/{name}/query/exportQueryResults:
+    $ref: paths/endpoint_{name}_query_exportQueryResults.yaml
+  /endpoint/{name}/query/export/direct:
+    $ref: paths/endpoint_{name}_query_export_direct.yaml
+  /endpoint/{name}/exportThreads:
+    $ref: paths/endpoint_{name}_exportThreads.yaml
+  /endpoint/{name}/exported:
+    $ref: paths/endpoint_{name}_exported.yaml
+  /endpoint/{name}/exported/{fileName}:
+    $ref: paths/endpoint_{name}_exported_{fileName}.yaml
+  /endpoint/{name}/exportThread/{id}/status:
+    $ref: paths/endpoint_{name}_exportThread_{id}_status.yaml
+  /endpoint/{name}/exportThread/{id}/errors:
+    $ref: paths/endpoint_{name}_exportThread_{id}_errors.yaml
+  /endpoint/{name}/exportThread/{id}/stop:
+    $ref: paths/endpoint_{name}_exportThread_{id}_stop.yaml
+  /endpoint/{name}/exportThread/{id}/stats:
+    $ref: paths/endpoint_{name}_exportThread_{id}_stats.yaml
+  /endpoint/{name}/exportThread/{id}/file:
+    $ref: paths/endpoint_{name}_exportThread_{id}_file.yaml
+  /endpoint/{name}/exportThread/{id}/preview/{lines}:
+    $ref: paths/endpoint_{name}_exportThread_{id}_preview_{lines}.yaml
+  /endpoint/{name}/exportThread/{id}:
+    $ref: paths/endpoint_{name}_exportThread_{id}.yaml
+  /endpoint/{name}/cquery/start:
+    $ref: paths/endpoint_{name}_cquery_start.yaml
+  /endpoint/{name}/cquery/{queryID}/start:
+    $ref: paths/endpoint_{name}_cquery_{queryID}_start.yaml
+  /endpoint/{name}/cquery/{queryID}/status:
+    $ref: paths/endpoint_{name}_cquery_{queryID}_status.yaml
+  /endpoint/{name}/cquery/exportQueryResults:
+    $ref: paths/endpoint_{name}_cquery_exportQueryResults.yaml
+  /endpoint/{name}/cquery/{queryID}/export:
+    $ref: paths/endpoint_{name}_cquery_{queryID}_export.yaml
+  /endpoint/{name}/cquery/{queryID}/results:
+    $ref: paths/endpoint_{name}_cquery_{queryID}_results.yaml
+  /endpoint/{name}/cquery/{queryID}/results/triples:
+    $ref: paths/endpoint_{name}_cquery_{queryID}_results_triples.yaml
+  /endpoint/{name}/cquery/{queryID}/results/tabular:
+    $ref: paths/endpoint_{name}_cquery_{queryID}_results_tabular.yaml
+  /endpoint/{name}/cquery/{queryID}/results/rdfGraph:
+    $ref: paths/endpoint_{name}_cquery_{queryID}_results_rdfGraph.yaml
+  /endpoint/{eName}/countEntityInstances:
+    $ref: paths/endpoint_{eName}_countEntityInstances.yaml
+  /endpoint/{eName}/countEntityInstances/start:
+    $ref: paths/endpoint_{eName}_countEntityInstances_start.yaml
+  /endpoint/{eName}/countEntityInstances/stop:
+    $ref: paths/endpoint_{eName}_countEntityInstances_stop.yaml
+  /endpoint/{eName}/countEntityInstances/info:
+    $ref: paths/endpoint_{eName}_countEntityInstances_info.yaml
+  /endpoint/{eName}/instanceChecking/start:
+    $ref: paths/endpoint_{eName}_instanceChecking_start.yaml
+  /endpoint/{eName}/instanceChecking/{threadId}/stop:
+    $ref: paths/endpoint_{eName}_instanceChecking_{threadId}_stop.yaml
+  /endpoint/{eName}/instanceChecking/{threadId}/info:
+    $ref: paths/endpoint_{eName}_instanceChecking_{threadId}_info.yaml
+  /endpoint/{eName}/minMaxDataproperties/start:
+    $ref: paths/endpoint_{eName}_minMaxDataproperties_start.yaml
+  /endpoint/{eName}/minMaxDataproperties/stop:
+    $ref: paths/endpoint_{eName}_minMaxDataproperties_stop.yaml
+  /endpoint/{eName}/minMaxDataproperties/info:
+    $ref: paths/endpoint_{eName}_minMaxDataproperties_info.yaml
+  /endpoint/{name}/queries:
+    $ref: paths/endpoint_{name}_queries.yaml
+  /endpoint/{name}/queries/ids:
+    $ref: paths/endpoint_{name}_queries_ids.yaml
+  /endpoint/{name}/query/{executionId}:
+    $ref: paths/endpoint_{name}_query_{executionId}.yaml
+  /endpoint/{name}/query/start:
+    $ref: paths/endpoint_{name}_query_start.yaml
+  /endpoint/{name}/query/start-sync:
+    $ref: paths/endpoint_{name}_query_start-sync.yaml
+  /endpoint/{name}/query/count:
+    $ref: paths/endpoint_{name}_query_count.yaml
+  /endpoint/{name}/query/count/{queryId}/state:
+    $ref: paths/endpoint_{name}_query_count_{queryId}_state.yaml
+  /endpoint/{name}/query/count/{queryId}/error:
+    $ref: paths/endpoint_{name}_query_count_{queryId}_error.yaml
+  /endpoint/{name}/new-cq-query/start:
+    $ref: paths/endpoint_{name}_new-cq-query_start.yaml
+  /endpoint/{name}/new-cq-query/{executionId}/results:
+    $ref: paths/endpoint_{name}_new-cq-query_{executionId}_results.yaml
+  /endpoint/{name}/new-cq-query/{executionId}/status:
+    $ref: paths/endpoint_{name}_new-cq-query_{executionId}_status.yaml
+  /endpoint/{name}/new-cq-query/{executionId}/ontologyRewritings:
+    $ref: paths/endpoint_{name}_new-cq-query_{executionId}_ontologyRewritings.yaml
+  /endpoint/{name}/new-cq-query/{executionId}/viewRewritings:
+    $ref: paths/endpoint_{name}_new-cq-query_{executionId}_viewRewritings.yaml
+  /endpoint/{name}/new-cq-query/{executionId}/viewOptimizedRewritings:
+    $ref: >-
+      paths/endpoint_{name}_new-cq-query_{executionId}_viewOptimizedRewritings.yaml
+  /endpoint/{name}/new-cq-query/{executionId}/sqlRewritings:
+    $ref: paths/endpoint_{name}_new-cq-query_{executionId}_sqlRewritings.yaml
+  /endpoint/{name}/new-cq-query/{executionId}/sqlDebugRewritings:
+    $ref: paths/endpoint_{name}_new-cq-query_{executionId}_sqlDebugRewritings.yaml
+  /endpoint/{name}/new-cq-query/{executionId}/stop:
+    $ref: paths/endpoint_{name}_new-cq-query_{executionId}_stop.yaml
+  /endpoint/{name}/new-cq-query/{executionId}:
+    $ref: paths/endpoint_{name}_new-cq-query_{executionId}.yaml
+  /endpoint/{name}/virtualEntity/{veName}:
+    $ref: paths/endpoint_{name}_virtualEntity_{veName}.yaml
+  /endpoint/{eName}/mappingAnalysisReport:
+    $ref: paths/endpoint_{eName}_mappingAnalysisReport.yaml
+  /endpoint/{eName}/saturetedOntology:
+    $ref: paths/endpoint_{eName}_saturetedOntology.yaml
+  /queryTags:
+    $ref: paths/queryTags.yaml
+  /queryTags/{tagName}:
+    $ref: paths/queryTags_{tagName}.yaml
+  /owlOntology/{name}/version/querycatalog:
+    $ref: paths/owlOntology_{name}_version_querycatalog.yaml
+  /owlOntology/{name}/version/querycatalog/converted2sparqling:
+    $ref: paths/owlOntology_{name}_version_querycatalog_converted2sparqling.yaml
+  /owlOntology/{name}/version/query/{queryID}/publication:
+    $ref: paths/owlOntology_{name}_version_query_{queryID}_publication.yaml
+  /owlOntology/{name}/version/querycatalog/publicationRequests:
+    $ref: paths/owlOntology_{name}_version_querycatalog_publicationRequests.yaml
+  /owlOntology/{name}/version/querycatalog/{userCatalog}/query/{queryID}/publication:
+    $ref: >-
+      paths/owlOntology_{name}_version_querycatalog_{userCatalog}_query_{queryID}_publication.yaml
+  /owlOntology/{name}/version/querycatalog/export:
+    $ref: paths/owlOntology_{name}_version_querycatalog_export.yaml
+  /owlOntology/{name}/version/querycatalog/import:
+    $ref: paths/owlOntology_{name}_version_querycatalog_import.yaml
+  /owlOntology/{name}/version/query/{ID}:
+    $ref: paths/owlOntology_{name}_version_query_{ID}.yaml
+  /owlOntology/{name}/version/query:
+    $ref: paths/owlOntology_{name}_version_query.yaml
+  /owlOntology/{name}/version/queries/sparqling:
+    $ref: paths/owlOntology_{name}_version_queries_sparqling.yaml
+  /owlOntology/{name}/version/query/sparqling/{ID}:
+    $ref: paths/owlOntology_{name}_version_query_sparqling_{ID}.yaml
+  /owlOntology/{name}/version/query/sparqling:
+    $ref: paths/owlOntology_{name}_version_query_sparqling.yaml
+  /owlOntology/{name}/version/querycatalog/sparqling/import:
+    $ref: paths/owlOntology_{name}_version_querycatalog_sparqling_import.yaml
+  /owlOntology/{name}/version/querycatalog/sparqling/migrate:
+    $ref: paths/owlOntology_{name}_version_querycatalog_sparqling_migrate.yaml
+  /owlOntology/{name}/version/querycatalog/sparqling:
+    $ref: paths/owlOntology_{name}_version_querycatalog_sparqling.yaml
+  /owlOntology/{name}/version/querycatalog/sparqling/export:
+    $ref: paths/owlOntology_{name}_version_querycatalog_sparqling_export.yaml
+  /ontologyCatalog/querycatalog:
+    $ref: paths/ontologyCatalog_querycatalog.yaml
+  /ontologyCatalog/querycatalog/export:
+    $ref: paths/ontologyCatalog_querycatalog_export.yaml
+  /ontologyCatalog/querycatalog/import:
+    $ref: paths/ontologyCatalog_querycatalog_import.yaml
+  /ontologyCatalog/querycatalog/query/{ID}:
+    $ref: paths/ontologyCatalog_querycatalog_query_{ID}.yaml
+  /ontologyCatalog/querycatalog/query:
+    $ref: paths/ontologyCatalog_querycatalog_query.yaml
+  /owlOntology/queries/publicationRequests:
+    $ref: paths/owlOntology_queries_publicationRequests.yaml
+  /users:
+    $ref: paths/users.yaml
+  /user/{username}:
+    $ref: paths/user_{username}.yaml
+  /user:
+    $ref: paths/user.yaml
+  /user/{username}/passwd:
+    $ref: paths/user_{username}_passwd.yaml
+  /user/{username}/passwd/reset:
+    $ref: paths/user_{username}_passwd_reset.yaml
+  /roles:
+    $ref: paths/roles.yaml
+  /role/{rolename}:
+    $ref: paths/role_{rolename}.yaml
+  /role:
+    $ref: paths/role.yaml
+  /role/configurations:
+    $ref: paths/role_configurations.yaml
+  /monolith/roles:
+    $ref: paths/monolith_roles.yaml
+  /monolith/role/{rolename}:
+    $ref: paths/monolith_role_{rolename}.yaml
+  /users/feedback:
+    $ref: paths/users_feedback.yaml
+  /user/feedback:
+    $ref: paths/user_feedback.yaml
+  /user/{username}/feedback:
+    $ref: paths/user_{username}_feedback.yaml
+  /user/feedback/comment:
+    $ref: paths/user_feedback_comment.yaml
+  /statistics/accesses:
+    $ref: paths/statistics_accesses.yaml
+  /statistics/ontologies:
+    $ref: paths/statistics_ontologies.yaml
+  /statistics/{endpoint}/queries:
+    $ref: paths/statistics_{endpoint}_queries.yaml
+  /statistics/{endpoint}/entities:
+    $ref: paths/statistics_{endpoint}_entities.yaml
+  /owlOntology/{name}/version/vkg/catalog:
+    $ref: paths/owlOntology_{name}_version_vkg_catalog.yaml
+  /owlOntology/{name}/version/vkg/catalog/{snapshotId}:
+    $ref: paths/owlOntology_{name}_version_vkg_catalog_{snapshotId}.yaml
+  /owlOntology/{name}/version/vkg/catalog/export:
+    $ref: paths/owlOntology_{name}_version_vkg_catalog_export.yaml
+  /owlOntology/{name}/version/vkg/catalog/import:
+    $ref: paths/owlOntology_{name}_version_vkg_catalog_import.yaml
+  /owlOntology/{name}/version/vkg/node-rendering:
+    $ref: paths/owlOntology_{name}_version_vkg_node-rendering.yaml
+  /taskScheduler/state:
+    $ref: paths/taskScheduler_state.yaml
+  /taskScheduler/jobs:
+    $ref: paths/taskScheduler_jobs.yaml
+  /taskScheduler/jobs/available:
+    $ref: paths/taskScheduler_jobs_available.yaml
+  /taskScheduler/jobs/entries:
+    $ref: paths/taskScheduler_jobs_entries.yaml
+  /taskScheduler/jobs/entries/filter:
+    $ref: paths/taskScheduler_jobs_entries_filter.yaml
+  /taskScheduler/job/{jobId}/entry:
+    $ref: paths/taskScheduler_job_{jobId}_entry.yaml
+  /taskScheduler/job/{jobId}/execution/{execId}:
+    $ref: paths/taskScheduler_job_{jobId}_execution_{execId}.yaml
+  /taskScheduler/job/{jobId}/execution/entries:
+    $ref: paths/taskScheduler_job_{jobId}_execution_entries.yaml
+  /taskScheduler/job/{jobId}:
+    $ref: paths/taskScheduler_job_{jobId}.yaml
+  /taskScheduler/job/{jobId}/executionsIds:
+    $ref: paths/taskScheduler_job_{jobId}_executionsIds.yaml

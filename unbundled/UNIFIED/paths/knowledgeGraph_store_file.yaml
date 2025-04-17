@@ -1,0 +1,26 @@
+post:
+  summary: POST mwsx/knowledgeGraph/store/file
+  operationId: post__knowledgeGraph_store_file
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/FileInfo.yaml
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml
+get:
+  summary: GET mwsx/knowledgeGraph/store/file
+  operationId: get__knowledgeGraph_store_file
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml

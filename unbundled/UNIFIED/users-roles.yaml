@@ -1,0 +1,66 @@
+openapi: 3.0.0
+servers:
+  - url: 'https://{tenant}/mws/rest/mwsx'
+    variables:
+      tenant:
+        default: localhost
+        description: Your localhost
+info:
+  description: >-
+    This is the API for managing users and roles in Mastro.
+    Users are the people who can access Mastro and roles are the
+    permissions that users have in Mastro. This API allows you to
+    create, update, delete and get information about users and roles.
+  version: 1.0.0
+  title: Users & Roles API model
+  contact:
+    email: info@obdasystems.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+paths:
+  /users:
+    $ref: paths/users.yaml
+  /user/{username}:
+    $ref: paths/user_{username}.yaml
+  /user:
+    $ref: paths/user.yaml
+  /user/{username}/passwd:
+    $ref: paths/user_{username}_passwd.yaml
+  /user/{username}/passwd/reset:
+    $ref: paths/user_{username}_passwd_reset.yaml
+  /roles:
+    $ref: paths/roles.yaml
+  /role/{rolename}:
+    $ref: paths/role_{rolename}.yaml
+  /role:
+    $ref: paths/role.yaml
+  /role/configurations:
+    $ref: paths/role_configurations.yaml
+  /monolith/roles:
+    $ref: paths/monolith_roles.yaml
+  /monolith/role/{rolename}:
+    $ref: paths/monolith_role_{rolename}.yaml
+  /users/feedback:
+    $ref: paths/users_feedback.yaml
+  /user/feedback:
+    $ref: paths/user_feedback.yaml
+  /user/{username}/feedback:
+    $ref: paths/user_{username}_feedback.yaml
+  /user/feedback/comment:
+    $ref: paths/user_feedback_comment.yaml
+  /login:
+    $ref: paths/login.yaml
+  /logout:
+    $ref: paths/logout.yaml
+  /logout/{username}:
+    $ref: paths/logout_{username}.yaml
+components: 
+  securitySchemes: 
+    api-key: 
+      $ref: './components/securitySchemes/api-key.yaml'
+    jwt:
+      $ref: './components/securitySchemes/jwt.yaml'
+security: 
+  - api-key: []
+  - jwt: []

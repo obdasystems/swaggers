@@ -1,0 +1,18 @@
+type: object
+properties:
+  id:
+    type: string
+  description:
+    type: string
+  includedView:
+    $ref: ./InclusionView.yaml
+  includingView:
+    $ref: ./InclusionView.yaml
+  inclusionMap:
+    type: array
+    items:
+      $ref: ./InclusionPair.yaml
+  quarantineReasons:
+    type: array
+    items:
+      type: string

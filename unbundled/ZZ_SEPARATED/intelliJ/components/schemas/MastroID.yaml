@@ -1,0 +1,10 @@
+type: object
+properties:
+  ontologyID:
+    $ref: ./OntologyID.yaml
+  mappingID:
+    type: string
+  datasourceID:
+    type: string
+  avpID:
+    type: string

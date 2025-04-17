@@ -1,0 +1,20 @@
+get:
+  summary: GET mwsx/endpoints
+  operationId: get_endpoints
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml
+delete:
+  summary: DELETE mwsx/endpoints
+  operationId: delete_endpoints
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml

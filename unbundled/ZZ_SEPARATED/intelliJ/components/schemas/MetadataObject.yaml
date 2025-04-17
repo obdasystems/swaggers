@@ -1,0 +1,12 @@
+type: object
+properties:
+  iri:
+    type: string
+  impliedClassIri:
+    type: string
+  value:
+    type: string
+  lang:
+    type: string
+  datatypeIri:
+    type: string

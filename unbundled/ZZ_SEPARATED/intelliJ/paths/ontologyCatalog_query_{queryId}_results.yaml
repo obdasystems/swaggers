@@ -1,0 +1,28 @@
+get:
+  summary: GET mwsx/ontologyCatalog/query/{queryId}/results
+  operationId: get_ontology_catalog_query_results
+  parameters:
+    - name: queryId
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: pagesize
+      in: query
+      required: true
+      schema:
+        type: integer
+        format: int32
+    - name: offset
+      in: query
+      required: true
+      schema:
+        type: integer
+        format: int32
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml

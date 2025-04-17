@@ -1,0 +1,16 @@
+post:
+  summary: POST mwsx/role
+  operationId: post__role
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Role.yaml
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml

@@ -1,0 +1,8 @@
+type: object
+properties:
+  fileName:
+    type: string
+  fileType:
+    type: string
+  content:
+    type: string

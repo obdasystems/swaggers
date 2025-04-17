@@ -1,0 +1,27 @@
+post:
+  summary: POST mwsx/knowledgeGraph/query/start
+  operationId: post__knowledgeGraph_query_start
+  parameters:
+    - name: iri
+      in: query
+      required: true
+      schema:
+        type: string
+    - name: namedGraph
+      in: query
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/SPARQLQuery.yaml
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml

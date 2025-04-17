@@ -1,0 +1,8 @@
+type: object
+properties:
+  paramName:
+    type: string
+  paramDefaultValue:
+    type: string
+  paramHint:
+    type: string

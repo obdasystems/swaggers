@@ -1,0 +1,16 @@
+post:
+  summary: POST mwsx/ontologyDraft/convertOWL
+  operationId: post_ontologyDraft_convertOWL
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/FileInfo.yaml
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml

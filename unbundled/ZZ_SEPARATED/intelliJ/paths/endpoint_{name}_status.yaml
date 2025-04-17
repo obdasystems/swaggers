@@ -1,0 +1,16 @@
+get:
+  summary: GET mwsx/endpoint/{name}/status
+  operationId: get_endpoint_status
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml

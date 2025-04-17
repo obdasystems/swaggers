@@ -1,0 +1,9 @@
+type: object
+properties:
+  chartType:
+    type: string
+  series:
+    type: string
+  cutoff:
+    type: integer
+    format: int32

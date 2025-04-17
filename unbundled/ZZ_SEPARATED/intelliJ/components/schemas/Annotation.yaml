@@ -1,0 +1,14 @@
+type: object
+properties:
+  lexicalForm:
+    type: string
+  value:
+    type: string
+  hasIriValue:
+    type: boolean
+  property:
+    type: string
+  language:
+    type: string
+  datatype:
+    type: string

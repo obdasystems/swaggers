@@ -1,0 +1,14 @@
+type: object
+properties:
+  agentIri:
+    type: string
+  agentLabels:
+    type: array
+    items:
+      $ref: ./Label.yaml
+  agentWebsite:
+    type: string
+  agentEmail:
+    type: string
+  agentAddress:
+    type: string

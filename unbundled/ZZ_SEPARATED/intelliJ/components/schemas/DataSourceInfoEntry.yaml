@@ -1,0 +1,16 @@
+type: object
+properties:
+  id:
+    type: string
+  description:
+    type: string
+  dataSourceUsername:
+    type: string
+  jdbcUrl:
+    type: string
+  jdbcDriver:
+    type: string
+  jdbcUsername:
+    type: string
+  jdbcPassword:
+    type: string

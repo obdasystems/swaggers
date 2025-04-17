@@ -1,0 +1,16 @@
+type: object
+properties:
+  keyHead:
+    type: array
+    items:
+      type: string
+  sqlViewID:
+    type: string
+  id:
+    type: string
+  description:
+    type: string
+  quarantineReasons:
+    type: array
+    items:
+      type: string

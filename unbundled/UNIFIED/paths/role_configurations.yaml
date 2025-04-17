@@ -1,0 +1,10 @@
+get:
+  summary: GET mwsx/role/configurations
+  operationId: get__role_configs
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml

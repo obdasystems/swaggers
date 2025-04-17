@@ -1,0 +1,21 @@
+put:
+  summary: PUT mwsx/endpoint/{name}/query/count/{queryId}/stop
+  operationId: get_query_count_stop
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: queryId
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml

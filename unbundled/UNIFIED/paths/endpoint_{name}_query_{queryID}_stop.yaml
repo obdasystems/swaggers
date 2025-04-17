@@ -1,0 +1,21 @@
+put:
+  summary: PUT mwsx/endpoint/{name}/query/{queryID}/stop
+  operationId: stop_catalog_query_on_endpoint
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: queryID
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml

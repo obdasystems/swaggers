@@ -1,0 +1,26 @@
+type: object
+properties:
+  ontologyName:
+    type: string
+  ontologyVersion:
+    type: string
+  mappingId:
+    type: string
+  datasourceName:
+    type: string
+  endpointName:
+    type: string
+  description:
+    type: string
+  errorMessage:
+    type: string
+  error:
+    type: string
+  httpRoute:
+    type: string
+  httpMethod:
+    type: string
+  queryExecutionId:
+    type: string
+  monolithVersion:
+    type: string

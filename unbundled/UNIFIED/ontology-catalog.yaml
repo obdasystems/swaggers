@@ -25,3 +25,12 @@ paths:
     $ref: paths/ontologyCatalog_query_{queryID}_status.yaml
   /ontologyCatalog/query/{queryID}/results:
     $ref: paths/ontologyCatalog_query_{queryID}_results.yaml
+components: 
+  securitySchemes: 
+    api-key: 
+      $ref: './components/securitySchemes/api-key.yaml'
+    jwt:
+      $ref: './components/securitySchemes/jwt.yaml'
+security: 
+  - api-key: []
+  - jwt: []

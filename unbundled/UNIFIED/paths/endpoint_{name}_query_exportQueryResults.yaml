@@ -1,0 +1,22 @@
+post:
+  summary: POST mwsx/endpoint/{name}/query/exportQueryResults
+  operationId: post__owlOntology_name_version_query_ID_export_results
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/ExportInfo.yaml
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml
