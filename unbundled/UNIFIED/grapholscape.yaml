@@ -1,0 +1,35 @@
+openapi: 3.0.0
+servers:
+  - url: 'https://{tenant}/mws/rest/mwsx'
+    variables:
+      tenant:
+        default: localhost
+        description: Your localhost
+info:
+  description: >-
+    This is the API for retaining a Grapholscape's loaded ontology (or graph) in
+    order to restart navigation from a previous state.
+  version: 1.0.0
+  title: Grapholscape API model
+  contact:
+    email: info@obdasystems.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+paths:
+  /ontologyDraftInfos:
+    $ref: paths/ontologyDraftInfos.yaml
+  /ontologyDraft/{ontologyName}:
+    $ref: paths/ontologyDraft_{ontologyName}.yaml
+  /ontologyDraft/download:
+    $ref: paths/ontologyDraft_download.yaml
+  /owlOntology/{ontologyName}/version/vkg/catalog:
+    $ref: paths/owlOntology_{ontologyName}_version_vkg_catalog.yaml
+  /owlOntology/{ontologyName}/version/vkg/catalog/export:
+    $ref: paths/owlOntology_{ontologyName}_version_vkg_catalog_export.yaml
+  /owlOntology/{ontologyName}/version/vkg/catalog/import:
+    $ref: paths/owlOntology_{ontologyName}_version_vkg_catalog_import.yaml
+  /owlOntology/{ontologyName}/version/vkg/catalog/{snapshotId}:
+    $ref: paths/owlOntology_{ontologyName}_version_vkg_catalog_{snapshotId}.yaml
+  /endpoint/{name}/cquery/{queryID}/results/rdfGraph:
+    $ref: paths/endpoint_{name}_cquery_{queryID}_results_rdfGraph.yaml

@@ -1,0 +1,17 @@
+openapi: 3.0.0
+info:
+  description: API for VKG customizations
+  version: 1.0.0
+  title: VKG Custom Node Rendering and Custom Filters API Model
+  contact:
+    email: obdasystems@info.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+  - url: 'https://{tenant}/mws/rest/mwsx'
+    variables:
+      tenant:
+        default: localhost
+        description: Your localhost
+paths: {}

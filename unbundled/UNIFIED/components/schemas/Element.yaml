@@ -17,5 +17,4 @@ properties:
   iri:
     type: string
   type:
-    type: string
     $ref: ./TypesEnum.yaml

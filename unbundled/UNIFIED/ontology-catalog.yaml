@@ -1,0 +1,27 @@
+openapi: 3.0.0
+servers:
+  - url: 'https://{tenant}/mws/rest/mwsx'
+    variables:
+      tenant:
+        default: localhost
+        description: Your localhost
+info:
+  description: This is the API for managing the Ontology Catalog
+  version: 1.0.0
+  title: Ontology Catalog
+  contact:
+    email: info@obdasystems.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+paths:
+  /ontologyCatalog:
+    $ref: paths/ontologyCatalog.yaml
+  /ontologyCatalog/query/start:
+    $ref: paths/ontologyCatalog_query_start.yaml
+  /ontologyCatalog/query/{queryID}/stop:
+    $ref: paths/ontologyCatalog_query_{queryID}_stop.yaml
+  /ontologyCatalog/query/{queryID}/status:
+    $ref: paths/ontologyCatalog_query_{queryID}_status.yaml
+  /ontologyCatalog/query/{queryID}/results:
+    $ref: paths/ontologyCatalog_query_{queryID}_results.yaml
