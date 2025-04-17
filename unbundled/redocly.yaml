@@ -1,0 +1,40 @@
+extends:
+  - recommended
+
+apis:
+  authorization-view-profiles: 
+    root: apis/authorization-view-profiles.yaml
+  dashboards: 
+    root: apis/dashboards.yaml
+  data-quality: 
+    root: apis/data-quality.yaml
+  datasources: 
+    root: apis/datasources.yaml
+  endpoints: 
+    root: apis/endpoints.yaml
+  knowledge-graphs: 
+    root: apis/knowledge-graphs.yaml
+  mappings: 
+    root: apis/mappings.yaml
+  misc: 
+    root: apis/misc.yaml
+  ontologies: 
+    root: apis/ontologies.yaml
+  ontology-catalog: 
+    root: apis/ontology-catalog.yaml
+  ontology-designer: 
+    root: apis/ontology-designer.yaml
+  query-catalog: 
+    root: apis/query-catalog.yaml
+  sparqling: 
+    root: apis/sparqling.yaml
+  task-scheduler: 
+    root: apis/task-scheduler.yaml
+  triplify: 
+    root: apis/triplify.yaml
+  users-roles: 
+    root: apis/users-roles.yaml
+  virtual-entities: 
+    root: apis/virtual-entities.yaml
+  vkg: 
+    root: apis/vkg.yaml
