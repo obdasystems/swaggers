@@ -26,5 +26,4 @@ get:
       content:
         application/json:
           schema:
-            $ref: >-
-              https://obdasystems.github.io/swaggers/apis/mws/mws.yaml#/definitions/com.mwsx.model.SPARQLResults
+            $ref: ../components/schemas/SPARQLResults.yaml

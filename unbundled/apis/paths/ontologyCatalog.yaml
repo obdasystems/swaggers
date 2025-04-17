@@ -17,8 +17,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: >-
-            https://obdasystems.github.io/swaggers/apis/mws/mws.yaml#definitions/com.mwsx.model.OntologyID
+          $ref: ../components/schemas/OntologyID.yaml
   responses:
     '200':
       description: Successful operation
@@ -26,3 +25,23 @@ post:
         application/json:
           schema:
             type: boolean
+get:
+  summary: GET mwsx/ontologyCatalog
+  operationId: get_ontology_catalog
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml
+delete:
+  summary: DELETE mwsx/ontologyCatalog
+  operationId: delete_ontology_catalog
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml

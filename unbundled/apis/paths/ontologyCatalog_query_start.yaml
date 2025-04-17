@@ -7,13 +7,11 @@ post:
     content:
       application/json:
         schema:
-          $ref: >-
-            https://obdasystems.github.io/swaggers/apis/mws/mws.yaml#definitions/com.mwsx.model.SPARQLQuery
+          $ref: ../components/schemas/SPARQLQuery.yaml
   responses:
     '200':
       description: Successful operation
       content:
         application/json:
           schema:
-            $ref: >-
-              https://obdasystems.github.io/swaggers/apis/mws/mws.yaml#definitions/com.mwsx.model.SPARQLQueryExecution
+            $ref: ../components/schemas/SPARQLQueryExecution.yaml
