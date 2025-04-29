@@ -17,5 +17,7 @@ get:
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/Response.yaml
+          schema: 
+            type: array
+            items: 
+              type: string

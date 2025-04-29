@@ -18,7 +18,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/FileInfo.yaml
 delete:
   summary: DELETE mwsx/owlOntology/{name}/version/shacl
   operationId: delete__owlOntology_name_version_json_constraints
@@ -39,4 +39,4 @@ delete:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/FileInfo.yaml

@@ -18,7 +18,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/FileInfo.yaml
 delete:
   summary: DELETE mwsx/endpoint/{name}/exported/{fileName}
   operationId: delete__owlOntology_name_version_query_ID_exported_fileName
@@ -39,4 +39,4 @@ delete:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: integer

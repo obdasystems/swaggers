@@ -17,5 +17,6 @@ get:
       description: OK
       content:
         application/octet-stream:
-          schema:
-            $ref: ../components/schemas/Response.yaml
+          schema: 
+           type: string
+           format: binary 

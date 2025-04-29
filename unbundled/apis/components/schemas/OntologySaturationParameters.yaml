@@ -1,0 +1,15 @@
+title: AbstractDataQualityConstraint
+type: object
+properties:
+  classes:
+    type: array
+    items: 
+      $ref: MWSEntity.yaml
+  annotations:
+    type: array
+    items: 
+      $ref: MWSEntity.yaml    
+  newVersionIRI:
+    type: string
+  format:
+    type: string

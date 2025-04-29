@@ -23,7 +23,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/FileInfo.yaml
 delete:
   summary: DELETE mwsx/owlOntology/{name}/version/closed
   operationId: delete__owlOntology_name_version_closed
@@ -44,7 +44,7 @@ delete:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: integer
 post:
   summary: POST mwsx/owlOntology/{name}/version/closed
   operationId: post__owlOntology_name_version_closed
@@ -80,4 +80,4 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: string

@@ -19,4 +19,8 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: object
+            additionalProperties: 
+              type: array
+              items: 
+                type: string

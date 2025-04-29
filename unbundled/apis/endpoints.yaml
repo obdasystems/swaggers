@@ -162,27 +162,6 @@ paths:
     $ref: paths/endpoint_{name}_query_count_{queryId}_state.yaml
   /endpoint/{name}/query/count/{queryId}/error:
     $ref: paths/endpoint_{name}_query_count_{queryId}_error.yaml
-  /endpoint/{name}/new-cq-query/start:
-    $ref: paths/endpoint_{name}_new-cq-query_start.yaml
-  /endpoint/{name}/new-cq-query/{executionId}/results:
-    $ref: paths/endpoint_{name}_new-cq-query_{executionId}_results.yaml
-  /endpoint/{name}/new-cq-query/{executionId}/status:
-    $ref: paths/endpoint_{name}_new-cq-query_{executionId}_status.yaml
-  /endpoint/{name}/new-cq-query/{executionId}/ontologyRewritings:
-    $ref: paths/endpoint_{name}_new-cq-query_{executionId}_ontologyRewritings.yaml
-  /endpoint/{name}/new-cq-query/{executionId}/viewRewritings:
-    $ref: paths/endpoint_{name}_new-cq-query_{executionId}_viewRewritings.yaml
-  /endpoint/{name}/new-cq-query/{executionId}/viewOptimizedRewritings:
-    $ref: >-
-      paths/endpoint_{name}_new-cq-query_{executionId}_viewOptimizedRewritings.yaml
-  /endpoint/{name}/new-cq-query/{executionId}/sqlRewritings:
-    $ref: paths/endpoint_{name}_new-cq-query_{executionId}_sqlRewritings.yaml
-  /endpoint/{name}/new-cq-query/{executionId}/sqlDebugRewritings:
-    $ref: paths/endpoint_{name}_new-cq-query_{executionId}_sqlDebugRewritings.yaml
-  /endpoint/{name}/new-cq-query/{executionId}/stop:
-    $ref: paths/endpoint_{name}_new-cq-query_{executionId}_stop.yaml
-  /endpoint/{name}/new-cq-query/{executionId}:
-    $ref: paths/endpoint_{name}_new-cq-query_{executionId}.yaml
   /endpoint/{name}/virtualEntity/{veName}:
     $ref: paths/endpoint_{name}_virtualEntity_{veName}.yaml
   /endpoint/{eName}/mappingAnalysisReport:

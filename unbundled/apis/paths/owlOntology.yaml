@@ -7,7 +7,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/Ontologies.yaml
 post:
   summary: POST mwsx/owlOntology
   operationId: post__owlOntology_name
@@ -23,7 +23,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/Ontology.yaml
 delete:
   summary: DELETE mwsx/owlOntology
   operationId: delete__all_owlOntologies
@@ -33,4 +33,4 @@ delete:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/Ontology.yaml

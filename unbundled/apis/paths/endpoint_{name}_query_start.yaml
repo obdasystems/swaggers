@@ -69,4 +69,4 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/OBDARunQueryInstance.yaml

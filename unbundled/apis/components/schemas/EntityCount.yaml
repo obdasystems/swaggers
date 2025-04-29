@@ -9,4 +9,4 @@ properties:
   error:
     type: string
   entity:
-    $ref: ./Entity.yaml
+    $ref: ./MWSEntity.yaml

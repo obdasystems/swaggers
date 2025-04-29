@@ -7,7 +7,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/Endpoints.yaml
 delete:
   summary: DELETE mwsx/endpoints
   operationId: delete_endpoints
@@ -17,4 +17,4 @@ delete:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/Endpoints.yaml

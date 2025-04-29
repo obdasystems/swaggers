@@ -1,0 +1,11 @@
+title: MwsxOntologyVersionCloserStatus
+type: object
+properties:
+  id:
+    type: string
+  state: 
+    type: string
+  timeStart: 
+    type: integer
+  timeElapsed: 
+    type: integer
