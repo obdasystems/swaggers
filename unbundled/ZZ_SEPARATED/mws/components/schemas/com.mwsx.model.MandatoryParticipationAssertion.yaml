@@ -1,0 +1,9 @@
+title: com.mwsx.model.MandatoryParticipationAssertion
+type: object
+properties:
+  property:
+    $ref: '#/definitions/com.mwsx.model.Entity'
+  direct:
+    type: boolean
+  filler:
+    $ref: '#/definitions/com.mwsx.model.Entity'

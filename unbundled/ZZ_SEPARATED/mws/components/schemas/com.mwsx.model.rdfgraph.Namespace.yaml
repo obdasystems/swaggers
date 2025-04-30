@@ -1,0 +1,9 @@
+title: com.mwsx.model.rdfgraph.Namespace
+type: object
+properties:
+  prefixes:
+    type: array
+    items:
+      type: string
+  value:
+    type: string

@@ -1,0 +1,13 @@
+title: com.mwsx.model.CsvPreview
+type: object
+properties:
+  data:
+    type: array
+    items:
+      type: array
+      items:
+        type: string
+  columns:
+    type: array
+    items:
+      type: string

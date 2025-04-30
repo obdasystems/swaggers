@@ -1,0 +1,15 @@
+title: com.mwsx.model.EmptyEntities
+type: object
+properties:
+  emptyObjectProperties:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Entity'
+  emptyDataProperties:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Entity'
+  emptyClasses:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Entity'

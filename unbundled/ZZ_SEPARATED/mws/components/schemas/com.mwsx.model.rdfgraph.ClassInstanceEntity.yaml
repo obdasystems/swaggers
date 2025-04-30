@@ -1,0 +1,13 @@
+title: com.mwsx.model.rdfgraph.ClassInstanceEntity
+type: object
+properties:
+  parentClasses:
+    type: array
+    items:
+      type: string
+  shortIri:
+    type: string
+  dataProperties:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.rdfgraph.DataPropertyValue'

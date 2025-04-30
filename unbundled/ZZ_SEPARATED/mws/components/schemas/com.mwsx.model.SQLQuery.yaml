@@ -1,0 +1,11 @@
+title: com.mwsx.model.SQLQuery
+type: object
+properties:
+  queryCode:
+    type: string
+  paramValues:
+    type: object
+    additionalProperties:
+      type: string
+  dbName:
+    type: string

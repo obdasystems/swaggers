@@ -1,0 +1,19 @@
+title: it.uniroma1.dis.quonto.mapping.analysis.model.OntologyPredicatesStatistics
+type: object
+properties:
+  predicatesStatistics:
+    type: object
+    additionalProperties:
+      type: integer
+  classesStatistics:
+    type: object
+    additionalProperties:
+      type: integer
+  dataPropertiesStatistics:
+    type: object
+    additionalProperties:
+      type: integer
+  objectPropertiesStatistics:
+    type: object
+    additionalProperties:
+      type: integer

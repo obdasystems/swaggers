@@ -1,0 +1,11 @@
+title: com.mwsx.model.rdfgraph.DataPropertyValue
+type: object
+properties:
+  iri:
+    type: string
+  datatype:
+    type: string
+  language:
+    type: string
+  value:
+    type: string

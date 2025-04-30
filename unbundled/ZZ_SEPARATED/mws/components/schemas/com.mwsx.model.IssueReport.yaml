@@ -1,0 +1,45 @@
+title: com.mwsx.model.IssueReport
+type: object
+properties:
+  mappingId:
+    type: string
+  mastroVersion:
+    type: string
+  ontologyVersion:
+    type: string
+  endpointInfo:
+    $ref: '#/definitions/com.mwsx.model.Endpoint'
+  owlFileContent:
+    type: string
+  errorMessage:
+    type: string
+  endpointName:
+    type: string
+  description:
+    type: string
+  monolithVersion:
+    type: string
+  error:
+    type: string
+  httpMethod:
+    type: string
+  grapholFileContent:
+    type: string
+  ontologyName:
+    type: string
+  datasourceInfo:
+    $ref: >-
+      #/definitions/it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceInfoEntry
+  mappingFileContent:
+    type: string
+  datasourceName:
+    type: string
+  user:
+    $ref: '#/definitions/com.mwsx.model.User'
+  queryInfo:
+    $ref: '#/definitions/com.mwsx.model.QueryRecordInfo'
+  timestamp:
+    type: integer
+    format: int64
+  httpRoute:
+    type: string

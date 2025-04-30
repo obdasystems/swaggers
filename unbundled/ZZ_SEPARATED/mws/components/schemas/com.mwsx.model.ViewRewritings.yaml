@@ -1,0 +1,7 @@
+title: com.mwsx.model.ViewRewritings
+type: object
+properties:
+  mappingRewritings:
+    type: array
+    items:
+      type: string

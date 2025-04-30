@@ -1,0 +1,16 @@
+title: com.mwsx.model.KnowledgeGraphFileInfo
+type: object
+properties:
+  numberOfTriples:
+    type: integer
+    format: int64
+  fileName:
+    type: string
+  uploadDate:
+    type: integer
+    format: int64
+  importingTime:
+    type: integer
+    format: int64
+  imported:
+    type: boolean

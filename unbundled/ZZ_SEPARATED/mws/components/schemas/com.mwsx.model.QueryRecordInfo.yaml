@@ -1,0 +1,29 @@
+title: com.mwsx.model.QueryRecordInfo
+type: object
+properties:
+  isOntologyRewritingEnabled:
+    type: integer
+    format: int32
+  isBoolean:
+    type: integer
+    format: int32
+  code:
+    type: string
+  catalogId:
+    type: string
+  isSQLEvaluationDisabled:
+    type: integer
+    format: int32
+  customParams:
+    type: object
+    additionalProperties:
+      type: string
+  description:
+    type: string
+  id:
+    type: string
+  qid:
+    type: integer
+    format: int32
+  originalConstructCode:
+    type: string

@@ -1,0 +1,17 @@
+title: com.mwsx.model.SPARQLResults
+type: object
+properties:
+  headTerms:
+    type: array
+    items:
+      type: string
+  headTypes:
+    type: object
+  construct:
+    type: boolean
+  results:
+    type: array
+    items:
+      type: array
+      items:
+        $ref: '#/definitions/com.mwsx.model.SPARQLResult'

@@ -1,0 +1,17 @@
+title: com.mwsx.model.instances.CountEntityInstancesInfo
+type: object
+properties:
+  countsMap:
+    type: object
+    additionalProperties:
+      $ref: '#/definitions/com.mwsx.model.instances.EntityCount'
+  percentage:
+    type: number
+  startTime:
+    type: integer
+    format: int64
+  endTime:
+    type: integer
+    format: int64
+  state:
+    type: string

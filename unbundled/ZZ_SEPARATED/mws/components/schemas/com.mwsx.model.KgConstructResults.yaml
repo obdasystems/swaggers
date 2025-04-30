@@ -1,0 +1,7 @@
+title: com.mwsx.model.KgConstructResults
+type: object
+properties:
+  execution:
+    $ref: '#/definitions/com.mwsx.model.SPARQLQueryExecution'
+  source:
+    type: string

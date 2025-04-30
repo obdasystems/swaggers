@@ -1,0 +1,19 @@
+title: com.mwsx.model.OntologyCatalog
+type: object
+properties:
+  ontologyDataProperties:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Entity'
+  ontologyObjectProperties:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Entity'
+  ontologyIndividuals:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Entity'
+  ontologyClasses:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Entity'

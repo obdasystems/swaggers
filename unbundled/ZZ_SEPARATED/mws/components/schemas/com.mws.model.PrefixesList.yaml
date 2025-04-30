@@ -1,0 +1,7 @@
+title: com.mws.model.PrefixesList
+type: object
+properties:
+  prefixes:
+    type: array
+    items:
+      $ref: '#/definitions/com.mws.model.Prefix'

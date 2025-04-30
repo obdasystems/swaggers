@@ -1,0 +1,9 @@
+title: com.mwsx.model.Tag
+type: object
+properties:
+  color:
+    type: string
+  name:
+    type: string
+  description:
+    type: string

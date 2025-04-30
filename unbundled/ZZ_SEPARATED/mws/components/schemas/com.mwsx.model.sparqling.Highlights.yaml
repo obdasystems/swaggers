@@ -1,0 +1,15 @@
+title: com.mwsx.model.sparqling.Highlights
+type: object
+properties:
+  dataProperties:
+    type: array
+    items:
+      type: string
+  classes:
+    type: array
+    items:
+      type: string
+  objectProperties:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.sparqling.Branch'

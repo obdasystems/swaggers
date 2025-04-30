@@ -1,0 +1,16 @@
+title: com.ruzzi.triplification.OBDATriplificationProgress
+type: object
+properties:
+  threadId:
+    type: string
+  progress:
+    type: integer
+    format: int32
+  startTime:
+    type: integer
+    format: int64
+  time:
+    type: integer
+    format: int64
+  status:
+    type: string

@@ -1,0 +1,10 @@
+title: com.mwsx.model.OntologyOpeningEvent
+type: object
+properties:
+  deleted:
+    type: boolean
+  onto:
+    $ref: '#/definitions/com.mwsx.model.OntologyID'
+  timestamp:
+    type: integer
+    format: int64

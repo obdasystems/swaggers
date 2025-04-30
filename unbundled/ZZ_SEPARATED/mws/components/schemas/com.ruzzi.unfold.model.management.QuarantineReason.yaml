@@ -1,0 +1,10 @@
+title: com.ruzzi.unfold.model.management.QuarantineReason
+type: object
+properties:
+  reason:
+    type: string
+  objectID:
+    type: string
+  objectType:
+    type: integer
+    format: int32

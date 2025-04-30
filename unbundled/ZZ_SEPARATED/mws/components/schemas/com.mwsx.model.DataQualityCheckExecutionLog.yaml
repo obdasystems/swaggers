@@ -1,0 +1,56 @@
+title: com.mwsx.model.DataQualityCheckExecutionLog
+type: object
+properties:
+  direct:
+    type: array
+    items:
+      type: boolean
+  errorMessage:
+    type: string
+  objectProperties:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Entity'
+  priority:
+    type: integer
+    format: int32
+  type:
+    type: string
+  sqlQueries:
+    type: array
+    items:
+      type: string
+  cardinality:
+    type: integer
+    format: int32
+  executionTime:
+    type: integer
+    format: int32
+  dataProperties:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Entity'
+  cardinalityType:
+    type: integer
+    format: int32
+  checkSemantics:
+    type: string
+  resultsCount:
+    type: integer
+    format: int32
+  property:
+    $ref: '#/definitions/com.mwsx.model.Entity'
+  filler:
+    $ref: '#/definitions/com.mwsx.model.Entity'
+  sparqlCode:
+    type: string
+  id:
+    type: string
+  results:
+    $ref: '#/definitions/com.mwsx.model.SPARQLResults'
+  entity:
+    $ref: '#/definitions/com.mwsx.model.Entity'
+  status:
+    type: string
+  disjointEntity:
+    $ref: '#/definitions/com.mwsx.model.Entity'

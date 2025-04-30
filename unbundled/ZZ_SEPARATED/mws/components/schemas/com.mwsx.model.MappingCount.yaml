@@ -1,0 +1,8 @@
+title: com.mwsx.model.MappingCount
+type: object
+properties:
+  numberOfMappings:
+    type: integer
+    format: int32
+  entity:
+    $ref: '#/definitions/com.mwsx.model.Entity'

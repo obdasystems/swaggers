@@ -1,0 +1,5 @@
+title: com.mwsx.model.sparqling.Filter
+type: object
+properties:
+  expression:
+    $ref: '#/definitions/com.mwsx.model.sparqling.FilterExpression'

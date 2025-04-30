@@ -1,0 +1,21 @@
+title: com.mwsx.model.DataQualityCheckSetExecutionLog
+type: object
+properties:
+  ontologyConstraints:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.DataQualityCheckExecutionLog'
+  endpoint:
+    type: string
+  endpointInfo:
+    $ref: '#/definitions/com.mwsx.model.Endpoint'
+  endTimestamp:
+    type: integer
+    format: int64
+  user:
+    type: string
+  checkSetId:
+    type: string
+  timestamp:
+    type: integer
+    format: int64

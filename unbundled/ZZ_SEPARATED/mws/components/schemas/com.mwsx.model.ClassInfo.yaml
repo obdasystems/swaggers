@@ -1,0 +1,61 @@
+title: com.mwsx.model.ClassInfo
+type: object
+properties:
+  disjointClasses:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Entity'
+  iri:
+    $ref: '#/definitions/com.mwsx.model.IRI'
+  currentEntity:
+    $ref: '#/definitions/com.mwsx.model.Entity'
+  equivalentClasses:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Entity'
+  dataPropertiesIsDomainOf:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Entity'
+  disjointUnions:
+    type: array
+    items:
+      type: array
+      items:
+        $ref: '#/definitions/com.mwsx.model.Entity'
+  classDescriptions:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Label'
+  classIndividuals:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Entity'
+  objectPropertiesIsRangeOf:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Entity'
+  objectPropertiesIsDomainOf:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Entity'
+  subClasses:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Entity'
+  objectPropertiesParticipations:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Participation'
+  dataPropertiesParticipations:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Participation'
+  entityDiagrams:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.DiagramNode'
+  superClasses:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Entity'

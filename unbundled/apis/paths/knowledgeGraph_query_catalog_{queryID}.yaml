@@ -18,7 +18,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/SPARQLQuery.yaml
 put:
   summary: PUT mwsx/knowledgeGraph/query/catalog/{queryID}
   operationId: put__knowledgeGraph_query_catalog_queryID
@@ -45,7 +45,7 @@ put:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: boolean
 delete:
   summary: DELETE mwsx/knowledgeGraph/query/catalog/{queryID}
   operationId: delete__knowledgeGraph_query_catalog_queryID
@@ -66,4 +66,4 @@ delete:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: boolean

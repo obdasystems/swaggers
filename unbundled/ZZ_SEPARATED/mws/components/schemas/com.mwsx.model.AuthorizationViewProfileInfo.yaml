@@ -1,0 +1,13 @@
+title: com.mwsx.model.AuthorizationViewProfileInfo
+type: object
+properties:
+  mappingId:
+    type: string
+  ontologyVersion:
+    type: string
+  profile:
+    $ref: '#/definitions/it.uniroma1.dis.mastro.api.avp.AuthorizationViewProfile'
+  ontologyName:
+    type: string
+  description:
+    type: string

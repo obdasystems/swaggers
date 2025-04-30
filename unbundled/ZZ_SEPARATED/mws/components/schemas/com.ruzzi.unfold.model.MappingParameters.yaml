@@ -1,0 +1,7 @@
+title: com.ruzzi.unfold.model.MappingParameters
+type: object
+properties:
+  mappingParameters:
+    type: array
+    items:
+      $ref: '#/definitions/com.ruzzi.unfold.model.MappingParameter'

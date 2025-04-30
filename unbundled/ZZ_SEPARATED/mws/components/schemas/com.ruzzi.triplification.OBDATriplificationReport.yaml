@@ -1,0 +1,11 @@
+title: com.ruzzi.triplification.OBDATriplificationReport
+type: object
+properties:
+  request:
+    $ref: '#/definitions/com.ruzzi.triplification.OBDATriplificationRequest'
+  progress:
+    $ref: '#/definitions/com.ruzzi.triplification.OBDATriplificationProgress'
+  details:
+    type: object
+    additionalProperties:
+      $ref: '#/definitions/com.ruzzi.triplification.OBDATriplificationMappingReport'

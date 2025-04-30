@@ -1,0 +1,5 @@
+title: com.mwsx.model.kg.ObjectLiteral
+type: object
+properties:
+  object_literal:
+    type: string

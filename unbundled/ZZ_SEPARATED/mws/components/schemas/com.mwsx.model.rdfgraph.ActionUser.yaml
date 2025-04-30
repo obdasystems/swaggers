@@ -1,0 +1,11 @@
+title: com.mwsx.model.rdfgraph.ActionUser
+type: object
+properties:
+  firstName:
+    type: string
+  lastName:
+    type: string
+  name:
+    type: string
+  email:
+    type: string

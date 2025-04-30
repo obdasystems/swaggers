@@ -1,0 +1,14 @@
+title: com.mwsx.model.rdfgraph.VKGSnapshot
+type: object
+properties:
+  name:
+    type: string
+  lastModification:
+    type: integer
+    format: int64
+  description:
+    type: string
+  id:
+    type: string
+  rdfGraph:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.RDFGraph'

@@ -1,0 +1,36 @@
+get:
+  description: Returns the user log lines count
+  parameters:
+    - name: username
+      in: path
+      required: true
+      type: string
+    - name: start
+      in: query
+      required: false
+      type: integer
+      format: int32
+    - name: length
+      in: query
+      required: false
+      type: integer
+      format: int32
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  tags:
+    - SERVER
+  responses:
+    '200':
+      description: OK
+      schema:
+        $ref: '#/definitions/com.mwsx.model.RequiresTypeDefinition'
+    '401':
+      description: The user does not have sufficient privileges to invoke this service
+    '403':
+      description: User not authorized due to wrong credentials
+    '500':
+      description: An internal server error occurred while performing the request
+    '510':
+      description: This method is currently not implemented

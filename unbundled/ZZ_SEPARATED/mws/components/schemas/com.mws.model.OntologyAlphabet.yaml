@@ -1,0 +1,15 @@
+title: com.mws.model.OntologyAlphabet
+type: object
+properties:
+  dataProperties:
+    type: array
+    items:
+      $ref: '#/definitions/com.mws.model.DataPropertyInfo'
+  classes:
+    type: array
+    items:
+      $ref: '#/definitions/com.mws.model.ClassInfo'
+  objectProperties:
+    type: array
+    items:
+      $ref: '#/definitions/com.mws.model.ObjectPropertyInfo'

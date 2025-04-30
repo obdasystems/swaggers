@@ -13,7 +13,7 @@ put:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: boolean
 delete:
   summary: DELETE mwsx/knowledgeGraph/file
   operationId: delete__knowledgeGraph_file
@@ -23,7 +23,7 @@ delete:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: boolean
 get:
   summary: GET mwsx/knowledgeGraph/file
   operationId: get__knowledgeGraph_file
@@ -54,4 +54,4 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/FileInfo.yaml

@@ -1,0 +1,17 @@
+title: com.mwsx.model.sparqling.GraphElement
+type: object
+properties:
+  variables:
+    type: array
+    items:
+      type: string
+  entities:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.sparqling.Entity'
+  children:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.sparqling.GraphElement'
+  id:
+    type: string

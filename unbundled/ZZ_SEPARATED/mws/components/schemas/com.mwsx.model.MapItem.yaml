@@ -1,0 +1,7 @@
+title: com.mwsx.model.MapItem
+type: object
+properties:
+  mapValue:
+    type: string
+  mapKey:
+    type: string

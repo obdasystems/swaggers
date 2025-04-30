@@ -1,0 +1,21 @@
+title: com.mwsx.model.InclusionDependency
+type: object
+properties:
+  includedView:
+    $ref: '#/definitions/com.mwsx.model.InclusionView'
+  description:
+    type: string
+  includingView:
+    $ref: '#/definitions/com.mwsx.model.InclusionView'
+  inclusionMap:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.InclusionPair'
+  quarantineReasons:
+    type: array
+    items:
+      type: string
+  id:
+    type: string
+  isQuarantined:
+    type: boolean

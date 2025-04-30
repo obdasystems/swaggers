@@ -1,0 +1,11 @@
+title: com.mwsx.model.MastroID
+type: object
+properties:
+  mappingID:
+    type: string
+  datasourceID:
+    type: string
+  avpID:
+    type: string
+  ontologyID:
+    $ref: '#/definitions/com.mwsx.model.OntologyID'

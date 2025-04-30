@@ -1,0 +1,15 @@
+title: com.ruzzi.connectors.virtual.VirtualEntity
+type: object
+properties:
+  signature:
+    type: array
+    items:
+      $ref: '#/definitions/com.ruzzi.connectors.virtual.VirtualEntityField'
+  name:
+    type: string
+  description:
+    type: string
+  sparqlCode:
+    type: string
+  semantics:
+    type: string

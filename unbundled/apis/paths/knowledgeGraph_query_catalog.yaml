@@ -13,7 +13,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/OBDACatalog.yaml
 post:
   summary: POST mwsx/knowledgeGraph/query/catalog
   operationId: post__knowledgeGraph_query_catalog
@@ -35,4 +35,4 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: boolean

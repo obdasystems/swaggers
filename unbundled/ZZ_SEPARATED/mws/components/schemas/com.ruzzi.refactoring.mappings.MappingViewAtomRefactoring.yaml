@@ -1,0 +1,29 @@
+title: com.ruzzi.refactoring.mappings.MappingViewAtomRefactoring
+type: object
+properties:
+  oldSignature:
+    type: array
+    items:
+      type: string
+  viewName:
+    type: string
+  newSqlBody:
+    type: string
+  keptTerms:
+    type: object
+    additionalProperties:
+      $ref: '#/definitions/com.ruzzi.refactoring.mappings.TermDisplacement'
+  addedTerms:
+    type: object
+    additionalProperties:
+      $ref: '#/definitions/com.ruzzi.refactoring.mappings.TermDisplacement'
+  newSignature:
+    type: array
+    items:
+      type: string
+  removedTerms:
+    type: object
+    additionalProperties:
+      $ref: '#/definitions/com.ruzzi.refactoring.mappings.TermDisplacement'
+  newDescription:
+    type: string

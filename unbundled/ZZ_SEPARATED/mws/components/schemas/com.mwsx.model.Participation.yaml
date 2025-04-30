@@ -1,0 +1,9 @@
+title: com.mwsx.model.Participation
+type: object
+properties:
+  inverse:
+    type: boolean
+  property:
+    $ref: '#/definitions/com.mwsx.model.Entity'
+  filler:
+    $ref: '#/definitions/com.mwsx.model.Entity'

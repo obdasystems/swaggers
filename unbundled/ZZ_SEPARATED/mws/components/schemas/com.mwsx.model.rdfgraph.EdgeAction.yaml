@@ -1,0 +1,7 @@
+title: com.mwsx.model.rdfgraph.EdgeAction
+type: object
+properties:
+  edgeActionSubject:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.Edge'
+  edgeActionPreviousState:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.Edge'

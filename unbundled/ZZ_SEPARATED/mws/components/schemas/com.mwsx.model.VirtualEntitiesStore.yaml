@@ -1,0 +1,9 @@
+title: com.mwsx.model.VirtualEntitiesStore
+type: object
+properties:
+  sparqlingSPARQLQueryByEntityName:
+    type: object
+    additionalProperties:
+      $ref: '#/definitions/com.mwsx.model.SparqlingSPARQLQuery'
+  virtualEntitiesByUserName:
+    type: object

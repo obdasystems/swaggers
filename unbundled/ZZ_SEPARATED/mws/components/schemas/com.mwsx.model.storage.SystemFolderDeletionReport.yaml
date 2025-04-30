@@ -1,0 +1,17 @@
+title: com.mwsx.model.storage.SystemFolderDeletionReport
+type: object
+properties:
+  deletedFilesCount:
+    type: integer
+    format: int32
+  deletedFiles:
+    type: array
+    items:
+      type: string
+  failedDelationFiles:
+    type: array
+    items:
+      type: string
+  freeSpaceCreated:
+    type: integer
+    format: int64

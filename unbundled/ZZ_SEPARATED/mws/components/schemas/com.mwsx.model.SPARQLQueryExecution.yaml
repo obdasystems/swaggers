@@ -1,0 +1,5 @@
+title: com.mwsx.model.SPARQLQueryExecution
+type: object
+properties:
+  queryID:
+    type: string

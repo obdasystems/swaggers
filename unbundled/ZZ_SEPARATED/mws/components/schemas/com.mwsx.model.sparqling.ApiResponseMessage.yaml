@@ -1,0 +1,25 @@
+title: com.mwsx.model.sparqling.ApiResponseMessage
+type: object
+properties:
+  TOO_BUSY:
+    type: integer
+    format: int32
+  code:
+    type: integer
+    format: int32
+  ERROR:
+    type: integer
+    format: int32
+  INFO:
+    type: integer
+    format: int32
+  OK:
+    type: integer
+    format: int32
+  type:
+    type: string
+  message:
+    type: string
+  WARNING:
+    type: integer
+    format: int32

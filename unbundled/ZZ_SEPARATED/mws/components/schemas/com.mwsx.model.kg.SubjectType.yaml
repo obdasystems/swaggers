@@ -1,0 +1,13 @@
+title: com.mwsx.model.kg.SubjectType
+type: object
+properties:
+  subject_type:
+    type: string
+  subject_type_short:
+    type: string
+  instance_count:
+    type: integer
+    format: int32
+  page_count:
+    type: integer
+    format: int32

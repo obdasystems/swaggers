@@ -1,0 +1,12 @@
+title: com.mwsx.model.instances.EntityCount
+type: object
+properties:
+  count:
+    type: integer
+    format: int64
+  state:
+    type: string
+  error:
+    type: string
+  entity:
+    $ref: '#/definitions/com.mwsx.model.Entity'

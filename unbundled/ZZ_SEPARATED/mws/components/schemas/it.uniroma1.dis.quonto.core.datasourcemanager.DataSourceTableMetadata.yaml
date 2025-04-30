@@ -1,0 +1,22 @@
+title: it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceTableMetadata
+type: object
+properties:
+  catalogName:
+    type: string
+  foreignKeys:
+    type: array
+    items:
+      $ref: >-
+        #/definitions/it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceForeignKeyMetadata
+  columns:
+    type: array
+    items:
+      $ref: >-
+        #/definitions/it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceTableColumnMetadata
+  keys:
+    $ref: >-
+      #/definitions/it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceKeyMetadata
+  name:
+    type: string
+  schemaName:
+    type: string

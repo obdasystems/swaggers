@@ -1,0 +1,5 @@
+title: com.mwsx.model.FunctionalPropertyAssertion
+type: object
+properties:
+  direct:
+    type: boolean

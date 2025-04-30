@@ -1,0 +1,27 @@
+title: it.uniroma1.dis.quonto.mapping.analysis.model.DataSourceCoverage
+type: object
+properties:
+  tables:
+    type: array
+    items:
+      $ref: >-
+        #/definitions/it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceTableMetadata
+  unmappedTableCount:
+    type: integer
+    format: int32
+  mappedTables:
+    type: array
+    items:
+      $ref: >-
+        #/definitions/it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceTableMetadata
+  unmappedTables:
+    type: array
+    items:
+      $ref: >-
+        #/definitions/it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceTableMetadata
+  mappedTableCount:
+    type: integer
+    format: int32
+  totalTableCount:
+    type: integer
+    format: int32

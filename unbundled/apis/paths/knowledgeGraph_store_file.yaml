@@ -13,14 +13,16 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: boolean
 get:
   summary: GET mwsx/knowledgeGraph/store/file
-  operationId: get__knowledgeGraph_store_file
+  operationId: get__knowledgeGraph_store_files
   responses:
     '200':
       description: OK
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: array
+            items: 
+              $ref: ../components/schemas/KGStoreFileInfoEntry.yaml

@@ -1,0 +1,17 @@
+title: com.mwsx.model.kg.SubjectDataProperty
+type: object
+properties:
+  predicate:
+    type: string
+  objects:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.kg.ObjectLiteral'
+  predicate_short:
+    type: string
+  instance_count:
+    type: integer
+    format: int32
+  page_count:
+    type: integer
+    format: int32

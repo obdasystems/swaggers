@@ -1,0 +1,21 @@
+title: com.ruzzi.refactoring.mappings.MappingViewAtomRefactoringList
+type: object
+properties:
+  mappingIds:
+    type: array
+    items:
+      type: string
+  refactoring:
+    $ref: '#/definitions/com.ruzzi.refactoring.mappings.MappingViewAtomRefactoring'
+  keyIds:
+    type: array
+    items:
+      type: string
+  denialIds:
+    type: array
+    items:
+      type: string
+  inclusionIds:
+    type: array
+    items:
+      type: string

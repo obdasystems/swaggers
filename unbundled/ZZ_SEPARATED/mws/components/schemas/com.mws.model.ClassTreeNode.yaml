@@ -1,0 +1,9 @@
+title: com.mws.model.ClassTreeNode
+type: object
+properties:
+  children:
+    type: array
+    items:
+      $ref: '#/definitions/com.mws.model.ClassTreeNode'
+  info:
+    $ref: '#/definitions/com.mws.model.ClassInfo'

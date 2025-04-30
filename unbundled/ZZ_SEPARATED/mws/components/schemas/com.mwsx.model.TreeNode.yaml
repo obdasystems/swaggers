@@ -1,0 +1,18 @@
+title: com.mwsx.model.TreeNode
+type: object
+properties:
+  parent:
+    $ref: '#/definitions/com.mwsx.model.TreeNode'
+  children:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.TreeNode'
+  equivalents:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Entity'
+  numberOfMappings:
+    type: integer
+    format: int32
+  entity:
+    $ref: '#/definitions/com.mwsx.model.Entity'

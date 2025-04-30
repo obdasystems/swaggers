@@ -1,0 +1,73 @@
+title: com.mwsx.model.rdfgraph.TypesEnum
+type: object
+properties:
+  SAME:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+  COMPLETE_DISJOINT_UNION:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+  COMPLEMENT:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+  INPUT:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+  ENUMERATION:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+  CLASS:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+  VALUE:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+  INSTANCE_OF:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+  MEMBERSHIP:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+  DISJOINT_UNION:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+  HAS_KEY:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+  INCLUSION:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+  value:
+    type: string
+  RANGE_RESTRICTION:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+  NEUTRAL:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+  $VALUES:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+  VALUE_DOMAIN:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+  ROLE_INVERSE:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+  ROLE_CHAIN:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+  LITERAL:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+  DIFFERENT:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+  DATATYPE_RESTRICTION:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+  OBJECT_PROPERTY:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+  COMPLETE_UNION:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+  PROPERTY_ASSERTION:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+  DOMAIN_RESTRICTION:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+  EQUIVALENCE:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+  FACET:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+  INTERSECTION:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+  DATA_PROPERTY:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+  CLASS_INSTANCE:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+  ATTRIBUTE_EDGE:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+  UNION:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'
+  INDIVIDUAL:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.TypesEnum'

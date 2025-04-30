@@ -24,7 +24,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: object
 get:
   summary: GET mwsx/knowledgeGraph/prefixes
   operationId: get__knowledgeGraph_prefixes
@@ -40,4 +40,4 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: object

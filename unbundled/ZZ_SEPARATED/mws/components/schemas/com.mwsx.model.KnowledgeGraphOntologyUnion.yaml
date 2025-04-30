@@ -1,0 +1,7 @@
+title: com.mwsx.model.KnowledgeGraphOntologyUnion
+type: object
+properties:
+  source:
+    $ref: '#/definitions/com.mwsx.model.OntologyVersion'
+  target:
+    $ref: '#/definitions/com.mwsx.model.KnowledgeGraphDestination'

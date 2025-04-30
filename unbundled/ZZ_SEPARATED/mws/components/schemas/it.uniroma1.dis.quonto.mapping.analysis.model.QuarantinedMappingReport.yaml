@@ -1,0 +1,19 @@
+title: it.uniroma1.dis.quonto.mapping.analysis.model.QuarantinedMappingReport
+type: object
+properties:
+  viewDefinitionsCount:
+    type: integer
+    format: int32
+  mappingsCount:
+    type: integer
+    format: int32
+  quarantinedMappingsCount:
+    type: integer
+    format: int32
+  quarantineReasonsByViewName:
+    type: object
+  quarantineReasonsByMappingId:
+    type: object
+  quarantinedViewDefinitionsCount:
+    type: integer
+    format: int32

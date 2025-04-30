@@ -1,0 +1,11 @@
+title: com.mwsx.model.ViewMappings
+type: object
+properties:
+  sqlView:
+    $ref: '#/definitions/com.mwsx.model.SQLView'
+  mappingAssertions:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.MappingAssertion'
+  mappingDependencies:
+    $ref: '#/definitions/com.mwsx.model.MappingDependencies'

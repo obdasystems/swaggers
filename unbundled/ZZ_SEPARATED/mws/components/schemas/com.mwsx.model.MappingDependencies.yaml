@@ -1,0 +1,15 @@
+title: com.mwsx.model.MappingDependencies
+type: object
+properties:
+  inclusionDependencies:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.InclusionDependency'
+  denials:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.DenialConstraint'
+  keyDependencies:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.KeyDependency'

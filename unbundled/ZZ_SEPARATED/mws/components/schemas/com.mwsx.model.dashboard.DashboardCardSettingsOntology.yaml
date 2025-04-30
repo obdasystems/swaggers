@@ -1,0 +1,12 @@
+title: com.mwsx.model.dashboard.DashboardCardSettingsOntology
+type: object
+properties:
+  diagram:
+    type: string
+  renderer:
+    type: string
+  zoom:
+    type: integer
+    format: int32
+  centeredNodeId:
+    type: string

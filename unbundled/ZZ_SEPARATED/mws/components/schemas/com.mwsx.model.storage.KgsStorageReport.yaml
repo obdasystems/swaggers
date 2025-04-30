@@ -1,0 +1,13 @@
+title: com.mwsx.model.storage.KgsStorageReport
+type: object
+properties:
+  totalSize:
+    type: integer
+    format: int64
+  kgs:
+    type: object
+    additionalProperties:
+      $ref: '#/definitions/com.mwsx.model.storage.KgStorageReport'
+  fileCount:
+    type: integer
+    format: int32

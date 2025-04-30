@@ -1,0 +1,27 @@
+title: com.mwsx.model.rdfgraph.RDFGraphMetadata
+type: object
+properties:
+  annotationProperties:
+    type: array
+    items:
+      type: string
+  iri:
+    type: string
+  defaultLanguage:
+    type: string
+  languages:
+    type: array
+    items:
+      type: string
+  name:
+    type: string
+  annotations:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.rdfgraph.Annotation'
+  version:
+    type: string
+  namespaces:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.rdfgraph.Namespace'

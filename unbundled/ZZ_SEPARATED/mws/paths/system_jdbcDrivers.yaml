@@ -1,0 +1,24 @@
+get:
+  description: Returns the available JDBC drivers
+  parameters: []
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  tags:
+    - DATA SOURCES
+  responses:
+    '200':
+      description: OK
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.system.JDBCDriver'
+    '401':
+      description: The user does not have sufficient privileges to invoke this service
+    '403':
+      description: User not authorized due to wrong credentials
+    '500':
+      description: An internal server error occurred while performing the request
+    '510':
+      description: This method is currently not implemented

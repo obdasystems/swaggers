@@ -1,0 +1,11 @@
+title: com.mwsx.model.system.JDBCDriversInfo
+type: object
+properties:
+  availableDrivers:
+    type: array
+    items:
+      type: string
+  urlTemplates:
+    type: object
+    additionalProperties:
+      type: string

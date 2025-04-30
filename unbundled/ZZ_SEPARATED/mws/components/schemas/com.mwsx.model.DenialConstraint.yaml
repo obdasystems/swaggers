@@ -1,0 +1,15 @@
+title: com.mwsx.model.DenialConstraint
+type: object
+properties:
+  description:
+    type: string
+  constraint:
+    $ref: '#/definitions/com.mwsx.model.MappingBody'
+  quarantineReasons:
+    type: array
+    items:
+      type: string
+  id:
+    type: string
+  isQuarantined:
+    type: boolean

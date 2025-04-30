@@ -1,0 +1,77 @@
+put:
+  description: Modifies a VKG snapshots for the ontology version
+  parameters:
+    - name: name
+      in: path
+      required: true
+      type: string
+    - name: snapshotId
+      in: path
+      required: true
+      type: string
+    - name: version
+      in: query
+      required: false
+      type: string
+    - name: arg5
+      in: body
+      required: false
+      schema:
+        $ref: '#/definitions/com.mwsx.model.rdfgraph.VKGSnapshot'
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  tags:
+    - VKG SNAPSHOT
+  responses:
+    '200':
+      description: OK
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.rdfgraph.VKGSnapshot'
+    '401':
+      description: The user does not have sufficient privileges to invoke this service
+    '403':
+      description: User not authorized due to wrong credentials
+    '500':
+      description: An internal server error occurred while performing the request
+    '510':
+      description: This method is currently not implemented
+delete:
+  description: Deletes the VKG snapshot for the ontology version
+  parameters:
+    - name: name
+      in: path
+      required: true
+      type: string
+    - name: snapshotId
+      in: path
+      required: true
+      type: string
+    - name: version
+      in: query
+      required: false
+      type: string
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  tags:
+    - VKG SNAPSHOT
+  responses:
+    '200':
+      description: OK
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/com.mwsx.model.rdfgraph.VKGSnapshot'
+    '401':
+      description: The user does not have sufficient privileges to invoke this service
+    '403':
+      description: User not authorized due to wrong credentials
+    '500':
+      description: An internal server error occurred while performing the request
+    '510':
+      description: This method is currently not implemented

@@ -1,0 +1,7 @@
+title: com.mwsx.model.kg.ObjectPredicatePageType
+type: object
+properties:
+  object_triples:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.kg.ObjectTriplePage'

@@ -1,0 +1,31 @@
+post:
+  description: Creates a new user
+  parameters:
+    - name: secret
+      in: query
+      required: false
+      type: string
+    - name: arg3
+      in: body
+      required: false
+      schema:
+        $ref: '#/definitions/com.mwsx.model.User'
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  tags:
+    - USERS AND ROLES
+  responses:
+    '200':
+      description: OK
+      schema:
+        $ref: '#/definitions/com.mwsx.model.User'
+    '401':
+      description: The user does not have sufficient privileges to invoke this service
+    '403':
+      description: User not authorized due to wrong credentials
+    '500':
+      description: An internal server error occurred while performing the request
+    '510':
+      description: This method is currently not implemented

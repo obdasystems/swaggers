@@ -1,0 +1,65 @@
+title: com.mwsx.model.ObjectPropertyInfo
+type: object
+properties:
+  disjointObjectProperties:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Entity'
+  iri:
+    $ref: '#/definitions/com.mwsx.model.IRI'
+  currentEntity:
+    $ref: '#/definitions/com.mwsx.model.Entity'
+  objectPropertyInverseFunctional:
+    type: boolean
+  objectPropertyDescriptions:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Label'
+  equivalentObjectProperties:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Entity'
+  objectPropertySymmetric:
+    type: boolean
+  superObjectProperties:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Entity'
+  objectPropertyCharacteristics:
+    type: array
+    items:
+      type: string
+  subObjectProperties:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Entity'
+  objectPropertyIndividuals:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Entity'
+  inverseObjectProperties:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Entity'
+  objectPropertyDomain:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Entity'
+  objectPropertyReflexive:
+    type: boolean
+  objectPropertyRange:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Entity'
+  objectPropertyTransitive:
+    type: boolean
+  objectPropertyIrreflexive:
+    type: boolean
+  entityDiagrams:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.DiagramNode'
+  objectPropertyFunctional:
+    type: boolean
+  objectPropertyAsymmetric:
+    type: boolean

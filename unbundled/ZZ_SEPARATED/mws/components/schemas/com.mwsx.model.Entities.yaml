@@ -1,0 +1,23 @@
+title: com.mwsx.model.Entities
+type: object
+properties:
+  dataPropertyEntities:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Entity'
+  classEntities:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Entity'
+  annotationPropertyEntities:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Entity'
+  objectPropertyEntities:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Entity'
+  namedIndividualEntities:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Entity'

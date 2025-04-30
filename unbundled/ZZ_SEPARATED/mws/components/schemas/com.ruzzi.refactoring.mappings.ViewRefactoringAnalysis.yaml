@@ -1,0 +1,22 @@
+title: com.ruzzi.refactoring.mappings.ViewRefactoringAnalysis
+type: object
+properties:
+  refactoring:
+    $ref: '#/definitions/com.ruzzi.refactoring.mappings.MappingViewAtomRefactoring'
+  invalidatedInclusionDependency:
+    type: array
+    items:
+      type: string
+  safenessAnalisys:
+    type: object
+    additionalProperties:
+      $ref: >-
+        #/definitions/com.ruzzi.refactoring.mappings.ViewRefactoringSafenessOutcome
+  unsafeDenialConstraints:
+    type: array
+    items:
+      type: string
+  invalidatedKeyDependency:
+    type: array
+    items:
+      type: string

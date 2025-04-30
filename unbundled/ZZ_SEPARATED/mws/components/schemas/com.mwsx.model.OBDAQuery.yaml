@@ -1,0 +1,9 @@
+title: com.mwsx.model.OBDAQuery
+type: object
+properties:
+  options:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.MapItem'
+  sparql:
+    $ref: '#/definitions/com.mwsx.model.SPARQLQuery'

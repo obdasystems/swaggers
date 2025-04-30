@@ -1,0 +1,11 @@
+title: com.mwsx.model.MappingAtom
+type: object
+properties:
+  view:
+    $ref: '#/definitions/com.mwsx.model.SQLView'
+  terms:
+    type: array
+    items:
+      type: string
+  name:
+    type: string

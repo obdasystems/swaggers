@@ -1,0 +1,9 @@
+title: com.mwsx.model.SparqlingSPARQLQuery
+type: object
+properties:
+  queryGraph:
+    $ref: '#/definitions/com.mwsx.model.sparqling.QueryGraph'
+  sparqlQuery:
+    $ref: '#/definitions/com.mwsx.model.SPARQLQuery'
+  user:
+    type: string

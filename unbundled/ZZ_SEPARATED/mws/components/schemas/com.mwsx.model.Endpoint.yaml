@@ -1,0 +1,13 @@
+title: com.mwsx.model.Endpoint
+type: object
+properties:
+  restartNeeded:
+    type: boolean
+  name:
+    type: string
+  description:
+    type: string
+  user:
+    type: string
+  mastroID:
+    $ref: '#/definitions/com.mwsx.model.MastroID'

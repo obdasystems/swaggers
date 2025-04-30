@@ -1,0 +1,15 @@
+title: com.ruzzi.annotations.AnnotationProcessorConfig
+type: object
+properties:
+  ontologyVersion:
+    type: string
+  datasource:
+    type: string
+  format:
+    type: string
+  annotations:
+    type: array
+    items:
+      type: string
+  ontologyIri:
+    type: string

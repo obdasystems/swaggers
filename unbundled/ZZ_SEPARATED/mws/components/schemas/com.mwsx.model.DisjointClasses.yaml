@@ -1,0 +1,5 @@
+title: com.mwsx.model.DisjointClasses
+type: object
+properties:
+  disjointClass:
+    $ref: '#/definitions/com.mwsx.model.Entity'

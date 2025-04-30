@@ -1,0 +1,7 @@
+title: com.mwsx.model.system.LicenseInfoDetail
+type: object
+properties:
+  detailName:
+    type: string
+  detailValue:
+    type: string

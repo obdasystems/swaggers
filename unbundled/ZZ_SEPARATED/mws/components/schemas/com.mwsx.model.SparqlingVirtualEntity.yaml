@@ -1,0 +1,7 @@
+title: com.mwsx.model.SparqlingVirtualEntity
+type: object
+properties:
+  sparqlingSPARQLQuery:
+    $ref: '#/definitions/com.mwsx.model.SparqlingSPARQLQuery'
+  entity:
+    $ref: '#/definitions/com.ruzzi.connectors.virtual.VirtualEntity'

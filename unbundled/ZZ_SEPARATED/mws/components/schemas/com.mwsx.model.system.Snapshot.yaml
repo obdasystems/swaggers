@@ -1,0 +1,14 @@
+title: com.mwsx.model.system.Snapshot
+type: object
+properties:
+  sessions:
+    type: object
+    additionalProperties:
+      $ref: '#/definitions/com.mwsx.model.system.SessionSnapshot'
+  systemParameters:
+    type: object
+    additionalProperties:
+      type: string
+  currentlyActiveSessionCount:
+    type: integer
+    format: int32

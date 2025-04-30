@@ -13,7 +13,7 @@ delete:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: boolean
 get:
   summary: GET mwsx/knowledgeGraph/store/file/{name}
   operationId: get__knowledgeGraph_store_file
@@ -29,4 +29,4 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/KGStoreFileInfoEntry.yaml

@@ -1,0 +1,11 @@
+title: com.mwsx.model.MappingTemplate
+type: object
+properties:
+  template:
+    type: string
+  isValueTemplate:
+    type: boolean
+  terms:
+    type: array
+    items:
+      type: string

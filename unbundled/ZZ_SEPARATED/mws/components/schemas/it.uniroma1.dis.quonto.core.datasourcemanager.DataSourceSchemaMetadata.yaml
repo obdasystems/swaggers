@@ -1,0 +1,13 @@
+title: it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceSchemaMetadata
+type: object
+properties:
+  tables:
+    type: object
+    additionalProperties:
+      $ref: >-
+        #/definitions/it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceTableMetadata
+  views:
+    type: object
+    additionalProperties:
+      $ref: >-
+        #/definitions/it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceTableMetadata

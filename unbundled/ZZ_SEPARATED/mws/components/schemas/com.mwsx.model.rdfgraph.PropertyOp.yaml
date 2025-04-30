@@ -1,0 +1,7 @@
+title: com.mwsx.model.rdfgraph.PropertyOp
+type: object
+properties:
+  subject:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.Entity'
+  previousState:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.Entity'

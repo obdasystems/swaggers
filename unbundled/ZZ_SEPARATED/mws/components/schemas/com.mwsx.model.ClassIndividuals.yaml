@@ -1,0 +1,9 @@
+title: com.mwsx.model.ClassIndividuals
+type: object
+properties:
+  theClass:
+    $ref: '#/definitions/com.mwsx.model.Entity'
+  individuals:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Entity'

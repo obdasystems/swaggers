@@ -1,0 +1,48 @@
+get:
+  description: Returns the endpoint named <code>name</code>
+  parameters:
+    - name: name
+      in: path
+      required: true
+      type: string
+  produces:
+    - application/json
+  tags:
+    - ENDPOINTS
+  responses:
+    '200':
+      description: OK
+      schema:
+        $ref: '#/definitions/com.mwsx.model.Endpoint'
+    '401':
+      description: The user does not have sufficient privileges to invoke this service
+    '403':
+      description: User not authorized due to wrong credentials
+    '500':
+      description: An internal server error occurred while performing the request
+    '510':
+      description: This method is currently not implemented
+delete:
+  description: Deletes the endpoint named <code>name</code>.
+  parameters:
+    - name: name
+      in: path
+      required: true
+      type: string
+  produces:
+    - application/json
+  tags:
+    - ENDPOINTS
+  responses:
+    '200':
+      description: OK
+      schema:
+        $ref: '#/definitions/com.mwsx.model.Endpoint'
+    '401':
+      description: The user does not have sufficient privileges to invoke this service
+    '403':
+      description: User not authorized due to wrong credentials
+    '500':
+      description: An internal server error occurred while performing the request
+    '510':
+      description: This method is currently not implemented

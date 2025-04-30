@@ -1,0 +1,9 @@
+title: com.mws.model.ObjectInfo
+type: object
+properties:
+  name:
+    type: string
+  fields:
+    type: array
+    items:
+      $ref: '#/definitions/com.mws.model.FieldInfo'

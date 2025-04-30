@@ -1,0 +1,7 @@
+title: com.mwsx.model.KnowledgeGraphDestinationQueryOBDA
+type: object
+properties:
+  source:
+    $ref: '#/definitions/com.mwsx.model.OBDAConstructResults'
+  target:
+    $ref: '#/definitions/com.mwsx.model.KnowledgeGraphDestination'

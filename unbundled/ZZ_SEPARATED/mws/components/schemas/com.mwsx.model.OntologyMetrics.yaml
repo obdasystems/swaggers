@@ -1,0 +1,27 @@
+title: com.mwsx.model.OntologyMetrics
+type: object
+properties:
+  individualAxioms:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.MapItem'
+  dataPropertyAxioms:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.MapItem'
+  metrics:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.MapItem'
+  classAxioms:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.MapItem'
+  annotationAxioms:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.MapItem'
+  objectPropertyAxioms:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.MapItem'

@@ -1,0 +1,8 @@
+title: com.mwsx.model.DataQualityCheck
+type: object
+properties:
+  id:
+    type: string
+  priority:
+    type: integer
+    format: int32

@@ -23,7 +23,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/KgCsvImportReport.yaml
 delete:
   summary: DELETE mwsx/knowledgeGraph/upload/import/thread
   operationId: delete__knowledgeGraph_upload_file_csv_import_thread
@@ -44,4 +44,4 @@ delete:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/KgCsvImportReport.yaml

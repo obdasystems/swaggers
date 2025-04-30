@@ -1,0 +1,7 @@
+title: com.mwsx.model.DataQualityCheckSetExecutionLogs
+type: object
+properties:
+  executions:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.DataQualityCheckSetExecutionLog'

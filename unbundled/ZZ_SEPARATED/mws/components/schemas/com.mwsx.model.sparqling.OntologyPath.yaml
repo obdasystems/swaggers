@@ -1,0 +1,7 @@
+title: com.mwsx.model.sparqling.OntologyPath
+type: object
+properties:
+  entities:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.sparqling.Entity'

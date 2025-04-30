@@ -1,0 +1,21 @@
+title: com.mwsx.model.sparqling.HeadElement
+type: object
+properties:
+  having:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.sparqling.Filter'
+  var:
+    type: string
+  ordering:
+    type: integer
+  function:
+    $ref: '#/definitions/com.mwsx.model.sparqling.Function'
+  alias:
+    type: string
+  id:
+    type: string
+  graphElementId:
+    type: string
+  groupBy:
+    $ref: '#/definitions/com.mwsx.model.sparqling.GroupByElement'

@@ -1,0 +1,13 @@
+title: com.mwsx.model.kg.ObjectType
+type: object
+properties:
+  object_type:
+    type: string
+  object_type_short:
+    type: string
+  instance_count:
+    type: integer
+    format: int32
+  page_count:
+    type: integer
+    format: int32

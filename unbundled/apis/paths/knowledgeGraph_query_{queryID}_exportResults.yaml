@@ -23,4 +23,5 @@ get:
       content:
         application/octet-stream:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: string
+            format: binary

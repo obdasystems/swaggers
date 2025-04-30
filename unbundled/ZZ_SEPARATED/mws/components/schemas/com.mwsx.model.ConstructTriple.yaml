@@ -1,0 +1,9 @@
+title: com.mwsx.model.ConstructTriple
+type: object
+properties:
+  predicate:
+    type: string
+  subject:
+    type: string
+  object:
+    type: string

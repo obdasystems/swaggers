@@ -1,0 +1,15 @@
+title: com.mwsx.model.rdfgraph.ActionInvolvedElements
+type: object
+properties:
+  nodes:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.rdfgraph.Node'
+  hierarchies:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.rdfgraph.Hierarchy'
+  edges:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.rdfgraph.Edge'

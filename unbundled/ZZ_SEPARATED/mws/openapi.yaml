@@ -1,0 +1,590 @@
+openapi: 3.0.0
+info:
+  title: Mastro Web Services (MWS)
+  description: 'Mastro Web Services: RESTFul interface for the Mastro OBDA system'
+  contact:
+    name: Marco Ruzzi
+    url: http://www.obdasystems.com
+    email: marco.ruzzi@obdasystems.com
+  version: 3.0.0
+host: default-host
+basePath: /base/path
+schemes:
+  - http
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}/status:
+    $ref: >-
+      paths/owlOntology_{name}_version_ontologyConstraints_set_{setId}_status.yaml
+  /endpoint/{name}/exported/{fileName}:
+    $ref: paths/endpoint_{name}_exported_{fileName}.yaml
+  /triplify/{threadID}/report:
+    $ref: paths/triplify_{threadID}_report.yaml
+  /owlOntology/{name}/version/mapping/{mapID}/query/{queryID}/delete:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{mapID}_query_{queryID}_delete.yaml
+  /endpoints/referencing/owlOntology/{name}/version/mapping/{ID}:
+    $ref: paths/endpoints_referencing_owlOntology_{name}_version_mapping_{ID}.yaml
+  /owlOntology/{name}/version/query/{ID}:
+    $ref: paths/owlOntology_{name}_version_query_{ID}.yaml
+  /owlOntology/{name}/version/gscape:
+    $ref: paths/owlOntology_{name}_version_gscape.yaml
+  /user/{username}/passwd/reset:
+    $ref: paths/user_{username}_passwd_reset.yaml
+  /owlOntology:
+    $ref: paths/owlOntology.yaml
+  /triplify/start:
+    $ref: paths/triplify_start.yaml
+  /endpoint/{name}/query/start:
+    $ref: paths/endpoint_{name}_query_start.yaml
+  /owlOntology/{name}/version/mapping/{ID}/info:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_info.yaml
+  /owlOntology/{name}/version/hierarchy/owl:
+    $ref: paths/owlOntology_{name}_version_hierarchy_owl.yaml
+  /owlOntology/{name}/version/entities/classes:
+    $ref: paths/owlOntology_{name}_version_entities_classes.yaml
+  /owlOntology/{name}/version/mapping/{mapID}/suggestedTemplate/{entityID}:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{mapID}_suggestedTemplate_{entityID}.yaml
+  /endpoint/{name}/query/exportQueryResults:
+    $ref: paths/endpoint_{name}_query_exportQueryResults.yaml
+  /user/{username}/passwd:
+    $ref: paths/user_{username}_passwd.yaml
+  /owlOntology/{name}/version/mapping/{ID}/dependencies:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_dependencies.yaml
+  /endpoint/{name}/query/{queryID}/viewOptimizedRewritings:
+    $ref: paths/endpoint_{name}_query_{queryID}_viewOptimizedRewritings.yaml
+  /endpoint/{name}/exported:
+    $ref: paths/endpoint_{name}_exported.yaml
+  /endpoint/{name}/query/count/{queryId}/state:
+    $ref: paths/endpoint_{name}_query_count_{queryId}_state.yaml
+  /owlOntology/{name}/version/entities/objectProperties:
+    $ref: paths/owlOntology_{name}_version_entities_objectProperties.yaml
+  /owlOntology/{name}/version/mapping/{ID}/assertions/{entityID}:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_assertions_{entityID}.yaml
+  /owlOntology/{name}/version/authorizationViewProfiles:
+    $ref: paths/owlOntology_{name}_version_authorizationViewProfiles.yaml
+  /endpoint/{name}/query/{queryID}/stop:
+    $ref: paths/endpoint_{name}_query_{queryID}_stop.yaml
+  /triplify/{threadID}/status:
+    $ref: paths/triplify_{threadID}_status.yaml
+  /endpoint/{name}/query/quarantinedMappingsByEntity:
+    $ref: paths/endpoint_{name}_query_quarantinedMappingsByEntity.yaml
+  /owlOntology/{name}/version/alphabet/class/{ID}/logical:
+    $ref: paths/owlOntology_{name}_version_alphabet_class_{ID}_logical.yaml
+  /endpoint/{eName}/countEntityInstances/info:
+    $ref: paths/endpoint_{eName}_countEntityInstances_info.yaml
+  /endpoint/{name}/exportThreads:
+    $ref: paths/endpoint_{name}_exportThreads.yaml
+  /owlOntology/{name}/version/gscape/check:
+    $ref: paths/owlOntology_{name}_version_gscape_check.yaml
+  /endpoint/{name}/new-cq-query/start:
+    $ref: paths/endpoint_{name}_new-cq-query_start.yaml
+  /endpoint/{name}/cquery/{queryID}/results/rdfGraph:
+    $ref: paths/endpoint_{name}_cquery_{queryID}_results_rdfGraph.yaml
+  /resources/endpoints:
+    $ref: paths/resources_endpoints.yaml
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}/executionLog:
+    $ref: >-
+      paths/owlOntology_{name}_version_ontologyConstraints_set_{setId}_executionLog.yaml
+  /owlOntology/{name}/version/mapping/check:
+    $ref: paths/owlOntology_{name}_version_mapping_check.yaml
+  /datasource/{name}/updateMetadata:
+    $ref: paths/datasource_{name}_updateMetadata.yaml
+  /owlOntology/{name}/mappings/{mapID}/triplify/listThreadProgresses:
+    $ref: >-
+      paths/owlOntology_{name}_mappings_{mapID}_triplify_listThreadProgresses.yaml
+  /server/userlog/{username}/count:
+    $ref: paths/server_userlog_{username}_count.yaml
+  /owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/testSQLQuery:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_assertion_{mapID}_testSQLQuery.yaml
+  /endpoint/{name}/cquery/{queryID}/export:
+    $ref: paths/endpoint_{name}_cquery_{queryID}_export.yaml
+  /owlOntology/{name}/version/virtualEntity/semantics:
+    $ref: paths/owlOntology_{name}_version_virtualEntity_semantics.yaml
+  /owlOntology/{name}/version/mapping/{ID}/dependencies/inclusions:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_dependencies_inclusions.yaml
+  /owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/parameters:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_assertion_{mapID}_parameters.yaml
+  /endpoint/{name}/new-cq-query/{executionId}/results:
+    $ref: paths/endpoint_{name}_new-cq-query_{executionId}_results.yaml
+  /owlOntology/{name}/version/entity/{id}:
+    $ref: paths/owlOntology_{name}_version_entity_{id}.yaml
+  /owlOntology/{name}/version/mapping/{ID}/dependencies/inclusion/{incID}:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_dependencies_inclusion_{incID}.yaml
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}/executionLog/timestamps:
+    $ref: >-
+      paths/owlOntology_{name}_version_ontologyConstraints_set_{setId}_executionLog_timestamps.yaml
+  /owlOntology/{name}/version/querycatalog:
+    $ref: paths/owlOntology_{name}_version_querycatalog.yaml
+  /owlOntology/{name}/version/mapping/{ID}/templates:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_templates.yaml
+  /ontologyDraftInfos:
+    $ref: paths/ontologyDraftInfos.yaml
+  /logger/monitor:
+    $ref: paths/logger_monitor.yaml
+  /owlOntology/{name}/version/closingReport:
+    $ref: paths/owlOntology_{name}_version_closingReport.yaml
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}/executionLogs/timestamps:
+    $ref: >-
+      paths/owlOntology_{name}_version_ontologyConstraints_set_{setId}_executionLogs_timestamps.yaml
+  /endpoint/{eName}/instanceChecking/{threadId}/stop:
+    $ref: paths/endpoint_{eName}_instanceChecking_{threadId}_stop.yaml
+  /owlOntology/{name}/version/mapping/{ID}/checkDeprecation:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_checkDeprecation.yaml
+  /owlOntology/{name}/version/alphabet/individual/{ID}/logical:
+    $ref: paths/owlOntology_{name}_version_alphabet_individual_{ID}_logical.yaml
+  /server/storage/{folder}:
+    $ref: paths/server_storage_{folder}.yaml
+  /datasource/drivers:
+    $ref: paths/datasource_drivers.yaml
+  /queryTags:
+    $ref: paths/queryTags.yaml
+  /endpoint/{name}/query/count/{queryId}:
+    $ref: paths/endpoint_{name}_query_count_{queryId}.yaml
+  /owlOntology/{name}/version/mapping/{ID}/templates/refactoring:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_templates_refactoring.yaml
+  /owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/state:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_annotationProcessorThread_{threadId}_state.yaml
+  /endpoint/{name}/emptyUnfoldingEntities:
+    $ref: paths/endpoint_{name}_emptyUnfoldingEntities.yaml
+  /owlOntology/{name}/version/query/sparqling:
+    $ref: paths/owlOntology_{name}_version_query_sparqling.yaml
+  /statics/reporting/request:
+    $ref: paths/statics_reporting_request.yaml
+  /datasource/test:
+    $ref: paths/datasource_test.yaml
+  /endpoint/{name}/new-cq-query/{executionId}/viewOptimizedRewritings:
+    $ref: >-
+      paths/endpoint_{name}_new-cq-query_{executionId}_viewOptimizedRewritings.yaml
+  /endpoint/{name}/empties:
+    $ref: paths/endpoint_{name}_empties.yaml
+  /owlOntology/{name}/version/virtualEntity:
+    $ref: paths/owlOntology_{name}_version_virtualEntity.yaml
+  /endpoint:
+    $ref: paths/endpoint.yaml
+  /endpoint/{name}/new-cq-query/{executionId}/sqlRewritings:
+    $ref: paths/endpoint_{name}_new-cq-query_{executionId}_sqlRewritings.yaml
+  /owlOntology/{name}/version/mapping/{ID}/annotations:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_annotations.yaml
+  /endpoint/{name}/exportThread/{id}/stats:
+    $ref: paths/endpoint_{name}_exportThread_{id}_stats.yaml
+  /owlOntology/{name}/version/query:
+    $ref: paths/owlOntology_{name}_version_query.yaml
+  /endpoint/{name}/new-cq-query/{executionId}/stop:
+    $ref: paths/endpoint_{name}_new-cq-query_{executionId}_stop.yaml
+  /logger/class:
+    $ref: paths/logger_class.yaml
+  /owlOntology/{name}/version/vkg/catalog:
+    $ref: paths/owlOntology_{name}_version_vkg_catalog.yaml
+  /resources/datasources:
+    $ref: paths/resources_datasources.yaml
+  /datasource/{id}/table/{tableName}:
+    $ref: paths/datasource_{id}_table_{tableName}.yaml
+  /logout:
+    $ref: paths/logout.yaml
+  /owlOntology/{name}/version/mapping/{mapID}/duplicate:
+    $ref: paths/owlOntology_{name}_version_mapping_{mapID}_duplicate.yaml
+  /endpoint/{name}/stop:
+    $ref: paths/endpoint_{name}_stop.yaml
+  /endpoint/{name}/new-cq-query/{executionId}:
+    $ref: paths/endpoint_{name}_new-cq-query_{executionId}.yaml
+  /owlOntology/{name}/version/mapping/{ID}/dependencies/denial/{denyID}:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_dependencies_denial_{denyID}.yaml
+  /owlOntology/{name}/version/querycatalog/sparqling/export:
+    $ref: paths/owlOntology_{name}_version_querycatalog_sparqling_export.yaml
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}/removeThread:
+    $ref: >-
+      paths/owlOntology_{name}_version_ontologyConstraints_set_{setId}_removeThread.yaml
+  /owlOntology/{name}/version/ignoredImports:
+    $ref: paths/owlOntology_{name}_version_ignoredImports.yaml
+  /owlOntology/{name}/mappings/{mapID}/triplify/listThreads:
+    $ref: paths/owlOntology_{name}_mappings_{mapID}_triplify_listThreads.yaml
+  /user:
+    $ref: paths/user.yaml
+  /role/{rolename}:
+    $ref: paths/role_{rolename}.yaml
+  /endpoints:
+    $ref: paths/endpoints.yaml
+  /owlOntology/{name}/importFromIRI:
+    $ref: paths/owlOntology_{name}_importFromIRI.yaml
+  /owlOntology/{name}/version/hierarchy:
+    $ref: paths/owlOntology_{name}_version_hierarchy.yaml
+  /endpoint/{eName}/instanceChecking/{threadId}/info:
+    $ref: paths/endpoint_{eName}_instanceChecking_{threadId}_info.yaml
+  /login:
+    $ref: paths/login.yaml
+  /owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/export:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_annotationProcessorThread_{threadId}_export.yaml
+  /owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/referencedTables:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_assertion_{mapID}_referencedTables.yaml
+  /owlOntology/{name}/version/entities/annotationProperties:
+    $ref: paths/owlOntology_{name}_version_entities_annotationProperties.yaml
+  /owlOntology/{name}/version/authorizationViewProfile/{avpId}:
+    $ref: paths/owlOntology_{name}_version_authorizationViewProfile_{avpId}.yaml
+  /owlOntology/{name}/version/ontologyConstraints:
+    $ref: paths/owlOntology_{name}_version_ontologyConstraints.yaml
+  /logger/mastroapi:
+    $ref: paths/logger_mastroapi.yaml
+  /owlOntology/{name}/version/queries/sparqling:
+    $ref: paths/owlOntology_{name}_version_queries_sparqling.yaml
+  /endpoint/{name}/query/count/{queryId}/error:
+    $ref: paths/endpoint_{name}_query_count_{queryId}_error.yaml
+  /endpoint/{name}/exportThread/{id}/status:
+    $ref: paths/endpoint_{name}_exportThread_{id}_status.yaml
+  /owlOntology/{name}/version/querycatalog/sparqling/import:
+    $ref: paths/owlOntology_{name}_version_querycatalog_sparqling_import.yaml
+  /system/jdbcDriver:
+    $ref: paths/system_jdbcDriver.yaml
+  /endpoint/{eName}/mappingAnalysisReport:
+    $ref: paths/endpoint_{eName}_mappingAnalysisReport.yaml
+  /owlOntology/{name}/version/mapping/{ID}/views/referencedTables:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_views_referencedTables.yaml
+  /owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/typeCheckingReport:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_assertion_{mapID}_typeCheckingReport.yaml
+  /datasource/{name}:
+    $ref: paths/datasource_{name}.yaml
+  /owlOntology/{name}/version/vkg/catalog/{snapshotId}:
+    $ref: paths/owlOntology_{name}_version_vkg_catalog_{snapshotId}.yaml
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}/executionLogs/timestamp/{timestamp}:
+    $ref: >-
+      paths/owlOntology_{name}_version_ontologyConstraints_set_{setId}_executionLogs_timestamp_{timestamp}.yaml
+  /endpoint/{name}/exportThread/{id}/stop:
+    $ref: paths/endpoint_{name}_exportThread_{id}_stop.yaml
+  /resources/ontologies:
+    $ref: paths/resources_ontologies.yaml
+  /server/storage/report:
+    $ref: paths/server_storage_report.yaml
+  /owlOntology/{name}/version/mapping/{ID}/parameters:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_parameters.yaml
+  /datasource/{name}/downloadMetadata:
+    $ref: paths/datasource_{name}_downloadMetadata.yaml
+  /endpoint/{eName}/countEntityInstances:
+    $ref: paths/endpoint_{eName}_countEntityInstances.yaml
+  /owlOntology/{name}/version/graphol:
+    $ref: paths/owlOntology_{name}_version_graphol.yaml
+  /datasource/{name}/metadata:
+    $ref: paths/datasource_{name}_metadata.yaml
+  /owlOntology/{name}/version/ontologyConstraints/sets/running:
+    $ref: paths/owlOntology_{name}_version_ontologyConstraints_sets_running.yaml
+  /queryTags/{tagName}:
+    $ref: paths/queryTags_{tagName}.yaml
+  /role/configurations:
+    $ref: paths/role_configurations.yaml
+  /server/systemSnapshot:
+    $ref: paths/server_systemSnapshot.yaml
+  /owlOntology/{name}/version/owl:
+    $ref: paths/owlOntology_{name}_version_owl.yaml
+  /endpoint/{eName}/instanceChecking/start:
+    $ref: paths/endpoint_{eName}_instanceChecking_start.yaml
+  /lastLoaded/ontology:
+    $ref: paths/lastLoaded_ontology.yaml
+  /triplify/{threadID}/download:
+    $ref: paths/triplify_{threadID}_download.yaml
+  /owlOntology/{name}/version/query/sparqling/{ID}:
+    $ref: paths/owlOntology_{name}_version_query_sparqling_{ID}.yaml
+  /endpoint/{name}/query/{queryID}/exportFile:
+    $ref: paths/endpoint_{name}_query_{queryID}_exportFile.yaml
+  /triplify/{threadID}/stop:
+    $ref: paths/triplify_{threadID}_stop.yaml
+  /endpoints/referencing/owlOntology/{name}/version:
+    $ref: paths/endpoints_referencing_owlOntology_{name}_version.yaml
+  /jena/version:
+    $ref: paths/jena_version.yaml
+  /owlOntology/{name}/version/vkg/catalog/export:
+    $ref: paths/owlOntology_{name}_version_vkg_catalog_export.yaml
+  /owlOntology/{name}/version/entities/dataProperties:
+    $ref: paths/owlOntology_{name}_version_entities_dataProperties.yaml
+  /owlOntology/{name}/version/closingReportComputed:
+    $ref: paths/owlOntology_{name}_version_closingReportComputed.yaml
+  /owlOntology/{name}/version/ontologyConstraints/sets/executionLogs:
+    $ref: >-
+      paths/owlOntology_{name}_version_ontologyConstraints_sets_executionLogs.yaml
+  /logger/service:
+    $ref: paths/logger_service.yaml
+  /system/jdbcDrivers:
+    $ref: paths/system_jdbcDrivers.yaml
+  /owlOntology/{name}/version/virtualEntities:
+    $ref: paths/owlOntology_{name}_version_virtualEntities.yaml
+  /owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}/views:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_parameter_{paramName}_views.yaml
+  /endpoint/{name}/query/{queryID}/start:
+    $ref: paths/endpoint_{name}_query_{queryID}_start.yaml
+  /ontologyDraft/download:
+    $ref: paths/ontologyDraft_download.yaml
+  /logger/list:
+    $ref: paths/logger_list.yaml
+  /owlOntology/{name}/version/info:
+    $ref: paths/owlOntology_{name}_version_info.yaml
+  /owlOntology/{name}/version/ontologyConstraints/sets/dump:
+    $ref: paths/owlOntology_{name}_version_ontologyConstraints_sets_dump.yaml
+  /endpoint/{name}/query/export/direct:
+    $ref: paths/endpoint_{name}_query_export_direct.yaml
+  /endpoint/{name}/exportThread/{id}:
+    $ref: paths/endpoint_{name}_exportThread_{id}.yaml
+  /statics/sparql/extractProjectVarNames:
+    $ref: paths/statics_sparql_extractProjectVarNames.yaml
+  /owlOntology/{name}/version/mapping/{mapID}/backup:
+    $ref: paths/owlOntology_{name}_version_mapping_{mapID}_backup.yaml
+  /owlOntology/{name}/version/mapping/{ID}/assertion/testCustomSQLQuery:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_assertion_testCustomSQLQuery.yaml
+  /endpoints/running:
+    $ref: paths/endpoints_running.yaml
+  /owlOntology/{name}/version/mapping/{ID}/template:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_template.yaml
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}:
+    $ref: paths/owlOntology_{name}_version_ontologyConstraints_set_{setId}.yaml
+  /endpoint/{name}/query/{queryID}/sqlRewritings:
+    $ref: paths/endpoint_{name}_query_{queryID}_sqlRewritings.yaml
+  /endpoint/{name}/cquery/{queryID}/results/triples:
+    $ref: paths/endpoint_{name}_cquery_{queryID}_results_triples.yaml
+  /endpoint/{name}/new-cq-query/{executionId}/status:
+    $ref: paths/endpoint_{name}_new-cq-query_{executionId}_status.yaml
+  /log/{env}/{mode}:
+    $ref: paths/log_{env}_{mode}.yaml
+  /owlOntology/{name}/version/dashboard/{dashboardId}:
+    $ref: paths/owlOntology_{name}_version_dashboard_{dashboardId}.yaml
+  /mastro/instances:
+    $ref: paths/mastro_instances.yaml
+  /ontologyDraft/{ontologyName}:
+    $ref: paths/ontologyDraft_{ontologyName}.yaml
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}/start/{endpoint}:
+    $ref: >-
+      paths/owlOntology_{name}_version_ontologyConstraints_set_{setId}_start_{endpoint}.yaml
+  /endpoint/{name}/cquery/{queryID}/results/tabular:
+    $ref: paths/endpoint_{name}_cquery_{queryID}_results_tabular.yaml
+  /roles:
+    $ref: paths/roles.yaml
+  /owlOntology/{name}/version/vkg/catalog/import:
+    $ref: paths/owlOntology_{name}_version_vkg_catalog_import.yaml
+  /owlOntology/{name}/version/mapping/{ID}/view/{view_name}/referencedTables:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_view_{view_name}_referencedTables.yaml
+  /owlOntology/{name}/version/alphabet/search/individual:
+    $ref: paths/owlOntology_{name}_version_alphabet_search_individual.yaml
+  /owlOntology/{name}/version/alphabet/objectProperty/{ID}/logical:
+    $ref: paths/owlOntology_{name}_version_alphabet_objectProperty_{ID}_logical.yaml
+  /resources/ontology/{name}/version/mappings:
+    $ref: paths/resources_ontology_{name}_version_mappings.yaml
+  /owlOntology/{name}/version/mapping:
+    $ref: paths/owlOntology_{name}_version_mapping.yaml
+  /triplify/{threadID}:
+    $ref: paths/triplify_{threadID}.yaml
+  /endpoint/{name}/queryRecordInfos:
+    $ref: paths/endpoint_{name}_queryRecordInfos.yaml
+  /owlOntology/{name}/version/mapping/{ID}/dependencies/denials:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_dependencies_denials.yaml
+  /endpoint/{name}/exportThread/{id}/file:
+    $ref: paths/endpoint_{name}_exportThread_{id}_file.yaml
+  /owlOntology/{name}/version/mapping/{ID}/dependencies/key/{keyID}:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_dependencies_key_{keyID}.yaml
+  /logger/package:
+    $ref: paths/logger_package.yaml
+  /owlOntology/{name}/version/virtualEntities/export:
+    $ref: paths/owlOntology_{name}_version_virtualEntities_export.yaml
+  /owlOntology/{name}/version/mapping/{ID}/generateIntensionalAnnotationsOntology:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_generateIntensionalAnnotationsOntology.yaml
+  /owlOntology/{name}/version/avpOntologyTree:
+    $ref: paths/owlOntology_{name}_version_avpOntologyTree.yaml
+  /owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_parameter_{paramName}.yaml
+  /endpoint/{name}/query/{queryID}/viewRewritings:
+    $ref: paths/endpoint_{name}_query_{queryID}_viewRewritings.yaml
+  /endpoint/{name}/query/{queryID}/results:
+    $ref: paths/endpoint_{name}_query_{queryID}_results.yaml
+  /endpoint/{eName}/countEntityInstances/start:
+    $ref: paths/endpoint_{eName}_countEntityInstances_start.yaml
+  /endpoint/{name}/status:
+    $ref: paths/endpoint_{name}_status.yaml
+  /datasource/{id}/tables:
+    $ref: paths/datasource_{id}_tables.yaml
+  /system/jdbcDriver/{driver}:
+    $ref: paths/system_jdbcDriver_{driver}.yaml
+  /owlOntology/{name}/version/querycatalog/sparqling:
+    $ref: paths/owlOntology_{name}_version_querycatalog_sparqling.yaml
+  /endpoint/{name}/cquery/{queryID}/start:
+    $ref: paths/endpoint_{name}_cquery_{queryID}_start.yaml
+  /owlOntology/{name}/version/annotations:
+    $ref: paths/owlOntology_{name}_version_annotations.yaml
+  /server/userlog/{username}:
+    $ref: paths/server_userlog_{username}.yaml
+  /owlOntology/{name}/version/mapping/{ID}/count:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_count.yaml
+  /owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}/assertions:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_parameter_{paramName}_assertions.yaml
+  /ontologyDraft/convertOWL:
+    $ref: paths/ontologyDraft_convertOWL.yaml
+  /endpoint/{name}/cquery/{queryID}/status:
+    $ref: paths/endpoint_{name}_cquery_{queryID}_status.yaml
+  /owlOntology/{name}/version/mapping/{mapID}/triplify/{datasource}:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{mapID}_triplify_{datasource}.yaml
+  /endpoint/{name}/prefixes:
+    $ref: paths/endpoint_{name}_prefixes.yaml
+  /owlOntology/{name}/version/mapping/{ID}/views/{viewID}:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_views_{viewID}.yaml
+  /owlOntology/{name}/version/mapping/{ID}/view/{view_name}:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_view_{view_name}.yaml
+  /owlOntology/{name}/version/querycatalog/export:
+    $ref: paths/owlOntology_{name}_version_querycatalog_export.yaml
+  /endpoint/{name}/query/count:
+    $ref: paths/endpoint_{name}_query_count.yaml
+  /owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/error:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_annotationProcessorThread_{threadId}_error.yaml
+  /owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/stop:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_annotationProcessorThread_{threadId}_stop.yaml
+  /endpoint/{name}/virtualEntity/{veName}:
+    $ref: paths/endpoint_{name}_virtualEntity_{veName}.yaml
+  /statics/sparql/templateSize:
+    $ref: paths/statics_sparql_templateSize.yaml
+  /owlOntology/{name}/version/mapping/{ID}/views:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_views.yaml
+  /owlOntology/{name}/version/mapping/{ID}/parameter:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_parameter.yaml
+  /endpoint/{name}/query/{queryID}/status:
+    $ref: paths/endpoint_{name}_query_{queryID}_status.yaml
+  /owlOntology/{name}/folder:
+    $ref: paths/owlOntology_{name}_folder.yaml
+  /owlOntology/{name}/version/folder:
+    $ref: paths/owlOntology_{name}_version_folder.yaml
+  /endpoint/{name}/query/check:
+    $ref: paths/endpoint_{name}_query_check.yaml
+  /endpoint/{name}/cquery/{queryID}/results:
+    $ref: paths/endpoint_{name}_cquery_{queryID}_results.yaml
+  /owlOntology/{name}/version/mapping/{mapID}/fixDeprecated:
+    $ref: paths/owlOntology_{name}_version_mapping_{mapID}_fixDeprecated.yaml
+  /owlOntology/{name}/version/mapping/{mapID}/dataLineageProperty/{entityID}:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{mapID}_dataLineageProperty_{entityID}.yaml
+  /owlOntology/{name}/version/mapping/{mapID}/migrate:
+    $ref: paths/owlOntology_{name}_version_mapping_{mapID}_migrate.yaml
+  /owlOntology/{name}/version/catalog:
+    $ref: paths/owlOntology_{name}_version_catalog.yaml
+  /datasource/{id}/tables/results:
+    $ref: paths/datasource_{id}_tables_results.yaml
+  /owlOntology/{name}/version/mapping/{ID}/annotation/{mapID}:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_annotation_{mapID}.yaml
+  /endpoint/{eName}/countEntityInstances/stop:
+    $ref: paths/endpoint_{eName}_countEntityInstances_stop.yaml
+  /owlOntology/{name}/version/dashboards:
+    $ref: paths/owlOntology_{name}_version_dashboards.yaml
+  /endpoint/{name}/queries/ids:
+    $ref: paths/endpoint_{name}_queries_ids.yaml
+  /endpoint/{name}/cquery/exportQueryResults:
+    $ref: paths/endpoint_{name}_cquery_exportQueryResults.yaml
+  /owlOntology/{name}/version/mapping/{ID}/dependencies/keys:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_dependencies_keys.yaml
+  /owlOntology/{name}/version/virtualEntities/import:
+    $ref: paths/owlOntology_{name}_version_virtualEntities_import.yaml
+  /triplify/stopAll:
+    $ref: paths/triplify_stopAll.yaml
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}/dump:
+    $ref: paths/owlOntology_{name}_version_ontologyConstraints_set_{setId}_dump.yaml
+  /owlapi/version:
+    $ref: paths/owlapi_version.yaml
+  /owlOntology/{name}/version/mapping/{mapID}/instance:
+    $ref: paths/owlOntology_{name}_version_mapping_{mapID}_instance.yaml
+  /owlOntology/{name}/version/querycatalog/import:
+    $ref: paths/owlOntology_{name}_version_querycatalog_import.yaml
+  /owlOntology/{name}/version/mapping/{mapID}/dataLineage/{entityID}:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{mapID}_dataLineage_{entityID}.yaml
+  /endpoint/{name}/new-cq-query/{executionId}/ontologyRewritings:
+    $ref: paths/endpoint_{name}_new-cq-query_{executionId}_ontologyRewritings.yaml
+  /datasource:
+    $ref: paths/datasource.yaml
+  /endpoint/{name}/query/{queryID}/ontologyRewritings:
+    $ref: paths/endpoint_{name}_query_{queryID}_ontologyRewritings.yaml
+  /endpoint/{name}/query/{queryID}/sqlDebugRewritings:
+    $ref: paths/endpoint_{name}_query_{queryID}_sqlDebugRewritings.yaml
+  /user/{username}:
+    $ref: paths/user_{username}.yaml
+  /endpoint/{name}:
+    $ref: paths/endpoint_{name}.yaml
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}/stop:
+    $ref: paths/owlOntology_{name}_version_ontologyConstraints_set_{setId}_stop.yaml
+  /endpoint/{name}/start:
+    $ref: paths/endpoint_{name}_start.yaml
+  /owlOntology/{name}/version/alphabet/dataProperty/{ID}/logical:
+    $ref: paths/owlOntology_{name}_version_alphabet_dataProperty_{ID}_logical.yaml
+  /owlOntology/{name}/version/mapping/{ID}/view/refactoring:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_view_refactoring.yaml
+  /owlOntology/{name}/version/ontologyConstraints/set:
+    $ref: paths/owlOntology_{name}_version_ontologyConstraints_set.yaml
+  /endpoint/{name}/query/{queryID}/queryRecordInfo:
+    $ref: paths/endpoint_{name}_query_{queryID}_queryRecordInfo.yaml
+  /owlOntology/{name}/version/closed:
+    $ref: paths/owlOntology_{name}_version_closed.yaml
+  /owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/testCustomSQLQuery:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_assertion_{mapID}_testCustomSQLQuery.yaml
+  /endpoint/{name}/query/{queryID}/fullSparqlDetails:
+    $ref: paths/endpoint_{name}_query_{queryID}_fullSparqlDetails.yaml
+  /owlOntology/{name}/version/entities:
+    $ref: paths/owlOntology_{name}_version_entities.yaml
+  /owlOntology/{name}:
+    $ref: paths/owlOntology_{name}.yaml
+  /mastro/version:
+    $ref: paths/mastro_version.yaml
+  /endpoint/{name}/query/count/{queryId}/stop:
+    $ref: paths/endpoint_{name}_query_count_{queryId}_stop.yaml
+  /endpoint/{name}/cquery/start:
+    $ref: paths/endpoint_{name}_cquery_start.yaml
+  /owlOntology/{name}/version/mapping/{mapID}/query/{queryID}/exportQueryReport:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{mapID}_query_{queryID}_exportQueryReport.yaml
+  /owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_annotationProcessorThread_{threadId}.yaml
+  /owlOntology/{name}/version:
+    $ref: paths/owlOntology_{name}_version.yaml
+  /users:
+    $ref: paths/users.yaml
+  /owlOntology/{name}/version/graphol/check:
+    $ref: paths/owlOntology_{name}_version_graphol_check.yaml
+  /owlOntology/{name}/version/mapping/{ID}/assertions:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_assertions.yaml
+  /owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_assertion_{mapID}.yaml
+  /resources/ontology/{name}/versions:
+    $ref: paths/resources_ontology_{name}_versions.yaml
+  /datasource/{name}/uploadMetadata:
+    $ref: paths/datasource_{name}_uploadMetadata.yaml
+  /role:
+    $ref: paths/role.yaml
+  /owlOntology/{name}/version/mapping/{ID}/view/{viewName}/parameters:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_view_{viewName}_parameters.yaml
+  /endpoint/{name}/new-cq-query/{executionId}/viewRewritings:
+    $ref: paths/endpoint_{name}_new-cq-query_{executionId}_viewRewritings.yaml
+  /endpoint/{name}/new-cq-query/{executionId}/sqlDebugRewritings:
+    $ref: paths/endpoint_{name}_new-cq-query_{executionId}_sqlDebugRewritings.yaml
+  /owlOntology/{name}/version/mapping/{mapID}:
+    $ref: paths/owlOntology_{name}_version_mapping_{mapID}.yaml
+  /endpoint/{name}/query/count/{queryId}/result:
+    $ref: paths/endpoint_{name}_query_count_{queryId}_result.yaml
+  /endpoints/referencing/datasource/{name}:
+    $ref: paths/endpoints_referencing_datasource_{name}.yaml
+  /owlOntology/{name}/version/virtualEntity/{vname}:
+    $ref: paths/owlOntology_{name}_version_virtualEntity_{vname}.yaml
+  /endpoint/{name}/queries:
+    $ref: paths/endpoint_{name}_queries.yaml

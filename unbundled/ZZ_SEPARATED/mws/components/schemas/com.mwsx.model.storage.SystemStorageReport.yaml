@@ -1,0 +1,20 @@
+title: com.mwsx.model.storage.SystemStorageReport
+type: object
+properties:
+  totalSize:
+    type: integer
+    format: int64
+  ontologiesStorageReport:
+    $ref: '#/definitions/com.mwsx.model.storage.OntologiesStorageReport'
+  user:
+    type: string
+  fileCount:
+    type: integer
+    format: int32
+  systemFoldersStorageReport:
+    $ref: '#/definitions/com.mwsx.model.storage.SystemFoldersStorageReport'
+  kgsStorageReport:
+    $ref: '#/definitions/com.mwsx.model.storage.KgsStorageReport'
+  timestamp:
+    type: integer
+    format: int64

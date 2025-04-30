@@ -1,0 +1,7 @@
+title: com.mwsx.model.OBDAConstructResults
+type: object
+properties:
+  execution:
+    $ref: '#/definitions/com.mwsx.model.SPARQLQueryExecution'
+  source:
+    $ref: '#/definitions/com.mwsx.model.MastroID'

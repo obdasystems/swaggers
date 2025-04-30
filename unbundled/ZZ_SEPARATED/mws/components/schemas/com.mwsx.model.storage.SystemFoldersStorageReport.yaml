@@ -1,0 +1,13 @@
+title: com.mwsx.model.storage.SystemFoldersStorageReport
+type: object
+properties:
+  totalSize:
+    type: integer
+    format: int64
+  fileCount:
+    type: integer
+    format: int32
+  systemFoldersStorageReport:
+    type: object
+    additionalProperties:
+      $ref: '#/definitions/com.mwsx.model.storage.SystemFolderStorageReport'

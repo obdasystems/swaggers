@@ -1,0 +1,19 @@
+title: com.mwsx.model.OntologyInfo
+type: object
+properties:
+  prefixes:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Prefix'
+  ontologyMetrics:
+    $ref: '#/definitions/com.mwsx.model.OntologyMetrics'
+  ontologyDescriptions:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Label'
+  ontologyIRI:
+    type: string
+  ontologyImports:
+    type: array
+    items:
+      type: string

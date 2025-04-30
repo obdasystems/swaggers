@@ -1,0 +1,9 @@
+title: com.mws.model.ObjectPropertyTreeNode
+type: object
+properties:
+  children:
+    type: array
+    items:
+      $ref: '#/definitions/com.mws.model.ObjectPropertyTreeNode'
+  info:
+    $ref: '#/definitions/com.mws.model.ObjectPropertyInfo'

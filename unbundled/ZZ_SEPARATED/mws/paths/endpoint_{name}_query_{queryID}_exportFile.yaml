@@ -1,0 +1,34 @@
+get:
+  description: Returns the file containing exported results for query <code>queryID</code>
+  parameters:
+    - name: name
+      in: path
+      required: true
+      type: string
+    - name: queryID
+      in: path
+      required: true
+      type: string
+    - name: fileName
+      in: query
+      required: false
+      type: string
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  tags:
+    - QUERIES
+  responses:
+    '200':
+      description: OK
+      schema:
+        $ref: '#/definitions/com.mwsx.model.FileInfo'
+    '401':
+      description: The user does not have sufficient privileges to invoke this service
+    '403':
+      description: User not authorized due to wrong credentials
+    '500':
+      description: An internal server error occurred while performing the request
+    '510':
+      description: This method is currently not implemented

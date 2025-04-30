@@ -1,0 +1,7 @@
+title: com.mwsx.model.OntologyClassesInfo
+type: object
+properties:
+  classesInfo:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.ClassInfo'

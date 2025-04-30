@@ -1,0 +1,29 @@
+title: com.mwsx.model.MappingAssertion
+type: object
+properties:
+  template:
+    $ref: '#/definitions/com.mwsx.model.MappingTemplate'
+  iri:
+    $ref: '#/definitions/com.mwsx.model.IRI'
+  currentEntity:
+    $ref: '#/definitions/com.mwsx.model.Entity'
+  annotationMappings:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.ExtensionalAnnotationMapping'
+  mappingBody:
+    $ref: '#/definitions/com.mwsx.model.MappingBody'
+  mappingDescription:
+    type: string
+  rangeTemplate:
+    $ref: '#/definitions/com.mwsx.model.MappingTemplate'
+  quarantineReasons:
+    type: array
+    items:
+      type: string
+  userQuery:
+    type: string
+  id:
+    type: string
+  isQuarantined:
+    type: boolean

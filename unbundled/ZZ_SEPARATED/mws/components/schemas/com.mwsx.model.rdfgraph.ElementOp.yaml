@@ -1,0 +1,12 @@
+title: com.mwsx.model.rdfgraph.ElementOp
+type: object
+properties:
+  subject:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.OneOfElementOpSubject'
+  involvedElements:
+    type: array
+    items:
+      $ref: >-
+        #/definitions/com.mwsx.model.rdfgraph.OneOfElementOpInvolvedElementsItems
+  previousState:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.OneOfElementOpPreviousState'

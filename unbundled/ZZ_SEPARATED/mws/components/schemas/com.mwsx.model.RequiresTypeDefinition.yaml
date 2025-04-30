@@ -1,0 +1,5 @@
+title: com.mwsx.model.RequiresTypeDefinition
+type: object
+properties:
+  name:
+    type: string

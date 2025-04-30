@@ -1,0 +1,32 @@
+title: com.mwsx.model.KnowledgeGraph
+type: object
+properties:
+  kgDescriptions:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Label'
+  kgTitle:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Label'
+  kgRightsHolder:
+    $ref: '#/definitions/com.mwsx.model.Agent'
+  kgIri:
+    type: string
+  kgCreator:
+    $ref: '#/definitions/com.mwsx.model.User'
+  kgPublisher:
+    $ref: '#/definitions/com.mwsx.model.Agent'
+  kgTriples:
+    type: integer
+    format: int64
+  kgContributors:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.User'
+  kgCreationTs:
+    type: integer
+    format: int64
+  kgLastModifiedTs:
+    type: integer
+    format: int64

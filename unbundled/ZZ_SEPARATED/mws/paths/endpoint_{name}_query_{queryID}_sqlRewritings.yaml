@@ -1,0 +1,40 @@
+get:
+  description: No description available for this method
+  parameters:
+    - name: name
+      in: path
+      required: true
+      type: string
+    - name: queryID
+      in: path
+      required: true
+      type: string
+    - name: pagesize
+      in: query
+      required: false
+      type: integer
+      format: int32
+    - name: pagenumber
+      in: query
+      required: false
+      type: integer
+      format: int32
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  tags:
+    - ENDPOINTS
+  responses:
+    '200':
+      description: OK
+      schema:
+        $ref: '#/definitions/com.mwsx.model.SqlRewritings'
+    '401':
+      description: The user does not have sufficient privileges to invoke this service
+    '403':
+      description: User not authorized due to wrong credentials
+    '500':
+      description: An internal server error occurred while performing the request
+    '510':
+      description: This method is currently not implemented

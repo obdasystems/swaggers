@@ -1,0 +1,7 @@
+title: com.mwsx.model.rdfgraph.Viewport
+type: object
+properties:
+  zoom:
+    type: number
+  pan:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.Position'

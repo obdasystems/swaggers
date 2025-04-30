@@ -1,0 +1,32 @@
+title: com.mwsx.model.SPARQLStatus
+type: object
+properties:
+  executionTime:
+    type: integer
+    format: int32
+  errorMessages:
+    type: array
+    items:
+      type: string
+  percentage:
+    type: integer
+    format: int32
+  numLowLevelQueries:
+    type: integer
+    format: int32
+  numResults:
+    type: integer
+    format: int32
+  numOntologyRewritings:
+    type: integer
+    format: int32
+  numOptimizedQueries:
+    type: integer
+    format: int32
+  hasError:
+    type: boolean
+  numHighLevelQueries:
+    type: integer
+    format: int32
+  status:
+    type: string

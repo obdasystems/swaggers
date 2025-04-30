@@ -1,0 +1,15 @@
+title: com.mwsx.model.dashboard.DashboardTab
+type: object
+properties:
+  cards:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.dashboard.DashboardCard'
+  compactType:
+    type: string
+  title:
+    type: string
+  queryParametersValues:
+    type: object
+    additionalProperties:
+      type: string

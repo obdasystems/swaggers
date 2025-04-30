@@ -1,0 +1,7 @@
+title: com.mwsx.model.KnowledgeGraphDestinationQueryKg
+type: object
+properties:
+  source:
+    $ref: '#/definitions/com.mwsx.model.KgConstructResults'
+  target:
+    $ref: '#/definitions/com.mwsx.model.KnowledgeGraphDestination'

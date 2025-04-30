@@ -1,0 +1,15 @@
+title: it.uniroma1.dis.quonto.mapping.analysis.model.MappingReport
+type: object
+properties:
+  dataSourceCoverage:
+    $ref: >-
+      #/definitions/it.uniroma1.dis.quonto.mapping.analysis.model.DataSourceCoverage
+  ontologyPredicatesStatistics:
+    $ref: >-
+      #/definitions/it.uniroma1.dis.quonto.mapping.analysis.model.OntologyPredicatesStatistics
+  ontologyCoverage:
+    $ref: >-
+      #/definitions/it.uniroma1.dis.quonto.mapping.analysis.model.OntologyCoverage
+  quarantinedMappingReport:
+    $ref: >-
+      #/definitions/it.uniroma1.dis.quonto.mapping.analysis.model.QuarantinedMappingReport

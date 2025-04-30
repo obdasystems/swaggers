@@ -1,0 +1,35 @@
+title: com.mwsx.model.SPARQLQuery
+type: object
+properties:
+  selectedMappingIds:
+    type: array
+    items:
+      type: string
+  chartConfiguration:
+    $ref: '#/definitions/com.mwsx.model.ChartConfiguration'
+  languages:
+    type: string
+  mappingParameters:
+    type: object
+    additionalProperties:
+      type: string
+  semantics:
+    type: string
+  constructCode:
+    type: string
+  queryTags:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.Tag'
+  queryDescription:
+    type: string
+  queryID:
+    type: string
+  queryCode:
+    type: string
+  isConstruct:
+    type: boolean
+  constructResultsRDFSyntax:
+    type: string
+  virtualEntityQueryInfos:
+    $ref: '#/definitions/com.ruzzi.connectors.virtual.VirtualEntityQueryInfos'

@@ -1,0 +1,11 @@
+title: com.mwsx.model.rdfgraph.EntityOp
+type: object
+properties:
+  subject:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.Entity'
+  involvedElements:
+    type: array
+    items:
+      $ref: '#/definitions/com.mwsx.model.rdfgraph.OneOfEntityOpInvolvedElementsItems'
+  previousState:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.Entity'

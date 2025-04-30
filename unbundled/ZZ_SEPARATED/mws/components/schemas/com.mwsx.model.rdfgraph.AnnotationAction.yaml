@@ -1,0 +1,11 @@
+title: com.mwsx.model.rdfgraph.AnnotationAction
+type: object
+properties:
+  annotationActionSubject:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.Annotation'
+  onOntology:
+    type: boolean
+  annotationActionPreviousState:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.Annotation'
+  entity:
+    $ref: '#/definitions/com.mwsx.model.rdfgraph.Entity'

@@ -1,0 +1,13 @@
+title: com.mwsx.model.storage.OntologyStorageReport
+type: object
+properties:
+  totalSize:
+    type: integer
+    format: int64
+  versions:
+    type: object
+    additionalProperties:
+      $ref: '#/definitions/com.mwsx.model.storage.OntologyVersionStorageReport'
+  fileCount:
+    type: integer
+    format: int32

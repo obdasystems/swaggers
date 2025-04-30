@@ -1,0 +1,15 @@
+title: it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceKeyMetadata
+type: object
+properties:
+  columnNames:
+    type: array
+    items:
+      type: string
+  name:
+    type: string
+  columnPosition:
+    type: array
+    items:
+      type: integer
+  tableName:
+    type: string
