@@ -30,7 +30,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/DenialConstraint.yaml
 put:
   summary: >-
     PUT
@@ -69,7 +69,7 @@ put:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: boolean
 delete:
   summary: >-
     DELETE
@@ -102,4 +102,4 @@ delete:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: boolean

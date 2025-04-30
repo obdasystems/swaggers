@@ -28,7 +28,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/IntensionalAnnotationMappingAssertion.yaml
 delete:
   summary: DELETE mwsx/owlOntology/{name}/version/mapping/{ID}/annotation/{mapID}
   operationId: delete__owlOntology_name_version_intensional_annotation_mapping_mapId
@@ -59,7 +59,7 @@ delete:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/IntensionalAnnotationMappingAssertion.yaml
 put:
   summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/annotation/{mapID}
   operationId: put__owlOntology_name_version_intensional_annotation_mapping_mapId
@@ -96,4 +96,4 @@ put:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/IntensionalAnnotationMappingAssertion.yaml

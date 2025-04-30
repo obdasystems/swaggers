@@ -1,6 +1,6 @@
 delete:
   summary: DELETE mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}
-  operationId: post__owlOntology_name_version_mapping_ID_assertions
+  operationId: delete__owlOntology_name_version_mapping_ID_assertions
   parameters:
     - name: name
       in: path
@@ -28,7 +28,7 @@ delete:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/MappingAssertion.yaml
 put:
   summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}
   operationId: put__owlOntology_name_version_mapping_ID_assertions
@@ -65,4 +65,4 @@ put:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/MappingAssertion.yaml

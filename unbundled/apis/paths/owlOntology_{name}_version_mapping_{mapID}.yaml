@@ -28,7 +28,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/FileInfo.yaml
 put:
   summary: PUT mwsx/owlOntology/{name}/version/mapping/{mapID}
   operationId: put__owlOntology_name_version_mapping_ID
@@ -65,7 +65,7 @@ put:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/MappingInfo.yaml
 delete:
   summary: DELETE mwsx/owlOntology/{name}/version/mapping/{mapID}
   operationId: delete__owlOntology_name_version_mapping_ID
@@ -91,4 +91,4 @@ delete:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/FileInfo.yaml

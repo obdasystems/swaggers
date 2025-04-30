@@ -29,7 +29,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/MappingParameter.yaml
 put:
   summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/parameter
   operationId: put__owlOntology_name_version_mapping_ID_parameter
@@ -61,4 +61,4 @@ put:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/MappingParameter.yaml

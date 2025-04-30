@@ -138,9 +138,6 @@ paths:
   /owlOntology/{name}/version/mapping/{mapID}/query/{queryID}/delete:
     $ref: >-
       paths/owlOntology_{name}_version_mapping_{mapID}_query_{queryID}_delete.yaml
-  /owlOntology/{name}/version/mapping/{mapID}/query/{queryID}/exportQueryReport:
-    $ref: >-
-      paths/owlOntology_{name}_version_mapping_{mapID}_query_{queryID}_exportQueryReport.yaml
   /owlOntology/{name}/version/mapping/{mapID}/suggestedTemplate/{entityID}:
     $ref: >-
       paths/owlOntology_{name}_version_mapping_{mapID}_suggestedTemplate_{entityID}.yaml

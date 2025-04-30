@@ -23,7 +23,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: boolean
 post:
   summary: POST mwsx/owlOntology/{name}/version/mapping/{mapID}/backup
   operationId: post__owlOntology_name_version_mapping_ID_backup
@@ -49,7 +49,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: boolean
 put:
   summary: PUT mwsx/owlOntology/{name}/version/mapping/{mapID}/backup
   operationId: post__owlOntology_name_version_mapping_ID_restore
@@ -75,7 +75,7 @@ put:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: boolean
 delete:
   summary: DELETE mwsx/owlOntology/{name}/version/mapping/{mapID}/backup
   operationId: post__owlOntology_name_version_mapping_ID_delete
@@ -101,4 +101,4 @@ delete:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: boolean

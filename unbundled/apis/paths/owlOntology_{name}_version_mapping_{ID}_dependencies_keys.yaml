@@ -23,7 +23,9 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: array
+            items: 
+              $ref: ../components/schemas/KeyDependency.yaml
 post:
   summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/keys
   operationId: post__owlOntology_name_version_mapping_ID_dependencies_keys
@@ -55,4 +57,4 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: boolean

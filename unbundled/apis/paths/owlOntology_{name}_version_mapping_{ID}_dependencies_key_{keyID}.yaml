@@ -28,7 +28,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/KeyDependency.yaml
 delete:
   summary: DELETE mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/key/{keyID}
   operationId: delete__owlOntology_name_version_mapping_ID_dependencies_key_keyID
@@ -59,7 +59,7 @@ delete:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: boolean
 put:
   summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/key/{keyID}
   operationId: put__owlOntology_name_version_mapping_ID_dependencies_key_keyID
@@ -96,4 +96,4 @@ put:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: boolean

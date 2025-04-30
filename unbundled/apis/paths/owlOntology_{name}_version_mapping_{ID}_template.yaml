@@ -29,7 +29,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: string
 delete:
   summary: DELETE mwsx/owlOntology/{name}/version/mapping/{ID}/template
   operationId: delete__owlOntology_name_version_mapping_ID_template
@@ -60,4 +60,4 @@ delete:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: string
