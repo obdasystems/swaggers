@@ -1,5 +1,7 @@
 get:
+  summary: Retrieve the results of a SPARQL query
   description: Retrieve the results of a SPARQL query
+  operationId: get_ontology_catalog_query_results
   parameters:
     - name: queryID
       in: path

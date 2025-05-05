@@ -5,8 +5,8 @@ properties:
     $ref: ./MappingTemplate.yaml
   iri:
     $ref: ./IRI.yaml
-  currentEntity:
-    $ref: ./Entity.yaml
+  currentMWSEntity:
+    $ref: ./MWSEntity.yaml
   annotationMappings:
     type: array
     items:

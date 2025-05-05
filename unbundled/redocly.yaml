@@ -29,15 +29,15 @@ apis:
   ontologies: 
     root: apis/ontologies.yaml
     output: bundled/ontologies.yaml
-  # ontology-catalog: 
-  #   root: apis/ontology-catalog.yaml
-  #   output: bundled/ontology-catalog.yaml
-  # ontology-designer: 
-  #   root: apis/ontology-designer.yaml
-  #   output: bundled/ontology-designer.yaml
-  # query-catalog: 
-  #   root: apis/query-catalog.yaml
-  #   output: bundled/query-catalog.yaml
+  ontology-catalog: 
+    root: apis/ontology-catalog.yaml
+    output: bundled/ontology-catalog.yaml
+  ontology-designer: 
+    root: apis/ontology-designer.yaml
+    output: bundled/ontology-designer.yaml
+  query-catalog: 
+    root: apis/query-catalog.yaml
+    output: bundled/query-catalog.yaml
   # sparqling: 
   #   root: apis/sparqling.yaml
   #   output: bundled/sparqling.yaml

@@ -10,7 +10,7 @@ properties:
   objectProperties:
     type: array
     items:
-      $ref: ./Entity.yaml
+      $ref: ./MWSEntity.yaml
   priority:
     type: integer
     format: int32
@@ -29,7 +29,7 @@ properties:
   dataProperties:
     type: array
     items:
-      $ref: ./Entity.yaml
+      $ref: ./MWSEntity.yaml
   cardinalityType:
     type: integer
     format: int32
@@ -39,18 +39,18 @@ properties:
     type: integer
     format: int32
   property:
-    $ref: ./Entity.yaml
+    $ref: ./MWSEntity.yaml
   filler:
-    $ref: ./Entity.yaml
+    $ref: ./MWSEntity.yaml
   sparqlCode:
     type: string
   id:
     type: string
   results:
     $ref: ./SPARQLResults.yaml
-  entity:
-    $ref: ./Entity.yaml
+  MWSEntity:
+    $ref: ./MWSEntity.yaml
   status:
     type: string
-  disjointEntity:
-    $ref: ./Entity.yaml
+  disjointMWSEntity:
+    $ref: ./MWSEntity.yaml

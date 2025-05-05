@@ -34,7 +34,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/OntologyCatalogEntries.yaml
 delete:
   summary: DELETE mwsx/ontologyCatalog
   operationId: delete_ontology_catalog
@@ -44,4 +44,4 @@ delete:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: object

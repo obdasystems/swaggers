@@ -23,7 +23,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/SparqlingSPARQLQuery.yaml
 put:
   summary: PUT mwsx/owlOntology/{name}/version/query/sparqling/{ID}
   operationId: put__owlOntology_name_version_query_sparqling_ID
@@ -55,7 +55,7 @@ put:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/SparqlingSPARQLQuery.yaml
 delete:
   summary: DELETE mwsx/owlOntology/{name}/version/query/sparqling/{ID}
   operationId: delete__owlOntology_name_version_query_sparqling_ID
@@ -81,4 +81,4 @@ delete:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/SparqlingSPARQLQuery.yaml

@@ -10,9 +10,9 @@ properties:
   equivalents:
     type: array
     items:
-      $ref: ./Entity.yaml
+      $ref: ./MWSEntity.yaml
   numberOfMappings:
     type: integer
     format: int32
-  entity:
-    $ref: ./Entity.yaml
+  MWSEntity:
+    $ref: ./MWSEntity.yaml

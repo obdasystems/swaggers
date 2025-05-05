@@ -4,25 +4,25 @@ properties:
   disjointClasses:
     type: array
     items:
-      $ref: ./Entity.yaml
+      $ref: ./MWSEntity.yaml
   iri:
     $ref: ./IRI.yaml
-  currentEntity:
-    $ref: ./Entity.yaml
+  currentMWSEntity:
+    $ref: ./MWSEntity.yaml
   equivalentClasses:
     type: array
     items:
-      $ref: ./Entity.yaml
+      $ref: ./MWSEntity.yaml
   dataPropertiesIsDomainOf:
     type: array
     items:
-      $ref: ./Entity.yaml
+      $ref: ./MWSEntity.yaml
   disjointUnions:
     type: array
     items:
       type: array
       items:
-        $ref: ./Entity.yaml
+        $ref: ./MWSEntity.yaml
   classDescriptions:
     type: array
     items:
@@ -30,19 +30,19 @@ properties:
   classIndividuals:
     type: array
     items:
-      $ref: ./Entity.yaml
+      $ref: ./MWSEntity.yaml
   objectPropertiesIsRangeOf:
     type: array
     items:
-      $ref: ./Entity.yaml
+      $ref: ./MWSEntity.yaml
   objectPropertiesIsDomainOf:
     type: array
     items:
-      $ref: ./Entity.yaml
+      $ref: ./MWSEntity.yaml
   subClasses:
     type: array
     items:
-      $ref: ./Entity.yaml
+      $ref: ./MWSEntity.yaml
   objectPropertiesParticipations:
     type: array
     items:
@@ -51,11 +51,11 @@ properties:
     type: array
     items:
       $ref: ./Participation.yaml
-  entityDiagrams:
+  MWSEntityDiagrams:
     type: array
     items:
       $ref: ./DiagramNode.yaml
   superClasses:
     type: array
     items:
-      $ref: ./Entity.yaml
+      $ref: ./MWSEntity.yaml

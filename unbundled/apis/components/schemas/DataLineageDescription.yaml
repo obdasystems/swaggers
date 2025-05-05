@@ -16,11 +16,11 @@ properties:
   projection:
     type: string
   entity:
-    $ref: ./Entity.yaml
+    $ref: ./MWSEntity.yaml
   entitiesIndex:
     type: object
     additionalProperties:
-      $ref: ./Entity.yaml
+      $ref: ./MWSEntity.yaml
   viewTables:
     type: object
   subEntities:

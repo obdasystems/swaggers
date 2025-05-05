@@ -1,0 +1,255 @@
+openapi: 3.0.0
+info:
+  description: 'This is the API for manage Authorization View Proviles (AVPs)  used in Mastro to restrict the access to the data by means of  filtering some of the entities of the ontologies. This entity sets are builded using the Mastro reasoner and are used in the  definition of endpoints which will have restricted access. '
+  version: 1.0.0
+  title: AVPs API model
+  contact:
+    email: info@obdasystems.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+  - url: https://{tenant}/mws/rest/mwsx
+    variables:
+      tenant:
+        default: localhost
+        description: Your localhost
+security:
+  - api-key: []
+  - jwt: []
+paths:
+  /owlOntology/{name}/version/avpOntologyTree:
+    get:
+      summary: GET mwsx/owlOntology/{name}/version/avpOntologyTree
+      operationId: get__owlOntology_name_version_avpOntologyTreet
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AvpOntologyTree'
+  /owlOntology/{name}/version/authorizationViewProfiles:
+    get:
+      summary: GET mwsx/owlOntology/{name}/version/authorizationViewProfiles
+      operationId: get_authorizationViewProfiles
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AuthorizationViewProfileInfo'
+    post:
+      summary: POST mwsx/owlOntology/{name}/version/authorizationViewProfiles
+      operationId: post_authorizationViewProfiles
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthorizationViewProfileInfo'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthorizationViewProfileInfo'
+  /owlOntology/{name}/version/authorizationViewProfile/{avpId}:
+    put:
+      summary: PUT mwsx/owlOntology/{name}/version/authorizationViewProfile/{avpId}
+      operationId: put_authorizationViewProfiles
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: avpId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthorizationViewProfileInfo'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthorizationViewProfileInfo'
+    delete:
+      summary: DELETE mwsx/owlOntology/{name}/version/authorizationViewProfile/{avpId}
+      operationId: delete_authorizationViewProfiles
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: avpId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthorizationViewProfileInfo'
+components:
+  securitySchemes:
+    api-key:
+      type: apiKey
+      in: header
+      name: X-MONOLITH-SESSION-ID
+      description: |
+        This session ID is generated from Basic Authentication on the login route.
+    jwt:
+      description: |
+        Generate your JWT when you log in. JWT configurations should be placed in `$MASTRO_HOME/config/mastro.jwt` file
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    AvpTreeNode:
+      title: AvpTreeNode
+      type: object
+      properties:
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/AvpTreeNode'
+        entities:
+          type: array
+          items:
+            $ref: '#/components/schemas/MWSEntity'
+    Label:
+      title: Label
+      type: object
+      properties:
+        lang:
+          type: string
+        content:
+          type: string
+    MWSEntity:
+      title: MWSEntity
+      type: object
+      properties:
+        entityLabels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Label'
+        isDeprecated:
+          type: boolean
+        entityIRI:
+          type: string
+        entityType:
+          type: string
+        entityPrefixIRI:
+          type: string
+        entityRemainder:
+          type: string
+        entityID:
+          type: string
+    AvpTree:
+      title: AvpTree
+      type: object
+      properties:
+        objectPropertyTree:
+          $ref: '#/components/schemas/AvpTreeNode'
+        classTree:
+          $ref: '#/components/schemas/AvpTreeNode'
+        dataPropertyTree:
+          $ref: '#/components/schemas/AvpTreeNode'
+    AvpOntologyTree:
+      title: AvpOntologyTree
+      type: object
+      properties:
+        avpTree:
+          $ref: '#/components/schemas/AvpTree'
+    AuthorizationViewProfile:
+      title: AuthorizationViewProfile
+      type: object
+      properties:
+        dataProperties:
+          type: array
+          items:
+            type: string
+        classes:
+          type: array
+          items:
+            type: string
+        objectProperties:
+          type: array
+          items:
+            type: string
+        id:
+          type: string
+    AuthorizationViewProfileInfo:
+      title: AuthorizationViewProfileInfo
+      type: object
+      properties:
+        mappingId:
+          type: string
+        ontologyVersion:
+          type: string
+        profile:
+          $ref: '#/components/schemas/AuthorizationViewProfile'
+        ontologyName:
+          type: string
+        description:
+          type: string

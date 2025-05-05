@@ -1,7 +1,0 @@
-title: PropertyOp
-type: object
-properties:
-  subject:
-    $ref: ./Entity.yaml
-  previousState:
-    $ref: ./Entity.yaml

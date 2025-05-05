@@ -4,16 +4,16 @@ properties:
   ontologyDataProperties:
     type: array
     items:
-      $ref: ./Entity.yaml
+      $ref: ./MWSEntity.yaml
   ontologyObjectProperties:
     type: array
     items:
-      $ref: ./Entity.yaml
+      $ref: ./MWSEntity.yaml
   ontologyIndividuals:
     type: array
     items:
-      $ref: ./Entity.yaml
+      $ref: ./MWSEntity.yaml
   ontologyClasses:
     type: array
     items:
-      $ref: ./Entity.yaml
+      $ref: ./MWSEntity.yaml

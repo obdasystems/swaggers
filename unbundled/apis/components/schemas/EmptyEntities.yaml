@@ -4,12 +4,12 @@ properties:
   emptyObjectProperties:
     type: array
     items:
-      $ref: ./Entity.yaml
+      $ref: ./MWSEntity.yaml
   emptyDataProperties:
     type: array
     items:
-      $ref: ./Entity.yaml
+      $ref: ./MWSEntity.yaml
   emptyClasses:
     type: array
     items:
-      $ref: ./Entity.yaml
+      $ref: ./MWSEntity.yaml

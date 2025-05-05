@@ -4,12 +4,12 @@ properties:
   emptyUnfoldingDataProperties:
     type: array
     items:
-      $ref: ./Entity.yaml
+      $ref: ./MWSEntity.yaml
   emptyUnfoldingObjectProperties:
     type: array
     items:
-      $ref: ./Entity.yaml
+      $ref: ./MWSEntity.yaml
   emptyUnfoldingClasses:
     type: array
     items:
-      $ref: ./Entity.yaml
+      $ref: ./MWSEntity.yaml

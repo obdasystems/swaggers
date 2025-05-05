@@ -40,6 +40,14 @@ tags:
     x-displayName: other
   - name: ontologies_other
     x-displayName: other
+  - name: Ontology Catalog
+    x-displayName: Ontology Catalog
+  - name: ontology-catalog_other
+    x-displayName: other
+  - name: Ontology Designer
+    x-displayName: Ontology Designer
+  - name: query-catalog_other
+    x-displayName: other
 paths:
   /owlOntology/{name}/version/avpOntologyTree:
     get:
@@ -8854,7 +8862,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Entity'
+              $ref: '#/components/schemas/MWSEntity'
         required: true
       responses:
         '200':
@@ -10793,7 +10801,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Entity'
+                $ref: '#/components/schemas/MWSEntity'
       tags:
         - ontologies_other
       security:
@@ -11400,6 +11408,1024 @@ paths:
       security:
         - api-key: []
         - jwt: []
+  /ontologyCatalog:
+    post:
+      tags:
+        - Ontology Catalog
+      summary: Perform an action for ontology to the catalog
+      description: Modifies the ontology catalog byacoording to the action provided
+      operationId: editCatalog
+      parameters:
+        - name: action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - add
+              - delete
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OntologyID'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: boolean
+      security:
+        - api-key: []
+        - jwt: []
+    get:
+      summary: GET mwsx/ontologyCatalog
+      operationId: get_ontology_catalog
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OntologyCatalogEntries'
+      tags:
+        - ontology-catalog_other
+      security:
+        - api-key: []
+        - jwt: []
+    delete:
+      summary: DELETE mwsx/ontologyCatalog
+      operationId: delete_ontology_catalog
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+      tags:
+        - ontology-catalog_other
+      security:
+        - api-key: []
+        - jwt: []
+  /ontologyCatalog/query/start:
+    post:
+      tags:
+        - Ontology Catalog
+      summary: Starts a SPARQL query over the catalog
+      operationId: startQuery
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SPARQLQuery'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SPARQLQueryExecution'
+      security:
+        - api-key: []
+        - jwt: []
+  /ontologyCatalog/query/{queryID}/stop:
+    put:
+      tags:
+        - Ontology Catalog
+      summary: Stops a SPARQL query over the catalog
+      operationId: stopQuery
+      parameters:
+        - name: queryID
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: boolean
+      security:
+        - api-key: []
+        - jwt: []
+  /ontologyCatalog/query/{queryID}/status:
+    get:
+      summary: Check the status of a SPARQL query
+      description: Check the status of a SPARQL query
+      operationId: check_ontology_catalog_query_status
+      parameters:
+        - name: queryID
+          in: path
+          required: true
+          schema:
+            type: string
+      tags:
+        - Ontology Catalog
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SPARQLStatus'
+      security:
+        - api-key: []
+        - jwt: []
+  /ontologyCatalog/query/{queryID}/results:
+    get:
+      summary: Retrieve the results of a SPARQL query
+      description: Retrieve the results of a SPARQL query
+      operationId: get_ontology_catalog_query_results
+      parameters:
+        - name: queryID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: pagesize
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+      tags:
+        - Ontology Catalog
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SPARQLResults'
+      security:
+        - api-key: []
+        - jwt: []
+  /ontologyDraftInfos:
+    get:
+      tags:
+        - Ontology Designer
+      summary: Returns the list of all ontology drafts made by the user
+      operationId: getOntologyDrafts
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OntologyDraftInfo'
+      security:
+        - api-key: []
+        - jwt: []
+  /ontologyDraft/{ontologyName}:
+    get:
+      tags:
+        - Ontology Designer
+      summary: Returns the ontology draft {ontologyName}
+      operationId: getOntologyDraft
+      parameters:
+        - name: ontologyName
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RDFGraph'
+      security:
+        - api-key: []
+        - jwt: []
+    post:
+      tags:
+        - Ontology Designer
+      summary: Add to the list of all ontology drafts a new draft
+      operationId: postOntologyDrafts
+      parameters:
+        - name: ontologyName
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RDFGraph'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RDFGraph'
+      security:
+        - api-key: []
+        - jwt: []
+    put:
+      tags:
+        - Ontology Designer
+      summary: >-
+        Modify the ontology draft {ontologyName} (called when using the ontology
+        builder to save the draft)
+      operationId: putOntologyDraft
+      parameters:
+        - name: ontologyName
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RDFGraph'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RDFGraph'
+      security:
+        - api-key: []
+        - jwt: []
+    delete:
+      tags:
+        - Ontology Designer
+      summary: Delete the ontology draft {ontologyName}
+      operationId: deleteOntologyDraft
+      parameters:
+        - name: ontologyName
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RDFGraph'
+      security:
+        - api-key: []
+        - jwt: []
+  /ontologyDraft/download:
+    post:
+      tags:
+        - Ontology Designer
+      summary: Download the ontology draft in the body converted in OWL2
+      operationId: downloadOntologyDraft
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RDFGraph'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: string
+                description: FileInfo object
+      security:
+        - api-key: []
+        - jwt: []
+  /owlOntology/{name}/version/querycatalog:
+    get:
+      summary: GET mwsx/owlOntology/{name}/version/querycatalog
+      operationId: get__owlOntology_name_version_querycatalog
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OBDACatalog'
+      tags:
+        - query-catalog_other
+      security:
+        - api-key: []
+        - jwt: []
+    delete:
+      summary: DELETE mwsx/owlOntology/{name}/version/querycatalog
+      operationId: delete__owlOntology_name_version_querycatalog
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+      tags:
+        - query-catalog_other
+      security:
+        - api-key: []
+        - jwt: []
+  /owlOntology/{name}/version/querycatalog/converted2sparqling:
+    get:
+      summary: GET mwsx/owlOntology/{name}/version/querycatalog/converted2sparqling
+      operationId: get__owlOntology_name_version_querycatalog_converted2spargling
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                $ref: '#/components/schemas/SparqlingSPARQLQuery'
+      tags:
+        - query-catalog_other
+      security:
+        - api-key: []
+        - jwt: []
+  /owlOntology/{name}/version/query/{queryID}/publication:
+    post:
+      summary: POST mwsx/owlOntology/{name}/version/query/{queryID}/publication
+      operationId: post__owlOntology_name_version_querycatalog_request_publication
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: queryID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+      tags:
+        - query-catalog_other
+      security:
+        - api-key: []
+        - jwt: []
+  /owlOntology/{name}/version/querycatalog/publicationRequests:
+    get:
+      summary: GET mwsx/owlOntology/{name}/version/querycatalog/publicationRequests
+      operationId: get__owlOntology_name_version_querycatalog_request_publication
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SPARQLQuery'
+      tags:
+        - query-catalog_other
+      security:
+        - api-key: []
+        - jwt: []
+  /owlOntology/{name}/version/querycatalog/{userCatalog}/query/{queryID}/publication:
+    put:
+      summary: >-
+        PUT
+        mwsx/owlOntology/{name}/version/querycatalog/{userCatalog}/query/{queryID}/publication
+      operationId: put__owlOntology_name_version_querycatalog_accept_publication
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: userCatalog
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: queryID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: accept
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+      tags:
+        - query-catalog_other
+      security:
+        - api-key: []
+        - jwt: []
+    delete:
+      summary: >-
+        DELETE
+        mwsx/owlOntology/{name}/version/querycatalog/{userCatalog}/query/{queryID}/publication
+      operationId: delete__owlOntology_name_version_querycatalog_accept_publication
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: userCatalog
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: queryID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+      tags:
+        - query-catalog_other
+      security:
+        - api-key: []
+        - jwt: []
+  /owlOntology/{name}/version/querycatalog/export:
+    get:
+      summary: GET mwsx/owlOntology/{name}/version/querycatalog/export
+      operationId: get__owlOntology_name_version_querycatalog_export
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileInfo'
+      tags:
+        - query-catalog_other
+      security:
+        - api-key: []
+        - jwt: []
+  /owlOntology/{name}/version/querycatalog/import:
+    post:
+      summary: POST mwsx/owlOntology/{name}/version/querycatalog/import
+      operationId: get__owlOntology_name_version_querycatalog_import
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: additive
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileInfo'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OBDACatalog'
+      tags:
+        - query-catalog_other
+      security:
+        - api-key: []
+        - jwt: []
+  /owlOntology/{name}/version/querycatalog/sparqling/import:
+    post:
+      summary: POST mwsx/owlOntology/{name}/version/querycatalog/sparqling/import
+      operationId: post__owlOntology_name_version_querycatalog_sparqling_import
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: additive
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileInfo'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OBDASparqlingCatalog'
+      tags:
+        - query-catalog_other
+      security:
+        - api-key: []
+        - jwt: []
+  /owlOntology/{name}/version/querycatalog/sparqling/migrate:
+    post:
+      summary: POST mwsx/owlOntology/{name}/version/querycatalog/sparqling/migrate
+      operationId: post__owlOntology_name_version_querycatalog_sparqling_migrate
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: targetVersion
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: resetPublicationInfos
+          in: query
+          required: true
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OBDASparqlingCatalog'
+      tags:
+        - query-catalog_other
+      security:
+        - api-key: []
+        - jwt: []
+  /owlOntology/{name}/version/querycatalog/sparqling:
+    delete:
+      summary: DELETE mwsx/owlOntology/{name}/version/querycatalog/sparqling
+      operationId: delete__owlOntology_name_version_querycatalog_sparqling
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+      tags:
+        - query-catalog_other
+      security:
+        - api-key: []
+        - jwt: []
+  /owlOntology/{name}/version/querycatalog/sparqling/export:
+    get:
+      summary: GET mwsx/owlOntology/{name}/version/querycatalog/sparqling/export
+      operationId: get__owlOntology_name_version_querycatalog_sparqling_export
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileInfo'
+      tags:
+        - query-catalog_other
+      security:
+        - api-key: []
+        - jwt: []
+  /owlOntology/{name}/version/query/{ID}:
+    get:
+      summary: GET mwsx/owlOntology/{name}/version/query/{ID}
+      operationId: get__owlOntology_name_version_query_ID
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SPARQLQuery'
+      tags:
+        - query-catalog_other
+      security:
+        - api-key: []
+        - jwt: []
+    put:
+      summary: PUT mwsx/owlOntology/{name}/version/query/{ID}
+      operationId: put__owlOntology_name_version_query_ID
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SPARQLQuery'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SPARQLQuery'
+      tags:
+        - query-catalog_other
+      security:
+        - api-key: []
+        - jwt: []
+    delete:
+      summary: DELETE mwsx/owlOntology/{name}/version/query/{ID}
+      operationId: delete__owlOntology_name_version_query_ID
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SPARQLQuery'
+      tags:
+        - query-catalog_other
+      security:
+        - api-key: []
+        - jwt: []
+  /owlOntology/{name}/version/query:
+    post:
+      summary: POST mwsx/owlOntology/{name}/version/query
+      operationId: post__owlOntology_name_version_query_ID
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SPARQLQuery'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SPARQLQuery'
+      tags:
+        - query-catalog_other
+      security:
+        - api-key: []
+        - jwt: []
+  /owlOntology/{name}/version/queries/sparqling:
+    get:
+      summary: GET mwsx/owlOntology/{name}/version/queries/sparqling
+      operationId: get__owlOntology_name_version_queries_sparqling
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SparqlingSPARQLQuery'
+      tags:
+        - query-catalog_other
+      security:
+        - api-key: []
+        - jwt: []
+  /owlOntology/{name}/version/query/sparqling/{ID}:
+    get:
+      summary: GET mwsx/owlOntology/{name}/version/query/sparqling/{ID}
+      operationId: get__owlOntology_name_version_query_sparqling_ID
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SparqlingSPARQLQuery'
+      tags:
+        - query-catalog_other
+      security:
+        - api-key: []
+        - jwt: []
+    put:
+      summary: PUT mwsx/owlOntology/{name}/version/query/sparqling/{ID}
+      operationId: put__owlOntology_name_version_query_sparqling_ID
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SparqlingSPARQLQuery'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SparqlingSPARQLQuery'
+      tags:
+        - query-catalog_other
+      security:
+        - api-key: []
+        - jwt: []
+    delete:
+      summary: DELETE mwsx/owlOntology/{name}/version/query/sparqling/{ID}
+      operationId: delete__owlOntology_name_version_query_sparqling_ID
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SparqlingSPARQLQuery'
+      tags:
+        - query-catalog_other
+      security:
+        - api-key: []
+        - jwt: []
+  /owlOntology/{name}/version/query/sparqling:
+    post:
+      summary: POST mwsx/owlOntology/{name}/version/query/sparqling
+      operationId: post__owlOntology_name_version_query_sparqling_ID
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SparqlingSPARQLQuery'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SparqlingSPARQLQuery'
+      tags:
+        - query-catalog_other
+      security:
+        - api-key: []
+        - jwt: []
 components:
   securitySchemes:
     api-key:
@@ -11428,26 +12454,35 @@ components:
         entities:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
-    Entity:
+            $ref: '#/components/schemas/MWSEntity'
+    Label:
+      title: Label
       type: object
       properties:
-        type:
+        lang:
           type: string
-          enum:
-            - class
-            - objectProperty
-            - inverseObjectProperty
-            - dataProperty
-            - annotation
-        iri:
+        content:
           type: string
-        prefixedIri:
+    MWSEntity:
+      title: MWSEntity
+      type: object
+      properties:
+        entityLabels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Label'
+        isDeprecated:
+          type: boolean
+        entityIRI:
           type: string
-        labels:
-          type: object
-          additionalProperties:
-            type: string
+        entityType:
+          type: string
+        entityPrefixIRI:
+          type: string
+        entityRemainder:
+          type: string
+        entityID:
+          type: string
     AvpTree:
       title: AvpTree
       type: object
@@ -11570,11 +12605,11 @@ components:
       type: object
       properties:
         property:
-          $ref: '#/components/schemas/Entity'
+          $ref: '#/components/schemas/MWSEntity'
         direct:
           type: boolean
         filler:
-          $ref: '#/components/schemas/Entity'
+          $ref: '#/components/schemas/MWSEntity'
     FunctionalPropertyAssertion:
       title: FunctionalPropertyAssertion
       type: object
@@ -11586,17 +12621,17 @@ components:
       type: object
       properties:
         disjointClass:
-          $ref: '#/components/schemas/Entity'
+          $ref: '#/components/schemas/MWSEntity'
     MandatoryParticipationAssertion:
       title: MandatoryParticipationAssertion
       type: object
       properties:
         property:
-          $ref: '#/components/schemas/Entity'
+          $ref: '#/components/schemas/MWSEntity'
         direct:
           type: boolean
         filler:
-          $ref: '#/components/schemas/Entity'
+          $ref: '#/components/schemas/MWSEntity'
     HasKeyAssertion:
       title: HasKeyAssertion
       type: object
@@ -11604,7 +12639,7 @@ components:
         dataProperties:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
         direct:
           type: array
           items:
@@ -11612,7 +12647,7 @@ components:
         objectProperties:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
     SubClassWithCardinalityAssertion:
       title: SubClassWithCardinalityAssertion
       type: object
@@ -11624,11 +12659,11 @@ components:
           type: integer
           format: int32
         property:
-          $ref: '#/components/schemas/Entity'
+          $ref: '#/components/schemas/MWSEntity'
         direct:
           type: boolean
         filler:
-          $ref: '#/components/schemas/Entity'
+          $ref: '#/components/schemas/MWSEntity'
         EXACT_CARDINALITY_TYPE:
           type: integer
           format: int32
@@ -11638,6 +12673,25 @@ components:
         cardinality:
           type: integer
           format: int32
+    Entity:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - class
+            - objectProperty
+            - inverseObjectProperty
+            - dataProperty
+            - annotation
+        iri:
+          type: string
+        prefixedIri:
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
     IdentificationPathElement:
       title: IdentificationPathElement
       type: object
@@ -11785,7 +12839,7 @@ components:
         objectProperties:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
         priority:
           type: integer
           format: int32
@@ -11804,7 +12858,7 @@ components:
         dataProperties:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
         cardinalityType:
           type: integer
           format: int32
@@ -11814,21 +12868,21 @@ components:
           type: integer
           format: int32
         property:
-          $ref: '#/components/schemas/Entity'
+          $ref: '#/components/schemas/MWSEntity'
         filler:
-          $ref: '#/components/schemas/Entity'
+          $ref: '#/components/schemas/MWSEntity'
         sparqlCode:
           type: string
         id:
           type: string
         results:
           $ref: '#/components/schemas/SPARQLResults'
-        entity:
-          $ref: '#/components/schemas/Entity'
+        MWSEntity:
+          $ref: '#/components/schemas/MWSEntity'
         status:
           type: string
-        disjointEntity:
-          $ref: '#/components/schemas/Entity'
+        disjointMWSEntity:
+          $ref: '#/components/schemas/MWSEntity'
     OntologyID:
       title: OntologyID
       type: object
@@ -12158,15 +13212,15 @@ components:
         emptyObjectProperties:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
         emptyDataProperties:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
         emptyClasses:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
     EmptyUnfoldingEntities:
       title: EmptyUnfoldingEntities
       type: object
@@ -12174,15 +13228,15 @@ components:
         emptyUnfoldingDataProperties:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
         emptyUnfoldingObjectProperties:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
         emptyUnfoldingClasses:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
     ChartConfiguration:
       title: ChartConfiguration
       type: object
@@ -12944,34 +13998,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SHACLShape'
-    Label:
-      title: Label
-      type: object
-      properties:
-        lang:
-          type: string
-        content:
-          type: string
-    MWSEntity:
-      title: MWSEntity
-      type: object
-      properties:
-        entityLabels:
-          type: array
-          items:
-            $ref: '#/components/schemas/Label'
-        isDeprecated:
-          type: boolean
-        entityIRI:
-          type: string
-        entityType:
-          type: string
-        entityPrefixIRI:
-          type: string
-        entityRemainder:
-          type: string
-        entityID:
-          type: string
     EntityCount:
       title: EntityCount
       type: object
@@ -13010,7 +14036,7 @@ components:
         resultClasses:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
         percentage:
           type: number
         startTime:
@@ -13390,19 +14416,19 @@ components:
         ontologyDataProperties:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
         ontologyObjectProperties:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
         ontologyIndividuals:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
         ontologyClasses:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
     IRI:
       title: IRI
       type: object
@@ -13924,8 +14950,8 @@ components:
         numberOfMappings:
           type: integer
           format: int32
-        entity:
-          $ref: '#/components/schemas/Entity'
+        MWSEntity:
+          $ref: '#/components/schemas/MWSEntity'
     MappingEntityCount:
       title: MappingEntityCount
       type: object
@@ -13964,7 +14990,7 @@ components:
         template:
           $ref: '#/components/schemas/MappingTemplate'
         annotationProperty:
-          $ref: '#/components/schemas/Entity'
+          $ref: '#/components/schemas/MWSEntity'
         lang:
           type: string
     SQLView:
@@ -14019,8 +15045,8 @@ components:
           $ref: '#/components/schemas/MappingTemplate'
         iri:
           $ref: '#/components/schemas/IRI'
-        currentEntity:
-          $ref: '#/components/schemas/Entity'
+        currentMWSEntity:
+          $ref: '#/components/schemas/MWSEntity'
         annotationMappings:
           type: array
           items:
@@ -14368,11 +15394,11 @@ components:
         projection:
           type: string
         entity:
-          $ref: '#/components/schemas/Entity'
+          $ref: '#/components/schemas/MWSEntity'
         entitiesIndex:
           type: object
           additionalProperties:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
         viewTables:
           type: object
         subEntities:
@@ -14872,12 +15898,12 @@ components:
         equivalents:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
         numberOfMappings:
           type: integer
           format: int32
-        entity:
-          $ref: '#/components/schemas/Entity'
+        MWSEntity:
+          $ref: '#/components/schemas/MWSEntity'
     HierarchyTree:
       title: HierarchyTree
       type: object
@@ -15001,9 +16027,9 @@ components:
         inverse:
           type: boolean
         property:
-          $ref: '#/components/schemas/Entity'
+          $ref: '#/components/schemas/MWSEntity'
         filler:
-          $ref: '#/components/schemas/Entity'
+          $ref: '#/components/schemas/MWSEntity'
     ClassInfo:
       title: ClassInfo
       type: object
@@ -15011,25 +16037,25 @@ components:
         disjointClasses:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
         iri:
           $ref: '#/components/schemas/IRI'
-        currentEntity:
-          $ref: '#/components/schemas/Entity'
+        currentMWSEntity:
+          $ref: '#/components/schemas/MWSEntity'
         equivalentClasses:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
         dataPropertiesIsDomainOf:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
         disjointUnions:
           type: array
           items:
             type: array
             items:
-              $ref: '#/components/schemas/Entity'
+              $ref: '#/components/schemas/MWSEntity'
         classDescriptions:
           type: array
           items:
@@ -15037,19 +16063,19 @@ components:
         classIndividuals:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
         objectPropertiesIsRangeOf:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
         objectPropertiesIsDomainOf:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
         subClasses:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
         objectPropertiesParticipations:
           type: array
           items:
@@ -15058,14 +16084,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Participation'
-        entityDiagrams:
+        MWSEntityDiagrams:
           type: array
           items:
             $ref: '#/components/schemas/DiagramNode'
         superClasses:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
     ObjectPropertyInfo:
       title: ObjectPropertyInfo
       type: object
@@ -15073,11 +16099,11 @@ components:
         disjointObjectProperties:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
         iri:
           $ref: '#/components/schemas/IRI'
-        currentEntity:
-          $ref: '#/components/schemas/Entity'
+        currentMWSEntity:
+          $ref: '#/components/schemas/MWSEntity'
         objectPropertyInverseFunctional:
           type: boolean
         objectPropertyDescriptions:
@@ -15087,13 +16113,13 @@ components:
         equivalentObjectProperties:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
         objectPropertySymmetric:
           type: boolean
         superObjectProperties:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
         objectPropertyCharacteristics:
           type: array
           items:
@@ -15101,30 +16127,30 @@ components:
         subObjectProperties:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
         objectPropertyIndividuals:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
         inverseObjectProperties:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
         objectPropertyDomain:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
         objectPropertyReflexive:
           type: boolean
         objectPropertyRange:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
         objectPropertyTransitive:
           type: boolean
         objectPropertyIrreflexive:
           type: boolean
-        entityDiagrams:
+        MWSEntityDiagrams:
           type: array
           items:
             $ref: '#/components/schemas/DiagramNode'
@@ -15141,19 +16167,19 @@ components:
         subDataProperties:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
         dataPropertyFunctional:
           type: boolean
-        currentEntity:
-          $ref: '#/components/schemas/Entity'
+        currentMWSEntity:
+          $ref: '#/components/schemas/MWSEntity'
         equivalentDataProperties:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
         superDataProperties:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
         dataPropertyDescriptions:
           type: array
           items:
@@ -15161,23 +16187,23 @@ components:
         dataPropertyDomain:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
         dataPropertyRange:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
         disjointDataProperties:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
-        entityDiagrams:
+            $ref: '#/components/schemas/MWSEntity'
+        MWSEntityDiagrams:
           type: array
           items:
             $ref: '#/components/schemas/DiagramNode'
         dataPropertyIndividuals:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/MWSEntity'
     OntologyDifference:
       title: OntologyDifference
       type: object
@@ -15437,6 +16463,43 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PublicationRequest'
+    OntologyCatalogEntries:
+      title: OntologyCatalogEntries
+      type: object
+      properties:
+        entries:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/OntologyID'
+    OntologyDraftInfo:
+      type: object
+      properties:
+        name:
+          type: string
+        iri:
+          type: string
+        version:
+          type: string
+        lastModification:
+          type: integer
+    SparqlingSPARQLQuery:
+      title: SparqlingSPARQLQuery
+      type: object
+      properties:
+        queryGraph:
+          $ref: '#/components/schemas/QueryGraph'
+        sparqlQuery:
+          $ref: '#/components/schemas/SPARQLQuery'
+        user:
+          type: string
+    OBDASparqlingCatalog:
+      title: OBDASparqlingCatalog
+      type: object
+      properties:
+        queryCatalog:
+          type: array
+          items:
+            $ref: '#/components/schemas/SparqlingSPARQLQuery'
 x-tagGroups:
   - name: AVPs API model
     tags:
@@ -15452,6 +16515,7 @@ x-tagGroups:
       - datasources_other
       - knowledge-graphs_other
       - mappings_other
+      - Ontology Designer
   - name: Endpoints API model
     tags:
       - endpoints_other
@@ -15462,3 +16526,10 @@ x-tagGroups:
   - name: Ontology API model
     tags:
       - ontologies_other
+  - name: Ontology Catalog
+    tags:
+      - Ontology Catalog
+      - ontology-catalog_other
+  - name: Queries API model
+    tags:
+      - query-catalog_other

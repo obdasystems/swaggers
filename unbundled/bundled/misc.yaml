@@ -1,0 +1,1391 @@
+openapi: 3.0.0
+info:
+  description: This is the API used for general purpose operations in Mastro.
+  version: 1.0.0
+  title: Misc API model
+  contact:
+    email: info@obdasystems.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+  - url: https://{tenant}/mws/rest/mwsx
+    variables:
+      tenant:
+        default: localhost
+        description: Your localhost
+security:
+  - api-key: []
+  - jwt: []
+paths:
+  /log/{env}/{mode}:
+    get:
+      summary: GET mwsx/log/{env}/{mode}
+      operationId: setLogger
+      parameters:
+        - name: env
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: mode
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+  /mastro/version:
+    get:
+      summary: GET mwsx/mastro/version
+      operationId: get__mastro_version
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+  /jena/version:
+    get:
+      summary: GET mwsx/jena/version
+      operationId: get__jena_version
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+  /owlapi/version:
+    get:
+      summary: GET mwsx/owlapi/version
+      operationId: get__owlapi_version
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+  /resources/ontologies:
+    get:
+      summary: GET mwsx/resources/ontologies
+      operationId: get__resources_ids
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+  /resources/ontology/{name}/versions:
+    get:
+      summary: GET mwsx/resources/ontology/{name}/versions
+      operationId: get__resources_ids_versions
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+  /resources/ontology/{name}/version/mappings:
+    get:
+      summary: GET mwsx/resources/ontology/{name}/version/mappings
+      operationId: get__resources_ids_mappings
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+  /resources/datasources:
+    get:
+      summary: GET mwsx/resources/datasources
+      operationId: get__resources_ds_ids
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+  /resources/endpoints:
+    get:
+      summary: GET mwsx/resources/endpoints
+      operationId: get__resources_ep_ids
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+  /mastro/instances:
+    get:
+      summary: GET mwsx/mastro/instances
+      operationId: get__available_instances
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MastroID'
+  /lastLoaded/ontology:
+    get:
+      summary: GET mwsx/lastLoaded/ontology
+      operationId: get_lastLoaded_ontology
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OntologyOpeningEvent'
+  /globalAnnotations:
+    get:
+      summary: GET mwsx/globalAnnotations
+      operationId: get_global_annotations
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MWSEntity'
+  /globalAnnotation:
+    post:
+      summary: POST mwsx/globalAnnotation
+      operationId: post_global_annotation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MWSEntity'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MWSEntity'
+  /globalAnnotation/{entityId}:
+    delete:
+      summary: DELETE mwsx/globalAnnotation/{entityId}
+      operationId: delete_global_annotation
+      parameters:
+        - name: entityId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MWSEntity'
+  /server/license/info:
+    get:
+      summary: GET mwsx/server/license/info
+      operationId: get_server_license_expiration_date
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LicenseInfo'
+  /server/storage/report:
+    get:
+      summary: GET mwsx/server/storage/report
+      operationId: get_system_storage_report
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SystemStorageReport'
+  /server/storage/{folder}:
+    delete:
+      summary: DELETE mwsx/server/storage/{folder}
+      operationId: get_empty_folder
+      parameters:
+        - name: folder
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SystemFolderDeletionReport'
+  /server/systemSnapshot:
+    get:
+      summary: GET mwsx/server/systemSnapshot
+      operationId: get_system_snapshot
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Snapshot'
+  /server/systemMemory:
+    get:
+      summary: GET mwsx/server/systemMemory
+      operationId: get_system_memory
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Snapshot'
+  /server/userlog/{username}/count:
+    get:
+      summary: GET mwsx/server/userlog/{username}/count
+      operationId: get_userlog_count
+      parameters:
+        - name: username
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+  /server/userlog/{username}:
+    get:
+      summary: GET mwsx/server/userlog/{username}
+      operationId: get_userlog_count_user
+      parameters:
+        - name: username
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: start
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: length
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  $ref: '#/components/schemas/MwsxUserLogMessage'
+  /geocoding/servers:
+    get:
+      summary: GET mwsx/geocoding/servers
+      operationId: get_geocoding_servers
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeocodingServers'
+  /geocoding/server/{serverId}:
+    put:
+      summary: PUT mwsx/geocoding/server/{serverId}
+      operationId: put_geocoding_server
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GeocodingServer'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeocodingServers'
+    delete:
+      summary: DELETE mwsx/geocoding/server/{serverId}
+      operationId: delete_geocoding_server
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeocodingServers'
+  /logger/mastroapi:
+    get:
+      summary: GET mwsx/logger/mastroapi
+      operationId: get_set_mastroapi_logger
+      parameters:
+        - name: mode
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: integer
+                format: int32
+  /logger/service:
+    get:
+      summary: GET mwsx/logger/service
+      operationId: get_set_service_logger
+      parameters:
+        - name: mode
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: integer
+                format: int32
+  /logger:
+    get:
+      summary: GET mwsx/logger
+      operationId: get_set_logger
+      parameters:
+        - name: className
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: packageName
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: logLevel
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: integer
+                format: int32
+  /logger/class:
+    get:
+      summary: GET mwsx/logger/class
+      operationId: get_set_service_class
+      parameters:
+        - name: className
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: logLevel
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: action
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: integer
+                format: int32
+  /logger/package:
+    get:
+      summary: GET mwsx/logger/package
+      operationId: get_set_service_package
+      parameters:
+        - name: packageName
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: logLevel
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: action
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: integer
+                format: int32
+  /logger/list:
+    get:
+      summary: GET mwsx/logger/list
+      operationId: get_set_service_logger_list
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+  /logger/monitor:
+    get:
+      summary: GET mwsx/logger/monitor
+      operationId: get_set_monitor_logger
+      parameters:
+        - name: mode
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: integer
+                format: int32
+  /statics/sparql/extractProjectVarNames:
+    post:
+      summary: POST mwsx/statics/sparql/extractProjectVarNames
+      operationId: post_extract_query_head
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              type: string
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+  /statics/sparql/templateSize:
+    post:
+      summary: POST mwsx/statics/sparql/templateSize
+      operationId: post_extract_template_size
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+  /statics/reporting/request:
+    post:
+      summary: POST mwsx/statics/reporting/request
+      operationId: post_extract_issue_report
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IssueReportRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileInfo'
+  /system/jdbcDrivers:
+    get:
+      summary: GET mwsx/system/jdbcDrivers
+      operationId: getJdbcDrivers
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JDBCDriver'
+  /system/jdbcDriver/{driver}:
+    get:
+      summary: GET mwsx/system/jdbcDriver/{driver}
+      operationId: getJdbcDriver
+      parameters:
+        - name: driver
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JDBCDriver'
+    delete:
+      summary: DELETE mwsx/system/jdbcDriver/{driver}
+      operationId: DELETEJdbcDrivers
+      parameters:
+        - name: driver
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JDBCDriver'
+    put:
+      summary: PUT mwsx/system/jdbcDriver/{driver}
+      operationId: putJdbcDrivers
+      parameters:
+        - name: driver
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JDBCDriver'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JDBCDriver'
+  /system/jdbcDriver:
+    post:
+      summary: POST mwsx/system/jdbcDriver
+      operationId: postJdbcDrivers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JDBCDriver'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JDBCDriver'
+  /queryTags:
+    get:
+      summary: GET mwsx/queryTags
+      operationId: get_queryTags
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tags'
+    post:
+      summary: POST mwsx/queryTags
+      operationId: post_queryTags
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Tag'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+  /queryTags/{tagName}:
+    delete:
+      summary: DELETE mwsx/queryTags/{tagName}
+      operationId: delete_queryTags_tagName
+      parameters:
+        - name: tagName
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+  /statistics/accesses:
+    get:
+      summary: GET mwsx/statistics/accesses
+      operationId: get_accesses_statistics
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AccessLog'
+    post:
+      summary: POST mwsx/statistics/accesses
+      operationId: post_accesses_statistics
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AccessLog'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AccessLog'
+    put:
+      summary: PUT mwsx/statistics/accesses
+      operationId: put_accesses_statistics
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AccessLog'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AccessLog'
+    delete:
+      summary: DELETE mwsx/statistics/accesses
+      operationId: delete_accesses_statistics
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AccessLog'
+  /statistics/ontologies:
+    get:
+      summary: GET mwsx/statistics/ontologies
+      operationId: get_ontologies_statistics
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OntologyUsageLog'
+    post:
+      summary: POST mwsx/statistics/ontologies
+      operationId: post_ontologies_statistics
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/OntologyUsageLog'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OntologyUsageLog'
+    put:
+      summary: PUT mwsx/statistics/ontologies
+      operationId: put_ontologies_statistics
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/OntologyUsageLog'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OntologyUsageLog'
+    delete:
+      summary: DELETE mwsx/statistics/ontologies
+      operationId: delete_ontologies_statistics
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OntologyUsageLog'
+  /statistics/{endpoint}/queries:
+    get:
+      summary: GET mwsx/statistics/{endpoint}/queries
+      operationId: get_statistics_endpoint_queries
+      parameters:
+        - name: endpoint
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/QueryUsageLog'
+    post:
+      summary: POST mwsx/statistics/{endpoint}/queries
+      operationId: post_statistics_endpoint_queries
+      parameters:
+        - name: endpoint
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/QueryUsageLog'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/QueryUsageLog'
+    put:
+      summary: PUT mwsx/statistics/{endpoint}/queries
+      operationId: put_statistics_endpoint_queries
+      parameters:
+        - name: endpoint
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/QueryUsageLog'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/QueryUsageLog'
+    delete:
+      summary: DELETE mwsx/statistics/{endpoint}/queries
+      operationId: delete_statistics_endpoint_queries
+      parameters:
+        - name: endpoint
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/QueryUsageLog'
+  /statistics/{endpoint}/entities:
+    get:
+      summary: GET mwsx/statistics/{endpoint}/entities
+      operationId: get_statistics_endpoint_entities
+      parameters:
+        - name: endpoint
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: timestampStart
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: timestampEnd
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EntityUsageLog'
+components:
+  securitySchemes:
+    api-key:
+      type: apiKey
+      in: header
+      name: X-MONOLITH-SESSION-ID
+      description: |
+        This session ID is generated from Basic Authentication on the login route.
+    jwt:
+      description: |
+        Generate your JWT when you log in. JWT configurations should be placed in `$MASTRO_HOME/config/mastro.jwt` file
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    OntologyID:
+      title: OntologyID
+      type: object
+      properties:
+        ontologyVersion:
+          type: string
+        ontologyName:
+          type: string
+    MastroID:
+      title: MastroID
+      type: object
+      properties:
+        mappingID:
+          type: string
+        datasourceID:
+          type: string
+        avpID:
+          type: string
+        ontologyID:
+          $ref: '#/components/schemas/OntologyID'
+    OntologyOpeningEvent:
+      title: OntologyOpeningEvent
+      type: object
+      properties:
+        deleted:
+          type: boolean
+        onto:
+          $ref: '#/components/schemas/OntologyID'
+        timestamp:
+          type: integer
+          format: int64
+    Label:
+      title: Label
+      type: object
+      properties:
+        lang:
+          type: string
+        content:
+          type: string
+    MWSEntity:
+      title: MWSEntity
+      type: object
+      properties:
+        entityLabels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Label'
+        isDeprecated:
+          type: boolean
+        entityIRI:
+          type: string
+        entityType:
+          type: string
+        entityPrefixIRI:
+          type: string
+        entityRemainder:
+          type: string
+        entityID:
+          type: string
+    LicenseInfoDetail:
+      title: LicenseInfoDetail
+      type: object
+      properties:
+        detailName:
+          type: string
+        detailValue:
+          type: string
+    LicenseInfo:
+      title: LicenseInfo
+      type: object
+      properties:
+        licenseType:
+          type: string
+        SERVER_IP_ADDRESS:
+          type: string
+        productVersion:
+          type: string
+        licensee:
+          type: string
+        licensor:
+          type: string
+        generationDate:
+          type: integer
+          format: int64
+        MAX_NUMBER_OF_ONTOLOGIES_ALLOWED:
+          type: string
+        productName:
+          type: string
+        licenseInfoDetails:
+          type: array
+          items:
+            $ref: '#/components/schemas/LicenseInfoDetail'
+        MAX_NUMBER_OF_USERS_ALLOWED:
+          type: string
+        expirationDate:
+          type: integer
+          format: int64
+    OntologyVersionStorageReport:
+      title: OntologyVersionStorageReport
+      type: object
+      properties:
+        totalSize:
+          type: integer
+          format: int64
+        fileCount:
+          type: integer
+          format: int32
+    OntologyStorageReport:
+      title: OntologyStorageReport
+      type: object
+      properties:
+        totalSize:
+          type: integer
+          format: int64
+        versions:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/OntologyVersionStorageReport'
+        fileCount:
+          type: integer
+          format: int32
+    OntologiesStorageReport:
+      title: OntologiesStorageReport
+      type: object
+      properties:
+        totalSize:
+          type: integer
+          format: int64
+        fileCount:
+          type: integer
+          format: int32
+        ontologies:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/OntologyStorageReport'
+    SystemFolderStorageReport:
+      title: SystemFolderStorageReport
+      type: object
+      properties:
+        totalSize:
+          type: integer
+          format: int64
+        fileCount:
+          type: integer
+          format: int32
+    SystemFoldersStorageReport:
+      title: SystemFoldersStorageReport
+      type: object
+      properties:
+        totalSize:
+          type: integer
+          format: int64
+        fileCount:
+          type: integer
+          format: int32
+        systemFoldersStorageReport:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/SystemFolderStorageReport'
+    KgStorageReport:
+      title: KgStorageReport
+      type: object
+      properties:
+        totalSize:
+          type: integer
+          format: int64
+        fileCount:
+          type: integer
+          format: int32
+    KgsStorageReport:
+      title: KgsStorageReport
+      type: object
+      properties:
+        totalSize:
+          type: integer
+          format: int64
+        kgs:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/KgStorageReport'
+        fileCount:
+          type: integer
+          format: int32
+    SystemStorageReport:
+      title: SystemStorageReport
+      type: object
+      properties:
+        totalSize:
+          type: integer
+          format: int64
+        ontologiesStorageReport:
+          $ref: '#/components/schemas/OntologiesStorageReport'
+        user:
+          type: string
+        fileCount:
+          type: integer
+          format: int32
+        systemFoldersStorageReport:
+          $ref: '#/components/schemas/SystemFoldersStorageReport'
+        kgsStorageReport:
+          $ref: '#/components/schemas/KgsStorageReport'
+        timestamp:
+          type: integer
+          format: int64
+    SystemFolderDeletionReport:
+      title: SystemFolderDeletionReport
+      type: object
+      properties:
+        deletedFilesCount:
+          type: integer
+          format: int32
+        deletedFiles:
+          type: array
+          items:
+            type: string
+        failedDelationFiles:
+          type: array
+          items:
+            type: string
+        freeSpaceCreated:
+          type: integer
+          format: int64
+    SessionSnapshot:
+      title: SessionSnapshot
+      type: object
+      properties:
+        expirationTimeText:
+          type: string
+        expirationTime:
+          type: integer
+          format: int64
+        neverExpires:
+          type: boolean
+        lastUpdate:
+          type: integer
+          format: int64
+        operationsCount:
+          type: integer
+          format: int32
+        startTime:
+          type: integer
+          format: int64
+        id:
+          type: string
+        user:
+          type: string
+        startTimeText:
+          type: string
+    Snapshot:
+      title: Snapshot
+      type: object
+      properties:
+        sessions:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/SessionSnapshot'
+        systemParameters:
+          type: object
+          additionalProperties:
+            type: string
+        currentlyActiveSessionCount:
+          type: integer
+          format: int32
+    MwsxUserLogMessage:
+      title: MwsxUserLogMessage
+      type: object
+      properties:
+        userName:
+          type: string
+        timestamp:
+          type: integer
+        resource:
+          type: string
+        method:
+          type: string
+        templateParams:
+          type: object
+        queryParams:
+          type: object
+        statusCode:
+          type: integer
+    GeocodingServer:
+      title: GeocodingServer
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        url:
+          type: string
+        user:
+          type: string
+        password:
+          type: string
+    GeocodingServers:
+      title: GeocodingServers
+      type: object
+      properties:
+        servers:
+          type: array
+          items:
+            $ref: '#/components/schemas/GeocodingServer'
+    IssueReportRequest:
+      title: IssueReportRequest
+      type: object
+      properties:
+        mappingId:
+          type: string
+        ontologyVersion:
+          type: string
+        ontologyName:
+          type: string
+        errorMessage:
+          type: string
+        endpointName:
+          type: string
+        description:
+          type: string
+        monolithVersion:
+          type: string
+        datasourceName:
+          type: string
+        error:
+          type: string
+        httpMethod:
+          type: string
+        queryExecutionId:
+          type: string
+        httpRoute:
+          type: string
+    FileInfo:
+      title: FileInfo
+      type: object
+      properties:
+        fileName:
+          type: string
+        fileType:
+          type: string
+        content:
+          type: string
+    JDBCDriver:
+      title: JDBCDriver
+      type: object
+      properties:
+        urlTemplate:
+          type: string
+        name:
+          type: string
+        version:
+          type: string
+    Tag:
+      title: Tag
+      type: object
+      properties:
+        color:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+    Tags:
+      title: Tags
+      type: object
+      properties:
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+    AccessLog:
+      type: object
+      properties:
+        username:
+          type: string
+        timestamp:
+          type: integer
+    OntologyUsageLog:
+      type: object
+      required:
+        - value
+        - property
+      properties:
+        ontology:
+          $ref: '#/components/schemas/OntologyID'
+        count:
+          type: integer
+    QueryUsageLog:
+      type: object
+      properties:
+        username:
+          type: string
+        timestamp:
+          type: integer
+        queryCode:
+          type: string
+    EntityUsageLog:
+      type: object
+      properties:
+        entity:
+          $ref: '#/components/schemas/MWSEntity'
+        count:
+          type: integer

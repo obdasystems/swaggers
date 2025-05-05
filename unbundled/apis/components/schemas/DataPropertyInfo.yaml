@@ -6,19 +6,19 @@ properties:
   subDataProperties:
     type: array
     items:
-      $ref: ./Entity.yaml
+      $ref: ./MWSEntity.yaml
   dataPropertyFunctional:
     type: boolean
-  currentEntity:
-    $ref: ./Entity.yaml
+  currentMWSEntity:
+    $ref: ./MWSEntity.yaml
   equivalentDataProperties:
     type: array
     items:
-      $ref: ./Entity.yaml
+      $ref: ./MWSEntity.yaml
   superDataProperties:
     type: array
     items:
-      $ref: ./Entity.yaml
+      $ref: ./MWSEntity.yaml
   dataPropertyDescriptions:
     type: array
     items:
@@ -26,20 +26,20 @@ properties:
   dataPropertyDomain:
     type: array
     items:
-      $ref: ./Entity.yaml
+      $ref: ./MWSEntity.yaml
   dataPropertyRange:
     type: array
     items:
-      $ref: ./Entity.yaml
+      $ref: ./MWSEntity.yaml
   disjointDataProperties:
     type: array
     items:
-      $ref: ./Entity.yaml
-  entityDiagrams:
+      $ref: ./MWSEntity.yaml
+  MWSEntityDiagrams:
     type: array
     items:
       $ref: ./DiagramNode.yaml
   dataPropertyIndividuals:
     type: array
     items:
-      $ref: ./Entity.yaml
+      $ref: ./MWSEntity.yaml

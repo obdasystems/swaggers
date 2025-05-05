@@ -1,0 +1,2103 @@
+openapi: 3.0.0
+info:
+  description: This is the API for managing Knowledge Graphs in Mastro. Knowledge Graphs are RDF materializations powered by RDF4J.
+  version: 1.0.0
+  title: Grapholscape API model
+  contact:
+    email: info@obdasystems.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+  - url: https://{tenant}/mws/rest/mwsx
+    variables:
+      tenant:
+        default: localhost
+        description: Your localhost
+security:
+  - api-key: []
+  - jwt: []
+paths:
+  /knowledgeGraphs:
+    get:
+      summary: GET mwsx/knowledgeGraphs
+      operationId: get__knowledgeGraphs
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/KnowledgeGraph'
+    post:
+      summary: POST mwsx/knowledgeGraphs
+      operationId: post__knowledgeGraphs
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KnowledgeGraph'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KnowledgeGraph'
+  /knowledgeGraph:
+    delete:
+      summary: DELETE mwsx/knowledgeGraph
+      operationId: delete__knowledgeGraph
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+    get:
+      summary: GET mwsx/knowledgeGraph
+      operationId: get__knowledgeGraph
+      parameters:
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KnowledgeGraph'
+  /knowledgeGraph/info:
+    get:
+      summary: GET mwsx/knowledgeGraph/info
+      operationId: get__knowledgeGraph_info
+      parameters:
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KnowledgeGraph'
+  /knowledgeGraph/prefixes:
+    post:
+      summary: POST mwsx/knowledgeGraph/prefixes
+      operationId: post__knowledgeGraph_prefixes
+      parameters:
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: overwrite
+          in: query
+          required: true
+          schema:
+            type: boolean
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+    get:
+      summary: GET mwsx/knowledgeGraph/prefixes
+      operationId: get__knowledgeGraph_prefixes
+      parameters:
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+  /knowledgeGraph/folder:
+    get:
+      summary: GET mwsx/knowledgeGraph/folder
+      operationId: get__knowledgeGraph_folder
+      parameters:
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+  /knowledgeGraph/status:
+    get:
+      summary: GET mwsx/knowledgeGraph/status
+      operationId: get__knowledgeGraph_status
+      parameters:
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KGStatus'
+  /knowledgeGraph/status/list:
+    get:
+      summary: GET mwsx/knowledgeGraph/status/list
+      operationId: get__knowledgeGraph_status_list
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    type: string
+  /lastLoaded/knowledgeGraph:
+    get:
+      summary: GET mwsx/lastLoaded/knowledgeGraph
+      operationId: get_lastLoaded_knowledgeGraph
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/KGOpeningEvent'
+  /knowledgeGraph/file:
+    put:
+      summary: PUT mwsx/knowledgeGraph/file
+      operationId: patch__knowledgeGraph_file
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KnowledgeGraphFile'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+    delete:
+      summary: DELETE mwsx/knowledgeGraph/file
+      operationId: delete__knowledgeGraph_file
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+    get:
+      summary: GET mwsx/knowledgeGraph/file
+      operationId: get__knowledgeGraph_file
+      parameters:
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: format
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: namedGraph
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: fileName
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileInfo'
+  /knowledgeGraph/classes:
+    get:
+      summary: GET mwsx/knowledgeGraph/classes
+      operationId: get__knowledgeGraph_mentioned_classes
+      parameters:
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: namedGraph
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+  /knowledgeGraph/classes/stats:
+    get:
+      summary: GET mwsx/knowledgeGraph/classes/stats
+      operationId: get__knowledgeGraph_mentioned_classes_stats
+      parameters:
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: namedGraph
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClassStats'
+  /knowledgeGraph/class/instances:
+    get:
+      summary: GET mwsx/knowledgeGraph/class/instances
+      operationId: get__knowledgeGraph_mentioned_instances_by_class
+      parameters:
+        - name: kgIri
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: classIri
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: namedGraph
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: lang
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/InstanceLabelType'
+  /knowledgeGraph/namedGraphs:
+    get:
+      summary: GET mwsx/knowledgeGraph/namedGraphs
+      operationId: get__knowledgeGraph_named_graphs
+      parameters:
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+  /knowledgeGraph/instances:
+    get:
+      summary: GET mwsx/knowledgeGraph/instances
+      operationId: get__knowledgeGraph_instances
+      parameters:
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: namedGraph
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/InstanceLabelType'
+  /knowledgeGraph/union:
+    put:
+      summary: PUT mwsx/knowledgeGraph/union
+      operationId: patch__knowledgeGraph_union
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KnowledgeGraphUnion'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+  /knowledgeGraph/union/ontology:
+    put:
+      summary: PUT mwsx/knowledgeGraph/union/ontology
+      operationId: patch__knowledgeGraph_union_ontology
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KnowledgeGraphOntologyUnion'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+  /knowledgeGraph/union/queryKg:
+    put:
+      summary: PUT mwsx/knowledgeGraph/union/queryKg
+      operationId: patch__knowledgeGraph_union_queryKg
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KnowledgeGraphDestinationQueryKg'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+  /knowledgeGraph/query/catalog:
+    get:
+      summary: GET mwsx/knowledgeGraph/query/catalog
+      operationId: get__knowledgeGraph_query_catalog
+      parameters:
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OBDACatalog'
+    post:
+      summary: POST mwsx/knowledgeGraph/query/catalog
+      operationId: post__knowledgeGraph_query_catalog
+      parameters:
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SPARQLQuery'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+  /knowledgeGraph/query/catalog/export:
+    get:
+      summary: GET mwsx/knowledgeGraph/query/catalog/export
+      operationId: get__knowledgeGraph_query_catalog_export
+      parameters:
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+  /knowledgeGraph/query/catalog/{queryID}:
+    get:
+      summary: GET mwsx/knowledgeGraph/query/catalog/{queryID}
+      operationId: get__knowledgeGraph_query_catalog_queryID
+      parameters:
+        - name: queryID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SPARQLQuery'
+    put:
+      summary: PUT mwsx/knowledgeGraph/query/catalog/{queryID}
+      operationId: put__knowledgeGraph_query_catalog_queryID
+      parameters:
+        - name: queryID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SPARQLQuery'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+    delete:
+      summary: DELETE mwsx/knowledgeGraph/query/catalog/{queryID}
+      operationId: delete__knowledgeGraph_query_catalog_queryID
+      parameters:
+        - name: queryID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+  /knowledgeGraph/query/start:
+    post:
+      summary: POST mwsx/knowledgeGraph/query/start
+      operationId: post__knowledgeGraph_query_start
+      parameters:
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: namedGraph
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SPARQLQuery'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SPARQLQueryExecution'
+  /knowledgeGraph/query/catalog/{queryID}/start:
+    post:
+      summary: POST mwsx/knowledgeGraph/query/catalog/{queryID}/start
+      operationId: post__knowledgeGraph_query_catalog_queryID_start
+      parameters:
+        - name: queryID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: namedGraph
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SPARQLQueryExecution'
+  /knowledgeGraph/query/{queryID}/stop:
+    put:
+      summary: PUT mwsx/knowledgeGraph/query/{queryID}/stop
+      operationId: get__knowledgeGraph_query_executionID_stop
+      parameters:
+        - name: queryID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+  /knowledgeGraph/query/{queryID}/exportResults:
+    get:
+      summary: GET mwsx/knowledgeGraph/query/{queryID}/exportResults
+      operationId: get__knowledgeGraph_query_executionID_exportResults
+      parameters:
+        - name: queryID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: format
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+  /knowledgeGraph/query/{queryID}/status:
+    get:
+      summary: GET mwsx/knowledgeGraph/query/{queryID}/status
+      operationId: get__knowledgeGraph_query_executionID_status
+      parameters:
+        - name: queryID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KGStatus'
+  /knowledgeGraph/query/{queryId}:
+    delete:
+      summary: DELETE mwsx/knowledgeGraph/query/{queryId}
+      operationId: delete__knowledgeGraph_query_executionID_thread
+      parameters:
+        - name: queryId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SPARQLStatus'
+  /knowledgeGraph/query/{queryID}/results:
+    get:
+      summary: GET mwsx/knowledgeGraph/query/{queryID}/results
+      operationId: get__knowledgeGraph_query_executionID_results
+      parameters:
+        - name: queryID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: pagesize
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: offset
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SPARQLResults'
+  /knowledgeGraph/instance/page:
+    get:
+      summary: GET mwsx/knowledgeGraph/instance/page
+      operationId: get__knowledgeGraph_instance_page
+      parameters:
+        - name: instanceIri
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: kgIri
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: namedGraph
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: lang
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InstancePage'
+  /knowledgeGraph/instance/objectType:
+    get:
+      summary: GET mwsx/knowledgeGraph/instance/objectType
+      operationId: get__knowledgeGraph_instance_objectType
+      parameters:
+        - name: kgIri
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: namedGraph
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: object
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: predicate
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: type
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: lang
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectPredicatePageType'
+  /knowledgeGraph/instance/subjectType:
+    get:
+      summary: GET mwsx/knowledgeGraph/instance/subjectType
+      operationId: get__knowledgeGraph_instance_subjectType
+      parameters:
+        - name: kgIri
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: namedGraph
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: subject
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: predicate
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: type
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: lang
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubjectPredicatePageType'
+  /knowledgeGraph/store/file:
+    post:
+      summary: POST mwsx/knowledgeGraph/store/file
+      operationId: post__knowledgeGraph_store_file
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileInfo'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+    get:
+      summary: GET mwsx/knowledgeGraph/store/file
+      operationId: get__knowledgeGraph_store_files
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/KGStoreFileInfoEntry'
+  /knowledgeGraph/store/file/{name}:
+    delete:
+      summary: DELETE mwsx/knowledgeGraph/store/file/{name}
+      operationId: delete__knowledgeGraph_store_file
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+    get:
+      summary: GET mwsx/knowledgeGraph/store/file/{name}
+      operationId: get__knowledgeGraph_store_file
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KGStoreFileInfoEntry'
+  /knowledgeGraph/upload/file:
+    post:
+      summary: POST mwsx/knowledgeGraph/upload/file
+      operationId: post__knowledgeGraph_upload_file
+      parameters:
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileInfo'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+  /knowledgeGraph/upload/import:
+    put:
+      summary: PUT mwsx/knowledgeGraph/upload/import
+      operationId: put__knowledgeGraph_upload_import
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KnowledgeGraphFileDestination'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+  /knowledgeGraph/delete/file:
+    delete:
+      summary: DELETE mwsx/knowledgeGraph/delete/file
+      operationId: delete__knowledgeGraph_delete_file
+      parameters:
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+  /knowledgeGraph/delete/file/triples:
+    delete:
+      summary: DELETE mwsx/knowledgeGraph/delete/file/triples
+      operationId: delete__knowledgeGraph_delete_file_triples
+      parameters:
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: namedGraph
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+  /knowledgeGraph/upload/remove:
+    delete:
+      summary: DELETE mwsx/knowledgeGraph/upload/remove
+      operationId: delete__knowledgeGraph_upload_remove
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+  /knowledgeGraph/upload/files:
+    get:
+      summary: GET mwsx/knowledgeGraph/upload/files
+      operationId: get__knowledgeGraph_upload_files
+      parameters:
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/KnowledgeGraphFileInfo'
+  /knowledgeGraph/union/queryOBDA:
+    put:
+      summary: PUT mwsx/knowledgeGraph/union/queryOBDA
+      operationId: put__knowledgeGraph_union_queryOBDA
+      parameters:
+        - name: fileName
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: uploadOnly
+          in: query
+          required: true
+          schema:
+            type: boolean
+        - name: endpointName
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KnowledgeGraphDestinationQueryOBDA'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+  /knowledgeGraph/upload/file/csv:
+    post:
+      summary: POST mwsx/knowledgeGraph/upload/file/csv
+      operationId: post__knowledgeGraph_upload_file_csv
+      parameters:
+        - name: hasHeadersRow
+          in: query
+          required: true
+          schema:
+            type: boolean
+        - name: csvSeparator
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: quoteChar
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: escapeChar
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: eolSequence
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileInfo'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+  /knowledgeGraph/upload/files/csv:
+    get:
+      summary: GET mwsx/knowledgeGraph/upload/files/csv
+      operationId: get__knowledgeGraph_upload_file_csv
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/KnowledgeGraphFileInfo'
+  /knowledgeGraph/delete/file/csv/{fileName}:
+    delete:
+      summary: DELETE mwsx/knowledgeGraph/delete/file/csv/{fileName}
+      operationId: delete__knowledgeGraph_upload_file_csv
+      parameters:
+        - name: fileName
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+  /knowledgeGraph/file/csv/{fileName}/preview:
+    get:
+      summary: GET mwsx/knowledgeGraph/file/csv/{fileName}/preview
+      operationId: get__knowledgeGraph_upload_file_csv_preview
+      parameters:
+        - name: fileName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: lines
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CsvPreview'
+  /knowledgeGraph/upload/import/csv:
+    put:
+      summary: PUT mwsx/knowledgeGraph/upload/import/csv
+      operationId: put__knowledgeGraph_upload_file_csv_import
+      parameters:
+        - name: synchronousMode
+          in: query
+          required: true
+          schema:
+            type: boolean
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CsvImportInfo'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+  /knowledgeGraph/upload/import/threads:
+    get:
+      summary: GET mwsx/knowledgeGraph/upload/import/threads
+      operationId: get__knowledgeGraph_upload_file_csv_import
+      parameters:
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/KgCsvImportReport'
+  /knowledgeGraph/upload/import/thread:
+    get:
+      summary: GET mwsx/knowledgeGraph/upload/import/thread
+      operationId: get__knowledgeGraph_upload_file_csv_import_thread
+      parameters:
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: threadId
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: fileName
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KgCsvImportReport'
+    delete:
+      summary: DELETE mwsx/knowledgeGraph/upload/import/thread
+      operationId: delete__knowledgeGraph_upload_file_csv_import_thread
+      parameters:
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: threadId
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KgCsvImportReport'
+components:
+  securitySchemes:
+    api-key:
+      type: apiKey
+      in: header
+      name: X-MONOLITH-SESSION-ID
+      description: |
+        This session ID is generated from Basic Authentication on the login route.
+    jwt:
+      description: |
+        Generate your JWT when you log in. JWT configurations should be placed in `$MASTRO_HOME/config/mastro.jwt` file
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Label:
+      title: Label
+      type: object
+      properties:
+        lang:
+          type: string
+        content:
+          type: string
+    Agent:
+      title: Agent
+      type: object
+      properties:
+        agentAddress:
+          type: string
+        agentEmail:
+          type: string
+        agentLabels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Label'
+        agentWebsite:
+          type: string
+        agentIri:
+          type: string
+    Permission:
+      title: Permission
+      type: object
+      properties:
+        domain:
+          type: string
+        action:
+          type: string
+        id:
+          type: string
+    Role:
+      title: Role
+      type: object
+      properties:
+        permissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Permission'
+        name:
+          type: string
+    User:
+      title: User
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Role'
+        name:
+          type: string
+        email:
+          type: string
+    KnowledgeGraph:
+      title: KnowledgeGraph
+      type: object
+      properties:
+        kgDescriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Label'
+        kgTitle:
+          type: array
+          items:
+            $ref: '#/components/schemas/Label'
+        kgRightsHolder:
+          $ref: '#/components/schemas/Agent'
+        kgIri:
+          type: string
+        kgCreator:
+          $ref: '#/components/schemas/User'
+        kgPublisher:
+          $ref: '#/components/schemas/Agent'
+        kgTriples:
+          type: integer
+          format: int64
+        kgContributors:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+        kgCreationTs:
+          type: integer
+          format: int64
+        kgLastModifiedTs:
+          type: integer
+          format: int64
+    KGStatus:
+      title: KGStatus
+      type: object
+      properties:
+        modelsNumber:
+          type: integer
+          format: int32
+        triplesNumber:
+          type: integer
+          format: int32
+        status:
+          type: string
+    KGOpeningEvent:
+      title: KGOpeningEvent
+      type: object
+      properties:
+        iri:
+          type: string
+        timestamp:
+          type: integer
+          format: int64
+    FileInfo:
+      title: FileInfo
+      type: object
+      properties:
+        fileName:
+          type: string
+        fileType:
+          type: string
+        content:
+          type: string
+    KnowledgeGraphDestination:
+      title: KnowledgeGraphDestination
+      type: object
+      properties:
+        namedGraph:
+          type: string
+        destination:
+          type: string
+    KnowledgeGraphFile:
+      title: KnowledgeGraphFile
+      type: object
+      properties:
+        file:
+          $ref: '#/components/schemas/FileInfo'
+        destination:
+          $ref: '#/components/schemas/KnowledgeGraphDestination'
+    ClassStats:
+      title: ClassStats
+      type: object
+      properties:
+        instancesNumber:
+          type: integer
+          format: int32
+        classIri:
+          type: string
+    InstanceLabelType:
+      title: InstanceLabelType
+      type: object
+      properties:
+        description:
+          type: string
+        iri_short:
+          type: string
+        label:
+          type: string
+        type:
+          type: string
+        type_short:
+          type: string
+    KnowledgeGraphUnion:
+      title: KnowledgeGraphUnion
+      type: object
+      properties:
+        sourceKg:
+          type: string
+        target:
+          $ref: '#/components/schemas/KnowledgeGraphDestination'
+    MWSEntity:
+      title: MWSEntity
+      type: object
+      properties:
+        entityLabels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Label'
+        isDeprecated:
+          type: boolean
+        entityIRI:
+          type: string
+        entityType:
+          type: string
+        entityPrefixIRI:
+          type: string
+        entityRemainder:
+          type: string
+        entityID:
+          type: string
+    OntologyCatalog:
+      title: OntologyCatalog
+      type: object
+      properties:
+        ontologyDataProperties:
+          type: array
+          items:
+            $ref: '#/components/schemas/MWSEntity'
+        ontologyObjectProperties:
+          type: array
+          items:
+            $ref: '#/components/schemas/MWSEntity'
+        ontologyIndividuals:
+          type: array
+          items:
+            $ref: '#/components/schemas/MWSEntity'
+        ontologyClasses:
+          type: array
+          items:
+            $ref: '#/components/schemas/MWSEntity'
+    IRI:
+      title: IRI
+      type: object
+      properties:
+        shortIRI:
+          type: string
+        extendedIRI:
+          type: string
+    Entity:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - class
+            - objectProperty
+            - inverseObjectProperty
+            - dataProperty
+            - annotation
+        iri:
+          type: string
+        prefixedIri:
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+    DiagramNode:
+      title: DiagramNode
+      type: object
+      properties:
+        diagramName:
+          type: string
+        nodeID:
+          type: string
+    IndividualInfo:
+      title: IndividualInfo
+      type: object
+      properties:
+        iri:
+          $ref: '#/components/schemas/IRI'
+        currentEntity:
+          $ref: '#/components/schemas/Entity'
+        individualTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Entity'
+        differentIndividuals:
+          type: array
+          items:
+            $ref: '#/components/schemas/Entity'
+        entityDiagrams:
+          type: array
+          items:
+            $ref: '#/components/schemas/DiagramNode'
+        sameIndividuals:
+          type: array
+          items:
+            $ref: '#/components/schemas/Entity'
+        individualDescriptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Label'
+    IndividualInfos:
+      title: IndividualInfos
+      type: object
+      properties:
+        individualInfos:
+          type: array
+          items:
+            $ref: '#/components/schemas/IndividualInfo'
+    OntologyVersion:
+      title: OntologyVersion
+      type: object
+      properties:
+        versionDescription:
+          type: array
+          items:
+            $ref: '#/components/schemas/Label'
+        numAxioms:
+          type: integer
+          format: int32
+        numIndividuals:
+          type: integer
+          format: int32
+        catalog:
+          $ref: '#/components/schemas/OntologyCatalog'
+        isGraphol:
+          type: boolean
+        individualInfos:
+          $ref: '#/components/schemas/IndividualInfos'
+        numObjectProperties:
+          type: integer
+          format: int32
+        numDataProperties:
+          type: integer
+          format: int32
+        versionDate:
+          type: integer
+          format: int64
+        numClasses:
+          type: integer
+          format: int32
+        versionID:
+          type: string
+        ontologyID:
+          type: string
+        isGScape:
+          type: boolean
+        versionOwner:
+          $ref: '#/components/schemas/User'
+    KnowledgeGraphOntologyUnion:
+      title: KnowledgeGraphOntologyUnion
+      type: object
+      properties:
+        source:
+          $ref: '#/components/schemas/OntologyVersion'
+        target:
+          $ref: '#/components/schemas/KnowledgeGraphDestination'
+    SPARQLQueryExecution:
+      title: SPARQLQueryExecution
+      type: object
+      properties:
+        queryID:
+          type: string
+    KgConstructResults:
+      title: KgConstructResults
+      type: object
+      properties:
+        execution:
+          $ref: '#/components/schemas/SPARQLQueryExecution'
+        source:
+          type: string
+    KnowledgeGraphDestinationQueryKg:
+      title: KnowledgeGraphDestinationQueryKg
+      type: object
+      properties:
+        source:
+          $ref: '#/components/schemas/KgConstructResults'
+        target:
+          $ref: '#/components/schemas/KnowledgeGraphDestination'
+    ChartConfiguration:
+      title: ChartConfiguration
+      type: object
+      properties:
+        yVariables:
+          type: array
+          items:
+            type: string
+        series:
+          type: string
+        xVariable:
+          type: string
+        chartType:
+          type: string
+        cutoff:
+          type: integer
+          format: int32
+    Tag:
+      title: Tag
+      type: object
+      properties:
+        color:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+    VirtualEntityQueryInfos:
+      title: VirtualEntityQueryInfos
+      type: object
+      properties:
+        virtualEntityname:
+          type: string
+        idSelection:
+          type: string
+        fieldFilters:
+          type: object
+          additionalProperties:
+            type: string
+    SPARQLQuery:
+      title: SPARQLQuery
+      type: object
+      properties:
+        selectedMappingIds:
+          type: array
+          items:
+            type: string
+        chartConfiguration:
+          $ref: '#/components/schemas/ChartConfiguration'
+        languages:
+          type: string
+        mappingParameters:
+          type: object
+          additionalProperties:
+            type: string
+        semantics:
+          type: string
+        constructCode:
+          type: string
+        queryTags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+        queryDescription:
+          type: string
+        queryID:
+          type: string
+        queryCode:
+          type: string
+        isConstruct:
+          type: boolean
+        constructResultsRDFSyntax:
+          type: string
+        virtualEntityQueryInfos:
+          $ref: '#/components/schemas/VirtualEntityQueryInfos'
+    OBDACatalog:
+      title: OBDACatalog
+      type: object
+      properties:
+        queryCatalog:
+          type: array
+          items:
+            $ref: '#/components/schemas/SPARQLQuery'
+    SPARQLStatus:
+      title: SPARQLStatus
+      type: object
+      properties:
+        executionTime:
+          type: integer
+          format: int32
+        errorMessages:
+          type: array
+          items:
+            type: string
+        percentage:
+          type: integer
+          format: int32
+        numLowLevelQueries:
+          type: integer
+          format: int32
+        numResults:
+          type: integer
+          format: int32
+        numOntologyRewritings:
+          type: integer
+          format: int32
+        numOptimizedQueries:
+          type: integer
+          format: int32
+        hasError:
+          type: boolean
+        numHighLevelQueries:
+          type: integer
+          format: int32
+        status:
+          type: string
+    SPARQLResult:
+      title: SPARQLResult
+      type: object
+      properties:
+        shortIRI:
+          type: string
+        type:
+          type: string
+        lang:
+          type: string
+        value:
+          type: string
+    SPARQLResults:
+      title: SPARQLResults
+      type: object
+      properties:
+        headTerms:
+          type: array
+          items:
+            type: string
+        headTypes:
+          type: object
+        construct:
+          type: boolean
+        results:
+          type: array
+          items:
+            type: array
+            items:
+              $ref: '#/components/schemas/SPARQLResult'
+    ObjectLiteral:
+      title: ObjectLiteral
+      type: object
+      properties:
+        object_literal:
+          type: string
+    SubjectDataProperty:
+      title: SubjectDataProperty
+      type: object
+      properties:
+        predicate:
+          type: string
+        objects:
+          type: array
+          items:
+            $ref: '#/components/schemas/ObjectLiteral'
+        predicate_short:
+          type: string
+        instance_count:
+          type: integer
+          format: int32
+        page_count:
+          type: integer
+          format: int32
+    ObjectType:
+      title: ObjectType
+      type: object
+      properties:
+        object_type:
+          type: string
+        object_type_short:
+          type: string
+        instance_count:
+          type: integer
+          format: int32
+        page_count:
+          type: integer
+          format: int32
+    SubjectObjectProperty:
+      title: SubjectObjectProperty
+      type: object
+      properties:
+        predicate:
+          type: string
+        objects_types:
+          type: array
+          items:
+            $ref: '#/components/schemas/ObjectType'
+        predicate_short:
+          type: string
+        instance_count:
+          type: integer
+          format: int32
+        page_count:
+          type: integer
+          format: int32
+    InstanceSubjectTripsGroup:
+      title: InstanceSubjectTripsGroup
+      type: object
+      properties:
+        subject_data_properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubjectDataProperty'
+        subject_object_properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubjectObjectProperty'
+    SubjectType:
+      title: SubjectType
+      type: object
+      properties:
+        subject_type:
+          type: string
+        subject_type_short:
+          type: string
+        instance_count:
+          type: integer
+          format: int32
+        page_count:
+          type: integer
+          format: int32
+    ObjectTriple:
+      title: ObjectTriple
+      type: object
+      properties:
+        predicate:
+          type: string
+        subjects_types:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubjectType'
+        predicate_short:
+          type: string
+        instance_count:
+          type: integer
+          format: int32
+        page_count:
+          type: integer
+          format: int32
+    InstanceObjectTripsGroup:
+      title: InstanceObjectTripsGroup
+      type: object
+      properties:
+        object_triples:
+          type: array
+          items:
+            $ref: '#/components/schemas/ObjectTriple'
+    InstancePage:
+      title: InstancePage
+      type: object
+      properties:
+        subjects:
+          $ref: '#/components/schemas/InstanceSubjectTripsGroup'
+        objects:
+          $ref: '#/components/schemas/InstanceObjectTripsGroup'
+        title:
+          $ref: '#/components/schemas/InstanceLabelType'
+    Subject:
+      title: Subject
+      type: object
+      properties:
+        subject_resource:
+          type: string
+        subject_label:
+          type: string
+        subject_resource_short:
+          type: string
+    ObjectTriplePage:
+      title: ObjectTriplePage
+      type: object
+      properties:
+        predicate:
+          type: string
+        subjects:
+          type: array
+          items:
+            $ref: '#/components/schemas/Subject'
+        predicate_short:
+          type: string
+    ObjectPredicatePageType:
+      title: ObjectPredicatePageType
+      type: object
+      properties:
+        object_triples:
+          type: array
+          items:
+            $ref: '#/components/schemas/ObjectTriplePage'
+    SubjectDataPropertyPage:
+      title: SubjectDataPropertyPage
+      type: object
+      properties: {}
+    ObjectProperty:
+      title: ObjectProperty
+      type: object
+      properties:
+        object_resource_short:
+          type: string
+        object_resource:
+          type: string
+        object_label:
+          type: string
+    SubjectObjectPropertyPage:
+      title: SubjectObjectPropertyPage
+      type: object
+      properties:
+        predicate:
+          type: string
+        objects:
+          type: array
+          items:
+            $ref: '#/components/schemas/ObjectProperty'
+        predicate_short:
+          type: string
+    SubjectPredicatePageType:
+      title: SubjectPredicatePageType
+      type: object
+      properties:
+        subject_data_properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubjectDataPropertyPage'
+        subject_object_properties:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubjectObjectPropertyPage'
+    KGStoreFileInfoEntry:
+      title: KGStoreFileInfoEntry
+      type: object
+      properties:
+        originalFileName:
+          type: string
+        fileName:
+          type: string
+        userName:
+          type: string
+        timestamp:
+          type: integer
+          format: int64
+    KnowledgeGraphFileDestination:
+      title: KnowledgeGraphFileDestination
+      type: object
+      properties:
+        fileNames:
+          type: array
+          items:
+            type: string
+        kgDestination:
+          $ref: '#/components/schemas/KnowledgeGraphDestination'
+    KnowledgeGraphFileInfo:
+      title: KnowledgeGraphFileInfo
+      type: object
+      properties:
+        numberOfTriples:
+          type: integer
+          format: int64
+        fileName:
+          type: string
+        uploadDate:
+          type: integer
+          format: int64
+        importingTime:
+          type: integer
+          format: int64
+        imported:
+          type: boolean
+    OntologyID:
+      title: OntologyID
+      type: object
+      properties:
+        ontologyVersion:
+          type: string
+        ontologyName:
+          type: string
+    MastroID:
+      title: MastroID
+      type: object
+      properties:
+        mappingID:
+          type: string
+        datasourceID:
+          type: string
+        avpID:
+          type: string
+        ontologyID:
+          $ref: '#/components/schemas/OntologyID'
+    OBDAConstructResults:
+      title: OBDAConstructResults
+      type: object
+      properties:
+        execution:
+          $ref: '#/components/schemas/SPARQLQueryExecution'
+        source:
+          $ref: '#/components/schemas/MastroID'
+    KnowledgeGraphDestinationQueryOBDA:
+      title: KnowledgeGraphDestinationQueryOBDA
+      type: object
+      properties:
+        source:
+          $ref: '#/components/schemas/OBDAConstructResults'
+        target:
+          $ref: '#/components/schemas/KnowledgeGraphDestination'
+    CsvPreview:
+      title: CsvPreview
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: array
+            items:
+              type: string
+        columns:
+          type: array
+          items:
+            type: string
+    CsvImportInfo:
+      title: CsvImportInfo
+      type: object
+      properties:
+        fileName:
+          type: string
+        constructTemplate:
+          type: string
+        kgDestination:
+          $ref: '#/components/schemas/KnowledgeGraphDestination'
+    KgCsvImportReport:
+      title: KgCsvImportReport
+      type: object
+      properties:
+        csvImportThreadId:
+          type: string
+        csvImportThreadState:
+          type: string
+        csvImportInfo:
+          $ref: '#/components/schemas/CsvImportInfo'
+        csvColumnNames:
+          type: array
+          items:
+            type: string
+        triplesCreatedCount:
+          type: integer
+        csvLinesProcessedCount:
+          type: integer
+        csvLinesImportedCount:
+          type: integer
+        csvLinesErrorCount:
+          type: integer
+        rejectedLines:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+        rejectedLineErrorMessages:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+        mainError:
+          type: object
+        timeStart:
+          type: integer
+        timeEnd:
+          type: integer
+        generatedTriplesFile:
+          type: string
+        numberOfTriplesPerLine:
+          type: integer

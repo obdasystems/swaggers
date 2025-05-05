@@ -8,11 +8,11 @@ properties:
     type: integer
     format: int32
   property:
-    $ref: ./Entity.yaml
+    $ref: ./MWSEntity.yaml
   direct:
     type: boolean
   filler:
-    $ref: ./Entity.yaml
+    $ref: ./MWSEntity.yaml
   EXACT_CARDINALITY_TYPE:
     type: integer
     format: int32

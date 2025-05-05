@@ -4,6 +4,6 @@ properties:
   inverse:
     type: boolean
   property:
-    $ref: ./Entity.yaml
+    $ref: ./MWSEntity.yaml
   filler:
-    $ref: ./Entity.yaml
+    $ref: ./MWSEntity.yaml

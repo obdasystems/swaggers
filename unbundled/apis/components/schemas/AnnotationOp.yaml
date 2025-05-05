@@ -1,9 +1,0 @@
-title: AnnotationOp
-type: object
-properties:
-  subject:
-    $ref: ./Annotation.yaml
-  entity:
-    $ref: ./Entity.yaml
-  previousState:
-    $ref: ./Annotation.yaml
