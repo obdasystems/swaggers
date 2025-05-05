@@ -23,7 +23,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/DataQualityCheckSet.yaml
 delete:
   summary: DELETE mwsx/owlOntology/{name}/version/ontologyConstraints/set/{setId}
   operationId: delete_ontologyConstraints_check_set_setId
@@ -49,10 +49,10 @@ delete:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/DataQualityCheckSet.yaml
 put:
   summary: PUT mwsx/owlOntology/{name}/version/ontologyConstraints/set/{setId}
-  operationId: put_ontologyConstraints_check_start
+  operationId: put_ontologyConstraints_check
   parameters:
     - name: name
       in: path
@@ -81,4 +81,4 @@ put:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/DataQualityCheckSet.yaml

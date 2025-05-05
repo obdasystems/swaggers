@@ -24,7 +24,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: boolean
 get:
   summary: GET mwsx/owlOntology/{name}/version/ontologyConstraints/set
   operationId: get_ontologyConstraints_check_sets
@@ -45,4 +45,6 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: array
+            items: 
+              $ref: ../components/schemas/DataQualityCheckSet.yaml
