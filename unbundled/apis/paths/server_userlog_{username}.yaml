@@ -1,6 +1,6 @@
 get:
   summary: GET mwsx/server/userlog/{username}
-  operationId: get_userlog_count
+  operationId: get_userlog_count_user
   parameters:
     - name: username
       in: path
@@ -25,4 +25,6 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: object
+            additionalProperties: 
+              $ref: ../components/schemas/MwsxUserLogMessage.yaml

@@ -19,7 +19,7 @@ put:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/GeocodingServers.yaml
 delete:
   summary: DELETE mwsx/geocoding/server/{serverId}
   operationId: delete_geocoding_server
@@ -35,4 +35,4 @@ delete:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/GeocodingServers.yaml

@@ -7,7 +7,9 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: array
+            items: 
+              $ref: ../components/schemas/OntologyUsageLog.yaml
 post:
   summary: POST mwsx/statistics/ontologies
   operationId: post_ontologies_statistics
@@ -25,7 +27,9 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: array
+            items:
+              $ref: ../components/schemas/OntologyUsageLog.yaml
 put:
   summary: PUT mwsx/statistics/ontologies
   operationId: put_ontologies_statistics
@@ -43,7 +47,9 @@ put:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: array
+            items:
+              $ref: ../components/schemas/OntologyUsageLog.yaml
 delete:
   summary: DELETE mwsx/statistics/ontologies
   operationId: delete_ontologies_statistics
@@ -53,4 +59,6 @@ delete:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: array
+            items:
+              $ref: ../components/schemas/OntologyUsageLog.yaml

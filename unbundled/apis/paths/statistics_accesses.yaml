@@ -7,7 +7,9 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: array
+            items: 
+              $ref: ../components/schemas/AccessLog.yaml
 post:
   summary: POST mwsx/statistics/accesses
   operationId: post_accesses_statistics
@@ -25,7 +27,9 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: array
+            items: 
+              $ref: ../components/schemas/AccessLog.yaml
 put:
   summary: PUT mwsx/statistics/accesses
   operationId: put_accesses_statistics
@@ -43,7 +47,9 @@ put:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: array
+            items: 
+              $ref: ../components/schemas/AccessLog.yaml
 delete:
   summary: DELETE mwsx/statistics/accesses
   operationId: delete_accesses_statistics
@@ -53,4 +59,7 @@ delete:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: array
+            items: 
+              $ref: ../components/schemas/AccessLog.yaml
+              

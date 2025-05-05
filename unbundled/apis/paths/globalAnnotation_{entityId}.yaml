@@ -13,4 +13,6 @@ delete:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: array
+            items: 
+              $ref: ../components/schemas/MWSEntity.yaml

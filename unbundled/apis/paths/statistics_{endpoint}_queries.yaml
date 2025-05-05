@@ -13,7 +13,9 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: array
+            items: 
+              $ref: ../components/schemas/QueryUsageLog.yaml
 post:
   summary: POST mwsx/statistics/{endpoint}/queries
   operationId: post_statistics_endpoint_queries
@@ -37,7 +39,9 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: array
+            items: 
+              $ref: ../components/schemas/QueryUsageLog.yaml
 put:
   summary: PUT mwsx/statistics/{endpoint}/queries
   operationId: put_statistics_endpoint_queries
@@ -61,7 +65,9 @@ put:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: array
+            items: 
+              $ref: ../components/schemas/QueryUsageLog.yaml
 delete:
   summary: DELETE mwsx/statistics/{endpoint}/queries
   operationId: delete_statistics_endpoint_queries
@@ -77,4 +83,6 @@ delete:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: array
+            items: 
+              $ref: ../components/schemas/QueryUsageLog.yaml

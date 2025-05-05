@@ -13,7 +13,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/JDBCDriver.yaml
 delete:
   summary: DELETE mwsx/system/jdbcDriver/{driver}
   operationId: DELETEJdbcDrivers
@@ -29,7 +29,7 @@ delete:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/JDBCDriver.yaml
 put:
   summary: PUT mwsx/system/jdbcDriver/{driver}
   operationId: putJdbcDrivers
@@ -51,4 +51,4 @@ put:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/JDBCDriver.yaml

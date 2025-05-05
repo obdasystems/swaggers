@@ -103,6 +103,8 @@ paths:
     $ref: paths/owlOntology_{name}_version_metadata.yaml
   /owlOntology/{name}/version/metadata/missing:
     $ref: paths/owlOntology_{name}_version_metadata_missing.yaml
+  /owlOntology/queries/publicationRequests:
+    $ref: paths/owlOntology_queries_publicationRequests.yaml
 components: 
   securitySchemes: 
     api-key: 

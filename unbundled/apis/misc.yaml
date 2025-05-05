@@ -16,8 +16,6 @@ info:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
 paths:
-  /owlOntology/sparqling/test:
-    $ref: paths/owlOntology_sparqling_test.yaml
   /log/{env}/{mode}:
     $ref: paths/log_{env}_{mode}.yaml
   /mastro/version:
@@ -78,14 +76,6 @@ paths:
     $ref: paths/logger_list.yaml
   /logger/monitor:
     $ref: paths/logger_monitor.yaml
-  /testpath:
-    $ref: paths/testpath.yaml
-  /error:
-    $ref: paths/error.yaml
-  /poststringasbody:
-    $ref: paths/poststringasbody.yaml
-  /statics/queryGenerator/:
-    $ref: paths/statics_queryGenerator_.yaml
   /statics/sparql/extractProjectVarNames:
     $ref: paths/statics_sparql_extractProjectVarNames.yaml
   /statics/sparql/templateSize:
@@ -102,8 +92,6 @@ paths:
     $ref: paths/queryTags.yaml
   /queryTags/{tagName}:
     $ref: paths/queryTags_{tagName}.yaml
-  /owlOntology/queries/publicationRequests:
-    $ref: paths/owlOntology_queries_publicationRequests.yaml
   /statistics/accesses:
     $ref: paths/statistics_accesses.yaml
   /statistics/ontologies:

@@ -1,6 +1,6 @@
 get:
   summary: GET mwsx/resources/ontology/{name}/version/mappings
-  operationId: get__resources_ids
+  operationId: get__resources_ids_mappings
   parameters:
     - name: name
       in: path
@@ -18,4 +18,6 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: array
+            items: 
+              type: string
