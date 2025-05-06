@@ -1,5 +1,5 @@
 get:
-  summary: GET mwsx/owlOntology/{name}/version/vkg/node-rendering
+  summary: Returns the default VKG node rendering for the ontology version
   operationId: get_default_node_rendering
   parameters:
     - name: name
@@ -18,9 +18,9 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/CustomNodeRenderingMap.yaml
 post:
-  summary: POST mwsx/owlOntology/{name}/version/vkg/node-rendering
+  summary: Set a default VKG node rendering for the ontology version
   operationId: post_default_node_rendering
   parameters:
     - name: name
@@ -37,7 +37,7 @@ post:
     content:
       application/json:
         schema:
-          type: string
+          $ref: ../components/schemas/CustomNodeRenderingMap.yaml
     required: true
   responses:
     '200':
@@ -45,9 +45,9 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/CustomNodeRenderingMap.yaml
 put:
-  summary: PUT mwsx/owlOntology/{name}/version/vkg/node-rendering
+  summary: Modifies the default VKG node rendering for the ontology version
   operationId: put_default_node_rendering
   parameters:
     - name: name
@@ -64,7 +64,7 @@ put:
     content:
       application/json:
         schema:
-          type: string
+          $ref: ../components/schemas/CustomNodeRenderingMap.yaml
     required: true
   responses:
     '200':
@@ -72,7 +72,7 @@ put:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/CustomNodeRenderingMap.yaml
 delete:
   summary: DELETE mwsx/owlOntology/{name}/version/vkg/node-rendering
   operationId: delete_vkg_node_rendering
@@ -90,7 +90,3 @@ delete:
   responses:
     '200':
       description: OK
-      content:
-        application/json:
-          schema:
-            $ref: ../components/schemas/Response.yaml

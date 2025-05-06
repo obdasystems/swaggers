@@ -1,0 +1,892 @@
+openapi: 3.0.0
+info:
+  description: This is the API for managing virtual knowledge graphs VKGs. VKGs are  crwated by exploring the data through the interface and then saved through this API.
+  version: 1.0.0
+  title: VKG API model
+  contact:
+    email: info@obdasystems.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+  - url: https://{tenant}/mws/rest/mwsx
+    variables:
+      tenant:
+        default: localhost
+        description: Your localhost
+security:
+  - api-key: []
+  - jwt: []
+paths:
+  /owlOntology/{name}/version/vkg/catalog:
+    get:
+      summary: Get the VKG Snaphot catalog for a given ontology (name, version)
+      operationId: get_vkg_snapshots
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VKGSnapshot'
+    post:
+      summary: Save a new VKG Snaphot in the catalog for a given ontology (name, version).
+      operationId: post_vkg_snapshot
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VKGSnapshot'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VKGSnapshot'
+    delete:
+      summary: DELETE the entire VKG Snapshot catalog for a given ontology (name, version)
+      operationId: delete_vkg_snapshots
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VKGSnapshot'
+  /owlOntology/{name}/version/vkg/catalog/{snapshotId}:
+    put:
+      summary: Overwrite a VKG Snapshot (given its snapshotId) in the catalog for a given ontology (name, version)
+      operationId: put_vkg_snapshot
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: snapshotId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VKGSnapshot'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VKGSnapshot'
+    delete:
+      summary: Delete a given VKG Snapshot from catalog for a given ontology (name, version)
+      operationId: delete_vkg_snapshot
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: snapshotId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VKGSnapshot'
+  /owlOntology/{name}/version/vkg/catalog/export:
+    get:
+      summary: Get the entire VKG Snapshot catalog for a given ontology (name, version) as a file
+      operationId: export_vkg_snapshots
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileInfo'
+  /owlOntology/{name}/version/vkg/catalog/import:
+    post:
+      summary: Upload the JSON file of a VKG Snapshot catalog for a given ontology (name, version)
+      operationId: import_vkg_snapshots
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: additive
+          in: query
+          required: true
+          schema:
+            type: boolean
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileInfo'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileInfo'
+  /owlOntology/{name}/version/vkg/node-rendering:
+    get:
+      summary: Returns the default VKG node rendering for the ontology version
+      operationId: get_default_node_rendering
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomNodeRenderingMap'
+    post:
+      summary: Set a default VKG node rendering for the ontology version
+      operationId: post_default_node_rendering
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomNodeRenderingMap'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomNodeRenderingMap'
+    put:
+      summary: Modifies the default VKG node rendering for the ontology version
+      operationId: put_default_node_rendering
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomNodeRenderingMap'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomNodeRenderingMap'
+    delete:
+      summary: DELETE mwsx/owlOntology/{name}/version/vkg/node-rendering
+      operationId: delete_vkg_node_rendering
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+components:
+  securitySchemes:
+    api-key:
+      type: apiKey
+      in: header
+      name: X-MONOLITH-SESSION-ID
+      description: |
+        This session ID is generated from Basic Authentication on the login route.
+    jwt:
+      description: |
+        Generate your JWT when you log in. JWT configurations should be placed in `$MASTRO_HOME/config/mastro.jwt` file
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    TypesEnum:
+      description: |-
+        Contiene tutti i tipi di nodi/archi orginirari dal Graphol per evitare di duplicare gli enumeratori. Nella rappresentazione Floaty/vkg vengono usati questi valori.
+        NODI class data-property class-instance (vkg) individual (floaty) union disjoint-union iri (floaty iri range di annotazioni che non sono entità)
+        ARCHI object-property annotation-property instance-of input inclusion equivalence attribute-edge union disjoint-union complete-union complete-disjoint-union
+      type: string
+      enum:
+        - class
+        - object-property
+        - data-property
+        - annotation-property
+        - individual
+        - class-instance
+        - domain-restriction
+        - range-restriction
+        - union
+        - complete-union
+        - disjoint-union
+        - complete-disjoint-union
+        - complement
+        - intersection
+        - enumeration
+        - has-key
+        - role-inverse
+        - role-chain
+        - datatype-restriction
+        - value-domain
+        - property-assertion
+        - literal
+        - facet
+        - neutral
+        - value
+        - inclusion
+        - equivalence
+        - instance-of
+        - input
+        - same
+        - different
+        - membership
+        - attribute-edge
+        - iri
+    Element:
+      type: object
+      required:
+        - id
+        - type
+      properties:
+        id:
+          type: string
+        originalId:
+          type: string
+          description: In case of replicated elements, this is the ID of the original element replicated in multiple occurrences, all of them with different IDs
+        diagramId:
+          type: integer
+        displayedName:
+          type: string
+        iri:
+          type: string
+        type:
+          $ref: '#/components/schemas/TypesEnum'
+    Position:
+      type: object
+      required:
+        - x
+        - 'y'
+      properties:
+        x:
+          type: number
+          format: float
+        'y':
+          type: number
+          format: float
+    Node:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Element'
+        - type: object
+          properties:
+            position:
+              $ref: '#/components/schemas/Position'
+            labelPosition:
+              $ref: '#/components/schemas/Position'
+            geoPosition:
+              $ref: '#/components/schemas/Position'
+    Edge:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Element'
+        - type: object
+          required:
+            - sourceId
+            - targetId
+          properties:
+            sourceId:
+              type: string
+            targetId:
+              type: string
+            breakpoints:
+              type: array
+              items:
+                $ref: '#/components/schemas/Position'
+            domainTyped:
+              type: boolean
+              default: true
+            rangeTyped:
+              type: boolean
+              default: true
+            domainMandatory:
+              type: boolean
+              default: false
+            rangeMandatory:
+              type: boolean
+              default: false
+    Viewport:
+      type: object
+      required:
+        - pan
+        - zoom
+      properties:
+        pan:
+          $ref: '#/components/schemas/Position'
+        zoom:
+          type: number
+          format: float
+    Diagram:
+      type: object
+      required:
+        - id
+        - name
+        - elements
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        nodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Node'
+        edges:
+          type: array
+          items:
+            $ref: '#/components/schemas/Edge'
+        lastViewportState:
+          $ref: '#/components/schemas/Viewport'
+    Entity:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - class
+            - objectProperty
+            - inverseObjectProperty
+            - dataProperty
+            - annotation
+        iri:
+          type: string
+        prefixedIri:
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+    DataPropertyValue:
+      type: object
+      required:
+        - value
+        - iri
+      properties:
+        value:
+          type: string
+        iri:
+          type: string
+        language:
+          type: string
+        datatype:
+          type: string
+        renderingProperties:
+          type: array
+          items:
+            type: string
+    ClassInstanceEntity:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Entity'
+        - type: object
+          properties:
+            parentClasses:
+              type: array
+              items:
+                type: string
+            dataProperties:
+              type: array
+              items:
+                $ref: '#/components/schemas/DataPropertyValue'
+            shortIri:
+              type: string
+    Namespace:
+      type: object
+      required:
+        - value
+        - prefixes
+      properties:
+        value:
+          type: string
+        prefixes:
+          type: array
+          items:
+            type: string
+    Annotation:
+      type: object
+      required:
+        - value
+        - property
+      properties:
+        lexicalForm:
+          type: string
+          deprecated: true
+          description: Has been renamed to `value`, kept for back-compatibility.
+        value:
+          type: string
+        hasIriValue:
+          type: boolean
+        property:
+          type: string
+          example: rdfs:label
+        language:
+          type: string
+        datatype:
+          type: string
+    Theme:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        colours:
+          type: object
+    Hierarchy:
+      type: object
+      required:
+        - id
+        - type
+        - inputs
+        - superclasses
+      properties:
+        id:
+          type: string
+        type:
+          $ref: '#/components/schemas/TypesEnum'
+        inputs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Entity'
+        superclasses:
+          type: array
+          items:
+            required:
+              - classEntity
+              - complete
+            properties:
+              classEntity:
+                $ref: '#/components/schemas/Entity'
+              complete:
+                type: boolean
+    ActionInvolvedElements:
+      description: Other elements involved in an action. Only for Remove actions. The remove action on an Entity might involve other elements. i.e. object properties on removed classes
+      type: object
+      properties:
+        nodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Node'
+        edges:
+          type: array
+          items:
+            $ref: '#/components/schemas/Edge'
+        Hierarchies:
+          type: array
+          items:
+            $ref: '#/components/schemas/Hierarchy'
+    Action:
+      description: |-
+        Actions describes what user has done on a single element or element's metadata. The user can add, edit or remove something. The "something" is described by the operation involved in the action, it can be an operation over an entity, a diagram, a hierarchy and so on.
+        Reverting an action means reverting the operation that has been done and it depends on the type of the action. - Add => Remove - Remove => Add - Edit => restore the previous state of the subject of the operation made
+      type: object
+      required:
+        - operationType
+        - subject
+        - user
+        - timestamp
+      properties:
+        operationType:
+          type: string
+          enum:
+            - add
+            - edit
+            - remove
+        subject:
+          type: object
+        previousState:
+          type: object
+        involvedElements:
+          $ref: '#/components/schemas/ActionInvolvedElements'
+        subactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Action'
+        user:
+          type: object
+          required:
+            - name
+          properties:
+            name:
+              type: string
+            firstName:
+              type: string
+            lastName:
+              type: string
+            email:
+              type: string
+        timestamp:
+          type: number
+    SHACLShape:
+      type: object
+      required:
+        - type
+        - targetClass
+        - path
+      properties:
+        type:
+          type: string
+          enum:
+            - MinCount
+            - MaxCount
+            - MinExclusive
+            - MaxExclusive
+            - MinInclusive
+            - MaxInclusive
+            - MinLength
+            - MaxLength
+            - Pattern
+            - In
+            - Equals
+            - Disjoint
+            - LessThan
+            - LessThanOrEquals
+            - GreaterThan
+            - GreaterThanOrEquals
+        targetClass:
+          type: string
+        path:
+          type: string
+        property:
+          type: string
+        constraintValue:
+          type: array
+          items:
+            type: string
+    RDFGraph:
+      type: object
+      required:
+        - entities
+        - diagrams
+        - modelType
+        - metadata
+      properties:
+        diagrams:
+          type: array
+          items:
+            $ref: '#/components/schemas/Diagram'
+        entities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Entity'
+        classInstanceEntities:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClassInstanceEntity'
+        metadata:
+          type: object
+          required:
+            - namespaces
+          properties:
+            name:
+              type: string
+            iri:
+              type: string
+            version:
+              type: string
+            languages:
+              type: array
+              items:
+                type: string
+            defaultLanguage:
+              type: string
+            namespaces:
+              type: array
+              items:
+                $ref: '#/components/schemas/Namespace'
+            annotations:
+              type: array
+              items:
+                $ref: '#/components/schemas/Annotation'
+            annotationProperties:
+              type: array
+              items:
+                type: string
+        config:
+          type: object
+          properties:
+            themes:
+              type: array
+              items:
+                $ref: '#/components/schemas/Theme'
+            selectedTheme:
+              type: string
+            language:
+              type: string
+            entityNameType:
+              type: string
+              enum:
+                - label
+                - prefixed_iri
+                - full_iri
+            renderers:
+              type: array
+              items:
+                type: string
+            widgets:
+              type: object
+            filters:
+              type: array
+              items:
+                type: string
+                enum:
+                  - all
+                  - data-property
+                  - value-domain
+                  - individual
+                  - annotation-property
+                  - universal_quantifier
+                  - complement
+                  - has-key
+        selectedDiagramId:
+          type: integer
+        modelType:
+          type: string
+          enum:
+            - ontology
+            - vkg
+            - rdf
+        actions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Action'
+        creator:
+          type: string
+        constraints:
+          type: array
+          items:
+            $ref: '#/components/schemas/SHACLShape'
+    VKGSnapshot:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        lastModification:
+          type: integer
+          format: int64
+        rdfGraph:
+          $ref: '#/components/schemas/RDFGraph'
+    FileInfo:
+      title: FileInfo
+      type: object
+      properties:
+        fileName:
+          type: string
+        fileType:
+          type: string
+        content:
+          type: string
+    OntologyPath:
+      properties:
+        entities:
+          type: array
+          description: Starts with lastSelectedIRI and ends with clickedIRI. In between the nodes and edges traversed in the path (ISA edge are marked as ISA)
+          items:
+            $ref: '#/components/schemas/Entity'
+    BasePropertyInfo:
+      type: object
+      properties:
+        inherited:
+          type: boolean
+        dataPropertyIri:
+          type: string
+        pathToDataProperty:
+          $ref: '#/components/schemas/OntologyPath'
+        log:
+          type: boolean
+    CustomNodeRendering:
+      type: object
+      properties:
+        classNodes:
+          type: object
+          properties:
+            size:
+              type: number
+            color:
+              type: string
+            icon:
+              type: string
+        instanceNodes:
+          type: object
+          properties:
+            size:
+              allOf:
+                - $ref: '#/components/schemas/BasePropertyInfo'
+                - type: object
+                  properties:
+                    aggregation:
+                      type: string
+            color:
+              type: object
+              allOf:
+                - $ref: '#/components/schemas/BasePropertyInfo'
+                - type: object
+                  properties:
+                    aggregation:
+                      type: string
+                    scale:
+                      type: object
+                      required:
+                        - scaleID
+                      properties:
+                        scaleID:
+                          description: Color scale identifier for chroma.js (i.e "OrRd"), @see https://gka.github.io/chroma.js/#chroma-brewer
+                          type: string
+                        intervals:
+                          description: Custom scale intervals, to be used with chroma.js. @see https://gka.github.io/chroma.js/#scale-classes
+                          type: array
+                          items:
+                            type: number
+            icon:
+              $ref: '#/components/schemas/BasePropertyInfo'
+            location:
+              $ref: '#/components/schemas/BasePropertyInfo'
+            coordinates:
+              type: object
+              required:
+                - dataPropertyIriX
+                - dataPropertyIriY
+              properties:
+                dataPropertyIriX:
+                  type: string
+                dataPropertyIriY:
+                  type: string
+    CustomNodeRenderingMap:
+      description: Map <classIri, CustomRendering>
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/CustomNodeRendering'

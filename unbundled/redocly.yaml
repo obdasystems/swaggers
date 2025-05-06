@@ -53,6 +53,6 @@ apis:
   # virtual-entities: 
   #   root: apis/virtual-entities.yaml
   #   output: bundled/virtual-entities.yaml
-  # vkg: 
-  #   root: apis/vkg.yaml
-  #   output: bundled/vkg.yaml
+  vkg: 
+    root: apis/vkg.yaml
+    output: bundled/vkg.yaml

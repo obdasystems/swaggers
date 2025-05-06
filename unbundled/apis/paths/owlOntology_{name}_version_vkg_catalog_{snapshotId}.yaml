@@ -1,5 +1,5 @@
 put:
-  summary: PUT mwsx/owlOntology/{name}/version/vkg/catalog/{snapshotId}
+  summary: Overwrite a VKG Snapshot (given its snapshotId) in the catalog for a given ontology (name, version)
   operationId: put_vkg_snapshot
   parameters:
     - name: name
@@ -29,9 +29,11 @@ put:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: array
+            items:
+              $ref: ../components/schemas/VKGSnapshot.yaml
 delete:
-  summary: DELETE mwsx/owlOntology/{name}/version/vkg/catalog/{snapshotId}
+  summary: Delete a given VKG Snapshot from catalog for a given ontology (name, version)
   operationId: delete_vkg_snapshot
   parameters:
     - name: name
@@ -55,4 +57,6 @@ delete:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: array
+            items:
+              $ref: ../components/schemas/VKGSnapshot.yaml
