@@ -1,9 +1,0 @@
-title: com.mwsx.model.DataQualityCheckSetStatus
-type: object
-properties:
-  ontologyConstraints:
-    type: array
-    items:
-      $ref: '#/definitions/com.mwsx.model.DataQualityCheckStatus'
-  status:
-    type: string

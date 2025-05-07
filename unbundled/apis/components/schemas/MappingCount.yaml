@@ -1,8 +1,0 @@
-title: MappingCount
-type: object
-properties:
-  numberOfMappings:
-    type: integer
-    format: int32
-  MWSEntity:
-    $ref: ./MWSEntity.yaml

@@ -1,7 +1,0 @@
-title: com.mwsx.model.SQLViews
-type: object
-properties:
-  sqlViews:
-    type: array
-    items:
-      $ref: '#/definitions/com.mwsx.model.SQLView'

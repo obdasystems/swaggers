@@ -1,9 +1,0 @@
-title: com.mwsx.model.rdfgraph.HierarchyOp
-type: object
-properties:
-  diagramId:
-    type: string
-  subject:
-    $ref: '#/definitions/com.mwsx.model.rdfgraph.Hierarchy'
-  previousState:
-    $ref: '#/definitions/com.mwsx.model.rdfgraph.Hierarchy'

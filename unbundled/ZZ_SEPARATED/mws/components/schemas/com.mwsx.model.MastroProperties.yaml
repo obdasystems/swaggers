@@ -1,7 +1,0 @@
-title: com.mwsx.model.MastroProperties
-type: object
-properties:
-  mastroProperties:
-    type: array
-    items:
-      $ref: '#/definitions/com.mwsx.model.MastroConfigurationParam'

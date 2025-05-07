@@ -1,7 +1,0 @@
-title: com.mwsx.model.AbstractDataQualityConstraint
-type: object
-properties:
-  id:
-    type: string
-  entity:
-    $ref: '#/definitions/com.mwsx.model.Entity'

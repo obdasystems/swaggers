@@ -1,7 +1,0 @@
-title: OBDAConstructResults
-type: object
-properties:
-  execution:
-    $ref: ./SPARQLQueryExecution.yaml
-  source:
-    $ref: ./MastroID.yaml

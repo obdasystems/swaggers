@@ -1,9 +1,0 @@
-title: com.mwsx.model.sparqling.VarOrConstant
-type: object
-properties:
-  constantType:
-    type: string
-  type:
-    type: string
-  value:
-    type: string

@@ -1,9 +1,0 @@
-title: Participation
-type: object
-properties:
-  inverse:
-    type: boolean
-  property:
-    $ref: ./MWSEntity.yaml
-  filler:
-    $ref: ./MWSEntity.yaml

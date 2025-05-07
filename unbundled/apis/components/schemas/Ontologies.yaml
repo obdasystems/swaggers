@@ -1,7 +1,0 @@
-title: Ontologies
-type: object
-properties:
-  ontologyList:
-    type: array
-    items:
-      $ref: ./Ontology.yaml

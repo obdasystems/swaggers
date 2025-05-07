@@ -1,5 +1,0 @@
-title: AvpOntologyTree
-type: object
-properties:
-  avpTree:
-    $ref: ./AvpTree.yaml

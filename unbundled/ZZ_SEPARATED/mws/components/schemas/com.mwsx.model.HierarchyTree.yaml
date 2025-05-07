@@ -1,9 +1,0 @@
-title: com.mwsx.model.HierarchyTree
-type: object
-properties:
-  objectPropertyTree:
-    $ref: '#/definitions/com.mwsx.model.TreeNode'
-  classTree:
-    $ref: '#/definitions/com.mwsx.model.TreeNode'
-  dataPropertyTree:
-    $ref: '#/definitions/com.mwsx.model.TreeNode'

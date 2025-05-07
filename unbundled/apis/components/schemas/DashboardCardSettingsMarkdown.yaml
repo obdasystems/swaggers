@@ -1,5 +1,0 @@
-title: DashboardCardSettingsMarkdown
-type: object
-properties:
-  markdown:
-    type: string

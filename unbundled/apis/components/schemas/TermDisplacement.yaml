@@ -1,9 +1,0 @@
-title: TermDisplacement
-type: object
-properties:
-  newPosition:
-    type: integer
-    format: int32
-  oldPosition:
-    type: integer
-    format: int32

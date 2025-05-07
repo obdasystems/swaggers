@@ -1,7 +1,0 @@
-title: KnowledgeGraphDestination
-type: object
-properties:
-  namedGraph:
-    type: string
-  destination:
-    type: string

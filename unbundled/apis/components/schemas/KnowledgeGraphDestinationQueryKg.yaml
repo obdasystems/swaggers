@@ -1,7 +1,0 @@
-title: KnowledgeGraphDestinationQueryKg
-type: object
-properties:
-  source:
-    $ref: ./KgConstructResults.yaml
-  target:
-    $ref: ./KnowledgeGraphDestination.yaml

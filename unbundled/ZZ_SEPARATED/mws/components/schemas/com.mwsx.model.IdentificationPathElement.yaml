@@ -1,7 +1,0 @@
-title: com.mwsx.model.IdentificationPathElement
-type: object
-properties:
-  inverse:
-    type: boolean
-  entity:
-    $ref: '#/definitions/com.mwsx.model.Entity'

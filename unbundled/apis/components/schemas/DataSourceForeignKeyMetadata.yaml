@@ -1,7 +1,0 @@
-title: DataSourceForeignKeyMetadata
-type: object
-properties:
-  references:
-    type: object
-    additionalProperties:
-      $ref: ./DataSourceColumnReference.yaml

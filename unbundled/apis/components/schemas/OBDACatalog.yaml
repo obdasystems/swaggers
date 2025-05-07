@@ -1,7 +1,0 @@
-title: OBDACatalog
-type: object
-properties:
-  queryCatalog:
-    type: array
-    items:
-      $ref: ./SPARQLQuery.yaml

@@ -1,7 +1,0 @@
-title: com.mwsx.model.rdfgraph.HierarchySuperclasses
-type: object
-properties:
-  classEntity:
-    $ref: '#/definitions/com.mwsx.model.rdfgraph.Entity'
-  complete:
-    type: boolean

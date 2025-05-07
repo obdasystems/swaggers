@@ -1,7 +1,0 @@
-title: DataQualityCheckSetDump
-type: object
-properties:
-  set:
-    $ref: ./DataQualityCheckSet.yaml
-  constraints:
-    $ref: ./OntologyConstraints.yaml

@@ -1,8 +1,0 @@
-type: object
-properties:
-  kgDestination:
-    $ref: ./KnowledgeGraphDestination.yaml
-  fileName:
-    type: string
-  constructTemplate:
-    type: string

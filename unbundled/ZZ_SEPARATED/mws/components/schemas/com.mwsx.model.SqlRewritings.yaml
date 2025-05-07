@@ -1,7 +1,0 @@
-title: com.mwsx.model.SqlRewritings
-type: object
-properties:
-  viewRewritings:
-    type: array
-    items:
-      $ref: '#/definitions/com.mwsx.model.SqlRewriting'

@@ -1,7 +1,0 @@
-title: KnowledgeGraphFileInfos
-type: object
-properties:
-  infos:
-    type: array
-    items:
-      $ref: ./KnowledgeGraphFileInfo.yaml

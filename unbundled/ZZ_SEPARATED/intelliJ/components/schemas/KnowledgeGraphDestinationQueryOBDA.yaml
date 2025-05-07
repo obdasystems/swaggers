@@ -1,6 +1,0 @@
-type: object
-properties:
-  source:
-    $ref: ./OBDAConstructResults.yaml
-  target:
-    $ref: ./KnowledgeGraphDestination.yaml

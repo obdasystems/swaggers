@@ -1,7 +1,0 @@
-title: com.mwsx.model.Tags
-type: object
-properties:
-  tags:
-    type: array
-    items:
-      $ref: '#/definitions/com.mwsx.model.Tag'

@@ -1,7 +1,0 @@
-title: com.mwsx.model.rdfgraph.Node
-type: object
-properties:
-  labelPosition:
-    $ref: '#/definitions/com.mwsx.model.rdfgraph.Position'
-  position:
-    $ref: '#/definitions/com.mwsx.model.rdfgraph.Position'

@@ -1,9 +1,0 @@
-title: com.mwsx.model.sparqling.Optional
-type: object
-properties:
-  graphIds:
-    type: array
-    items:
-      type: string
-  id:
-    type: integer

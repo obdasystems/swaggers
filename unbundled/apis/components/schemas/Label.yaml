@@ -1,7 +1,0 @@
-title: Label
-type: object
-properties:
-  lang:
-    type: string
-  content:
-    type: string

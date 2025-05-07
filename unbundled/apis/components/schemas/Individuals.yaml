@@ -1,7 +1,0 @@
-title: Individuals
-type: object
-properties:
-  individuals:
-    type: array
-    items:
-      $ref: ./ClassIndividuals.yaml

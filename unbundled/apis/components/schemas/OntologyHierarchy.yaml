@@ -1,5 +1,0 @@
-title: OntologyHierarchy
-type: object
-properties:
-  hierarchyTree:
-    $ref: ./HierarchyTree.yaml

@@ -1,7 +1,0 @@
-title: PublicationRequests
-type: object
-properties:
-  servers:
-    type: array
-    items: 
-      $ref: ./PublicationRequest.yaml

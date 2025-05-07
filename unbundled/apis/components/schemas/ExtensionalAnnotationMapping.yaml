@@ -1,9 +1,0 @@
-title: ExtensionalAnnotationMapping
-type: object
-properties:
-  template:
-    $ref: ./MappingTemplate.yaml
-  annotationProperty:
-    $ref: ./MWSEntity.yaml
-  lang:
-    type: string

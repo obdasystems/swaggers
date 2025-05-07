@@ -1,9 +1,0 @@
-title: DataPropertyTreeNode
-type: object
-properties:
-  children:
-    type: array
-    items:
-      $ref: ./DataPropertyTreeNode.yaml
-  info:
-    $ref: ./DataPropertyInfo.yaml

@@ -1,9 +1,0 @@
-title: com.mwsx.model.kg.InstancePage
-type: object
-properties:
-  subjects:
-    $ref: '#/definitions/com.mwsx.model.kg.InstanceSubjectTripsGroup'
-  objects:
-    $ref: '#/definitions/com.mwsx.model.kg.InstanceObjectTripsGroup'
-  title:
-    $ref: '#/definitions/com.mwsx.model.kg.InstanceLabelType'

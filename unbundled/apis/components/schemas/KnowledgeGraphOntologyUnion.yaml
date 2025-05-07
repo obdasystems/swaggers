@@ -1,7 +1,0 @@
-title: KnowledgeGraphOntologyUnion
-type: object
-properties:
-  source:
-    $ref: ./OntologyVersion.yaml
-  target:
-    $ref: ./KnowledgeGraphDestination.yaml

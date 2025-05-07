@@ -1,9 +1,0 @@
-title: InclusionView
-type: object
-properties:
-  termList:
-    type: array
-    items:
-      type: string
-  sqlViewID:
-    type: string

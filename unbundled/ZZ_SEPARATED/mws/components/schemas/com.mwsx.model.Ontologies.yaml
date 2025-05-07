@@ -1,7 +1,0 @@
-title: com.mwsx.model.Ontologies
-type: object
-properties:
-  ontologyList:
-    type: array
-    items:
-      $ref: '#/definitions/com.mwsx.model.Ontology'

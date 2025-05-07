@@ -1,5 +1,0 @@
-title: com.mwsx.model.avp.AvpOntologyTree
-type: object
-properties:
-  avpTree:
-    $ref: '#/definitions/com.mwsx.model.avp.AvpTree'

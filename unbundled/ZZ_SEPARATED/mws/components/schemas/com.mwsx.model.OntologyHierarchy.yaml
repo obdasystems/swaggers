@@ -1,5 +1,0 @@
-title: com.mwsx.model.OntologyHierarchy
-type: object
-properties:
-  hierarchyTree:
-    $ref: '#/definitions/com.mwsx.model.HierarchyTree'

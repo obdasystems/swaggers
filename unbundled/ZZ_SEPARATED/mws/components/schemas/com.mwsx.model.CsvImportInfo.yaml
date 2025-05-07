@@ -1,9 +1,0 @@
-title: com.mwsx.model.CsvImportInfo
-type: object
-properties:
-  fileName:
-    type: string
-  constructTemplate:
-    type: string
-  kgDestination:
-    $ref: '#/definitions/com.mwsx.model.KnowledgeGraphDestination'

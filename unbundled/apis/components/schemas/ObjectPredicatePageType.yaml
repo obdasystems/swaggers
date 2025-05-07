@@ -1,7 +1,0 @@
-title: ObjectPredicatePageType
-type: object
-properties:
-  object_triples:
-    type: array
-    items:
-      $ref: ./ObjectTriplePage.yaml

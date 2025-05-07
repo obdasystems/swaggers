@@ -1,9 +1,0 @@
-title: OntologyVersionStorageReport
-type: object
-properties:
-  totalSize:
-    type: integer
-    format: int64
-  fileCount:
-    type: integer
-    format: int32

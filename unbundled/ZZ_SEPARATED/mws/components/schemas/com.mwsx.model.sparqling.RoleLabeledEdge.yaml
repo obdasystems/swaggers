@@ -1,7 +1,0 @@
-title: com.mwsx.model.sparqling.RoleLabeledEdge
-type: object
-properties:
-  direct:
-    type: boolean
-  objectProperty:
-    type: string

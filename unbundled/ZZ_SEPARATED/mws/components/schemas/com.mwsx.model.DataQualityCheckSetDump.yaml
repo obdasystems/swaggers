@@ -1,7 +1,0 @@
-title: com.mwsx.model.DataQualityCheckSetDump
-type: object
-properties:
-  set:
-    $ref: '#/definitions/com.mwsx.model.DataQualityCheckSet'
-  constraints:
-    $ref: '#/definitions/com.mwsx.model.OntologyConstraints'

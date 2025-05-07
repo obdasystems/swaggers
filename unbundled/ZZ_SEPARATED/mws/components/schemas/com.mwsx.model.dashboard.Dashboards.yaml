@@ -1,7 +1,0 @@
-title: com.mwsx.model.dashboard.Dashboards
-type: object
-properties:
-  dashboards:
-    type: array
-    items:
-      $ref: '#/definitions/com.mwsx.model.dashboard.Dashboard'

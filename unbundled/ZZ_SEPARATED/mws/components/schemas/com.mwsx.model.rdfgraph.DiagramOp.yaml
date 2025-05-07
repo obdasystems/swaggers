@@ -1,7 +1,0 @@
-title: com.mwsx.model.rdfgraph.DiagramOp
-type: object
-properties:
-  subject:
-    $ref: '#/definitions/com.mwsx.model.rdfgraph.Diagram'
-  previousState:
-    $ref: '#/definitions/com.mwsx.model.rdfgraph.Diagram'

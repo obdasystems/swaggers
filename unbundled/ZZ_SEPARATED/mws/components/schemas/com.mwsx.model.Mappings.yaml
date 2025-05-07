@@ -1,7 +1,0 @@
-title: com.mwsx.model.Mappings
-type: object
-properties:
-  mappingList:
-    type: array
-    items:
-      $ref: '#/definitions/com.mwsx.model.Mapping'

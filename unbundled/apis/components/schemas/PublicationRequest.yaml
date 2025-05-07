@@ -1,9 +1,0 @@
-title: PublicationRequest
-type: object
-properties:
-  ontologyName:
-    type: string 
-  ontologyVersion:
-    type: string 
-  sparqlingSparqlQuery:
-    $ref: SparqlingSparqlQuery.yaml

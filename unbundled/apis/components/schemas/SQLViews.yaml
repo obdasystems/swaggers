@@ -1,7 +1,0 @@
-title: SQLViews
-type: object
-properties:
-  sqlViews:
-    type: array
-    items:
-      $ref: ./SQLView.yaml

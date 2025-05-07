@@ -1,9 +1,0 @@
-title: VirtualEntitiesStore
-type: object
-properties:
-  sparqlingSPARQLQueryByEntityName:
-    type: object
-    additionalProperties:
-      $ref: ./SparqlingSPARQLQuery.yaml
-  virtualEntitiesByUserName:
-    type: object

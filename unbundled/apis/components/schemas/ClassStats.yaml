@@ -1,8 +1,0 @@
-title: ClassStats
-type: object
-properties:
-  instancesNumber:
-    type: integer
-    format: int32
-  classIri:
-    type: string

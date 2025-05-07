@@ -1,7 +1,0 @@
-title: MapItem
-type: object
-properties:
-  mapValue:
-    type: string
-  mapKey:
-    type: string

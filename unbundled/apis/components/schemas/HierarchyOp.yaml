@@ -1,9 +1,0 @@
-title: HierarchyOp
-type: object
-properties:
-  diagramId:
-    type: string
-  subject:
-    $ref: ./Hierarchy.yaml
-  previousState:
-    $ref: ./Hierarchy.yaml

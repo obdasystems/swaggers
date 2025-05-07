@@ -1,7 +1,0 @@
-title: com.mwsx.model.system.OBDASparqlingCatalog
-type: object
-properties:
-  queryCatalog:
-    type: array
-    items:
-      $ref: '#/definitions/com.mwsx.model.SparqlingSPARQLQuery'

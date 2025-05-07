@@ -1,4 +1,0 @@
-type: object
-properties:
-  expression:
-    $ref: ./FilterExpression.yaml

@@ -1,7 +1,0 @@
-title: com.mwsx.model.OntologyID
-type: object
-properties:
-  ontologyVersion:
-    type: string
-  ontologyName:
-    type: string

@@ -1,9 +1,0 @@
-title: ClassIndividuals
-type: object
-properties:
-  theClass:
-    $ref: ./MWSEntity.yaml
-  individuals:
-    type: array
-    items:
-      $ref: ./MWSEntity.yaml

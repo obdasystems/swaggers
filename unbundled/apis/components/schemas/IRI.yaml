@@ -1,7 +1,0 @@
-title: IRI
-type: object
-properties:
-  shortIRI:
-    type: string
-  extendedIRI:
-    type: string

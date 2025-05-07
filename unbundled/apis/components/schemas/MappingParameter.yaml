@@ -1,9 +1,0 @@
-title: MappingParameter
-type: object
-properties:
-  paramHint:
-    type: string
-  paramName:
-    type: string
-  paramDefaultValue:
-    type: string

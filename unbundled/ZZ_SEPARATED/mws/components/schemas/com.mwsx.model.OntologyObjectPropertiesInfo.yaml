@@ -1,7 +1,0 @@
-title: com.mwsx.model.OntologyObjectPropertiesInfo
-type: object
-properties:
-  objectPropertiesInfo:
-    type: array
-    items:
-      $ref: '#/definitions/com.mwsx.model.ObjectPropertyInfo'

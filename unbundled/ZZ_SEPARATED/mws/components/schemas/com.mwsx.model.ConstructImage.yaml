@@ -1,7 +1,0 @@
-title: com.mwsx.model.ConstructImage
-type: object
-properties:
-  triples:
-    type: array
-    items:
-      $ref: '#/definitions/com.mwsx.model.ConstructTriple'

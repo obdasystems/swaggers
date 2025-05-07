@@ -1,7 +1,0 @@
-title: OntologyDataPropertiesInfo
-type: object
-properties:
-  dataPropertiesInfo:
-    type: array
-    items:
-      $ref: ./DataPropertyInfo.yaml

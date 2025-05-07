@@ -1,8 +1,0 @@
-title: DataQualityCheck
-type: object
-properties:
-  id:
-    type: string
-  priority:
-    type: integer
-    format: int32

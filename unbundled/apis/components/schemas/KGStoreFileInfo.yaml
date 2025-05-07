@@ -1,7 +1,0 @@
-title: KGStoreFileInfo
-type: object
-properties:
-  files:
-    type: array
-    items:
-      $ref: ./KGStoreFileInfoEntry.yaml

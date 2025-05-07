@@ -1,6 +1,0 @@
-type: object
-properties:
-  ontologyName:
-    type: string
-  ontologyVersion:
-    type: string

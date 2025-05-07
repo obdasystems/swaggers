@@ -1,7 +1,0 @@
-title: OBDASparqlingCatalog
-type: object
-properties:
-  queryCatalog:
-    type: array
-    items:
-      $ref: ./SparqlingSPARQLQuery.yaml

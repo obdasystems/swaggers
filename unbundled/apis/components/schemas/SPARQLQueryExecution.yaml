@@ -1,5 +1,0 @@
-title: SPARQLQueryExecution
-type: object
-properties:
-  queryID:
-    type: string

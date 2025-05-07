@@ -1,9 +1,0 @@
-title: com.mwsx.model.kg.Subject
-type: object
-properties:
-  subject_resource:
-    type: string
-  subject_label:
-    type: string
-  subject_resource_short:
-    type: string

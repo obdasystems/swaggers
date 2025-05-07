@@ -1,7 +1,0 @@
-title: com.mwsx.model.rdfgraph.NamespaceOp
-type: object
-properties:
-  subject:
-    $ref: '#/definitions/com.mwsx.model.rdfgraph.Namespace'
-  previousState:
-    $ref: '#/definitions/com.mwsx.model.rdfgraph.Namespace'

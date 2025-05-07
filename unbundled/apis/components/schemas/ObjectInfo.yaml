@@ -1,9 +1,0 @@
-title: ObjectInfo
-type: object
-properties:
-  name:
-    type: string
-  fields:
-    type: array
-    items:
-      $ref: ./FieldInfo.yaml

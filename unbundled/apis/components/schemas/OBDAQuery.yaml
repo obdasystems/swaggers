@@ -1,9 +1,0 @@
-title: OBDAQuery
-type: object
-properties:
-  options:
-    type: array
-    items:
-      $ref: ./MapItem.yaml
-  sparql:
-    $ref: ./SPARQLQuery.yaml

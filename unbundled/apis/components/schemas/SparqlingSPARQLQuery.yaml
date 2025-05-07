@@ -1,9 +1,0 @@
-title: SparqlingSPARQLQuery
-type: object
-properties:
-  queryGraph:
-    $ref: ./QueryGraph.yaml
-  sparqlQuery:
-    $ref: ./SPARQLQuery.yaml
-  user:
-    type: string

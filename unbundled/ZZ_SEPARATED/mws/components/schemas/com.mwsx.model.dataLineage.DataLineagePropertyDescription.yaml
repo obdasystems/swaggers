@@ -1,9 +1,0 @@
-title: com.mwsx.model.dataLineage.DataLineagePropertyDescription
-type: object
-properties:
-  propertyDomain:
-    $ref: '#/definitions/com.mwsx.model.dataLineage.DataLineageDescription'
-  propertyRange:
-    $ref: '#/definitions/com.mwsx.model.dataLineage.DataLineageDescription'
-  property:
-    $ref: '#/definitions/com.mwsx.model.dataLineage.DataLineageDescription'

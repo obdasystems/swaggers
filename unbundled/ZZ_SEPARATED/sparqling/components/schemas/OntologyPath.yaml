@@ -1,8 +1,0 @@
-properties:
-  entities:
-    type: array
-    description: >-
-      Starts with lastSelectedIRI and ends with clickedIRI. In between the nodes
-      and edges traversed in the path (ISA edge are marked as ISA)
-    items:
-      $ref: ./Entity.yaml

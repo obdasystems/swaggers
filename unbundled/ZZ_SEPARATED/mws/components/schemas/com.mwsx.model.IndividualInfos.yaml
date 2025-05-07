@@ -1,7 +1,0 @@
-title: com.mwsx.model.IndividualInfos
-type: object
-properties:
-  individualInfos:
-    type: array
-    items:
-      $ref: '#/definitions/com.mwsx.model.IndividualInfo'

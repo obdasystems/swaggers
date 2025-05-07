@@ -1,9 +1,0 @@
-title: MandatoryParticipationAssertion
-type: object
-properties:
-  property:
-    $ref: ./MWSEntity.yaml
-  direct:
-    type: boolean
-  filler:
-    $ref: ./MWSEntity.yaml

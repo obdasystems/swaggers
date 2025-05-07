@@ -1,7 +1,0 @@
-title: com.mwsx.model.DataQualityCheckSetImportReport
-type: object
-properties:
-  actualCheckSet:
-    $ref: '#/definitions/com.mwsx.model.DataQualityCheckSet'
-  importReport:
-    type: object

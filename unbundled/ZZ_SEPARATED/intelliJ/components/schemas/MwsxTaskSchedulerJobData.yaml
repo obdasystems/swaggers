@@ -1,8 +1,0 @@
-type: object
-properties:
-  className:
-    type: string
-  jobData:
-    type: string
-  cronExpression:
-    type: string

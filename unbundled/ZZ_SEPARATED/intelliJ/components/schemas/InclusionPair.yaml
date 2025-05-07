@@ -1,6 +1,0 @@
-type: object
-properties:
-  leftHandTerm:
-    type: string
-  rightHandTerm:
-    type: string

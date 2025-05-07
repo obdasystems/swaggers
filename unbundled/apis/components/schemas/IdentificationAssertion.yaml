@@ -1,7 +1,0 @@
-title: IdentificationAssertion
-type: object
-properties:
-  identificationPaths:
-    type: array
-    items:
-      $ref: ./IdentificationPath.yaml

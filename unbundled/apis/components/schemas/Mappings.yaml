@@ -1,7 +1,0 @@
-title: Mappings
-type: object
-properties:
-  mappingList:
-    type: array
-    items:
-      $ref: ./Mapping.yaml

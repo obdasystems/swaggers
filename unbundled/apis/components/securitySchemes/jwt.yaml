@@ -1,5 +1,0 @@
-description: |
-  Generate your JWT when you log in. JWT configurations should be placed in `$MASTRO_HOME/config/mastro.jwt` file
-type: http
-scheme: bearer
-bearerFormat: JWT

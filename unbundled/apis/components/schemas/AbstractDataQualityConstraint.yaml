@@ -1,7 +1,0 @@
-title: AbstractDataQualityConstraint
-type: object
-properties:
-  id:
-    type: string
-  entity:
-    $ref: ./MWSEntity.yaml

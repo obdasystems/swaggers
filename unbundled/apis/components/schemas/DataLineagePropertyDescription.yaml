@@ -1,9 +1,0 @@
-title: DataLineagePropertyDescription
-type: object
-properties:
-  propertyDomain:
-    $ref: ./DataLineageDescription.yaml
-  propertyRange:
-    $ref: ./DataLineageDescription.yaml
-  property:
-    $ref: ./DataLineageDescription.yaml

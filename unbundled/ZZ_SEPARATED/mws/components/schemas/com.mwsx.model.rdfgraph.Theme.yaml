@@ -1,9 +1,0 @@
-title: com.mwsx.model.rdfgraph.Theme
-type: object
-properties:
-  name:
-    type: string
-  id:
-    type: string
-  colours:
-    type: string

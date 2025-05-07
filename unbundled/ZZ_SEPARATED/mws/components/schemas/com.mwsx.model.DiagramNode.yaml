@@ -1,7 +1,0 @@
-title: com.mwsx.model.DiagramNode
-type: object
-properties:
-  diagramName:
-    type: string
-  nodeID:
-    type: string

@@ -1,7 +1,0 @@
-title: MastroConfigurationParam
-type: object
-properties:
-  name:
-    type: string
-  value:
-    type: string

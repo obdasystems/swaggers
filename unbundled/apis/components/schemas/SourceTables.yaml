@@ -1,7 +1,0 @@
-title: SourceTables
-type: object
-properties:
-  tables:
-    type: array
-    items:
-      $ref: ./SourceTableInfo.yaml

@@ -1,9 +1,0 @@
-title: EndpointStatus
-type: object
-properties:
-  restartNeeded:
-    type: boolean
-  config:
-    $ref: ./MastroProperties.yaml
-  status:
-    $ref: ./OBDAStatus.yaml

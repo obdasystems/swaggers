@@ -1,7 +1,0 @@
-title: ViewRewritings
-type: object
-properties:
-  mappingRewritings:
-    type: array
-    items:
-      type: string

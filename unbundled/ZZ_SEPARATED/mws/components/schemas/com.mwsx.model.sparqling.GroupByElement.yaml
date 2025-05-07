@@ -1,7 +1,0 @@
-title: com.mwsx.model.sparqling.GroupByElement
-type: object
-properties:
-  distinct:
-    type: boolean
-  aggregateFunction:
-    type: string

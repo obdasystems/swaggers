@@ -1,7 +1,0 @@
-title: com.mwsx.model.InclusionPair
-type: object
-properties:
-  leftHandTerm:
-    type: string
-  rightHandTerm:
-    type: string

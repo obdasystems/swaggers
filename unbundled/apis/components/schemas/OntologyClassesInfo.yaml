@@ -1,7 +1,0 @@
-title: OntologyClassesInfo
-type: object
-properties:
-  classesInfo:
-    type: array
-    items:
-      $ref: ./ClassInfo.yaml

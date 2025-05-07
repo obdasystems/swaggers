@@ -1,6 +1,0 @@
-type: object
-properties:
-  sourceKg:
-    type: string
-  target:
-    $ref: ./KnowledgeGraphDestination.yaml
