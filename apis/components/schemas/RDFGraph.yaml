@@ -12,7 +12,7 @@ properties:
   entities:
     type: array
     items:
-      $ref: ./Entity.yaml
+      $ref: ./GrapholscapeEntity.yaml
   classInstanceEntities:
     type: array
     items:

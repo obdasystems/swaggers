@@ -4,4 +4,4 @@ properties:
   inverse:
     type: boolean
   entity:
-    $ref: ./Entity.yaml
+    $ref: ./OntologyEntity.yaml

@@ -2,6 +2,6 @@ title: HierarchySuperclasses
 type: object
 properties:
   classEntity:
-    $ref: ./Entity.yaml
+    $ref: ./GrapholscapeEntity.yaml
   complete:
     type: boolean

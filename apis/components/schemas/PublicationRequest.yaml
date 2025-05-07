@@ -6,4 +6,4 @@ properties:
   ontologyVersion:
     type: string 
   sparqlingSparqlQuery:
-    $ref: SparqlingSparqlQuery.yaml
+    $ref: SparqlingSPARQLQuery.yaml

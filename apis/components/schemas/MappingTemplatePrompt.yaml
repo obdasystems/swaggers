@@ -20,7 +20,7 @@ properties:
   SUB_OBJECT_PROPERTY_RANGE_REASON:
     type: string
   sourceEntity:
-    $ref: ./Entity.yaml
+    $ref: ./OntologyEntity.yaml
   OBJECT_PROPERTY_RANGE_REASON:
     type: string
   SUPER_CLASS_REASON:

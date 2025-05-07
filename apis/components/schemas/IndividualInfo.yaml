@@ -4,15 +4,15 @@ properties:
   iri:
     $ref: ./IRI.yaml
   currentEntity:
-    $ref: ./Entity.yaml
+    $ref: ./OntologyEntity.yaml
   individualTypes:
     type: array
     items:
-      $ref: ./Entity.yaml
+      $ref: ./OntologyEntity.yaml
   differentIndividuals:
     type: array
     items:
-      $ref: ./Entity.yaml
+      $ref: ./OntologyEntity.yaml
   entityDiagrams:
     type: array
     items:
@@ -20,7 +20,7 @@ properties:
   sameIndividuals:
     type: array
     items:
-      $ref: ./Entity.yaml
+      $ref: ./OntologyEntity.yaml
   individualDescriptions:
     type: array
     items:

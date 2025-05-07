@@ -3,6 +3,6 @@ allOf:
   - $ref: ./Action.yaml
 properties:
   subject:
-    $ref: ./Entity.yaml
+    $ref: ./GrapholscapeEntity.yaml
   previousState:
-    $ref: ./Entity.yaml
+    $ref: ./GrapholscapeEntity.yaml

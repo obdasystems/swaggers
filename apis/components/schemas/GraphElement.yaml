@@ -16,8 +16,8 @@ properties:
       It could have more than one entity only when entity type is a class (could
       be derived after clicking on two borther classes)
     items:
-      $ref: ./Entity.yaml
+      $ref: SparqlingEntity.yaml
   children:
     type: array
     items:
-      $ref: ./GraphElement.yaml
+      $ref: GraphElement.yaml

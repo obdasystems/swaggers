@@ -7,6 +7,6 @@ properties:
   previousState:
     $ref: ./Annotation.yaml
   entity:
-    $ref: ./Entity.yaml
+    $ref: ./GrapholscapeEntity.yaml
   onOntology:
     type: boolean

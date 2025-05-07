@@ -11,4 +11,4 @@ properties:
   objectProperties:
     type: array
     items:
-      $ref: ./Entity.yaml
+      $ref: SparqlingEntity.yaml

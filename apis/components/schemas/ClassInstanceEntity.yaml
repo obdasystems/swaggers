@@ -1,6 +1,6 @@
 type: object
 allOf:
-  - $ref: ./Entity.yaml
+  - $ref: ./GrapholscapeEntity.yaml
   - type: object
     properties:
       parentClasses:

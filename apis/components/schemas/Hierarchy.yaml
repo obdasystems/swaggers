@@ -12,7 +12,7 @@ properties:
   inputs:
     type: array
     items:
-      $ref: ./Entity.yaml
+      $ref: GrapholscapeEntity.yaml
   superclasses:
     type: array
     items:
@@ -21,6 +21,6 @@ properties:
         - complete
       properties:
         classEntity:
-          $ref: ./Entity.yaml
+          $ref: GrapholscapeEntity.yaml
         complete:
           type: boolean
