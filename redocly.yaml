@@ -2,6 +2,8 @@ extends:
   - recommended
 
 apis:
+  mastro:
+    root: apis/_mastro.yaml
   authorization-view-profiles: 
     root: apis/authorization-view-profiles.yaml
     output: bundled/authorization-view-profiles.yaml
