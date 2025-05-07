@@ -49,9 +49,9 @@ apis:
   task-scheduler: 
     root: apis/task-scheduler.yaml
     output: bundled/task-scheduler.yaml
-  # triplify: 
-  #   root: apis/triplify.yaml
-  #   output: bundled/triplify.yaml
+  triplify: 
+    root: apis/triplify.yaml
+    output: bundled/triplify.yaml
   users-roles: 
     root: apis/users-roles.yaml
     output: bundled/users-roles.yaml

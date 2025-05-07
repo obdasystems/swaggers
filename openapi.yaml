@@ -54,6 +54,8 @@ tags:
     x-displayName: other
   - name: task-scheduler_other
     x-displayName: other
+  - name: triplify_other
+    x-displayName: other
   - name: users-roles_other
     x-displayName: other
   - name: vkg_other
@@ -12706,6 +12708,271 @@ paths:
       security:
         - apiKey: []
         - jwt: []
+  /triplify/start:
+    post:
+      summary: POST mwsx/triplify/start
+      operationId: post_mappings_triplification_start
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OBDATriplificationRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+      tags:
+        - triplify_other
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{name}/mappings/{mapID}/triplify/listThreads:
+    get:
+      summary: GET mwsx/owlOntology/{name}/mappings/{mapID}/triplify/listThreads
+      operationId: get_mappings_triplification_list
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: mapID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+      tags:
+        - triplify_other
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{name}/mappings/{mapID}/triplify/listThreadProgresses:
+    get:
+      summary: >-
+        GET
+        mwsx/owlOntology/{name}/mappings/{mapID}/triplify/listThreadProgresses
+      operationId: get_mappings_triplification_listProgresses
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: mapID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OBDATriplificationProgress'
+      tags:
+        - triplify_other
+      security:
+        - apiKey: []
+        - jwt: []
+  /triplify/stopAll:
+    put:
+      summary: PUT mwsx/triplify/stopAll
+      operationId: put_mappings_triplification_stop_all
+      responses:
+        '200':
+          description: OK
+      tags:
+        - triplify_other
+      security:
+        - apiKey: []
+        - jwt: []
+  /triplify/{threadID}/stop:
+    put:
+      summary: PUT mwsx/triplify/{threadID}/stop
+      operationId: put_mappings_triplification_stop
+      parameters:
+        - name: threadID
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+      tags:
+        - triplify_other
+      security:
+        - apiKey: []
+        - jwt: []
+  /triplify/{threadID}:
+    delete:
+      summary: DELETE mwsx/triplify/{threadID}
+      operationId: delete_mappings_triplification_thread
+      parameters:
+        - name: threadID
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+      tags:
+        - triplify_other
+      security:
+        - apiKey: []
+        - jwt: []
+  /triplify/{threadID}/status:
+    get:
+      summary: GET mwsx/triplify/{threadID}/status
+      operationId: get_mappings_triplification_status
+      parameters:
+        - name: threadID
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OBDATriplificationProgress'
+      tags:
+        - triplify_other
+      security:
+        - apiKey: []
+        - jwt: []
+  /triplify/{threadID}/report:
+    get:
+      summary: GET mwsx/triplify/{threadID}/report
+      operationId: get_mappings_triplification_report
+      parameters:
+        - name: threadID
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OBDATriplificationReport'
+      tags:
+        - triplify_other
+      security:
+        - apiKey: []
+        - jwt: []
+  /triplify/{threadID}/download:
+    get:
+      summary: GET mwsx/triplify/{threadID}/download
+      operationId: get_mappings_triplification_download
+      parameters:
+        - name: threadID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: format
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+      tags:
+        - triplify_other
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{name}/version/mapping/{mapID}/triplify/{datasource}:
+    get:
+      summary: >-
+        GET
+        mwsx/owlOntology/{name}/version/mapping/{mapID}/triplify/{datasource}
+      operationId: get__owlOntology_name_version_query_ID_export_directcsv
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: mapID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: datasource
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: format
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+      tags:
+        - triplify_other
+      security:
+        - apiKey: []
+        - jwt: []
   /users:
     get:
       summary: GET mwsx/users
@@ -17662,6 +17929,79 @@ components:
           type: object
         user:
           type: string
+    OBDATriplificationRequest:
+      title: OBDATriplificationRequest
+      type: object
+      properties:
+        mappingID:
+          type: string
+        entityIriFilter:
+          type: array
+          items:
+            type: string
+        ontologyVersion:
+          type: string
+        ontologyName:
+          type: string
+        mappingIdFilter:
+          type: array
+          items:
+            type: string
+        outputRdfFormat:
+          type: string
+        dataSource:
+          type: string
+    OBDATriplificationProgress:
+      title: OBDATriplificationProgress
+      type: object
+      properties:
+        threadId:
+          type: string
+        progress:
+          type: integer
+          format: int32
+        startTime:
+          type: integer
+          format: int64
+        time:
+          type: integer
+          format: int64
+        status:
+          type: string
+    OBDATriplificationMappingReport:
+      title: OBDATriplificationMappingReport
+      type: object
+      properties:
+        entityIRI:
+          type: string
+        triplesCount:
+          type: integer
+          format: int32
+        sqlCode:
+          type: string
+        startTime:
+          type: integer
+          format: int64
+        endTime:
+          type: integer
+          format: int64
+        error:
+          type: string
+        elapsedTime:
+          type: integer
+          format: int64
+    OBDATriplificationReport:
+      title: OBDATriplificationReport
+      type: object
+      properties:
+        request:
+          $ref: '#/components/schemas/OBDATriplificationRequest'
+        progress:
+          $ref: '#/components/schemas/OBDATriplificationProgress'
+        details:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/OBDATriplificationMappingReport'
     Users:
       title: Users
       type: object
@@ -17878,6 +18218,9 @@ x-tagGroups:
   - name: Task Scheduler API model
     tags:
       - task-scheduler_other
+  - name: Triplify API model
+    tags:
+      - triplify_other
   - name: Users & Roles API model
     tags:
       - users-roles_other
