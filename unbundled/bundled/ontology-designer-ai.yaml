@@ -2,20 +2,19 @@ openapi: 3.0.0
 info:
   description: This is the API for retaining a Grapholscape's loaded ontology (or graph) in order to restart navigation from a previous state.
   version: 1.0.0
-  title: Grapholscape API model
+  title: Ontology Designer AI API model
   contact:
     email: info@obdasystems.com
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
 servers:
-  - url: https://{tenant}/mws/rest/mwsx
+  - url: https://{tenant}:8080
     variables:
       tenant:
         default: localhost
         description: Your localhost
 security:
-  - api-key: []
   - jwt: []
 paths:
   /ontologyDraft/ai:
@@ -30,9 +29,9 @@ paths:
             schema:
               type: object
               properties:
-                prompt:
+                text:
                   type: string
-                rdfGraph:
+                currentRdfGraph:
                   $ref: '#/components/schemas/RDFGraph'
       responses:
         '200':
@@ -45,12 +44,6 @@ paths:
                   $ref: '#/components/schemas/RDFGraph'
 components:
   securitySchemes:
-    api-key:
-      type: apiKey
-      in: header
-      name: X-MONOLITH-SESSION-ID
-      description: |
-        This session ID is generated from Basic Authentication on the login route.
     jwt:
       description: |
         Generate your JWT when you log in. JWT configurations should be placed in `$MASTRO_HOME/config/mastro.jwt` file

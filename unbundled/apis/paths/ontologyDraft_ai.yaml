@@ -10,9 +10,9 @@ put:
         schema:
           type: object
           properties: 
-            prompt: 
+            text: 
               type: string
-            rdfGraph: 
+            currentRdfGraph: 
               $ref: ../components/schemas/RDFGraph.yaml
   responses:
     '200':

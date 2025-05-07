@@ -1,6 +1,6 @@
 openapi: 3.0.0
 servers:
-  - url: 'https://{tenant}/mws/rest/mwsx'
+  - url: 'https://{tenant}:8080'
     variables:
       tenant:
         default: localhost
@@ -10,7 +10,7 @@ info:
     This is the API for retaining a Grapholscape's loaded ontology (or graph) in
     order to restart navigation from a previous state.
   version: 1.0.0
-  title: Grapholscape API model
+  title: Ontology Designer AI API model
   contact:
     email: info@obdasystems.com
   license:
@@ -21,10 +21,7 @@ paths:
     $ref: paths/ontologyDraft_ai.yaml
 components: 
   securitySchemes: 
-    api-key: 
-      $ref: './components/securitySchemes/api-key.yaml'
     jwt:
       $ref: './components/securitySchemes/jwt.yaml'
 security: 
-  - api-key: []
   - jwt: []
