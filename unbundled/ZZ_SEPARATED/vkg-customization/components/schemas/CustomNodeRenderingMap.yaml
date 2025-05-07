@@ -1,4 +1,0 @@
-description: Map <classIri, CustomRendering>
-type: object
-additionalProperties:
-  $ref: ./CustomNodeRendering.yaml

@@ -1,7 +1,0 @@
-title: com.mws.model.DataPropertyInfo
-type: object
-properties:
-  iri:
-    type: string
-  id:
-    type: string

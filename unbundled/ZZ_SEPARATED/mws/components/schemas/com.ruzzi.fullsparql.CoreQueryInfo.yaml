@@ -1,7 +1,0 @@
-title: com.ruzzi.fullsparql.CoreQueryInfo
-type: object
-properties:
-  coreQueryId:
-    type: string
-  sparqlCode:
-    type: string

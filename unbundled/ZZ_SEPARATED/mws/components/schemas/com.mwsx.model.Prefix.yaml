@@ -1,7 +1,0 @@
-title: com.mwsx.model.Prefix
-type: object
-properties:
-  name:
-    type: string
-  namespace:
-    type: string

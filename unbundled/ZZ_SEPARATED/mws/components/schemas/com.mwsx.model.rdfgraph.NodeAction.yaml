@@ -1,7 +1,0 @@
-title: com.mwsx.model.rdfgraph.NodeAction
-type: object
-properties:
-  nodeActionPreviousState:
-    $ref: '#/definitions/com.mwsx.model.rdfgraph.Node'
-  nodeActionSubject:
-    $ref: '#/definitions/com.mwsx.model.rdfgraph.Node'

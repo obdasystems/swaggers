@@ -1,7 +1,0 @@
-title: com.mwsx.model.rdfgraph.Position
-type: object
-properties:
-  x:
-    type: number
-  'y':
-    type: number

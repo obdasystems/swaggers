@@ -1,7 +1,0 @@
-title: com.mwsx.model.IdentificationPath
-type: object
-properties:
-  path:
-    type: array
-    items:
-      $ref: '#/definitions/com.mwsx.model.IdentificationPathElement'

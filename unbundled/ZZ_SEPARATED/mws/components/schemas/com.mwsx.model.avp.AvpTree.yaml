@@ -1,9 +1,0 @@
-title: com.mwsx.model.avp.AvpTree
-type: object
-properties:
-  objectPropertyTree:
-    $ref: '#/definitions/com.mwsx.model.avp.AvpTreeNode'
-  classTree:
-    $ref: '#/definitions/com.mwsx.model.avp.AvpTreeNode'
-  dataPropertyTree:
-    $ref: '#/definitions/com.mwsx.model.avp.AvpTreeNode'

@@ -1,7 +1,0 @@
-title: com.mwsx.model.kg.InstanceObjectTripsGroup
-type: object
-properties:
-  object_triples:
-    type: array
-    items:
-      $ref: '#/definitions/com.mwsx.model.kg.ObjectTriple'

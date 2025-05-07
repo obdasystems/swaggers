@@ -1,7 +1,0 @@
-title: com.mwsx.model.Endpoints
-type: object
-properties:
-  endpoints:
-    type: array
-    items:
-      $ref: '#/definitions/com.mwsx.model.Endpoint'

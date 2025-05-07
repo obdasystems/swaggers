@@ -1,7 +1,0 @@
-title: com.mwsx.model.Individuals
-type: object
-properties:
-  individuals:
-    type: array
-    items:
-      $ref: '#/definitions/com.mwsx.model.ClassIndividuals'

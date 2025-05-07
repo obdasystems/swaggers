@@ -1,5 +1,0 @@
-title: com.mwsx.model.dashboard.DashboardCardSettingsMarkdown
-type: object
-properties:
-  markdown:
-    type: string

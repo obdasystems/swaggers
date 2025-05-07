@@ -1,6 +1,0 @@
-type: object
-properties:
-  path:
-    type: array
-    items:
-      $ref: ./IdentificationPathElement.yaml

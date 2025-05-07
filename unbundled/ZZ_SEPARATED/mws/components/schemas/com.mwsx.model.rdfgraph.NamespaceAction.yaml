@@ -1,7 +1,0 @@
-title: com.mwsx.model.rdfgraph.NamespaceAction
-type: object
-properties:
-  namespaceActionSubject:
-    $ref: '#/definitions/com.mwsx.model.rdfgraph.Namespace'
-  namespaceActionPreviousState:
-    $ref: '#/definitions/com.mwsx.model.rdfgraph.Namespace'

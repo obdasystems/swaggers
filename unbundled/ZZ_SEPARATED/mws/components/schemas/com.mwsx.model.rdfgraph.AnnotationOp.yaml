@@ -1,9 +1,0 @@
-title: com.mwsx.model.rdfgraph.AnnotationOp
-type: object
-properties:
-  subject:
-    $ref: '#/definitions/com.mwsx.model.rdfgraph.Annotation'
-  entity:
-    $ref: '#/definitions/com.mwsx.model.rdfgraph.Entity'
-  previousState:
-    $ref: '#/definitions/com.mwsx.model.rdfgraph.Annotation'

@@ -1,9 +1,0 @@
-title: com.mwsx.model.KnowledgeGraphFileDestination
-type: object
-properties:
-  fileNames:
-    type: array
-    items:
-      type: string
-  kgDestination:
-    $ref: '#/definitions/com.mwsx.model.KnowledgeGraphDestination'

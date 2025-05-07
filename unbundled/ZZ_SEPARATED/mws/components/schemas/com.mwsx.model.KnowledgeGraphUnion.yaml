@@ -1,7 +1,0 @@
-title: com.mwsx.model.KnowledgeGraphUnion
-type: object
-properties:
-  sourceKg:
-    type: string
-  target:
-    $ref: '#/definitions/com.mwsx.model.KnowledgeGraphDestination'

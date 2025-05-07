@@ -1,9 +1,0 @@
-title: com.mwsx.model.EndpointStatus
-type: object
-properties:
-  restartNeeded:
-    type: boolean
-  config:
-    $ref: '#/definitions/com.mwsx.model.MastroProperties'
-  status:
-    $ref: '#/definitions/com.mwsx.model.OBDAStatus'

@@ -1,7 +1,0 @@
-title: com.mwsx.model.rdfgraph.PropertyAction
-type: object
-properties:
-  propertyActionSubject:
-    $ref: '#/definitions/com.mwsx.model.rdfgraph.Entity'
-  propertyActionPreviousState:
-    $ref: '#/definitions/com.mwsx.model.rdfgraph.Entity'

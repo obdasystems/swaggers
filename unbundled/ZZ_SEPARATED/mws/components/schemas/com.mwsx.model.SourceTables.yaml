@@ -1,7 +1,0 @@
-title: com.mwsx.model.SourceTables
-type: object
-properties:
-  tables:
-    type: array
-    items:
-      $ref: '#/definitions/com.mwsx.model.SourceTableInfo'

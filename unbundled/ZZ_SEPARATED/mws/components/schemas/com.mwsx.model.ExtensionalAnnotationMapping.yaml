@@ -1,9 +1,0 @@
-title: com.mwsx.model.ExtensionalAnnotationMapping
-type: object
-properties:
-  template:
-    $ref: '#/definitions/com.mwsx.model.MappingTemplate'
-  annotationProperty:
-    $ref: '#/definitions/com.mwsx.model.Entity'
-  lang:
-    type: string

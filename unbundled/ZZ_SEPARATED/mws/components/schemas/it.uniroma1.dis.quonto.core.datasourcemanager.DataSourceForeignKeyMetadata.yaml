@@ -1,8 +1,0 @@
-title: it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceForeignKeyMetadata
-type: object
-properties:
-  references:
-    type: object
-    additionalProperties:
-      $ref: >-
-        #/definitions/it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceColumnReference

@@ -1,9 +1,0 @@
-title: com.mwsx.model.Role
-type: object
-properties:
-  permissions:
-    type: array
-    items:
-      $ref: '#/definitions/com.mwsx.model.Permission'
-  name:
-    type: string

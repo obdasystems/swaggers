@@ -1,7 +1,0 @@
-title: com.mwsx.model.SparqlingVirtualEntities
-type: object
-properties:
-  entities:
-    type: array
-    items:
-      $ref: '#/definitions/com.mwsx.model.SparqlingVirtualEntity'

@@ -1,9 +1,0 @@
-title: com.mwsx.model.SourceTableInfo
-type: object
-properties:
-  columns:
-    type: array
-    items:
-      type: string
-  name:
-    type: string

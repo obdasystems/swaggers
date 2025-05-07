@@ -1,7 +1,0 @@
-type: object
-properties:
-  pan:
-    $ref: ./Position.yaml
-  zoom:
-    type: number
-    format: float

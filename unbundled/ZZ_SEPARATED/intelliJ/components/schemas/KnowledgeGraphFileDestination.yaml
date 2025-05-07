@@ -1,8 +1,0 @@
-type: object
-properties:
-  kgDestination:
-    $ref: ./KnowledgeGraphDestination.yaml
-  fileNames:
-    type: array
-    items:
-      type: string

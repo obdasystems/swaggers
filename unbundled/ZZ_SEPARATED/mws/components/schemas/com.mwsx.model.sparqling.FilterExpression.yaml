@@ -1,9 +1,0 @@
-title: com.mwsx.model.sparqling.FilterExpression
-type: object
-properties:
-  parameters:
-    type: array
-    items:
-      $ref: '#/definitions/com.mwsx.model.sparqling.VarOrConstant'
-  operator:
-    type: string

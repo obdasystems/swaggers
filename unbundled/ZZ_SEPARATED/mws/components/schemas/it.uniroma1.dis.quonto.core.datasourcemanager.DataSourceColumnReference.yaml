@@ -1,7 +1,0 @@
-title: it.uniroma1.dis.quonto.core.datasourcemanager.DataSourceColumnReference
-type: object
-properties:
-  tableName:
-    type: string
-  columnName:
-    type: string

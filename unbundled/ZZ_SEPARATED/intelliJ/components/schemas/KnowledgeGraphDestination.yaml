@@ -1,6 +1,0 @@
-type: object
-properties:
-  destination:
-    type: string
-  namedGraph:
-    type: string

@@ -1,7 +1,0 @@
-title: com.mwsx.model.KnowledgeGraphFileInfos
-type: object
-properties:
-  infos:
-    type: array
-    items:
-      $ref: '#/definitions/com.mwsx.model.KnowledgeGraphFileInfo'

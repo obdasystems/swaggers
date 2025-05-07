@@ -1,7 +1,0 @@
-title: com.mwsx.model.IdentificationAssertion
-type: object
-properties:
-  identificationPaths:
-    type: array
-    items:
-      $ref: '#/definitions/com.mwsx.model.IdentificationPath'
