@@ -52,8 +52,6 @@ paths:
     $ref: paths/user_{username}_feedback.yaml
   /user/feedback/comment:
     $ref: paths/user_feedback_comment.yaml
-  /login:
-    $ref: paths/login.yaml
   /logout:
     $ref: paths/logout.yaml
   /logout/{username}:

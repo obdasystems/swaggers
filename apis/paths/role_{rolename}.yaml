@@ -13,7 +13,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/Role.yaml
 put:
   summary: PUT mwsx/role/{rolename}
   operationId: put__role
@@ -35,7 +35,7 @@ put:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/Role.yaml
 delete:
   summary: DELETE mwsx/role/{rolename}
   operationId: delete__role
@@ -51,4 +51,4 @@ delete:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/Role.yaml

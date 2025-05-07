@@ -1,0 +1,75 @@
+openapi: 3.0.0
+info:
+  description: This is the API for login using mastro authentication.
+  version: 1.0.0
+  title: Login API
+  contact:
+    email: info@obdasystems.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+  - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+    variables:
+      protocol:
+        default: https
+      tenant:
+        default: localhost
+      port:
+        default: ':8989'
+security:
+  - basicAuth: []
+paths:
+  /login:
+    get:
+      summary: GET mwsx/login
+      operationId: get__login
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+  schemas:
+    Permission:
+      title: Permission
+      type: object
+      properties:
+        domain:
+          type: string
+        action:
+          type: string
+        id:
+          type: string
+    Role:
+      title: Role
+      type: object
+      properties:
+        permissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Permission'
+        name:
+          type: string
+    User:
+      title: User
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Role'
+        name:
+          type: string
+        email:
+          type: string

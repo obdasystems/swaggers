@@ -13,7 +13,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/User.yaml
 put:
   summary: PUT mwsx/user/{username}
   operationId: put__user
@@ -40,7 +40,7 @@ put:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/User.yaml
 delete:
   summary: DELETE mwsx/user/{username}
   operationId: delete__user
@@ -56,4 +56,4 @@ delete:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/User.yaml

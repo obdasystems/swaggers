@@ -4,6 +4,9 @@ extends:
 apis:
   mastro:
     root: apis/_mastro.yaml
+  login:
+    root: apis/login.yaml
+    output: bundled/login.yaml
   authorization-view-profiles: 
     root: apis/authorization-view-profiles.yaml
     output: bundled/authorization-view-profiles.yaml
@@ -49,9 +52,9 @@ apis:
   # triplify: 
   #   root: apis/triplify.yaml
   #   output: bundled/triplify.yaml
-  # users-roles: 
-  #   root: apis/users-roles.yaml
-  #   output: bundled/users-roles.yaml
+  users-roles: 
+    root: apis/users-roles.yaml
+    output: bundled/users-roles.yaml
   # virtual-entities: 
   #   root: apis/virtual-entities.yaml
   #   output: bundled/virtual-entities.yaml
