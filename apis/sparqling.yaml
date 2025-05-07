@@ -1,4 +1,13 @@
 openapi: 3.0.1
+servers:
+  - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+    variables:
+      protocol:
+        default: https
+      tenant:
+        default: localhost
+      port:
+        default: ':8989'
 info:
   title: Swagger Sparqling WS
   description: >-
@@ -12,12 +21,6 @@ info:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   version: 1.1.0
-servers:
-  - url: "https://{tenant}/mws/rest/mwsx"
-    variables:
-      tenant:
-        default: localhost
-        description: Your localhost
 tags:
   - name: OntologyGraph
     description: >-
@@ -136,10 +139,10 @@ paths:
     $ref: paths/endpoint_{endpointName}_instanceShortestPath.yaml
 components: 
   securitySchemes: 
-    api-key: 
+    apiKey: 
       $ref: './components/securitySchemes/api-key.yaml'
     jwt:
       $ref: './components/securitySchemes/jwt.yaml'
 security: 
-  - api-key: []
+  - apiKey: []
   - jwt: []

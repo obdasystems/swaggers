@@ -1,4 +1,13 @@
 openapi: 3.0.0
+servers:
+  - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+    variables:
+      protocol:
+        default: https
+      tenant:
+        default: localhost
+      port:
+        default: ':8989'
 info:
   description: >-
     This is the API for Mastro an Ontology-based Data Management System.

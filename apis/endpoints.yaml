@@ -1,10 +1,13 @@
 openapi: 3.0.0
 servers:
-  - url: 'https://{tenant}/mws/rest/mwsx'
+  - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
     variables:
+      protocol:
+        default: https
       tenant:
         default: localhost
-        description: Your localhost
+      port:
+        default: ':8989'
 info:
   description: >-
     This is the API for managing Endpoints in Mastro. An endpoint
@@ -172,10 +175,10 @@ paths:
     $ref: paths/endpoint_{endpointName}_highligthsSharedViewsProps.yaml
 components: 
   securitySchemes: 
-    api-key: 
+    apiKey: 
       $ref: './components/securitySchemes/api-key.yaml'
     jwt:
       $ref: './components/securitySchemes/jwt.yaml'
 security: 
-  - api-key: []
+  - apiKey: []
   - jwt: []

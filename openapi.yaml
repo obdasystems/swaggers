@@ -1,24 +1,26 @@
 openapi: 3.0.0
 info:
   description: >-
-    This is the API for manage Authorization View Proviles (AVPs)  used in
-    Mastro to restrict the access to the data by means of  filtering some of the
-    entities of the ontologies. This entity sets are builded using the Mastro
-    reasoner and are used in the  definition of endpoints which will have
-    restricted access. 
+    This is the API for Mastro an Ontology-based Data Management System. You can
+    create modify ontologies, map them to a datasource and query the ontology
+    directlty with user friendly tools as the Query Builder and the Virtual
+    Knowledge Graph.
   version: 1.0.0
-  title: AVPs API model
+  title: Mastro API model
   contact:
     email: info@obdasystems.com
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
 servers:
-  - url: https://{tenant}/mws/rest/mwsx
+  - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
     variables:
+      protocol:
+        default: https
       tenant:
         default: localhost
-        description: Your localhost
+      port:
+        default: ':8989'
 tags:
   - name: authorization-view-profiles_other
     x-displayName: other
@@ -48,6 +50,8 @@ tags:
     x-displayName: Ontology Designer
   - name: query-catalog_other
     x-displayName: other
+  - name: vkg_other
+    x-displayName: other
 paths:
   /owlOntology/{name}/version/avpOntologyTree:
     get:
@@ -74,7 +78,7 @@ paths:
       tags:
         - authorization-view-profiles_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/authorizationViewProfiles:
     get:
@@ -103,7 +107,7 @@ paths:
       tags:
         - authorization-view-profiles_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     post:
       summary: POST mwsx/owlOntology/{name}/version/authorizationViewProfiles
@@ -135,7 +139,7 @@ paths:
       tags:
         - authorization-view-profiles_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/authorizationViewProfile/{avpId}:
     put:
@@ -173,7 +177,7 @@ paths:
       tags:
         - authorization-view-profiles_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     delete:
       summary: DELETE mwsx/owlOntology/{name}/version/authorizationViewProfile/{avpId}
@@ -204,7 +208,7 @@ paths:
       tags:
         - authorization-view-profiles_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/dashboards:
     get:
@@ -231,7 +235,7 @@ paths:
       tags:
         - dashboards_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     post:
       summary: POST mwsx/owlOntology/{name}/version/dashboards
@@ -263,7 +267,7 @@ paths:
       tags:
         - dashboards_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/dashboard/{dashboardId}/migrate:
     post:
@@ -300,7 +304,7 @@ paths:
       tags:
         - dashboards_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/dashboards/migrate:
     post:
@@ -332,7 +336,7 @@ paths:
       tags:
         - dashboards_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/dashboard/{dashboardId}:
     put:
@@ -370,7 +374,7 @@ paths:
       tags:
         - dashboards_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     delete:
       summary: DELETE mwsx/owlOntology/{name}/version/dashboard/{dashboardId}
@@ -401,7 +405,7 @@ paths:
       tags:
         - dashboards_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/ontologyConstraints:
     get:
@@ -428,7 +432,7 @@ paths:
       tags:
         - data-quality_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/ontologyConstraints/set:
     post:
@@ -461,7 +465,7 @@ paths:
       tags:
         - data-quality_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     get:
       summary: GET mwsx/owlOntology/{name}/version/ontologyConstraints/set
@@ -489,7 +493,7 @@ paths:
       tags:
         - data-quality_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/ontologyConstraints/set/{setId}:
     get:
@@ -521,7 +525,7 @@ paths:
       tags:
         - data-quality_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     delete:
       summary: DELETE mwsx/owlOntology/{name}/version/ontologyConstraints/set/{setId}
@@ -552,7 +556,7 @@ paths:
       tags:
         - data-quality_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     put:
       summary: PUT mwsx/owlOntology/{name}/version/ontologyConstraints/set/{setId}
@@ -589,7 +593,7 @@ paths:
       tags:
         - data-quality_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/ontologyConstraints/set/{setId}/start/{endpoint}:
     put:
@@ -649,7 +653,7 @@ paths:
       tags:
         - data-quality_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/ontologyConstraints/set/{setId}/stop:
     put:
@@ -681,7 +685,7 @@ paths:
       tags:
         - data-quality_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/ontologyConstraints/set/{setId}/removeThread:
     delete:
@@ -715,7 +719,7 @@ paths:
       tags:
         - data-quality_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/ontologyConstraints/set/{setId}/status:
     get:
@@ -749,7 +753,7 @@ paths:
       tags:
         - data-quality_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/ontologyConstraints/sets/running:
     get:
@@ -778,7 +782,7 @@ paths:
       tags:
         - data-quality_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/ontologyConstraints/sets/executionLogs:
     get:
@@ -807,7 +811,7 @@ paths:
       tags:
         - data-quality_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/ontologyConstraints/set/{setId}/executionLog:
     get:
@@ -841,7 +845,7 @@ paths:
       tags:
         - data-quality_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     put:
       summary: >-
@@ -874,7 +878,7 @@ paths:
       tags:
         - data-quality_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/ontologyConstraints/set/{setId}/executionLogs/timestamps:
     get:
@@ -910,7 +914,7 @@ paths:
       tags:
         - data-quality_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/ontologyConstraints/set/{setId}/executionLogs/timestamp/{timestamp}:
     get:
@@ -949,7 +953,7 @@ paths:
       tags:
         - data-quality_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     delete:
       summary: >-
@@ -987,7 +991,7 @@ paths:
       tags:
         - data-quality_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/ontologyConstraints/set/{setId}/executionLog/timestamps:
     delete:
@@ -1021,7 +1025,7 @@ paths:
       tags:
         - data-quality_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/ontologyConstraints/set/{setId}/dump:
     get:
@@ -1053,7 +1057,7 @@ paths:
       tags:
         - data-quality_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/ontologyConstraints/sets/dump:
     post:
@@ -1091,7 +1095,7 @@ paths:
       tags:
         - data-quality_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /datasource/{name}:
     get:
@@ -1113,7 +1117,7 @@ paths:
       tags:
         - datasources_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     put:
       summary: PUT mwsx/datasource/{name}
@@ -1140,7 +1144,7 @@ paths:
       tags:
         - datasources_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     delete:
       summary: DELETE mwsx/datasource/{name}
@@ -1161,7 +1165,7 @@ paths:
       tags:
         - datasources_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /datasource/{name}/downloadMetadata:
     get:
@@ -1183,7 +1187,7 @@ paths:
       tags:
         - datasources_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /datasource/{name}/metadata:
     get:
@@ -1205,7 +1209,7 @@ paths:
       tags:
         - datasources_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /datasource/{name}/updateMetadata:
     put:
@@ -1232,7 +1236,7 @@ paths:
       tags:
         - datasources_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /datasource/{name}/uploadMetadata:
     put:
@@ -1260,7 +1264,7 @@ paths:
       tags:
         - datasources_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /datasource:
     post:
@@ -1293,7 +1297,7 @@ paths:
       tags:
         - datasources_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     get:
       summary: GET mwsx/datasource
@@ -1308,7 +1312,7 @@ paths:
       tags:
         - datasources_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     delete:
       summary: DELETE mwsx/datasource
@@ -1323,7 +1327,7 @@ paths:
       tags:
         - datasources_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /datasource/drivers:
     get:
@@ -1341,7 +1345,7 @@ paths:
       tags:
         - datasources_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /datasource/test:
     post:
@@ -1363,7 +1367,7 @@ paths:
       tags:
         - datasources_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /datasource/schemas:
     post:
@@ -1387,7 +1391,7 @@ paths:
       tags:
         - datasources_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /datasource/{id}/schemas:
     get:
@@ -1411,7 +1415,7 @@ paths:
       tags:
         - datasources_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /datasource/schema/{schemaName}/tableNames:
     post:
@@ -1439,7 +1443,7 @@ paths:
       tags:
         - datasources_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /datasource/{id}/tables:
     get:
@@ -1461,7 +1465,7 @@ paths:
       tags:
         - datasources_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /datasource/{id}/tables/results:
     post:
@@ -1495,7 +1499,7 @@ paths:
       tags:
         - datasources_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /datasource/{id}/table/{tableName}:
     get:
@@ -1522,7 +1526,7 @@ paths:
       tags:
         - datasources_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoints:
     get:
@@ -1538,7 +1542,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     delete:
       summary: DELETE mwsx/endpoints
@@ -1553,7 +1557,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoints/referencing/owlOntology/{name}/version:
     get:
@@ -1580,7 +1584,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoints/referencing/owlOntology/{name}/version/mapping/{ID}:
     get:
@@ -1612,7 +1616,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoints/referencing/datasource/{name}:
     get:
@@ -1634,7 +1638,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoints/running:
     get:
@@ -1650,7 +1654,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}:
     get:
@@ -1672,7 +1676,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     delete:
       summary: DELETE mwsx/endpoint/{name}
@@ -1693,7 +1697,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     put:
       summary: PUT mwsx/endpoint/{name}
@@ -1720,7 +1724,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint:
     post:
@@ -1742,7 +1746,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/prefixes:
     get:
@@ -1766,7 +1770,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/start:
     put:
@@ -1794,7 +1798,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/stop:
     put:
@@ -1816,7 +1820,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/status:
     get:
@@ -1838,7 +1842,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/empties:
     get:
@@ -1860,7 +1864,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/emptyUnfoldingEntities:
     get:
@@ -1882,7 +1886,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/highlights/annotations:
     get:
@@ -1911,7 +1915,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/query/count/{queryId}/stop:
     put:
@@ -1938,7 +1942,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/query/count/{queryId}:
     delete:
@@ -1965,7 +1969,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/query/count/{queryId}/result:
     get:
@@ -1992,7 +1996,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/query/check:
     post:
@@ -2020,7 +2024,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/query/quarantinedMappingsByEntity:
     post:
@@ -2052,7 +2056,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/query/{queryID}/start:
     post:
@@ -2135,7 +2139,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/query/{queryID}/stop:
     put:
@@ -2162,7 +2166,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/query/{queryID}/exportFile:
     get:
@@ -2194,7 +2198,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/query/{queryID}/fullSparqlDetails:
     get:
@@ -2221,7 +2225,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/query/{queryID}/ontologyRewritings:
     get:
@@ -2260,7 +2264,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/query/{queryID}/viewRewritings:
     get:
@@ -2299,7 +2303,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/query/{queryID}/viewOptimizedRewritings:
     get:
@@ -2338,7 +2342,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/query/{queryID}/sqlRewritings:
     get:
@@ -2377,7 +2381,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/query/{queryID}/sqlDebugRewritings:
     get:
@@ -2406,7 +2410,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/query/{queryID}/results:
     get:
@@ -2445,7 +2449,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/query/{queryID}/status:
     get:
@@ -2472,7 +2476,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/queryRecordInfos:
     get:
@@ -2496,7 +2500,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/query/{queryID}/queryRecordInfo:
     get:
@@ -2523,7 +2527,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/query/exportQueryResults:
     post:
@@ -2551,7 +2555,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/query/export/direct:
     get:
@@ -2579,7 +2583,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/exportThreads:
     get:
@@ -2603,7 +2607,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/exported:
     get:
@@ -2627,7 +2631,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/exported/{fileName}:
     get:
@@ -2654,7 +2658,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     delete:
       summary: DELETE mwsx/endpoint/{name}/exported/{fileName}
@@ -2680,7 +2684,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/exportThread/{id}/status:
     get:
@@ -2707,7 +2711,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/exportThread/{id}/errors:
     get:
@@ -2736,7 +2740,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/exportThread/{id}/stop:
     put:
@@ -2763,7 +2767,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/exportThread/{id}/stats:
     get:
@@ -2790,7 +2794,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/exportThread/{id}/file:
     get:
@@ -2818,7 +2822,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/exportThread/{id}/preview/{lines}:
     get:
@@ -2851,7 +2855,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/exportThread/{id}:
     delete:
@@ -2878,7 +2882,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/cquery/start:
     post:
@@ -2956,7 +2960,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/cquery/{queryID}/start:
     post:
@@ -3039,7 +3043,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/cquery/{queryID}/status:
     get:
@@ -3066,7 +3070,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/cquery/exportQueryResults:
     post:
@@ -3094,7 +3098,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/cquery/{queryID}/export:
     get:
@@ -3126,7 +3130,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/cquery/{queryID}/results:
     get:
@@ -3165,7 +3169,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/cquery/{queryID}/results/triples:
     get:
@@ -3206,7 +3210,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/cquery/{queryID}/results/tabular:
     get:
@@ -3245,7 +3249,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/cquery/{queryID}/results/rdfGraph:
     get:
@@ -3284,7 +3288,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/RDFGraph'
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{eName}/countEntityInstances:
     get:
@@ -3316,7 +3320,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{eName}/countEntityInstances/start:
     get:
@@ -3338,7 +3342,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{eName}/countEntityInstances/stop:
     get:
@@ -3360,7 +3364,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{eName}/countEntityInstances/info:
     get:
@@ -3382,7 +3386,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{eName}/instanceChecking/start:
     post:
@@ -3434,7 +3438,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{eName}/instanceChecking/{threadId}/stop:
     get:
@@ -3462,7 +3466,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{eName}/instanceChecking/{threadId}/info:
     get:
@@ -3490,7 +3494,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{eName}/minMaxDataproperties/start:
     get:
@@ -3512,7 +3516,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{eName}/minMaxDataproperties/stop:
     get:
@@ -3534,7 +3538,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{eName}/minMaxDataproperties/info:
     get:
@@ -3556,7 +3560,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/queries:
     get:
@@ -3585,7 +3589,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/queries/ids:
     get:
@@ -3614,7 +3618,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/query/{executionId}:
     delete:
@@ -3641,7 +3645,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/query/start:
     post:
@@ -3719,7 +3723,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/query/start-sync:
     post:
@@ -3797,7 +3801,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/query/count:
     post:
@@ -3850,7 +3854,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/query/count/{queryId}/state:
     get:
@@ -3877,7 +3881,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/query/count/{queryId}/error:
     get:
@@ -3904,7 +3908,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{name}/virtualEntity/{veName}:
     get:
@@ -3936,7 +3940,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{eName}/mappingAnalysisReport:
     get:
@@ -3958,7 +3962,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{eName}/saturetedOntology:
     post:
@@ -3986,7 +3990,7 @@ paths:
       tags:
         - endpoints_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /endpoint/{endpointName}/highligthsSharedViewsProps:
     get:
@@ -4041,7 +4045,7 @@ paths:
           description: Entity not found
           content: {}
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraphs:
     get:
@@ -4059,7 +4063,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     post:
       summary: POST mwsx/knowledgeGraphs
@@ -4080,7 +4084,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph:
     delete:
@@ -4096,7 +4100,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     get:
       summary: GET mwsx/knowledgeGraph
@@ -4117,7 +4121,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/info:
     get:
@@ -4139,7 +4143,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/prefixes:
     post:
@@ -4172,7 +4176,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     get:
       summary: GET mwsx/knowledgeGraph/prefixes
@@ -4193,7 +4197,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/folder:
     get:
@@ -4215,7 +4219,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/status:
     get:
@@ -4237,7 +4241,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/status/list:
     get:
@@ -4257,7 +4261,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /lastLoaded/knowledgeGraph:
     get:
@@ -4275,7 +4279,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/file:
     put:
@@ -4297,7 +4301,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     delete:
       summary: DELETE mwsx/knowledgeGraph/file
@@ -4312,7 +4316,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     get:
       summary: GET mwsx/knowledgeGraph/file
@@ -4348,7 +4352,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/classes:
     get:
@@ -4377,7 +4381,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/classes/stats:
     get:
@@ -4406,7 +4410,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/class/instances:
     get:
@@ -4445,7 +4449,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/namedGraphs:
     get:
@@ -4469,7 +4473,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/instances:
     get:
@@ -4498,7 +4502,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/union:
     put:
@@ -4520,7 +4524,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/union/ontology:
     put:
@@ -4542,7 +4546,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/union/queryKg:
     put:
@@ -4564,7 +4568,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/query/catalog:
     get:
@@ -4586,7 +4590,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     post:
       summary: POST mwsx/knowledgeGraph/query/catalog
@@ -4613,7 +4617,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/query/catalog/export:
     get:
@@ -4635,7 +4639,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/query/catalog/{queryID}:
     get:
@@ -4662,7 +4666,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     put:
       summary: PUT mwsx/knowledgeGraph/query/catalog/{queryID}
@@ -4694,7 +4698,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     delete:
       summary: DELETE mwsx/knowledgeGraph/query/catalog/{queryID}
@@ -4720,7 +4724,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/query/start:
     post:
@@ -4753,7 +4757,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/query/catalog/{queryID}/start:
     post:
@@ -4785,7 +4789,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/query/{queryID}/stop:
     put:
@@ -4812,7 +4816,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/query/{queryID}/exportResults:
     get:
@@ -4845,7 +4849,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/query/{queryID}/status:
     get:
@@ -4872,7 +4876,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/query/{queryId}:
     delete:
@@ -4899,7 +4903,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/query/{queryID}/results:
     get:
@@ -4938,7 +4942,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/instance/page:
     get:
@@ -4975,7 +4979,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/instance/objectType:
     get:
@@ -5028,7 +5032,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/instance/subjectType:
     get:
@@ -5081,7 +5085,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/store/file:
     post:
@@ -5103,7 +5107,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     get:
       summary: GET mwsx/knowledgeGraph/store/file
@@ -5120,7 +5124,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/store/file/{name}:
     delete:
@@ -5142,7 +5146,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     get:
       summary: GET mwsx/knowledgeGraph/store/file/{name}
@@ -5163,7 +5167,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/upload/file:
     post:
@@ -5191,7 +5195,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/upload/import:
     put:
@@ -5213,7 +5217,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/delete/file:
     delete:
@@ -5235,7 +5239,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/delete/file/triples:
     delete:
@@ -5262,7 +5266,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/upload/remove:
     delete:
@@ -5278,7 +5282,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/upload/files:
     get:
@@ -5302,7 +5306,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/union/queryOBDA:
     put:
@@ -5340,7 +5344,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/upload/file/csv:
     post:
@@ -5388,7 +5392,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/upload/files/csv:
     get:
@@ -5406,7 +5410,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/delete/file/csv/{fileName}:
     delete:
@@ -5428,7 +5432,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/file/csv/{fileName}/preview:
     get:
@@ -5456,7 +5460,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/upload/import/csv:
     put:
@@ -5484,7 +5488,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/upload/import/threads:
     get:
@@ -5508,7 +5512,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /knowledgeGraph/upload/import/thread:
     get:
@@ -5540,7 +5544,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     delete:
       summary: DELETE mwsx/knowledgeGraph/upload/import/thread
@@ -5566,7 +5570,7 @@ paths:
       tags:
         - knowledge-graphs_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping:
     get:
@@ -5593,7 +5597,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     post:
       summary: POST mwsx/owlOntology/{name}/version/mapping
@@ -5643,7 +5647,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{mapID}:
     get:
@@ -5680,7 +5684,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     put:
       summary: PUT mwsx/owlOntology/{name}/version/mapping/{mapID}
@@ -5722,7 +5726,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     delete:
       summary: DELETE mwsx/owlOntology/{name}/version/mapping/{mapID}
@@ -5753,7 +5757,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/checkDeprecation:
     get:
@@ -5787,7 +5791,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/count:
     get:
@@ -5819,7 +5823,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{mapID}/duplicate:
     post:
@@ -5861,7 +5865,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{mapID}/backup:
     get:
@@ -5893,7 +5897,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     post:
       summary: POST mwsx/owlOntology/{name}/version/mapping/{mapID}/backup
@@ -5924,7 +5928,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     put:
       summary: PUT mwsx/owlOntology/{name}/version/mapping/{mapID}/backup
@@ -5955,7 +5959,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     delete:
       summary: DELETE mwsx/owlOntology/{name}/version/mapping/{mapID}/backup
@@ -5986,7 +5990,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{mapID}/migrate:
     post:
@@ -6033,7 +6037,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{mapID}/fixDeprecated:
     post:
@@ -6065,7 +6069,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/check:
     post:
@@ -6108,7 +6112,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/info:
     get:
@@ -6140,7 +6144,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/templates:
     get:
@@ -6174,7 +6178,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/templates/refactoring:
     put:
@@ -6214,7 +6218,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/template:
     post:
@@ -6252,7 +6256,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     delete:
       summary: DELETE mwsx/owlOntology/{name}/version/mapping/{ID}/template
@@ -6288,7 +6292,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/assertions/{entityID}:
     get:
@@ -6327,7 +6331,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/assertions:
     get:
@@ -6361,7 +6365,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     post:
       summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/assertions
@@ -6398,7 +6402,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}:
     delete:
@@ -6435,7 +6439,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     put:
       summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}
@@ -6477,7 +6481,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/views:
     get:
@@ -6509,7 +6513,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     post:
       summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/views
@@ -6546,7 +6550,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/view/{view_name}/referencedTables:
     get:
@@ -6587,7 +6591,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/views/referencedTables:
     get:
@@ -6625,7 +6629,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/view/{view_name}:
     put:
@@ -6668,7 +6672,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     delete:
       summary: DELETE mwsx/owlOntology/{name}/version/mapping/{ID}/view/{view_name}
@@ -6704,7 +6708,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/view/refactoring:
     post:
@@ -6742,7 +6746,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     put:
       summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/view/refactoring
@@ -6779,7 +6783,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/views/{viewID}:
     get:
@@ -6816,7 +6820,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/annotations:
     get:
@@ -6850,7 +6854,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     post:
       summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/annotations
@@ -6887,7 +6891,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/annotation/{mapID}:
     get:
@@ -6924,7 +6928,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     delete:
       summary: DELETE mwsx/owlOntology/{name}/version/mapping/{ID}/annotation/{mapID}
@@ -6960,7 +6964,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     put:
       summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/annotation/{mapID}
@@ -7002,7 +7006,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/generateIntensionalAnnotationsOntology:
     post:
@@ -7043,7 +7047,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/state:
     get:
@@ -7083,7 +7087,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/error:
     get:
@@ -7123,7 +7127,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/export:
     get:
@@ -7163,7 +7167,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/stop:
     put:
@@ -7203,7 +7207,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}:
     delete:
@@ -7243,7 +7247,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/dependencies:
     get:
@@ -7275,7 +7279,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/dependencies/inclusions:
     get:
@@ -7309,7 +7313,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     post:
       summary: >-
@@ -7348,7 +7352,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/dependencies/inclusion/{incID}:
     get:
@@ -7387,7 +7391,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     put:
       summary: >-
@@ -7431,7 +7435,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     delete:
       summary: >-
@@ -7469,7 +7473,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/dependencies/keys:
     get:
@@ -7503,7 +7507,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     post:
       summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/keys
@@ -7540,7 +7544,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/dependencies/key/{keyID}:
     get:
@@ -7579,7 +7583,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     delete:
       summary: >-
@@ -7617,7 +7621,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     put:
       summary: >-
@@ -7661,7 +7665,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/dependencies/denials:
     get:
@@ -7695,7 +7699,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     post:
       summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/denials
@@ -7732,7 +7736,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/dependencies/denial/{denyID}:
     get:
@@ -7771,7 +7775,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     put:
       summary: >-
@@ -7815,7 +7819,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     delete:
       summary: >-
@@ -7853,7 +7857,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/parameter:
     post:
@@ -7891,7 +7895,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     put:
       summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/parameter
@@ -7928,7 +7932,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/parameters:
     get:
@@ -7960,7 +7964,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}:
     delete:
@@ -7999,7 +8003,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/parameters:
     get:
@@ -8040,7 +8044,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/referencedTables:
     get:
@@ -8081,7 +8085,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/testSQLQuery:
     get:
@@ -8131,7 +8135,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/testCustomSQLQuery:
     post:
@@ -8187,7 +8191,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/assertion/testCustomSQLQuery:
     post:
@@ -8239,7 +8243,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/typeCheckingReport:
     get:
@@ -8285,7 +8289,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/view/{viewName}/parameters:
     get:
@@ -8326,7 +8330,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}/views:
     get:
@@ -8367,7 +8371,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}/assertions:
     get:
@@ -8408,7 +8412,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{mapID}/query/{queryID}/delete:
     delete:
@@ -8447,7 +8451,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{mapID}/suggestedTemplate/{entityID}:
     get:
@@ -8493,7 +8497,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{mapID}/dataLineage/{entityID}:
     get:
@@ -8537,7 +8541,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{mapID}/dataLineageProperty/{entityID}:
     get:
@@ -8576,7 +8580,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/mapping/{mapID}/dataLineageAnnotationProperty:
     get:
@@ -8616,7 +8620,7 @@ paths:
       tags:
         - mappings_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /log/{env}/{mode}:
     get:
@@ -8643,7 +8647,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /mastro/version:
     get:
@@ -8659,7 +8663,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /jena/version:
     get:
@@ -8675,7 +8679,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlapi/version:
     get:
@@ -8691,7 +8695,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /resources/ontologies:
     get:
@@ -8709,7 +8713,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /resources/ontology/{name}/versions:
     get:
@@ -8733,7 +8737,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /resources/ontology/{name}/version/mappings:
     get:
@@ -8762,7 +8766,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /resources/datasources:
     get:
@@ -8780,7 +8784,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /resources/endpoints:
     get:
@@ -8798,7 +8802,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /mastro/instances:
     get:
@@ -8816,7 +8820,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /lastLoaded/ontology:
     get:
@@ -8834,7 +8838,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /globalAnnotations:
     get:
@@ -8852,7 +8856,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /globalAnnotation:
     post:
@@ -8876,7 +8880,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /globalAnnotation/{entityId}:
     delete:
@@ -8900,7 +8904,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /server/license/info:
     get:
@@ -8916,7 +8920,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /server/storage/report:
     get:
@@ -8932,7 +8936,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /server/storage/{folder}:
     delete:
@@ -8954,7 +8958,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /server/systemSnapshot:
     get:
@@ -8970,7 +8974,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /server/systemMemory:
     get:
@@ -8986,7 +8990,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /server/userlog/{username}/count:
     get:
@@ -9008,7 +9012,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /server/userlog/{username}:
     get:
@@ -9044,7 +9048,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /geocoding/servers:
     get:
@@ -9060,7 +9064,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /geocoding/server/{serverId}:
     put:
@@ -9088,7 +9092,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     delete:
       summary: DELETE mwsx/geocoding/server/{serverId}
@@ -9109,7 +9113,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /logger/mastroapi:
     get:
@@ -9132,7 +9136,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /logger/service:
     get:
@@ -9155,7 +9159,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /logger:
     get:
@@ -9188,7 +9192,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /logger/class:
     get:
@@ -9221,7 +9225,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /logger/package:
     get:
@@ -9254,7 +9258,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /logger/list:
     get:
@@ -9270,7 +9274,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /logger/monitor:
     get:
@@ -9293,7 +9297,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /statics/sparql/extractProjectVarNames:
     post:
@@ -9317,7 +9321,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /statics/sparql/templateSize:
     post:
@@ -9339,7 +9343,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /statics/reporting/request:
     post:
@@ -9361,7 +9365,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /system/jdbcDrivers:
     get:
@@ -9379,7 +9383,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /system/jdbcDriver/{driver}:
     get:
@@ -9401,7 +9405,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     delete:
       summary: DELETE mwsx/system/jdbcDriver/{driver}
@@ -9422,7 +9426,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     put:
       summary: PUT mwsx/system/jdbcDriver/{driver}
@@ -9449,7 +9453,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /system/jdbcDriver:
     post:
@@ -9471,7 +9475,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /queryTags:
     get:
@@ -9487,7 +9491,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     post:
       summary: POST mwsx/queryTags
@@ -9508,7 +9512,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /queryTags/{tagName}:
     delete:
@@ -9530,7 +9534,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /statistics/accesses:
     get:
@@ -9548,7 +9552,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     post:
       summary: POST mwsx/statistics/accesses
@@ -9573,7 +9577,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     put:
       summary: PUT mwsx/statistics/accesses
@@ -9598,7 +9602,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     delete:
       summary: DELETE mwsx/statistics/accesses
@@ -9615,7 +9619,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /statistics/ontologies:
     get:
@@ -9633,7 +9637,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     post:
       summary: POST mwsx/statistics/ontologies
@@ -9658,7 +9662,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     put:
       summary: PUT mwsx/statistics/ontologies
@@ -9683,7 +9687,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     delete:
       summary: DELETE mwsx/statistics/ontologies
@@ -9700,7 +9704,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /statistics/{endpoint}/queries:
     get:
@@ -9724,7 +9728,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     post:
       summary: POST mwsx/statistics/{endpoint}/queries
@@ -9755,7 +9759,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     put:
       summary: PUT mwsx/statistics/{endpoint}/queries
@@ -9786,7 +9790,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     delete:
       summary: DELETE mwsx/statistics/{endpoint}/queries
@@ -9809,7 +9813,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /statistics/{endpoint}/entities:
     get:
@@ -9845,7 +9849,7 @@ paths:
       tags:
         - misc_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology:
     get:
@@ -9861,7 +9865,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     post:
       summary: POST mwsx/owlOntology
@@ -9882,7 +9886,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     delete:
       summary: DELETE mwsx/owlOntology
@@ -9897,7 +9901,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}:
     get:
@@ -9919,7 +9923,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     post:
       summary: POST mwsx/owlOntology/{name}
@@ -9951,7 +9955,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     delete:
       summary: DELETE mwsx/owlOntology/{name}
@@ -9972,7 +9976,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/folder:
     get:
@@ -9994,7 +9998,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/folder:
     get:
@@ -10021,7 +10025,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version:
     get:
@@ -10058,7 +10062,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     delete:
       summary: DELETE mwsx/owlOntology/{name}/version
@@ -10084,7 +10088,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/ignoredImports:
     get:
@@ -10113,7 +10117,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/closed:
     get:
@@ -10145,7 +10149,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     delete:
       summary: DELETE mwsx/owlOntology/{name}/version/closed
@@ -10171,7 +10175,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     post:
       summary: POST mwsx/owlOntology/{name}/version/closed
@@ -10212,7 +10216,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/closed/{threadId}/status:
     get:
@@ -10249,7 +10253,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/closedComputed:
     get:
@@ -10281,7 +10285,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/closingReport:
     get:
@@ -10308,7 +10312,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/closingReportComputed:
     get:
@@ -10335,7 +10339,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/hierarchy/owl:
     get:
@@ -10362,7 +10366,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/loaderThreads:
     post:
@@ -10410,7 +10414,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/loaderThreads/metadata:
     post:
@@ -10468,7 +10472,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/loaderThread/{threadId}/status:
     get:
@@ -10495,7 +10499,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/loaderThread/{threadId}/report:
     get:
@@ -10522,7 +10526,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/importFromIRI:
     get:
@@ -10549,7 +10553,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/hierarchy:
     get:
@@ -10576,7 +10580,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/catalog:
     get:
@@ -10603,7 +10607,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/info:
     get:
@@ -10630,7 +10634,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/entities/classes:
     get:
@@ -10659,7 +10663,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/entities/objectProperties:
     get:
@@ -10688,7 +10692,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/entities/dataProperties:
     get:
@@ -10717,7 +10721,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/entities/annotationProperties:
     get:
@@ -10746,7 +10750,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/entities:
     get:
@@ -10773,7 +10777,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/entity/{id}:
     get:
@@ -10805,7 +10809,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/alphabet/class/{ID}/logical:
     get:
@@ -10837,7 +10841,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/annotations:
     get:
@@ -10871,7 +10875,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/alphabet/objectProperty/{ID}/logical:
     get:
@@ -10903,7 +10907,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/alphabet/dataProperty/{ID}/logical:
     get:
@@ -10935,7 +10939,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/alphabet/dataProperties/domainAndRange:
     get:
@@ -10966,7 +10970,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/graphol:
     get:
@@ -10993,7 +10997,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     delete:
       summary: DELETE mwsx/owlOntology/{name}/version/graphol
@@ -11019,7 +11023,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/gscape:
     get:
@@ -11046,7 +11050,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     delete:
       summary: DELETE mwsx/owlOntology/{name}/version/gscape
@@ -11072,7 +11076,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/shacl:
     get:
@@ -11099,7 +11103,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     delete:
       summary: DELETE mwsx/owlOntology/{name}/version/shacl
@@ -11125,7 +11129,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/graphol/check:
     get:
@@ -11152,7 +11156,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/gscape/check:
     get:
@@ -11179,7 +11183,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/shacl/check:
     get:
@@ -11206,7 +11210,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/owl:
     get:
@@ -11233,7 +11237,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/alphabet/individual/{ID}/logical:
     get:
@@ -11265,7 +11269,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/alphabet/search/individual:
     get:
@@ -11299,7 +11303,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /ontologyDifference/{name}/vs/{otherName}:
     get:
@@ -11336,7 +11340,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/metadata:
     get:
@@ -11363,7 +11367,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/metadata/missing:
     get:
@@ -11390,7 +11394,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/queries/publicationRequests:
     get:
@@ -11406,7 +11410,7 @@ paths:
       tags:
         - ontologies_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /ontologyCatalog:
     post:
@@ -11437,7 +11441,7 @@ paths:
               schema:
                 type: boolean
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     get:
       summary: GET mwsx/ontologyCatalog
@@ -11452,7 +11456,7 @@ paths:
       tags:
         - ontology-catalog_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     delete:
       summary: DELETE mwsx/ontologyCatalog
@@ -11467,7 +11471,7 @@ paths:
       tags:
         - ontology-catalog_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /ontologyCatalog/query/start:
     post:
@@ -11488,7 +11492,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SPARQLQueryExecution'
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /ontologyCatalog/query/{queryID}/stop:
     put:
@@ -11510,7 +11514,7 @@ paths:
               schema:
                 type: boolean
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /ontologyCatalog/query/{queryID}/status:
     get:
@@ -11533,7 +11537,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SPARQLStatus'
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /ontologyCatalog/query/{queryID}/results:
     get:
@@ -11568,7 +11572,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SPARQLResults'
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /ontologyDraftInfos:
     get:
@@ -11586,7 +11590,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/OntologyDraftInfo'
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /ontologyDraft/{ontologyName}:
     get:
@@ -11608,7 +11612,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/RDFGraph'
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     post:
       tags:
@@ -11636,7 +11640,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/RDFGraph'
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     put:
       tags:
@@ -11666,7 +11670,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/RDFGraph'
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     delete:
       tags:
@@ -11689,7 +11693,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/RDFGraph'
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /ontologyDraft/download:
     post:
@@ -11711,7 +11715,7 @@ paths:
                 type: string
                 description: FileInfo object
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/querycatalog:
     get:
@@ -11738,7 +11742,7 @@ paths:
       tags:
         - query-catalog_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     delete:
       summary: DELETE mwsx/owlOntology/{name}/version/querycatalog
@@ -11764,7 +11768,7 @@ paths:
       tags:
         - query-catalog_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/querycatalog/converted2sparqling:
     get:
@@ -11792,7 +11796,7 @@ paths:
       tags:
         - query-catalog_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/query/{queryID}/publication:
     post:
@@ -11824,7 +11828,7 @@ paths:
       tags:
         - query-catalog_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/querycatalog/publicationRequests:
     get:
@@ -11853,7 +11857,7 @@ paths:
       tags:
         - query-catalog_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/querycatalog/{userCatalog}/query/{queryID}/publication:
     put:
@@ -11897,7 +11901,7 @@ paths:
       tags:
         - query-catalog_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     delete:
       summary: >-
@@ -11935,7 +11939,7 @@ paths:
       tags:
         - query-catalog_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/querycatalog/export:
     get:
@@ -11962,7 +11966,7 @@ paths:
       tags:
         - query-catalog_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/querycatalog/import:
     post:
@@ -12000,7 +12004,7 @@ paths:
       tags:
         - query-catalog_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/querycatalog/sparqling/import:
     post:
@@ -12038,7 +12042,7 @@ paths:
       tags:
         - query-catalog_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/querycatalog/sparqling/migrate:
     post:
@@ -12075,7 +12079,7 @@ paths:
       tags:
         - query-catalog_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/querycatalog/sparqling:
     delete:
@@ -12102,7 +12106,7 @@ paths:
       tags:
         - query-catalog_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/querycatalog/sparqling/export:
     get:
@@ -12129,7 +12133,7 @@ paths:
       tags:
         - query-catalog_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/query/{ID}:
     get:
@@ -12161,7 +12165,7 @@ paths:
       tags:
         - query-catalog_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     put:
       summary: PUT mwsx/owlOntology/{name}/version/query/{ID}
@@ -12198,7 +12202,7 @@ paths:
       tags:
         - query-catalog_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     delete:
       summary: DELETE mwsx/owlOntology/{name}/version/query/{ID}
@@ -12229,7 +12233,7 @@ paths:
       tags:
         - query-catalog_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/query:
     post:
@@ -12262,7 +12266,7 @@ paths:
       tags:
         - query-catalog_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/queries/sparqling:
     get:
@@ -12291,7 +12295,7 @@ paths:
       tags:
         - query-catalog_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/query/sparqling/{ID}:
     get:
@@ -12323,7 +12327,7 @@ paths:
       tags:
         - query-catalog_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     put:
       summary: PUT mwsx/owlOntology/{name}/version/query/sparqling/{ID}
@@ -12360,7 +12364,7 @@ paths:
       tags:
         - query-catalog_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
     delete:
       summary: DELETE mwsx/owlOntology/{name}/version/query/sparqling/{ID}
@@ -12391,7 +12395,7 @@ paths:
       tags:
         - query-catalog_other
       security:
-        - api-key: []
+        - apiKey: []
         - jwt: []
   /owlOntology/{name}/version/query/sparqling:
     post:
@@ -12424,11 +12428,365 @@ paths:
       tags:
         - query-catalog_other
       security:
-        - api-key: []
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{name}/version/vkg/catalog:
+    get:
+      summary: Get the VKG Snaphot catalog for a given ontology (name, version)
+      operationId: get_vkg_snapshots
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VKGSnapshot'
+      tags:
+        - vkg_other
+      security:
+        - apiKey: []
+        - jwt: []
+    post:
+      summary: >-
+        Save a new VKG Snaphot in the catalog for a given ontology (name,
+        version).
+      operationId: post_vkg_snapshot
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VKGSnapshot'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VKGSnapshot'
+      tags:
+        - vkg_other
+      security:
+        - apiKey: []
+        - jwt: []
+    delete:
+      summary: >-
+        DELETE the entire VKG Snapshot catalog for a given ontology (name,
+        version)
+      operationId: delete_vkg_snapshots
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VKGSnapshot'
+      tags:
+        - vkg_other
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{name}/version/vkg/catalog/{snapshotId}:
+    put:
+      summary: >-
+        Overwrite a VKG Snapshot (given its snapshotId) in the catalog for a
+        given ontology (name, version)
+      operationId: put_vkg_snapshot
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: snapshotId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VKGSnapshot'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VKGSnapshot'
+      tags:
+        - vkg_other
+      security:
+        - apiKey: []
+        - jwt: []
+    delete:
+      summary: >-
+        Delete a given VKG Snapshot from catalog for a given ontology (name,
+        version)
+      operationId: delete_vkg_snapshot
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: snapshotId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VKGSnapshot'
+      tags:
+        - vkg_other
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{name}/version/vkg/catalog/export:
+    get:
+      summary: >-
+        Get the entire VKG Snapshot catalog for a given ontology (name, version)
+        as a file
+      operationId: export_vkg_snapshots
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileInfo'
+      tags:
+        - vkg_other
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{name}/version/vkg/catalog/import:
+    post:
+      summary: >-
+        Upload the JSON file of a VKG Snapshot catalog for a given ontology
+        (name, version)
+      operationId: import_vkg_snapshots
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: additive
+          in: query
+          required: true
+          schema:
+            type: boolean
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileInfo'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileInfo'
+      tags:
+        - vkg_other
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{name}/version/vkg/node-rendering:
+    get:
+      summary: Returns the default VKG node rendering for the ontology version
+      operationId: get_default_node_rendering
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomNodeRenderingMap'
+      tags:
+        - vkg_other
+      security:
+        - apiKey: []
+        - jwt: []
+    post:
+      summary: Set a default VKG node rendering for the ontology version
+      operationId: post_default_node_rendering
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomNodeRenderingMap'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomNodeRenderingMap'
+      tags:
+        - vkg_other
+      security:
+        - apiKey: []
+        - jwt: []
+    put:
+      summary: Modifies the default VKG node rendering for the ontology version
+      operationId: put_default_node_rendering
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomNodeRenderingMap'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomNodeRenderingMap'
+      tags:
+        - vkg_other
+      security:
+        - apiKey: []
+        - jwt: []
+    delete:
+      summary: DELETE mwsx/owlOntology/{name}/version/vkg/node-rendering
+      operationId: delete_vkg_node_rendering
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+      tags:
+        - vkg_other
+      security:
+        - apiKey: []
         - jwt: []
 components:
   securitySchemes:
-    api-key:
+    apiKey:
       type: apiKey
       in: header
       name: X-MONOLITH-SESSION-ID
@@ -16500,6 +16858,106 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SparqlingSPARQLQuery'
+    VKGSnapshot:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        lastModification:
+          type: integer
+          format: int64
+        rdfGraph:
+          $ref: '#/components/schemas/RDFGraph'
+    OntologyPath:
+      properties:
+        entities:
+          type: array
+          description: >-
+            Starts with lastSelectedIRI and ends with clickedIRI. In between the
+            nodes and edges traversed in the path (ISA edge are marked as ISA)
+          items:
+            $ref: '#/components/schemas/Entity'
+    BasePropertyInfo:
+      type: object
+      properties:
+        inherited:
+          type: boolean
+        dataPropertyIri:
+          type: string
+        pathToDataProperty:
+          $ref: '#/components/schemas/OntologyPath'
+        log:
+          type: boolean
+    CustomNodeRendering:
+      type: object
+      properties:
+        classNodes:
+          type: object
+          properties:
+            size:
+              type: number
+            color:
+              type: string
+            icon:
+              type: string
+        instanceNodes:
+          type: object
+          properties:
+            size:
+              allOf:
+                - $ref: '#/components/schemas/BasePropertyInfo'
+                - type: object
+                  properties:
+                    aggregation:
+                      type: string
+            color:
+              type: object
+              allOf:
+                - $ref: '#/components/schemas/BasePropertyInfo'
+                - type: object
+                  properties:
+                    aggregation:
+                      type: string
+                    scale:
+                      type: object
+                      required:
+                        - scaleID
+                      properties:
+                        scaleID:
+                          description: >-
+                            Color scale identifier for chroma.js (i.e "OrRd"),
+                            @see https://gka.github.io/chroma.js/#chroma-brewer
+                          type: string
+                        intervals:
+                          description: >-
+                            Custom scale intervals, to be used with chroma.js.
+                            @see https://gka.github.io/chroma.js/#scale-classes
+                          type: array
+                          items:
+                            type: number
+            icon:
+              $ref: '#/components/schemas/BasePropertyInfo'
+            location:
+              $ref: '#/components/schemas/BasePropertyInfo'
+            coordinates:
+              type: object
+              required:
+                - dataPropertyIriX
+                - dataPropertyIriY
+              properties:
+                dataPropertyIriX:
+                  type: string
+                dataPropertyIriY:
+                  type: string
+    CustomNodeRenderingMap:
+      description: Map <classIri, CustomRendering>
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/CustomNodeRendering'
 x-tagGroups:
   - name: AVPs API model
     tags:
@@ -16533,3 +16991,6 @@ x-tagGroups:
   - name: Queries API model
     tags:
       - query-catalog_other
+  - name: VKG API model
+    tags:
+      - vkg_other

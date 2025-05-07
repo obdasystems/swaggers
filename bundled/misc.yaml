@@ -9,13 +9,16 @@ info:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
 servers:
-  - url: https://{tenant}/mws/rest/mwsx
+  - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
     variables:
+      protocol:
+        default: https
       tenant:
         default: localhost
-        description: Your localhost
+      port:
+        default: ':8989'
 security:
-  - api-key: []
+  - apiKey: []
   - jwt: []
 paths:
   /log/{env}/{mode}:
@@ -974,7 +977,7 @@ paths:
                   $ref: '#/components/schemas/EntityUsageLog'
 components:
   securitySchemes:
-    api-key:
+    apiKey:
       type: apiKey
       in: header
       name: X-MONOLITH-SESSION-ID
