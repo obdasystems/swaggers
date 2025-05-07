@@ -1,0 +1,25 @@
+title: MwsxTaskSchedulerJobEntry
+type: object
+properties:
+  jobId: 
+    type: string 
+  jobData: 
+    $ref: MwsxTaskSchedulerJobData.yaml
+  creationTime: 
+    type: integer
+  startTime: 
+    type: integer
+  endTime: 
+    type: integer
+  state: 
+    type: string 
+  messages: 
+    type: array
+    items: 
+      type: string
+  customJobEntryData: 
+    type: object
+  error: 
+    type: object
+  user: 
+    type: string 

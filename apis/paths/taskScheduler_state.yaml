@@ -7,7 +7,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: boolean
 put:
   summary: PUT mwsx/taskScheduler/state
   operationId: put__task_scheduler_state
@@ -20,7 +20,3 @@ put:
   responses:
     '200':
       description: OK
-      content:
-        application/json:
-          schema:
-            $ref: ../components/schemas/Response.yaml

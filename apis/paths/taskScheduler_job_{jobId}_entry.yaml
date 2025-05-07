@@ -1,6 +1,6 @@
 get:
   summary: GET mwsx/taskScheduler/job/{jobId}/entry
-  operationId: get__task_scheduler_job_entries
+  operationId: get__task_scheduler_job_entry
   parameters:
     - name: jobId
       in: path
@@ -13,4 +13,4 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/MwsxTaskSchedulerJobEntry.yaml

@@ -52,6 +52,8 @@ tags:
     x-displayName: Ontology Designer
   - name: query-catalog_other
     x-displayName: other
+  - name: task-scheduler_other
+    x-displayName: other
   - name: users-roles_other
     x-displayName: other
   - name: vkg_other
@@ -12449,6 +12451,261 @@ paths:
       security:
         - apiKey: []
         - jwt: []
+  /taskScheduler/state:
+    get:
+      summary: GET mwsx/taskScheduler/state
+      operationId: get__task_scheduler_state
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+      tags:
+        - task-scheduler_other
+      security:
+        - apiKey: []
+        - jwt: []
+    put:
+      summary: PUT mwsx/taskScheduler/state
+      operationId: put__task_scheduler_state
+      parameters:
+        - name: action
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+      tags:
+        - task-scheduler_other
+      security:
+        - apiKey: []
+        - jwt: []
+  /taskScheduler/jobs:
+    post:
+      summary: POST mwsx/taskScheduler/jobs
+      operationId: post__task_scheduler_jobs
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MwsxTaskSchedulerJobData'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+      tags:
+        - task-scheduler_other
+      security:
+        - apiKey: []
+        - jwt: []
+    get:
+      summary: GET mwsx/taskScheduler/jobs
+      operationId: get__task_scheduler_jobs
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+      tags:
+        - task-scheduler_other
+      security:
+        - apiKey: []
+        - jwt: []
+  /taskScheduler/jobs/available:
+    get:
+      summary: GET mwsx/taskScheduler/jobs/available
+      operationId: get__task_scheduler_jobs_available
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MwsxTaskSchedulerJobEntry'
+      tags:
+        - task-scheduler_other
+      security:
+        - apiKey: []
+        - jwt: []
+  /taskScheduler/jobs/entries:
+    get:
+      summary: GET mwsx/taskScheduler/jobs/entries
+      operationId: get__task_scheduler_job_entries
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MwsxTaskSchedulerJobEntry'
+      tags:
+        - task-scheduler_other
+      security:
+        - apiKey: []
+        - jwt: []
+  /taskScheduler/jobs/entries/filter:
+    post:
+      summary: POST mwsx/taskScheduler/jobs/entries/filter
+      operationId: post__task_scheduler_job_entries
+      parameters:
+        - name: mode
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MwsxTaskSchedulerJobEntry'
+      tags:
+        - task-scheduler_other
+      security:
+        - apiKey: []
+        - jwt: []
+  /taskScheduler/job/{jobId}/entry:
+    get:
+      summary: GET mwsx/taskScheduler/job/{jobId}/entry
+      operationId: get__task_scheduler_job_entry
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MwsxTaskSchedulerJobEntry'
+      tags:
+        - task-scheduler_other
+      security:
+        - apiKey: []
+        - jwt: []
+  /taskScheduler/job/{jobId}/execution/{execId}:
+    get:
+      summary: GET mwsx/taskScheduler/job/{jobId}/execution/{execId}
+      operationId: get__task_scheduler_job_entries_execution_id
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: execId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MwsxTaskSchedulerJobEntry'
+      tags:
+        - task-scheduler_other
+      security:
+        - apiKey: []
+        - jwt: []
+  /taskScheduler/job/{jobId}/execution/entries:
+    get:
+      summary: GET mwsx/taskScheduler/job/{jobId}/execution/entries
+      operationId: get__task_scheduler_job_execution_entries
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MwsxTaskSchedulerJobEntry'
+      tags:
+        - task-scheduler_other
+      security:
+        - apiKey: []
+        - jwt: []
+  /taskScheduler/job/{jobId}:
+    delete:
+      summary: DELETE mwsx/taskScheduler/job/{jobId}
+      operationId: delete__task_scheduler_job_entries
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+      tags:
+        - task-scheduler_other
+      security:
+        - apiKey: []
+        - jwt: []
+  /taskScheduler/job/{jobId}/executionsIds:
+    get:
+      summary: GET mwsx/taskScheduler/job/{jobId}/executionsIds
+      operationId: get__task_scheduler_job_entries_executions_ids
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+      tags:
+        - task-scheduler_other
+      security:
+        - apiKey: []
+        - jwt: []
   /users:
     get:
       summary: GET mwsx/users
@@ -17369,6 +17626,42 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SparqlingSPARQLQuery'
+    MwsxTaskSchedulerJobData:
+      title: MwsxTaskSchedulerJobData
+      type: object
+      properties:
+        className:
+          type: string
+        jobData:
+          type: object
+        cronExpression:
+          type: string
+    MwsxTaskSchedulerJobEntry:
+      title: MwsxTaskSchedulerJobEntry
+      type: object
+      properties:
+        jobId:
+          type: string
+        jobData:
+          $ref: '#/components/schemas/MwsxTaskSchedulerJobData'
+        creationTime:
+          type: integer
+        startTime:
+          type: integer
+        endTime:
+          type: integer
+        state:
+          type: string
+        messages:
+          type: array
+          items:
+            type: string
+        customJobEntryData:
+          type: object
+        error:
+          type: object
+        user:
+          type: string
     Users:
       title: Users
       type: object
@@ -17582,6 +17875,9 @@ x-tagGroups:
   - name: Queries API model
     tags:
       - query-catalog_other
+  - name: Task Scheduler API model
+    tags:
+      - task-scheduler_other
   - name: Users & Roles API model
     tags:
       - users-roles_other

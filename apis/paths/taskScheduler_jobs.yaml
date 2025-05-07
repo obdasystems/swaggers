@@ -13,7 +13,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: string
 get:
   summary: GET mwsx/taskScheduler/jobs
   operationId: get__task_scheduler_jobs
@@ -23,4 +23,6 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: array
+            items: 
+              type: string

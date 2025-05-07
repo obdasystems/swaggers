@@ -46,9 +46,9 @@ apis:
   # sparqling: 
   #   root: apis/sparqling.yaml
   #   output: bundled/sparqling.yaml
-  # task-scheduler: 
-  #   root: apis/task-scheduler.yaml
-  #   output: bundled/task-scheduler.yaml
+  task-scheduler: 
+    root: apis/task-scheduler.yaml
+    output: bundled/task-scheduler.yaml
   # triplify: 
   #   root: apis/triplify.yaml
   #   output: bundled/triplify.yaml
