@@ -1,6 +1,6 @@
 post:
-  summary: POST mwsx/owlOntology/{name}/version/virtualEntity
-  operationId: post__owlOntology_name_version_ontology_virtuslEntity
+  summary: Create a new virtual entity for a given ontology
+  operationId: post_virtualEntity
   parameters:
     - name: name
       in: path
@@ -24,10 +24,10 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/SparqlingVirtualEntity.yaml
 put:
-  summary: PUT mwsx/owlOntology/{name}/version/virtualEntity
-  operationId: put__owlOntology_name_version_ontology_virtuslEntity
+  summary: Overwrite a virtual entity for a given ontology
+  operationId: put_virtualEntity
   parameters:
     - name: name
       in: path
@@ -51,4 +51,4 @@ put:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/SparqlingVirtualEntity.yaml

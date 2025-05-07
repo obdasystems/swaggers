@@ -133,10 +133,10 @@ paths:
     $ref: paths/owlOntology_{ontologyName}_constructify.yaml
   /owlOntology/{ontologyName}/queryGraph/visualize:
     $ref: paths/owlOntology_{ontologyName}_queryGraph_visualize.yaml
-  /endpoint/{endpointName}/highligthsSharedViewsProps:
-    $ref: paths/endpoint_{endpointName}_highligthsSharedViewsProps.yaml
-  /endpoint/{endpointName}/instanceShortestPath:
-    $ref: paths/endpoint_{endpointName}_instanceShortestPath.yaml
+  # /endpoint/{endpointName}/highligthsSharedViewsProps:
+  #   $ref: paths/endpoint_{endpointName}_highligthsSharedViewsProps.yaml
+  # /endpoint/{endpointName}/instanceShortestPath:
+  #   $ref: paths/endpoint_{endpointName}_instanceShortestPath.yaml
 components: 
   securitySchemes: 
     apiKey: 

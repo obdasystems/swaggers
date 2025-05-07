@@ -1,5 +1,5 @@
 post:
-  summary: POST mwsx/owlOntology/{name}/highlights/paths/thread/start
+  summary: Start a thread computing a shortest path on the ontology
   operationId: post_shortest_path_thread_start
   parameters:
     - name: name
@@ -33,4 +33,4 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: string

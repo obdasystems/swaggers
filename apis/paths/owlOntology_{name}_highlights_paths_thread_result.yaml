@@ -1,5 +1,5 @@
 get:
-  summary: GET mwsx/owlOntology/{name}/highlights/paths/thread/result
+  summary: GET results of a thread computing ontology paths with multi edges over a given ontology
   operationId: get_shortest_path_thread_result
   parameters:
     - name: name
@@ -23,4 +23,6 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            type: array
+            items:
+              $ref: ../components/schemas/OntologyMultiPath.yaml

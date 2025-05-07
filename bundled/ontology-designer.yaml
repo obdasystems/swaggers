@@ -315,25 +315,56 @@ components:
             $ref: '#/components/schemas/Edge'
         lastViewportState:
           $ref: '#/components/schemas/Viewport'
-    Entity:
+    Annotation:
       type: object
+      required:
+        - value
+        - property
       properties:
-        type:
+        lexicalForm:
           type: string
-          enum:
-            - class
-            - objectProperty
-            - inverseObjectProperty
-            - dataProperty
-            - annotation
-        iri:
+          deprecated: true
+          description: Has been renamed to `value`, kept for back-compatibility.
+        value:
           type: string
-        prefixedIri:
+        hasIriValue:
+          type: boolean
+        property:
           type: string
-        labels:
-          type: object
-          additionalProperties:
-            type: string
+          example: rdfs:label
+        language:
+          type: string
+        datatype:
+          type: string
+    FunctionPropertiesEnum:
+      type: string
+      enum:
+        - functional
+        - inverseFunctional
+        - transitive
+        - symmetric
+        - asymmetric
+        - reflexive
+        - irreflexive
+    GrapholscapeEntity:
+      type: object
+      required:
+        - fullIri
+      properties:
+        fullIri:
+          type: string
+        annotations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Annotation'
+        datatype:
+          type: string
+        isDataPropertyFunctional:
+          type: boolean
+        functionProperties:
+          type: array
+          items:
+            $ref: '#/components/schemas/FunctionPropertiesEnum'
     DataPropertyValue:
       type: object
       required:
@@ -355,7 +386,7 @@ components:
     ClassInstanceEntity:
       type: object
       allOf:
-        - $ref: '#/components/schemas/Entity'
+        - $ref: '#/components/schemas/GrapholscapeEntity'
         - type: object
           properties:
             parentClasses:
@@ -380,27 +411,6 @@ components:
           type: array
           items:
             type: string
-    Annotation:
-      type: object
-      required:
-        - value
-        - property
-      properties:
-        lexicalForm:
-          type: string
-          deprecated: true
-          description: Has been renamed to `value`, kept for back-compatibility.
-        value:
-          type: string
-        hasIriValue:
-          type: boolean
-        property:
-          type: string
-          example: rdfs:label
-        language:
-          type: string
-        datatype:
-          type: string
     Theme:
       type: object
       required:
@@ -427,7 +437,7 @@ components:
         inputs:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/GrapholscapeEntity'
         superclasses:
           type: array
           items:
@@ -436,7 +446,7 @@ components:
               - complete
             properties:
               classEntity:
-                $ref: '#/components/schemas/Entity'
+                $ref: '#/components/schemas/GrapholscapeEntity'
               complete:
                 type: boolean
     ActionInvolvedElements:
@@ -548,7 +558,7 @@ components:
         entities:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/GrapholscapeEntity'
         classInstanceEntities:
           type: array
           items:

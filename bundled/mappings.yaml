@@ -3203,25 +3203,26 @@ components:
             type: string
         dbName:
           type: string
-    Entity:
+    OntologyEntity:
+      title: Entity
       type: object
       properties:
-        type:
+        entityLabels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Label'
+        isDeprecated:
+          type: boolean
+        entityIRI:
           type: string
-          enum:
-            - class
-            - objectProperty
-            - inverseObjectProperty
-            - dataProperty
-            - annotation
-        iri:
+        entityType:
           type: string
-        prefixedIri:
+        entityPrefixIRI:
           type: string
-        labels:
-          type: object
-          additionalProperties:
-            type: string
+        entityRemainder:
+          type: string
+        entityID:
+          type: string
     MappingTemplatePrompt:
       title: MappingTemplatePrompt
       type: object
@@ -3245,7 +3246,7 @@ components:
         SUB_OBJECT_PROPERTY_RANGE_REASON:
           type: string
         sourceEntity:
-          $ref: '#/components/schemas/Entity'
+          $ref: '#/components/schemas/OntologyEntity'
         OBJECT_PROPERTY_RANGE_REASON:
           type: string
         SUPER_CLASS_REASON:

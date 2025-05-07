@@ -1,6 +1,6 @@
 get:
-  summary: GET mwsx/owlOntology/{name}/version/virtualEntities/export
-  operationId: get__owlOntology_name_version_ontology_virtuslEntities_export
+  summary: Returns the virtual entities available for a given ontology
+  operationId: export_virtualEntities
   parameters:
     - name: name
       in: path
@@ -18,4 +18,4 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/SparqlingVirtualEntities.yaml

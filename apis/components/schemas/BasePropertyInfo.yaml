@@ -5,7 +5,6 @@ properties:
   dataPropertyIri:
     type: string
   pathToDataProperty:
-    $ref: >-
-      https://raw.githubusercontent.com/obdasystems/swaggers/main/apis/sparqling/sparqling.yaml#/components/schemas/OntologyPath
+    $ref: OntologyPath.yaml
   log:
     type: boolean

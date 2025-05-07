@@ -1381,25 +1381,26 @@ components:
           type: string
         extendedIRI:
           type: string
-    Entity:
+    OntologyEntity:
+      title: Entity
       type: object
       properties:
-        type:
+        entityLabels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Label'
+        isDeprecated:
+          type: boolean
+        entityIRI:
           type: string
-          enum:
-            - class
-            - objectProperty
-            - inverseObjectProperty
-            - dataProperty
-            - annotation
-        iri:
+        entityType:
           type: string
-        prefixedIri:
+        entityPrefixIRI:
           type: string
-        labels:
-          type: object
-          additionalProperties:
-            type: string
+        entityRemainder:
+          type: string
+        entityID:
+          type: string
     DiagramNode:
       title: DiagramNode
       type: object
@@ -1415,15 +1416,15 @@ components:
         iri:
           $ref: '#/components/schemas/IRI'
         currentEntity:
-          $ref: '#/components/schemas/Entity'
+          $ref: '#/components/schemas/OntologyEntity'
         individualTypes:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/OntologyEntity'
         differentIndividuals:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/OntologyEntity'
         entityDiagrams:
           type: array
           items:
@@ -1431,7 +1432,7 @@ components:
         sameIndividuals:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/OntologyEntity'
         individualDescriptions:
           type: array
           items:
@@ -1701,26 +1702,6 @@ components:
       properties:
         hierarchyTree:
           $ref: '#/components/schemas/HierarchyTree'
-    OntologyEntity:
-      title: Entity
-      type: object
-      properties:
-        entityLabels:
-          type: array
-          items:
-            $ref: '#/components/schemas/Label'
-        isDeprecated:
-          type: boolean
-        entityIRI:
-          type: string
-        entityType:
-          type: string
-        entityPrefixIRI:
-          type: string
-        entityRemainder:
-          type: string
-        entityID:
-          type: string
     Entities:
       title: Entities
       type: object
@@ -2177,6 +2158,29 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Filter'
+    SparqlingEntity:
+      type: object
+      required:
+        - type
+        - iri
+        - prefixedIri
+      properties:
+        type:
+          type: string
+          enum:
+            - class
+            - objectProperty
+            - inverseObjectProperty
+            - dataProperty
+            - annotation
+        iri:
+          type: string
+        prefixedIri:
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
     GraphElement:
       type: object
       properties:
@@ -2192,7 +2196,7 @@ components:
           type: array
           description: It could have more than one entity only when entity type is a class (could be derived after clicking on two borther classes)
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/SparqlingEntity'
         children:
           type: array
           items:
@@ -2316,7 +2320,7 @@ components:
           type: string
         virtualEntityQueryInfos:
           $ref: '#/components/schemas/VirtualEntityQueryInfos'
-    SparqlingSparqlQuery:
+    SparqlingSPARQLQuery:
       title: SparqlingSPARQLQuery
       type: object
       properties:
@@ -2335,7 +2339,7 @@ components:
         ontologyVersion:
           type: string
         sparqlingSparqlQuery:
-          $ref: '#/components/schemas/SparqlingSparqlQuery'
+          $ref: '#/components/schemas/SparqlingSPARQLQuery'
     PublicationRequests:
       title: PublicationRequests
       type: object

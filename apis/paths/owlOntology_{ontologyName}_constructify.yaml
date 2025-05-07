@@ -1,6 +1,6 @@
 post:
-  tags:
-    - VKG
+  # tags:
+  #   - VKG
   summary: Return the CONSTRUCT query based on this Query Graph.
   parameters:
     - name: ontologyName

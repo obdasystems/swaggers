@@ -52,11 +52,46 @@ tags:
     x-displayName: Ontology Designer
   - name: query-catalog_other
     x-displayName: other
+  - name: OntologyGraph
+    description: >-
+      Depending on the selected node and the clicked node the ontology graph
+      will change the highlightments. These results will be used essentially by
+      GRAPHOLscape.
+    x-displayName: OntologyGraph
+  - name: QueryGraphBGP
+    description: >-
+      Depending on the selected node and the clicked node the server will
+      compute the query graph which will be rendered by Sparqling front end.
+      These result will be used to render the query graph and the query head and
+      the SPARQL code. These operations will modify only the basic graph
+      pattern.
+    x-displayName: QueryGraphBGP
+  - name: QueryGraphHead
+    description: These operations will modify the query graph head.
+    x-displayName: QueryGraphHead
+  - name: QueryGraphFilter
+    description: These operations will modify the query graph filter part.
+    x-displayName: QueryGraphFilter
+  - name: QueryGraphOptional
+    description: These operations will modify the query graph optional part.
+    x-displayName: QueryGraphOptional
+  - name: QueryGraphExtra
+    description: These are extra operations for the query graph.
+    x-displayName: QueryGraphExtra
+  - name: VisualizeSPARQL
+    description: >-
+      These operations will translate a SPARQL query in a query graph to be
+      visualized and modified in Sparqling
+    x-displayName: VisualizeSPARQL
+  - name: sparqling_other
+    x-displayName: other
   - name: task-scheduler_other
     x-displayName: other
   - name: triplify_other
     x-displayName: other
   - name: users-roles_other
+    x-displayName: other
+  - name: virtual-entities_other
     x-displayName: other
   - name: vkg_other
     x-displayName: other
@@ -12453,6 +12488,1837 @@ paths:
       security:
         - apiKey: []
         - jwt: []
+  /owlOntology/{ontologyName}/highlights:
+    get:
+      tags:
+        - OntologyGraph
+      summary: >-
+        Get the IRIs of the ontology entities "related" to the clicked and
+        selected.
+      description: >-
+        This route is used to highlight the negihbours of the selected class.
+        The neighbours can be classes (brother classes or child classes), object
+        properties (the class or one of his father partecipate or are typed to
+        domain/range) or data properties (the class or one of its fathers
+        partecipates or is typed to its domain).
+      operationId: highligths
+      parameters:
+        - name: ontologyName
+          in: path
+          description: The name of the ontology
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The version of the ontology
+          required: true
+          schema:
+            type: string
+        - name: clickedClassIRI
+          in: query
+          description: The IRI of the class just clicked on the GRAPHOLscape ontology graph
+          required: true
+          schema:
+            type: string
+        - name: params
+          in: query
+          description: >-
+            Possible value: `subClassOnly` in order to get only the subclasses
+            of the clicked class
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Highlights'
+        '400':
+          description: Invalid IRI supplied
+          content: {}
+        '404':
+          description: Entity not found
+          content: {}
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{ontologyName}/highlights/paths:
+    get:
+      tags:
+        - OntologyGraph
+      summary: Find paths between selected class and clicked class.
+      description: >-
+        The results should be based on Dijkstra algorithm for shortest paths.
+        ISA wieght is 0 while role weight is 1.
+      operationId: highligthsPaths
+      parameters:
+        - name: ontologyName
+          in: path
+          description: The name of the ontology
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The version of the ontology
+          required: true
+          schema:
+            type: string
+        - name: lastSelectedIRI
+          in: query
+          description: The IRI of the entity clicked on the GRAPHOLscape ontology graph
+          required: true
+          schema:
+            type: string
+        - name: clickedIRI
+          in: query
+          description: The IRI of the entity clicked on the GRAPHOLscape ontology graph
+          required: true
+          schema:
+            type: string
+        - name: kShortest
+          in: query
+          description: Use the k-shortest algorithm to return the shortestpaths
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OntologyMultiPath'
+        '400':
+          description: Invalid IRI supplied
+          content: {}
+        '404':
+          description: Entity not found
+          content: {}
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{name}/highlights/paths/thread/start:
+    post:
+      summary: Start a thread computing a shortest path on the ontology
+      operationId: post_shortest_path_thread_start
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: lastSelectedIRI
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: clickedIRI
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: kShortest
+          in: query
+          required: true
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+      tags:
+        - sparqling_other
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{name}/highlights/paths/thread/stop:
+    post:
+      summary: Stop the thread computing a shortest path on the ontology
+      operationId: post_shortest_path_thread_stop
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: threadId
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+      tags:
+        - sparqling_other
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{name}/highlights/paths/thread/result:
+    get:
+      summary: >-
+        GET results of a thread computing ontology paths with multi edges over a
+        given ontology
+      operationId: get_shortest_path_thread_result
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: threadId
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OntologyMultiPath'
+      tags:
+        - sparqling_other
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{name}/highlights/paths/thread/state:
+    get:
+      summary: Get the state of the thread computing a shortest path on the ontology
+      operationId: get_shortest_path_thread_state
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: threadId
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+      tags:
+        - sparqling_other
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{name}/highlights/paths/thread/error:
+    get:
+      summary: Get the error of a thread computing a shortest path on the ontology
+      operationId: get_shortest_path_thread_error
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: threadId
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+      tags:
+        - sparqling_other
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{ontologyName}/queryGraph/node:
+    get:
+      tags:
+        - QueryGraphBGP
+      summary: This is the first route to call in order to build the query graph.
+      description: >-
+        Starting from only the clicked class get the query graph that will be
+        rendered by Sparqling, the query head, the sparql code. The sparql query
+        returned will be somthing like `select ?x { ?x a <clickedClassIRI>` }.
+        The variable `?x` should be called according to the entity remainder or
+        label. The variable will be added to the head of the query in order to
+        create a valid SPARQL query.
+      operationId: getQueryGraph
+      parameters:
+        - name: ontologyName
+          in: path
+          description: The name of the ontology
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The version of the ontology
+          required: true
+          schema:
+            type: string
+        - name: clickedClassIRI
+          in: query
+          description: The IRI of the entity clicked on the GRAPHOLscape ontology graph
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryGraph'
+        '400':
+          description: Invalid IRI supplied
+          content: {}
+        '404':
+          description: Entity not found
+          content: {}
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{ontologyName}/queryGraph/node/class/{graphElementId}:
+    put:
+      tags:
+        - QueryGraphBGP
+      summary: >-
+        Starting from the current query graph continue to build the query graph
+        through a class.
+      description: >-
+        This call is used when the user click on a highlighted class and should
+        add a triple pattern of the form like `?x rdf:type <targetClassIRI>`.
+        The server should find `?x` in the SPARQL code as the variable
+        associated to the `sourceClassIRI`.
+      operationId: putQueryGraphClass
+      parameters:
+        - name: ontologyName
+          in: path
+          description: The name of the ontology
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The version of the ontology
+          required: true
+          schema:
+            type: string
+        - name: graphElementId
+          in: path
+          description: The id of the node of the selected class in the query graph.
+          required: true
+          schema:
+            type: string
+        - name: sourceClassIRI
+          in: query
+          description: >-
+            The IRI of the last selected class. It could be selected from the
+            ontology graph or from the query graph.
+          required: true
+          schema:
+            type: string
+        - name: targetClassIRI
+          in: query
+          description: The IRI of the entity clicked on the GRAPHOLscape ontology graph.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryGraph'
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryGraph'
+        '400':
+          description: Invalid IRI supplied
+          content: {}
+        '404':
+          description: Entity not found
+          content: {}
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{ontologyName}/queryGraph/node/objectProperty/{graphElementId}:
+    put:
+      tags:
+        - QueryGraphBGP
+      summary: >-
+        Starting from the current query graph continue to build the query graph
+        through a object property.
+      description: >-
+        This route is used when the user click a highlighted object property
+        with ornly one `relatedClasses` or, in the case of more than one
+        `relatedClasses` immediatly after choosing one of them. In this case the
+        triple pattern to add is something like `?x <predicateIRI> ?y` where
+        `?x` and `?y` should be derived from the direction indicated by
+        `isPredicateDirect` of the object property with respect to
+        `sourceClassIRI` and `targetClassIRI`. If there is a cyclic object
+        property the user also should specify the direction if order to
+        correctly assign `?x` and `?y`. Either `?x` or `?y` should be a fresh
+        new variable which should be linked to a new triple pattern `?y rdf:type
+        <targetClassIRI>`. The variable `?y` should be called according to the
+        entity remainder or label and should add a counter if there is an
+        already defined variable for that class.
+      operationId: putQueryGraphObjectProperty
+      parameters:
+        - name: ontologyName
+          in: path
+          description: The name of the ontology
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The version of the ontology
+          required: true
+          schema:
+            type: string
+        - name: graphElementId
+          in: path
+          description: The id of the node of the selected class in the query graph.
+          required: true
+          schema:
+            type: string
+        - name: sourceClassIRI
+          in: query
+          description: >-
+            The IRI of the last selected class. It could be selected from the
+            ontology graph or from the query graph.
+          required: true
+          schema:
+            type: string
+        - name: predicateIRI
+          in: query
+          description: The IRI of the predicate which links source class and target class
+          required: true
+          schema:
+            type: string
+        - name: targetClassIRI
+          in: query
+          description: The IRI of the entity clicked on the GRAPHOLscape ontology graph.
+          required: true
+          schema:
+            type: string
+        - name: isPredicateDirect
+          in: query
+          required: true
+          description: >-
+            If true sourceClassIRI is the domain of predicateIRI, if false
+            sourceClassIRI is the range of predicateIRI.
+          schema:
+            type: boolean
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryGraph'
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryGraph'
+        '400':
+          description: Invalid IRI supplied
+          content: {}
+        '404':
+          description: Entity not found
+          content: {}
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{ontologyName}/queryGraph/node/dataProperty/{graphElementId}:
+    put:
+      tags:
+        - QueryGraphBGP
+      summary: >-
+        Starting from the current query graph continue to build the query graph
+        through a data property.
+      description: >-
+        This route is used when the user click a highlighted data property. The
+        triple pattern to add is something like `?x <predicateIRI> ?y` where
+        `?x` should be derived from `selectedClassIRI`. Note that `?y` is fresh
+        new variable that should be added also to the head of the query (we
+        assume data property values are interesting). The variable `?y` should
+        be called according to the entity remainder or label and should add a
+        counter if there is an already defined variable for that data property.
+      operationId: putQueryGraphDataProperty
+      parameters:
+        - name: ontologyName
+          in: path
+          description: The name of the ontology
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The version of the ontology
+          required: true
+          schema:
+            type: string
+        - name: graphElementId
+          in: path
+          description: The id of the node of the selected class in the query graph.
+          required: true
+          schema:
+            type: string
+        - name: sourceClassIRI
+          in: query
+          description: >-
+            The IRI of the last selected class. It could be selected from the
+            ontology graph or from the query graph.
+          required: true
+          schema:
+            type: string
+        - name: predicateIRI
+          in: query
+          description: The IRI of the clicked data property.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryGraph'
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryGraph'
+        '400':
+          description: Invalid IRI supplied
+          content: {}
+        '404':
+          description: Entity not found
+          content: {}
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{ontologyName}/queryGraph/node/annotation/{graphElementId}:
+    put:
+      tags:
+        - QueryGraphBGP
+      summary: >-
+        Starting from the current query graph continue to build the query graph
+        through a data property.
+      description: >-
+        This route is used when the user click a highlighted data property. The
+        triple pattern to add is something like `?x <predicateIRI> ?y` where
+        `?x` should be derived from `selectedClassIRI`. Note that `?y` is fresh
+        new variable that should be added also to the head of the query (we
+        assume data property values are interesting). The variable `?y` should
+        be called according to the entity remainder or label and should add a
+        counter if there is an already defined variable for that data property.
+      operationId: putQueryGraphAnnotation
+      parameters:
+        - name: ontologyName
+          in: path
+          description: The name of the ontology
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The version of the ontology
+          required: true
+          schema:
+            type: string
+        - name: graphElementId
+          in: path
+          description: The id of the node of the selected class in the query graph.
+          required: true
+          schema:
+            type: string
+        - name: sourceClassIRI
+          in: query
+          description: >-
+            The IRI of the last selected class. It could be selected from the
+            ontology graph or from the query graph.
+          required: true
+          schema:
+            type: string
+        - name: predicateIRI
+          in: query
+          description: The IRI of the clicked data property.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryGraph'
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryGraph'
+        '400':
+          description: Invalid IRI supplied
+          content: {}
+        '404':
+          description: Entity not found
+          content: {}
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{ontologyName}/queryGraph/node/join/{graphElementId1}/{graphElementId2}:
+    put:
+      tags:
+        - QueryGraphBGP
+      summary: Join two GraphNodeElement in one.
+      description: >-
+        Starting from a query graph which has two nodes representing the same
+        class(es), it returns the query graph in which the two nodes have been
+        joined into a single one. The children of the selected nodes will be
+        grouped in `graphElementId1` and each time we add a children through the
+        previous routes they will be added to this node.
+      operationId: putQueryGraphJoin
+      parameters:
+        - name: ontologyName
+          in: path
+          description: The name of the ontology
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The version of the ontology
+          required: true
+          schema:
+            type: string
+        - name: graphElementId1
+          in: path
+          description: The id of the node of the selected class in the query graph.
+          required: true
+          schema:
+            type: string
+        - name: graphElementId2
+          in: path
+          description: The id of the node of the selected class in the query graph.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryGraph'
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryGraph'
+        '400':
+          description: Invalid IRI supplied
+          content: {}
+        '404':
+          description: Entity not found
+          content: {}
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{ontologyName}/queryGraph/node/delete/{graphElementId}:
+    put:
+      tags:
+        - QueryGraphBGP
+      summary: >-
+        Delete the GraphElement (and all its children) from the query graph and
+        head.
+      description: >-
+        This route is used when the user wants to delete a node from the query
+        graph. All the children of this node will be deleted as well as we do
+        not want to create query with completly separated branches. All the
+        variables that are going to be deleted should also be deleted from the
+        head of the query. **WARNING**, if the node has multiple occurrences
+        (due to join operations) every node should be deleted.
+      operationId: deleteGraphElementId
+      parameters:
+        - name: ontologyName
+          in: path
+          description: The name of the ontology
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The version of the ontology
+          required: true
+          schema:
+            type: string
+        - name: graphElementId
+          in: path
+          description: The GraphElement that should be deleted
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryGraph'
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryGraph'
+        '404':
+          description: GraphElement not found
+          content: {}
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{ontologyName}/queryGraph/node/delete/{graphElementId}/class:
+    put:
+      tags:
+        - QueryGraphBGP
+      summary: Delete from GraphElement only the class
+      operationId: deleteGraphElementIdClass
+      parameters:
+        - name: ontologyName
+          in: path
+          description: The name of the ontology
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The version of the ontology
+          required: true
+          schema:
+            type: string
+        - name: graphElementId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: classIRI
+          in: query
+          description: The class that should be deleted
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryGraph'
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryGraph'
+        '404':
+          description: GraphElement not found
+          content: {}
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{ontologyName}/queryGraph/node/filter/{filterId}:
+    put:
+      tags:
+        - QueryGraphFilter
+      summary: Create a new filter in the query.
+      description: Translate the filter at index `filterId` to a new filter in SPARQL.
+      operationId: newFilter
+      parameters:
+        - name: ontologyName
+          in: path
+          description: The name of the ontology
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The version of the ontology
+          required: true
+          schema:
+            type: string
+        - name: filterId
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryGraph'
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryGraph'
+        '404':
+          description: GraphElement not found
+          content: {}
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{ontologyName}/queryGraph/node/filter/edit/{filterId}:
+    put:
+      tags:
+        - QueryGraphFilter
+      summary: Modify a filter in the query.
+      description: Translate the filter at index `filterId` to a filter in SPARQL.
+      operationId: editFilter
+      parameters:
+        - name: ontologyName
+          in: path
+          description: The name of the ontology
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The version of the ontology
+          required: true
+          schema:
+            type: string
+        - name: filterId
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryGraph'
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryGraph'
+        '404':
+          description: GraphElement not found
+          content: {}
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{ontologyName}/queryGraph/node/filter/remove/{filterId}:
+    put:
+      tags:
+        - QueryGraphFilter
+      summary: Remove the filter at index `filterId` from the query.
+      operationId: removeFilter
+      parameters:
+        - name: ontologyName
+          in: path
+          description: The name of the ontology
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The version of the ontology
+          required: true
+          schema:
+            type: string
+        - name: filterId
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryGraph'
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryGraph'
+        '404':
+          description: GraphElement not found
+          content: {}
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{ontologyName}/queryGraph/node/filter/remove/all:
+    put:
+      tags:
+        - QueryGraphFilter
+      summary: Remove the filters.
+      operationId: removeAllFilters
+      parameters:
+        - name: ontologyName
+          in: path
+          description: The name of the ontology
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The version of the ontology
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryGraph'
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryGraph'
+        '404':
+          description: GraphElement not found
+          content: {}
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{ontologyName}/queryGraph/node/optional/{graphElementId}:
+    put:
+      tags:
+        - QueryGraphOptional
+      summary: Add the `graphElementId` to a new optional.
+      description: >
+        Create a new optional in the query and add the triple pattern(s)
+
+        identified by the GraphElementId.
+
+
+        - If it is a class the query parameter
+
+        should be used and the triple pattern `?graphElementId rdf:type
+        <classIRI>`
+
+        will be moved from the bgp to the new optional.
+
+
+        - If it is a data property
+
+        the tp `?graphElementIdVar1 <graphElementIdDataPropertyIRI>
+        ?graphElementIdVar2`
+
+        will be added to the new optional.
+
+
+        - If it is a object property the tps `?graphElementIdVar1
+        <graphElementIdDataPropertyIRI> ?graphElementIdVar2. ?graphElementIdVar2
+        rdf:type <classIRI>` till the leaves will be moved to the new optional.
+      operationId: newOptionalGraphElementId
+      parameters:
+        - name: ontologyName
+          in: path
+          description: The name of the ontology
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The version of the ontology
+          required: true
+          schema:
+            type: string
+        - name: graphElementId
+          in: path
+          description: The GraphElement that should be added to the optional
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryGraph'
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryGraph'
+        '404':
+          description: GraphElement not found
+          content: {}
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{ontologyName}/queryGraph/node/optional/remove/{graphElementId}:
+    put:
+      tags:
+        - QueryGraphOptional
+      summary: Remove the graphElementId from the optional and move it back to the bgp.
+      description: >
+        Remove the triple pattern(s) identified by the `graphElementId`
+
+        from all the optional that contains the graphElementId.
+
+
+        - If it is a class the query parameter
+
+        should be used and the triple pattern `?graphElementId rdf:type
+        <classIRI>`
+
+        will be moved from the optional to the bgp.
+
+
+        - If it is a data property
+
+        the tp `?graphElementIdVar1 <graphElementIdDataPropertyIRI>
+        ?graphElementIdVar2`
+
+        will be moved from the optional to the bgp.
+
+
+        - If it is a object property the tps `?graphElementIdVar1
+        <graphElementIdDataPropertyIRI> ?graphElementIdVar2. ?graphElementIdVar2
+        rdf:type <classIRI>` will be moved from the optional to the bgp.
+      operationId: removeOptionalGraphElementId
+      parameters:
+        - name: ontologyName
+          in: path
+          description: The name of the ontology
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The version of the ontology
+          required: true
+          schema:
+            type: string
+        - name: graphElementId
+          in: path
+          description: The GraphElement that should be removed from the optional
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryGraph'
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryGraph'
+        '404':
+          description: GraphElement not found
+          content: {}
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{ontologyName}/queryGraph/node/optional/remove/all:
+    put:
+      tags:
+        - QueryGraphOptional
+      summary: Remove the optionals and move them back to the bgp.
+      operationId: removeAllOptional
+      parameters:
+        - name: ontologyName
+          in: path
+          description: The name of the ontology
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The version of the ontology
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryGraph'
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryGraph'
+        '404':
+          description: GraphElement not found
+          content: {}
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{ontologyName}/queryGraph/head/add/{graphElementId}:
+    put:
+      tags:
+        - QueryGraphHead
+      summary: Add the head term to the query graph.
+      description: >-
+        Explicitley add a term to the query head. All the data property
+        variables are added automatically to the head during the query graph
+        construction. This will add to the head only variables associated to
+        classes (`rdf:type` triple pattern) or data properties.
+      operationId: addHeadTerm
+      parameters:
+        - name: ontologyName
+          in: path
+          description: The name of the ontology
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The version of the ontology
+          required: true
+          schema:
+            type: string
+        - name: graphElementId
+          in: path
+          description: The id of the graph node that should be added to the head
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryGraph'
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryGraph'
+        '404':
+          description: Graph Node not found
+          content: {}
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{ontologyName}/queryGraph/head/delete/{headTerm}:
+    put:
+      tags:
+        - QueryGraphHead
+      summary: Delete the head term from the query graph.
+      description: The path param should be the id of the HeadElement.
+      operationId: deleteHeadTerm
+      parameters:
+        - name: ontologyName
+          in: path
+          description: The name of the ontology
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The version of the ontology
+          required: true
+          schema:
+            type: string
+        - name: headTerm
+          in: path
+          description: The head term that should be deleted
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryGraph'
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryGraph'
+        '404':
+          description: Head term not found
+          content: {}
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{ontologyName}/queryGraph/head/rename/{headTerm}:
+    put:
+      tags:
+        - QueryGraphHead
+      summary: Rename the head term from the query graph using alias.
+      description: Put the alias in the HeadElement passed via request body.
+      operationId: renameHeadTerm
+      parameters:
+        - name: ontologyName
+          in: path
+          description: The name of the ontology
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The version of the ontology
+          required: true
+          schema:
+            type: string
+        - name: headTerm
+          in: path
+          description: The head term that should be renamed
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryGraph'
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryGraph'
+        '404':
+          description: Head term not found
+          content: {}
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{ontologyName}/queryGraph/head/orderBy/{headTerm}:
+    put:
+      tags:
+        - QueryGraphHead
+      summary: Order by the head from the query graph.
+      description: The OrderBy object is passed in the request body in the Query Graph.
+      operationId: orderByHeadTerm
+      parameters:
+        - name: ontologyName
+          in: path
+          description: The name of the ontology
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The version of the ontology
+          required: true
+          schema:
+            type: string
+        - name: headTerm
+          in: path
+          description: The head term that should be ordered
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryGraph'
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryGraph'
+        '404':
+          description: Head term not found
+          content: {}
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{ontologyName}/queryGraph/head/function/{headTerm}:
+    put:
+      tags:
+        - QueryGraphHead
+      summary: Set a function to the head term from the query graph.
+      description: >-
+        The function is defined in the head term of the query graph in the
+        request body. Remember to set the alias of the head based on function
+        name and variable.
+      operationId: functionHeadTerm
+      parameters:
+        - name: ontologyName
+          in: path
+          description: The name of the ontology
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The version of the ontology
+          required: true
+          schema:
+            type: string
+        - name: headTerm
+          in: path
+          description: The head term that should be involved inthe function
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryGraph'
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryGraph'
+        '404':
+          description: Head term not found
+          content: {}
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{ontologyName}/queryGraph/head/aggregation/{headTerm}:
+    put:
+      tags:
+        - QueryGraphHead
+      summary: Set the aggregation function to the head term.
+      description: >-
+        The aggregation function is defined in the group by field of the query
+        graph in the request body along with the HAVING clause. Remember to set
+        the alias of the head based on function name and variable.
+      operationId: aggregationHeadTerm
+      parameters:
+        - name: ontologyName
+          in: path
+          description: The name of the ontology
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The version of the ontology
+          required: true
+          schema:
+            type: string
+        - name: headTerm
+          in: path
+          description: The head term that should be involved in the aggregation function
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryGraph'
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryGraph'
+        '404':
+          description: Head term not found
+          content: {}
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{ontologyName}/queryGraph/head/reorderHeadTerms:
+    put:
+      tags:
+        - QueryGraphHead
+      summary: Reorder the head elements accrding to Query GRaph object.
+      operationId: reorderHeadTerms
+      parameters:
+        - name: ontologyName
+          in: path
+          description: The name of the ontology
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The version of the ontology
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryGraph'
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryGraph'
+        '404':
+          description: Head term not found
+          content: {}
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{ontologyName}/queryGraph/distinct:
+    put:
+      tags:
+        - QueryGraphExtra
+      summary: Set the distinct value.
+      description: The distinct value is defined in the query graph in the request body.
+      operationId: distinctQueryGraph
+      parameters:
+        - name: ontologyName
+          in: path
+          description: The name of the ontology
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The version of the ontology
+          required: true
+          schema:
+            type: string
+        - name: distinct
+          in: query
+          required: true
+          schema:
+            type: boolean
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryGraph'
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryGraph'
+        '404':
+          description: Head term not found
+          content: {}
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{ontologyName}/queryGraph/countStar/{active}:
+    put:
+      tags:
+        - QueryGraphExtra
+      summary: >-
+        Create or remove an external query to the original one in order to count
+        results.
+      operationId: countStarQueryGraph
+      parameters:
+        - name: ontologyName
+          in: path
+          description: The name of the ontology
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The version of the ontology
+          required: true
+          schema:
+            type: string
+        - name: active
+          in: path
+          required: true
+          schema:
+            type: boolean
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryGraph'
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryGraph'
+        '404':
+          description: Head term not found
+          content: {}
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{ontologyName}/queryGraph/limit:
+    put:
+      tags:
+        - QueryGraphExtra
+      summary: Set the limit value.
+      description: The limit value is defined in the query graph in the request body.
+      operationId: limitQueryGraph
+      parameters:
+        - name: ontologyName
+          in: path
+          description: The name of the ontology
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The version of the ontology
+          required: true
+          schema:
+            type: string
+        - name: limit
+          in: query
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryGraph'
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryGraph'
+        '404':
+          description: Head term not found
+          content: {}
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{ontologyName}/queryGraph/offset:
+    put:
+      tags:
+        - QueryGraphExtra
+      summary: Set the offset value.
+      description: The offset value is defined in the query graph in the request body.
+      operationId: offsetQueryGraph
+      parameters:
+        - name: ontologyName
+          in: path
+          description: The name of the ontology
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The version of the ontology
+          required: true
+          schema:
+            type: string
+        - name: offset
+          in: query
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryGraph'
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryGraph'
+        '404':
+          description: Head term not found
+          content: {}
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{ontologyName}/queryGraph/path/{graphElementId}:
+    put:
+      tags:
+        - QueryGraphBGP
+      summary: >-
+        Get the query graph that will be rendered by Sparqling, the query head,
+        the sparql code based on the chosen path.
+      description: >-
+        This path should be used to build the query graph using the path
+        interaction. As a result there will be added to the query several triple
+        pattern (depending on the length of the path) as a sequence of classes
+        and object properties. Data properties never appear in paths, in order
+        to add them use the simple PUT route.
+      operationId: addPathToQueryGraph
+      parameters:
+        - name: ontologyName
+          in: path
+          description: The name of the ontology
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The version of the ontology
+          required: true
+          schema:
+            type: string
+        - name: graphElementId
+          in: path
+          description: The id of the node of the selected class in the query graph.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                queryGraph:
+                  $ref: '#/components/schemas/QueryGraph'
+                ontologyPath:
+                  $ref: '#/components/schemas/OntologyPath'
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryGraph'
+        '400':
+          description: Invalid IRI supplied
+          content: {}
+        '404':
+          description: Entity not found
+          content: {}
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{ontologyName}/instanceShortestPath:
+    post:
+      summary: >-
+        Return the CONSTRUCT query based on the shortest path between an
+        instance and another instance or class
+      parameters:
+        - name: ontologyName
+          in: path
+          description: The name of the ontology
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The version of the ontology
+          required: true
+          schema:
+            type: string
+        - name: sourceInstanceIRI
+          in: query
+          schema:
+            type: string
+        - name: targetInstanceIRI
+          in: query
+          schema:
+            type: string
+        - name: labels
+          in: query
+          schema:
+            type: boolean
+        - name: distinct
+          in: query
+          schema:
+            type: boolean
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OntologyPath'
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/xml:
+              schema:
+                description: THE SPARQL CONSTRUCT query that will compute the shortest path
+                type: string
+        '404':
+          description: Ontology not uploaded
+          content: {}
+      tags:
+        - sparqling_other
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{ontologyName}/constructify:
+    post:
+      summary: Return the CONSTRUCT query based on this Query Graph.
+      parameters:
+        - name: ontologyName
+          in: path
+          description: The name of the ontology
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The version of the ontology
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryGraph'
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/xml:
+              schema:
+                description: THE SPARQL CONSTRUCT query that will compute the shortest path
+                type: string
+        '404':
+          description: Ontology not uploaded
+          content: {}
+      tags:
+        - sparqling_other
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{ontologyName}/queryGraph/visualize:
+    post:
+      tags:
+        - VisualizeSPARQL
+      summary: Convert SPARQL code to a QueryGraph
+      parameters:
+        - name: ontologyName
+          in: path
+          description: The name of the ontology
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The version of the ontology
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: The SPARQL code to be visualized
+              type: string
+        required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryGraph'
+        '404':
+          description: Ontology not uploaded
+          content: {}
+      security:
+        - apiKey: []
+        - jwt: []
   /taskScheduler/state:
     get:
       summary: GET mwsx/taskScheduler/state
@@ -13462,6 +15328,287 @@ paths:
       security:
         - apiKey: []
         - jwt: []
+  /owlOntology/{name}/version/virtualEntities:
+    get:
+      summary: Returns the virtual entities available for a given ontology
+      operationId: get_virtualEntities
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  $ref: '#/components/schemas/SparqlingVirtualEntity'
+      tags:
+        - virtual-entities_other
+      security:
+        - apiKey: []
+        - jwt: []
+    delete:
+      summary: Deletes the virtual entities for a given ontology
+      operationId: delete_virtualEntities
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SparqlingVirtualEntities'
+      tags:
+        - virtual-entities_other
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{name}/version/virtualEntities/export:
+    get:
+      summary: Returns the virtual entities available for a given ontology
+      operationId: export_virtualEntities
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SparqlingVirtualEntities'
+      tags:
+        - virtual-entities_other
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{name}/version/virtualEntities/import:
+    post:
+      summary: Upload virtual entities for a given ontology
+      operationId: import_virtualEntities
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: additive
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SparqlingVirtualEntities'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SparqlingVirtualEntities'
+      tags:
+        - virtual-entities_other
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{name}/version/virtualEntity/{vname}:
+    get:
+      summary: Get a virtual entity by name for a given ontology
+      operationId: get_virtualEntity
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: vname
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SparqlingVirtualEntity'
+      tags:
+        - virtual-entities_other
+      security:
+        - apiKey: []
+        - jwt: []
+    delete:
+      summary: DELETE a virtual entity by name for a given ontology
+      operationId: delete_virtualEntity
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: vname
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SparqlingVirtualEntity'
+      tags:
+        - virtual-entities_other
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{name}/version/virtualEntity:
+    post:
+      summary: Create a new virtual entity for a given ontology
+      operationId: post_virtualEntity
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SparqlingVirtualEntity'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SparqlingVirtualEntity'
+      tags:
+        - virtual-entities_other
+      security:
+        - apiKey: []
+        - jwt: []
+    put:
+      summary: Overwrite a virtual entity for a given ontology
+      operationId: put_virtualEntity
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SparqlingVirtualEntity'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SparqlingVirtualEntity'
+      tags:
+        - virtual-entities_other
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{name}/version/virtualEntity/semantics:
+    post:
+      summary: POST mwsx/owlOntology/{name}/version/virtualEntity/semantics
+      operationId: post_virtualEntity_semantics
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SparqlingVirtualEntity'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+      tags:
+        - virtual-entities_other
+      security:
+        - apiKey: []
+        - jwt: []
   /owlOntology/{name}/version/vkg/catalog:
     get:
       summary: Get the VKG Snaphot catalog for a given ontology (name, version)
@@ -14102,25 +16249,26 @@ components:
         cardinality:
           type: integer
           format: int32
-    Entity:
+    OntologyEntity:
+      title: Entity
       type: object
       properties:
-        type:
+        entityLabels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Label'
+        isDeprecated:
+          type: boolean
+        entityIRI:
           type: string
-          enum:
-            - class
-            - objectProperty
-            - inverseObjectProperty
-            - dataProperty
-            - annotation
-        iri:
+        entityType:
           type: string
-        prefixedIri:
+        entityPrefixIRI:
           type: string
-        labels:
-          type: object
-          additionalProperties:
-            type: string
+        entityRemainder:
+          type: string
+        entityID:
+          type: string
     IdentificationPathElement:
       title: IdentificationPathElement
       type: object
@@ -14128,7 +16276,7 @@ components:
         inverse:
           type: boolean
         entity:
-          $ref: '#/components/schemas/Entity'
+          $ref: '#/components/schemas/OntologyEntity'
     IdentificationPath:
       title: IdentificationPath
       type: object
@@ -15116,6 +17264,56 @@ components:
             $ref: '#/components/schemas/Edge'
         lastViewportState:
           $ref: '#/components/schemas/Viewport'
+    Annotation:
+      type: object
+      required:
+        - value
+        - property
+      properties:
+        lexicalForm:
+          type: string
+          deprecated: true
+          description: Has been renamed to `value`, kept for back-compatibility.
+        value:
+          type: string
+        hasIriValue:
+          type: boolean
+        property:
+          type: string
+          example: rdfs:label
+        language:
+          type: string
+        datatype:
+          type: string
+    FunctionPropertiesEnum:
+      type: string
+      enum:
+        - functional
+        - inverseFunctional
+        - transitive
+        - symmetric
+        - asymmetric
+        - reflexive
+        - irreflexive
+    GrapholscapeEntity:
+      type: object
+      required:
+        - fullIri
+      properties:
+        fullIri:
+          type: string
+        annotations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Annotation'
+        datatype:
+          type: string
+        isDataPropertyFunctional:
+          type: boolean
+        functionProperties:
+          type: array
+          items:
+            $ref: '#/components/schemas/FunctionPropertiesEnum'
     DataPropertyValue:
       type: object
       required:
@@ -15137,7 +17335,7 @@ components:
     ClassInstanceEntity:
       type: object
       allOf:
-        - $ref: '#/components/schemas/Entity'
+        - $ref: '#/components/schemas/GrapholscapeEntity'
         - type: object
           properties:
             parentClasses:
@@ -15162,27 +17360,6 @@ components:
           type: array
           items:
             type: string
-    Annotation:
-      type: object
-      required:
-        - value
-        - property
-      properties:
-        lexicalForm:
-          type: string
-          deprecated: true
-          description: Has been renamed to `value`, kept for back-compatibility.
-        value:
-          type: string
-        hasIriValue:
-          type: boolean
-        property:
-          type: string
-          example: rdfs:label
-        language:
-          type: string
-        datatype:
-          type: string
     Theme:
       type: object
       required:
@@ -15209,7 +17386,7 @@ components:
         inputs:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/GrapholscapeEntity'
         superclasses:
           type: array
           items:
@@ -15218,7 +17395,7 @@ components:
               - complete
             properties:
               classEntity:
-                $ref: '#/components/schemas/Entity'
+                $ref: '#/components/schemas/GrapholscapeEntity'
               complete:
                 type: boolean
     ActionInvolvedElements:
@@ -15339,7 +17516,7 @@ components:
         entities:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/GrapholscapeEntity'
         classInstanceEntities:
           type: array
           items:
@@ -15845,15 +18022,15 @@ components:
         iri:
           $ref: '#/components/schemas/IRI'
         currentEntity:
-          $ref: '#/components/schemas/Entity'
+          $ref: '#/components/schemas/OntologyEntity'
         individualTypes:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/OntologyEntity'
         differentIndividuals:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/OntologyEntity'
         entityDiagrams:
           type: array
           items:
@@ -15861,7 +18038,7 @@ components:
         sameIndividuals:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/OntologyEntity'
         individualDescriptions:
           type: array
           items:
@@ -16753,7 +18930,7 @@ components:
         SUB_OBJECT_PROPERTY_RANGE_REASON:
           type: string
         sourceEntity:
-          $ref: '#/components/schemas/Entity'
+          $ref: '#/components/schemas/OntologyEntity'
         OBJECT_PROPERTY_RANGE_REASON:
           type: string
         SUPER_CLASS_REASON:
@@ -17313,26 +19490,6 @@ components:
       properties:
         hierarchyTree:
           $ref: '#/components/schemas/HierarchyTree'
-    OntologyEntity:
-      title: Entity
-      type: object
-      properties:
-        entityLabels:
-          type: array
-          items:
-            $ref: '#/components/schemas/Label'
-        isDeprecated:
-          type: boolean
-        entityIRI:
-          type: string
-        entityType:
-          type: string
-        entityPrefixIRI:
-          type: string
-        entityRemainder:
-          type: string
-        entityID:
-          type: string
     Entities:
       title: Entities
       type: object
@@ -17760,6 +19917,29 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Filter'
+    SparqlingEntity:
+      type: object
+      required:
+        - type
+        - iri
+        - prefixedIri
+      properties:
+        type:
+          type: string
+          enum:
+            - class
+            - objectProperty
+            - inverseObjectProperty
+            - dataProperty
+            - annotation
+        iri:
+          type: string
+        prefixedIri:
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
     GraphElement:
       type: object
       properties:
@@ -17779,7 +19959,7 @@ components:
             It could have more than one entity only when entity type is a class
             (could be derived after clicking on two borther classes)
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/SparqlingEntity'
         children:
           type: array
           items:
@@ -17828,7 +20008,7 @@ components:
           type: integer
         sparql:
           type: string
-    SparqlingSparqlQuery:
+    SparqlingSPARQLQuery:
       title: SparqlingSPARQLQuery
       type: object
       properties:
@@ -17847,7 +20027,7 @@ components:
         ontologyVersion:
           type: string
         sparqlingSparqlQuery:
-          $ref: '#/components/schemas/SparqlingSparqlQuery'
+          $ref: '#/components/schemas/SparqlingSPARQLQuery'
     PublicationRequests:
       title: PublicationRequests
       type: object
@@ -17875,16 +20055,6 @@ components:
           type: string
         lastModification:
           type: integer
-    SparqlingSPARQLQuery:
-      title: SparqlingSPARQLQuery
-      type: object
-      properties:
-        queryGraph:
-          $ref: '#/components/schemas/QueryGraph'
-        sparqlQuery:
-          $ref: '#/components/schemas/SPARQLQuery'
-        user:
-          type: string
     OBDASparqlingCatalog:
       title: OBDASparqlingCatalog
       type: object
@@ -17893,6 +20063,62 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SparqlingSPARQLQuery'
+    Highlights:
+      type: object
+      properties:
+        classes:
+          type: array
+          description: Subclasses or brother classes
+          items:
+            type: string
+        objectProperties:
+          type: array
+          items:
+            $ref: '#/components/schemas/Branch'
+        dataProperties:
+          type: array
+          items:
+            type: string
+    ObjectPropertiesMultiEdge:
+      type: object
+      required:
+        - sourceClassIRI
+        - targetClassIRI
+        - objectProperties
+      properties:
+        sourceClassIRI:
+          type: string
+        targetClassIRI:
+          type: string
+        objectProperties:
+          type: array
+          items:
+            $ref: '#/components/schemas/SparqlingEntity'
+    OntologyMultiPath:
+      type: object
+      required:
+        - nodes
+        - edges
+      properties:
+        nodes:
+          type: array
+          description: The nodes of the ontology path
+          items:
+            $ref: '#/components/schemas/SparqlingEntity'
+        edges:
+          type: array
+          description: The list of edges connecting two nodes
+          items:
+            $ref: '#/components/schemas/ObjectPropertiesMultiEdge'
+    OntologyPath:
+      properties:
+        entities:
+          type: array
+          description: >-
+            Starts with lastSelectedIRI and ends with clickedIRI. In between the
+            nodes and edges traversed in the path (ISA edge are marked as ISA)
+          items:
+            $ref: '#/components/schemas/SparqlingEntity'
     MwsxTaskSchedulerJobData:
       title: MwsxTaskSchedulerJobData
       type: object
@@ -18079,6 +20305,50 @@ components:
         usersFeedback:
           additionalProperties:
             $ref: '#/components/schemas/UserFeedback'
+    VirtualEntityField:
+      title: VirtualEntityField
+      type: object
+      properties:
+        fieldName:
+          type: string
+        isNullable:
+          type: boolean
+        isKey:
+          type: boolean
+        fieldType:
+          type: string
+    VirtualEntity:
+      title: VirtualEntity
+      type: object
+      properties:
+        signature:
+          type: array
+          items:
+            $ref: '#/components/schemas/VirtualEntityField'
+        name:
+          type: string
+        description:
+          type: string
+        sparqlCode:
+          type: string
+        semantics:
+          type: string
+    SparqlingVirtualEntity:
+      title: SparqlingVirtualEntity
+      type: object
+      properties:
+        sparqlingSPARQLQuery:
+          $ref: '#/components/schemas/SparqlingSPARQLQuery'
+        entity:
+          $ref: '#/components/schemas/VirtualEntity'
+    SparqlingVirtualEntities:
+      title: SparqlingVirtualEntities
+      type: object
+      properties:
+        entities:
+          type: array
+          items:
+            $ref: '#/components/schemas/SparqlingVirtualEntity'
     VKGSnapshot:
       type: object
       properties:
@@ -18093,15 +20363,6 @@ components:
           format: int64
         rdfGraph:
           $ref: '#/components/schemas/RDFGraph'
-    OntologyPath:
-      properties:
-        entities:
-          type: array
-          description: >-
-            Starts with lastSelectedIRI and ends with clickedIRI. In between the
-            nodes and edges traversed in the path (ISA edge are marked as ISA)
-          items:
-            $ref: '#/components/schemas/Entity'
     BasePropertyInfo:
       type: object
       properties:
@@ -18198,6 +20459,7 @@ x-tagGroups:
       - knowledge-graphs_other
       - mappings_other
       - Ontology Designer
+      - virtual-entities_other
   - name: Endpoints API model
     tags:
       - endpoints_other
@@ -18215,6 +20477,16 @@ x-tagGroups:
   - name: Queries API model
     tags:
       - query-catalog_other
+  - name: Swagger Sparqling WS
+    tags:
+      - OntologyGraph
+      - QueryGraphBGP
+      - QueryGraphHead
+      - QueryGraphFilter
+      - QueryGraphOptional
+      - QueryGraphExtra
+      - VisualizeSPARQL
+      - sparqling_other
   - name: Task Scheduler API model
     tags:
       - task-scheduler_other

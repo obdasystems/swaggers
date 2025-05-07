@@ -707,25 +707,26 @@ components:
         cardinality:
           type: integer
           format: int32
-    Entity:
+    OntologyEntity:
+      title: Entity
       type: object
       properties:
-        type:
+        entityLabels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Label'
+        isDeprecated:
+          type: boolean
+        entityIRI:
           type: string
-          enum:
-            - class
-            - objectProperty
-            - inverseObjectProperty
-            - dataProperty
-            - annotation
-        iri:
+        entityType:
           type: string
-        prefixedIri:
+        entityPrefixIRI:
           type: string
-        labels:
-          type: object
-          additionalProperties:
-            type: string
+        entityRemainder:
+          type: string
+        entityID:
+          type: string
     IdentificationPathElement:
       title: IdentificationPathElement
       type: object
@@ -733,7 +734,7 @@ components:
         inverse:
           type: boolean
         entity:
-          $ref: '#/components/schemas/Entity'
+          $ref: '#/components/schemas/OntologyEntity'
     IdentificationPath:
       title: IdentificationPath
       type: object

@@ -1495,25 +1495,26 @@ components:
           type: string
         extendedIRI:
           type: string
-    Entity:
+    OntologyEntity:
+      title: Entity
       type: object
       properties:
-        type:
+        entityLabels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Label'
+        isDeprecated:
+          type: boolean
+        entityIRI:
           type: string
-          enum:
-            - class
-            - objectProperty
-            - inverseObjectProperty
-            - dataProperty
-            - annotation
-        iri:
+        entityType:
           type: string
-        prefixedIri:
+        entityPrefixIRI:
           type: string
-        labels:
-          type: object
-          additionalProperties:
-            type: string
+        entityRemainder:
+          type: string
+        entityID:
+          type: string
     DiagramNode:
       title: DiagramNode
       type: object
@@ -1529,15 +1530,15 @@ components:
         iri:
           $ref: '#/components/schemas/IRI'
         currentEntity:
-          $ref: '#/components/schemas/Entity'
+          $ref: '#/components/schemas/OntologyEntity'
         individualTypes:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/OntologyEntity'
         differentIndividuals:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/OntologyEntity'
         entityDiagrams:
           type: array
           items:
@@ -1545,7 +1546,7 @@ components:
         sameIndividuals:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/OntologyEntity'
         individualDescriptions:
           type: array
           items:

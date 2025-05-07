@@ -829,8 +829,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Filter'
-    Entity:
+    SparqlingEntity:
       type: object
+      required:
+        - type
+        - iri
+        - prefixedIri
       properties:
         type:
           type: string
@@ -863,7 +867,7 @@ components:
           type: array
           description: It could have more than one entity only when entity type is a class (could be derived after clicking on two borther classes)
           items:
-            $ref: '#/components/schemas/Entity'
+            $ref: '#/components/schemas/SparqlingEntity'
         children:
           type: array
           items:

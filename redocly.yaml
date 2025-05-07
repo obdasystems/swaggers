@@ -43,9 +43,9 @@ apis:
   query-catalog: 
     root: apis/query-catalog.yaml
     output: bundled/query-catalog.yaml
-  # sparqling: 
-  #   root: apis/sparqling.yaml
-  #   output: bundled/sparqling.yaml
+  sparqling: 
+    root: apis/sparqling.yaml
+    output: bundled/sparqling.yaml
   task-scheduler: 
     root: apis/task-scheduler.yaml
     output: bundled/task-scheduler.yaml
@@ -55,9 +55,9 @@ apis:
   users-roles: 
     root: apis/users-roles.yaml
     output: bundled/users-roles.yaml
-  # virtual-entities: 
-  #   root: apis/virtual-entities.yaml
-  #   output: bundled/virtual-entities.yaml
+  virtual-entities: 
+    root: apis/virtual-entities.yaml
+    output: bundled/virtual-entities.yaml
   vkg: 
     root: apis/vkg.yaml
     output: bundled/vkg.yaml

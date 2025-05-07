@@ -1,6 +1,6 @@
 get:
-  summary: GET mwsx/owlOntology/{name}/version/virtualEntity/{vname}
-  operationId: get__owlOntology_name_version_ontology_virtuslEntity
+  summary: Get a virtual entity by name for a given ontology
+  operationId: get_virtualEntity
   parameters:
     - name: name
       in: path
@@ -23,10 +23,10 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/SparqlingVirtualEntity.yaml
 delete:
-  summary: DELETE mwsx/owlOntology/{name}/version/virtualEntity/{vname}
-  operationId: delete__owlOntology_name_version_ontology_virtuslEntity
+  summary: DELETE a virtual entity by name for a given ontology
+  operationId: delete_virtualEntity
   parameters:
     - name: name
       in: path
@@ -49,4 +49,4 @@ delete:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Response.yaml
+            $ref: ../components/schemas/SparqlingVirtualEntity.yaml
