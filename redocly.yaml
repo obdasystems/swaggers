@@ -7,57 +7,57 @@ apis:
   login:
     root: apis/login.yaml
     output: bundled/login.yaml
-  authorization-view-profiles: 
-    root: apis/authorization-view-profiles.yaml
-    output: bundled/authorization-view-profiles.yaml
-  dashboards: 
-    root: apis/dashboards.yaml
-    output: bundled/dashboards.yaml
-  data-quality: 
-    root: apis/data-quality.yaml
-    output: bundled/data-quality.yaml
-  datasources: 
-    root: apis/datasources.yaml
-    output: bundled/datasources.yaml
-  endpoints: 
-    root: apis/endpoints.yaml
-    output: bundled/endpoints.yaml
-  knowledge-graphs: 
-    root: apis/knowledge-graphs.yaml
-    output: bundled/knowledge-graphs.yaml
-  mappings: 
-    root: apis/mappings.yaml
-    output: bundled/mappings.yaml
-  misc: 
-    root: apis/misc.yaml
-    output: bundled/misc.yaml
-  ontologies: 
+  ontologies:
     root: apis/ontologies.yaml
     output: bundled/ontologies.yaml
-  ontology-catalog: 
-    root: apis/ontology-catalog.yaml
-    output: bundled/ontology-catalog.yaml
-  ontology-designer: 
-    root: apis/ontology-designer.yaml
-    output: bundled/ontology-designer.yaml
-  query-catalog: 
+  mappings:
+    root: apis/mappings.yaml
+    output: bundled/mappings.yaml
+  datasources:
+    root: apis/datasources.yaml
+    output: bundled/datasources.yaml
+  endpoints:
+    root: apis/endpoints.yaml
+    output: bundled/endpoints.yaml
+  query-catalog:
     root: apis/query-catalog.yaml
     output: bundled/query-catalog.yaml
-  sparqling: 
+  sparqling:
     root: apis/sparqling.yaml
     output: bundled/sparqling.yaml
-  task-scheduler: 
-    root: apis/task-scheduler.yaml
-    output: bundled/task-scheduler.yaml
-  triplify: 
+  triplify:
     root: apis/triplify.yaml
     output: bundled/triplify.yaml
-  users-roles: 
-    root: apis/users-roles.yaml
-    output: bundled/users-roles.yaml
-  virtual-entities: 
+  virtual-entities:
     root: apis/virtual-entities.yaml
     output: bundled/virtual-entities.yaml
-  vkg: 
+  vkg:
     root: apis/vkg.yaml
     output: bundled/vkg.yaml
+  knowledge-graphs:
+    root: apis/knowledge-graphs.yaml
+    output: bundled/knowledge-graphs.yaml
+  ontology-designer:
+    root: apis/ontology-designer.yaml
+    output: bundled/ontology-designer.yaml
+  ontology-catalog:
+    root: apis/ontology-catalog.yaml
+    output: bundled/ontology-catalog.yaml
+  authorization-view-profiles:
+    root: apis/authorization-view-profiles.yaml
+    output: bundled/authorization-view-profiles.yaml
+  dashboards:
+    root: apis/dashboards.yaml
+    output: bundled/dashboards.yaml
+  data-quality:
+    root: apis/data-quality.yaml
+    output: bundled/data-quality.yaml
+  misc:
+    root: apis/misc.yaml
+    output: bundled/misc.yaml
+  task-scheduler:
+    root: apis/task-scheduler.yaml
+    output: bundled/task-scheduler.yaml
+  users-roles:
+    root: apis/users-roles.yaml
+    output: bundled/users-roles.yaml
