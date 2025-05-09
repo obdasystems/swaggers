@@ -3,21 +3,27 @@ type: object
 properties:
   successfullyAddedAxioms:
     type: array
+    items:
+      type: string
   unsuccessfullyAddedAxioms:
     type: array
+    items:
+      type: string
   noOperationAxioms:
     type: array
+    items:
+      type: string
   success:
-    type: boolean 
+    type: boolean
   error:
     type: object
   timestampStart:
     type: integer
   timestampEnd:
-    type: integer 
+    type: integer
   ontologyIri:
-    type: string 
+    type: string
   isComputeEmpties:
-    type: boolean 
+    type: boolean
   isComputeGeneralConceptInclusions:
-    type: boolean 
+    type: boolean
