@@ -8,4 +8,4 @@ properties:
   entities:
     type: array
     items:
-      $ref: ./MWSEntity.yaml
+      $ref: ./OntologyEntity.yaml

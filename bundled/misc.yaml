@@ -196,7 +196,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/MWSEntity'
+                  $ref: '#/components/schemas/OntologyEntity'
   /globalAnnotation:
     post:
       summary: POST mwsx/globalAnnotation
@@ -205,7 +205,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/MWSEntity'
+              $ref: '#/components/schemas/OntologyEntity'
         required: true
       responses:
         '200':
@@ -215,7 +215,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/MWSEntity'
+                  $ref: '#/components/schemas/OntologyEntity'
   /globalAnnotation/{entityId}:
     delete:
       summary: DELETE mwsx/globalAnnotation/{entityId}
@@ -234,7 +234,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/MWSEntity'
+                  $ref: '#/components/schemas/OntologyEntity'
   /server/license/info:
     get:
       summary: GET mwsx/server/license/info
@@ -1029,8 +1029,8 @@ components:
           type: string
         content:
           type: string
-    MWSEntity:
-      title: MWSEntity
+    OntologyEntity:
+      title: OntologyEntity
       type: object
       properties:
         entityLabels:
@@ -1389,6 +1389,6 @@ components:
       type: object
       properties:
         entity:
-          $ref: '#/components/schemas/MWSEntity'
+          $ref: '#/components/schemas/OntologyEntity'
         count:
           type: integer

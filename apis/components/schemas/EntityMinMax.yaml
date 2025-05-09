@@ -2,7 +2,7 @@ title: EntityMinMax
 type: object
 properties:
   entity:
-    $ref: ./MWSEntity.yaml
+    $ref: ./OntologyEntity.yaml
   minMax:
     type: number
   error:

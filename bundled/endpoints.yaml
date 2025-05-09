@@ -2255,8 +2255,8 @@ components:
           type: string
         content:
           type: string
-    MWSEntity:
-      title: MWSEntity
+    OntologyEntity:
+      title: OntologyEntity
       type: object
       properties:
         entityLabels:
@@ -2282,15 +2282,15 @@ components:
         emptyObjectProperties:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         emptyDataProperties:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         emptyClasses:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
     EmptyUnfoldingEntities:
       title: EmptyUnfoldingEntities
       type: object
@@ -2298,15 +2298,15 @@ components:
         emptyUnfoldingDataProperties:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         emptyUnfoldingObjectProperties:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         emptyUnfoldingClasses:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
     ChartConfiguration:
       title: ChartConfiguration
       type: object
@@ -3130,7 +3130,7 @@ components:
         error:
           type: string
         entity:
-          $ref: '#/components/schemas/MWSEntity'
+          $ref: '#/components/schemas/OntologyEntity'
     CountEntityInstancesInfo:
       title: CountEntityInstancesInfo
       type: object
@@ -3156,7 +3156,7 @@ components:
         resultClasses:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         percentage:
           type: number
         startTime:
@@ -3172,7 +3172,7 @@ components:
       type: object
       properties:
         entity:
-          $ref: '#/components/schemas/MWSEntity'
+          $ref: '#/components/schemas/OntologyEntity'
         minMax:
           type: number
         error:
@@ -3398,11 +3398,11 @@ components:
         classes:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         annotations:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         newVersionIRI:
           type: string
         format:

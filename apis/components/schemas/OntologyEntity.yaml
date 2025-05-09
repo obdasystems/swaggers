@@ -1,4 +1,4 @@
-title: Entity
+title: OntologyEntity
 type: object
 properties:
   entityLabels:

@@ -2769,8 +2769,8 @@ components:
           type: string
         content:
           type: string
-    MWSEntity:
-      title: MWSEntity
+    OntologyEntity:
+      title: OntologyEntity
       type: object
       properties:
         entityLabels:
@@ -2797,7 +2797,7 @@ components:
           type: integer
           format: int32
         MWSEntity:
-          $ref: '#/components/schemas/MWSEntity'
+          $ref: '#/components/schemas/OntologyEntity'
     MappingEntityCount:
       title: MappingEntityCount
       type: object
@@ -2844,7 +2844,7 @@ components:
         template:
           $ref: '#/components/schemas/MappingTemplate'
         annotationProperty:
-          $ref: '#/components/schemas/MWSEntity'
+          $ref: '#/components/schemas/OntologyEntity'
         lang:
           type: string
     SQLView:
@@ -2900,7 +2900,7 @@ components:
         iri:
           $ref: '#/components/schemas/IRI'
         currentMWSEntity:
-          $ref: '#/components/schemas/MWSEntity'
+          $ref: '#/components/schemas/OntologyEntity'
         annotationMappings:
           type: array
           items:
@@ -3203,26 +3203,6 @@ components:
             type: string
         dbName:
           type: string
-    OntologyEntity:
-      title: Entity
-      type: object
-      properties:
-        entityLabels:
-          type: array
-          items:
-            $ref: '#/components/schemas/Label'
-        isDeprecated:
-          type: boolean
-        entityIRI:
-          type: string
-        entityType:
-          type: string
-        entityPrefixIRI:
-          type: string
-        entityRemainder:
-          type: string
-        entityID:
-          type: string
     MappingTemplatePrompt:
       title: MappingTemplatePrompt
       type: object
@@ -3280,11 +3260,11 @@ components:
         projection:
           type: string
         entity:
-          $ref: '#/components/schemas/MWSEntity'
+          $ref: '#/components/schemas/OntologyEntity'
         entitiesIndex:
           type: object
           additionalProperties:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         viewTables:
           type: object
         subEntities:

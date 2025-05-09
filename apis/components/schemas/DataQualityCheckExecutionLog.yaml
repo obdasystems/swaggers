@@ -10,7 +10,7 @@ properties:
   objectProperties:
     type: array
     items:
-      $ref: ./MWSEntity.yaml
+      $ref: ./OntologyEntity.yaml
   priority:
     type: integer
     format: int32
@@ -29,7 +29,7 @@ properties:
   dataProperties:
     type: array
     items:
-      $ref: ./MWSEntity.yaml
+      $ref: ./OntologyEntity.yaml
   cardinalityType:
     type: integer
     format: int32
@@ -39,18 +39,18 @@ properties:
     type: integer
     format: int32
   property:
-    $ref: ./MWSEntity.yaml
+    $ref: ./OntologyEntity.yaml
   filler:
-    $ref: ./MWSEntity.yaml
+    $ref: ./OntologyEntity.yaml
   sparqlCode:
     type: string
   id:
     type: string
   results:
     $ref: ./SPARQLResults.yaml
-  MWSEntity:
-    $ref: ./MWSEntity.yaml
+  entity:
+    $ref: ./OntologyEntity.yaml
   status:
     type: string
   disjointMWSEntity:
-    $ref: ./MWSEntity.yaml
+    $ref: ./OntologyEntity.yaml

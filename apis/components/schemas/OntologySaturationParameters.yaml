@@ -4,11 +4,11 @@ properties:
   classes:
     type: array
     items: 
-      $ref: MWSEntity.yaml
+      $ref: OntologyEntity.yaml
   annotations:
     type: array
     items: 
-      $ref: MWSEntity.yaml    
+      $ref: OntologyEntity.yaml    
   newVersionIRI:
     type: string
   format:

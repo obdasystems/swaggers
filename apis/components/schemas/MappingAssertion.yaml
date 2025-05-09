@@ -6,7 +6,7 @@ properties:
   iri:
     $ref: ./IRI.yaml
   currentMWSEntity:
-    $ref: ./MWSEntity.yaml
+    $ref: ./OntologyEntity.yaml
   annotationMappings:
     type: array
     items:

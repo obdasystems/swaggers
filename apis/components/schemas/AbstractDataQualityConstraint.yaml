@@ -4,4 +4,4 @@ properties:
   id:
     type: string
   entity:
-    $ref: ./MWSEntity.yaml
+    $ref: ./OntologyEntity.yaml

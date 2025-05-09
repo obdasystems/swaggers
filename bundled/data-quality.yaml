@@ -614,8 +614,8 @@ components:
           type: string
         content:
           type: string
-    MWSEntity:
-      title: MWSEntity
+    OntologyEntity:
+      title: OntologyEntity
       type: object
       properties:
         entityLabels:
@@ -639,11 +639,11 @@ components:
       type: object
       properties:
         property:
-          $ref: '#/components/schemas/MWSEntity'
+          $ref: '#/components/schemas/OntologyEntity'
         direct:
           type: boolean
         filler:
-          $ref: '#/components/schemas/MWSEntity'
+          $ref: '#/components/schemas/OntologyEntity'
     FunctionalPropertyAssertion:
       title: FunctionalPropertyAssertion
       type: object
@@ -655,17 +655,17 @@ components:
       type: object
       properties:
         disjointClass:
-          $ref: '#/components/schemas/MWSEntity'
+          $ref: '#/components/schemas/OntologyEntity'
     MandatoryParticipationAssertion:
       title: MandatoryParticipationAssertion
       type: object
       properties:
         property:
-          $ref: '#/components/schemas/MWSEntity'
+          $ref: '#/components/schemas/OntologyEntity'
         direct:
           type: boolean
         filler:
-          $ref: '#/components/schemas/MWSEntity'
+          $ref: '#/components/schemas/OntologyEntity'
     HasKeyAssertion:
       title: HasKeyAssertion
       type: object
@@ -673,7 +673,7 @@ components:
         dataProperties:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         direct:
           type: array
           items:
@@ -681,7 +681,7 @@ components:
         objectProperties:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
     SubClassWithCardinalityAssertion:
       title: SubClassWithCardinalityAssertion
       type: object
@@ -693,11 +693,11 @@ components:
           type: integer
           format: int32
         property:
-          $ref: '#/components/schemas/MWSEntity'
+          $ref: '#/components/schemas/OntologyEntity'
         direct:
           type: boolean
         filler:
-          $ref: '#/components/schemas/MWSEntity'
+          $ref: '#/components/schemas/OntologyEntity'
         EXACT_CARDINALITY_TYPE:
           type: integer
           format: int32
@@ -707,26 +707,6 @@ components:
         cardinality:
           type: integer
           format: int32
-    OntologyEntity:
-      title: Entity
-      type: object
-      properties:
-        entityLabels:
-          type: array
-          items:
-            $ref: '#/components/schemas/Label'
-        isDeprecated:
-          type: boolean
-        entityIRI:
-          type: string
-        entityType:
-          type: string
-        entityPrefixIRI:
-          type: string
-        entityRemainder:
-          type: string
-        entityID:
-          type: string
     IdentificationPathElement:
       title: IdentificationPathElement
       type: object
@@ -874,7 +854,7 @@ components:
         objectProperties:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         priority:
           type: integer
           format: int32
@@ -893,7 +873,7 @@ components:
         dataProperties:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         cardinalityType:
           type: integer
           format: int32
@@ -903,21 +883,21 @@ components:
           type: integer
           format: int32
         property:
-          $ref: '#/components/schemas/MWSEntity'
+          $ref: '#/components/schemas/OntologyEntity'
         filler:
-          $ref: '#/components/schemas/MWSEntity'
+          $ref: '#/components/schemas/OntologyEntity'
         sparqlCode:
           type: string
         id:
           type: string
         results:
           $ref: '#/components/schemas/SPARQLResults'
-        MWSEntity:
-          $ref: '#/components/schemas/MWSEntity'
+        entity:
+          $ref: '#/components/schemas/OntologyEntity'
         status:
           type: string
         disjointMWSEntity:
-          $ref: '#/components/schemas/MWSEntity'
+          $ref: '#/components/schemas/OntologyEntity'
     OntologyID:
       title: OntologyID
       type: object

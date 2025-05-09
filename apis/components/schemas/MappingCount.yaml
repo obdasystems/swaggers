@@ -5,4 +5,4 @@ properties:
     type: integer
     format: int32
   MWSEntity:
-    $ref: ./MWSEntity.yaml
+    $ref: ./OntologyEntity.yaml

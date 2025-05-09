@@ -179,7 +179,7 @@ components:
         entities:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
     Label:
       title: Label
       type: object
@@ -188,8 +188,8 @@ components:
           type: string
         content:
           type: string
-    MWSEntity:
-      title: MWSEntity
+    OntologyEntity:
+      title: OntologyEntity
       type: object
       properties:
         entityLabels:

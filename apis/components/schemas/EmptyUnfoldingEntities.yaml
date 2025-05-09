@@ -4,12 +4,12 @@ properties:
   emptyUnfoldingDataProperties:
     type: array
     items:
-      $ref: ./MWSEntity.yaml
+      $ref: ./OntologyEntity.yaml
   emptyUnfoldingObjectProperties:
     type: array
     items:
-      $ref: ./MWSEntity.yaml
+      $ref: ./OntologyEntity.yaml
   emptyUnfoldingClasses:
     type: array
     items:
-      $ref: ./MWSEntity.yaml
+      $ref: ./OntologyEntity.yaml

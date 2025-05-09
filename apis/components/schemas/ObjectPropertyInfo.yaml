@@ -4,11 +4,11 @@ properties:
   disjointObjectProperties:
     type: array
     items:
-      $ref: ./MWSEntity.yaml
+      $ref: ./OntologyEntity.yaml
   iri:
     $ref: ./IRI.yaml
   currentMWSEntity:
-    $ref: ./MWSEntity.yaml
+    $ref: ./OntologyEntity.yaml
   objectPropertyInverseFunctional:
     type: boolean
   objectPropertyDescriptions:
@@ -18,13 +18,13 @@ properties:
   equivalentObjectProperties:
     type: array
     items:
-      $ref: ./MWSEntity.yaml
+      $ref: ./OntologyEntity.yaml
   objectPropertySymmetric:
     type: boolean
   superObjectProperties:
     type: array
     items:
-      $ref: ./MWSEntity.yaml
+      $ref: ./OntologyEntity.yaml
   objectPropertyCharacteristics:
     type: array
     items:
@@ -32,30 +32,30 @@ properties:
   subObjectProperties:
     type: array
     items:
-      $ref: ./MWSEntity.yaml
+      $ref: ./OntologyEntity.yaml
   objectPropertyIndividuals:
     type: array
     items:
-      $ref: ./MWSEntity.yaml
+      $ref: ./OntologyEntity.yaml
   inverseObjectProperties:
     type: array
     items:
-      $ref: ./MWSEntity.yaml
+      $ref: ./OntologyEntity.yaml
   objectPropertyDomain:
     type: array
     items:
-      $ref: ./MWSEntity.yaml
+      $ref: ./OntologyEntity.yaml
   objectPropertyReflexive:
     type: boolean
   objectPropertyRange:
     type: array
     items:
-      $ref: ./MWSEntity.yaml
+      $ref: ./OntologyEntity.yaml
   objectPropertyTransitive:
     type: boolean
   objectPropertyIrreflexive:
     type: boolean
-  MWSEntityDiagrams:
+  entityDiagrams:
     type: array
     items:
       $ref: ./DiagramNode.yaml

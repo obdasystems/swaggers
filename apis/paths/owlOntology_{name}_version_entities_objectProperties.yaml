@@ -20,4 +20,4 @@ get:
           schema:
             type: array
             items: 
-              $ref: ../components/schemas/MWSEntity.yaml
+              $ref: ../components/schemas/OntologyEntity.yaml

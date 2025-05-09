@@ -1447,8 +1447,8 @@ components:
           type: string
         target:
           $ref: '#/components/schemas/KnowledgeGraphDestination'
-    MWSEntity:
-      title: MWSEntity
+    OntologyEntity:
+      title: OntologyEntity
       type: object
       properties:
         entityLabels:
@@ -1474,19 +1474,19 @@ components:
         ontologyDataProperties:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         ontologyObjectProperties:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         ontologyIndividuals:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         ontologyClasses:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
     IRI:
       title: IRI
       type: object
@@ -1494,26 +1494,6 @@ components:
         shortIRI:
           type: string
         extendedIRI:
-          type: string
-    OntologyEntity:
-      title: Entity
-      type: object
-      properties:
-        entityLabels:
-          type: array
-          items:
-            $ref: '#/components/schemas/Label'
-        isDeprecated:
-          type: boolean
-        entityIRI:
-          type: string
-        entityType:
-          type: string
-        entityPrefixIRI:
-          type: string
-        entityRemainder:
-          type: string
-        entityID:
           type: string
     DiagramNode:
       title: DiagramNode

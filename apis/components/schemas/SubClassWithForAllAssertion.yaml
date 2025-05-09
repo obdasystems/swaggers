@@ -2,8 +2,8 @@ title: SubClassWithForAllAssertion
 type: object
 properties:
   property:
-    $ref: ./MWSEntity.yaml
+    $ref: ./OntologyEntity.yaml
   direct:
     type: boolean
   filler:
-    $ref: ./MWSEntity.yaml
+    $ref: ./OntologyEntity.yaml

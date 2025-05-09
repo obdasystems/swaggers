@@ -4,6 +4,6 @@ properties:
   template:
     $ref: ./MappingTemplate.yaml
   annotationProperty:
-    $ref: ./MWSEntity.yaml
+    $ref: ./OntologyEntity.yaml
   lang:
     type: string

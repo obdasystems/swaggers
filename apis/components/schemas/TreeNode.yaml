@@ -10,9 +10,9 @@ properties:
   equivalents:
     type: array
     items:
-      $ref: ./MWSEntity.yaml
+      $ref: ./OntologyEntity.yaml
   numberOfMappings:
     type: integer
     format: int32
   MWSEntity:
-    $ref: ./MWSEntity.yaml
+    $ref: ./OntologyEntity.yaml

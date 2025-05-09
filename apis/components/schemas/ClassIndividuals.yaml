@@ -2,8 +2,8 @@ title: ClassIndividuals
 type: object
 properties:
   theClass:
-    $ref: ./MWSEntity.yaml
+    $ref: ./OntologyEntity.yaml
   individuals:
     type: array
     items:
-      $ref: ./MWSEntity.yaml
+      $ref: ./OntologyEntity.yaml

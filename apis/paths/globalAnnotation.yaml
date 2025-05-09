@@ -5,7 +5,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: ../components/schemas/MWSEntity.yaml
+          $ref: ../components/schemas/OntologyEntity.yaml
     required: true
   responses:
     '200':
@@ -15,4 +15,4 @@ post:
           schema:
             type: array
             items: 
-              $ref: ../components/schemas/MWSEntity.yaml
+              $ref: ../components/schemas/OntologyEntity.yaml

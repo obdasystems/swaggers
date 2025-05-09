@@ -4,25 +4,25 @@ properties:
   disjointClasses:
     type: array
     items:
-      $ref: ./MWSEntity.yaml
+      $ref: ./OntologyEntity.yaml
   iri:
     $ref: ./IRI.yaml
   currentMWSEntity:
-    $ref: ./MWSEntity.yaml
+    $ref: ./OntologyEntity.yaml
   equivalentClasses:
     type: array
     items:
-      $ref: ./MWSEntity.yaml
+      $ref: ./OntologyEntity.yaml
   dataPropertiesIsDomainOf:
     type: array
     items:
-      $ref: ./MWSEntity.yaml
+      $ref: ./OntologyEntity.yaml
   disjointUnions:
     type: array
     items:
       type: array
       items:
-        $ref: ./MWSEntity.yaml
+        $ref: ./OntologyEntity.yaml
   classDescriptions:
     type: array
     items:
@@ -30,19 +30,19 @@ properties:
   classIndividuals:
     type: array
     items:
-      $ref: ./MWSEntity.yaml
+      $ref: ./OntologyEntity.yaml
   objectPropertiesIsRangeOf:
     type: array
     items:
-      $ref: ./MWSEntity.yaml
+      $ref: ./OntologyEntity.yaml
   objectPropertiesIsDomainOf:
     type: array
     items:
-      $ref: ./MWSEntity.yaml
+      $ref: ./OntologyEntity.yaml
   subClasses:
     type: array
     items:
-      $ref: ./MWSEntity.yaml
+      $ref: ./OntologyEntity.yaml
   objectPropertiesParticipations:
     type: array
     items:
@@ -58,4 +58,4 @@ properties:
   superClasses:
     type: array
     items:
-      $ref: ./MWSEntity.yaml
+      $ref: ./OntologyEntity.yaml

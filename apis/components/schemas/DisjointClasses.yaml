@@ -2,4 +2,4 @@ title: DisjointClasses
 type: object
 properties:
   disjointClass:
-    $ref: ./MWSEntity.yaml
+    $ref: ./OntologyEntity.yaml

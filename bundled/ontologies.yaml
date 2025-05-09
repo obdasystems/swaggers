@@ -694,7 +694,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/MWSEntity'
+                  $ref: '#/components/schemas/OntologyEntity'
   /owlOntology/{name}/version/entities/objectProperties:
     get:
       summary: GET mwsx/owlOntology/{name}/version/entities/objectProperties
@@ -718,7 +718,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/MWSEntity'
+                  $ref: '#/components/schemas/OntologyEntity'
   /owlOntology/{name}/version/entities/dataProperties:
     get:
       summary: GET mwsx/owlOntology/{name}/version/entities/dataProperties
@@ -742,7 +742,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/MWSEntity'
+                  $ref: '#/components/schemas/OntologyEntity'
   /owlOntology/{name}/version/entities/annotationProperties:
     get:
       summary: GET mwsx/owlOntology/{name}/version/entities/annotationProperties
@@ -766,7 +766,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/MWSEntity'
+                  $ref: '#/components/schemas/OntologyEntity'
   /owlOntology/{name}/version/entities:
     get:
       summary: GET mwsx/owlOntology/{name}/version/entities
@@ -815,7 +815,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MWSEntity'
+                $ref: '#/components/schemas/OntologyEntity'
   /owlOntology/{name}/version/alphabet/class/{ID}/logical:
     get:
       summary: GET mwsx/owlOntology/{name}/version/alphabet/class/{ID}/logical
@@ -1222,7 +1222,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/MWSEntity'
+                  $ref: '#/components/schemas/OntologyEntity'
   /ontologyDifference/{name}/vs/{otherName}:
     get:
       summary: GET mwsx/ontologyDifference/{name}/vs/{otherName}
@@ -1333,8 +1333,8 @@ components:
           type: string
         content:
           type: string
-    MWSEntity:
-      title: MWSEntity
+    OntologyEntity:
+      title: OntologyEntity
       type: object
       properties:
         entityLabels:
@@ -1360,19 +1360,19 @@ components:
         ontologyDataProperties:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         ontologyObjectProperties:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         ontologyIndividuals:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         ontologyClasses:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
     IRI:
       title: IRI
       type: object
@@ -1380,26 +1380,6 @@ components:
         shortIRI:
           type: string
         extendedIRI:
-          type: string
-    OntologyEntity:
-      title: Entity
-      type: object
-      properties:
-        entityLabels:
-          type: array
-          items:
-            $ref: '#/components/schemas/Label'
-        isDeprecated:
-          type: boolean
-        entityIRI:
-          type: string
-        entityType:
-          type: string
-        entityPrefixIRI:
-          type: string
-        entityRemainder:
-          type: string
-        entityID:
           type: string
     DiagramNode:
       title: DiagramNode
@@ -1680,12 +1660,12 @@ components:
         equivalents:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         numberOfMappings:
           type: integer
           format: int32
         MWSEntity:
-          $ref: '#/components/schemas/MWSEntity'
+          $ref: '#/components/schemas/OntologyEntity'
     HierarchyTree:
       title: HierarchyTree
       type: object
@@ -1797,9 +1777,9 @@ components:
         inverse:
           type: boolean
         property:
-          $ref: '#/components/schemas/MWSEntity'
+          $ref: '#/components/schemas/OntologyEntity'
         filler:
-          $ref: '#/components/schemas/MWSEntity'
+          $ref: '#/components/schemas/OntologyEntity'
     ClassInfo:
       title: ClassInfo
       type: object
@@ -1807,25 +1787,25 @@ components:
         disjointClasses:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         iri:
           $ref: '#/components/schemas/IRI'
         currentMWSEntity:
-          $ref: '#/components/schemas/MWSEntity'
+          $ref: '#/components/schemas/OntologyEntity'
         equivalentClasses:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         dataPropertiesIsDomainOf:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         disjointUnions:
           type: array
           items:
             type: array
             items:
-              $ref: '#/components/schemas/MWSEntity'
+              $ref: '#/components/schemas/OntologyEntity'
         classDescriptions:
           type: array
           items:
@@ -1833,19 +1813,19 @@ components:
         classIndividuals:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         objectPropertiesIsRangeOf:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         objectPropertiesIsDomainOf:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         subClasses:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         objectPropertiesParticipations:
           type: array
           items:
@@ -1861,7 +1841,7 @@ components:
         superClasses:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
     Annotation:
       type: object
       required:
@@ -1890,11 +1870,11 @@ components:
         disjointObjectProperties:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         iri:
           $ref: '#/components/schemas/IRI'
         currentMWSEntity:
-          $ref: '#/components/schemas/MWSEntity'
+          $ref: '#/components/schemas/OntologyEntity'
         objectPropertyInverseFunctional:
           type: boolean
         objectPropertyDescriptions:
@@ -1904,13 +1884,13 @@ components:
         equivalentObjectProperties:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         objectPropertySymmetric:
           type: boolean
         superObjectProperties:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         objectPropertyCharacteristics:
           type: array
           items:
@@ -1918,30 +1898,30 @@ components:
         subObjectProperties:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         objectPropertyIndividuals:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         inverseObjectProperties:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         objectPropertyDomain:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         objectPropertyReflexive:
           type: boolean
         objectPropertyRange:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         objectPropertyTransitive:
           type: boolean
         objectPropertyIrreflexive:
           type: boolean
-        MWSEntityDiagrams:
+        entityDiagrams:
           type: array
           items:
             $ref: '#/components/schemas/DiagramNode'
@@ -1958,19 +1938,19 @@ components:
         subDataProperties:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         dataPropertyFunctional:
           type: boolean
         currentMWSEntity:
-          $ref: '#/components/schemas/MWSEntity'
+          $ref: '#/components/schemas/OntologyEntity'
         equivalentDataProperties:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         superDataProperties:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         dataPropertyDescriptions:
           type: array
           items:
@@ -1978,15 +1958,15 @@ components:
         dataPropertyDomain:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         dataPropertyRange:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         disjointDataProperties:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
         MWSEntityDiagrams:
           type: array
           items:
@@ -1994,7 +1974,7 @@ components:
         dataPropertyIndividuals:
           type: array
           items:
-            $ref: '#/components/schemas/MWSEntity'
+            $ref: '#/components/schemas/OntologyEntity'
     OntologyDifference:
       title: OntologyDifference
       type: object
