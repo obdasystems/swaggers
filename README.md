@@ -1,4 +1,4 @@
-# swaggers
+# OpenAPI specifications
 [![pages-build-deployment](https://github.com/obdasystems/swaggers/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/obdasystems/swaggers/actions/workflows/pages/pages-build-deployment)
 
 This repository contains the definitions of the available REST APIs served by Mastro.
@@ -7,6 +7,9 @@ This repository contains the definitions of the available REST APIs served by Ma
 ## APIs
 
 - [mastro (whole specs)](https://obdasystems.github.io/swaggers/ui/?api=mastro)
+
+If you are interested in a subset of API we distribute also this smaller bundles:
+
 - [login](https://obdasystems.github.io/swaggers/ui/?api=login)
 - [ontologies](https://obdasystems.github.io/swaggers/ui/?api=ontologies)
 - [mappings](https://obdasystems.github.io/swaggers/ui/?api=mappings)
