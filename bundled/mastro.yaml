@@ -7747,7 +7747,8 @@ paths:
             application/json:
               schema:
                 type: array
-                $ref: '#/components/schemas/SparqlingSPARQLQuery'
+                items:
+                  $ref: '#/components/schemas/SparqlingSPARQLQuery'
       tags:
         - query-catalog_other
       security:
@@ -16212,10 +16213,16 @@ components:
       properties:
         successfullyAddedAxioms:
           type: array
+          items:
+            type: string
         unsuccessfullyAddedAxioms:
           type: array
+          items:
+            type: string
         noOperationAxioms:
           type: array
+          items:
+            type: string
         success:
           type: boolean
         error:

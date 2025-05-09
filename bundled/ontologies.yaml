@@ -1554,10 +1554,16 @@ components:
       properties:
         successfullyAddedAxioms:
           type: array
+          items:
+            type: string
         unsuccessfullyAddedAxioms:
           type: array
+          items:
+            type: string
         noOperationAxioms:
           type: array
+          items:
+            type: string
         success:
           type: boolean
         error:

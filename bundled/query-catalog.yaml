@@ -86,7 +86,8 @@ paths:
             application/json:
               schema:
                 type: array
-                $ref: '#/components/schemas/SparqlingSPARQLQuery'
+                items:
+                  $ref: '#/components/schemas/SparqlingSPARQLQuery'
   /owlOntology/{name}/version/query/{queryID}/publication:
     post:
       summary: POST mwsx/owlOntology/{name}/version/query/{queryID}/publication
