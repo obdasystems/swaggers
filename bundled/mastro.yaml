@@ -32,17 +32,17 @@ tags:
     x-displayName: other
   - name: endpoints_other
     x-displayName: other
-  - name: VKG
+  - name: endpoints_VKG
     x-displayName: VKG
   - name: query-catalog_other
     x-displayName: other
-  - name: OntologyGraph
+  - name: sparqling_OntologyGraph
     description: >-
       Depending on the selected node and the clicked node the ontology graph
       will change the highlightments. These results will be used essentially by
       GRAPHOLscape.
     x-displayName: OntologyGraph
-  - name: QueryGraphBGP
+  - name: sparqling_QueryGraphBGP
     description: >-
       Depending on the selected node and the clicked node the server will
       compute the query graph which will be rendered by Sparqling front end.
@@ -50,19 +50,19 @@ tags:
       the SPARQL code. These operations will modify only the basic graph
       pattern.
     x-displayName: QueryGraphBGP
-  - name: QueryGraphHead
+  - name: sparqling_QueryGraphHead
     description: These operations will modify the query graph head.
     x-displayName: QueryGraphHead
-  - name: QueryGraphFilter
+  - name: sparqling_QueryGraphFilter
     description: These operations will modify the query graph filter part.
     x-displayName: QueryGraphFilter
-  - name: QueryGraphOptional
+  - name: sparqling_QueryGraphOptional
     description: These operations will modify the query graph optional part.
     x-displayName: QueryGraphOptional
-  - name: QueryGraphExtra
+  - name: sparqling_QueryGraphExtra
     description: These are extra operations for the query graph.
     x-displayName: QueryGraphExtra
-  - name: VisualizeSPARQL
+  - name: sparqling_VisualizeSPARQL
     description: >-
       These operations will translate a SPARQL query in a query graph to be
       visualized and modified in Sparqling
@@ -77,9 +77,9 @@ tags:
     x-displayName: other
   - name: knowledge-graphs_other
     x-displayName: other
-  - name: Ontology Designer
+  - name: ontology-designer_Ontology Designer
     x-displayName: Ontology Designer
-  - name: Ontology Catalog
+  - name: ontology-catalog_Ontology Catalog
     x-displayName: Ontology Catalog
   - name: ontology-catalog_other
     x-displayName: other
@@ -7424,7 +7424,7 @@ paths:
   /endpoint/{name}/cquery/{queryID}/results/rdfGraph:
     get:
       tags:
-        - VKG
+        - endpoints_VKG
       summary: Returns the results for a given construct query in tabular format
       operationId: getRDFGraphConstruct
       parameters:
@@ -8231,7 +8231,7 @@ paths:
   /endpoint/{endpointName}/highligthsSharedViewsProps:
     get:
       tags:
-        - VKG
+        - endpoints_VKG
       summary: >-
         Get the IRIs of the ontology entities "related" to the clicked and
         selected grouped by the views their mappings referes to.
@@ -9062,7 +9062,7 @@ paths:
   /owlOntology/{ontologyName}/highlights:
     get:
       tags:
-        - OntologyGraph
+        - sparqling_OntologyGraph
       summary: >-
         Get the IRIs of the ontology entities "related" to the clicked and
         selected.
@@ -9121,7 +9121,7 @@ paths:
   /owlOntology/{ontologyName}/highlights/paths:
     get:
       tags:
-        - OntologyGraph
+        - sparqling_OntologyGraph
       summary: Find paths between selected class and clicked class.
       description: >-
         The results should be based on Dijkstra algorithm for shortest paths.
@@ -9362,7 +9362,7 @@ paths:
   /owlOntology/{ontologyName}/queryGraph/node:
     get:
       tags:
-        - QueryGraphBGP
+        - sparqling_QueryGraphBGP
       summary: This is the first route to call in order to build the query graph.
       description: >-
         Starting from only the clicked class get the query graph that will be
@@ -9410,7 +9410,7 @@ paths:
   /owlOntology/{ontologyName}/queryGraph/node/class/{graphElementId}:
     put:
       tags:
-        - QueryGraphBGP
+        - sparqling_QueryGraphBGP
       summary: >-
         Starting from the current query graph continue to build the query graph
         through a class.
@@ -9478,7 +9478,7 @@ paths:
   /owlOntology/{ontologyName}/queryGraph/node/objectProperty/{graphElementId}:
     put:
       tags:
-        - QueryGraphBGP
+        - sparqling_QueryGraphBGP
       summary: >-
         Starting from the current query graph continue to build the query graph
         through a object property.
@@ -9569,7 +9569,7 @@ paths:
   /owlOntology/{ontologyName}/queryGraph/node/dataProperty/{graphElementId}:
     put:
       tags:
-        - QueryGraphBGP
+        - sparqling_QueryGraphBGP
       summary: >-
         Starting from the current query graph continue to build the query graph
         through a data property.
@@ -9640,7 +9640,7 @@ paths:
   /owlOntology/{ontologyName}/queryGraph/node/annotation/{graphElementId}:
     put:
       tags:
-        - QueryGraphBGP
+        - sparqling_QueryGraphBGP
       summary: >-
         Starting from the current query graph continue to build the query graph
         through a data property.
@@ -9711,7 +9711,7 @@ paths:
   /owlOntology/{ontologyName}/queryGraph/node/join/{graphElementId1}/{graphElementId2}:
     put:
       tags:
-        - QueryGraphBGP
+        - sparqling_QueryGraphBGP
       summary: Join two GraphNodeElement in one.
       description: >-
         Starting from a query graph which has two nodes representing the same
@@ -9770,7 +9770,7 @@ paths:
   /owlOntology/{ontologyName}/queryGraph/node/delete/{graphElementId}:
     put:
       tags:
-        - QueryGraphBGP
+        - sparqling_QueryGraphBGP
       summary: >-
         Delete the GraphElement (and all its children) from the query graph and
         head.
@@ -9825,7 +9825,7 @@ paths:
   /owlOntology/{ontologyName}/queryGraph/node/delete/{graphElementId}/class:
     put:
       tags:
-        - QueryGraphBGP
+        - sparqling_QueryGraphBGP
       summary: Delete from GraphElement only the class
       operationId: deleteGraphElementIdClass
       parameters:
@@ -9876,7 +9876,7 @@ paths:
   /owlOntology/{ontologyName}/queryGraph/node/filter/{filterId}:
     put:
       tags:
-        - QueryGraphFilter
+        - sparqling_QueryGraphFilter
       summary: Create a new filter in the query.
       description: Translate the filter at index `filterId` to a new filter in SPARQL.
       operationId: newFilter
@@ -9922,7 +9922,7 @@ paths:
   /owlOntology/{ontologyName}/queryGraph/node/filter/edit/{filterId}:
     put:
       tags:
-        - QueryGraphFilter
+        - sparqling_QueryGraphFilter
       summary: Modify a filter in the query.
       description: Translate the filter at index `filterId` to a filter in SPARQL.
       operationId: editFilter
@@ -9968,7 +9968,7 @@ paths:
   /owlOntology/{ontologyName}/queryGraph/node/filter/remove/{filterId}:
     put:
       tags:
-        - QueryGraphFilter
+        - sparqling_QueryGraphFilter
       summary: Remove the filter at index `filterId` from the query.
       operationId: removeFilter
       parameters:
@@ -10013,7 +10013,7 @@ paths:
   /owlOntology/{ontologyName}/queryGraph/node/filter/remove/all:
     put:
       tags:
-        - QueryGraphFilter
+        - sparqling_QueryGraphFilter
       summary: Remove the filters.
       operationId: removeAllFilters
       parameters:
@@ -10053,7 +10053,7 @@ paths:
   /owlOntology/{ontologyName}/queryGraph/node/optional/{graphElementId}:
     put:
       tags:
-        - QueryGraphOptional
+        - sparqling_QueryGraphOptional
       summary: Add the `graphElementId` to a new optional.
       description: >
         Create a new optional in the query and add the triple pattern(s)
@@ -10124,7 +10124,7 @@ paths:
   /owlOntology/{ontologyName}/queryGraph/node/optional/remove/{graphElementId}:
     put:
       tags:
-        - QueryGraphOptional
+        - sparqling_QueryGraphOptional
       summary: Remove the graphElementId from the optional and move it back to the bgp.
       description: >
         Remove the triple pattern(s) identified by the `graphElementId`
@@ -10195,7 +10195,7 @@ paths:
   /owlOntology/{ontologyName}/queryGraph/node/optional/remove/all:
     put:
       tags:
-        - QueryGraphOptional
+        - sparqling_QueryGraphOptional
       summary: Remove the optionals and move them back to the bgp.
       operationId: removeAllOptional
       parameters:
@@ -10235,7 +10235,7 @@ paths:
   /owlOntology/{ontologyName}/queryGraph/head/add/{graphElementId}:
     put:
       tags:
-        - QueryGraphHead
+        - sparqling_QueryGraphHead
       summary: Add the head term to the query graph.
       description: >-
         Explicitley add a term to the query head. All the data property
@@ -10286,7 +10286,7 @@ paths:
   /owlOntology/{ontologyName}/queryGraph/head/delete/{headTerm}:
     put:
       tags:
-        - QueryGraphHead
+        - sparqling_QueryGraphHead
       summary: Delete the head term from the query graph.
       description: The path param should be the id of the HeadElement.
       operationId: deleteHeadTerm
@@ -10333,7 +10333,7 @@ paths:
   /owlOntology/{ontologyName}/queryGraph/head/rename/{headTerm}:
     put:
       tags:
-        - QueryGraphHead
+        - sparqling_QueryGraphHead
       summary: Rename the head term from the query graph using alias.
       description: Put the alias in the HeadElement passed via request body.
       operationId: renameHeadTerm
@@ -10380,7 +10380,7 @@ paths:
   /owlOntology/{ontologyName}/queryGraph/head/orderBy/{headTerm}:
     put:
       tags:
-        - QueryGraphHead
+        - sparqling_QueryGraphHead
       summary: Order by the head from the query graph.
       description: The OrderBy object is passed in the request body in the Query Graph.
       operationId: orderByHeadTerm
@@ -10427,7 +10427,7 @@ paths:
   /owlOntology/{ontologyName}/queryGraph/head/function/{headTerm}:
     put:
       tags:
-        - QueryGraphHead
+        - sparqling_QueryGraphHead
       summary: Set a function to the head term from the query graph.
       description: >-
         The function is defined in the head term of the query graph in the
@@ -10477,7 +10477,7 @@ paths:
   /owlOntology/{ontologyName}/queryGraph/head/aggregation/{headTerm}:
     put:
       tags:
-        - QueryGraphHead
+        - sparqling_QueryGraphHead
       summary: Set the aggregation function to the head term.
       description: >-
         The aggregation function is defined in the group by field of the query
@@ -10527,7 +10527,7 @@ paths:
   /owlOntology/{ontologyName}/queryGraph/head/reorderHeadTerms:
     put:
       tags:
-        - QueryGraphHead
+        - sparqling_QueryGraphHead
       summary: Reorder the head elements accrding to Query GRaph object.
       operationId: reorderHeadTerms
       parameters:
@@ -10567,7 +10567,7 @@ paths:
   /owlOntology/{ontologyName}/queryGraph/distinct:
     put:
       tags:
-        - QueryGraphExtra
+        - sparqling_QueryGraphExtra
       summary: Set the distinct value.
       description: The distinct value is defined in the query graph in the request body.
       operationId: distinctQueryGraph
@@ -10613,7 +10613,7 @@ paths:
   /owlOntology/{ontologyName}/queryGraph/countStar/{active}:
     put:
       tags:
-        - QueryGraphExtra
+        - sparqling_QueryGraphExtra
       summary: >-
         Create or remove an external query to the original one in order to count
         results.
@@ -10660,7 +10660,7 @@ paths:
   /owlOntology/{ontologyName}/queryGraph/limit:
     put:
       tags:
-        - QueryGraphExtra
+        - sparqling_QueryGraphExtra
       summary: Set the limit value.
       description: The limit value is defined in the query graph in the request body.
       operationId: limitQueryGraph
@@ -10706,7 +10706,7 @@ paths:
   /owlOntology/{ontologyName}/queryGraph/offset:
     put:
       tags:
-        - QueryGraphExtra
+        - sparqling_QueryGraphExtra
       summary: Set the offset value.
       description: The offset value is defined in the query graph in the request body.
       operationId: offsetQueryGraph
@@ -10752,7 +10752,7 @@ paths:
   /owlOntology/{ontologyName}/queryGraph/path/{graphElementId}:
     put:
       tags:
-        - QueryGraphBGP
+        - sparqling_QueryGraphBGP
       summary: >-
         Get the query graph that will be rendered by Sparqling, the query head,
         the sparql code based on the chosen path.
@@ -10909,7 +10909,7 @@ paths:
   /owlOntology/{ontologyName}/queryGraph/visualize:
     post:
       tags:
-        - VisualizeSPARQL
+        - sparqling_VisualizeSPARQL
       summary: Convert SPARQL code to a QueryGraph
       parameters:
         - name: ontologyName
@@ -13546,7 +13546,7 @@ paths:
   /ontologyDraftInfos:
     get:
       tags:
-        - Ontology Designer
+        - ontology-designer_Ontology Designer
       summary: Returns the list of all ontology drafts made by the user
       operationId: getOntologyDrafts
       responses:
@@ -13566,7 +13566,7 @@ paths:
   /ontologyDraft/{ontologyName}:
     get:
       tags:
-        - Ontology Designer
+        - ontology-designer_Ontology Designer
       summary: Returns the ontology draft {ontologyName}
       operationId: getOntologyDraft
       parameters:
@@ -13589,7 +13589,7 @@ paths:
         - jwt: []
     post:
       tags:
-        - Ontology Designer
+        - ontology-designer_Ontology Designer
       summary: Adds a new draft to the list of all ontology drafts
       operationId: postOntologyDrafts
       parameters:
@@ -13619,7 +13619,7 @@ paths:
         - jwt: []
     put:
       tags:
-        - Ontology Designer
+        - ontology-designer_Ontology Designer
       summary: >-
         Modifies the ontology draft {ontologyName} (called when using the
         ontology builder to save the draft)
@@ -13651,7 +13651,7 @@ paths:
         - jwt: []
     delete:
       tags:
-        - Ontology Designer
+        - ontology-designer_Ontology Designer
       summary: Deletes the ontology draft {ontologyName}
       operationId: deleteOntologyDraft
       parameters:
@@ -13677,7 +13677,7 @@ paths:
   /ontologyDraft/download:
     post:
       tags:
-        - Ontology Designer
+        - ontology-designer_Ontology Designer
       summary: Download the ontology draft {ontologyName} converted in OWL2
       operationId: downloadOntologyDraft
       requestBody:
@@ -13701,7 +13701,7 @@ paths:
   /ontologyCatalog:
     post:
       tags:
-        - Ontology Catalog
+        - ontology-catalog_Ontology Catalog
       summary: Perform an action for ontology to the catalog
       description: Modifies the ontology catalog byacoording to the action provided
       operationId: editCatalog
@@ -13768,7 +13768,7 @@ paths:
   /ontologyCatalog/query/start:
     post:
       tags:
-        - Ontology Catalog
+        - ontology-catalog_Ontology Catalog
       summary: Starts a SPARQL query over the catalog
       operationId: startQuery
       requestBody:
@@ -13791,7 +13791,7 @@ paths:
   /ontologyCatalog/query/{queryID}/stop:
     put:
       tags:
-        - Ontology Catalog
+        - ontology-catalog_Ontology Catalog
       summary: Stops a SPARQL query over the catalog
       operationId: stopQuery
       parameters:
@@ -13824,7 +13824,7 @@ paths:
           schema:
             type: string
       tags:
-        - Ontology Catalog
+        - ontology-catalog_Ontology Catalog
       responses:
         '200':
           description: OK
@@ -13861,7 +13861,7 @@ paths:
             type: integer
             format: int32
       tags:
-        - Ontology Catalog
+        - ontology-catalog_Ontology Catalog
       responses:
         '200':
           description: OK
@@ -21619,23 +21619,23 @@ x-tagGroups:
       - datasources_other
       - virtual-entities_other
       - knowledge-graphs_other
-      - Ontology Designer
+      - ontology-designer_Ontology Designer
   - name: Endpoints API model
     tags:
       - endpoints_other
-      - VKG
+      - endpoints_VKG
   - name: Queries API model
     tags:
       - query-catalog_other
   - name: Swagger Sparqling WS
     tags:
-      - OntologyGraph
-      - QueryGraphBGP
-      - QueryGraphHead
-      - QueryGraphFilter
-      - QueryGraphOptional
-      - QueryGraphExtra
-      - VisualizeSPARQL
+      - sparqling_OntologyGraph
+      - sparqling_QueryGraphBGP
+      - sparqling_QueryGraphHead
+      - sparqling_QueryGraphFilter
+      - sparqling_QueryGraphOptional
+      - sparqling_QueryGraphExtra
+      - sparqling_VisualizeSPARQL
       - sparqling_other
   - name: Triplify API model
     tags:
@@ -21645,7 +21645,7 @@ x-tagGroups:
       - vkg_other
   - name: Ontology Catalog
     tags:
-      - Ontology Catalog
+      - ontology-catalog_Ontology Catalog
       - ontology-catalog_other
   - name: AVPs API model
     tags:

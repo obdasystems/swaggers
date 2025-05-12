@@ -8,6 +8,12 @@ This repository contains the definitions of the available REST APIs served by Ma
 
 - [mastro (whole specs)](https://obdasystems.github.io/swaggers/ui/?api=mastro)
 
+Generated with th following command:
+
+```
+npx @redocly/cli@latest join -o bundled/mastro.yaml --prefix-tags-with-filename
+```
+
 If you are interested in a subset of API we distribute also this smaller bundles:
 
 - [login](https://obdasystems.github.io/swaggers/ui/?api=login)
@@ -29,3 +35,9 @@ If you are interested in a subset of API we distribute also this smaller bundles
 - [misc](https://obdasystems.github.io/swaggers/ui/?api=misc)
 - [task-scheduler](https://obdasystems.github.io/swaggers/ui/?api=task-scheduler)
 - [users-roles](https://obdasystems.github.io/swaggers/ui/?api=users-roles)
+
+Generated with th following command:
+
+```
+npx @redocly/cli@latest bundle
+```
