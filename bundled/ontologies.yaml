@@ -31,7 +31,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Ontologies'
+                type: array
+                items:
+                  $ref: '#/components/schemas/Ontology'
         '401':
           description: Unhauthorized
     post:
@@ -1626,14 +1628,6 @@ components:
           type: string
         ontologyDescription:
           type: string
-    Ontologies:
-      title: Ontologies
-      type: object
-      properties:
-        ontologyList:
-          type: array
-          items:
-            $ref: '#/components/schemas/Ontology'
     FileInfo:
       title: FileInfo
       type: object

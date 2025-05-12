@@ -6,7 +6,9 @@ get:
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/Ontologies.yaml}
+          schema: 
+            type: array
+            items: {$ref: ../components/schemas/Ontology.yaml}
     '401': {description: Unhauthorized}
 post:
   summary: Creates a new ontology
