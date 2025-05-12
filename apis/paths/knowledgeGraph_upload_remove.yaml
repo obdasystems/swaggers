@@ -6,5 +6,5 @@ delete:
       description: OK
       content:
         application/json:
-          schema:
-            type: boolean
+          schema: {type: boolean}
+    '401': {description: Unhauthorized}

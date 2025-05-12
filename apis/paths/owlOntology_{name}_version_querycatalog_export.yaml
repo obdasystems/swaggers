@@ -1,21 +1,19 @@
 get:
-  summary: GET mwsx/owlOntology/{name}/version/querycatalog/export
+  summary: Exports the ontology catalog returning its JSON representation
   operationId: get__owlOntology_name_version_querycatalog_export
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/FileInfo.yaml
+          schema: {$ref: ../components/schemas/FileInfo.yaml}
+    '401': {description: Unhauthorized}

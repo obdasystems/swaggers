@@ -8,5 +8,5 @@ get:
         application/json:
           schema:
             type: array
-            items: 
-              $ref: ../components/schemas/RoleMonolith.yaml
+            items: {$ref: ../components/schemas/RoleMonolith.yaml}
+    '401': {description: Unhauthorized}

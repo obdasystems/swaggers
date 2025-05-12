@@ -2,98 +2,85 @@ get:
   summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/annotation/{mapID}
   operationId: get__owlOntology_name_version_intensional_annotation_mapping_mapId
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: ID
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: mapID
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: ID
+    in: path
+    required: true
+    schema: {type: string}
+  - name: mapID
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/IntensionalAnnotationMappingAssertion.yaml
+          schema: {$ref: ../components/schemas/IntensionalAnnotationMappingAssertion.yaml}
+    '401': {description: Unhauthorized}
 delete:
   summary: DELETE mwsx/owlOntology/{name}/version/mapping/{ID}/annotation/{mapID}
   operationId: delete__owlOntology_name_version_intensional_annotation_mapping_mapId
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: ID
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: mapID
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: ID
+    in: path
+    required: true
+    schema: {type: string}
+  - name: mapID
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/IntensionalAnnotationMappingAssertion.yaml
+          schema: {$ref: ../components/schemas/IntensionalAnnotationMappingAssertion.yaml}
+    '401': {description: Unhauthorized}
 put:
   summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/annotation/{mapID}
   operationId: put__owlOntology_name_version_intensional_annotation_mapping_mapId
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: ID
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: mapID
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: ID
+    in: path
+    required: true
+    schema: {type: string}
+  - name: mapID
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
   requestBody:
     content:
       application/json:
-        schema:
-          $ref: ../components/schemas/IntensionalAnnotationMappingAssertion.yaml
+        schema: {$ref: ../components/schemas/IntensionalAnnotationMappingAssertion.yaml}
     required: true
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/IntensionalAnnotationMappingAssertion.yaml
+          schema: {$ref: ../components/schemas/IntensionalAnnotationMappingAssertion.yaml}
+    '401': {description: Unhauthorized}

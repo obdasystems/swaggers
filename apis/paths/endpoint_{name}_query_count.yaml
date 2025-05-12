@@ -1,47 +1,40 @@
 post:
-  summary: POST mwsx/endpoint/{name}/query/count
+  summary: Counts the results of the given SPARQL query
   operationId: start_new_query_on_count
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: reasoning
-      in: query
-      required: true
-      schema:
-        type: boolean
-    - name: expandSparqlTables
-      in: query
-      required: true
-      schema:
-        type: boolean
-    - name: querySemantics
-      in: query
-      required: true
-      schema:
-        type: string
-    - name: agent
-      in: query
-      required: true
-      schema:
-        type: string
-    - name: unfolderCountThreshold
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: reasoning
+    in: query
+    required: true
+    schema: {type: boolean}
+  - name: expandSparqlTables
+    in: query
+    required: true
+    schema: {type: boolean}
+  - name: querySemantics
+    in: query
+    required: true
+    schema: {type: string}
+  - name: agent
+    in: query
+    required: true
+    schema: {type: string}
+  - name: unfolderCountThreshold
+    in: query
+    required: true
+    schema: {type: string}
   requestBody:
     content:
       '*/*':
-        schema:
-          $ref: ../components/schemas/SPARQLQuery.yaml
+        schema: {$ref: ../components/schemas/SPARQLQuery.yaml}
     required: true
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/OBDARunQueryInstance.yaml
+          schema: {$ref: ../components/schemas/OBDARunQueryInstance.yaml}
+    '401': {description: Unhauthorized}

@@ -1,24 +1,19 @@
 get:
-  summary: GET mwsx/server/userlog/{username}
+  summary: Returns the user log lines count
   operationId: get_userlog_count_user
   parameters:
-    - name: username
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: start
-      in: query
-      required: true
-      schema:
-        type: integer
-        format: int32
-    - name: length
-      in: query
-      required: true
-      schema:
-        type: integer
-        format: int32
+  - name: username
+    in: path
+    required: true
+    schema: {type: string}
+  - name: start
+    in: query
+    required: true
+    schema: {type: integer, format: int32}
+  - name: length
+    in: query
+    required: true
+    schema: {type: integer, format: int32}
   responses:
     '200':
       description: OK
@@ -26,5 +21,5 @@ get:
         application/json:
           schema:
             type: object
-            additionalProperties: 
-              $ref: ../components/schemas/MwsxUserLogMessage.yaml
+            additionalProperties: {$ref: ../components/schemas/MwsxUserLogMessage.yaml}
+    '401': {description: Unhauthorized}

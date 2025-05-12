@@ -2,20 +2,18 @@ get:
   summary: GET mwsx/log/{env}/{mode}
   operationId: setLogger
   parameters:
-    - name: env
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: mode
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: env
+    in: path
+    required: true
+    schema: {type: string}
+  - name: mode
+    in: path
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         '*/*':
-          schema:
-            type: string
+          schema: {type: string}
+    '401': {description: Unhauthorized}

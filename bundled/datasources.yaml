@@ -23,7 +23,7 @@ security:
 paths:
   /datasource/{name}:
     get:
-      summary: GET mwsx/datasource/{name}
+      summary: Returns the data source information by its name
       operationId: get__datasource
       parameters:
         - name: name
@@ -38,8 +38,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DataSourceInfoEntry'
+        '401':
+          description: Unhauthorized
     put:
-      summary: PUT mwsx/datasource/{name}
+      summary: Modifies the data source information by its name
       operationId: put__datasource
       parameters:
         - name: name
@@ -60,8 +62,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DataSourceInfoEntry'
+        '401':
+          description: Unhauthorized
     delete:
-      summary: DELETE mwsx/datasource/{name}
+      summary: Deletes a data source information by its name
       operationId: delete__datasource
       parameters:
         - name: name
@@ -76,9 +80,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DataSourceInfoEntry'
+        '401':
+          description: Unhauthorized
   /datasource/{name}/downloadMetadata:
     get:
-      summary: GET mwsx/datasource/{name}/downloadMetadata
+      summary: Returns the data source information by its name
       operationId: get__datasource_downloadMetadata
       parameters:
         - name: name
@@ -93,9 +99,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/FileInfo'
+        '401':
+          description: Unhauthorized
   /datasource/{name}/metadata:
     get:
-      summary: GET mwsx/datasource/{name}/metadata
+      summary: Returns the data source information by its name
       operationId: get__datasource_metadata
       parameters:
         - name: name
@@ -110,9 +118,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DataSourceMetadata'
+        '401':
+          description: Unhauthorized
   /datasource/{name}/updateMetadata:
     put:
-      summary: PUT mwsx/datasource/{name}/updateMetadata
+      summary: Updates the data source metadata information retrieving it from the JDBC connection
       operationId: put__datasource_updateMetadata
       parameters:
         - name: name
@@ -132,9 +142,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DataSourceMetadata'
+        '401':
+          description: Unhauthorized
   /datasource/{name}/uploadMetadata:
     put:
-      summary: PUT mwsx/datasource/{name}/uploadMetadata
+      summary: Uploads the data source metadata information for the specified datasource
       operationId: put__datasource_uploadMetadata
       parameters:
         - name: name
@@ -155,9 +167,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DataSourceMetadata'
+        '401':
+          description: Unhauthorized
   /datasource:
     post:
-      summary: POST mwsx/datasource
+      summary: Creates a new data source information
       operationId: post__datasource
       parameters:
         - name: buildSchema
@@ -183,8 +197,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DataSourceInfoEntry'
+        '401':
+          description: Unhauthorized
     get:
-      summary: GET mwsx/datasource
+      summary: Returns all the data source definitions available
       operationId: get__datasource_list
       responses:
         '200':
@@ -193,8 +209,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DataSourceInfoEntry'
+        '401':
+          description: Unhauthorized
     delete:
-      summary: DELETE mwsx/datasource
+      summary: Deletes all the available data source information
       operationId: delete__all_datasource
       responses:
         '200':
@@ -203,9 +221,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DataSourceInfoEntry'
+        '401':
+          description: Unhauthorized
   /datasource/drivers:
     get:
-      summary: GET mwsx/datasource/drivers
+      summary: Returns the list of available JDBC driver class names
       operationId: get__datasource_driver
       responses:
         '200':
@@ -216,9 +236,11 @@ paths:
                 type: array
                 items:
                   type: string
+        '401':
+          description: Unhauthorized
   /datasource/test:
     post:
-      summary: POST mwsx/datasource/test
+      summary: Test a given data source connection
       operationId: testDatasource
       requestBody:
         content:
@@ -233,9 +255,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SourceTables'
+        '401':
+          description: Unhauthorized
   /datasource/schemas:
     post:
-      summary: POST mwsx/datasource/schemas
+      summary: Returns the list of schema names available at the datasource
       operationId: getDatasourceSchemas
       requestBody:
         content:
@@ -252,9 +276,11 @@ paths:
                 type: array
                 items:
                   type: string
+        '401':
+          description: Unhauthorized
   /datasource/{id}/schemas:
     get:
-      summary: GET mwsx/datasource/{id}/schemas
+      summary: Returns the list of schemas available in the catalog of a given datasource
       operationId: getSchemas
       parameters:
         - name: id
@@ -271,9 +297,11 @@ paths:
                 type: array
                 items:
                   type: string
+        '401':
+          description: Unhauthorized
   /datasource/schema/{schemaName}/tableNames:
     post:
-      summary: POST mwsx/datasource/schema/{schemaName}/tableNames
+      summary: Returns the list of table names available at the datasource within the provided schema name
       operationId: getDatasourceTablesForSchema
       parameters:
         - name: schemaName
@@ -294,9 +322,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SourceTableInfo'
+        '401':
+          description: Unhauthorized
   /datasource/{id}/tables:
     get:
-      summary: GET mwsx/datasource/{id}/tables
+      summary: Returns the list of SourceTables available in the catalog of a given datasource
       operationId: getTables
       parameters:
         - name: id
@@ -311,9 +341,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SourceTables'
+        '401':
+          description: Unhauthorized
   /datasource/{id}/tables/results:
     post:
-      summary: POST mwsx/datasource/{id}/tables/results
+      summary: Returns the preview of a given SQLQuery executed over a given datasource
       operationId: postSQLEx
       parameters:
         - name: id
@@ -340,9 +372,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TableContentPreview'
+        '401':
+          description: Unhauthorized
   /datasource/{id}/table/{tableName}:
     get:
-      summary: GET mwsx/datasource/{id}/table/{tableName}
+      summary: Returns the source table info available for the table tableName in the catalog of a given datasource
       operationId: getTable
       parameters:
         - name: id
@@ -362,6 +396,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SourceTableInfo'
+        '401':
+          description: Unhauthorized
 components:
   securitySchemes:
     apiKey:

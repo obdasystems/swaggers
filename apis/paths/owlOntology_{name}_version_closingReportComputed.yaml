@@ -1,21 +1,21 @@
 get:
-  summary: GET mwsx/owlOntology/{name}/version/closingReportComputed
+  summary: 'Returns the file containing the definition of the closed ontology <code>name</code>,
+    with version ''version''. <br/>The format parameter assumes one of the following
+    values: ''graphol'', ''fss'', ''xml'', ''turtle'''
   operationId: get__owlOntology_name_version_closingReportComputed
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            type: integer
+          schema: {type: integer}
+    '401': {description: Unhauthorized}

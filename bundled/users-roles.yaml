@@ -23,7 +23,7 @@ security:
 paths:
   /users:
     get:
-      summary: GET mwsx/users
+      summary: Returns the list of available users of this MWS installation
       operationId: get__users
       responses:
         '200':
@@ -34,8 +34,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/User'
+        '401':
+          description: Unhauthorized
     put:
-      summary: PUT mwsx/users
+      summary: Adds multiple users to the system
       operationId: put__users
       parameters:
         - name: op
@@ -56,9 +58,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/UsersCreationReport'
+        '401':
+          description: Unhauthorized
   /user/{username}:
     get:
-      summary: GET mwsx/user/{username}
+      summary: Returns the user names <code>username</code>
       operationId: get__user_name
       parameters:
         - name: username
@@ -73,8 +77,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
+        '401':
+          description: Unhauthorized
     put:
-      summary: PUT mwsx/user/{username}
+      summary: Modifies the user identified by <code>username</code>
       operationId: put__user
       parameters:
         - name: username
@@ -100,6 +106,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
+        '401':
+          description: Unhauthorized
     delete:
       summary: DELETE mwsx/user/{username}
       operationId: delete__user
@@ -116,9 +124,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
+        '401':
+          description: Unhauthorized
   /user:
     post:
-      summary: POST mwsx/user
+      summary: Creates a new user
       operationId: post__user
       parameters:
         - name: secret
@@ -139,9 +149,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
+        '401':
+          description: Unhauthorized
   /user/{username}/passwd:
     put:
-      summary: PUT mwsx/user/{username}/passwd
+      summary: Changes the user password for the user named <code>username</code>
       operationId: put__user_passwd
       parameters:
         - name: username
@@ -166,6 +178,8 @@ paths:
             application/json:
               schema:
                 type: string
+        '401':
+          description: Unhauthorized
   /user/{username}/passwd/reset:
     put:
       summary: PUT mwsx/user/{username}/passwd/reset
@@ -188,6 +202,8 @@ paths:
             application/json:
               schema:
                 type: string
+        '401':
+          description: Unhauthorized
   /roles:
     get:
       summary: GET mwsx/roles
@@ -201,6 +217,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Role'
+        '401':
+          description: Unhauthorized
   /role/{rolename}:
     get:
       summary: GET mwsx/role/{rolename}
@@ -218,6 +236,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Role'
+        '401':
+          description: Unhauthorized
     put:
       summary: PUT mwsx/role/{rolename}
       operationId: put__role
@@ -240,6 +260,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Role'
+        '401':
+          description: Unhauthorized
     delete:
       summary: DELETE mwsx/role/{rolename}
       operationId: delete__role
@@ -256,6 +278,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Role'
+        '401':
+          description: Unhauthorized
   /role:
     post:
       summary: POST mwsx/role
@@ -273,6 +297,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Role'
+        '401':
+          description: Unhauthorized
   /role/configurations:
     get:
       summary: GET mwsx/role/configurations
@@ -284,6 +310,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PermissionParameters'
+        '401':
+          description: Unhauthorized
   /monolith/roles:
     get:
       summary: GET mwsx/monolith/roles
@@ -297,6 +325,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/RoleMonolith'
+        '401':
+          description: Unhauthorized
   /monolith/role/{rolename}:
     put:
       summary: PUT mwsx/monolith/role/{rolename}
@@ -320,9 +350,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/RoleMonolith'
+        '401':
+          description: Unhauthorized
   /users/feedback:
     get:
-      summary: GET mwsx/users/feedback
+      summary: Returns the feedback provided by all the users
       operationId: get__users_feedback
       responses:
         '200':
@@ -331,9 +363,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/UsersFeedback'
+        '401':
+          description: Unhauthorized
   /user/feedback:
     get:
-      summary: GET mwsx/user/feedback
+      summary: Returns the feedback provided by a specific user
       operationId: get__user_feedback
       responses:
         '200':
@@ -342,9 +376,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/UserFeedback'
+        '401':
+          description: Unhauthorized
   /user/{username}/feedback:
     delete:
-      summary: DELETE mwsx/user/{username}/feedback
+      summary: Returns the feedback provided by a specific user
       operationId: delete__user_feedback
       parameters:
         - name: username
@@ -359,9 +395,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/UserFeedback'
+        '401':
+          description: Unhauthorized
   /user/feedback/comment:
     post:
-      summary: POST mwsx/user/feedback/comment
+      summary: Returns the feedback provided by all the users
       operationId: post__user_feedback_comment
       requestBody:
         content:
@@ -376,16 +414,20 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/UserFeedback'
+        '401':
+          description: Unhauthorized
   /logout:
     get:
-      summary: GET mwsx/logout
+      summary: REST call for basic authentication, returns the session ID as a response header
       operationId: get__logout
       responses:
         '200':
           description: OK
+        '401':
+          description: Unhauthorized
   /logout/{username}:
     put:
-      summary: PUT mwsx/logout/{username}
+      summary: Closes the MWS session opened by the user 'username' - returns 0 if the closing operation succeed
       operationId: put__logout_by_username
       parameters:
         - name: username
@@ -400,6 +442,8 @@ paths:
             application/json:
               schema:
                 type: integer
+        '401':
+          description: Unhauthorized
 components:
   securitySchemes:
     apiKey:

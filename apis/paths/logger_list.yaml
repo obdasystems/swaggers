@@ -6,5 +6,5 @@ get:
       description: OK
       content:
         application/json:
-          schema:
-            type: object
+          schema: {type: object}
+    '401': {description: Unhauthorized}

@@ -1,72 +1,60 @@
 post:
-  summary: POST mwsx/endpoint/{name}/cquery/start
+  summary: Starts the SPARQL construct query on the given endpoint
   operationId: post__owlOntology_name_version_construct_query_start
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: reasoning
-      in: query
-      required: true
-      schema:
-        type: boolean
-    - name: expandSparqlTables
-      in: query
-      required: true
-      schema:
-        type: boolean
-    - name: querySemantics
-      in: query
-      required: true
-      schema:
-        type: string
-    - name: answersBufferSize
-      in: query
-      required: true
-      schema:
-        type: string
-    - name: skipSqlEvaluation
-      in: query
-      required: true
-      schema:
-        type: string
-    - name: useReplaceForUrlEncoding
-      in: query
-      required: true
-      schema:
-        type: string
-    - name: filterNullValuesOnIri
-      in: query
-      required: true
-      schema:
-        type: string
-    - name: lang
-      in: query
-      required: true
-      schema:
-        type: string
-    - name: agent
-      in: query
-      required: true
-      schema:
-        type: string
-    - name: unfolderCountThreshold
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: reasoning
+    in: query
+    required: true
+    schema: {type: boolean}
+  - name: expandSparqlTables
+    in: query
+    required: true
+    schema: {type: boolean}
+  - name: querySemantics
+    in: query
+    required: true
+    schema: {type: string}
+  - name: answersBufferSize
+    in: query
+    required: true
+    schema: {type: string}
+  - name: skipSqlEvaluation
+    in: query
+    required: true
+    schema: {type: string}
+  - name: useReplaceForUrlEncoding
+    in: query
+    required: true
+    schema: {type: string}
+  - name: filterNullValuesOnIri
+    in: query
+    required: true
+    schema: {type: string}
+  - name: lang
+    in: query
+    required: true
+    schema: {type: string}
+  - name: agent
+    in: query
+    required: true
+    schema: {type: string}
+  - name: unfolderCountThreshold
+    in: query
+    required: true
+    schema: {type: string}
   requestBody:
     content:
       application/json:
-        schema:
-          $ref: ../components/schemas/SPARQLQuery.yaml
+        schema: {$ref: ../components/schemas/SPARQLQuery.yaml}
     required: true
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/OBDARunQueryInstance.yaml
+          schema: {$ref: ../components/schemas/OBDARunQueryInstance.yaml}
+    '401': {description: Unhauthorized}

@@ -8,5 +8,5 @@ get:
         application/json:
           schema:
             type: array
-            items: 
-              $ref: ../components/schemas/MastroID.yaml
+            items: {$ref: ../components/schemas/MastroID.yaml}
+    '401': {description: Unhauthorized}

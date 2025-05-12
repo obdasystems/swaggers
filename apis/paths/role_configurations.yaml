@@ -6,5 +6,5 @@ get:
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/PermissionParameters.yaml
+          schema: {$ref: ../components/schemas/PermissionParameters.yaml}
+    '401': {description: Unhauthorized}

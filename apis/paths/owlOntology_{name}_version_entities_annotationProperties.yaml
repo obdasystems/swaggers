@@ -1,17 +1,16 @@
 get:
-  summary: GET mwsx/owlOntology/{name}/version/entities/annotationProperties
+  summary: 'Gets the set of annotation property entities of version ''version'' of
+    the ontology named <code>name</code>.<br/> '
   operationId: get__owlOntology_name_version_entities_annotationProperties
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
@@ -19,5 +18,5 @@ get:
         application/json:
           schema:
             type: array
-            items: 
-              $ref: ../components/schemas/OntologyEntity.yaml
+            items: {$ref: ../components/schemas/OntologyEntity.yaml}
+    '401': {description: Unhauthorized}

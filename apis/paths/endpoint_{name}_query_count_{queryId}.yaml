@@ -1,21 +1,19 @@
 delete:
-  summary: DELETE mwsx/endpoint/{name}/query/count/{queryId}
+  summary: Deletes the count thread on the given endpoint for a SPARQL query
   operationId: delete_query_count
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: queryId
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: queryId
+    in: path
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            type: integer
+          schema: {type: integer}
+    '401': {description: Unhauthorized}

@@ -1,32 +1,30 @@
 post:
-  summary: POST mwsx/owlOntology/{name}/version/querycatalog/import
+  summary: 'Imports a new catalog for the given version of the ontology: if the additive
+    switch is true, all new queries will be added to the existing ones, otherwise
+    the old catalog will be overwritten'
   operationId: get__owlOntology_name_version_querycatalog_import
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      required: true
-      schema:
-        type: string
-    - name: additive
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  - name: additive
+    in: query
+    required: true
+    schema: {type: string}
   requestBody:
     content:
       application/json:
-        schema:
-          $ref: ../components/schemas/FileInfo.yaml
+        schema: {$ref: ../components/schemas/FileInfo.yaml}
     required: true
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/OBDACatalog.yaml
+          schema: {$ref: ../components/schemas/OBDACatalog.yaml}
+    '401': {description: Unhauthorized}

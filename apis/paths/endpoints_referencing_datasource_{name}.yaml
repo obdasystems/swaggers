@@ -1,16 +1,15 @@
 get:
-  summary: GET mwsx/endpoints/referencing/datasource/{name}
+  summary: Returns all available endpoints that are defined for a specific datasource
   operationId: get_endpoints_referencing_datasource
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/Endpoints.yaml
+          schema: {$ref: ../components/schemas/Endpoints.yaml}
+    '401': {description: Unhauthorized}

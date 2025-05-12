@@ -1,44 +1,38 @@
 put:
-  tags:
-    - QueryGraphHead
+  tags: [QueryGraphHead]
   summary: Set the aggregation function to the head term.
-  description: >-
-    The aggregation function is defined in the group by field of the query graph
-    in the request body along with the HAVING clause. Remember to set the alias
+  description: The aggregation function is defined in the group by field of the query
+    graph in the request body along with the HAVING clause. Remember to set the alias
     of the head based on function name and variable.
   operationId: aggregationHeadTerm
   parameters:
-    - name: ontologyName
-      in: path
-      description: The name of the ontology
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      description: The version of the ontology
-      required: true
-      schema:
-        type: string
-    - name: headTerm
-      in: path
-      description: The head term that should be involved in the aggregation function
-      required: true
-      schema:
-        type: string
+  - name: ontologyName
+    in: path
+    description: The name of the ontology
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    description: The version of the ontology
+    required: true
+    schema: {type: string}
+  - name: headTerm
+    in: path
+    description: The head term that should be involved in the aggregation function
+    required: true
+    schema: {type: string}
   requestBody:
     content:
       application/json:
-        schema:
-          $ref: ../components/schemas/QueryGraph.yaml
+        schema: {$ref: ../components/schemas/QueryGraph.yaml}
     required: true
   responses:
     '200':
       description: successful operation
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/QueryGraph.yaml
+          schema: {$ref: ../components/schemas/QueryGraph.yaml}
     '404':
       description: Head term not found
       content: {}
+    '401': {description: Unhauthorized}

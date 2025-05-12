@@ -1,56 +1,47 @@
 get:
-  summary: >-
-    GET
-    mwsx/owlOntology/{name}/version/ontologyConstraints/set/{setId}/executionLog
+  summary: Returns the execution log of the last execution of the specified check
+    set
   operationId: get_ontologyConstraints_checkSetId_execution_log
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: setId
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: setId
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/DataQualityCheckSetExecutionLogs.yaml
+          schema: {$ref: ../components/schemas/DataQualityCheckSetExecutionLogs.yaml}
+    '401': {description: Unhauthorized}
 put:
-  summary: >-
-    PUT
-    mwsx/owlOntology/{name}/version/ontologyConstraints/set/{setId}/executionLog
+  summary: Returns the execution log of a data quality check set
   operationId: put_ontologyConstraints_checkSetId_execution_timestamps
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: setId
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: setId
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/DataQualityCheckSetExecutionLog.yaml
+          schema: {$ref: ../components/schemas/DataQualityCheckSetExecutionLog.yaml}
+    '401': {description: Unhauthorized}

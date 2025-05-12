@@ -2,51 +2,45 @@ get:
   summary: Get a virtual entity by name for a given ontology
   operationId: get_virtualEntity
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: vname
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: vname
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/SparqlingVirtualEntity.yaml
+          schema: {$ref: ../components/schemas/SparqlingVirtualEntity.yaml}
+    '401': {description: Unhauthorized}
 delete:
   summary: DELETE a virtual entity by name for a given ontology
   operationId: delete_virtualEntity
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: vname
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: vname
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/SparqlingVirtualEntity.yaml
+          schema: {$ref: ../components/schemas/SparqlingVirtualEntity.yaml}
+    '401': {description: Unhauthorized}

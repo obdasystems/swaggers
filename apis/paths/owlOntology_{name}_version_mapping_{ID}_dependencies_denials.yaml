@@ -2,21 +2,18 @@ get:
   summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/denials
   operationId: get__owlOntology_name_version_mapping_ID_dependencies_denials
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: ID
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: ID
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
@@ -24,37 +21,33 @@ get:
         application/json:
           schema:
             type: array
-            items: 
-              $ref: ../components/schemas/DenialConstraint.yaml
+            items: {$ref: ../components/schemas/DenialConstraint.yaml}
+    '401': {description: Unhauthorized}
 post:
   summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/denials
   operationId: post__owlOntology_name_version_mapping_ID_dependencies_denials
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: ID
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: ID
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
   requestBody:
     content:
       application/json:
-        schema:
-          $ref: ../components/schemas/DenialConstraint.yaml
+        schema: {$ref: ../components/schemas/DenialConstraint.yaml}
     required: true
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            type: boolean
+          schema: {type: boolean}
+    '401': {description: Unhauthorized}

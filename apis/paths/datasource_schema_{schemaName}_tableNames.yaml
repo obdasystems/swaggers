@@ -1,22 +1,21 @@
 post:
-  summary: POST mwsx/datasource/schema/{schemaName}/tableNames
+  summary: Returns the list of table names available at the datasource within the
+    provided schema name
   operationId: getDatasourceTablesForSchema
   parameters:
-    - name: schemaName
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: schemaName
+    in: path
+    required: true
+    schema: {type: string}
   requestBody:
     content:
       application/json:
-        schema:
-          $ref: ../components/schemas/DataSourceInfoEntry.yaml
+        schema: {$ref: ../components/schemas/DataSourceInfoEntry.yaml}
     required: true
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/SourceTableInfo.yaml
+          schema: {$ref: ../components/schemas/SourceTableInfo.yaml}
+    '401': {description: Unhauthorized}

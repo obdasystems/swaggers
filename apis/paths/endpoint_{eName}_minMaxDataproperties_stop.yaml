@@ -1,16 +1,16 @@
 get:
-  summary: GET mwsx/endpoint/{eName}/minMaxDataproperties/stop
+  summary: Starts the executions of the queries that will count the number of instances
+    of each Class of the ontology
   operationId: get__stop_endpoint_min_max_dataproperties
   parameters:
-    - name: eName
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: eName
+    in: path
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            type: integer
+          schema: {type: integer}
+    '401': {description: Unhauthorized}

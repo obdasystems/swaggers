@@ -2,15 +2,14 @@ get:
   summary: GET mwsx/knowledgeGraph/info
   operationId: get__knowledgeGraph_info
   parameters:
-    - name: iri
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: iri
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/KnowledgeGraph.yaml
+          schema: {$ref: ../components/schemas/KnowledgeGraph.yaml}
+    '401': {description: Unhauthorized}

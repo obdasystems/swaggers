@@ -2,31 +2,27 @@ put:
   summary: PUT mwsx/owlOntology/{name}/queryGraph/head/delete/{headTerm}
   operationId: deleteHeadTerm
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: headTerm
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: headTerm
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
   requestBody:
     content:
       application/json:
-        schema:
-          $ref: ../components/schemas/QueryGraph.yaml
+        schema: {$ref: ../components/schemas/QueryGraph.yaml}
     required: true
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/Response.yaml
+          schema: {$ref: ../components/schemas/Response.yaml}
+    '401': {description: Unhauthorized}

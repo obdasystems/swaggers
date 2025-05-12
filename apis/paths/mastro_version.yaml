@@ -1,10 +1,10 @@
 get:
-  summary: GET mwsx/mastro/version
+  summary: Returns the version of Mastro
   operationId: get__mastro_version
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            type: string
+          schema: {type: string}
+    '401': {description: Unhauthorized}

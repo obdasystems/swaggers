@@ -1,17 +1,15 @@
 get:
-  summary: GET mwsx/owlOntology/{name}/version/ontologyConstraints/sets/running
+  summary: Returns the identifiers of the currently running check sets
   operationId: get_ontologyConstraints_check_running
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
@@ -19,5 +17,5 @@ get:
         application/json:
           schema:
             type: array
-            items: 
-              type: string
+            items: {type: string}
+    '401': {description: Unhauthorized}

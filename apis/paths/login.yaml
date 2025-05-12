@@ -1,10 +1,11 @@
 get:
-  summary: GET mwsx/login
+  summary: REST call for basic authentication, returns the session ID as a response
+    header
   operationId: get__login
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/User.yaml
+          schema: {$ref: ../components/schemas/User.yaml}
+    '401': {description: Unhauthorized}

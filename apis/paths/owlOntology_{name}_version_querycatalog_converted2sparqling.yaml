@@ -1,17 +1,16 @@
 get:
-  summary: GET mwsx/owlOntology/{name}/version/querycatalog/converted2sparqling
+  summary: Returns a list of SparqlingSPARQLQuery obtaining converted the SPARQLQuery
+    queries available in the catalog to SparqlingSPARQLQuery
   operationId: get__owlOntology_name_version_querycatalog_converted2spargling
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
@@ -19,5 +18,5 @@ get:
         application/json:
           schema:
             type: array
-            items: 
-              $ref: ../components/schemas/SparqlingSPARQLQuery.yaml
+            items: {$ref: ../components/schemas/SparqlingSPARQLQuery.yaml}
+    '401': {description: Unhauthorized}

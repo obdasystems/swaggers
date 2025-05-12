@@ -1,33 +1,27 @@
 get:
-  summary: GET mwsx/endpoint/{name}/query/{queryID}/sqlRewritings
+  summary: Returns the SQL rewritings of a query executed on the given endpoint
   operationId: get__owlOntology_name_version_query_ID_sqlRewritings
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: queryID
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: pagesize
-      in: query
-      required: true
-      schema:
-        type: integer
-        format: int32
-    - name: pagenumber
-      in: query
-      required: true
-      schema:
-        type: integer
-        format: int32
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: queryID
+    in: path
+    required: true
+    schema: {type: string}
+  - name: pagesize
+    in: query
+    required: true
+    schema: {type: integer, format: int32}
+  - name: pagenumber
+    in: query
+    required: true
+    schema: {type: integer, format: int32}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/SqlRewritings.yaml
+          schema: {$ref: ../components/schemas/SqlRewritings.yaml}
+    '401': {description: Unhauthorized}

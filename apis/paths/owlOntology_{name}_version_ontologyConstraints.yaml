@@ -1,21 +1,19 @@
 get:
-  summary: GET mwsx/owlOntology/{name}/version/ontologyConstraints
+  summary: Returns the available constraints defined over the ontology / version
   operationId: get_ontologyConstraints
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/OntologyConstraints.yaml
+          schema: {$ref: ../components/schemas/OntologyConstraints.yaml}
+    '401': {description: Unhauthorized}

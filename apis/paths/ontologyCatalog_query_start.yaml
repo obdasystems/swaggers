@@ -1,17 +1,15 @@
 post:
-  tags:
-    - Ontology Catalog
+  tags: [Ontology Catalog]
   summary: Starts a SPARQL query over the catalog
   operationId: startQuery
   requestBody:
     content:
       application/json:
-        schema:
-          $ref: ../components/schemas/SPARQLQuery.yaml
+        schema: {$ref: ../components/schemas/SPARQLQuery.yaml}
   responses:
     '200':
       description: Successful operation
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/SPARQLQueryExecution.yaml
+          schema: {$ref: ../components/schemas/SPARQLQueryExecution.yaml}
+    '401': {description: Unhauthorized}

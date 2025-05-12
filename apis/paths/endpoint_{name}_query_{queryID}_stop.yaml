@@ -1,21 +1,19 @@
 put:
-  summary: PUT mwsx/endpoint/{name}/query/{queryID}/stop
+  summary: Forces the termination of the query running on the given endpoint
   operationId: stop_catalog_query_on_endpoint
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: queryID
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: queryID
+    in: path
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            type: integer
+          schema: {type: integer}
+    '401': {description: Unhauthorized}

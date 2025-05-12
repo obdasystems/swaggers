@@ -2,21 +2,18 @@ get:
   summary: GET mwsx/owlOntology/{name}/version/alphabet/search/individual
   operationId: get_search_individual_info
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      required: true
-      schema:
-        type: string
-    - name: search
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  - name: search
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
@@ -24,5 +21,5 @@ get:
         application/json:
           schema:
             type: array
-            items: 
-              $ref: ../components/schemas/OntologyEntity.yaml
+            items: {$ref: ../components/schemas/OntologyEntity.yaml}
+    '401': {description: Unhauthorized}

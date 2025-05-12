@@ -1,16 +1,15 @@
 get:
-  summary: GET mwsx/triplify/{threadID}/report
+  summary: Returns the report of a triplification thread
   operationId: get_mappings_triplification_report
   parameters:
-    - name: threadID
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: threadID
+    in: path
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/OBDATriplificationReport.yaml
+          schema: {$ref: ../components/schemas/OBDATriplificationReport.yaml}
+    '401': {description: Unhauthorized}

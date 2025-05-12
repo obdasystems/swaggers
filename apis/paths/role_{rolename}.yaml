@@ -2,53 +2,49 @@ get:
   summary: GET mwsx/role/{rolename}
   operationId: get__role_name
   parameters:
-    - name: rolename
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: rolename
+    in: path
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/Role.yaml
+          schema: {$ref: ../components/schemas/Role.yaml}
+    '401': {description: Unhauthorized}
 put:
   summary: PUT mwsx/role/{rolename}
   operationId: put__role
   parameters:
-    - name: rolename
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: rolename
+    in: path
+    required: true
+    schema: {type: string}
   requestBody:
     content:
       application/json:
-        schema:
-          $ref: ../components/schemas/Role.yaml
+        schema: {$ref: ../components/schemas/Role.yaml}
     required: true
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/Role.yaml
+          schema: {$ref: ../components/schemas/Role.yaml}
+    '401': {description: Unhauthorized}
 delete:
   summary: DELETE mwsx/role/{rolename}
   operationId: delete__role
   parameters:
-    - name: rolename
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: rolename
+    in: path
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/Role.yaml
+          schema: {$ref: ../components/schemas/Role.yaml}
+    '401': {description: Unhauthorized}

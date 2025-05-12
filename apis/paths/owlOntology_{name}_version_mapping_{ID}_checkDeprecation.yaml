@@ -1,22 +1,19 @@
 get:
-  summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/checkDeprecation
+  summary: Performs mapping analysis returning a list of deprecation messages
   operationId: get__owlOntology_name_version_mapping_ID_checkDeprecation
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: ID
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: ID
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
@@ -24,5 +21,5 @@ get:
         application/json:
           schema:
             type: array
-            items: 
-              type: string
+            items: {type: string}
+    '401': {description: Unhauthorized}

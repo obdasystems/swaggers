@@ -1,18 +1,15 @@
 post:
-  tags:
-    - Ontology Designer
-  summary: Download the ontology draft in the body converted in OWL2
+  tags: [Ontology Designer]
+  summary: Download the ontology draft {ontologyName} converted in OWL2
   operationId: downloadOntologyDraft
   requestBody:
     content:
       application/json:
-        schema:
-          $ref: ../components/schemas/RDFGraph.yaml
+        schema: {$ref: ../components/schemas/RDFGraph.yaml}
   responses:
     '200':
       description: Successful operation
       content:
         application/json:
-          schema:
-            type: string
-            description: FileInfo object
+          schema: {type: string, description: FileInfo object}
+    '401': {description: Unhauthorized}

@@ -43,6 +43,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Dashboards'
+        '401':
+          description: Unhauthorized
     post:
       summary: POST mwsx/owlOntology/{name}/version/dashboards
       operationId: post__owlOntology_version_dashboards
@@ -70,9 +72,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Dashboards'
+        '401':
+          description: Unhauthorized
   /owlOntology/{name}/version/dashboard/{dashboardId}/migrate:
     post:
-      summary: POST mwsx/owlOntology/{name}/version/dashboard/{dashboardId}/migrate
+      summary: Migrates dashboard with ID dashboardId from version 'version' to 'version' targetVersion for ontology named 'name'
       operationId: post__owlOntology_version_dashboard_migrate
       parameters:
         - name: name
@@ -102,9 +106,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Dashboards'
+        '401':
+          description: Unhauthorized
   /owlOntology/{name}/version/dashboards/migrate:
     post:
-      summary: POST mwsx/owlOntology/{name}/version/dashboards/migrate
+      summary: Migrates all dashboards from version 'version' to 'version' targetVersion for ontology named 'name'
       operationId: post__owlOntology_version_dashboards_migrate
       parameters:
         - name: name
@@ -129,6 +135,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Dashboards'
+        '401':
+          description: Unhauthorized
   /owlOntology/{name}/version/dashboard/{dashboardId}:
     put:
       summary: PUT mwsx/owlOntology/{name}/version/dashboard/{dashboardId}
@@ -162,6 +170,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Dashboard'
+        '401':
+          description: Unhauthorized
     delete:
       summary: DELETE mwsx/owlOntology/{name}/version/dashboard/{dashboardId}
       operationId: delete__owlOntology_version_dashboards
@@ -188,6 +198,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Dashboard'
+        '401':
+          description: Unhauthorized
 components:
   securitySchemes:
     apiKey:

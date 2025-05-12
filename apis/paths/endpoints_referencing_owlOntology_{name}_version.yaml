@@ -1,21 +1,20 @@
 get:
-  summary: GET mwsx/endpoints/referencing/owlOntology/{name}/version
+  summary: Returns all available endpoints defined on a given ontology name and ontology
+    version
   operationId: get_endpoints_referencing_onto
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/Endpoints.yaml
+          schema: {$ref: ../components/schemas/Endpoints.yaml}
+    '401': {description: Unhauthorized}

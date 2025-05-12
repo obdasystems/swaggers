@@ -1,63 +1,55 @@
 post:
-  summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/template
+  summary: Adds a new template to a mappng file
   operationId: post__owlOntology_name_version_mapping_ID_template
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: ID
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: ID
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
   requestBody:
     content:
       text/plain:
-        schema:
-          type: string
+        schema: {type: string}
     required: true
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            type: string
+          schema: {type: string}
+    '401': {description: Unhauthorized}
 delete:
-  summary: DELETE mwsx/owlOntology/{name}/version/mapping/{ID}/template
+  summary: Deletes a template from a mapping file
   operationId: delete__owlOntology_name_version_mapping_ID_template
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: ID
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      required: true
-      schema:
-        type: string
-    - name: template
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: ID
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  - name: template
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            type: string
+          schema: {type: string}
+    '401': {description: Unhauthorized}

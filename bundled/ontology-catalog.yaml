@@ -49,6 +49,8 @@ paths:
             application/json:
               schema:
                 type: boolean
+        '401':
+          description: Unhauthorized
     get:
       summary: GET mwsx/ontologyCatalog
       operationId: get_ontology_catalog
@@ -59,6 +61,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/OntologyCatalogEntries'
+        '401':
+          description: Unhauthorized
     delete:
       summary: DELETE mwsx/ontologyCatalog
       operationId: delete_ontology_catalog
@@ -69,6 +73,8 @@ paths:
             application/json:
               schema:
                 type: object
+        '401':
+          description: Unhauthorized
   /ontologyCatalog/query/start:
     post:
       tags:
@@ -87,6 +93,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SPARQLQueryExecution'
+        '401':
+          description: Unhauthorized
   /ontologyCatalog/query/{queryID}/stop:
     put:
       tags:
@@ -106,6 +114,8 @@ paths:
             application/json:
               schema:
                 type: boolean
+        '401':
+          description: Unhauthorized
   /ontologyCatalog/query/{queryID}/status:
     get:
       summary: Check the status of a SPARQL query
@@ -126,6 +136,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SPARQLStatus'
+        '401':
+          description: Unhauthorized
   /ontologyCatalog/query/{queryID}/results:
     get:
       summary: Retrieve the results of a SPARQL query
@@ -158,6 +170,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SPARQLResults'
+        '401':
+          description: Unhauthorized
 components:
   securitySchemes:
     apiKey:

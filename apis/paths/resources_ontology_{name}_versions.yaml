@@ -2,11 +2,10 @@ get:
   summary: GET mwsx/resources/ontology/{name}/versions
   operationId: get__resources_ids_versions
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
@@ -14,5 +13,5 @@ get:
         application/json:
           schema:
             type: array
-            items: 
-              type: string
+            items: {type: string}
+    '401': {description: Unhauthorized}

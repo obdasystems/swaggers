@@ -1,42 +1,35 @@
 post:
-  tags:
-    - VKG
-  summary: >-
-    Return the CONSTRUCT query based on the shortest path between an instance
+  tags: [VKG]
+  summary: Return the CONSTRUCT query based on the shortest path between an instance
     and another instance or class
   parameters:
-    - name: endpointName
-      in: path
-      description: The name of the endpoint
-      required: true
-      schema:
-        type: string
-    - name: sourceInstanceIRI
-      in: query
-      schema:
-        type: string
-    - name: targetInstanceIRI
-      in: query
-      schema:
-        type: string
-    - name: distinct
-      in: query
-      schema:
-        type: boolean
+  - name: endpointName
+    in: path
+    description: The name of the endpoint
+    required: true
+    schema: {type: string}
+  - name: sourceInstanceIRI
+    in: query
+    schema: {type: string}
+  - name: targetInstanceIRI
+    in: query
+    schema: {type: string}
+  - name: distinct
+    in: query
+    schema: {type: boolean}
   requestBody:
     content:
       application/json:
-        schema:
-          $ref: ../components/schemas/OntologyPath.yaml
+        schema: {$ref: ../components/schemas/OntologyPath.yaml}
     required: true
   responses:
     '200':
       description: successful operation
       content:
         application/xml:
-          schema:
-            description: THE SPARQL CONSTRUCT query that will compute the shortest path
-            type: string
+          schema: {description: THE SPARQL CONSTRUCT query that will compute the shortest
+              path, type: string}
     '404':
       description: Ontology not uploaded
       content: {}
+    '401': {description: Unhauthorized}

@@ -1,41 +1,36 @@
 put:
-  tags:
-    - QueryGraphHead
+  tags: [QueryGraphHead]
   summary: Delete the head term from the query graph.
   description: The path param should be the id of the HeadElement.
   operationId: deleteHeadTerm
   parameters:
-    - name: ontologyName
-      in: path
-      description: The name of the ontology
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      description: The version of the ontology
-      required: true
-      schema:
-        type: string
-    - name: headTerm
-      in: path
-      description: The head term that should be deleted
-      required: true
-      schema:
-        type: string
+  - name: ontologyName
+    in: path
+    description: The name of the ontology
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    description: The version of the ontology
+    required: true
+    schema: {type: string}
+  - name: headTerm
+    in: path
+    description: The head term that should be deleted
+    required: true
+    schema: {type: string}
   requestBody:
     content:
       application/json:
-        schema:
-          $ref: ../components/schemas/QueryGraph.yaml
+        schema: {$ref: ../components/schemas/QueryGraph.yaml}
     required: true
   responses:
     '200':
       description: successful operation
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/QueryGraph.yaml
+          schema: {$ref: ../components/schemas/QueryGraph.yaml}
     '404':
       description: Head term not found
       content: {}
+    '401': {description: Unhauthorized}

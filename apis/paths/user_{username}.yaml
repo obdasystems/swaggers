@@ -1,59 +1,54 @@
 get:
-  summary: GET mwsx/user/{username}
+  summary: Returns the user names <code>username</code>
   operationId: get__user_name
   parameters:
-    - name: username
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: username
+    in: path
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/User.yaml
+          schema: {$ref: ../components/schemas/User.yaml}
+    '401': {description: Unhauthorized}
 put:
-  summary: PUT mwsx/user/{username}
+  summary: Modifies the user identified by <code>username</code>
   operationId: put__user
   parameters:
-    - name: username
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: onlyInfo
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: username
+    in: path
+    required: true
+    schema: {type: string}
+  - name: onlyInfo
+    in: query
+    required: true
+    schema: {type: string}
   requestBody:
     content:
       application/json:
-        schema:
-          $ref: ../components/schemas/User.yaml
+        schema: {$ref: ../components/schemas/User.yaml}
     required: true
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/User.yaml
+          schema: {$ref: ../components/schemas/User.yaml}
+    '401': {description: Unhauthorized}
 delete:
   summary: DELETE mwsx/user/{username}
   operationId: delete__user
   parameters:
-    - name: username
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: username
+    in: path
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/User.yaml
+          schema: {$ref: ../components/schemas/User.yaml}
+    '401': {description: Unhauthorized}

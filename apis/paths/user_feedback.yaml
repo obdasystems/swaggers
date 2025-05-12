@@ -1,10 +1,10 @@
 get:
-  summary: GET mwsx/user/feedback
+  summary: Returns the feedback provided by a specific user
   operationId: get__user_feedback
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/UserFeedback.yaml
+          schema: {$ref: ../components/schemas/UserFeedback.yaml}
+    '401': {description: Unhauthorized}

@@ -1,19 +1,15 @@
 put:
-  tags:
-    - Ontology Designer
-  summary: >-
-    Ask for AI support in ontology design.
+  tags: [Ontology Designer]
+  summary: Ask for AI support in ontology design.
   operationId: putOntologyDraftAI
   requestBody:
     content:
       application/json:
         schema:
           type: object
-          properties: 
-            text: 
-              type: string
-            currentRdfGraph: 
-              $ref: ../components/schemas/RDFGraph.yaml
+          properties:
+            text: {type: string}
+            currentRdfGraph: {$ref: ../components/schemas/RDFGraph.yaml}
   responses:
     '200':
       description: Successful operation
@@ -21,5 +17,5 @@ put:
         application/json:
           schema:
             type: array
-            items:
-              $ref: ../components/schemas/RDFGraph.yaml
+            items: {$ref: ../components/schemas/RDFGraph.yaml}
+    '401': {description: Unhauthorized}

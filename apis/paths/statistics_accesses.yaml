@@ -1,5 +1,5 @@
 get:
-  summary: GET mwsx/statistics/accesses
+  summary: Returns the access log
   operationId: get_accesses_statistics
   responses:
     '200':
@@ -8,18 +8,17 @@ get:
         application/json:
           schema:
             type: array
-            items: 
-              $ref: ../components/schemas/AccessLog.yaml
+            items: {$ref: ../components/schemas/AccessLog.yaml}
+    '401': {description: Unhauthorized}
 post:
-  summary: POST mwsx/statistics/accesses
+  summary: Replace the current access log with the one provided
   operationId: post_accesses_statistics
   requestBody:
     content:
       application/json:
         schema:
           type: array
-          items:
-            $ref: ../components/schemas/AccessLog.yaml
+          items: {$ref: ../components/schemas/AccessLog.yaml}
     required: true
   responses:
     '200':
@@ -28,18 +27,17 @@ post:
         application/json:
           schema:
             type: array
-            items: 
-              $ref: ../components/schemas/AccessLog.yaml
+            items: {$ref: ../components/schemas/AccessLog.yaml}
+    '401': {description: Unhauthorized}
 put:
-  summary: PUT mwsx/statistics/accesses
+  summary: Adds the provided access log to the one registered in the system
   operationId: put_accesses_statistics
   requestBody:
     content:
       application/json:
         schema:
           type: array
-          items:
-            $ref: ../components/schemas/AccessLog.yaml
+          items: {$ref: ../components/schemas/AccessLog.yaml}
     required: true
   responses:
     '200':
@@ -48,10 +46,10 @@ put:
         application/json:
           schema:
             type: array
-            items: 
-              $ref: ../components/schemas/AccessLog.yaml
+            items: {$ref: ../components/schemas/AccessLog.yaml}
+    '401': {description: Unhauthorized}
 delete:
-  summary: DELETE mwsx/statistics/accesses
+  summary: Replace the current access log with the one provided
   operationId: delete_accesses_statistics
   responses:
     '200':
@@ -60,6 +58,5 @@ delete:
         application/json:
           schema:
             type: array
-            items: 
-              $ref: ../components/schemas/AccessLog.yaml
-              
+            items: {$ref: ../components/schemas/AccessLog.yaml}
+    '401': {description: Unhauthorized}

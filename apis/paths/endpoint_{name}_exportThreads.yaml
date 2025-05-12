@@ -1,12 +1,11 @@
 get:
-  summary: GET mwsx/endpoint/{name}/exportThreads
+  summary: Returns the export thread identifiers available on the given endpoint
   operationId: get__owlOntology_name_version_query_ID_export_threads
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
@@ -14,5 +13,5 @@ get:
         application/json:
           schema:
             type: array
-            items: 
-              type: string
+            items: {type: string}
+    '401': {description: Unhauthorized}

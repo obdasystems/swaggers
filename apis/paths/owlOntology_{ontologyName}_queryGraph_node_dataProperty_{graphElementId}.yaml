@@ -1,64 +1,53 @@
 put:
-  tags:
-    - QueryGraphBGP
-  summary: >-
-    Starting from the current query graph continue to build the query graph
+  tags: [QueryGraphBGP]
+  summary: Starting from the current query graph continue to build the query graph
     through a data property.
-  description: >-
-    This route is used when the user click a highlighted data property. The
-    triple pattern to add is something like `?x <predicateIRI> ?y` where `?x`
-    should be derived from `selectedClassIRI`. Note that `?y` is fresh new
-    variable that should be added also to the head of the query (we assume data
-    property values are interesting). The variable `?y` should be called
-    according to the entity remainder or label and should add a counter if there
-    is an already defined variable for that data property.
+  description: This route is used when the user click a highlighted data property.
+    The triple pattern to add is something like `?x <predicateIRI> ?y` where `?x`
+    should be derived from `selectedClassIRI`. Note that `?y` is fresh new variable
+    that should be added also to the head of the query (we assume data property values
+    are interesting). The variable `?y` should be called according to the entity remainder
+    or label and should add a counter if there is an already defined variable for
+    that data property.
   operationId: putQueryGraphDataProperty
   parameters:
-    - name: ontologyName
-      in: path
-      description: The name of the ontology
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      description: The version of the ontology
-      required: true
-      schema:
-        type: string
-    - name: graphElementId
-      in: path
-      description: The id of the node of the selected class in the query graph.
-      required: true
-      schema:
-        type: string
-    - name: sourceClassIRI
-      in: query
-      description: >-
-        The IRI of the last selected class. It could be selected from the
-        ontology graph or from the query graph.
-      required: true
-      schema:
-        type: string
-    - name: predicateIRI
-      in: query
-      description: The IRI of the clicked data property.
-      required: true
-      schema:
-        type: string
+  - name: ontologyName
+    in: path
+    description: The name of the ontology
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    description: The version of the ontology
+    required: true
+    schema: {type: string}
+  - name: graphElementId
+    in: path
+    description: The id of the node of the selected class in the query graph.
+    required: true
+    schema: {type: string}
+  - name: sourceClassIRI
+    in: query
+    description: The IRI of the last selected class. It could be selected from the
+      ontology graph or from the query graph.
+    required: true
+    schema: {type: string}
+  - name: predicateIRI
+    in: query
+    description: The IRI of the clicked data property.
+    required: true
+    schema: {type: string}
   requestBody:
     content:
       application/json:
-        schema:
-          $ref: ../components/schemas/QueryGraph.yaml
+        schema: {$ref: ../components/schemas/QueryGraph.yaml}
     required: true
   responses:
     '200':
       description: successful operation
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/QueryGraph.yaml
+          schema: {$ref: ../components/schemas/QueryGraph.yaml}
     '400':
       description: Invalid IRI supplied
       content: {}

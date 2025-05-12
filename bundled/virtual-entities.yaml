@@ -45,6 +45,8 @@ paths:
                 type: object
                 additionalProperties:
                   $ref: '#/components/schemas/SparqlingVirtualEntity'
+        '401':
+          description: Unhauthorized
     delete:
       summary: Deletes the virtual entities for a given ontology
       operationId: delete_virtualEntities
@@ -66,6 +68,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SparqlingVirtualEntities'
+        '401':
+          description: Unhauthorized
   /owlOntology/{name}/version/virtualEntities/export:
     get:
       summary: Returns the virtual entities available for a given ontology
@@ -88,6 +92,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SparqlingVirtualEntities'
+        '401':
+          description: Unhauthorized
   /owlOntology/{name}/version/virtualEntities/import:
     post:
       summary: Upload virtual entities for a given ontology
@@ -121,6 +127,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SparqlingVirtualEntities'
+        '401':
+          description: Unhauthorized
   /owlOntology/{name}/version/virtualEntity/{vname}:
     get:
       summary: Get a virtual entity by name for a given ontology
@@ -148,6 +156,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SparqlingVirtualEntity'
+        '401':
+          description: Unhauthorized
     delete:
       summary: DELETE a virtual entity by name for a given ontology
       operationId: delete_virtualEntity
@@ -174,6 +184,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SparqlingVirtualEntity'
+        '401':
+          description: Unhauthorized
   /owlOntology/{name}/version/virtualEntity:
     post:
       summary: Create a new virtual entity for a given ontology
@@ -202,6 +214,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SparqlingVirtualEntity'
+        '401':
+          description: Unhauthorized
     put:
       summary: Overwrite a virtual entity for a given ontology
       operationId: put_virtualEntity
@@ -229,6 +243,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SparqlingVirtualEntity'
+        '401':
+          description: Unhauthorized
   /owlOntology/{name}/version/virtualEntity/semantics:
     post:
       summary: POST mwsx/owlOntology/{name}/version/virtualEntity/semantics
@@ -257,6 +273,8 @@ paths:
             application/json:
               schema:
                 type: string
+        '401':
+          description: Unhauthorized
 components:
   securitySchemes:
     apiKey:

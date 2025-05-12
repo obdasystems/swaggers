@@ -1,16 +1,15 @@
 delete:
-  summary: DELETE mwsx/triplify/{threadID}
+  summary: Stops the thread identified by threadID
   operationId: delete_mappings_triplification_thread
   parameters:
-    - name: threadID
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: threadID
+    in: path
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            type: string
+          schema: {type: string}
+    '401': {description: Unhauthorized}

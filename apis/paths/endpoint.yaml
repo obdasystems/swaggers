@@ -1,16 +1,15 @@
 post:
-  summary: POST mwsx/endpoint
+  summary: Creates a new endpoint
   operationId: post_endpoint
   requestBody:
     content:
       application/json:
-        schema:
-          $ref: ../components/schemas/Endpoint.yaml
+        schema: {$ref: ../components/schemas/Endpoint.yaml}
     required: true
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/Endpoint.yaml
+          schema: {$ref: ../components/schemas/Endpoint.yaml}
+    '401': {description: Unhauthorized}

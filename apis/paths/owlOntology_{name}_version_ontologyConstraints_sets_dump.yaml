@@ -1,32 +1,29 @@
 post:
-  summary: POST mwsx/owlOntology/{name}/version/ontologyConstraints/sets/dump
+  summary: Imports a data quality check set dump and returns a report of the performed
+    operation
   operationId: post_ontologyConstraints_checkSetId_import
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      required: true
-      schema:
-        type: string
-    - name: importMappingParameters
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  - name: importMappingParameters
+    in: query
+    required: true
+    schema: {type: string}
   requestBody:
     content:
       application/json:
-        schema:
-          $ref: ../components/schemas/DataQualityCheckSetDump.yaml
+        schema: {$ref: ../components/schemas/DataQualityCheckSetDump.yaml}
     required: true
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/DataQualityCheckSetImportReport.yaml
+          schema: {$ref: ../components/schemas/DataQualityCheckSetImportReport.yaml}
+    '401': {description: Unhauthorized}

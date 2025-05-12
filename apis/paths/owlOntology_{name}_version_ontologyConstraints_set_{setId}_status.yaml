@@ -1,26 +1,23 @@
 get:
-  summary: GET mwsx/owlOntology/{name}/version/ontologyConstraints/set/{setId}/status
+  summary: Returns the running state of the specified check set
   operationId: get_ontologyConstraints_check_status
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: setId
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: setId
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/DataQualityCheckSetStatus.yaml
+          schema: {$ref: ../components/schemas/DataQualityCheckSetStatus.yaml}
+    '401': {description: Unhauthorized}

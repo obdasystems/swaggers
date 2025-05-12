@@ -1,21 +1,19 @@
 get:
-  summary: GET mwsx/endpoint/{name}/query/{queryID}/fullSparqlDetails
+  summary: Returns the report of a Full Sparql query executed on the given endpoint
   operationId: get_eqldeatils_catalog_query_on_endpoint
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: queryID
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: queryID
+    in: path
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/FullSparqlQueryReport.yaml
+          schema: {$ref: ../components/schemas/FullSparqlQueryReport.yaml}
+    '401': {description: Unhauthorized}

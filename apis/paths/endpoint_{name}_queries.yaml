@@ -1,17 +1,16 @@
 get:
-  summary: GET mwsx/endpoint/{name}/queries
+  summary: Returns the current state of all the queries in status <code>status</code>
+    loaded in the endpoint named <code>name</code>
   operationId: list_query_statuses_on_endpoint
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: status
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: status
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
@@ -19,5 +18,5 @@ get:
         application/json:
           schema:
             type: array
-            items: 
-              $ref: ../components/schemas/SPARQLStatus.yaml
+            items: {$ref: ../components/schemas/SPARQLStatus.yaml}
+    '401': {description: Unhauthorized}

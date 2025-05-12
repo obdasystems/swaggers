@@ -1,16 +1,15 @@
 get:
-  summary: GET mwsx/endpoint/{name}/empties
+  summary: Returns the collection of empty entities relevant for the given endpoint
   operationId: get_endpoint_empties
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/EmptyEntities.yaml
+          schema: {$ref: ../components/schemas/EmptyEntities.yaml}
+    '401': {description: Unhauthorized}

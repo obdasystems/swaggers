@@ -5,26 +5,20 @@ post:
     content:
       application/x-www-form-urlencoded:
         schema:
-          required:
-            - query
-            - default-graph-uri
-            - named-graph-uri
+          required: [query, default-graph-uri, named-graph-uri]
           properties:
-            query:
-              type: string
+            query: {type: string}
             default-graph-uri:
               type: array
-              items:
-                type: string
+              items: {type: string}
             named-graph-uri:
               type: array
-              items:
-                type: string
+              items: {type: string}
     required: true
   responses:
     '200':
       description: OK
       content:
         '*/*':
-          schema:
-            $ref: ../components/schemas/Response.yaml
+          schema: {$ref: ../components/schemas/Response.yaml}
+    '401': {description: Unhauthorized}

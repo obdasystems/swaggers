@@ -1,5 +1,5 @@
 get:
-  summary: GET mwsx/statistics/ontologies
+  summary: Returns the ontologies statistics
   operationId: get_ontologies_statistics
   responses:
     '200':
@@ -8,18 +8,17 @@ get:
         application/json:
           schema:
             type: array
-            items: 
-              $ref: ../components/schemas/OntologyUsageLog.yaml
+            items: {$ref: ../components/schemas/OntologyUsageLog.yaml}
+    '401': {description: Unhauthorized}
 post:
-  summary: POST mwsx/statistics/ontologies
+  summary: Replace the current ontologies statistics with the one provided
   operationId: post_ontologies_statistics
   requestBody:
     content:
       application/json:
         schema:
           type: array
-          items:
-            $ref: ../components/schemas/OntologyUsageLog.yaml
+          items: {$ref: ../components/schemas/OntologyUsageLog.yaml}
     required: true
   responses:
     '200':
@@ -28,18 +27,17 @@ post:
         application/json:
           schema:
             type: array
-            items:
-              $ref: ../components/schemas/OntologyUsageLog.yaml
+            items: {$ref: ../components/schemas/OntologyUsageLog.yaml}
+    '401': {description: Unhauthorized}
 put:
-  summary: PUT mwsx/statistics/ontologies
+  summary: Adds the provided access log to the one registered in the system
   operationId: put_ontologies_statistics
   requestBody:
     content:
       application/json:
         schema:
           type: array
-          items:
-            $ref: ../components/schemas/OntologyUsageLog.yaml
+          items: {$ref: ../components/schemas/OntologyUsageLog.yaml}
     required: true
   responses:
     '200':
@@ -48,10 +46,10 @@ put:
         application/json:
           schema:
             type: array
-            items:
-              $ref: ../components/schemas/OntologyUsageLog.yaml
+            items: {$ref: ../components/schemas/OntologyUsageLog.yaml}
+    '401': {description: Unhauthorized}
 delete:
-  summary: DELETE mwsx/statistics/ontologies
+  summary: Adds the provided access log to the one registered in the system
   operationId: delete_ontologies_statistics
   responses:
     '200':
@@ -60,5 +58,5 @@ delete:
         application/json:
           schema:
             type: array
-            items:
-              $ref: ../components/schemas/OntologyUsageLog.yaml
+            items: {$ref: ../components/schemas/OntologyUsageLog.yaml}
+    '401': {description: Unhauthorized}

@@ -2,16 +2,14 @@ get:
   summary: Get the VKG Snaphot catalog for a given ontology (name, version)
   operationId: get_vkg_snapshots
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
@@ -19,27 +17,24 @@ get:
         application/json:
           schema:
             type: array
-            items:
-              $ref: ../components/schemas/VKGSnapshot.yaml
+            items: {$ref: ../components/schemas/VKGSnapshot.yaml}
+    '401': {description: Unhauthorized}
 post:
   summary: Save a new VKG Snaphot in the catalog for a given ontology (name, version).
   operationId: post_vkg_snapshot
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
   requestBody:
     content:
       application/json:
-        schema:
-          $ref: ../components/schemas/VKGSnapshot.yaml
+        schema: {$ref: ../components/schemas/VKGSnapshot.yaml}
     required: true
   responses:
     '200':
@@ -48,22 +43,20 @@ post:
         application/json:
           schema:
             type: array
-            items:
-              $ref: ../components/schemas/VKGSnapshot.yaml
+            items: {$ref: ../components/schemas/VKGSnapshot.yaml}
+    '401': {description: Unhauthorized}
 delete:
   summary: DELETE the entire VKG Snapshot catalog for a given ontology (name, version)
   operationId: delete_vkg_snapshots
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
@@ -71,5 +64,5 @@ delete:
         application/json:
           schema:
             type: array
-            items:
-              $ref: ../components/schemas/VKGSnapshot.yaml
+            items: {$ref: ../components/schemas/VKGSnapshot.yaml}
+    '401': {description: Unhauthorized}

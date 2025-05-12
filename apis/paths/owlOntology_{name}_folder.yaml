@@ -1,16 +1,15 @@
 get:
-  summary: GET mwsx/owlOntology/{name}/folder
+  summary: Returns the folder where ontology named <code>name</code> is stored in
   operationId: get__owlOntology_folder_name
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            type: string
+          schema: {type: string}
+    '401': {description: Unhauthorized}

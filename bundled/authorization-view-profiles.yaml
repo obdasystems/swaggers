@@ -43,6 +43,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AvpOntologyTree'
+        '401':
+          description: Unhauthorized
   /owlOntology/{name}/version/authorizationViewProfiles:
     get:
       summary: GET mwsx/owlOntology/{name}/version/authorizationViewProfiles
@@ -67,6 +69,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/AuthorizationViewProfileInfo'
+        '401':
+          description: Unhauthorized
     post:
       summary: POST mwsx/owlOntology/{name}/version/authorizationViewProfiles
       operationId: post_authorizationViewProfiles
@@ -94,6 +98,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AuthorizationViewProfileInfo'
+        '401':
+          description: Unhauthorized
   /owlOntology/{name}/version/authorizationViewProfile/{avpId}:
     put:
       summary: PUT mwsx/owlOntology/{name}/version/authorizationViewProfile/{avpId}
@@ -127,6 +133,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AuthorizationViewProfileInfo'
+        '401':
+          description: Unhauthorized
     delete:
       summary: DELETE mwsx/owlOntology/{name}/version/authorizationViewProfile/{avpId}
       operationId: delete_authorizationViewProfiles
@@ -153,6 +161,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AuthorizationViewProfileInfo'
+        '401':
+          description: Unhauthorized
 components:
   securitySchemes:
     apiKey:

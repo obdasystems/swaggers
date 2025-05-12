@@ -1,5 +1,5 @@
 get:
-  summary: GET mwsx/system/jdbcDrivers
+  summary: Returns the available JDBC drivers
   operationId: getJdbcDrivers
   responses:
     '200':
@@ -8,5 +8,5 @@ get:
         application/json:
           schema:
             type: array
-            items: 
-              $ref: ../components/schemas/JDBCDriver.yaml
+            items: {$ref: ../components/schemas/JDBCDriver.yaml}
+    '401': {description: Unhauthorized}

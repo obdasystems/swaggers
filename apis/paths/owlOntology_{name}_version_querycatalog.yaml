@@ -1,42 +1,38 @@
 get:
-  summary: GET mwsx/owlOntology/{name}/version/querycatalog
+  summary: Returns the query catalog available for the given version of the ontology
   operationId: get__owlOntology_name_version_querycatalog
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/OBDACatalog.yaml
+          schema: {$ref: ../components/schemas/OBDACatalog.yaml}
+    '401': {description: Unhauthorized}
 delete:
-  summary: DELETE mwsx/owlOntology/{name}/version/querycatalog
+  summary: Deletes the query catalog available for the given version of the ontology
   operationId: delete__owlOntology_name_version_querycatalog
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            type: boolean
+          schema: {type: boolean}
+    '401': {description: Unhauthorized}

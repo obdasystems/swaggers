@@ -1,16 +1,15 @@
 get:
-  summary: GET mwsx/endpoint/{name}/status
+  summary: Returns the status of the given endpoint
   operationId: get_endpoint_status
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/EndpointStatus.yaml
+          schema: {$ref: ../components/schemas/EndpointStatus.yaml}
+    '401': {description: Unhauthorized}

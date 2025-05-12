@@ -1,17 +1,16 @@
 post:
-  summary: POST mwsx/endpoint/{name}/query/quarantinedMappingsByEntity
+  summary: Given a SPARQL query, returns a map with entity as key and a set of quarantined
+    mapping identifiers as a value
   operationId: check_query_on_endpoint_for_quarantinedMappings
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
   requestBody:
     content:
       '*/*':
-        schema:
-          $ref: ../components/schemas/SPARQLQuery.yaml
+        schema: {$ref: ../components/schemas/SPARQLQuery.yaml}
     required: true
   responses:
     '200':
@@ -20,7 +19,7 @@ post:
         application/json:
           schema:
             type: object
-            additionalProperties: 
+            additionalProperties:
               type: array
-              items: 
-                type: string
+              items: {type: string}
+    '401': {description: Unhauthorized}

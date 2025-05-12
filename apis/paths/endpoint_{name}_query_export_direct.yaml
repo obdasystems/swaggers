@@ -1,22 +1,19 @@
 get:
-  summary: GET mwsx/endpoint/{name}/query/export/direct
+  summary: Returns the stream of the results of a query running on the given endpoint
   operationId: post__owlOntology_name_version_query_ID_export_directcsv
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: exportInfo
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: exportInfo
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/octet-stream:
-          schema: 
-           type: string
-           format: binary 
+          schema: {type: string, format: binary}
+    '401': {description: Unhauthorized}

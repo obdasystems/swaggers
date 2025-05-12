@@ -1,26 +1,23 @@
 get:
-  summary: GET mwsx/endpoint/{name}/virtualEntity/{veName}
+  summary: Returns the virtual entity from a given endpoint by its name
   operationId: get__owlOntology_name_version_endpoint_virtuslEntity_results
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: veName
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: unfolderCountThreshold
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: veName
+    in: path
+    required: true
+    schema: {type: string}
+  - name: unfolderCountThreshold
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/SPARQLResults.yaml
+          schema: {$ref: ../components/schemas/SPARQLResults.yaml}
+    '401': {description: Unhauthorized}

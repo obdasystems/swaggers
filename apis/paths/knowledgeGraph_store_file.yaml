@@ -4,16 +4,15 @@ post:
   requestBody:
     content:
       application/json:
-        schema:
-          $ref: ../components/schemas/FileInfo.yaml
+        schema: {$ref: ../components/schemas/FileInfo.yaml}
     required: true
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            type: boolean
+          schema: {type: boolean}
+    '401': {description: Unhauthorized}
 get:
   summary: GET mwsx/knowledgeGraph/store/file
   operationId: get__knowledgeGraph_store_files
@@ -24,5 +23,5 @@ get:
         application/json:
           schema:
             type: array
-            items: 
-              $ref: ../components/schemas/KGStoreFileInfoEntry.yaml
+            items: {$ref: ../components/schemas/KGStoreFileInfoEntry.yaml}
+    '401': {description: Unhauthorized}

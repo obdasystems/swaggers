@@ -1,17 +1,16 @@
 get:
-  summary: GET mwsx/endpoint/{name}/highlights/annotations
+  summary: Returns the collection of entities with empty unfolding that are relevant
+    for the given endpoint
   operationId: get_endpoint_highlights_annotations
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: classIRI
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: classIRI
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
@@ -19,5 +18,5 @@ get:
         application/json:
           schema:
             type: array
-            items: 
-              type: string
+            items: {type: string}
+    '401': {description: Unhauthorized}

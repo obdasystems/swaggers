@@ -1,27 +1,23 @@
 get:
-  summary: GET mwsx/endpoint/{name}/exportThread/{id}/preview/{lines}
+  summary: Returns the first 'lines' lines of the exported file content
   operationId: get__owlOntology_name_version_query_ID_export_thread_id_preview
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: id
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: lines
-      in: path
-      required: true
-      schema:
-        type: integer
-        format: int32
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: id
+    in: path
+    required: true
+    schema: {type: string}
+  - name: lines
+    in: path
+    required: true
+    schema: {type: integer, format: int32}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/CsvPreview.yaml
+          schema: {$ref: ../components/schemas/CsvPreview.yaml}
+    '401': {description: Unhauthorized}

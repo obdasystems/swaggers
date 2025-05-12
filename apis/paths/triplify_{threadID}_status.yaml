@@ -1,16 +1,15 @@
 get:
-  summary: GET mwsx/triplify/{threadID}/status
+  summary: Returns the status of a triplification thread
   operationId: get_mappings_triplification_status
   parameters:
-    - name: threadID
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: threadID
+    in: path
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/OBDATriplificationProgress.yaml
+          schema: {$ref: ../components/schemas/OBDATriplificationProgress.yaml}
+    '401': {description: Unhauthorized}

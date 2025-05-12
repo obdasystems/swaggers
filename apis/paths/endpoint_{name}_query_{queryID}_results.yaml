@@ -1,33 +1,28 @@
 get:
-  summary: GET mwsx/endpoint/{name}/query/{queryID}/results
+  summary: Returns the results of the query running on the given endpoint, the results
+    returned contain a page (pagenumber) of a given size (pagesize)
   operationId: get__owlOntology_name_version_query_ID_results
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: queryID
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: pagesize
-      in: query
-      required: true
-      schema:
-        type: integer
-        format: int32
-    - name: pagenumber
-      in: query
-      required: true
-      schema:
-        type: integer
-        format: int32
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: queryID
+    in: path
+    required: true
+    schema: {type: string}
+  - name: pagesize
+    in: query
+    required: true
+    schema: {type: integer, format: int32}
+  - name: pagenumber
+    in: query
+    required: true
+    schema: {type: integer, format: int32}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/SPARQLResults.yaml
+          schema: {$ref: ../components/schemas/SPARQLResults.yaml}
+    '401': {description: Unhauthorized}

@@ -23,7 +23,7 @@ security:
 paths:
   /endpoints:
     get:
-      summary: GET mwsx/endpoints
+      summary: Returns all available endpoints
       operationId: get_endpoints
       responses:
         '200':
@@ -32,8 +32,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Endpoints'
+        '401':
+          description: Unhauthorized
     delete:
-      summary: DELETE mwsx/endpoints
+      summary: Deletes all available endpoints
       operationId: delete_endpoints
       responses:
         '200':
@@ -42,9 +44,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Endpoints'
+        '401':
+          description: Unhauthorized
   /endpoints/referencing/owlOntology/{name}/version:
     get:
-      summary: GET mwsx/endpoints/referencing/owlOntology/{name}/version
+      summary: Returns all available endpoints defined on a given ontology name and ontology version
       operationId: get_endpoints_referencing_onto
       parameters:
         - name: name
@@ -64,9 +68,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Endpoints'
+        '401':
+          description: Unhauthorized
   /endpoints/referencing/owlOntology/{name}/version/mapping/{ID}:
     get:
-      summary: GET mwsx/endpoints/referencing/owlOntology/{name}/version/mapping/{ID}
+      summary: Returns all available endpoints defined on a given ontology name, ontology version and mapping
       operationId: get_endpoints_referencing_onto_mapping
       parameters:
         - name: name
@@ -91,9 +97,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Endpoints'
+        '401':
+          description: Unhauthorized
   /endpoints/referencing/datasource/{name}:
     get:
-      summary: GET mwsx/endpoints/referencing/datasource/{name}
+      summary: Returns all available endpoints that are defined for a specific datasource
       operationId: get_endpoints_referencing_datasource
       parameters:
         - name: name
@@ -108,9 +116,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Endpoints'
+        '401':
+          description: Unhauthorized
   /endpoints/running:
     get:
-      summary: GET mwsx/endpoints/running
+      summary: Returns all endpoints with status running
       operationId: get_running_endpoints
       responses:
         '200':
@@ -119,9 +129,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Endpoints'
+        '401':
+          description: Unhauthorized
   /endpoint/{name}:
     get:
-      summary: GET mwsx/endpoint/{name}
+      summary: Returns an endpoint by its name
       operationId: get_endpoint
       parameters:
         - name: name
@@ -136,8 +148,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Endpoint'
+        '401':
+          description: Unhauthorized
     delete:
-      summary: DELETE mwsx/endpoint/{name}
+      summary: Deletes the endpoint by its name
       operationId: delete_endpoint
       parameters:
         - name: name
@@ -152,8 +166,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Endpoint'
+        '401':
+          description: Unhauthorized
     put:
-      summary: PUT mwsx/endpoint/{name}
+      summary: Updates the endpoint with the new values provided
       operationId: put_endpoint
       parameters:
         - name: name
@@ -174,9 +190,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Endpoint'
+        '401':
+          description: Unhauthorized
   /endpoint:
     post:
-      summary: POST mwsx/endpoint
+      summary: Creates a new endpoint
       operationId: post_endpoint
       requestBody:
         content:
@@ -191,9 +209,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Endpoint'
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/prefixes:
     get:
-      summary: GET mwsx/endpoint/{name}/prefixes
+      summary: Returns the set of prefixes that are relevant for a given endpoint
       operationId: get__owlOntology_name_version_mapping_ID_prefixes
       parameters:
         - name: name
@@ -210,9 +230,11 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Prefix'
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/start:
     put:
-      summary: PUT mwsx/endpoint/{name}/start
+      summary: Starts the given endpoint, returns 0 if the operation succeeds
       operationId: start_endpoint
       parameters:
         - name: name
@@ -233,9 +255,11 @@ paths:
             application/json:
               schema:
                 type: integer
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/stop:
     put:
-      summary: PUT mwsx/endpoint/{name}/stop
+      summary: Stops the given endpoint, returns 0 if the stop operation succeeds
       operationId: stop_endpoint
       parameters:
         - name: name
@@ -250,9 +274,11 @@ paths:
             application/json:
               schema:
                 type: integer
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/status:
     get:
-      summary: GET mwsx/endpoint/{name}/status
+      summary: Returns the status of the given endpoint
       operationId: get_endpoint_status
       parameters:
         - name: name
@@ -267,9 +293,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/EndpointStatus'
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/empties:
     get:
-      summary: GET mwsx/endpoint/{name}/empties
+      summary: Returns the collection of empty entities relevant for the given endpoint
       operationId: get_endpoint_empties
       parameters:
         - name: name
@@ -284,9 +312,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/EmptyEntities'
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/emptyUnfoldingEntities:
     get:
-      summary: GET mwsx/endpoint/{name}/emptyUnfoldingEntities
+      summary: Returns the collection of entities with empty unfolding that are relevant for the given endpoint
       operationId: get_endpoint_empty_unfolding_entities
       parameters:
         - name: name
@@ -301,9 +331,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/EmptyUnfoldingEntities'
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/highlights/annotations:
     get:
-      summary: GET mwsx/endpoint/{name}/highlights/annotations
+      summary: Returns the collection of entities with empty unfolding that are relevant for the given endpoint
       operationId: get_endpoint_highlights_annotations
       parameters:
         - name: name
@@ -325,9 +357,11 @@ paths:
                 type: array
                 items:
                   type: string
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/query/count/{queryId}/stop:
     put:
-      summary: PUT mwsx/endpoint/{name}/query/count/{queryId}/stop
+      summary: Forces the count thread of the given SPARQL query to stop
       operationId: get_query_count_stop
       parameters:
         - name: name
@@ -347,9 +381,11 @@ paths:
             application/json:
               schema:
                 type: integer
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/query/count/{queryId}:
     delete:
-      summary: DELETE mwsx/endpoint/{name}/query/count/{queryId}
+      summary: Deletes the count thread on the given endpoint for a SPARQL query
       operationId: delete_query_count
       parameters:
         - name: name
@@ -369,9 +405,11 @@ paths:
             application/json:
               schema:
                 type: integer
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/query/count/{queryId}/result:
     get:
-      summary: GET mwsx/endpoint/{name}/query/count/{queryId}/result
+      summary: Returns the counts the results of a SPARQL query executed on the given endpoint
       operationId: get_query_count_result
       parameters:
         - name: name
@@ -391,9 +429,11 @@ paths:
             application/json:
               schema:
                 type: integer
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/query/check:
     post:
-      summary: POST mwsx/endpoint/{name}/query/check
+      summary: Checks the syntax of the passed query on the given endpoint
       operationId: check_query_on_endpoint
       parameters:
         - name: name
@@ -414,9 +454,11 @@ paths:
             application/json:
               schema:
                 type: string
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/query/quarantinedMappingsByEntity:
     post:
-      summary: POST mwsx/endpoint/{name}/query/quarantinedMappingsByEntity
+      summary: Given a SPARQL query, returns a map with entity as key and a set of quarantined mapping identifiers as a value
       operationId: check_query_on_endpoint_for_quarantinedMappings
       parameters:
         - name: name
@@ -441,9 +483,11 @@ paths:
                   type: array
                   items:
                     type: string
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/query/{queryID}/start:
     post:
-      summary: POST mwsx/endpoint/{name}/query/{queryID}/start
+      summary: Starts a new instance of a query on the given endpoint
       operationId: start_catalog_query_on_endpoint
       parameters:
         - name: name
@@ -519,9 +563,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/OBDARunQueryInstance'
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/query/{queryID}/stop:
     put:
-      summary: PUT mwsx/endpoint/{name}/query/{queryID}/stop
+      summary: Forces the termination of the query running on the given endpoint
       operationId: stop_catalog_query_on_endpoint
       parameters:
         - name: name
@@ -541,9 +587,11 @@ paths:
             application/json:
               schema:
                 type: integer
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/query/{queryID}/exportFile:
     get:
-      summary: GET mwsx/endpoint/{name}/query/{queryID}/exportFile
+      summary: Returns the file containing exported results for a query on the given endpoint
       operationId: export_catalog_query_on_endpoint
       parameters:
         - name: name
@@ -568,9 +616,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/FileInfo'
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/query/{queryID}/fullSparqlDetails:
     get:
-      summary: GET mwsx/endpoint/{name}/query/{queryID}/fullSparqlDetails
+      summary: Returns the report of a Full Sparql query executed on the given endpoint
       operationId: get_eqldeatils_catalog_query_on_endpoint
       parameters:
         - name: name
@@ -590,9 +640,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/FullSparqlQueryReport'
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/query/{queryID}/ontologyRewritings:
     get:
-      summary: GET mwsx/endpoint/{name}/query/{queryID}/ontologyRewritings
+      summary: Returns the ontology rewriting of a query executed on the given endpoint
       operationId: get__owlOntology_name_version_query_ID_ontologyRewritings
       parameters:
         - name: name
@@ -624,9 +676,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/OntologyRewritings'
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/query/{queryID}/viewRewritings:
     get:
-      summary: GET mwsx/endpoint/{name}/query/{queryID}/viewRewritings
+      summary: Returns the view rewritings of a query executed on the given endpoint
       operationId: get__owlOntology_name_version_query_ID_viewRewritings
       parameters:
         - name: name
@@ -658,9 +712,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ViewRewritings'
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/query/{queryID}/viewOptimizedRewritings:
     get:
-      summary: GET mwsx/endpoint/{name}/query/{queryID}/viewOptimizedRewritings
+      summary: Returns the optimized view rewritings of a query executed on the given endpoint
       operationId: get__owlOntology_name_version_query_ID_viewOptimizedRewritings
       parameters:
         - name: name
@@ -692,9 +748,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ViewRewritings'
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/query/{queryID}/sqlRewritings:
     get:
-      summary: GET mwsx/endpoint/{name}/query/{queryID}/sqlRewritings
+      summary: Returns the SQL rewritings of a query executed on the given endpoint
       operationId: get__owlOntology_name_version_query_ID_sqlRewritings
       parameters:
         - name: name
@@ -726,9 +784,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SqlRewritings'
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/query/{queryID}/sqlDebugRewritings:
     get:
-      summary: GET mwsx/endpoint/{name}/query/{queryID}/sqlDebugRewritings
+      summary: Returns the currently running SQL rewritings of a query executed on the given endpoint
       operationId: get__owlOntology_name_version_query_ID_sqlDebugRewritings
       parameters:
         - name: name
@@ -750,9 +810,11 @@ paths:
                 type: array
                 items:
                   type: string
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/query/{queryID}/results:
     get:
-      summary: GET mwsx/endpoint/{name}/query/{queryID}/results
+      summary: Returns the results of the query running on the given endpoint, the results returned contain a page (pagenumber) of a given size (pagesize)
       operationId: get__owlOntology_name_version_query_ID_results
       parameters:
         - name: name
@@ -784,9 +846,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SPARQLResults'
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/query/{queryID}/status:
     get:
-      summary: GET mwsx/endpoint/{name}/query/{queryID}/status
+      summary: Returns the status of a query running on the given endpoint
       operationId: get__owlOntology_name_version_query_ID_status
       parameters:
         - name: name
@@ -806,9 +870,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SPARQLStatus'
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/queryRecordInfos:
     get:
-      summary: GET mwsx/endpoint/{name}/queryRecordInfos
+      summary: Returns the query record info of all the queries running on the given endpoint
       operationId: get__owlOntology_name_version_query_ID_record_infos
       parameters:
         - name: name
@@ -825,9 +891,11 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/QueryRecordInfo'
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/query/{queryID}/queryRecordInfo:
     get:
-      summary: GET mwsx/endpoint/{name}/query/{queryID}/queryRecordInfo
+      summary: Returns the query record info of a certain query running on the given endpoint
       operationId: get__owlOntology_name_version_query_ID_record_info
       parameters:
         - name: name
@@ -847,9 +915,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/QueryRecordInfo'
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/query/exportQueryResults:
     post:
-      summary: POST mwsx/endpoint/{name}/query/exportQueryResults
+      summary: Exports on a separate thread the results of a query running on the given endpoint, the export thread identifier is returned
       operationId: post__owlOntology_name_version_query_ID_export_results
       parameters:
         - name: name
@@ -870,9 +940,11 @@ paths:
             application/json:
               schema:
                 type: string
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/query/export/direct:
     get:
-      summary: GET mwsx/endpoint/{name}/query/export/direct
+      summary: Returns the stream of the results of a query running on the given endpoint
       operationId: post__owlOntology_name_version_query_ID_export_directcsv
       parameters:
         - name: name
@@ -893,9 +965,11 @@ paths:
               schema:
                 type: string
                 format: binary
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/exportThreads:
     get:
-      summary: GET mwsx/endpoint/{name}/exportThreads
+      summary: Returns the export thread identifiers available on the given endpoint
       operationId: get__owlOntology_name_version_query_ID_export_threads
       parameters:
         - name: name
@@ -912,9 +986,11 @@ paths:
                 type: array
                 items:
                   type: string
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/exported:
     get:
-      summary: GET mwsx/endpoint/{name}/exported
+      summary: Returns the collection of export information available for the given endpoint
       operationId: get__owlOntology_name_version_query_ID_exported
       parameters:
         - name: name
@@ -931,9 +1007,11 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/ExportInfo'
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/exported/{fileName}:
     get:
-      summary: GET mwsx/endpoint/{name}/exported/{fileName}
+      summary: Returns the content of an export file for the given endpoint
       operationId: get__owlOntology_name_version_query_ID_exported_fileName
       parameters:
         - name: name
@@ -953,8 +1031,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/FileInfo'
+        '401':
+          description: Unhauthorized
     delete:
-      summary: DELETE mwsx/endpoint/{name}/exported/{fileName}
+      summary: Deletes the export file for the given endpoint from the server, returns 0 in the deletion succeeded
       operationId: delete__owlOntology_name_version_query_ID_exported_fileName
       parameters:
         - name: name
@@ -974,9 +1054,11 @@ paths:
             application/json:
               schema:
                 type: integer
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/exportThread/{id}/status:
     get:
-      summary: GET mwsx/endpoint/{name}/exportThread/{id}/status
+      summary: Returns the status of an export thread running on the given endpoint
       operationId: get__owlOntology_name_version_query_ID_export_thread_id_status
       parameters:
         - name: name
@@ -996,9 +1078,11 @@ paths:
             application/json:
               schema:
                 type: string
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/exportThread/{id}/errors:
     get:
-      summary: GET mwsx/endpoint/{name}/exportThread/{id}/errors
+      summary: Returns the status of an export thread running on the given endpoint
       operationId: get__owlOntology_name_version_query_ID_export_thread_id_errors
       parameters:
         - name: name
@@ -1020,9 +1104,11 @@ paths:
                 type: array
                 items:
                   type: string
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/exportThread/{id}/stop:
     put:
-      summary: PUT mwsx/endpoint/{name}/exportThread/{id}/stop
+      summary: Stops the execution of an export thread on the given endpoint
       operationId: put__owlOntology_name_version_query_ID_export_thread_id_status
       parameters:
         - name: name
@@ -1042,9 +1128,11 @@ paths:
             application/json:
               schema:
                 type: integer
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/exportThread/{id}/stats:
     get:
-      summary: GET mwsx/endpoint/{name}/exportThread/{id}/stats
+      summary: Returns statistics of an export thread running on the given endpoint
       operationId: get__owlOntology_name_version_query_ID_export_thread_id_stats
       parameters:
         - name: name
@@ -1064,9 +1152,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ExportStats'
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/exportThread/{id}/file:
     get:
-      summary: GET mwsx/endpoint/{name}/exportThread/{id}/file
+      summary: Streams the file content of an export thread run on the given endpoint
       operationId: get__owlOntology_name_version_query_ID_export_thread_id_file
       parameters:
         - name: name
@@ -1087,9 +1177,11 @@ paths:
               schema:
                 type: string
                 format: binary
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/exportThread/{id}/preview/{lines}:
     get:
-      summary: GET mwsx/endpoint/{name}/exportThread/{id}/preview/{lines}
+      summary: Returns the first 'lines' lines of the exported file content
       operationId: get__owlOntology_name_version_query_ID_export_thread_id_preview
       parameters:
         - name: name
@@ -1115,6 +1207,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CsvPreview'
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/exportThread/{id}:
     delete:
       summary: DELETE mwsx/endpoint/{name}/exportThread/{id}
@@ -1137,9 +1231,11 @@ paths:
             application/json:
               schema:
                 type: boolean
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/cquery/start:
     post:
-      summary: POST mwsx/endpoint/{name}/cquery/start
+      summary: Starts the SPARQL construct query on the given endpoint
       operationId: post__owlOntology_name_version_construct_query_start
       parameters:
         - name: name
@@ -1210,9 +1306,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/OBDARunQueryInstance'
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/cquery/{queryID}/start:
     post:
-      summary: POST mwsx/endpoint/{name}/cquery/{queryID}/start
+      summary: Starts the construct query with the provided identified on the given endpoint
       operationId: post__owlOntology_name_version_construct_query_ID_start
       parameters:
         - name: name
@@ -1288,9 +1386,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/OBDARunQueryInstance'
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/cquery/{queryID}/status:
     get:
-      summary: GET mwsx/endpoint/{name}/cquery/{queryID}/status
+      summary: Returns the execution status of construct query on the given endpoint
       operationId: get__owlOntology_name_version_construct_query_ID_status
       parameters:
         - name: name
@@ -1310,9 +1410,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SPARQLStatus'
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/cquery/exportQueryResults:
     post:
-      summary: POST mwsx/endpoint/{name}/cquery/exportQueryResults
+      summary: Starts the export thread for a construct query on the given endpoint, the export thread identifier is returned
       operationId: post__owlOntology_name_version_cquery_ID_export_results
       parameters:
         - name: name
@@ -1333,9 +1435,11 @@ paths:
             application/json:
               schema:
                 type: string
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/cquery/{queryID}/export:
     get:
-      summary: GET mwsx/endpoint/{name}/cquery/{queryID}/export
+      summary: Returns the file content of the export thread of a construct query running on the given endpoint
       operationId: get__owlOntology_name_version_construct_query_ID_export
       parameters:
         - name: name
@@ -1360,9 +1464,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/FileInfo'
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/cquery/{queryID}/results:
     get:
-      summary: GET mwsx/endpoint/{name}/cquery/{queryID}/results
+      summary: Returns a page of a given size of results of a construct query running on the given endpoint
       operationId: get__owlOntology_name_version_construct_query_ID_results
       parameters:
         - name: name
@@ -1394,9 +1500,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SPARQLResults'
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/cquery/{queryID}/results/triples:
     get:
-      summary: GET mwsx/endpoint/{name}/cquery/{queryID}/results/triples
+      summary: Returns the results for a given construct query in a triples format
       operationId: get__owlOntology_name_version_construct_query_ID_results_triples
       parameters:
         - name: name
@@ -1430,9 +1538,11 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/ConstructImage'
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/cquery/{queryID}/results/tabular:
     get:
-      summary: GET mwsx/endpoint/{name}/cquery/{queryID}/results/tabular
+      summary: Returns the results for a given construct query in tabular format
       operationId: get__owlOntology_name_version_construct_query_ID_results_tabular
       parameters:
         - name: name
@@ -1464,11 +1574,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SPARQLResults'
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/cquery/{queryID}/results/rdfGraph:
     get:
       tags:
         - VKG
-      summary: Returns RDFGraph for CONSTRUCT visualization
+      summary: Returns the results for a given construct query in tabular format
       operationId: getRDFGraphConstruct
       parameters:
         - name: name
@@ -1500,9 +1612,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/RDFGraph'
+        '401':
+          description: Unhauthorized
   /endpoint/{eName}/countEntityInstances:
     get:
-      summary: GET mwsx/endpoint/{eName}/countEntityInstances
+      summary: Count the number of instances of the Class or the Object Property of the ontology
       operationId: get__endpoint_instances
       parameters:
         - name: eName
@@ -1527,9 +1641,11 @@ paths:
             application/json:
               schema:
                 type: integer
+        '401':
+          description: Unhauthorized
   /endpoint/{eName}/countEntityInstances/start:
     get:
-      summary: GET mwsx/endpoint/{eName}/countEntityInstances/start
+      summary: Starts the executions of the queries that will count the number of instances of each Class and Object Property of the ontology
       operationId: get__start_endpoint_entity_instances
       parameters:
         - name: eName
@@ -1544,9 +1660,11 @@ paths:
             application/json:
               schema:
                 type: integer
+        '401':
+          description: Unhauthorized
   /endpoint/{eName}/countEntityInstances/stop:
     get:
-      summary: GET mwsx/endpoint/{eName}/countEntityInstances/stop
+      summary: Starts the executions of the queries that will count the number of instances of each Class of the ontology
       operationId: get__stop_endpoint_entity_instances
       parameters:
         - name: eName
@@ -1561,9 +1679,11 @@ paths:
             application/json:
               schema:
                 type: integer
+        '401':
+          description: Unhauthorized
   /endpoint/{eName}/countEntityInstances/info:
     get:
-      summary: GET mwsx/endpoint/{eName}/countEntityInstances/info
+      summary: Get the info about the queries that will count the number of instances of each Class of the ontology
       operationId: get__endpoint_entity_instances_info
       parameters:
         - name: eName
@@ -1578,9 +1698,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CountEntityInstancesInfo'
+        '401':
+          description: Unhauthorized
   /endpoint/{eName}/instanceChecking/start:
     post:
-      summary: POST mwsx/endpoint/{eName}/instanceChecking/start
+      summary: Starts the executions of the queries that will count the number of instances of each Class of the ontology
       operationId: get__start_endpoint_instance_checking
       parameters:
         - name: eName
@@ -1625,9 +1747,11 @@ paths:
             application/json:
               schema:
                 type: integer
+        '401':
+          description: Unhauthorized
   /endpoint/{eName}/instanceChecking/{threadId}/stop:
     get:
-      summary: GET mwsx/endpoint/{eName}/instanceChecking/{threadId}/stop
+      summary: Starts the executions of the queries that will count the number of instances of each Class of the ontology
       operationId: get__stop_endpoint_instance_checking
       parameters:
         - name: eName
@@ -1648,9 +1772,11 @@ paths:
             application/json:
               schema:
                 type: integer
+        '401':
+          description: Unhauthorized
   /endpoint/{eName}/instanceChecking/{threadId}/info:
     get:
-      summary: GET mwsx/endpoint/{eName}/instanceChecking/{threadId}/info
+      summary: Get the info about the queries that will count the number of instances of each Class of the ontology
       operationId: get__endpoint_class_instance_checking
       parameters:
         - name: eName
@@ -1671,9 +1797,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InstanceCheckingInfo'
+        '401':
+          description: Unhauthorized
   /endpoint/{eName}/minMaxDataproperties/start:
     get:
-      summary: GET mwsx/endpoint/{eName}/minMaxDataproperties/start
+      summary: Starts the executions of the queries that will count the number of instances of each Class and Object Property of the ontology
       operationId: get__start_endpoint_min_max_dataproperties
       parameters:
         - name: eName
@@ -1688,9 +1816,11 @@ paths:
             application/json:
               schema:
                 type: integer
+        '401':
+          description: Unhauthorized
   /endpoint/{eName}/minMaxDataproperties/stop:
     get:
-      summary: GET mwsx/endpoint/{eName}/minMaxDataproperties/stop
+      summary: Starts the executions of the queries that will count the number of instances of each Class of the ontology
       operationId: get__stop_endpoint_min_max_dataproperties
       parameters:
         - name: eName
@@ -1705,9 +1835,11 @@ paths:
             application/json:
               schema:
                 type: integer
+        '401':
+          description: Unhauthorized
   /endpoint/{eName}/minMaxDataproperties/info:
     get:
-      summary: GET mwsx/endpoint/{eName}/minMaxDataproperties/info
+      summary: Get the info about the queries that will count the number of instances of each Class of the ontology
       operationId: get__endpoint_min_max_dataproperties
       parameters:
         - name: eName
@@ -1722,9 +1854,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/MinMaxDatapropertiesInfo'
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/queries:
     get:
-      summary: GET mwsx/endpoint/{name}/queries
+      summary: Returns the current state of all the queries in status <code>status</code> loaded in the endpoint named <code>name</code>
       operationId: list_query_statuses_on_endpoint
       parameters:
         - name: name
@@ -1746,9 +1880,11 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/SPARQLStatus'
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/queries/ids:
     get:
-      summary: GET mwsx/endpoint/{name}/queries/ids
+      summary: Returns the IDs of queries loaded in the given endpoint
       operationId: list_query_ids_on_endpoint
       parameters:
         - name: name
@@ -1770,9 +1906,11 @@ paths:
                 type: array
                 items:
                   type: string
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/query/{executionId}:
     delete:
-      summary: DELETE mwsx/endpoint/{name}/query/{executionId}
+      summary: Returns the IDs of queries loaded in the given endpoint
       operationId: delete_query_execution_on_endpoint
       parameters:
         - name: name
@@ -1792,9 +1930,11 @@ paths:
             application/json:
               schema:
                 type: boolean
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/query/start:
     post:
-      summary: POST mwsx/endpoint/{name}/query/start
+      summary: Starts a new query
       operationId: start_new_query_on_endpoint
       parameters:
         - name: name
@@ -1865,9 +2005,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/OBDARunQueryInstance'
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/query/start-sync:
     post:
-      summary: POST mwsx/endpoint/{name}/query/start-sync
+      summary: Starts a new query in synchronous mode on the given endpoint
       operationId: start_new_sync_query_on_endpoint
       parameters:
         - name: name
@@ -1938,9 +2080,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SPARQLResults'
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/query/count:
     post:
-      summary: POST mwsx/endpoint/{name}/query/count
+      summary: Counts the results of the given SPARQL query
       operationId: start_new_query_on_count
       parameters:
         - name: name
@@ -1986,9 +2130,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/OBDARunQueryInstance'
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/query/count/{queryId}/state:
     get:
-      summary: GET mwsx/endpoint/{name}/query/count/{queryId}/state
+      summary: Returns the current state of the count thread for the given SPARQL query
       operationId: get_query_count_state
       parameters:
         - name: name
@@ -2008,9 +2154,11 @@ paths:
             application/json:
               schema:
                 type: string
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/query/count/{queryId}/error:
     get:
-      summary: GET mwsx/endpoint/{name}/query/count/{queryId}/error
+      summary: Returns the current state of the count thread for the given SPARQL query
       operationId: get_query_count_error
       parameters:
         - name: name
@@ -2030,9 +2178,11 @@ paths:
             application/json:
               schema:
                 type: string
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/virtualEntity/{veName}:
     get:
-      summary: GET mwsx/endpoint/{name}/virtualEntity/{veName}
+      summary: Returns the virtual entity from a given endpoint by its name
       operationId: get__owlOntology_name_version_endpoint_virtuslEntity_results
       parameters:
         - name: name
@@ -2057,6 +2207,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SPARQLResults'
+        '401':
+          description: Unhauthorized
   /endpoint/{eName}/mappingAnalysisReport:
     get:
       summary: GET mwsx/endpoint/{eName}/mappingAnalysisReport
@@ -2074,6 +2226,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/MappingReport'
+        '401':
+          description: Unhauthorized
   /endpoint/{eName}/saturetedOntology:
     post:
       summary: POST mwsx/endpoint/{eName}/saturetedOntology
@@ -2097,6 +2251,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/FileInfo'
+        '401':
+          description: Unhauthorized
   /endpoint/{endpointName}/highligthsSharedViewsProps:
     get:
       tags:

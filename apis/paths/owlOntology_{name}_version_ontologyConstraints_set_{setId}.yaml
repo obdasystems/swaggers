@@ -1,84 +1,74 @@
 get:
-  summary: GET mwsx/owlOntology/{name}/version/ontologyConstraints/set/{setId}
+  summary: Returns a check set defined over the ontology / version
   operationId: get_ontologyConstraints_check_set_setId
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: setId
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: setId
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/DataQualityCheckSet.yaml
+          schema: {$ref: ../components/schemas/DataQualityCheckSet.yaml}
+    '401': {description: Unhauthorized}
 delete:
-  summary: DELETE mwsx/owlOntology/{name}/version/ontologyConstraints/set/{setId}
+  summary: Deletes the given check set from
   operationId: delete_ontologyConstraints_check_set_setId
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: setId
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: setId
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/DataQualityCheckSet.yaml
+          schema: {$ref: ../components/schemas/DataQualityCheckSet.yaml}
+    '401': {description: Unhauthorized}
 put:
-  summary: PUT mwsx/owlOntology/{name}/version/ontologyConstraints/set/{setId}
+  summary: Updates the definition of a specific check set
   operationId: put_ontologyConstraints_check
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: setId
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: setId
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
   requestBody:
     content:
       application/json:
-        schema:
-          $ref: ../components/schemas/DataQualityCheckSet.yaml
+        schema: {$ref: ../components/schemas/DataQualityCheckSet.yaml}
     required: true
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/DataQualityCheckSet.yaml
+          schema: {$ref: ../components/schemas/DataQualityCheckSet.yaml}
+    '401': {description: Unhauthorized}

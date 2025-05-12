@@ -23,7 +23,7 @@ security:
 paths:
   /triplify/start:
     post:
-      summary: POST mwsx/triplify/start
+      summary: Starts a new thread of mappings triplification with the given parameters
       operationId: post_mappings_triplification_start
       requestBody:
         content:
@@ -38,9 +38,11 @@ paths:
             application/json:
               schema:
                 type: string
+        '401':
+          description: Unhauthorized
   /owlOntology/{name}/mappings/{mapID}/triplify/listThreads:
     get:
-      summary: GET mwsx/owlOntology/{name}/mappings/{mapID}/triplify/listThreads
+      summary: Lists the triplification threads for a given mapping specification
       operationId: get_mappings_triplification_list
       parameters:
         - name: name
@@ -67,9 +69,11 @@ paths:
                 type: array
                 items:
                   type: string
+        '401':
+          description: Unhauthorized
   /owlOntology/{name}/mappings/{mapID}/triplify/listThreadProgresses:
     get:
-      summary: GET mwsx/owlOntology/{name}/mappings/{mapID}/triplify/listThreadProgresses
+      summary: Lists the triplification threads for a given mapping specification
       operationId: get_mappings_triplification_listProgresses
       parameters:
         - name: name
@@ -96,16 +100,20 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/OBDATriplificationProgress'
+        '401':
+          description: Unhauthorized
   /triplify/stopAll:
     put:
-      summary: PUT mwsx/triplify/stopAll
+      summary: Stops the thread identified by threadID
       operationId: put_mappings_triplification_stop_all
       responses:
         '200':
           description: OK
+        '401':
+          description: Unhauthorized
   /triplify/{threadID}/stop:
     put:
-      summary: PUT mwsx/triplify/{threadID}/stop
+      summary: Stops the thread identified by threadID
       operationId: put_mappings_triplification_stop
       parameters:
         - name: threadID
@@ -120,9 +128,11 @@ paths:
             application/json:
               schema:
                 type: string
+        '401':
+          description: Unhauthorized
   /triplify/{threadID}:
     delete:
-      summary: DELETE mwsx/triplify/{threadID}
+      summary: Stops the thread identified by threadID
       operationId: delete_mappings_triplification_thread
       parameters:
         - name: threadID
@@ -137,9 +147,11 @@ paths:
             application/json:
               schema:
                 type: string
+        '401':
+          description: Unhauthorized
   /triplify/{threadID}/status:
     get:
-      summary: GET mwsx/triplify/{threadID}/status
+      summary: Returns the status of a triplification thread
       operationId: get_mappings_triplification_status
       parameters:
         - name: threadID
@@ -154,9 +166,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/OBDATriplificationProgress'
+        '401':
+          description: Unhauthorized
   /triplify/{threadID}/report:
     get:
-      summary: GET mwsx/triplify/{threadID}/report
+      summary: Returns the report of a triplification thread
       operationId: get_mappings_triplification_report
       parameters:
         - name: threadID
@@ -171,9 +185,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/OBDATriplificationReport'
+        '401':
+          description: Unhauthorized
   /triplify/{threadID}/download:
     get:
-      summary: GET mwsx/triplify/{threadID}/download
+      summary: Returns the report of a triplification thread
       operationId: get_mappings_triplification_download
       parameters:
         - name: threadID
@@ -194,9 +210,11 @@ paths:
               schema:
                 type: string
                 format: binary
+        '401':
+          description: Unhauthorized
   /owlOntology/{name}/version/mapping/{mapID}/triplify/{datasource}:
     get:
-      summary: GET mwsx/owlOntology/{name}/version/mapping/{mapID}/triplify/{datasource}
+      summary: Triplifies the OBDA mapping specification, streaming the produced triples to the client
       operationId: get__owlOntology_name_version_query_ID_export_directcsv
       parameters:
         - name: name
@@ -232,6 +250,8 @@ paths:
               schema:
                 type: string
                 format: binary
+        '401':
+          description: Unhauthorized
 components:
   securitySchemes:
     apiKey:

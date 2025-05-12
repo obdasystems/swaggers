@@ -1,5 +1,5 @@
 get:
-  summary: GET mwsx/taskScheduler/jobs/available
+  summary: Lists the jobs available in the scheduler folder
   operationId: get__task_scheduler_jobs_available
   responses:
     '200':
@@ -8,5 +8,5 @@ get:
         application/json:
           schema:
             type: array
-            items: 
-              $ref: ../components/schemas/MwsxTaskSchedulerJobEntry.yaml
+            items: {$ref: ../components/schemas/MwsxTaskSchedulerJobEntry.yaml}
+    '401': {description: Unhauthorized}

@@ -1,21 +1,20 @@
 put:
-  summary: PUT mwsx/datasource/{name}/updateMetadata
+  summary: Updates the data source metadata information retrieving it from the JDBC
+    connection
   operationId: put__datasource_updateMetadata
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: schemasList
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: schemasList
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/DataSourceMetadata.yaml
+          schema: {$ref: ../components/schemas/DataSourceMetadata.yaml}
+    '401': {description: Unhauthorized}

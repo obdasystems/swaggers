@@ -43,9 +43,11 @@ paths:
             '*/*':
               schema:
                 type: string
+        '401':
+          description: Unhauthorized
   /mastro/version:
     get:
-      summary: GET mwsx/mastro/version
+      summary: Returns the version of Mastro
       operationId: get__mastro_version
       responses:
         '200':
@@ -54,9 +56,11 @@ paths:
             application/json:
               schema:
                 type: string
+        '401':
+          description: Unhauthorized
   /jena/version:
     get:
-      summary: GET mwsx/jena/version
+      summary: Returns the version of the Jena library used by Mastro
       operationId: get__jena_version
       responses:
         '200':
@@ -65,9 +69,11 @@ paths:
             application/json:
               schema:
                 type: string
+        '401':
+          description: Unhauthorized
   /owlapi/version:
     get:
-      summary: GET mwsx/owlapi/version
+      summary: Returns the version of the OWL API used by Mastro
       operationId: get__owlapi_version
       responses:
         '200':
@@ -76,6 +82,8 @@ paths:
             application/json:
               schema:
                 type: string
+        '401':
+          description: Unhauthorized
   /resources/ontologies:
     get:
       summary: GET mwsx/resources/ontologies
@@ -89,6 +97,8 @@ paths:
                 type: array
                 items:
                   type: string
+        '401':
+          description: Unhauthorized
   /resources/ontology/{name}/versions:
     get:
       summary: GET mwsx/resources/ontology/{name}/versions
@@ -108,6 +118,8 @@ paths:
                 type: array
                 items:
                   type: string
+        '401':
+          description: Unhauthorized
   /resources/ontology/{name}/version/mappings:
     get:
       summary: GET mwsx/resources/ontology/{name}/version/mappings
@@ -132,6 +144,8 @@ paths:
                 type: array
                 items:
                   type: string
+        '401':
+          description: Unhauthorized
   /resources/datasources:
     get:
       summary: GET mwsx/resources/datasources
@@ -145,6 +159,8 @@ paths:
                 type: array
                 items:
                   type: string
+        '401':
+          description: Unhauthorized
   /resources/endpoints:
     get:
       summary: GET mwsx/resources/endpoints
@@ -158,6 +174,8 @@ paths:
                 type: array
                 items:
                   type: string
+        '401':
+          description: Unhauthorized
   /mastro/instances:
     get:
       summary: GET mwsx/mastro/instances
@@ -171,6 +189,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/MastroID'
+        '401':
+          description: Unhauthorized
   /lastLoaded/ontology:
     get:
       summary: GET mwsx/lastLoaded/ontology
@@ -184,6 +204,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/OntologyOpeningEvent'
+        '401':
+          description: Unhauthorized
   /globalAnnotations:
     get:
       summary: GET mwsx/globalAnnotations
@@ -197,6 +219,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/OntologyEntity'
+        '401':
+          description: Unhauthorized
   /globalAnnotation:
     post:
       summary: POST mwsx/globalAnnotation
@@ -216,6 +240,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/OntologyEntity'
+        '401':
+          description: Unhauthorized
   /globalAnnotation/{entityId}:
     delete:
       summary: DELETE mwsx/globalAnnotation/{entityId}
@@ -235,9 +261,11 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/OntologyEntity'
+        '401':
+          description: Unhauthorized
   /server/license/info:
     get:
-      summary: GET mwsx/server/license/info
+      summary: Computes and returns the system storage report
       operationId: get_server_license_expiration_date
       responses:
         '200':
@@ -246,9 +274,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/LicenseInfo'
+        '401':
+          description: Unhauthorized
   /server/storage/report:
     get:
-      summary: GET mwsx/server/storage/report
+      summary: Computes and returns the system storage report
       operationId: get_system_storage_report
       responses:
         '200':
@@ -257,9 +287,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SystemStorageReport'
+        '401':
+          description: Unhauthorized
   /server/storage/{folder}:
     delete:
-      summary: DELETE mwsx/server/storage/{folder}
+      summary: Computes and returns the system storage report
       operationId: get_empty_folder
       parameters:
         - name: folder
@@ -274,9 +306,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SystemFolderDeletionReport'
+        '401':
+          description: Unhauthorized
   /server/systemSnapshot:
     get:
-      summary: GET mwsx/server/systemSnapshot
+      summary: Computes and returns the system storage report
       operationId: get_system_snapshot
       responses:
         '200':
@@ -285,9 +319,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Snapshot'
+        '401':
+          description: Unhauthorized
   /server/systemMemory:
     get:
-      summary: GET mwsx/server/systemMemory
+      summary: Computes and returns the system storage report
       operationId: get_system_memory
       responses:
         '200':
@@ -296,9 +332,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Snapshot'
+        '401':
+          description: Unhauthorized
   /server/userlog/{username}/count:
     get:
-      summary: GET mwsx/server/userlog/{username}/count
+      summary: Returns the user log lines count
       operationId: get_userlog_count
       parameters:
         - name: username
@@ -313,9 +351,11 @@ paths:
             application/json:
               schema:
                 type: integer
+        '401':
+          description: Unhauthorized
   /server/userlog/{username}:
     get:
-      summary: GET mwsx/server/userlog/{username}
+      summary: Returns the user log lines count
       operationId: get_userlog_count_user
       parameters:
         - name: username
@@ -344,9 +384,11 @@ paths:
                 type: object
                 additionalProperties:
                   $ref: '#/components/schemas/MwsxUserLogMessage'
+        '401':
+          description: Unhauthorized
   /geocoding/servers:
     get:
-      summary: GET mwsx/geocoding/servers
+      summary: Returns the list of available Geocoding servers
       operationId: get_geocoding_servers
       responses:
         '200':
@@ -355,9 +397,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/GeocodingServers'
+        '401':
+          description: Unhauthorized
   /geocoding/server/{serverId}:
     put:
-      summary: PUT mwsx/geocoding/server/{serverId}
+      summary: Adds or modifies the specified Geocoding server and returns the new list of available servers
       operationId: put_geocoding_server
       parameters:
         - name: serverId
@@ -378,8 +422,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/GeocodingServers'
+        '401':
+          description: Unhauthorized
     delete:
-      summary: DELETE mwsx/geocoding/server/{serverId}
+      summary: Removes the specified server from the list of available servers
       operationId: delete_geocoding_server
       parameters:
         - name: serverId
@@ -394,6 +440,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/GeocodingServers'
+        '401':
+          description: Unhauthorized
   /logger/mastroapi:
     get:
       summary: GET mwsx/logger/mastroapi
@@ -412,6 +460,8 @@ paths:
               schema:
                 type: integer
                 format: int32
+        '401':
+          description: Unhauthorized
   /logger/service:
     get:
       summary: GET mwsx/logger/service
@@ -430,6 +480,8 @@ paths:
               schema:
                 type: integer
                 format: int32
+        '401':
+          description: Unhauthorized
   /logger:
     get:
       summary: GET mwsx/logger
@@ -458,6 +510,8 @@ paths:
               schema:
                 type: integer
                 format: int32
+        '401':
+          description: Unhauthorized
   /logger/class:
     get:
       summary: GET mwsx/logger/class
@@ -486,6 +540,8 @@ paths:
               schema:
                 type: integer
                 format: int32
+        '401':
+          description: Unhauthorized
   /logger/package:
     get:
       summary: GET mwsx/logger/package
@@ -514,6 +570,8 @@ paths:
               schema:
                 type: integer
                 format: int32
+        '401':
+          description: Unhauthorized
   /logger/list:
     get:
       summary: GET mwsx/logger/list
@@ -525,6 +583,8 @@ paths:
             application/json:
               schema:
                 type: object
+        '401':
+          description: Unhauthorized
   /logger/monitor:
     get:
       summary: GET mwsx/logger/monitor
@@ -543,6 +603,8 @@ paths:
               schema:
                 type: integer
                 format: int32
+        '401':
+          description: Unhauthorized
   /statics/sparql/extractProjectVarNames:
     post:
       summary: POST mwsx/statics/sparql/extractProjectVarNames
@@ -562,6 +624,8 @@ paths:
                 type: array
                 items:
                   type: string
+        '401':
+          description: Unhauthorized
   /statics/sparql/templateSize:
     post:
       summary: POST mwsx/statics/sparql/templateSize
@@ -579,6 +643,8 @@ paths:
             application/json:
               schema:
                 type: integer
+        '401':
+          description: Unhauthorized
   /statics/reporting/request:
     post:
       summary: POST mwsx/statics/reporting/request
@@ -596,9 +662,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/FileInfo'
+        '401':
+          description: Unhauthorized
   /system/jdbcDrivers:
     get:
-      summary: GET mwsx/system/jdbcDrivers
+      summary: Returns the available JDBC drivers
       operationId: getJdbcDrivers
       responses:
         '200':
@@ -609,9 +677,11 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/JDBCDriver'
+        '401':
+          description: Unhauthorized
   /system/jdbcDriver/{driver}:
     get:
-      summary: GET mwsx/system/jdbcDriver/{driver}
+      summary: Returns information about a specific JDBC driver
       operationId: getJdbcDriver
       parameters:
         - name: driver
@@ -626,8 +696,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/JDBCDriver'
+        '401':
+          description: Unhauthorized
     delete:
-      summary: DELETE mwsx/system/jdbcDriver/{driver}
+      summary: Adds information about a new JDBC driver to the system
       operationId: DELETEJdbcDrivers
       parameters:
         - name: driver
@@ -642,8 +714,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/JDBCDriver'
+        '401':
+          description: Unhauthorized
     put:
-      summary: PUT mwsx/system/jdbcDriver/{driver}
+      summary: Adds information about a new JDBC driver to the system
       operationId: putJdbcDrivers
       parameters:
         - name: driver
@@ -664,9 +738,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/JDBCDriver'
+        '401':
+          description: Unhauthorized
   /system/jdbcDriver:
     post:
-      summary: POST mwsx/system/jdbcDriver
+      summary: Adds information about a new JDBC driver to the system
       operationId: postJdbcDrivers
       requestBody:
         content:
@@ -681,9 +757,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/JDBCDriver'
+        '401':
+          description: Unhauthorized
   /queryTags:
     get:
-      summary: GET mwsx/queryTags
+      summary: Returns all the available query tags
       operationId: get_queryTags
       responses:
         '200':
@@ -692,8 +770,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Tags'
+        '401':
+          description: Unhauthorized
     post:
-      summary: POST mwsx/queryTags
+      summary: Adds a new query tag to the set of available tags
       operationId: post_queryTags
       requestBody:
         content:
@@ -708,9 +788,11 @@ paths:
             application/json:
               schema:
                 type: boolean
+        '401':
+          description: Unhauthorized
   /queryTags/{tagName}:
     delete:
-      summary: DELETE mwsx/queryTags/{tagName}
+      summary: Deletes the given query tag from the list of available tags
       operationId: delete_queryTags_tagName
       parameters:
         - name: tagName
@@ -725,9 +807,11 @@ paths:
             application/json:
               schema:
                 type: boolean
+        '401':
+          description: Unhauthorized
   /statistics/accesses:
     get:
-      summary: GET mwsx/statistics/accesses
+      summary: Returns the access log
       operationId: get_accesses_statistics
       responses:
         '200':
@@ -738,8 +822,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/AccessLog'
+        '401':
+          description: Unhauthorized
     post:
-      summary: POST mwsx/statistics/accesses
+      summary: Replace the current access log with the one provided
       operationId: post_accesses_statistics
       requestBody:
         content:
@@ -758,8 +844,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/AccessLog'
+        '401':
+          description: Unhauthorized
     put:
-      summary: PUT mwsx/statistics/accesses
+      summary: Adds the provided access log to the one registered in the system
       operationId: put_accesses_statistics
       requestBody:
         content:
@@ -778,8 +866,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/AccessLog'
+        '401':
+          description: Unhauthorized
     delete:
-      summary: DELETE mwsx/statistics/accesses
+      summary: Replace the current access log with the one provided
       operationId: delete_accesses_statistics
       responses:
         '200':
@@ -790,9 +880,11 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/AccessLog'
+        '401':
+          description: Unhauthorized
   /statistics/ontologies:
     get:
-      summary: GET mwsx/statistics/ontologies
+      summary: Returns the ontologies statistics
       operationId: get_ontologies_statistics
       responses:
         '200':
@@ -803,8 +895,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/OntologyUsageLog'
+        '401':
+          description: Unhauthorized
     post:
-      summary: POST mwsx/statistics/ontologies
+      summary: Replace the current ontologies statistics with the one provided
       operationId: post_ontologies_statistics
       requestBody:
         content:
@@ -823,8 +917,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/OntologyUsageLog'
+        '401':
+          description: Unhauthorized
     put:
-      summary: PUT mwsx/statistics/ontologies
+      summary: Adds the provided access log to the one registered in the system
       operationId: put_ontologies_statistics
       requestBody:
         content:
@@ -843,8 +939,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/OntologyUsageLog'
+        '401':
+          description: Unhauthorized
     delete:
-      summary: DELETE mwsx/statistics/ontologies
+      summary: Adds the provided access log to the one registered in the system
       operationId: delete_ontologies_statistics
       responses:
         '200':
@@ -855,9 +953,11 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/OntologyUsageLog'
+        '401':
+          description: Unhauthorized
   /statistics/{endpoint}/queries:
     get:
-      summary: GET mwsx/statistics/{endpoint}/queries
+      summary: Returns the query statistics for the given endpoint
       operationId: get_statistics_endpoint_queries
       parameters:
         - name: endpoint
@@ -874,8 +974,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/QueryUsageLog'
+        '401':
+          description: Unhauthorized
     post:
-      summary: POST mwsx/statistics/{endpoint}/queries
+      summary: Replace the current query statistics with the one provided for the given endpoint
       operationId: post_statistics_endpoint_queries
       parameters:
         - name: endpoint
@@ -900,8 +1002,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/QueryUsageLog'
+        '401':
+          description: Unhauthorized
     put:
-      summary: PUT mwsx/statistics/{endpoint}/queries
+      summary: Adds the provided query statistics for the given endpoint to the one registered in the system
       operationId: put_statistics_endpoint_queries
       parameters:
         - name: endpoint
@@ -926,8 +1030,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/QueryUsageLog'
+        '401':
+          description: Unhauthorized
     delete:
-      summary: DELETE mwsx/statistics/{endpoint}/queries
+      summary: Deletes from the system the query statistics for the given endpoint
       operationId: delete_statistics_endpoint_queries
       parameters:
         - name: endpoint
@@ -944,9 +1050,11 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/QueryUsageLog'
+        '401':
+          description: Unhauthorized
   /statistics/{endpoint}/entities:
     get:
-      summary: GET mwsx/statistics/{endpoint}/entities
+      summary: Returns the entities statistics for the given endpoint
       operationId: get_statistics_endpoint_entities
       parameters:
         - name: endpoint
@@ -975,6 +1083,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/EntityUsageLog'
+        '401':
+          description: Unhauthorized
 components:
   securitySchemes:
     apiKey:

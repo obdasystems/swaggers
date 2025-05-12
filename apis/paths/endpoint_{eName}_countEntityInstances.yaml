@@ -1,26 +1,24 @@
 get:
-  summary: GET mwsx/endpoint/{eName}/countEntityInstances
+  summary: Count the number of instances of the Class or the Object Property of the
+    ontology
   operationId: get__endpoint_instances
   parameters:
-    - name: eName
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: classIRI
-      in: query
-      required: true
-      schema:
-        type: string
-    - name: objectPropertyIRI
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: eName
+    in: path
+    required: true
+    schema: {type: string}
+  - name: classIRI
+    in: query
+    required: true
+    schema: {type: string}
+  - name: objectPropertyIRI
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            type: integer
+          schema: {type: integer}
+    '401': {description: Unhauthorized}

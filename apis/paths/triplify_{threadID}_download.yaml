@@ -1,22 +1,19 @@
 get:
-  summary: GET mwsx/triplify/{threadID}/download
+  summary: Returns the report of a triplification thread
   operationId: get_mappings_triplification_download
   parameters:
-    - name: threadID
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: format
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: threadID
+    in: path
+    required: true
+    schema: {type: string}
+  - name: format
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/octet-stream:
-          schema:
-            type: string
-            format: binary
+          schema: {type: string, format: binary}
+    '401': {description: Unhauthorized}

@@ -173,6 +173,8 @@ paths:
             application/json:
               schema:
                 type: string
+        '401':
+          description: Unhauthorized
   /owlOntology/{name}/highlights/paths/thread/stop:
     post:
       summary: Stop the thread computing a shortest path on the ontology
@@ -200,6 +202,8 @@ paths:
             application/json:
               schema:
                 type: object
+        '401':
+          description: Unhauthorized
   /owlOntology/{name}/highlights/paths/thread/result:
     get:
       summary: GET results of a thread computing ontology paths with multi edges over a given ontology
@@ -229,6 +233,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/OntologyMultiPath'
+        '401':
+          description: Unhauthorized
   /owlOntology/{name}/highlights/paths/thread/state:
     get:
       summary: Get the state of the thread computing a shortest path on the ontology
@@ -256,6 +262,8 @@ paths:
             application/json:
               schema:
                 type: string
+        '401':
+          description: Unhauthorized
   /owlOntology/{name}/highlights/paths/thread/error:
     get:
       summary: Get the error of a thread computing a shortest path on the ontology
@@ -283,6 +291,8 @@ paths:
             application/json:
               schema:
                 type: string
+        '401':
+          description: Unhauthorized
   /owlOntology/{ontologyName}/queryGraph/node:
     get:
       tags:
@@ -652,6 +662,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/QueryGraph'
+        '401':
+          description: Unhauthorized
         '404':
           description: GraphElement not found
           content: {}
@@ -698,6 +710,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/QueryGraph'
+        '401':
+          description: Unhauthorized
         '404':
           description: GraphElement not found
           content: {}
@@ -739,6 +753,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/QueryGraph'
+        '401':
+          description: Unhauthorized
         '404':
           description: GraphElement not found
           content: {}
@@ -780,6 +796,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/QueryGraph'
+        '401':
+          description: Unhauthorized
         '404':
           description: GraphElement not found
           content: {}
@@ -820,6 +838,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/QueryGraph'
+        '401':
+          description: Unhauthorized
         '404':
           description: GraphElement not found
           content: {}
@@ -855,6 +875,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/QueryGraph'
+        '401':
+          description: Unhauthorized
         '404':
           description: GraphElement not found
           content: {}
@@ -909,6 +931,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/QueryGraph'
+        '401':
+          description: Unhauthorized
         '404':
           description: GraphElement not found
           content: {}
@@ -963,6 +987,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/QueryGraph'
+        '401':
+          description: Unhauthorized
         '404':
           description: GraphElement not found
           content: {}
@@ -998,6 +1024,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/QueryGraph'
+        '401':
+          description: Unhauthorized
         '404':
           description: GraphElement not found
           content: {}
@@ -1040,6 +1068,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/QueryGraph'
+        '401':
+          description: Unhauthorized
         '404':
           description: Graph Node not found
           content: {}
@@ -1082,6 +1112,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/QueryGraph'
+        '401':
+          description: Unhauthorized
         '404':
           description: Head term not found
           content: {}
@@ -1124,6 +1156,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/QueryGraph'
+        '401':
+          description: Unhauthorized
         '404':
           description: Head term not found
           content: {}
@@ -1166,6 +1200,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/QueryGraph'
+        '401':
+          description: Unhauthorized
         '404':
           description: Head term not found
           content: {}
@@ -1208,6 +1244,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/QueryGraph'
+        '401':
+          description: Unhauthorized
         '404':
           description: Head term not found
           content: {}
@@ -1250,6 +1288,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/QueryGraph'
+        '401':
+          description: Unhauthorized
         '404':
           description: Head term not found
           content: {}
@@ -1285,6 +1325,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/QueryGraph'
+        '401':
+          description: Unhauthorized
         '404':
           description: Head term not found
           content: {}
@@ -1326,6 +1368,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/QueryGraph'
+        '401':
+          description: Unhauthorized
         '404':
           description: Head term not found
           content: {}
@@ -1366,6 +1410,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/QueryGraph'
+        '401':
+          description: Unhauthorized
         '404':
           description: Head term not found
           content: {}
@@ -1407,6 +1453,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/QueryGraph'
+        '401':
+          description: Unhauthorized
         '404':
           description: Head term not found
           content: {}
@@ -1448,6 +1496,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/QueryGraph'
+        '401':
+          description: Unhauthorized
         '404':
           description: Head term not found
           content: {}
@@ -1546,6 +1596,8 @@ paths:
               schema:
                 description: THE SPARQL CONSTRUCT query that will compute the shortest path
                 type: string
+        '401':
+          description: Unhauthorized
         '404':
           description: Ontology not uploaded
           content: {}
@@ -1579,6 +1631,8 @@ paths:
               schema:
                 description: THE SPARQL CONSTRUCT query that will compute the shortest path
                 type: string
+        '401':
+          description: Unhauthorized
         '404':
           description: Ontology not uploaded
           content: {}
@@ -1614,6 +1668,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/QueryGraph'
+        '401':
+          description: Unhauthorized
         '404':
           description: Ontology not uploaded
           content: {}

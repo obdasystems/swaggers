@@ -1,26 +1,24 @@
 post:
-  summary: POST mwsx/owlOntology/{name}/version/dashboards/migrate
+  summary: Migrates all dashboards from version 'version' to 'version' targetVersion
+    for ontology named 'name'
   operationId: post__owlOntology_version_dashboards_migrate
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      required: true
-      schema:
-        type: string
-    - name: targetVersion
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  - name: targetVersion
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/Dashboards.yaml
+          schema: {$ref: ../components/schemas/Dashboards.yaml}
+    '401': {description: Unhauthorized}

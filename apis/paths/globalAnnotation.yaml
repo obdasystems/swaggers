@@ -4,8 +4,7 @@ post:
   requestBody:
     content:
       application/json:
-        schema:
-          $ref: ../components/schemas/OntologyEntity.yaml
+        schema: {$ref: ../components/schemas/OntologyEntity.yaml}
     required: true
   responses:
     '200':
@@ -14,5 +13,5 @@ post:
         application/json:
           schema:
             type: array
-            items: 
-              $ref: ../components/schemas/OntologyEntity.yaml
+            items: {$ref: ../components/schemas/OntologyEntity.yaml}
+    '401': {description: Unhauthorized}

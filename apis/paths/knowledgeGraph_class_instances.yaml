@@ -2,26 +2,22 @@ get:
   summary: GET mwsx/knowledgeGraph/class/instances
   operationId: get__knowledgeGraph_mentioned_instances_by_class
   parameters:
-    - name: kgIri
-      in: query
-      required: true
-      schema:
-        type: string
-    - name: classIri
-      in: query
-      required: true
-      schema:
-        type: string
-    - name: namedGraph
-      in: query
-      required: true
-      schema:
-        type: string
-    - name: lang
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: kgIri
+    in: query
+    required: true
+    schema: {type: string}
+  - name: classIri
+    in: query
+    required: true
+    schema: {type: string}
+  - name: namedGraph
+    in: query
+    required: true
+    schema: {type: string}
+  - name: lang
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
@@ -29,5 +25,5 @@ get:
         application/json:
           schema:
             type: array
-            items:
-              $ref: ../components/schemas/InstanceLabelType.yaml
+            items: {$ref: ../components/schemas/InstanceLabelType.yaml}
+    '401': {description: Unhauthorized}

@@ -1,10 +1,10 @@
 get:
-  summary: GET mwsx/server/license/info
+  summary: Computes and returns the system storage report
   operationId: get_server_license_expiration_date
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/LicenseInfo.yaml
+          schema: {$ref: ../components/schemas/LicenseInfo.yaml}
+    '401': {description: Unhauthorized}

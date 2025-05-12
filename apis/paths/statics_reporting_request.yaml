@@ -4,13 +4,12 @@ post:
   requestBody:
     content:
       application/json:
-        schema:
-          $ref: ../components/schemas/IssueReportRequest.yaml
+        schema: {$ref: ../components/schemas/IssueReportRequest.yaml}
     required: true
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/FileInfo.yaml
+          schema: {$ref: ../components/schemas/FileInfo.yaml}
+    '401': {description: Unhauthorized}

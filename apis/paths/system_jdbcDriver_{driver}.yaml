@@ -1,54 +1,50 @@
 get:
-  summary: GET mwsx/system/jdbcDriver/{driver}
+  summary: Returns information about a specific JDBC driver
   operationId: getJdbcDriver
   parameters:
-    - name: driver
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: driver
+    in: path
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/JDBCDriver.yaml
+          schema: {$ref: ../components/schemas/JDBCDriver.yaml}
+    '401': {description: Unhauthorized}
 delete:
-  summary: DELETE mwsx/system/jdbcDriver/{driver}
+  summary: Adds information about a new JDBC driver to the system
   operationId: DELETEJdbcDrivers
   parameters:
-    - name: driver
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: driver
+    in: path
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/JDBCDriver.yaml
+          schema: {$ref: ../components/schemas/JDBCDriver.yaml}
+    '401': {description: Unhauthorized}
 put:
-  summary: PUT mwsx/system/jdbcDriver/{driver}
+  summary: Adds information about a new JDBC driver to the system
   operationId: putJdbcDrivers
   parameters:
-    - name: driver
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: driver
+    in: path
+    required: true
+    schema: {type: string}
   requestBody:
     content:
       application/json:
-        schema:
-          $ref: ../components/schemas/JDBCDriver.yaml
+        schema: {$ref: ../components/schemas/JDBCDriver.yaml}
     required: true
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/JDBCDriver.yaml
+          schema: {$ref: ../components/schemas/JDBCDriver.yaml}
+    '401': {description: Unhauthorized}

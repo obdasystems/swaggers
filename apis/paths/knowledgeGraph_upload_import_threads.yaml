@@ -2,11 +2,10 @@ get:
   summary: GET mwsx/knowledgeGraph/upload/import/threads
   operationId: get__knowledgeGraph_upload_file_csv_import
   parameters:
-    - name: iri
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: iri
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
@@ -14,5 +13,5 @@ get:
         application/json:
           schema:
             type: array
-            items: 
-              $ref: ../components/schemas/KgCsvImportReport.yaml
+            items: {$ref: ../components/schemas/KgCsvImportReport.yaml}
+    '401': {description: Unhauthorized}

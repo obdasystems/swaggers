@@ -1,27 +1,24 @@
 put:
-  summary: Overwrite a VKG Snapshot (given its snapshotId) in the catalog for a given ontology (name, version)
+  summary: Overwrite a VKG Snapshot (given its snapshotId) in the catalog for a given
+    ontology (name, version)
   operationId: put_vkg_snapshot
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: snapshotId
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: snapshotId
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
   requestBody:
     content:
       application/json:
-        schema:
-          $ref: ../components/schemas/VKGSnapshot.yaml
+        schema: {$ref: ../components/schemas/VKGSnapshot.yaml}
     required: true
   responses:
     '200':
@@ -30,27 +27,24 @@ put:
         application/json:
           schema:
             type: array
-            items:
-              $ref: ../components/schemas/VKGSnapshot.yaml
+            items: {$ref: ../components/schemas/VKGSnapshot.yaml}
+    '401': {description: Unhauthorized}
 delete:
   summary: Delete a given VKG Snapshot from catalog for a given ontology (name, version)
   operationId: delete_vkg_snapshot
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: snapshotId
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: snapshotId
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
@@ -58,5 +52,5 @@ delete:
         application/json:
           schema:
             type: array
-            items:
-              $ref: ../components/schemas/VKGSnapshot.yaml
+            items: {$ref: ../components/schemas/VKGSnapshot.yaml}
+    '401': {description: Unhauthorized}

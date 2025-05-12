@@ -1,26 +1,23 @@
 get:
-  summary: GET mwsx/endpoint/{name}/query/{queryID}/exportFile
+  summary: Returns the file containing exported results for a query on the given endpoint
   operationId: export_catalog_query_on_endpoint
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: queryID
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: fileName
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: queryID
+    in: path
+    required: true
+    schema: {type: string}
+  - name: fileName
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/FileInfo.yaml
+          schema: {$ref: ../components/schemas/FileInfo.yaml}
+    '401': {description: Unhauthorized}

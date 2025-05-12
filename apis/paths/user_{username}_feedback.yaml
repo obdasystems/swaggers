@@ -1,16 +1,15 @@
 delete:
-  summary: DELETE mwsx/user/{username}/feedback
+  summary: Returns the feedback provided by a specific user
   operationId: delete__user_feedback
   parameters:
-    - name: username
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: username
+    in: path
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/UserFeedback.yaml
+          schema: {$ref: ../components/schemas/UserFeedback.yaml}
+    '401': {description: Unhauthorized}

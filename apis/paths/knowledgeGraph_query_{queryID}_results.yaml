@@ -2,32 +2,26 @@ get:
   summary: GET mwsx/knowledgeGraph/query/{queryID}/results
   operationId: get__knowledgeGraph_query_executionID_results
   parameters:
-    - name: queryID
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: iri
-      in: query
-      required: true
-      schema:
-        type: string
-    - name: pagesize
-      in: query
-      required: true
-      schema:
-        type: integer
-        format: int32
-    - name: offset
-      in: query
-      required: true
-      schema:
-        type: integer
-        format: int32
+  - name: queryID
+    in: path
+    required: true
+    schema: {type: string}
+  - name: iri
+    in: query
+    required: true
+    schema: {type: string}
+  - name: pagesize
+    in: query
+    required: true
+    schema: {type: integer, format: int32}
+  - name: offset
+    in: query
+    required: true
+    schema: {type: integer, format: int32}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/SPARQLResults.yaml
+          schema: {$ref: ../components/schemas/SPARQLResults.yaml}
+    '401': {description: Unhauthorized}

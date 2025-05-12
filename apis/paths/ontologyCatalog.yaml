@@ -1,30 +1,26 @@
 post:
-  tags:
-    - Ontology Catalog
+  tags: [Ontology Catalog]
   summary: Perform an action for ontology to the catalog
   description: Modifies the ontology catalog byacoording to the action provided
   operationId: editCatalog
   parameters:
-    - name: action
-      in: query
-      required: true
-      schema:
-        type: string
-        enum:
-          - add
-          - delete
+  - name: action
+    in: query
+    required: true
+    schema:
+      type: string
+      enum: [add, delete]
   requestBody:
     content:
       application/json:
-        schema:
-          $ref: ../components/schemas/OntologyID.yaml
+        schema: {$ref: ../components/schemas/OntologyID.yaml}
   responses:
     '200':
       description: Successful operation
       content:
         application/json:
-          schema:
-            type: boolean
+          schema: {type: boolean}
+    '401': {description: Unhauthorized}
 get:
   summary: GET mwsx/ontologyCatalog
   operationId: get_ontology_catalog
@@ -33,8 +29,8 @@ get:
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/OntologyCatalogEntries.yaml
+          schema: {$ref: ../components/schemas/OntologyCatalogEntries.yaml}
+    '401': {description: Unhauthorized}
 delete:
   summary: DELETE mwsx/ontologyCatalog
   operationId: delete_ontology_catalog
@@ -43,5 +39,5 @@ delete:
       description: OK
       content:
         application/json:
-          schema:
-            type: object
+          schema: {type: object}
+    '401': {description: Unhauthorized}

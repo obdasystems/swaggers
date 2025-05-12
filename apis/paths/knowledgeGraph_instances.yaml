@@ -2,16 +2,14 @@ get:
   summary: GET mwsx/knowledgeGraph/instances
   operationId: get__knowledgeGraph_instances
   parameters:
-    - name: iri
-      in: query
-      required: true
-      schema:
-        type: string
-    - name: namedGraph
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: iri
+    in: query
+    required: true
+    schema: {type: string}
+  - name: namedGraph
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
@@ -19,5 +17,5 @@ get:
         application/json:
           schema:
             type: array
-            items: 
-              $ref: ../components/schemas/InstanceLabelType.yaml
+            items: {$ref: ../components/schemas/InstanceLabelType.yaml}
+    '401': {description: Unhauthorized}

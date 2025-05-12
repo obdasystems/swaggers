@@ -2,15 +2,14 @@ get:
   summary: GET mwsx/ontologyCatalog/cache/results/{queryname}
   operationId: get_ontology_catalog_cache_manager_query_results
   parameters:
-    - name: queryname
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: queryname
+    in: path
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/Response.yaml
+          schema: {$ref: ../components/schemas/Response.yaml}
+    '401': {description: Unhauthorized}

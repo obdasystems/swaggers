@@ -1,10 +1,10 @@
 get:
-  summary: GET mwsx/endpoints/running
+  summary: Returns all endpoints with status running
   operationId: get_running_endpoints
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/Endpoints.yaml
+          schema: {$ref: ../components/schemas/Endpoints.yaml}
+    '401': {description: Unhauthorized}

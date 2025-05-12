@@ -1,22 +1,20 @@
 put:
-  summary: PUT mwsx/endpoint/{name}/start
+  summary: Starts the given endpoint, returns 0 if the operation succeeds
   operationId: start_endpoint
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
   requestBody:
     content:
       '*/*':
-        schema:
-          $ref: ../components/schemas/MastroProperties.yaml
+        schema: {$ref: ../components/schemas/MastroProperties.yaml}
     required: true
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            type: integer
+          schema: {type: integer}
+    '401': {description: Unhauthorized}

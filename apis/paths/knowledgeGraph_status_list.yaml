@@ -8,7 +8,7 @@ get:
         application/json:
           schema:
             type: object
-            additionalProperties: 
+            additionalProperties:
               type: array
-              items:
-                type: string
+              items: {type: string}
+    '401': {description: Unhauthorized}

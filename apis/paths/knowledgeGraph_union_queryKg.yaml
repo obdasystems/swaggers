@@ -4,13 +4,12 @@ put:
   requestBody:
     content:
       application/json:
-        schema:
-          $ref: ../components/schemas/KnowledgeGraphDestinationQueryKg.yaml
+        schema: {$ref: ../components/schemas/KnowledgeGraphDestinationQueryKg.yaml}
     required: true
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            type: object
+          schema: {type: object}
+    '401': {description: Unhauthorized}

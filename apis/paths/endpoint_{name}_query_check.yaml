@@ -1,22 +1,20 @@
 post:
-  summary: POST mwsx/endpoint/{name}/query/check
+  summary: Checks the syntax of the passed query on the given endpoint
   operationId: check_query_on_endpoint
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
   requestBody:
     content:
       '*/*':
-        schema:
-          $ref: ../components/schemas/SPARQLQuery.yaml
+        schema: {$ref: ../components/schemas/SPARQLQuery.yaml}
     required: true
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            type: string
+          schema: {type: string}
+    '401': {description: Unhauthorized}

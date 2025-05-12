@@ -45,6 +45,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/VKGSnapshot'
+        '401':
+          description: Unhauthorized
     post:
       summary: Save a new VKG Snaphot in the catalog for a given ontology (name, version).
       operationId: post_vkg_snapshot
@@ -74,6 +76,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/VKGSnapshot'
+        '401':
+          description: Unhauthorized
     delete:
       summary: DELETE the entire VKG Snapshot catalog for a given ontology (name, version)
       operationId: delete_vkg_snapshots
@@ -97,6 +101,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/VKGSnapshot'
+        '401':
+          description: Unhauthorized
   /owlOntology/{name}/version/vkg/catalog/{snapshotId}:
     put:
       summary: Overwrite a VKG Snapshot (given its snapshotId) in the catalog for a given ontology (name, version)
@@ -132,6 +138,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/VKGSnapshot'
+        '401':
+          description: Unhauthorized
     delete:
       summary: Delete a given VKG Snapshot from catalog for a given ontology (name, version)
       operationId: delete_vkg_snapshot
@@ -160,6 +168,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/VKGSnapshot'
+        '401':
+          description: Unhauthorized
   /owlOntology/{name}/version/vkg/catalog/export:
     get:
       summary: Get the entire VKG Snapshot catalog for a given ontology (name, version) as a file
@@ -182,6 +192,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/FileInfo'
+        '401':
+          description: Unhauthorized
   /owlOntology/{name}/version/vkg/catalog/import:
     post:
       summary: Upload the JSON file of a VKG Snapshot catalog for a given ontology (name, version)
@@ -215,6 +227,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/FileInfo'
+        '401':
+          description: Unhauthorized
   /owlOntology/{name}/version/vkg/node-rendering:
     get:
       summary: Returns the default VKG node rendering for the ontology version
@@ -237,6 +251,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CustomNodeRenderingMap'
+        '401':
+          description: Unhauthorized
     post:
       summary: Set a default VKG node rendering for the ontology version
       operationId: post_default_node_rendering
@@ -264,6 +280,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CustomNodeRenderingMap'
+        '401':
+          description: Unhauthorized
     put:
       summary: Modifies the default VKG node rendering for the ontology version
       operationId: put_default_node_rendering
@@ -291,6 +309,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CustomNodeRenderingMap'
+        '401':
+          description: Unhauthorized
     delete:
       summary: DELETE mwsx/owlOntology/{name}/version/vkg/node-rendering
       operationId: delete_vkg_node_rendering
@@ -308,6 +328,8 @@ paths:
       responses:
         '200':
           description: OK
+        '401':
+          description: Unhauthorized
 components:
   securitySchemes:
     apiKey:

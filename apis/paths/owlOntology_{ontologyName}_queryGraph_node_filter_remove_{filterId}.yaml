@@ -1,39 +1,34 @@
 put:
-  tags:
-    - QueryGraphFilter
+  tags: [QueryGraphFilter]
   summary: Remove the filter at index `filterId` from the query.
   operationId: removeFilter
   parameters:
-    - name: ontologyName
-      in: path
-      description: The name of the ontology
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      description: The version of the ontology
-      required: true
-      schema:
-        type: string
-    - name: filterId
-      in: path
-      required: true
-      schema:
-        type: integer
+  - name: ontologyName
+    in: path
+    description: The name of the ontology
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    description: The version of the ontology
+    required: true
+    schema: {type: string}
+  - name: filterId
+    in: path
+    required: true
+    schema: {type: integer}
   requestBody:
     content:
       application/json:
-        schema:
-          $ref: ../components/schemas/QueryGraph.yaml
+        schema: {$ref: ../components/schemas/QueryGraph.yaml}
     required: true
   responses:
     '200':
       description: successful operation
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/QueryGraph.yaml
+          schema: {$ref: ../components/schemas/QueryGraph.yaml}
     '404':
       description: GraphElement not found
       content: {}
+    '401': {description: Unhauthorized}

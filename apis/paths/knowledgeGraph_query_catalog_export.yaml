@@ -2,15 +2,14 @@ get:
   summary: GET mwsx/knowledgeGraph/query/catalog/export
   operationId: get__knowledgeGraph_query_catalog_export
   parameters:
-    - name: iri
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: iri
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            type: object
+          schema: {type: object}
+    '401': {description: Unhauthorized}

@@ -23,7 +23,7 @@ security:
 paths:
   /owlOntology/{name}/version/querycatalog:
     get:
-      summary: GET mwsx/owlOntology/{name}/version/querycatalog
+      summary: Returns the query catalog available for the given version of the ontology
       operationId: get__owlOntology_name_version_querycatalog
       parameters:
         - name: name
@@ -43,8 +43,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/OBDACatalog'
+        '401':
+          description: Unhauthorized
     delete:
-      summary: DELETE mwsx/owlOntology/{name}/version/querycatalog
+      summary: Deletes the query catalog available for the given version of the ontology
       operationId: delete__owlOntology_name_version_querycatalog
       parameters:
         - name: name
@@ -64,9 +66,11 @@ paths:
             application/json:
               schema:
                 type: boolean
+        '401':
+          description: Unhauthorized
   /owlOntology/{name}/version/querycatalog/converted2sparqling:
     get:
-      summary: GET mwsx/owlOntology/{name}/version/querycatalog/converted2sparqling
+      summary: Returns a list of SparqlingSPARQLQuery obtaining converted the SPARQLQuery queries available in the catalog to SparqlingSPARQLQuery
       operationId: get__owlOntology_name_version_querycatalog_converted2spargling
       parameters:
         - name: name
@@ -88,9 +92,11 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/SparqlingSPARQLQuery'
+        '401':
+          description: Unhauthorized
   /owlOntology/{name}/version/query/{queryID}/publication:
     post:
-      summary: POST mwsx/owlOntology/{name}/version/query/{queryID}/publication
+      summary: Requires the publication of a query from a given user catalog
       operationId: post__owlOntology_name_version_querycatalog_request_publication
       parameters:
         - name: name
@@ -115,9 +121,11 @@ paths:
             application/json:
               schema:
                 type: boolean
+        '401':
+          description: Unhauthorized
   /owlOntology/{name}/version/querycatalog/publicationRequests:
     get:
-      summary: GET mwsx/owlOntology/{name}/version/querycatalog/publicationRequests
+      summary: Requires the publication of a query from a given user catalog
       operationId: get__owlOntology_name_version_querycatalog_request_publication
       parameters:
         - name: name
@@ -139,9 +147,11 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/SPARQLQuery'
+        '401':
+          description: Unhauthorized
   /owlOntology/{name}/version/querycatalog/{userCatalog}/query/{queryID}/publication:
     put:
-      summary: PUT mwsx/owlOntology/{name}/version/querycatalog/{userCatalog}/query/{queryID}/publication
+      summary: Accept the publication of a query for which a publication request has been formerly requested
       operationId: put__owlOntology_name_version_querycatalog_accept_publication
       parameters:
         - name: name
@@ -176,8 +186,10 @@ paths:
             application/json:
               schema:
                 type: boolean
+        '401':
+          description: Unhauthorized
     delete:
-      summary: DELETE mwsx/owlOntology/{name}/version/querycatalog/{userCatalog}/query/{queryID}/publication
+      summary: Accept the publication of a query for which a publication request has been formerly requested
       operationId: delete__owlOntology_name_version_querycatalog_accept_publication
       parameters:
         - name: name
@@ -207,9 +219,11 @@ paths:
             application/json:
               schema:
                 type: boolean
+        '401':
+          description: Unhauthorized
   /owlOntology/{name}/version/querycatalog/export:
     get:
-      summary: GET mwsx/owlOntology/{name}/version/querycatalog/export
+      summary: Exports the ontology catalog returning its JSON representation
       operationId: get__owlOntology_name_version_querycatalog_export
       parameters:
         - name: name
@@ -229,9 +243,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/FileInfo'
+        '401':
+          description: Unhauthorized
   /owlOntology/{name}/version/querycatalog/import:
     post:
-      summary: POST mwsx/owlOntology/{name}/version/querycatalog/import
+      summary: 'Imports a new catalog for the given version of the ontology: if the additive switch is true, all new queries will be added to the existing ones, otherwise the old catalog will be overwritten'
       operationId: get__owlOntology_name_version_querycatalog_import
       parameters:
         - name: name
@@ -262,9 +278,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/OBDACatalog'
+        '401':
+          description: Unhauthorized
   /owlOntology/{name}/version/querycatalog/sparqling/import:
     post:
-      summary: POST mwsx/owlOntology/{name}/version/querycatalog/sparqling/import
+      summary: 'Imports a new catalog of SPARQLING queries: if the additive switch is true, all new queries will be added to the existing ones, otherwise the old catalog will be overwritten'
       operationId: post__owlOntology_name_version_querycatalog_sparqling_import
       parameters:
         - name: name
@@ -295,9 +313,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/OBDASparqlingCatalog'
+        '401':
+          description: Unhauthorized
   /owlOntology/{name}/version/querycatalog/sparqling/migrate:
     post:
-      summary: POST mwsx/owlOntology/{name}/version/querycatalog/sparqling/migrate
+      summary: Migrates a query catalog of SPARQLING queries between two ontology versions
       operationId: post__owlOntology_name_version_querycatalog_sparqling_migrate
       parameters:
         - name: name
@@ -327,9 +347,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/OBDASparqlingCatalog'
+        '401':
+          description: Unhauthorized
   /owlOntology/{name}/version/querycatalog/sparqling:
     delete:
-      summary: DELETE mwsx/owlOntology/{name}/version/querycatalog/sparqling
+      summary: Deletes the catalog of SPARQLING queries available for this version of the ontology
       operationId: delete__owlOntology_name_version_querycatalog_sparqling
       parameters:
         - name: name
@@ -349,9 +371,11 @@ paths:
             application/json:
               schema:
                 type: boolean
+        '401':
+          description: Unhauthorized
   /owlOntology/{name}/version/querycatalog/sparqling/export:
     get:
-      summary: GET mwsx/owlOntology/{name}/version/querycatalog/sparqling/export
+      summary: Exports the SPARQLING query catalog
       operationId: get__owlOntology_name_version_querycatalog_sparqling_export
       parameters:
         - name: name
@@ -371,9 +395,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/FileInfo'
+        '401':
+          description: Unhauthorized
   /owlOntology/{name}/version/query/{ID}:
     get:
-      summary: GET mwsx/owlOntology/{name}/version/query/{ID}
+      summary: Returns the SPARQLQuery identified by the passed ID value
       operationId: get__owlOntology_name_version_query_ID
       parameters:
         - name: name
@@ -398,8 +424,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SPARQLQuery'
+        '401':
+          description: Unhauthorized
     put:
-      summary: PUT mwsx/owlOntology/{name}/version/query/{ID}
+      summary: Updates the definition of a specific query within the available catalog
       operationId: put__owlOntology_name_version_query_ID
       parameters:
         - name: name
@@ -430,8 +458,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SPARQLQuery'
+        '401':
+          description: Unhauthorized
     delete:
-      summary: DELETE mwsx/owlOntology/{name}/version/query/{ID}
+      summary: Removes a specific query from the catalog available for this version of the ontology
       operationId: delete__owlOntology_name_version_query_ID
       parameters:
         - name: name
@@ -456,9 +486,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SPARQLQuery'
+        '401':
+          description: Unhauthorized
   /owlOntology/{name}/version/query:
     post:
-      summary: POST mwsx/owlOntology/{name}/version/query
+      summary: Adds a new query to the catalog
       operationId: post__owlOntology_name_version_query_ID
       parameters:
         - name: name
@@ -484,9 +516,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SPARQLQuery'
+        '401':
+          description: Unhauthorized
   /owlOntology/{name}/version/queries/sparqling:
     get:
-      summary: GET mwsx/owlOntology/{name}/version/queries/sparqling
+      summary: Returns a list of the SPARQLING queries currently stored in the catalog
       operationId: get__owlOntology_name_version_queries_sparqling
       parameters:
         - name: name
@@ -508,9 +542,11 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/SparqlingSPARQLQuery'
+        '401':
+          description: Unhauthorized
   /owlOntology/{name}/version/query/sparqling/{ID}:
     get:
-      summary: GET mwsx/owlOntology/{name}/version/query/sparqling/{ID}
+      summary: Returns the query identified by ID
       operationId: get__owlOntology_name_version_query_sparqling_ID
       parameters:
         - name: name
@@ -535,8 +571,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SparqlingSPARQLQuery'
+        '401':
+          description: Unhauthorized
     put:
-      summary: PUT mwsx/owlOntology/{name}/version/query/sparqling/{ID}
+      summary: Updates the definition of the given query
       operationId: put__owlOntology_name_version_query_sparqling_ID
       parameters:
         - name: name
@@ -567,8 +605,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SparqlingSPARQLQuery'
+        '401':
+          description: Unhauthorized
     delete:
-      summary: DELETE mwsx/owlOntology/{name}/version/query/sparqling/{ID}
+      summary: Remove the query identified by ID from the current catalog
       operationId: delete__owlOntology_name_version_query_sparqling_ID
       parameters:
         - name: name
@@ -593,9 +633,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SparqlingSPARQLQuery'
+        '401':
+          description: Unhauthorized
   /owlOntology/{name}/version/query/sparqling:
     post:
-      summary: POST mwsx/owlOntology/{name}/version/query/sparqling
+      summary: Adds a new SPARQLING query to the catalog
       operationId: post__owlOntology_name_version_query_sparqling_ID
       parameters:
         - name: name
@@ -621,6 +663,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SparqlingSPARQLQuery'
+        '401':
+          description: Unhauthorized
 components:
   securitySchemes:
     apiKey:

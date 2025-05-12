@@ -1,33 +1,27 @@
 get:
-  summary: >-
-    GET
-    mwsx/owlOntology/{name}/version/mapping/{mapID}/dataLineageAnnotationProperty
+  summary: GET mwsx/owlOntology/{name}/version/mapping/{mapID}/dataLineageAnnotationProperty
   operationId: get__owlOntology_name_version_mapID_entityID_dataLineageAnnotationProperty
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: mapID
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: version
-      in: query
-      required: true
-      schema:
-        type: string
-    - name: annotationPropertyIRI
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: mapID
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  - name: annotationPropertyIRI
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/DataLineageDescription.yaml
+          schema: {$ref: ../components/schemas/DataLineageDescription.yaml}
+    '401': {description: Unhauthorized}

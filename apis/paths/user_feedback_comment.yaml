@@ -1,16 +1,15 @@
 post:
-  summary: POST mwsx/user/feedback/comment
+  summary: Returns the feedback provided by all the users
   operationId: post__user_feedback_comment
   requestBody:
     content:
       application/json:
-        schema:
-          $ref: ../components/schemas/UserFeedbackComment.yaml
+        schema: {$ref: ../components/schemas/UserFeedbackComment.yaml}
     required: true
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/UserFeedback.yaml
+          schema: {$ref: ../components/schemas/UserFeedback.yaml}
+    '401': {description: Unhauthorized}

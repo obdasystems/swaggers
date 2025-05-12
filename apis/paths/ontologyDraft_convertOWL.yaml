@@ -1,16 +1,15 @@
 post:
-  summary: POST mwsx/ontologyDraft/convertOWL
+  summary: Convert an OWL file in RDFGraph model
   operationId: post_ontologyDraft_convertOWL
   requestBody:
     content:
       application/json:
-        schema:
-          $ref: ../components/schemas/FileInfo.yaml
+        schema: {$ref: ../components/schemas/FileInfo.yaml}
     required: true
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/Response.yaml
+          schema: {$ref: ../components/schemas/Response.yaml}
+    '401': {description: Unhauthorized}

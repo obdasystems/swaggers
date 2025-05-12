@@ -1,22 +1,20 @@
 get:
-  summary: GET mwsx/endpoint/{eName}/instanceChecking/{threadId}/info
+  summary: Get the info about the queries that will count the number of instances
+    of each Class of the ontology
   operationId: get__endpoint_class_instance_checking
   parameters:
-    - name: eName
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: threadId
-      in: path
-      required: true
-      schema:
-        type: integer
-        format: int64
+  - name: eName
+    in: path
+    required: true
+    schema: {type: string}
+  - name: threadId
+    in: path
+    required: true
+    schema: {type: integer, format: int64}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/InstanceCheckingInfo.yaml
+          schema: {$ref: ../components/schemas/InstanceCheckingInfo.yaml}
+    '401': {description: Unhauthorized}

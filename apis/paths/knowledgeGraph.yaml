@@ -6,21 +6,20 @@ delete:
       description: OK
       content:
         application/json:
-          schema:
-            type: boolean
+          schema: {type: boolean}
+    '401': {description: Unhauthorized}
 get:
   summary: GET mwsx/knowledgeGraph
   operationId: get__knowledgeGraph
   parameters:
-    - name: iri
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: iri
+    in: query
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/KnowledgeGraph.yaml
+          schema: {$ref: ../components/schemas/KnowledgeGraph.yaml}
+    '401': {description: Unhauthorized}

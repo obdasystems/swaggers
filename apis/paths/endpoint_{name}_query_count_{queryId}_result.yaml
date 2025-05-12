@@ -1,21 +1,20 @@
 get:
-  summary: GET mwsx/endpoint/{name}/query/count/{queryId}/result
+  summary: Returns the counts the results of a SPARQL query executed on the given
+    endpoint
   operationId: get_query_count_result
   parameters:
-    - name: name
-      in: path
-      required: true
-      schema:
-        type: string
-    - name: queryId
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: queryId
+    in: path
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            type: integer
+          schema: {type: integer}
+    '401': {description: Unhauthorized}

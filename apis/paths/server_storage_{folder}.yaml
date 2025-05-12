@@ -1,16 +1,15 @@
 delete:
-  summary: DELETE mwsx/server/storage/{folder}
+  summary: Computes and returns the system storage report
   operationId: get_empty_folder
   parameters:
-    - name: folder
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: folder
+    in: path
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/SystemFolderDeletionReport.yaml
+          schema: {$ref: ../components/schemas/SystemFolderDeletionReport.yaml}
+    '401': {description: Unhauthorized}

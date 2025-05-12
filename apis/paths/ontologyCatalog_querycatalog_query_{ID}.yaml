@@ -1,54 +1,51 @@
 get:
-  summary: GET mwsx/ontologyCatalog/querycatalog/query/{ID}
+  summary: Returns the SPARQLQuery identified by the passed ID value
   operationId: get_ontologycatalog_query_ID
   parameters:
-    - name: ID
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: ID
+    in: path
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/Response.yaml
+          schema: {$ref: ../components/schemas/Response.yaml}
+    '401': {description: Unhauthorized}
 put:
-  summary: PUT mwsx/ontologyCatalog/querycatalog/query/{ID}
+  summary: Updates the definition of a specific query within the available catalog
   operationId: put_ontologycatalog_query_ID
   parameters:
-    - name: ID
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: ID
+    in: path
+    required: true
+    schema: {type: string}
   requestBody:
     content:
       application/json:
-        schema:
-          $ref: ../components/schemas/SPARQLQuery.yaml
+        schema: {$ref: ../components/schemas/SPARQLQuery.yaml}
     required: true
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/Response.yaml
+          schema: {$ref: ../components/schemas/Response.yaml}
+    '401': {description: Unhauthorized}
 delete:
-  summary: DELETE mwsx/ontologyCatalog/querycatalog/query/{ID}
+  summary: Removes a specific query from the catalog available for this version of
+    the ontology
   operationId: delete_ontologycatalog_query_ID
   parameters:
-    - name: ID
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: ID
+    in: path
+    required: true
+    schema: {type: string}
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/Response.yaml
+          schema: {$ref: ../components/schemas/Response.yaml}
+    '401': {description: Unhauthorized}
