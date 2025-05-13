@@ -13,7 +13,7 @@ info:
     This is the API for retaining a Grapholscape's loaded ontology (or graph) in
     order to restart navigation from a previous state.
   version: 1.0.0
-  title: Grapholscape API model
+  title: Ontology Designer API model
   contact:
     email: info@obdasystems.com
   license:

@@ -21607,13 +21607,12 @@ x-tagGroups:
   - name: Ontology API model
     tags:
       - ontologies_other
-  - name: Grapholscape API model
+  - name: Mappings API model
     tags:
       - mappings_other
+  - name: Datasources API model
+    tags:
       - datasources_other
-      - virtual-entities_other
-      - knowledge-graphs_other
-      - ontology-designer_Ontology Designer
   - name: Endpoints API model
     tags:
       - endpoints_other
@@ -21621,7 +21620,7 @@ x-tagGroups:
   - name: Queries API model
     tags:
       - query-catalog_other
-  - name: Swagger Sparqling WS
+  - name: Sparqling API model
     tags:
       - sparqling_OntologyGraph
       - sparqling_QueryGraphBGP
@@ -21634,10 +21633,19 @@ x-tagGroups:
   - name: Triplify API model
     tags:
       - triplify_other
+  - name: Virtual Entities API model
+    tags:
+      - virtual-entities_other
   - name: VKG API model
     tags:
       - vkg_other
-  - name: Ontology Catalog
+  - name: KG API model
+    tags:
+      - knowledge-graphs_other
+  - name: Ontology Designer API model
+    tags:
+      - ontology-designer_Ontology Designer
+  - name: Ontology Catalog API model
     tags:
       - ontology-catalog_Ontology Catalog
       - ontology-catalog_other

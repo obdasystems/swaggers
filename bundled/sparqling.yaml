@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Swagger Sparqling WS
+  title: Sparqling API model
   description: This server will expose an API to Sparqling front end to create new SPARQL queries with a combinations of point and click on the [GRAPHOLscape](https://github.com/obdasystems/grapholscape) graph.
   termsOfService: http://swagger.io/terms/
   contact:

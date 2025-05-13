@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   description: This is the API for managing virtual entities in Mastro. Virtual entities are the SPARQL queries that are used to access the virtual data from external OData feeds. Once  created virtual entitìes the OData feed is available at  `https://{tenant}/odata/{endpointName}`
   version: 1.0.0
-  title: Grapholscape API model
+  title: Virtual Entities API model
   contact:
     email: info@obdasystems.com
   license:

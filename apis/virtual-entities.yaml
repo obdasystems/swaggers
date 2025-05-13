@@ -16,7 +16,7 @@ info:
     created virtual entitìes the OData feed is available at 
     `https://{tenant}/odata/{endpointName}`
   version: 1.0.0
-  title: Grapholscape API model
+  title: Virtual Entities API model
   contact:
     email: info@obdasystems.com
   license:

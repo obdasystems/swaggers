@@ -13,7 +13,7 @@ info:
     This is the API for managing Knowledge Graphs in Mastro.
     Knowledge Graphs are RDF materializations powered by RDF4J.
   version: 1.0.0
-  title: Grapholscape API model
+  title: KG API model
   contact:
     email: info@obdasystems.com
   license:

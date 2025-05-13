@@ -9,7 +9,7 @@ servers:
       port:
         default: ':8989'
 info:
-  title: Swagger Sparqling WS
+  title: Sparqling API model
   description: >-
     This server will expose an API to Sparqling front end to create new SPARQL
     queries with a combinations of point and click on the

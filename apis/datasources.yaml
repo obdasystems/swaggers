@@ -13,7 +13,7 @@ info:
     This is the API to manage Mastro connections to DBMSs. You can create,
     update, delete and test connections to DBMSs by means of JDBC connections.
   version: 1.0.0
-  title: Grapholscape API model
+  title: Datasources API model
   contact:
     email: info@obdasystems.com
   license:

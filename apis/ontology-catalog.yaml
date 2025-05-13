@@ -11,7 +11,7 @@ servers:
 info:
   description: This is the API for managing the Ontology Catalog
   version: 1.0.0
-  title: Ontology Catalog
+  title: Ontology Catalog API model
   contact:
     email: info@obdasystems.com
   license:
