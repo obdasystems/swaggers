@@ -20,8 +20,8 @@ info:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
 paths:
-  /ontologyDraft/ai:
-    $ref: paths/ontologyDraft_ai.yaml
+  /ontologyDraft/ai/{name}:
+    $ref: paths/ontologyDraft_ai_{name}.yaml
 components: 
   securitySchemes: 
     jwt:

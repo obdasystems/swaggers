@@ -2,6 +2,12 @@ put:
   tags: [Ontology Designer]
   summary: Ask for AI support in ontology design.
   operationId: putOntologyDraftAI
+  parameters: 
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
   requestBody:
     content:
       application/json:
