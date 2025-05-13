@@ -1,0 +1,21 @@
+get:
+  summary: Starts the task scheduler
+  operationId: get__task_scheduler_state
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {type: boolean}
+    '401': {description: Unhauthorized}
+put:
+  summary: Starts the task scheduler
+  operationId: put__task_scheduler_state
+  parameters:
+  - name: action
+    in: query
+    required: true
+    schema: {type: string}
+  responses:
+    '200': {description: OK}
+    '401': {description: Unhauthorized}

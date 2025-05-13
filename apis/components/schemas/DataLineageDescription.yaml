@@ -1,0 +1,29 @@
+title: DataLineageDescription
+type: object
+properties:
+  mappingAssertionsIndex:
+    type: object
+    additionalProperties:
+      $ref: ./MappingAssertion.yaml
+  mappingViews:
+    type: object
+  entityMapping:
+    type: object
+  viewsIndex:
+    type: object
+    additionalProperties:
+      $ref: ./SQLView.yaml
+  projection:
+    type: string
+  entity:
+    $ref: ./OntologyEntity.yaml
+  entitiesIndex:
+    type: object
+    additionalProperties:
+      $ref: ./OntologyEntity.yaml
+  viewTables:
+    type: object
+  subEntities:
+    type: object
+    additionalProperties:
+      type: string

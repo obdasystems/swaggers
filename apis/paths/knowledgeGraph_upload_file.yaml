@@ -1,0 +1,20 @@
+post:
+  summary: POST mwsx/knowledgeGraph/upload/file
+  operationId: post__knowledgeGraph_upload_file
+  parameters:
+  - name: iri
+    in: query
+    required: true
+    schema: {type: string}
+  requestBody:
+    content:
+      application/json:
+        schema: {$ref: ../components/schemas/FileInfo.yaml}
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {type: boolean}
+    '401': {description: Unhauthorized}

@@ -1,0 +1,17 @@
+post:
+  summary: Returns the list of schema names available at the datasource
+  operationId: getDatasourceSchemas
+  requestBody:
+    content:
+      application/json:
+        schema: {$ref: ../components/schemas/DataSourceInfoEntry.yaml}
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items: {type: string}
+    '401': {description: Unhauthorized}

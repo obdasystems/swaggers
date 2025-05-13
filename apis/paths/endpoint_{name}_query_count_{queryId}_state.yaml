@@ -1,0 +1,19 @@
+get:
+  summary: Returns the current state of the count thread for the given SPARQL query
+  operationId: get_query_count_state
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: queryId
+    in: path
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {type: string}
+    '401': {description: Unhauthorized}

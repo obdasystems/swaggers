@@ -1,0 +1,7 @@
+title: MastroProperties
+type: object
+properties:
+  mastroProperties:
+    type: array
+    items:
+      $ref: ./MastroConfigurationParam.yaml

@@ -1,0 +1,25 @@
+title: SessionSnapshot
+type: object
+properties:
+  expirationTimeText:
+    type: string
+  expirationTime:
+    type: integer
+    format: int64
+  neverExpires:
+    type: boolean
+  lastUpdate:
+    type: integer
+    format: int64
+  operationsCount:
+    type: integer
+    format: int32
+  startTime:
+    type: integer
+    format: int64
+  id:
+    type: string
+  user:
+    type: string
+  startTimeText:
+    type: string

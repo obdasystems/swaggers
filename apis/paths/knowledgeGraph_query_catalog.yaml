@@ -1,0 +1,35 @@
+get:
+  summary: GET mwsx/knowledgeGraph/query/catalog
+  operationId: get__knowledgeGraph_query_catalog
+  parameters:
+  - name: iri
+    in: query
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/OBDACatalog.yaml}
+    '401': {description: Unhauthorized}
+post:
+  summary: POST mwsx/knowledgeGraph/query/catalog
+  operationId: post__knowledgeGraph_query_catalog
+  parameters:
+  - name: iri
+    in: query
+    required: true
+    schema: {type: string}
+  requestBody:
+    content:
+      application/json:
+        schema: {$ref: ../components/schemas/SPARQLQuery.yaml}
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {type: boolean}
+    '401': {description: Unhauthorized}

@@ -1,0 +1,9 @@
+title: ClassTreeNode
+type: object
+properties:
+  children:
+    type: array
+    items:
+      $ref: ./ClassTreeNode.yaml
+  info:
+    $ref: ./ClassInfo.yaml

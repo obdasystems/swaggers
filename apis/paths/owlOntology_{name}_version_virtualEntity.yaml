@@ -1,0 +1,48 @@
+post:
+  summary: Create a new virtual entity for a given ontology
+  operationId: post_virtualEntity
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  requestBody:
+    content:
+      application/json:
+        schema: {$ref: ../components/schemas/SparqlingVirtualEntity.yaml}
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/SparqlingVirtualEntity.yaml}
+    '401': {description: Unhauthorized}
+put:
+  summary: Overwrite a virtual entity for a given ontology
+  operationId: put_virtualEntity
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  requestBody:
+    content:
+      application/json:
+        schema: {$ref: ../components/schemas/SparqlingVirtualEntity.yaml}
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/SparqlingVirtualEntity.yaml}
+    '401': {description: Unhauthorized}

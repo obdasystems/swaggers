@@ -1,0 +1,15 @@
+title: MappingDependencies
+type: object
+properties:
+  inclusionDependencies:
+    type: array
+    items:
+      $ref: ./InclusionDependency.yaml
+  denials:
+    type: array
+    items:
+      $ref: ./DenialConstraint.yaml
+  keyDependencies:
+    type: array
+    items:
+      $ref: ./KeyDependency.yaml

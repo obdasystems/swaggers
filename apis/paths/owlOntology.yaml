@@ -1,0 +1,37 @@
+get:
+  summary: Returns all the available ontologies
+  operationId: get__owlOntology
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: 
+            type: array
+            items: {$ref: ../components/schemas/Ontology.yaml}
+    '401': {description: Unhauthorized}
+post:
+  summary: Creates a new ontology
+  operationId: post__owlOntology_name
+  requestBody:
+    content:
+      application/json:
+        schema: {$ref: ../components/schemas/Ontology.yaml}
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/Ontology.yaml}
+    '401': {description: Unhauthorized}
+delete:
+  summary: Deletes all the ontologies stored in the repository
+  operationId: delete__all_owlOntologies
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/Ontology.yaml}
+    '401': {description: Unhauthorized}

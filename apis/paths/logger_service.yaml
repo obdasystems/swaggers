@@ -1,0 +1,15 @@
+get:
+  summary: GET mwsx/logger/service
+  operationId: get_set_service_logger
+  parameters:
+  - name: mode
+    in: query
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        '*/*':
+          schema: {type: integer, format: int32}
+    '401': {description: Unhauthorized}

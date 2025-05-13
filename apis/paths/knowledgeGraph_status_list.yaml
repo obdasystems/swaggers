@@ -1,0 +1,14 @@
+get:
+  summary: GET mwsx/knowledgeGraph/status/list
+  operationId: get__knowledgeGraph_status_list
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            additionalProperties:
+              type: array
+              items: {type: string}
+    '401': {description: Unhauthorized}

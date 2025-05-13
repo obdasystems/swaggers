@@ -1,0 +1,48 @@
+get:
+  summary: 'Returns the file containing the definition of the ontology <code>name</code>,
+    with version ''version''. <br/>The format parameter assumes one of the following
+    values: ''graphol'', ''fss'', ''xml'', ''turtle'''
+  operationId: get__owlOntology_name_version
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  - name: format
+    in: query
+    required: true
+    schema: {type: string}
+  - name: approximated
+    in: query
+    required: true
+    schema: {type: boolean}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/FileInfo.yaml}
+    '401': {description: Unhauthorized}
+delete:
+  summary: 'Deletes version ''version'' of the ontology named <code>name</code>.<br/> '
+  operationId: delete__owlOntology_name_version
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/FileInfo.yaml}
+    '401': {description: Unhauthorized}

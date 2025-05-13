@@ -1,0 +1,9 @@
+title: ClassIndividuals
+type: object
+properties:
+  theClass:
+    $ref: ./OntologyEntity.yaml
+  individuals:
+    type: array
+    items:
+      $ref: ./OntologyEntity.yaml

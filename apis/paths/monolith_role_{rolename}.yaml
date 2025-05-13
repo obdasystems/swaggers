@@ -1,0 +1,20 @@
+put:
+  summary: PUT mwsx/monolith/role/{rolename}
+  operationId: put__monolith__role
+  parameters:
+  - name: rolename
+    in: path
+    required: true
+    schema: {type: string}
+  requestBody:
+    content:
+      application/json:
+        schema: {$ref: ../components/schemas/RoleMonolith.yaml}
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/RoleMonolith.yaml}
+    '401': {description: Unhauthorized}

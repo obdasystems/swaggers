@@ -1,0 +1,9 @@
+title: MwsxTaskSchedulerJobData
+type: object
+properties:
+  className:
+    type: string 
+  jobData:
+    type: object
+  cronExpression:
+    type: string 

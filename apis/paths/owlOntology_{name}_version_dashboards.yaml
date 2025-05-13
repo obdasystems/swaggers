@@ -1,0 +1,43 @@
+get:
+  summary: GET mwsx/owlOntology/{name}/version/dashboards
+  operationId: get__owlOntology_version_dashboards
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/Dashboards.yaml}
+    '401': {description: Unhauthorized}
+post:
+  summary: POST mwsx/owlOntology/{name}/version/dashboards
+  operationId: post__owlOntology_version_dashboards
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  requestBody:
+    content:
+      application/json:
+        schema: {$ref: ../components/schemas/Dashboard.yaml}
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/Dashboards.yaml}
+    '401': {description: Unhauthorized}

@@ -1,0 +1,12 @@
+get:
+  summary: GET mwsx/globalAnnotations
+  operationId: get_global_annotations
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items: {$ref: ../components/schemas/OntologyEntity.yaml}
+    '401': {description: Unhauthorized}

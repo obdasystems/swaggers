@@ -1,0 +1,12 @@
+get:
+  summary: Returns the list of available JDBC driver class names
+  operationId: get__datasource_driver
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items: {type: string}
+    '401': {description: Unhauthorized}

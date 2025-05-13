@@ -1,0 +1,5 @@
+title: RequiresTypeDefinition
+type: object
+properties:
+  name:
+    type: string

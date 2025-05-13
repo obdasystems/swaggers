@@ -1,0 +1,17 @@
+get:
+  summary: Returns the list of schemas available in the catalog of a given datasource
+  operationId: getSchemas
+  parameters:
+  - name: id
+    in: path
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items: {type: string}
+    '401': {description: Unhauthorized}

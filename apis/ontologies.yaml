@@ -1,0 +1,119 @@
+openapi: 3.0.0
+servers:
+  - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+    variables:
+      protocol:
+        default: https
+      tenant:
+        default: localhost
+      port:
+        default: ':8989'
+info:
+  description: >-
+    This is the API for managing ontologies in Mastro.
+  version: 1.0.0
+  title: Ontology API model
+  contact:
+    email: info@obdasystems.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+paths:
+  /owlOntology:
+    $ref: paths/owlOntology.yaml
+  /owlOntology/{name}:
+    $ref: paths/owlOntology_{name}.yaml
+  /owlOntology/{name}/folder:
+    $ref: paths/owlOntology_{name}_folder.yaml
+  /owlOntology/{name}/version/folder:
+    $ref: paths/owlOntology_{name}_version_folder.yaml
+  /owlOntology/{name}/version:
+    $ref: paths/owlOntology_{name}_version.yaml
+  /owlOntology/{name}/version/ignoredImports:
+    $ref: paths/owlOntology_{name}_version_ignoredImports.yaml
+  /owlOntology/{name}/version/closed:
+    $ref: paths/owlOntology_{name}_version_closed.yaml
+  /owlOntology/{name}/version/closed/{threadId}/status:
+    $ref: paths/owlOntology_{name}_version_closed_{threadId}_status.yaml
+  /owlOntology/{name}/version/closedComputed:
+    $ref: paths/owlOntology_{name}_version_closedComputed.yaml
+  /owlOntology/{name}/version/closingReport:
+    $ref: paths/owlOntology_{name}_version_closingReport.yaml
+  /owlOntology/{name}/version/closingReportComputed:
+    $ref: paths/owlOntology_{name}_version_closingReportComputed.yaml
+  /owlOntology/{name}/version/hierarchy/owl:
+    $ref: paths/owlOntology_{name}_version_hierarchy_owl.yaml
+  /owlOntology/{name}/version/loaderThreads:
+    $ref: paths/owlOntology_{name}_version_loaderThreads.yaml
+  /owlOntology/{name}/version/loaderThreads/metadata:
+    $ref: paths/owlOntology_{name}_version_loaderThreads_metadata.yaml
+  /owlOntology/{name}/version/loaderThread/{threadId}/status:
+    $ref: paths/owlOntology_{name}_version_loaderThread_{threadId}_status.yaml
+  /owlOntology/{name}/version/loaderThread/{threadId}/report:
+    $ref: paths/owlOntology_{name}_version_loaderThread_{threadId}_report.yaml
+  /owlOntology/{name}/importFromIRI:
+    $ref: paths/owlOntology_{name}_importFromIRI.yaml
+  /owlOntology/{name}/version/hierarchy:
+    $ref: paths/owlOntology_{name}_version_hierarchy.yaml
+  /owlOntology/{name}/version/catalog:
+    $ref: paths/owlOntology_{name}_version_catalog.yaml
+  /owlOntology/{name}/version/info:
+    $ref: paths/owlOntology_{name}_version_info.yaml
+  /owlOntology/{name}/version/entities/classes:
+    $ref: paths/owlOntology_{name}_version_entities_classes.yaml
+  /owlOntology/{name}/version/entities/objectProperties:
+    $ref: paths/owlOntology_{name}_version_entities_objectProperties.yaml
+  /owlOntology/{name}/version/entities/dataProperties:
+    $ref: paths/owlOntology_{name}_version_entities_dataProperties.yaml
+  /owlOntology/{name}/version/entities/annotationProperties:
+    $ref: paths/owlOntology_{name}_version_entities_annotationProperties.yaml
+  /owlOntology/{name}/version/entities:
+    $ref: paths/owlOntology_{name}_version_entities.yaml
+  /owlOntology/{name}/version/entity/{id}:
+    $ref: paths/owlOntology_{name}_version_entity_{id}.yaml
+  /owlOntology/{name}/version/alphabet/class/{ID}/logical:
+    $ref: paths/owlOntology_{name}_version_alphabet_class_{ID}_logical.yaml
+  /owlOntology/{name}/version/annotations:
+    $ref: paths/owlOntology_{name}_version_annotations.yaml
+  /owlOntology/{name}/version/alphabet/objectProperty/{ID}/logical:
+    $ref: paths/owlOntology_{name}_version_alphabet_objectProperty_{ID}_logical.yaml
+  /owlOntology/{name}/version/alphabet/dataProperty/{ID}/logical:
+    $ref: paths/owlOntology_{name}_version_alphabet_dataProperty_{ID}_logical.yaml
+  /owlOntology/{name}/version/alphabet/dataProperties/domainAndRange:
+    $ref: >-
+      paths/owlOntology_{name}_version_alphabet_dataProperties_domainAndRange.yaml
+  /owlOntology/{name}/version/graphol:
+    $ref: paths/owlOntology_{name}_version_graphol.yaml
+  /owlOntology/{name}/version/gscape:
+    $ref: paths/owlOntology_{name}_version_gscape.yaml
+  /owlOntology/{name}/version/shacl:
+    $ref: paths/owlOntology_{name}_version_shacl.yaml
+  /owlOntology/{name}/version/graphol/check:
+    $ref: paths/owlOntology_{name}_version_graphol_check.yaml
+  /owlOntology/{name}/version/gscape/check:
+    $ref: paths/owlOntology_{name}_version_gscape_check.yaml
+  /owlOntology/{name}/version/shacl/check:
+    $ref: paths/owlOntology_{name}_version_shacl_check.yaml
+  /owlOntology/{name}/version/owl:
+    $ref: paths/owlOntology_{name}_version_owl.yaml
+  /owlOntology/{name}/version/alphabet/individual/{ID}/logical:
+    $ref: paths/owlOntology_{name}_version_alphabet_individual_{ID}_logical.yaml
+  /owlOntology/{name}/version/alphabet/search/individual:
+    $ref: paths/owlOntology_{name}_version_alphabet_search_individual.yaml
+  /ontologyDifference/{name}/vs/{otherName}:
+    $ref: paths/ontologyDifference_{name}_vs_{otherName}.yaml
+  /owlOntology/{name}/version/metadata:
+    $ref: paths/owlOntology_{name}_version_metadata.yaml
+  /owlOntology/{name}/version/metadata/missing:
+    $ref: paths/owlOntology_{name}_version_metadata_missing.yaml
+  /owlOntology/queries/publicationRequests:
+    $ref: paths/owlOntology_queries_publicationRequests.yaml
+components: 
+  securitySchemes: 
+    apiKey: 
+      $ref: './components/securitySchemes/api-key.yaml'
+    jwt:
+      $ref: './components/securitySchemes/jwt.yaml'
+security: 
+  - apiKey: []
+  - jwt: []

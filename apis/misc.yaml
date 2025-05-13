@@ -1,0 +1,114 @@
+openapi: 3.0.0
+servers:
+  - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+    variables:
+      protocol:
+        default: https
+      tenant:
+        default: localhost
+      port:
+        default: ':8989'
+info:
+  description: >-
+    This is the API used for general purpose operations in Mastro.
+  version: 1.0.0
+  title: Misc API model
+  contact:
+    email: info@obdasystems.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+paths:
+  /log/{env}/{mode}:
+    $ref: paths/log_{env}_{mode}.yaml
+  /mastro/version:
+    $ref: paths/mastro_version.yaml
+  /jena/version:
+    $ref: paths/jena_version.yaml
+  /owlapi/version:
+    $ref: paths/owlapi_version.yaml
+  /resources/ontologies:
+    $ref: paths/resources_ontologies.yaml
+  /resources/ontology/{name}/versions:
+    $ref: paths/resources_ontology_{name}_versions.yaml
+  /resources/ontology/{name}/version/mappings:
+    $ref: paths/resources_ontology_{name}_version_mappings.yaml
+  /resources/datasources:
+    $ref: paths/resources_datasources.yaml
+  /resources/endpoints:
+    $ref: paths/resources_endpoints.yaml
+  /mastro/instances:
+    $ref: paths/mastro_instances.yaml
+  /lastLoaded/ontology:
+    $ref: paths/lastLoaded_ontology.yaml
+  /globalAnnotations:
+    $ref: paths/globalAnnotations.yaml
+  /globalAnnotation:
+    $ref: paths/globalAnnotation.yaml
+  /globalAnnotation/{entityId}:
+    $ref: paths/globalAnnotation_{entityId}.yaml
+  /server/license/info:
+    $ref: paths/server_license_info.yaml
+  /server/storage/report:
+    $ref: paths/server_storage_report.yaml
+  /server/storage/{folder}:
+    $ref: paths/server_storage_{folder}.yaml
+  /server/systemSnapshot:
+    $ref: paths/server_systemSnapshot.yaml
+  /server/systemMemory:
+    $ref: paths/server_systemMemory.yaml
+  /server/userlog/{username}/count:
+    $ref: paths/server_userlog_{username}_count.yaml
+  /server/userlog/{username}:
+    $ref: paths/server_userlog_{username}.yaml
+  /geocoding/servers:
+    $ref: paths/geocoding_servers.yaml
+  /geocoding/server/{serverId}:
+    $ref: paths/geocoding_server_{serverId}.yaml
+  /logger/mastroapi:
+    $ref: paths/logger_mastroapi.yaml
+  /logger/service:
+    $ref: paths/logger_service.yaml
+  /logger:
+    $ref: paths/logger.yaml
+  /logger/class:
+    $ref: paths/logger_class.yaml
+  /logger/package:
+    $ref: paths/logger_package.yaml
+  /logger/list:
+    $ref: paths/logger_list.yaml
+  /logger/monitor:
+    $ref: paths/logger_monitor.yaml
+  /statics/sparql/extractProjectVarNames:
+    $ref: paths/statics_sparql_extractProjectVarNames.yaml
+  /statics/sparql/templateSize:
+    $ref: paths/statics_sparql_templateSize.yaml
+  /statics/reporting/request:
+    $ref: paths/statics_reporting_request.yaml
+  /system/jdbcDrivers:
+    $ref: paths/system_jdbcDrivers.yaml
+  /system/jdbcDriver/{driver}:
+    $ref: paths/system_jdbcDriver_{driver}.yaml
+  /system/jdbcDriver:
+    $ref: paths/system_jdbcDriver.yaml
+  /queryTags:
+    $ref: paths/queryTags.yaml
+  /queryTags/{tagName}:
+    $ref: paths/queryTags_{tagName}.yaml
+  /statistics/accesses:
+    $ref: paths/statistics_accesses.yaml
+  /statistics/ontologies:
+    $ref: paths/statistics_ontologies.yaml
+  /statistics/{endpoint}/queries:
+    $ref: paths/statistics_{endpoint}_queries.yaml
+  /statistics/{endpoint}/entities:
+    $ref: paths/statistics_{endpoint}_entities.yaml
+components: 
+  securitySchemes: 
+    apiKey: 
+      $ref: './components/securitySchemes/api-key.yaml'
+    jwt:
+      $ref: './components/securitySchemes/jwt.yaml'
+security: 
+  - apiKey: []
+  - jwt: []

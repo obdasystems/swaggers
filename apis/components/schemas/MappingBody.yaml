@@ -1,0 +1,11 @@
+title: MappingBody
+type: object
+properties:
+  bip:
+    type: array
+    items:
+      $ref: ./MappingAtom.yaml
+  viewAtoms:
+    type: array
+    items:
+      $ref: ./MappingAtom.yaml

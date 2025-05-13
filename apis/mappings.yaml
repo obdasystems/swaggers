@@ -1,0 +1,164 @@
+openapi: 3.0.0
+servers:
+  - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+    variables:
+      protocol:
+        default: https
+      tenant:
+        default: localhost
+      port:
+        default: ':8989'
+info:
+  description: >-
+    This is the API for managing Mastro mappings. Mappings are used to
+    link data to ontologies by means of SQL queries. The mappings are then 
+    in one or more endpoints to answer SPARQL queries.
+  version: 1.0.0
+  title: Mappings API model
+  contact:
+    email: info@obdasystems.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+paths:
+  /owlOntology/{name}/version/mapping:
+    $ref: paths/owlOntology_{name}_version_mapping.yaml
+  /owlOntology/{name}/version/mapping/{mapID}:
+    $ref: paths/owlOntology_{name}_version_mapping_{mapID}.yaml
+  /owlOntology/{name}/version/mapping/{ID}/checkDeprecation:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_checkDeprecation.yaml
+  /owlOntology/{name}/version/mapping/{ID}/count:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_count.yaml
+  /owlOntology/{name}/version/mapping/{mapID}/duplicate:
+    $ref: paths/owlOntology_{name}_version_mapping_{mapID}_duplicate.yaml
+  /owlOntology/{name}/version/mapping/{mapID}/backup:
+    $ref: paths/owlOntology_{name}_version_mapping_{mapID}_backup.yaml
+  /owlOntology/{name}/version/mapping/{mapID}/migrate:
+    $ref: paths/owlOntology_{name}_version_mapping_{mapID}_migrate.yaml
+  /owlOntology/{name}/version/mapping/{mapID}/fixDeprecated:
+    $ref: paths/owlOntology_{name}_version_mapping_{mapID}_fixDeprecated.yaml
+  /owlOntology/{name}/version/mapping/check:
+    $ref: paths/owlOntology_{name}_version_mapping_check.yaml
+  /owlOntology/{name}/version/mapping/{ID}/info:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_info.yaml
+  /owlOntology/{name}/version/mapping/{ID}/templates:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_templates.yaml
+  /owlOntology/{name}/version/mapping/{ID}/templates/refactoring:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_templates_refactoring.yaml
+  /owlOntology/{name}/version/mapping/{ID}/template:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_template.yaml
+  /owlOntology/{name}/version/mapping/{ID}/assertions/{entityID}:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_assertions_{entityID}.yaml
+  /owlOntology/{name}/version/mapping/{ID}/assertions:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_assertions.yaml
+  /owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_assertion_{mapID}.yaml
+  /owlOntology/{name}/version/mapping/{ID}/views:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_views.yaml
+  /owlOntology/{name}/version/mapping/{ID}/view/{view_name}/referencedTables:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_view_{view_name}_referencedTables.yaml
+  /owlOntology/{name}/version/mapping/{ID}/views/referencedTables:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_views_referencedTables.yaml
+  /owlOntology/{name}/version/mapping/{ID}/view/{view_name}:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_view_{view_name}.yaml
+  /owlOntology/{name}/version/mapping/{ID}/view/refactoring:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_view_refactoring.yaml
+  /owlOntology/{name}/version/mapping/{ID}/views/{viewID}:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_views_{viewID}.yaml
+  /owlOntology/{name}/version/mapping/{ID}/annotations:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_annotations.yaml
+  /owlOntology/{name}/version/mapping/{ID}/annotation/{mapID}:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_annotation_{mapID}.yaml
+  /owlOntology/{name}/version/mapping/{ID}/generateIntensionalAnnotationsOntology:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_generateIntensionalAnnotationsOntology.yaml
+  /owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/state:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_annotationProcessorThread_{threadId}_state.yaml
+  /owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/error:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_annotationProcessorThread_{threadId}_error.yaml
+  /owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/export:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_annotationProcessorThread_{threadId}_export.yaml
+  /owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/stop:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_annotationProcessorThread_{threadId}_stop.yaml
+  /owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_annotationProcessorThread_{threadId}.yaml
+  /owlOntology/{name}/version/mapping/{ID}/dependencies:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_dependencies.yaml
+  /owlOntology/{name}/version/mapping/{ID}/dependencies/inclusions:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_dependencies_inclusions.yaml
+  /owlOntology/{name}/version/mapping/{ID}/dependencies/inclusion/{incID}:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_dependencies_inclusion_{incID}.yaml
+  /owlOntology/{name}/version/mapping/{ID}/dependencies/keys:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_dependencies_keys.yaml
+  /owlOntology/{name}/version/mapping/{ID}/dependencies/key/{keyID}:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_dependencies_key_{keyID}.yaml
+  /owlOntology/{name}/version/mapping/{ID}/dependencies/denials:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_dependencies_denials.yaml
+  /owlOntology/{name}/version/mapping/{ID}/dependencies/denial/{denyID}:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_dependencies_denial_{denyID}.yaml
+  /owlOntology/{name}/version/mapping/{ID}/parameter:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_parameter.yaml
+  /owlOntology/{name}/version/mapping/{ID}/parameters:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_parameters.yaml
+  /owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}:
+    $ref: paths/owlOntology_{name}_version_mapping_{ID}_parameter_{paramName}.yaml
+  /owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/parameters:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_assertion_{mapID}_parameters.yaml
+  /owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/referencedTables:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_assertion_{mapID}_referencedTables.yaml
+  /owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/testSQLQuery:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_assertion_{mapID}_testSQLQuery.yaml
+  /owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/testCustomSQLQuery:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_assertion_{mapID}_testCustomSQLQuery.yaml
+  /owlOntology/{name}/version/mapping/{ID}/assertion/testCustomSQLQuery:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_assertion_testCustomSQLQuery.yaml
+  /owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/typeCheckingReport:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_assertion_{mapID}_typeCheckingReport.yaml
+  /owlOntology/{name}/version/mapping/{ID}/view/{viewName}/parameters:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_view_{viewName}_parameters.yaml
+  /owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}/views:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_parameter_{paramName}_views.yaml
+  /owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}/assertions:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{ID}_parameter_{paramName}_assertions.yaml
+  /owlOntology/{name}/version/mapping/{mapID}/query/{queryID}/delete:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{mapID}_query_{queryID}_delete.yaml
+  /owlOntology/{name}/version/mapping/{mapID}/suggestedTemplate/{entityID}:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{mapID}_suggestedTemplate_{entityID}.yaml
+  /owlOntology/{name}/version/mapping/{mapID}/dataLineage/{entityID}:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{mapID}_dataLineage_{entityID}.yaml
+  /owlOntology/{name}/version/mapping/{mapID}/dataLineageProperty/{entityID}:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{mapID}_dataLineageProperty_{entityID}.yaml
+  /owlOntology/{name}/version/mapping/{mapID}/dataLineageAnnotationProperty:
+    $ref: >-
+      paths/owlOntology_{name}_version_mapping_{mapID}_dataLineageAnnotationProperty.yaml
+components: 
+  securitySchemes: 
+    apiKey: 
+      $ref: './components/securitySchemes/api-key.yaml'
+    jwt:
+      $ref: './components/securitySchemes/jwt.yaml'
+security: 
+  - apiKey: []
+  - jwt: []

@@ -1,0 +1,40 @@
+openapi: 3.0.0
+servers:
+  - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+    variables:
+      protocol:
+        default: https
+      tenant:
+        default: localhost
+      port:
+        default: ':8989'
+info:
+  description: >-
+    This is the API for manage Authorization View Proviles (AVPs) 
+    used in Mastro to restrict the access to the data by means of 
+    filtering some of the entities of the ontologies. This entity
+    sets are builded using the Mastro reasoner and are used in the 
+    definition of endpoints which will have restricted access. 
+  version: 1.0.0
+  title: AVPs API model
+  contact:
+    email: info@obdasystems.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+paths:
+  /owlOntology/{name}/version/avpOntologyTree:
+    $ref: paths/owlOntology_{name}_version_avpOntologyTree.yaml
+  /owlOntology/{name}/version/authorizationViewProfiles:
+    $ref: paths/owlOntology_{name}_version_authorizationViewProfiles.yaml
+  /owlOntology/{name}/version/authorizationViewProfile/{avpId}:
+    $ref: paths/owlOntology_{name}_version_authorizationViewProfile_{avpId}.yaml
+components: 
+  securitySchemes: 
+    apiKey: 
+      $ref: './components/securitySchemes/api-key.yaml'
+    jwt:
+      $ref: './components/securitySchemes/jwt.yaml'
+security: 
+  - apiKey: []
+  - jwt: []

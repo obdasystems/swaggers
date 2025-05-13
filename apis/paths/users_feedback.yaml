@@ -1,0 +1,10 @@
+get:
+  summary: Returns the feedback provided by all the users
+  operationId: get__users_feedback
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/UsersFeedback.yaml}
+    '401': {description: Unhauthorized}

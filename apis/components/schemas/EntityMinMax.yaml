@@ -1,0 +1,11 @@
+title: EntityMinMax
+type: object
+properties:
+  entity:
+    $ref: ./OntologyEntity.yaml
+  minMax:
+    type: number
+  error:
+    type: string
+  state:
+    type: string

@@ -1,0 +1,10 @@
+type: object
+allOf:
+  - $ref: ./Action.yaml
+required:
+  - subject
+properties:
+  subject:
+    $ref: ./Edge.yaml
+  previousState:
+    $ref: ./Edge.yaml

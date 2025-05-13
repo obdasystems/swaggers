@@ -1,0 +1,27 @@
+title: OntologyMetrics
+type: object
+properties:
+  individualAxioms:
+    type: array
+    items:
+      $ref: ./MapItem.yaml
+  dataPropertyAxioms:
+    type: array
+    items:
+      $ref: ./MapItem.yaml
+  metrics:
+    type: array
+    items:
+      $ref: ./MapItem.yaml
+  classAxioms:
+    type: array
+    items:
+      $ref: ./MapItem.yaml
+  annotationAxioms:
+    type: array
+    items:
+      $ref: ./MapItem.yaml
+  objectPropertyAxioms:
+    type: array
+    items:
+      $ref: ./MapItem.yaml

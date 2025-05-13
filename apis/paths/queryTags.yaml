@@ -1,0 +1,25 @@
+get:
+  summary: Returns all the available query tags
+  operationId: get_queryTags
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/Tags.yaml}
+    '401': {description: Unhauthorized}
+post:
+  summary: Adds a new query tag to the set of available tags
+  operationId: post_queryTags
+  requestBody:
+    content:
+      application/json:
+        schema: {$ref: ../components/schemas/Tag.yaml}
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {type: boolean}
+    '401': {description: Unhauthorized}

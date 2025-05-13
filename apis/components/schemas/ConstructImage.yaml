@@ -1,0 +1,7 @@
+title: ConstructImage
+type: object
+properties:
+  triples:
+    type: array
+    items:
+      $ref: ./ConstructTriple.yaml

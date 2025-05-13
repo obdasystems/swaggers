@@ -1,0 +1,19 @@
+put:
+  summary: Stops the execution of an export thread on the given endpoint
+  operationId: put__owlOntology_name_version_query_ID_export_thread_id_status
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: id
+    in: path
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {type: integer}
+    '401': {description: Unhauthorized}

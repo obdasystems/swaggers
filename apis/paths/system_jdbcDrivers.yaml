@@ -1,0 +1,12 @@
+get:
+  summary: Returns the available JDBC drivers
+  operationId: getJdbcDrivers
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items: {$ref: ../components/schemas/JDBCDriver.yaml}
+    '401': {description: Unhauthorized}

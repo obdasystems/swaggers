@@ -1,0 +1,24 @@
+openapi: 3.0.0
+servers:
+  - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+    variables:
+      protocol:
+        default: https
+      tenant:
+        default: localhost
+      port:
+        default: ':8989'
+info:
+  description: >-
+    This is the API for Mastro an Ontology-based Data Management System.
+    You can create modify ontologies, map them to a datasource and query
+    the ontology directlty with user friendly tools as the Query Builder
+    and the Virtual Knowledge Graph.
+  version: 1.0.0
+  title: Mastro API model
+  contact:
+    email: info@obdasystems.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+paths: {}

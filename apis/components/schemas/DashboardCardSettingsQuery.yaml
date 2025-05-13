@@ -1,0 +1,22 @@
+title: DashboardCardSettingsQuery
+type: object
+properties:
+  chartConfiguration:
+    $ref: ./ChartConfiguration.yaml
+  endpoint:
+    type: string
+  refreshRate:
+    type: integer
+    format: int32
+  autorun:
+    type: boolean
+  queryCatalogType:
+    type: string
+  parameterSetting:
+    type: object
+    additionalProperties:
+      type: string
+  sparqlCode:
+    type: string
+  queryID:
+    type: string

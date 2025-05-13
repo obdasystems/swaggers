@@ -1,0 +1,11 @@
+title: AvpTreeNode
+type: object
+properties:
+  children:
+    type: array
+    items:
+      $ref: ./AvpTreeNode.yaml
+  entities:
+    type: array
+    items:
+      $ref: ./OntologyEntity.yaml

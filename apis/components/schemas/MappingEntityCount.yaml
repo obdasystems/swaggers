@@ -1,0 +1,10 @@
+title: MappingEntityCount
+type: object
+properties:
+  count:
+    type: array
+    items:
+      $ref: ./MappingCount.yaml
+  countAnnotations:
+    type: integer
+    format: int32

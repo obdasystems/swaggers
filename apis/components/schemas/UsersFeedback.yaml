@@ -1,0 +1,6 @@
+title: UsersFeedback
+type: object
+properties:
+  usersFeedback:
+    additionalProperties: 
+      $ref: UserFeedback.yaml

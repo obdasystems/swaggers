@@ -1,0 +1,23 @@
+get:
+  summary: GET mwsx/logger
+  operationId: get_set_logger
+  parameters:
+  - name: className
+    in: query
+    required: true
+    schema: {type: string}
+  - name: packageName
+    in: query
+    required: true
+    schema: {type: string}
+  - name: logLevel
+    in: query
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        '*/*':
+          schema: {type: integer, format: int32}
+    '401': {description: Unhauthorized}

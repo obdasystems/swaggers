@@ -1,0 +1,15 @@
+title: EmptyEntities
+type: object
+properties:
+  emptyObjectProperties:
+    type: array
+    items:
+      $ref: ./OntologyEntity.yaml
+  emptyDataProperties:
+    type: array
+    items:
+      $ref: ./OntologyEntity.yaml
+  emptyClasses:
+    type: array
+    items:
+      $ref: ./OntologyEntity.yaml

@@ -1,0 +1,11 @@
+title: MappingAtom
+type: object
+properties:
+  view:
+    $ref: ./SQLView.yaml
+  terms:
+    type: array
+    items:
+      type: string
+  name:
+    type: string

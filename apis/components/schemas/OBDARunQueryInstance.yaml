@@ -1,0 +1,11 @@
+title: OBDARunQueryInstance
+type: object
+properties:
+  executionId:
+    type: string
+  count:
+    type: boolean
+  computedSemantics:
+    type: string
+  sparql:
+    $ref: ./SPARQLQuery.yaml

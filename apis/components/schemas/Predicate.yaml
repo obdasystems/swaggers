@@ -1,0 +1,13 @@
+title: Predicate
+type: object
+properties:
+  arity:
+    type: integer
+    format: int32
+  serialVersionUID:
+    type: integer
+    format: int64
+  name:
+    type: string
+  shortName:
+    type: string

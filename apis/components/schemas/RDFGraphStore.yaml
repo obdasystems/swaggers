@@ -1,0 +1,7 @@
+title: RDFGraphStore
+type: object
+properties:
+  store:
+    type: object
+    additionalProperties:
+      $ref: ./RDFGraph.yaml

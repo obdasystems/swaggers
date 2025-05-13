@@ -1,0 +1,53 @@
+get:
+  summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/inclusions
+  operationId: get__owlOntology_name_version_mapping_ID_dependencies_inclusions
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: ID
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items: {$ref: ../components/schemas/InclusionDependency.yaml}
+    '401': {description: Unhauthorized}
+post:
+  summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/inclusions
+  operationId: post__owlOntology_name_version_mapping_ID_dependencies_inclusions
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: ID
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  requestBody:
+    content:
+      application/json:
+        schema: {$ref: ../components/schemas/InclusionDependency.yaml}
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {type: boolean}
+    '401': {description: Unhauthorized}

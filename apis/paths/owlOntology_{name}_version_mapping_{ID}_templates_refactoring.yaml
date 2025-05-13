@@ -1,0 +1,31 @@
+put:
+  summary: Applies templates refactoring to mapping specification and returns a list
+    of affected mappings ids
+  operationId: get__owlOntology_name_version_mapping_ID_templates_refactoring
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: ID
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  requestBody:
+    content:
+      application/json:
+        schema: {$ref: ../components/schemas/TemplateRefactoring.yaml}
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items: {type: string}
+    '401': {description: Unhauthorized}

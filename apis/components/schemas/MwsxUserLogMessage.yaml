@@ -1,0 +1,17 @@
+title: MwsxUserLogMessage
+type: object
+properties:
+  userName:
+    type: string 
+  timestamp:
+    type: integer 
+  resource:
+    type: string 
+  method:
+    type: string 
+  templateParams:
+    type: object
+  queryParams:
+    type: object
+  statusCode:
+    type: integer

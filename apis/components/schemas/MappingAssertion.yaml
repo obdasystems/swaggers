@@ -1,0 +1,29 @@
+title: MappingAssertion
+type: object
+properties:
+  template:
+    $ref: ./MappingTemplate.yaml
+  iri:
+    $ref: ./IRI.yaml
+  currentMWSEntity:
+    $ref: ./OntologyEntity.yaml
+  annotationMappings:
+    type: array
+    items:
+      $ref: ./ExtensionalAnnotationMapping.yaml
+  mappingBody:
+    $ref: ./MappingBody.yaml
+  mappingDescription:
+    type: string
+  rangeTemplate:
+    $ref: ./MappingTemplate.yaml
+  quarantineReasons:
+    type: array
+    items:
+      type: string
+  userQuery:
+    type: string
+  id:
+    type: string
+  isQuarantined:
+    type: boolean

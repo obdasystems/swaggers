@@ -1,0 +1,17 @@
+title: MwsxOntologyVersionLoaderReport
+type: object
+properties:
+  id: 
+    type: string 
+  state: 
+    type: string 
+  timeStart: 
+    type: integer 
+  timeEnd: 
+    type: integer
+  hasError: 
+    type: boolean 
+  errorMessage: 
+    type: string 
+  missingImports: 
+    type: object

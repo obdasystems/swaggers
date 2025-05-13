@@ -1,0 +1,15 @@
+title: User
+type: object
+properties:
+  firstName:
+    type: string
+  lastName:
+    type: string
+  roles:
+    type: array
+    items:
+      $ref: ./Role.yaml
+  name:
+    type: string
+  email:
+    type: string

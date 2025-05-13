@@ -1,0 +1,17 @@
+title: SubjectObjectProperty
+type: object
+properties:
+  predicate:
+    type: string
+  objects_types:
+    type: array
+    items:
+      $ref: ./ObjectType.yaml
+  predicate_short:
+    type: string
+  instance_count:
+    type: integer
+    format: int32
+  page_count:
+    type: integer
+    format: int32

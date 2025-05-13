@@ -1,0 +1,51 @@
+openapi: 3.0.0
+servers:
+  - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+    variables:
+      protocol:
+        default: https
+      tenant:
+        default: localhost
+      port:
+        default: ':8989'
+info:
+  description: >-
+    This is the API for managing tasks in Mastro. i.e. execute SPARQL queries,
+    and save results.
+  version: 1.0.0
+  title: Task Scheduler API model
+  contact:
+    email: info@obdasystems.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+paths:
+  /taskScheduler/state:
+    $ref: paths/taskScheduler_state.yaml
+  /taskScheduler/jobs:
+    $ref: paths/taskScheduler_jobs.yaml
+  /taskScheduler/jobs/available:
+    $ref: paths/taskScheduler_jobs_available.yaml
+  /taskScheduler/jobs/entries:
+    $ref: paths/taskScheduler_jobs_entries.yaml
+  /taskScheduler/jobs/entries/filter:
+    $ref: paths/taskScheduler_jobs_entries_filter.yaml
+  /taskScheduler/job/{jobId}/entry:
+    $ref: paths/taskScheduler_job_{jobId}_entry.yaml
+  /taskScheduler/job/{jobId}/execution/{execId}:
+    $ref: paths/taskScheduler_job_{jobId}_execution_{execId}.yaml
+  /taskScheduler/job/{jobId}/execution/entries:
+    $ref: paths/taskScheduler_job_{jobId}_execution_entries.yaml
+  /taskScheduler/job/{jobId}:
+    $ref: paths/taskScheduler_job_{jobId}.yaml
+  /taskScheduler/job/{jobId}/executionsIds:
+    $ref: paths/taskScheduler_job_{jobId}_executionsIds.yaml
+components: 
+  securitySchemes: 
+    apiKey: 
+      $ref: './components/securitySchemes/api-key.yaml'
+    jwt:
+      $ref: './components/securitySchemes/jwt.yaml'
+security: 
+  - apiKey: []
+  - jwt: []

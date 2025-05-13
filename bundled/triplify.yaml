@@ -1,0 +1,342 @@
+openapi: 3.0.0
+info:
+  description: 'This is the API to transform the data of the ontology into RDF triples. The transformation is done by means of a set of mappings and a connection to a DBMS. '
+  version: 1.0.0
+  title: Triplify API model
+  contact:
+    email: info@obdasystems.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+  - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+    variables:
+      protocol:
+        default: https
+      tenant:
+        default: localhost
+      port:
+        default: ':8989'
+security:
+  - apiKey: []
+  - jwt: []
+paths:
+  /triplify/start:
+    post:
+      summary: Starts a new thread of mappings triplification with the given parameters
+      operationId: post_mappings_triplification_start
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OBDATriplificationRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/mappings/{mapID}/triplify/listThreads:
+    get:
+      summary: Lists the triplification threads for a given mapping specification
+      operationId: get_mappings_triplification_list
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: mapID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/mappings/{mapID}/triplify/listThreadProgresses:
+    get:
+      summary: Lists the triplification threads for a given mapping specification
+      operationId: get_mappings_triplification_listProgresses
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: mapID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OBDATriplificationProgress'
+        '401':
+          description: Unhauthorized
+  /triplify/stopAll:
+    put:
+      summary: Stops the thread identified by threadID
+      operationId: put_mappings_triplification_stop_all
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unhauthorized
+  /triplify/{threadID}/stop:
+    put:
+      summary: Stops the thread identified by threadID
+      operationId: put_mappings_triplification_stop
+      parameters:
+        - name: threadID
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+  /triplify/{threadID}:
+    delete:
+      summary: Stops the thread identified by threadID
+      operationId: delete_mappings_triplification_thread
+      parameters:
+        - name: threadID
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+  /triplify/{threadID}/status:
+    get:
+      summary: Returns the status of a triplification thread
+      operationId: get_mappings_triplification_status
+      parameters:
+        - name: threadID
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OBDATriplificationProgress'
+        '401':
+          description: Unhauthorized
+  /triplify/{threadID}/report:
+    get:
+      summary: Returns the report of a triplification thread
+      operationId: get_mappings_triplification_report
+      parameters:
+        - name: threadID
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OBDATriplificationReport'
+        '401':
+          description: Unhauthorized
+  /triplify/{threadID}/download:
+    get:
+      summary: Returns the report of a triplification thread
+      operationId: get_mappings_triplification_download
+      parameters:
+        - name: threadID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: format
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{mapID}/triplify/{datasource}:
+    get:
+      summary: Triplifies the OBDA mapping specification, streaming the produced triples to the client
+      operationId: get__owlOntology_name_version_query_ID_export_directcsv
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: mapID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: datasource
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: format
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        '401':
+          description: Unhauthorized
+components:
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-MONOLITH-SESSION-ID
+      description: |
+        This session ID is generated from Basic Authentication on the login route.
+    jwt:
+      description: |
+        Generate your JWT when you log in. JWT configurations should be placed in `$MASTRO_HOME/config/mastro.jwt` file
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    OBDATriplificationRequest:
+      title: OBDATriplificationRequest
+      type: object
+      properties:
+        mappingID:
+          type: string
+        entityIriFilter:
+          type: array
+          items:
+            type: string
+        ontologyVersion:
+          type: string
+        ontologyName:
+          type: string
+        mappingIdFilter:
+          type: array
+          items:
+            type: string
+        outputRdfFormat:
+          type: string
+        dataSource:
+          type: string
+    OBDATriplificationProgress:
+      title: OBDATriplificationProgress
+      type: object
+      properties:
+        threadId:
+          type: string
+        progress:
+          type: integer
+          format: int32
+        startTime:
+          type: integer
+          format: int64
+        time:
+          type: integer
+          format: int64
+        status:
+          type: string
+    OBDATriplificationMappingReport:
+      title: OBDATriplificationMappingReport
+      type: object
+      properties:
+        entityIRI:
+          type: string
+        triplesCount:
+          type: integer
+          format: int32
+        sqlCode:
+          type: string
+        startTime:
+          type: integer
+          format: int64
+        endTime:
+          type: integer
+          format: int64
+        error:
+          type: string
+        elapsedTime:
+          type: integer
+          format: int64
+    OBDATriplificationReport:
+      title: OBDATriplificationReport
+      type: object
+      properties:
+        request:
+          $ref: '#/components/schemas/OBDATriplificationRequest'
+        progress:
+          $ref: '#/components/schemas/OBDATriplificationProgress'
+        details:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/OBDATriplificationMappingReport'

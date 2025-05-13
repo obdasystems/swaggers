@@ -1,0 +1,7 @@
+title: GeocodingServers
+type: object
+properties:
+  servers:
+    type: array
+    items: 
+      $ref: ./GeocodingServer.yaml

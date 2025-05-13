@@ -1,0 +1,5 @@
+type: apiKey
+in: header # can be "header", "query" or "cookie"
+name: X-MONOLITH-SESSION-ID # name of the header, query parameter or cookie
+description: |
+  This session ID is generated from Basic Authentication on the login route.

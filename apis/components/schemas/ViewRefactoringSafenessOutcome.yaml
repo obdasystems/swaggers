@@ -1,0 +1,9 @@
+title: ViewRefactoringSafenessOutcome
+type: object
+properties:
+  safenessDetails:
+    type: array
+    items:
+      type: string
+  isSafe:
+    type: boolean

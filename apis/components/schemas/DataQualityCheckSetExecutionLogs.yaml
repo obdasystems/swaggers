@@ -1,0 +1,7 @@
+title: DataQualityCheckSetExecutionLogs
+type: object
+properties:
+  executions:
+    type: array
+    items:
+      $ref: ./DataQualityCheckSetExecutionLog.yaml

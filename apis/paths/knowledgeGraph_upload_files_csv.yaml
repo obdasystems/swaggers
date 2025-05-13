@@ -1,0 +1,12 @@
+get:
+  summary: GET mwsx/knowledgeGraph/upload/files/csv
+  operationId: get__knowledgeGraph_upload_file_csv
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items: {$ref: ../components/schemas/KnowledgeGraphFileInfo.yaml}
+    '401': {description: Unhauthorized}

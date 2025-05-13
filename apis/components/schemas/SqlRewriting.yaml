@@ -1,0 +1,11 @@
+title: SqlRewriting
+type: object
+properties:
+  query:
+    type: string
+  numResults:
+    type: integer
+    format: int32
+  time:
+    type: integer
+    format: int32

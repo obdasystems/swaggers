@@ -1,0 +1,7 @@
+title: Dashboards
+type: object
+properties:
+  dashboards:
+    type: array
+    items:
+      $ref: ./Dashboard.yaml

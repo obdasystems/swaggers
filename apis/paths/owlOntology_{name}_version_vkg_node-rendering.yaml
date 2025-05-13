@@ -1,0 +1,82 @@
+get:
+  summary: Returns the default VKG node rendering for the ontology version
+  operationId: get_default_node_rendering
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/CustomNodeRenderingMap.yaml}
+    '401': {description: Unhauthorized}
+post:
+  summary: Set a default VKG node rendering for the ontology version
+  operationId: post_default_node_rendering
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  requestBody:
+    content:
+      application/json:
+        schema: {$ref: ../components/schemas/CustomNodeRenderingMap.yaml}
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/CustomNodeRenderingMap.yaml}
+    '401': {description: Unhauthorized}
+put:
+  summary: Modifies the default VKG node rendering for the ontology version
+  operationId: put_default_node_rendering
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  requestBody:
+    content:
+      application/json:
+        schema: {$ref: ../components/schemas/CustomNodeRenderingMap.yaml}
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/CustomNodeRenderingMap.yaml}
+    '401': {description: Unhauthorized}
+delete:
+  summary: DELETE mwsx/owlOntology/{name}/version/vkg/node-rendering
+  operationId: delete_vkg_node_rendering
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  responses:
+    '200': {description: OK}
+    '401': {description: Unhauthorized}

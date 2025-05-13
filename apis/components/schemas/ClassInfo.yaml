@@ -1,0 +1,61 @@
+title: ClassInfo
+type: object
+properties:
+  disjointClasses:
+    type: array
+    items:
+      $ref: ./OntologyEntity.yaml
+  iri:
+    $ref: ./IRI.yaml
+  currentMWSEntity:
+    $ref: ./OntologyEntity.yaml
+  equivalentClasses:
+    type: array
+    items:
+      $ref: ./OntologyEntity.yaml
+  dataPropertiesIsDomainOf:
+    type: array
+    items:
+      $ref: ./OntologyEntity.yaml
+  disjointUnions:
+    type: array
+    items:
+      type: array
+      items:
+        $ref: ./OntologyEntity.yaml
+  classDescriptions:
+    type: array
+    items:
+      $ref: ./Label.yaml
+  classIndividuals:
+    type: array
+    items:
+      $ref: ./OntologyEntity.yaml
+  objectPropertiesIsRangeOf:
+    type: array
+    items:
+      $ref: ./OntologyEntity.yaml
+  objectPropertiesIsDomainOf:
+    type: array
+    items:
+      $ref: ./OntologyEntity.yaml
+  subClasses:
+    type: array
+    items:
+      $ref: ./OntologyEntity.yaml
+  objectPropertiesParticipations:
+    type: array
+    items:
+      $ref: ./Participation.yaml
+  dataPropertiesParticipations:
+    type: array
+    items:
+      $ref: ./Participation.yaml
+  MWSEntityDiagrams:
+    type: array
+    items:
+      $ref: ./DiagramNode.yaml
+  superClasses:
+    type: array
+    items:
+      $ref: ./OntologyEntity.yaml

@@ -1,0 +1,51 @@
+title: OntologyDifference
+type: object
+properties:
+  ontologyIri: 
+    type: string 
+  ontologyVersionIri: 
+    type: string 
+  ontologyClassDelta: 
+    type: array
+    items:
+      type: string
+  ontologyObjectPropertyDelta: 
+    type: array
+    items:
+      type: string
+  ontologyDataPropertyDelta: 
+    type: array
+    items:
+      type: string
+  ontologyAnnotationPropertyDelta: 
+    type: array
+    items:
+      type: string
+  ontologyIndividualDelta: 
+    type: array
+    items:
+      type: string
+  otherOntologyIri: 
+    type: string 
+  otherOntologyVersionIri: 
+    type: string 
+  otherOntologyClassDelta: 
+    type: array
+    items:
+      type: string
+  otherOntologyObjectPropertyDelta: 
+    type: array
+    items:
+      type: string
+  otherOntologyDataPropertyDelta: 
+    type: array
+    items:
+      type: string
+  otherOntologyAnnotationPropertyDelta: 
+    type: array
+    items:
+      type: string
+  otherOntologyIndividualDelta: 
+    type: array
+    items:
+      type: string

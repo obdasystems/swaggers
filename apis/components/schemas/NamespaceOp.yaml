@@ -1,0 +1,7 @@
+title: NamespaceOp
+type: object
+properties:
+  subject:
+    $ref: ./Namespace.yaml
+  previousState:
+    $ref: ./Namespace.yaml

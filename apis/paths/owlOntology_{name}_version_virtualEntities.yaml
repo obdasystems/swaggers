@@ -1,0 +1,40 @@
+get:
+  summary: Returns the virtual entities available for a given ontology
+  operationId: get_virtualEntities
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            additionalProperties: {$ref: ../components/schemas/SparqlingVirtualEntity.yaml}
+    '401': {description: Unhauthorized}
+delete:
+  summary: Deletes the virtual entities for a given ontology
+  operationId: delete_virtualEntities
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/SparqlingVirtualEntities.yaml}
+    '401': {description: Unhauthorized}

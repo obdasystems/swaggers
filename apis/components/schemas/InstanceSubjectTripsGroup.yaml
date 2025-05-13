@@ -1,0 +1,11 @@
+title: InstanceSubjectTripsGroup
+type: object
+properties:
+  subject_data_properties:
+    type: array
+    items:
+      $ref: ./SubjectDataProperty.yaml
+  subject_object_properties:
+    type: array
+    items:
+      $ref: ./SubjectObjectProperty.yaml

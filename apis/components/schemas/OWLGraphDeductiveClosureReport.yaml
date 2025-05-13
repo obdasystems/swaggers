@@ -1,0 +1,29 @@
+title: OWLGraphDeductiveClosureReport
+type: object
+properties:
+  successfullyAddedAxioms:
+    type: array
+    items:
+      type: string
+  unsuccessfullyAddedAxioms:
+    type: array
+    items:
+      type: string
+  noOperationAxioms:
+    type: array
+    items:
+      type: string
+  success:
+    type: boolean
+  error:
+    type: object
+  timestampStart:
+    type: integer
+  timestampEnd:
+    type: integer
+  ontologyIri:
+    type: string
+  isComputeEmpties:
+    type: boolean
+  isComputeGeneralConceptInclusions:
+    type: boolean

@@ -1,0 +1,71 @@
+put:
+  tags: [QueryGraphBGP]
+  summary: Starting from the current query graph continue to build the query graph
+    through a object property.
+  description: This route is used when the user click a highlighted object property
+    with ornly one `relatedClasses` or, in the case of more than one `relatedClasses`
+    immediatly after choosing one of them. In this case the triple pattern to add
+    is something like `?x <predicateIRI> ?y` where `?x` and `?y` should be derived
+    from the direction indicated by `isPredicateDirect` of the object property with
+    respect to `sourceClassIRI` and `targetClassIRI`. If there is a cyclic object
+    property the user also should specify the direction if order to correctly assign
+    `?x` and `?y`. Either `?x` or `?y` should be a fresh new variable which should
+    be linked to a new triple pattern `?y rdf:type <targetClassIRI>`. The variable
+    `?y` should be called according to the entity remainder or label and should add
+    a counter if there is an already defined variable for that class.
+  operationId: putQueryGraphObjectProperty
+  parameters:
+  - name: ontologyName
+    in: path
+    description: The name of the ontology
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    description: The version of the ontology
+    required: true
+    schema: {type: string}
+  - name: graphElementId
+    in: path
+    description: The id of the node of the selected class in the query graph.
+    required: true
+    schema: {type: string}
+  - name: sourceClassIRI
+    in: query
+    description: The IRI of the last selected class. It could be selected from the
+      ontology graph or from the query graph.
+    required: true
+    schema: {type: string}
+  - name: predicateIRI
+    in: query
+    description: The IRI of the predicate which links source class and target class
+    required: true
+    schema: {type: string}
+  - name: targetClassIRI
+    in: query
+    description: The IRI of the entity clicked on the GRAPHOLscape ontology graph.
+    required: true
+    schema: {type: string}
+  - name: isPredicateDirect
+    in: query
+    required: true
+    description: If true sourceClassIRI is the domain of predicateIRI, if false sourceClassIRI
+      is the range of predicateIRI.
+    schema: {type: boolean}
+  requestBody:
+    content:
+      application/json:
+        schema: {$ref: ../components/schemas/QueryGraph.yaml}
+    required: true
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/QueryGraph.yaml}
+    '400':
+      description: Invalid IRI supplied
+      content: {}
+    '404':
+      description: Entity not found
+      content: {}

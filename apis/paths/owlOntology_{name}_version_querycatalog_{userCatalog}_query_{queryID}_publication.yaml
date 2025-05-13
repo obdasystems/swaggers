@@ -1,0 +1,60 @@
+put:
+  summary: Accept the publication of a query for which a publication request has been
+    formerly requested
+  operationId: put__owlOntology_name_version_querycatalog_accept_publication
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: userCatalog
+    in: path
+    required: true
+    schema: {type: string}
+  - name: queryID
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  - name: accept
+    in: query
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {type: boolean}
+    '401': {description: Unhauthorized}
+delete:
+  summary: Accept the publication of a query for which a publication request has been
+    formerly requested
+  operationId: delete__owlOntology_name_version_querycatalog_accept_publication
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: userCatalog
+    in: path
+    required: true
+    schema: {type: string}
+  - name: queryID
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {type: boolean}
+    '401': {description: Unhauthorized}

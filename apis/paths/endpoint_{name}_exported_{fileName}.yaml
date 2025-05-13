@@ -1,0 +1,39 @@
+get:
+  summary: Returns the content of an export file for the given endpoint
+  operationId: get__owlOntology_name_version_query_ID_exported_fileName
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: fileName
+    in: path
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/FileInfo.yaml}
+    '401': {description: Unhauthorized}
+delete:
+  summary: Deletes the export file for the given endpoint from the server, returns
+    0 in the deletion succeeded
+  operationId: delete__owlOntology_name_version_query_ID_exported_fileName
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: fileName
+    in: path
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {type: integer}
+    '401': {description: Unhauthorized}

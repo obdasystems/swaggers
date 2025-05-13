@@ -1,0 +1,15 @@
+post:
+  summary: Adds information about a new JDBC driver to the system
+  operationId: postJdbcDrivers
+  requestBody:
+    content:
+      application/json:
+        schema: {$ref: ../components/schemas/JDBCDriver.yaml}
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/JDBCDriver.yaml}
+    '401': {description: Unhauthorized}

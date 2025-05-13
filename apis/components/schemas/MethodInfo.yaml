@@ -1,0 +1,55 @@
+title: MethodInfo
+type: object
+properties:
+  isAvailable:
+    type: boolean
+  concreteReturnType:
+    type: string
+  method:
+    type: string
+  pathParams:
+    type: array
+    items:
+      type: string
+  innerListReturnType:
+    type: string
+  queryParams:
+    type: array
+    items:
+      type: string
+  bodyParams:
+    type: array
+    items:
+      type: string
+  description:
+    type: string
+  innerReturnType:
+    type: string
+  permissionEnabled:
+    type: string
+  isReturnTypeListOfList:
+    type: boolean
+  path:
+    type: string
+  headerParams:
+    type: array
+    items:
+      type: string
+  isDescriptionAvailable:
+    type: boolean
+  documented:
+    type: boolean
+  isPermissionActivated:
+    type: boolean
+  name:
+    type: string
+  topic:
+    type: string
+  isReturnTypeList:
+    type: boolean
+  bodyParamTypes:
+    type: array
+    items:
+      type: string
+  returnType:
+    type: string

@@ -1,0 +1,15 @@
+type: object
+required:
+  - active
+  - filters
+properties:
+  active:
+    type: integer
+    enum:
+      - 0
+      - 1
+      - 2
+  filters:
+    type: array
+    items:
+      $ref: ./InstanceFilter.yaml

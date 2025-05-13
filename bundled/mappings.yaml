@@ -1,0 +1,3441 @@
+openapi: 3.0.0
+info:
+  description: This is the API for managing Mastro mappings. Mappings are used to link data to ontologies by means of SQL queries. The mappings are then  in one or more endpoints to answer SPARQL queries.
+  version: 1.0.0
+  title: Mappings API model
+  contact:
+    email: info@obdasystems.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+  - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+    variables:
+      protocol:
+        default: https
+      tenant:
+        default: localhost
+      port:
+        default: ':8989'
+security:
+  - apiKey: []
+  - jwt: []
+paths:
+  /owlOntology/{name}/version/mapping:
+    get:
+      summary: Returns the list of mappings available for a given ontology version
+      operationId: get__owlOntology_name_version_mapping
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Mappings'
+        '401':
+          description: Unhauthorized
+    post:
+      summary: Creates a new set of mappings
+      operationId: post__owlOntology_name_version_mapping_ID
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: create
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: check
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: checkDeprecation
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileInfo'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/MappingInfo'
+                  - $ref: '#/components/schemas/MappingsCheckResult'
+                  - $ref: '#/components/schemas/Mapping'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{mapID}:
+    get:
+      summary: 'Returns the set of mappings identified ID for a given ontology version  '
+      operationId: get__owlOntology_name_version_mapping_ID
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: mapID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: format
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileInfo'
+        '401':
+          description: Unhauthorized
+    put:
+      summary: 'Updates mapping infos (passed as a Base64 encoded object NewMappingFileInfo in the query string) '
+      operationId: put__owlOntology_name_version_mapping_ID
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: mapID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: create
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MappingInfo'
+        '401':
+          description: Unhauthorized
+    delete:
+      summary: Deletes a set of mappings
+      operationId: delete__owlOntology_name_version_mapping_ID
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: mapID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileInfo'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/checkDeprecation:
+    get:
+      summary: Performs mapping analysis returning a list of deprecation messages
+      operationId: get__owlOntology_name_version_mapping_ID_checkDeprecation
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/count:
+    get:
+      summary: Returns mapping statistics by ontology entity
+      operationId: get__owlOntology_name_version_mapping_ID_count
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MappingEntityCount'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{mapID}/duplicate:
+    post:
+      summary: Duplicates a given set of mappings
+      operationId: post__owlOntology_name_version_mapping_ID_duplicate
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: mapID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: check
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: create
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MappingInfo'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{mapID}/backup:
+    get:
+      summary: Verifies whether a backup copy of a given mapping file exists
+      operationId: get__owlOntology_name_version_mapping_ID_backup
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: mapID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '401':
+          description: Unhauthorized
+    post:
+      summary: Creates a backup copy of a given mapping file
+      operationId: post__owlOntology_name_version_mapping_ID_backup
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: mapID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '401':
+          description: Unhauthorized
+    put:
+      summary: Restore a backup copy of a given mapping file
+      operationId: post__owlOntology_name_version_mapping_ID_restore
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: mapID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '401':
+          description: Unhauthorized
+    delete:
+      summary: Deletes the backup copy of a given mapping file
+      operationId: post__owlOntology_name_version_mapping_ID_delete
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: mapID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{mapID}/migrate:
+    post:
+      summary: Copy a given set of mappins from a source ontology version to a target ontology version (works under the same ontology name)
+      operationId: post__owlOntology_name_version_mapping_ID_migrate
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: mapID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: targetVersion
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: check
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: create
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Mapping'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{mapID}/fixDeprecated:
+    post:
+      summary: Tentatively fixes mapping deprecations
+      operationId: post__owlOntology_name_version_mapping_ID_fix_deprecated
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: mapID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/check:
+    post:
+      summary: Perform checks on a given mapping file
+      operationId: post__owlOntology_name_version_mapping_ID_check
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: check
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: checkDeprecation
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileInfo'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MappingsCheckResult'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/info:
+    get:
+      summary: Returns info of a set of mappings
+      operationId: get__owlOntology_name_version_mapping_ID_info
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MappingInfo'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/templates:
+    get:
+      summary: Returns the list of templates defined in a mapping file
+      operationId: get__owlOntology_name_version_mapping_ID_templates
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/templates/refactoring:
+    put:
+      summary: Applies templates refactoring to mapping specification and returns a list of affected mappings ids
+      operationId: get__owlOntology_name_version_mapping_ID_templates_refactoring
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TemplateRefactoring'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/template:
+    post:
+      summary: Adds a new template to a mappng file
+      operationId: post__owlOntology_name_version_mapping_ID_template
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              type: string
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+    delete:
+      summary: Deletes a template from a mapping file
+      operationId: delete__owlOntology_name_version_mapping_ID_template
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: template
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/assertions/{entityID}:
+    get:
+      summary: Returns the list of maping assertion involving the passed entity
+      operationId: get__owlOntology_name_version_mapping_ID_assertions_entityID
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: entityID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MappingAssertion'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/assertions:
+    get:
+      summary: Returns the list of all mapping assertions identified by ID
+      operationId: get__owlOntology_name_version_mapping_ID_assertions
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MappingAssertion'
+        '401':
+          description: Unhauthorized
+    post:
+      summary: Adds a new mapping assertion to a set of mappings
+      operationId: post__owlOntology_name_version_mapping_ID_assertions
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MappingAssertion'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MappingAssertion'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}:
+    delete:
+      summary: Remove the mapping assertion mapID from a given set of mappings
+      operationId: delete__owlOntology_name_version_mapping_ID_assertions
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: mapID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MappingAssertion'
+        '401':
+          description: Unhauthorized
+    put:
+      summary: Updates the mapping assertion mapID within a given set of mappings
+      operationId: put__owlOntology_name_version_mapping_ID_assertions
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: mapID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MappingAssertion'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MappingAssertion'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/views:
+    get:
+      summary: Returns the list of view definitions declared in a  given set of mappings
+      operationId: get__owlOntology_name_version_mapping_ID_views
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SQLViews'
+        '401':
+          description: Unhauthorized
+    post:
+      summary: Creates a new view definition in a set of mappings
+      operationId: post__owlOntology_name_version_mapping_ID_views
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SQLView'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SQLView'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/view/{view_name}/referencedTables:
+    get:
+      summary: Returns the view definition identified by view_name in a given set of mappings
+      operationId: get__owlOntology_name_version_mapping_ID_view_refTables
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: view_name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/views/referencedTables:
+    get:
+      summary: Returns the whole map of tables referenced by view definitions of a given set of mappings
+      operationId: get__owlOntology_name_version_mapping_ID_views_allRefTablesMap
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties:
+                    type: array
+                    items:
+                      type: string
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/view/{view_name}:
+    put:
+      summary: Returns the view definition identified by view_name in a given set of mappings
+      operationId: put__owlOntology_name_version_mapping_ID_views
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: view_name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SQLView'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SQLView'
+        '401':
+          description: Unhauthorized
+    delete:
+      summary: Deletes a view definition
+      operationId: delete__owlOntology_name_version_mapping_ID_views
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: view_name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SQLView'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/view/refactoring:
+    post:
+      summary: No description available
+      operationId: get__owlOntology_name_version_mapping_ID_views_refactoring
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ViewRefactoring'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ViewRefactoringAnalysis'
+        '401':
+          description: Unhauthorized
+    put:
+      summary: No description available
+      operationId: post__owlOntology_name_version_mapping_ID_views_refactoring
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MappingViewAtomRefactoringList'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/views/{viewID}:
+    get:
+      summary: No description available
+      operationId: get__owlOntology_name_version_mapping_ID_views_viewID
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: viewID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ViewMappings'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/annotations:
+    get:
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/annotations
+      operationId: get__owlOntology_name_version_intensional_annotation_mapping
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/IntensionalAnnotationMappingAssertion'
+        '401':
+          description: Unhauthorized
+    post:
+      summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/annotations
+      operationId: post__owlOntology_name_version_intensional_annotation_mapping_mapId
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IntensionalAnnotationMappingAssertion'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntensionalAnnotationMappingAssertion'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/annotation/{mapID}:
+    get:
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/annotation/{mapID}
+      operationId: get__owlOntology_name_version_intensional_annotation_mapping_mapId
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: mapID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntensionalAnnotationMappingAssertion'
+        '401':
+          description: Unhauthorized
+    delete:
+      summary: DELETE mwsx/owlOntology/{name}/version/mapping/{ID}/annotation/{mapID}
+      operationId: delete__owlOntology_name_version_intensional_annotation_mapping_mapId
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: mapID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntensionalAnnotationMappingAssertion'
+        '401':
+          description: Unhauthorized
+    put:
+      summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/annotation/{mapID}
+      operationId: put__owlOntology_name_version_intensional_annotation_mapping_mapId
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: mapID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IntensionalAnnotationMappingAssertion'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntensionalAnnotationMappingAssertion'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/generateIntensionalAnnotationsOntology:
+    post:
+      summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/generateIntensionalAnnotationsOntology
+      operationId: post__owlOntology_name_version_mapping_ID_generateIntensionalAnnotationsOntology
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AnnotationProcessorConfig'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/state:
+    get:
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/state
+      operationId: get__owlOntology_name_version_mapping_ID_generateIntensionalAnnotationsOntology_threadState
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: threadId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/error:
+    get:
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/error
+      operationId: get__owlOntology_name_version_mapping_ID_generateIntensionalAnnotationsOntology_error
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: threadId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/export:
+    get:
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/export
+      operationId: get__owlOntology_name_version_mapping_ID_generateIntensionalAnnotationsOntology_export
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: threadId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileInfo'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/stop:
+    put:
+      summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/stop
+      operationId: put__owlOntology_name_version_mapping_ID_generateIntensionalAnnotationsOntology_stop
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: threadId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}:
+    delete:
+      summary: DELETE mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}
+      operationId: delete__owlOntology_name_version_mapping_ID_generateIntensionalAnnotationsOntology
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: threadId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/dependencies:
+    get:
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies
+      operationId: get__owlOntology_name_version_mapping_ID_dependencies
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MappingDependencies'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/dependencies/inclusions:
+    get:
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/inclusions
+      operationId: get__owlOntology_name_version_mapping_ID_dependencies_inclusions
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/InclusionDependency'
+        '401':
+          description: Unhauthorized
+    post:
+      summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/inclusions
+      operationId: post__owlOntology_name_version_mapping_ID_dependencies_inclusions
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InclusionDependency'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/dependencies/inclusion/{incID}:
+    get:
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/inclusion/{incID}
+      operationId: get__owlOntology_name_version_mapping_ID_dependencies_inclusion_incID
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: incID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InclusionDependency'
+        '401':
+          description: Unhauthorized
+    put:
+      summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/inclusion/{incID}
+      operationId: put__owlOntology_name_version_mapping_ID_dependencies_inclusion_incID
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: incID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InclusionDependency'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '401':
+          description: Unhauthorized
+    delete:
+      summary: DELETE mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/inclusion/{incID}
+      operationId: delete__owlOntology_name_version_mapping_ID_dependencies_inclusion_incID
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: incID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/dependencies/keys:
+    get:
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/keys
+      operationId: get__owlOntology_name_version_mapping_ID_dependencies_keys
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/KeyDependency'
+        '401':
+          description: Unhauthorized
+    post:
+      summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/keys
+      operationId: post__owlOntology_name_version_mapping_ID_dependencies_keys
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KeyDependency'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/dependencies/key/{keyID}:
+    get:
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/key/{keyID}
+      operationId: get__owlOntology_name_version_mapping_ID_dependencies_key_keyID
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: keyID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeyDependency'
+        '401':
+          description: Unhauthorized
+    delete:
+      summary: DELETE mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/key/{keyID}
+      operationId: delete__owlOntology_name_version_mapping_ID_dependencies_key_keyID
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: keyID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '401':
+          description: Unhauthorized
+    put:
+      summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/key/{keyID}
+      operationId: put__owlOntology_name_version_mapping_ID_dependencies_key_keyID
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: keyID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KeyDependency'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/dependencies/denials:
+    get:
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/denials
+      operationId: get__owlOntology_name_version_mapping_ID_dependencies_denials
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DenialConstraint'
+        '401':
+          description: Unhauthorized
+    post:
+      summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/denials
+      operationId: post__owlOntology_name_version_mapping_ID_dependencies_denials
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DenialConstraint'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/dependencies/denial/{denyID}:
+    get:
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/denial/{denyID}
+      operationId: get__owlOntology_name_version_mapping_ID_dependencies_denial_denyID
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: denyID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DenialConstraint'
+        '401':
+          description: Unhauthorized
+    put:
+      summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/denial/{denyID}
+      operationId: put__owlOntology_name_version_mapping_ID_dependencies_denial_denyID
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: denyID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DenialConstraint'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '401':
+          description: Unhauthorized
+    delete:
+      summary: DELETE mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/denial/{denyID}
+      operationId: delete__owlOntology_name_version_mapping_ID_dependencies_denial_denyID
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: denyID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/parameter:
+    post:
+      summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/parameter
+      operationId: post__owlOntology_name_version_mapping_ID_parameter
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MappingParameter'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MappingParameter'
+        '401':
+          description: Unhauthorized
+    put:
+      summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/parameter
+      operationId: put__owlOntology_name_version_mapping_ID_parameter
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MappingParameter'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MappingParameter'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/parameters:
+    get:
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/parameters
+      operationId: get__owlOntology_name_version_mapping_ID_parameters
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MappingParameters'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}:
+    delete:
+      summary: DELETE mwsx/owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}
+      operationId: delete__owlOntology_name_version_mapping_ID_parameter
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: paramName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MappingParameter'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/parameters:
+    get:
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/parameters
+      operationId: get__owlOntology_name_version_mapping_ID_ass_parameters
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: mapID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/referencedTables:
+    get:
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/referencedTables
+      operationId: get__owlOntology_name_version_mapping_ID_ass_refTables
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: mapID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/testSQLQuery:
+    get:
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/testSQLQuery
+      operationId: get__owlOntology_name_version_mapping_ID_ass_testSQLQuery
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: mapID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: bufferSize
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: dataSourceName
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SQLQuery'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/testCustomSQLQuery:
+    post:
+      summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/testCustomSQLQuery
+      operationId: post__owlOntology_name_version_mapping_ID_ass_testCustomSQLQuery
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: mapID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: bufferSize
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: dataSourceName
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SQLQuery'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/assertion/testCustomSQLQuery:
+    post:
+      summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/testCustomSQLQuery
+      operationId: post__owlOntology_name_version_mapping_ID_ass_testCustomSQLQuery_from_mapAssertion
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: bufferSize
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: dataSourceName
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MappingAssertion'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SQLQuery'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/typeCheckingReport:
+    get:
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/typeCheckingReport
+      operationId: get__owlOntology_name_version_mapping_ID_ass_typeCheckingReport
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: mapID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: dataSourceName
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/view/{viewName}/parameters:
+    get:
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/view/{viewName}/parameters
+      operationId: get__owlOntology_name_version_mapping_ID_view_parameters
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: viewName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}/views:
+    get:
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}/views
+      operationId: get__owlOntology_name_version_mapping_ID_parameter_views
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: paramName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}/assertions:
+    get:
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}/assertions
+      operationId: get__owlOntology_name_version_mapping_ID_parameter_assertions
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: paramName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{mapID}/query/{queryID}/delete:
+    delete:
+      summary: DELETE mwsx/owlOntology/{name}/version/mapping/{mapID}/query/{queryID}/delete
+      operationId: delete__owlOntology_name_version_query_ID_stop
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: mapID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: queryID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{mapID}/suggestedTemplate/{entityID}:
+    get:
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{mapID}/suggestedTemplate/{entityID}
+      operationId: get__owlOntology_name_version_mapID_suggestedTemplate_entityID
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: mapID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: entityID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: projection
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MappingTemplatePrompt'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{mapID}/dataLineage/{entityID}:
+    get:
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{mapID}/dataLineage/{entityID}
+      operationId: get__owlOntology_name_version_mapID_entityID_dataLineage
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: mapID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: entityID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: projection
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataLineageDescription'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{mapID}/dataLineageProperty/{entityID}:
+    get:
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{mapID}/dataLineageProperty/{entityID}
+      operationId: get__owlOntology_name_version_mapID_entityID_dataLineageProperty
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: mapID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: entityID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataLineagePropertyDescription'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/mapping/{mapID}/dataLineageAnnotationProperty:
+    get:
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{mapID}/dataLineageAnnotationProperty
+      operationId: get__owlOntology_name_version_mapID_entityID_dataLineageAnnotationProperty
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: mapID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: annotationPropertyIRI
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataLineageDescription'
+        '401':
+          description: Unhauthorized
+components:
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-MONOLITH-SESSION-ID
+      description: |
+        This session ID is generated from Basic Authentication on the login route.
+    jwt:
+      description: |
+        Generate your JWT when you log in. JWT configurations should be placed in `$MASTRO_HOME/config/mastro.jwt` file
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Prefix:
+      title: Prefix
+      type: object
+      properties:
+        prefix:
+          type: string
+        value:
+          type: string
+    Permission:
+      title: Permission
+      type: object
+      properties:
+        domain:
+          type: string
+        action:
+          type: string
+        id:
+          type: string
+    Role:
+      title: Role
+      type: object
+      properties:
+        permissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Permission'
+        name:
+          type: string
+    User:
+      title: User
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Role'
+        name:
+          type: string
+        email:
+          type: string
+    Mapping:
+      title: Mapping
+      type: object
+      properties:
+        mappingID:
+          type: string
+        mappingVersion:
+          type: string
+        fileName:
+          type: string
+        mappingDescription:
+          type: string
+        mappingDate:
+          type: integer
+          format: int64
+        numAssertions:
+          type: integer
+          format: int32
+        numViews:
+          type: integer
+          format: int32
+        numInclusionDependencies:
+          type: integer
+          format: int32
+        prefixes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Prefix'
+        numDenials:
+          type: integer
+          format: int32
+        numKeyDependencies:
+          type: integer
+          format: int32
+        fileType:
+          type: string
+        mappingOwner:
+          $ref: '#/components/schemas/User'
+    Mappings:
+      title: Mappings
+      type: object
+      properties:
+        mappingList:
+          type: array
+          items:
+            $ref: '#/components/schemas/Mapping'
+    FileInfo:
+      title: FileInfo
+      type: object
+      properties:
+        fileName:
+          type: string
+        fileType:
+          type: string
+        content:
+          type: string
+    DatabaseConnection:
+      title: DatabaseConnection
+      type: object
+      properties:
+        name:
+          type: string
+        jdbcURL:
+          type: string
+        dbUser:
+          type: string
+        dbDriver:
+          type: string
+        dbPassword:
+          type: string
+    MappingInfo:
+      title: MappingInfo
+      type: object
+      properties:
+        mapping:
+          $ref: '#/components/schemas/Mapping'
+        mappingTemplates:
+          type: array
+          items:
+            type: string
+        mappingDBConnections:
+          type: array
+          items:
+            $ref: '#/components/schemas/DatabaseConnection'
+    MappingsCheckResult:
+      title: MappingsCheckResult
+      type: object
+      properties:
+        messagesByMappingId:
+          type: object
+        mappingInfo:
+          $ref: '#/components/schemas/MappingInfo'
+        success:
+          type: boolean
+        deprecations:
+          type: array
+          items:
+            type: string
+    Label:
+      title: Label
+      type: object
+      properties:
+        lang:
+          type: string
+        content:
+          type: string
+    OntologyEntity:
+      title: OntologyEntity
+      type: object
+      properties:
+        entityLabels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Label'
+        isDeprecated:
+          type: boolean
+        entityIRI:
+          type: string
+        entityType:
+          type: string
+        entityPrefixIRI:
+          type: string
+        entityRemainder:
+          type: string
+        entityID:
+          type: string
+    MappingCount:
+      title: MappingCount
+      type: object
+      properties:
+        numberOfMappings:
+          type: integer
+          format: int32
+        MWSEntity:
+          $ref: '#/components/schemas/OntologyEntity'
+    MappingEntityCount:
+      title: MappingEntityCount
+      type: object
+      properties:
+        count:
+          type: array
+          items:
+            $ref: '#/components/schemas/MappingCount'
+        countAnnotations:
+          type: integer
+          format: int32
+    TemplateRefactoring:
+      title: TemplateRefactoring
+      type: object
+      properties:
+        oldTemplate:
+          type: string
+        newTemplate:
+          type: string
+    MappingTemplate:
+      title: MappingTemplate
+      type: object
+      properties:
+        template:
+          type: string
+        isValueTemplate:
+          type: boolean
+        terms:
+          type: array
+          items:
+            type: string
+    IRI:
+      title: IRI
+      type: object
+      properties:
+        shortIRI:
+          type: string
+        extendedIRI:
+          type: string
+    ExtensionalAnnotationMapping:
+      title: ExtensionalAnnotationMapping
+      type: object
+      properties:
+        template:
+          $ref: '#/components/schemas/MappingTemplate'
+        annotationProperty:
+          $ref: '#/components/schemas/OntologyEntity'
+        lang:
+          type: string
+    SQLView:
+      title: SQLView
+      type: object
+      properties:
+        sqlViewHead:
+          type: array
+          items:
+            type: string
+        sqlViewID:
+          type: string
+        sqlViewDescription:
+          type: string
+        quarantineReasons:
+          type: array
+          items:
+            type: string
+        isQuarantined:
+          type: boolean
+        sqlViewCode:
+          type: string
+    MappingAtom:
+      title: MappingAtom
+      type: object
+      properties:
+        view:
+          $ref: '#/components/schemas/SQLView'
+        terms:
+          type: array
+          items:
+            type: string
+        name:
+          type: string
+    MappingBody:
+      title: MappingBody
+      type: object
+      properties:
+        bip:
+          type: array
+          items:
+            $ref: '#/components/schemas/MappingAtom'
+        viewAtoms:
+          type: array
+          items:
+            $ref: '#/components/schemas/MappingAtom'
+    MappingAssertion:
+      title: MappingAssertion
+      type: object
+      properties:
+        template:
+          $ref: '#/components/schemas/MappingTemplate'
+        iri:
+          $ref: '#/components/schemas/IRI'
+        currentMWSEntity:
+          $ref: '#/components/schemas/OntologyEntity'
+        annotationMappings:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExtensionalAnnotationMapping'
+        mappingBody:
+          $ref: '#/components/schemas/MappingBody'
+        mappingDescription:
+          type: string
+        rangeTemplate:
+          $ref: '#/components/schemas/MappingTemplate'
+        quarantineReasons:
+          type: array
+          items:
+            type: string
+        userQuery:
+          type: string
+        id:
+          type: string
+        isQuarantined:
+          type: boolean
+    SQLViews:
+      title: SQLViews
+      type: object
+      properties:
+        sqlViews:
+          type: array
+          items:
+            $ref: '#/components/schemas/SQLView'
+    TermDisplacement:
+      title: TermDisplacement
+      type: object
+      properties:
+        newPosition:
+          type: integer
+          format: int32
+        oldPosition:
+          type: integer
+          format: int32
+    MappingViewAtomRefactoring:
+      title: MappingViewAtomRefactoring
+      type: object
+      properties:
+        oldSignature:
+          type: array
+          items:
+            type: string
+        viewName:
+          type: string
+        newSqlBody:
+          type: string
+        keptTerms:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/TermDisplacement'
+        addedTerms:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/TermDisplacement'
+        newSignature:
+          type: array
+          items:
+            type: string
+        removedTerms:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/TermDisplacement'
+        newDescription:
+          type: string
+    MappingViewAtomRefactoringList:
+      title: MappingViewAtomRefactoringList
+      type: object
+      properties:
+        mappingIds:
+          type: array
+          items:
+            type: string
+        refactoring:
+          $ref: '#/components/schemas/MappingViewAtomRefactoring'
+        keyIds:
+          type: array
+          items:
+            type: string
+        denialIds:
+          type: array
+          items:
+            type: string
+        inclusionIds:
+          type: array
+          items:
+            type: string
+    ViewRefactoring:
+      title: ViewRefactoring
+      type: object
+      properties:
+        viewName:
+          type: string
+        newSqlBody:
+          type: string
+        newDescription:
+          type: string
+    ViewRefactoringSafenessOutcome:
+      title: ViewRefactoringSafenessOutcome
+      type: object
+      properties:
+        safenessDetails:
+          type: array
+          items:
+            type: string
+        isSafe:
+          type: boolean
+    ViewRefactoringAnalysis:
+      title: ViewRefactoringAnalysis
+      type: object
+      properties:
+        refactoring:
+          $ref: '#/components/schemas/MappingViewAtomRefactoring'
+        invalidatedInclusionDependency:
+          type: array
+          items:
+            type: string
+        safenessAnalisys:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ViewRefactoringSafenessOutcome'
+        unsafeDenialConstraints:
+          type: array
+          items:
+            type: string
+        invalidatedKeyDependency:
+          type: array
+          items:
+            type: string
+    InclusionView:
+      title: InclusionView
+      type: object
+      properties:
+        termList:
+          type: array
+          items:
+            type: string
+        sqlViewID:
+          type: string
+    InclusionPair:
+      title: InclusionPair
+      type: object
+      properties:
+        leftHandTerm:
+          type: string
+        rightHandTerm:
+          type: string
+    InclusionDependency:
+      title: InclusionDependency
+      type: object
+      properties:
+        includedView:
+          $ref: '#/components/schemas/InclusionView'
+        description:
+          type: string
+        includingView:
+          $ref: '#/components/schemas/InclusionView'
+        inclusionMap:
+          type: array
+          items:
+            $ref: '#/components/schemas/InclusionPair'
+        quarantineReasons:
+          type: array
+          items:
+            type: string
+        id:
+          type: string
+        isQuarantined:
+          type: boolean
+    DenialConstraint:
+      title: DenialConstraint
+      type: object
+      properties:
+        description:
+          type: string
+        constraint:
+          $ref: '#/components/schemas/MappingBody'
+        quarantineReasons:
+          type: array
+          items:
+            type: string
+        id:
+          type: string
+        isQuarantined:
+          type: boolean
+    KeyDependency:
+      title: KeyDependency
+      type: object
+      properties:
+        keyHead:
+          type: array
+          items:
+            type: string
+        sqlViewID:
+          type: string
+        description:
+          type: string
+        quarantineReasons:
+          type: array
+          items:
+            type: string
+        id:
+          type: string
+        isQuarantined:
+          type: boolean
+    MappingDependencies:
+      title: MappingDependencies
+      type: object
+      properties:
+        inclusionDependencies:
+          type: array
+          items:
+            $ref: '#/components/schemas/InclusionDependency'
+        denials:
+          type: array
+          items:
+            $ref: '#/components/schemas/DenialConstraint'
+        keyDependencies:
+          type: array
+          items:
+            $ref: '#/components/schemas/KeyDependency'
+    ViewMappings:
+      title: ViewMappings
+      type: object
+      properties:
+        sqlView:
+          $ref: '#/components/schemas/SQLView'
+        mappingAssertions:
+          type: array
+          items:
+            $ref: '#/components/schemas/MappingAssertion'
+        mappingDependencies:
+          $ref: '#/components/schemas/MappingDependencies'
+    IntensionalAnnotationMappingAssertion:
+      title: IntensionalAnnotationMappingAssertion
+      type: object
+      properties:
+        annotationSubjectIRI:
+          type: string
+        annotationValueContent:
+          type: string
+        mappingBody:
+          $ref: '#/components/schemas/MappingBody'
+        mappingDescription:
+          type: string
+        annotationProperty:
+          type: string
+        userQuery:
+          type: string
+        id:
+          type: string
+        annotationValueLang:
+          type: string
+    AnnotationProcessorConfig:
+      title: AnnotationProcessorConfig
+      type: object
+      properties:
+        ontologyVersion:
+          type: string
+        datasource:
+          type: string
+        format:
+          type: string
+        annotations:
+          type: array
+          items:
+            type: string
+        ontologyIri:
+          type: string
+    MappingParameter:
+      title: MappingParameter
+      type: object
+      properties:
+        paramHint:
+          type: string
+        paramName:
+          type: string
+        paramDefaultValue:
+          type: string
+    MappingParameters:
+      title: MappingParameters
+      type: object
+      properties:
+        mappingParameters:
+          type: array
+          items:
+            $ref: '#/components/schemas/MappingParameter'
+    SQLQuery:
+      title: SQLQuery
+      type: object
+      properties:
+        queryCode:
+          type: string
+        paramValues:
+          type: object
+          additionalProperties:
+            type: string
+        dbName:
+          type: string
+    MappingTemplatePrompt:
+      title: MappingTemplatePrompt
+      type: object
+      properties:
+        template:
+          $ref: '#/components/schemas/MappingTemplate'
+        reason:
+          type: string
+        SUPER_DATA_PROPERTY_DOMAIN_REASON:
+          type: string
+        OBJECT_PROPERTY_DOMAIN_REASON:
+          type: string
+        SUPER_OBJECT_PROPERTY_RANGE_REASON:
+          type: string
+        SUPER_OBJECT_PROPERTY_DOMAIN_REASON:
+          type: string
+        DATA_PROPERTY_DOMAIN_REASON:
+          type: string
+        DATA_PROPERTY_DOMAIN_PARTICIPATION_REASON:
+          type: string
+        SUB_OBJECT_PROPERTY_RANGE_REASON:
+          type: string
+        sourceEntity:
+          $ref: '#/components/schemas/OntologyEntity'
+        OBJECT_PROPERTY_RANGE_REASON:
+          type: string
+        SUPER_CLASS_REASON:
+          type: string
+        SUB_DATA_PROPERTY_DOMAIN_REASON:
+          type: string
+        SUB_OBJECT_PROPERTY_DOMAIN_REASON:
+          type: string
+        SUB_CLASS_REASON:
+          type: string
+        OBJECT_PROPERTY_DOMAIN_PARTICIPATION_REASON:
+          type: string
+        OBJECT_PROPERTY_RANGE_PARTICIPATION_REASON:
+          type: string
+    DataLineageDescription:
+      title: DataLineageDescription
+      type: object
+      properties:
+        mappingAssertionsIndex:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/MappingAssertion'
+        mappingViews:
+          type: object
+        entityMapping:
+          type: object
+        viewsIndex:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/SQLView'
+        projection:
+          type: string
+        entity:
+          $ref: '#/components/schemas/OntologyEntity'
+        entitiesIndex:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/OntologyEntity'
+        viewTables:
+          type: object
+        subEntities:
+          type: object
+          additionalProperties:
+            type: string
+    DataLineagePropertyDescription:
+      title: DataLineagePropertyDescription
+      type: object
+      properties:
+        propertyDomain:
+          $ref: '#/components/schemas/DataLineageDescription'
+        propertyRange:
+          $ref: '#/components/schemas/DataLineageDescription'
+        property:
+          $ref: '#/components/schemas/DataLineageDescription'

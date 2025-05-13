@@ -1,0 +1,9 @@
+title: Participation
+type: object
+properties:
+  inverse:
+    type: boolean
+  property:
+    $ref: ./OntologyEntity.yaml
+  filler:
+    $ref: ./OntologyEntity.yaml

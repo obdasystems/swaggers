@@ -1,0 +1,52 @@
+put:
+  summary: PUT mwsx/knowledgeGraph/file
+  operationId: patch__knowledgeGraph_file
+  requestBody:
+    content:
+      application/json:
+        schema: {$ref: ../components/schemas/KnowledgeGraphFile.yaml}
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {type: boolean}
+    '401': {description: Unhauthorized}
+delete:
+  summary: DELETE mwsx/knowledgeGraph/file
+  operationId: delete__knowledgeGraph_file
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {type: boolean}
+    '401': {description: Unhauthorized}
+get:
+  summary: GET mwsx/knowledgeGraph/file
+  operationId: get__knowledgeGraph_file
+  parameters:
+  - name: iri
+    in: query
+    required: true
+    schema: {type: string}
+  - name: format
+    in: query
+    required: true
+    schema: {type: string}
+  - name: namedGraph
+    in: query
+    required: true
+    schema: {type: string}
+  - name: fileName
+    in: query
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/FileInfo.yaml}
+    '401': {description: Unhauthorized}

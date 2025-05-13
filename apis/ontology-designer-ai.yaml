@@ -1,0 +1,30 @@
+openapi: 3.0.0
+servers:
+  - url: '{protocol}://{tenant}{port}'
+    variables:
+      protocol:
+        default: https
+      tenant:
+        default: localhost
+      port: 
+        default: ':8080'
+info:
+  description: >-
+    This is the API for retaining a Grapholscape's loaded ontology (or graph) in
+    order to restart navigation from a previous state.
+  version: 1.0.0
+  title: Ontology Designer AI API model
+  contact:
+    email: info@obdasystems.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+paths:
+  /ontologyDraft/ai:
+    $ref: paths/ontologyDraft_ai.yaml
+components: 
+  securitySchemes: 
+    jwt:
+      $ref: './components/securitySchemes/jwt.yaml'
+security: 
+  - jwt: []

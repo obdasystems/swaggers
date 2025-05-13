@@ -1,0 +1,19 @@
+title: OntologyCatalog
+type: object
+properties:
+  ontologyDataProperties:
+    type: array
+    items:
+      $ref: ./OntologyEntity.yaml
+  ontologyObjectProperties:
+    type: array
+    items:
+      $ref: ./OntologyEntity.yaml
+  ontologyIndividuals:
+    type: array
+    items:
+      $ref: ./OntologyEntity.yaml
+  ontologyClasses:
+    type: array
+    items:
+      $ref: ./OntologyEntity.yaml

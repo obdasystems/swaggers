@@ -1,0 +1,17 @@
+delete:
+  summary: DELETE mwsx/globalAnnotation/{entityId}
+  operationId: delete_global_annotation
+  parameters:
+  - name: entityId
+    in: path
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items: {$ref: ../components/schemas/OntologyEntity.yaml}
+    '401': {description: Unhauthorized}

@@ -1,0 +1,23 @@
+delete:
+  summary: Deletes the execution thread of the specified check set from the server
+  operationId: delete_ontologyConstraints_check_removeThread
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: setId
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {type: boolean}
+    '401': {description: Unhauthorized}

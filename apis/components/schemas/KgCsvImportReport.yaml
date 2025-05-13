@@ -1,0 +1,43 @@
+title: KgCsvImportReport
+type: object
+properties:
+  csvImportThreadId:
+    type: string 
+  csvImportThreadState:
+    type: string 
+  csvImportInfo:
+    $ref: CsvImportInfo.yaml
+  csvColumnNames:
+    type: array
+    items: 
+      type: string
+  triplesCreatedCount:
+    type: integer
+  csvLinesProcessedCount:
+    type: integer
+  csvLinesImportedCount:
+    type: integer
+  csvLinesErrorCount:
+    type: integer
+  rejectedLines:
+    type: object
+    additionalProperties: 
+      type: array
+      items: 
+        type: string
+  rejectedLineErrorMessages:
+    type: object
+    additionalProperties: 
+      type: array
+      items: 
+        type: string
+  mainError:
+    type: object
+  timeStart:
+    type: integer
+  timeEnd:
+    type: integer
+  generatedTriplesFile:
+    type: string 
+  numberOfTriplesPerLine:
+    type: integer

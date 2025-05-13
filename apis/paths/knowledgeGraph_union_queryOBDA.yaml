@@ -1,0 +1,28 @@
+put:
+  summary: PUT mwsx/knowledgeGraph/union/queryOBDA
+  operationId: put__knowledgeGraph_union_queryOBDA
+  parameters:
+  - name: fileName
+    in: query
+    required: true
+    schema: {type: string}
+  - name: uploadOnly
+    in: query
+    required: true
+    schema: {type: boolean}
+  - name: endpointName
+    in: query
+    required: true
+    schema: {type: string}
+  requestBody:
+    content:
+      application/json:
+        schema: {$ref: ../components/schemas/KnowledgeGraphDestinationQueryOBDA.yaml}
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {type: boolean}
+    '401': {description: Unhauthorized}

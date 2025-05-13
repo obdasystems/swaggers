@@ -1,0 +1,11 @@
+get:
+  summary: Removes a specific query from the catalog available for this version of
+    the ontology
+  operationId: get_query_publication_requests
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/PublicationRequests.yaml}
+    '401': {description: Unhauthorized}

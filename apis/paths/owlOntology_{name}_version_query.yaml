@@ -1,0 +1,24 @@
+post:
+  summary: Adds a new query to the catalog
+  operationId: post__owlOntology_name_version_query_ID
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  requestBody:
+    content:
+      application/json:
+        schema: {$ref: ../components/schemas/SPARQLQuery.yaml}
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/SPARQLQuery.yaml}
+    '401': {description: Unhauthorized}

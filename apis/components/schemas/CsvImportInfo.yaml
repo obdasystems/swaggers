@@ -1,0 +1,9 @@
+title: CsvImportInfo
+type: object
+properties:
+  fileName:
+    type: string
+  constructTemplate:
+    type: string
+  kgDestination:
+    $ref: ./KnowledgeGraphDestination.yaml

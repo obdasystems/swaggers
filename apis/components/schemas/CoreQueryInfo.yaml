@@ -1,0 +1,7 @@
+title: CoreQueryInfo
+type: object
+properties:
+  coreQueryId:
+    type: string
+  sparqlCode:
+    type: string

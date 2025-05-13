@@ -1,0 +1,45 @@
+put:
+  tags: [QueryGraphBGP]
+  summary: Get the query graph that will be rendered by Sparqling, the query head,
+    the sparql code based on the chosen path.
+  description: This path should be used to build the query graph using the path interaction.
+    As a result there will be added to the query several triple pattern (depending
+    on the length of the path) as a sequence of classes and object properties. Data
+    properties never appear in paths, in order to add them use the simple PUT route.
+  operationId: addPathToQueryGraph
+  parameters:
+  - name: ontologyName
+    in: path
+    description: The name of the ontology
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    description: The version of the ontology
+    required: true
+    schema: {type: string}
+  - name: graphElementId
+    in: path
+    description: The id of the node of the selected class in the query graph.
+    required: true
+    schema: {type: string}
+  requestBody:
+    content:
+      application/json:
+        schema:
+          properties:
+            queryGraph: {$ref: ../components/schemas/QueryGraph.yaml}
+            ontologyPath: {$ref: ../components/schemas/OntologyPath.yaml}
+    required: true
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/QueryGraph.yaml}
+    '400':
+      description: Invalid IRI supplied
+      content: {}
+    '404':
+      description: Entity not found
+      content: {}

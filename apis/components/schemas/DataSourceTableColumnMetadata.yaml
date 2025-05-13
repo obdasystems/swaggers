@@ -1,0 +1,23 @@
+title: DataSourceTableColumnMetadata
+type: object
+properties:
+  size:
+    type: integer
+    format: int32
+  nullable:
+    type: string
+  generated:
+    type: string
+  dataTypeName:
+    type: string
+  decimals:
+    type: integer
+    format: int32
+  name:
+    type: string
+  dataTypeId:
+    type: integer
+    format: int32
+  ordinalPosition:
+    type: integer
+    format: int32

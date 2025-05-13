@@ -1,0 +1,27 @@
+title: IssueReportRequest
+type: object
+properties:
+  mappingId:
+    type: string
+  ontologyVersion:
+    type: string
+  ontologyName:
+    type: string
+  errorMessage:
+    type: string
+  endpointName:
+    type: string
+  description:
+    type: string
+  monolithVersion:
+    type: string
+  datasourceName:
+    type: string
+  error:
+    type: string
+  httpMethod:
+    type: string
+  queryExecutionId:
+    type: string
+  httpRoute:
+    type: string

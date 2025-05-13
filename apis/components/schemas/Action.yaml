@@ -1,0 +1,47 @@
+description: >-
+  Actions describes what user has done on a single element or element's
+  metadata. The user can add, edit or remove something. The "something" is
+  described by the operation involved in the action, it can be an operation over
+  an entity, a diagram, a hierarchy and so on.
+
+  Reverting an action means reverting the operation that has been done and it
+  depends on the type of the action. - Add => Remove - Remove => Add - Edit =>
+  restore the previous state of the subject of the operation made
+type: object
+required:
+  - operationType
+  - subject
+  - user
+  - timestamp
+properties:
+  operationType:
+    type: string
+    enum:
+      - add
+      - edit
+      - remove
+  subject:
+    type: object
+  previousState:
+    type: object
+  involvedElements:
+    $ref: ./ActionInvolvedElements.yaml
+  subactions:
+    type: array
+    items:
+      $ref: ./Action.yaml
+  user:
+    type: object
+    required:
+      - name
+    properties:
+      name:
+        type: string
+      firstName:
+        type: string
+      lastName:
+        type: string
+      email:
+        type: string
+  timestamp:
+    type: number

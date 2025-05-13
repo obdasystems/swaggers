@@ -1,0 +1,293 @@
+openapi: 3.0.0
+info:
+  description: This is the API for managing tasks in Mastro. i.e. execute SPARQL queries, and save results.
+  version: 1.0.0
+  title: Task Scheduler API model
+  contact:
+    email: info@obdasystems.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+  - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+    variables:
+      protocol:
+        default: https
+      tenant:
+        default: localhost
+      port:
+        default: ':8989'
+security:
+  - apiKey: []
+  - jwt: []
+paths:
+  /taskScheduler/state:
+    get:
+      summary: Starts the task scheduler
+      operationId: get__task_scheduler_state
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '401':
+          description: Unhauthorized
+    put:
+      summary: Starts the task scheduler
+      operationId: put__task_scheduler_state
+      parameters:
+        - name: action
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unhauthorized
+  /taskScheduler/jobs:
+    post:
+      summary: Schedules a new job in the task scheduler, returns the ID of the scheduled job
+      operationId: post__task_scheduler_jobs
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MwsxTaskSchedulerJobData'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+    get:
+      summary: Schedules a new job in the task scheduler, returns the ID of the scheduled job
+      operationId: get__task_scheduler_jobs
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        '401':
+          description: Unhauthorized
+  /taskScheduler/jobs/available:
+    get:
+      summary: Lists the jobs available in the scheduler folder
+      operationId: get__task_scheduler_jobs_available
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MwsxTaskSchedulerJobEntry'
+        '401':
+          description: Unhauthorized
+  /taskScheduler/jobs/entries:
+    get:
+      summary: Schedules a new job in the task scheduler, returns the ID of the scheduled job
+      operationId: get__task_scheduler_job_entries
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MwsxTaskSchedulerJobEntry'
+        '401':
+          description: Unhauthorized
+  /taskScheduler/jobs/entries/filter:
+    post:
+      summary: Schedules a new job in the task scheduler, returns the ID of the scheduled job
+      operationId: post__task_scheduler_job_entries
+      parameters:
+        - name: mode
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MwsxTaskSchedulerJobEntry'
+        '401':
+          description: Unhauthorized
+  /taskScheduler/job/{jobId}/entry:
+    get:
+      summary: Returns the main entry of the job ID
+      operationId: get__task_scheduler_job_entry
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MwsxTaskSchedulerJobEntry'
+        '401':
+          description: Unhauthorized
+  /taskScheduler/job/{jobId}/execution/{execId}:
+    get:
+      summary: Returns the execution entry (identified by execId) of the job (identified by jobId)
+      operationId: get__task_scheduler_job_entries_execution_id
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: execId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MwsxTaskSchedulerJobEntry'
+        '401':
+          description: Unhauthorized
+  /taskScheduler/job/{jobId}/execution/entries:
+    get:
+      summary: Returns the execution entries of the job ID
+      operationId: get__task_scheduler_job_execution_entries
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MwsxTaskSchedulerJobEntry'
+        '401':
+          description: Unhauthorized
+  /taskScheduler/job/{jobId}:
+    delete:
+      summary: Un-schedules and deletes a job in the task scheduler
+      operationId: delete__task_scheduler_job_entries
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '401':
+          description: Unhauthorized
+  /taskScheduler/job/{jobId}/executionsIds:
+    get:
+      summary: Un-schedules and deletes a job in the task scheduler
+      operationId: get__task_scheduler_job_entries_executions_ids
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        '401':
+          description: Unhauthorized
+components:
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-MONOLITH-SESSION-ID
+      description: |
+        This session ID is generated from Basic Authentication on the login route.
+    jwt:
+      description: |
+        Generate your JWT when you log in. JWT configurations should be placed in `$MASTRO_HOME/config/mastro.jwt` file
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    MwsxTaskSchedulerJobData:
+      title: MwsxTaskSchedulerJobData
+      type: object
+      properties:
+        className:
+          type: string
+        jobData:
+          type: object
+        cronExpression:
+          type: string
+    MwsxTaskSchedulerJobEntry:
+      title: MwsxTaskSchedulerJobEntry
+      type: object
+      properties:
+        jobId:
+          type: string
+        jobData:
+          $ref: '#/components/schemas/MwsxTaskSchedulerJobData'
+        creationTime:
+          type: integer
+        startTime:
+          type: integer
+        endTime:
+          type: integer
+        state:
+          type: string
+        messages:
+          type: array
+          items:
+            type: string
+        customJobEntryData:
+          type: object
+        error:
+          type: object
+        user:
+          type: string

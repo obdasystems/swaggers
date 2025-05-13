@@ -1,0 +1,15 @@
+get:
+  summary: Returns the list of SourceTables available in the catalog of a given datasource
+  operationId: getTables
+  parameters:
+  - name: id
+    in: path
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/SourceTables.yaml}
+    '401': {description: Unhauthorized}

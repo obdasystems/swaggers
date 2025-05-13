@@ -1,0 +1,7 @@
+title: DiagramOp
+type: object
+properties:
+  subject:
+    $ref: ./Diagram.yaml
+  previousState:
+    $ref: ./Diagram.yaml

@@ -1,0 +1,21 @@
+post:
+  summary: Starts the export thread for a construct query on the given endpoint, the
+    export thread identifier is returned
+  operationId: post__owlOntology_name_version_cquery_ID_export_results
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  requestBody:
+    content:
+      application/json:
+        schema: {$ref: ../components/schemas/ExportInfo.yaml}
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {type: string}
+    '401': {description: Unhauthorized}

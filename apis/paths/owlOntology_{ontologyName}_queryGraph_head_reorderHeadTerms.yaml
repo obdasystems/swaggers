@@ -1,0 +1,30 @@
+put:
+  tags: [QueryGraphHead]
+  summary: Reorder the head elements accrding to Query GRaph object.
+  operationId: reorderHeadTerms
+  parameters:
+  - name: ontologyName
+    in: path
+    description: The name of the ontology
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    description: The version of the ontology
+    required: true
+    schema: {type: string}
+  requestBody:
+    content:
+      application/json:
+        schema: {$ref: ../components/schemas/QueryGraph.yaml}
+    required: true
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/QueryGraph.yaml}
+    '404':
+      description: Head term not found
+      content: {}
+    '401': {description: Unhauthorized}

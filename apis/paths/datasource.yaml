@@ -1,0 +1,44 @@
+post:
+  summary: Creates a new data source information
+  operationId: post__datasource
+  parameters:
+  - name: buildSchema
+    in: query
+    required: true
+    schema: {type: boolean}
+  - name: schemasList
+    in: query
+    required: true
+    schema: {type: string}
+  requestBody:
+    content:
+      application/json:
+        schema: {$ref: ../components/schemas/DataSourceInfoEntry.yaml}
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/DataSourceInfoEntry.yaml}
+    '401': {description: Unhauthorized}
+get:
+  summary: Returns all the data source definitions available
+  operationId: get__datasource_list
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/DataSourceInfoEntry.yaml}
+    '401': {description: Unhauthorized}
+delete:
+  summary: Deletes all the available data source information
+  operationId: delete__all_datasource
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/DataSourceInfoEntry.yaml}
+    '401': {description: Unhauthorized}

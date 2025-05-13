@@ -1,0 +1,9 @@
+title: AvpTree
+type: object
+properties:
+  objectPropertyTree:
+    $ref: ./AvpTreeNode.yaml
+  classTree:
+    $ref: ./AvpTreeNode.yaml
+  dataPropertyTree:
+    $ref: ./AvpTreeNode.yaml

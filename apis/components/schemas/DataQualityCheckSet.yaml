@@ -1,0 +1,15 @@
+title: DataQualityCheckSet
+type: object
+properties:
+  ontologyConstraints:
+    type: array
+    items:
+      $ref: ./DataQualityCheck.yaml
+  mappingParameters:
+    type: object
+    additionalProperties:
+      type: string
+  id:
+    type: string
+  user:
+    type: string

@@ -1,0 +1,9 @@
+title: MandatoryParticipationAssertion
+type: object
+properties:
+  property:
+    $ref: ./OntologyEntity.yaml
+  direct:
+    type: boolean
+  filler:
+    $ref: ./OntologyEntity.yaml

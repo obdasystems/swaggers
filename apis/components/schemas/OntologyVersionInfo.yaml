@@ -1,0 +1,9 @@
+title: OntologyVersionInfo
+type: object
+properties:
+  date:
+    type: string
+  description:
+    type: string
+  version:
+    type: string

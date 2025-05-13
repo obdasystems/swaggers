@@ -1,0 +1,25 @@
+get:
+  summary: Lists the triplification threads for a given mapping specification
+  operationId: get_mappings_triplification_list
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: mapID
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items: {type: string}
+    '401': {description: Unhauthorized}

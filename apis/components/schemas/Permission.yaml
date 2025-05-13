@@ -1,0 +1,9 @@
+title: Permission
+type: object
+properties:
+  domain:
+    type: string
+  action:
+    type: string
+  id:
+    type: string

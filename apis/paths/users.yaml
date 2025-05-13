@@ -1,0 +1,32 @@
+get:
+  summary: Returns the list of available users of this MWS installation
+  operationId: get__users
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items: {$ref: ../components/schemas/User.yaml}
+    '401': {description: Unhauthorized}
+put:
+  summary: Adds multiple users to the system
+  operationId: put__users
+  parameters:
+  - name: op
+    in: query
+    required: true
+    schema: {type: string}
+  requestBody:
+    content:
+      '*/*':
+        schema: {$ref: ../components/schemas/Users.yaml}
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/UsersCreationReport.yaml}
+    '401': {description: Unhauthorized}

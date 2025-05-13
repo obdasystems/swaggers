@@ -1,0 +1,15 @@
+post:
+  summary: Starts a new thread of mappings triplification with the given parameters
+  operationId: post_mappings_triplification_start
+  requestBody:
+    content:
+      application/json:
+        schema: {$ref: ../components/schemas/OBDATriplificationRequest.yaml}
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {type: string}
+    '401': {description: Unhauthorized}

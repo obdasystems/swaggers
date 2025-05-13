@@ -1,0 +1,50 @@
+get:
+  summary: Returns an endpoint by its name
+  operationId: get_endpoint
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/Endpoint.yaml}
+    '401': {description: Unhauthorized}
+delete:
+  summary: Deletes the endpoint by its name
+  operationId: delete_endpoint
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/Endpoint.yaml}
+    '401': {description: Unhauthorized}
+put:
+  summary: Updates the endpoint with the new values provided
+  operationId: put_endpoint
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  requestBody:
+    content:
+      '*/*':
+        schema: {$ref: ../components/schemas/Endpoint.yaml}
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/Endpoint.yaml}
+    '401': {description: Unhauthorized}

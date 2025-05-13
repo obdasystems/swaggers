@@ -1,0 +1,10 @@
+get:
+  summary: Exports the ontology catalog returning its JSON representation
+  operationId: get_ontologycatalog_querycatalog_export
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/Response.yaml}
+    '401': {description: Unhauthorized}

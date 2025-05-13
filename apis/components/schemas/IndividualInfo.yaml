@@ -1,0 +1,27 @@
+title: IndividualInfo
+type: object
+properties:
+  iri:
+    $ref: ./IRI.yaml
+  currentEntity:
+    $ref: ./OntologyEntity.yaml
+  individualTypes:
+    type: array
+    items:
+      $ref: ./OntologyEntity.yaml
+  differentIndividuals:
+    type: array
+    items:
+      $ref: ./OntologyEntity.yaml
+  entityDiagrams:
+    type: array
+    items:
+      $ref: ./DiagramNode.yaml
+  sameIndividuals:
+    type: array
+    items:
+      $ref: ./OntologyEntity.yaml
+  individualDescriptions:
+    type: array
+    items:
+      $ref: ./Label.yaml

@@ -1,0 +1,65 @@
+title: ObjectPropertyInfo
+type: object
+properties:
+  disjointObjectProperties:
+    type: array
+    items:
+      $ref: ./OntologyEntity.yaml
+  iri:
+    $ref: ./IRI.yaml
+  currentMWSEntity:
+    $ref: ./OntologyEntity.yaml
+  objectPropertyInverseFunctional:
+    type: boolean
+  objectPropertyDescriptions:
+    type: array
+    items:
+      $ref: ./Label.yaml
+  equivalentObjectProperties:
+    type: array
+    items:
+      $ref: ./OntologyEntity.yaml
+  objectPropertySymmetric:
+    type: boolean
+  superObjectProperties:
+    type: array
+    items:
+      $ref: ./OntologyEntity.yaml
+  objectPropertyCharacteristics:
+    type: array
+    items:
+      type: string
+  subObjectProperties:
+    type: array
+    items:
+      $ref: ./OntologyEntity.yaml
+  objectPropertyIndividuals:
+    type: array
+    items:
+      $ref: ./OntologyEntity.yaml
+  inverseObjectProperties:
+    type: array
+    items:
+      $ref: ./OntologyEntity.yaml
+  objectPropertyDomain:
+    type: array
+    items:
+      $ref: ./OntologyEntity.yaml
+  objectPropertyReflexive:
+    type: boolean
+  objectPropertyRange:
+    type: array
+    items:
+      $ref: ./OntologyEntity.yaml
+  objectPropertyTransitive:
+    type: boolean
+  objectPropertyIrreflexive:
+    type: boolean
+  entityDiagrams:
+    type: array
+    items:
+      $ref: ./DiagramNode.yaml
+  objectPropertyFunctional:
+    type: boolean
+  objectPropertyAsymmetric:
+    type: boolean

@@ -1,0 +1,13 @@
+title: DatabaseConnection
+type: object
+properties:
+  name:
+    type: string
+  jdbcURL:
+    type: string
+  dbUser:
+    type: string
+  dbDriver:
+    type: string
+  dbPassword:
+    type: string

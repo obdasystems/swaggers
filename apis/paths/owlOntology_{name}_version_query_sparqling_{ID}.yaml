@@ -1,0 +1,74 @@
+get:
+  summary: Returns the query identified by ID
+  operationId: get__owlOntology_name_version_query_sparqling_ID
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: ID
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/SparqlingSPARQLQuery.yaml}
+    '401': {description: Unhauthorized}
+put:
+  summary: Updates the definition of the given query
+  operationId: put__owlOntology_name_version_query_sparqling_ID
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: ID
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  requestBody:
+    content:
+      application/json:
+        schema: {$ref: ../components/schemas/SparqlingSPARQLQuery.yaml}
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/SparqlingSPARQLQuery.yaml}
+    '401': {description: Unhauthorized}
+delete:
+  summary: Remove the query identified by ID from the current catalog
+  operationId: delete__owlOntology_name_version_query_sparqling_ID
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: ID
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/SparqlingSPARQLQuery.yaml}
+    '401': {description: Unhauthorized}

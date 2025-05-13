@@ -1,0 +1,7 @@
+title: UserFeedback
+type: object
+properties:
+  comments:
+    type: array
+    items: 
+      $ref: UserFeedbackComment.yaml  

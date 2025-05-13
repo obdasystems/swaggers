@@ -1,0 +1,22 @@
+get:
+  summary: Returns the currently running SQL rewritings of a query executed on the
+    given endpoint
+  operationId: get__owlOntology_name_version_query_ID_sqlDebugRewritings
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: queryID
+    in: path
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items: {type: string}
+    '401': {description: Unhauthorized}

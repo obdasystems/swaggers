@@ -1,0 +1,10 @@
+get:
+  summary: Returns the list of available Geocoding servers
+  operationId: get_geocoding_servers
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/GeocodingServers.yaml}
+    '401': {description: Unhauthorized}

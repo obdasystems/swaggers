@@ -1,0 +1,29 @@
+post:
+  summary: Upload the JSON file of a VKG Snapshot catalog for a given ontology (name,
+    version)
+  operationId: import_vkg_snapshots
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  - name: additive
+    in: query
+    required: true
+    schema: {type: boolean}
+  requestBody:
+    content:
+      application/json:
+        schema: {$ref: ../components/schemas/FileInfo.yaml}
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/FileInfo.yaml}
+    '401': {description: Unhauthorized}

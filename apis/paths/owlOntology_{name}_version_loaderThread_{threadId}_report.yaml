@@ -1,0 +1,19 @@
+get:
+  summary: Return the report for completed ontology version loader threads
+  operationId: get__owlOntology_name_version_loader_thread_report
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: threadId
+    in: path
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/MwsxOntologyVersionLoaderReport.yaml}
+    '401': {description: Unhauthorized}

@@ -1,0 +1,19 @@
+title: SQLView
+type: object
+properties:
+  sqlViewHead:
+    type: array
+    items:
+      type: string
+  sqlViewID:
+    type: string
+  sqlViewDescription:
+    type: string
+  quarantineReasons:
+    type: array
+    items:
+      type: string
+  isQuarantined:
+    type: boolean
+  sqlViewCode:
+    type: string

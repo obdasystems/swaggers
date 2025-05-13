@@ -1,0 +1,9 @@
+title: UserFeedbackComment
+type: object
+properties:
+  rating:
+    type: number
+  timestamp:
+    type: integer
+  comment:
+    type: string

@@ -1,0 +1,23 @@
+put:
+  summary: Changes the user password for the user named <code>username</code>
+  operationId: put__user_passwd
+  parameters:
+  - name: username
+    in: path
+    required: true
+    schema: {type: string}
+  - name: secret
+    in: query
+    required: true
+    schema: {type: string}
+  - name: oldSecret
+    in: query
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {type: string}
+    '401': {description: Unhauthorized}

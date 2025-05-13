@@ -1,0 +1,7 @@
+get:
+  summary: REST call for basic authentication, returns the session ID as a response
+    header
+  operationId: get__logout
+  responses:
+    '200': {description: OK}
+    '401': {description: Unhauthorized}

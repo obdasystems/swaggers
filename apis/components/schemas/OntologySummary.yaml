@@ -1,0 +1,26 @@
+title: OntologySummary
+description: Old OntologyInfo class renamed
+type: object
+properties:
+  iri:
+    type: string
+  versions:
+    type: array
+    items:
+      $ref: ./OntologyVersionInfo.yaml
+  axiomsNumber:
+    type: integer
+    format: int32
+  dataPropertiesNumber:
+    type: integer
+    format: int32
+  description:
+    type: string
+  id:
+    type: string
+  objectPropertiesNumber:
+    type: integer
+    format: int32
+  classesNumber:
+    type: integer
+    format: int32

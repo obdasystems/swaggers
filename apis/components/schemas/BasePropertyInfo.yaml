@@ -1,0 +1,10 @@
+type: object
+properties:
+  inherited:
+    type: boolean
+  dataPropertyIri:
+    type: string
+  pathToDataProperty:
+    $ref: OntologyPath.yaml
+  log:
+    type: boolean

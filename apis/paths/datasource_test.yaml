@@ -1,0 +1,15 @@
+post:
+  summary: Test a given data source connection
+  operationId: testDatasource
+  requestBody:
+    content:
+      application/json:
+        schema: {$ref: ../components/schemas/DataSourceInfoEntry.yaml}
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/SourceTables.yaml}
+    '401': {description: Unhauthorized}

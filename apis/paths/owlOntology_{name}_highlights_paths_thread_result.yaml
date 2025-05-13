@@ -1,0 +1,26 @@
+get:
+  summary: GET results of a thread computing ontology paths with multi edges over
+    a given ontology
+  operationId: get_shortest_path_thread_result
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  - name: threadId
+    in: query
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items: {$ref: ../components/schemas/OntologyMultiPath.yaml}
+    '401': {description: Unhauthorized}

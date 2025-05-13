@@ -1,0 +1,38 @@
+put:
+  tags: [QueryGraphHead]
+  summary: Set a function to the head term from the query graph.
+  description: The function is defined in the head term of the query graph in the
+    request body. Remember to set the alias of the head based on function name and
+    variable.
+  operationId: functionHeadTerm
+  parameters:
+  - name: ontologyName
+    in: path
+    description: The name of the ontology
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    description: The version of the ontology
+    required: true
+    schema: {type: string}
+  - name: headTerm
+    in: path
+    description: The head term that should be involved inthe function
+    required: true
+    schema: {type: string}
+  requestBody:
+    content:
+      application/json:
+        schema: {$ref: ../components/schemas/QueryGraph.yaml}
+    required: true
+  responses:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/QueryGraph.yaml}
+    '404':
+      description: Head term not found
+      content: {}
+    '401': {description: Unhauthorized}

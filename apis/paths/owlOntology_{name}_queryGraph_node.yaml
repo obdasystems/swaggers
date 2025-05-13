@@ -1,0 +1,23 @@
+get:
+  summary: GET mwsx/owlOntology/{name}/queryGraph/node
+  operationId: getQueryGraph
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  - name: clickedClassIRI
+    in: query
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/Response.yaml}
+    '401': {description: Unhauthorized}

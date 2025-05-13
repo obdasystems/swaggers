@@ -1,0 +1,15 @@
+title: AbstractDataQualityConstraint
+type: object
+properties:
+  classes:
+    type: array
+    items: 
+      $ref: OntologyEntity.yaml
+  annotations:
+    type: array
+    items: 
+      $ref: OntologyEntity.yaml    
+  newVersionIRI:
+    type: string
+  format:
+    type: string

@@ -1,0 +1,35 @@
+title: SPARQLQuery
+type: object
+properties:
+  selectedMappingIds:
+    type: array
+    items:
+      type: string
+  chartConfiguration:
+    $ref: ./ChartConfiguration.yaml
+  languages:
+    type: string
+  mappingParameters:
+    type: object
+    additionalProperties:
+      type: string
+  semantics:
+    type: string
+  constructCode:
+    type: string
+  queryTags:
+    type: array
+    items:
+      $ref: ./Tag.yaml
+  queryDescription:
+    type: string
+  queryID:
+    type: string
+  queryCode:
+    type: string
+  isConstruct:
+    type: boolean
+  constructResultsRDFSyntax:
+    type: string
+  virtualEntityQueryInfos:
+    $ref: ./VirtualEntityQueryInfos.yaml

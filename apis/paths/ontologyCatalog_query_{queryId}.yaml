@@ -1,0 +1,15 @@
+delete:
+  summary: DELETE mwsx/ontologyCatalog/query/{queryId}
+  operationId: delete_ontology_catalog_query_thread_delete
+  parameters:
+  - name: queryId
+    in: path
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/Response.yaml}
+    '401': {description: Unhauthorized}

@@ -1,0 +1,11 @@
+title: PermissionParameters
+type: object
+properties:
+  domains:
+    type: array
+    items:
+      type: string
+  actions:
+    type: array
+    items:
+      type: string

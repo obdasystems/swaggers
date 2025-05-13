@@ -1,0 +1,26 @@
+type: object
+required:
+  - id
+  - type
+  - inputs
+  - superclasses
+properties:
+  id:
+    type: string
+  type:
+    $ref: ./TypesEnum.yaml
+  inputs:
+    type: array
+    items:
+      $ref: GrapholscapeEntity.yaml
+  superclasses:
+    type: array
+    items:
+      required:
+        - classEntity
+        - complete
+      properties:
+        classEntity:
+          $ref: GrapholscapeEntity.yaml
+        complete:
+          type: boolean

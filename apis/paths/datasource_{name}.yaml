@@ -1,0 +1,50 @@
+get:
+  summary: Returns the data source information by its name
+  operationId: get__datasource
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/DataSourceInfoEntry.yaml}
+    '401': {description: Unhauthorized}
+put:
+  summary: Modifies the data source information by its name
+  operationId: put__datasource
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  requestBody:
+    content:
+      application/json:
+        schema: {$ref: ../components/schemas/DataSourceInfoEntry.yaml}
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/DataSourceInfoEntry.yaml}
+    '401': {description: Unhauthorized}
+delete:
+  summary: Deletes a data source information by its name
+  operationId: delete__datasource
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/DataSourceInfoEntry.yaml}
+    '401': {description: Unhauthorized}

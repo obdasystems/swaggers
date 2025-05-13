@@ -1,0 +1,17 @@
+get:
+  summary: Returns the execution entries of the job ID
+  operationId: get__task_scheduler_job_execution_entries
+  parameters:
+  - name: jobId
+    in: path
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items: {$ref: ../components/schemas/MwsxTaskSchedulerJobEntry.yaml}
+    '401': {description: Unhauthorized}

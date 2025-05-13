@@ -1,0 +1,15 @@
+post:
+  summary: POST mwsx/statics/reporting/request
+  operationId: post_extract_issue_report
+  requestBody:
+    content:
+      application/json:
+        schema: {$ref: ../components/schemas/IssueReportRequest.yaml}
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/FileInfo.yaml}
+    '401': {description: Unhauthorized}

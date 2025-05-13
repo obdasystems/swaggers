@@ -1,0 +1,10 @@
+get:
+  summary: Computes and returns the system storage report
+  operationId: get_system_storage_report
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/SystemStorageReport.yaml}
+    '401': {description: Unhauthorized}

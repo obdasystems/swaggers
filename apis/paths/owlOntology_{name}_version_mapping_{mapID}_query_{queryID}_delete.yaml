@@ -1,0 +1,27 @@
+delete:
+  summary: DELETE mwsx/owlOntology/{name}/version/mapping/{mapID}/query/{queryID}/delete
+  operationId: delete__owlOntology_name_version_query_ID_stop
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: mapID
+    in: path
+    required: true
+    schema: {type: string}
+  - name: queryID
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {type: integer}
+    '401': {description: Unhauthorized}

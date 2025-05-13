@@ -1,0 +1,17 @@
+post:
+  summary: POST mwsx/globalAnnotation
+  operationId: post_global_annotation
+  requestBody:
+    content:
+      application/json:
+        schema: {$ref: ../components/schemas/OntologyEntity.yaml}
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items: {$ref: ../components/schemas/OntologyEntity.yaml}
+    '401': {description: Unhauthorized}

@@ -1,0 +1,7 @@
+title: IndividualInfos
+type: object
+properties:
+  individualInfos:
+    type: array
+    items:
+      $ref: ./IndividualInfo.yaml

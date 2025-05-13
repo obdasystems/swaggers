@@ -1,0 +1,24 @@
+get:
+  summary: Returns all available endpoints defined on a given ontology name, ontology
+    version and mapping
+  operationId: get_endpoints_referencing_onto_mapping
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: ID
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/Endpoints.yaml}
+    '401': {description: Unhauthorized}

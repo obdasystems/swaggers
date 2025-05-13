@@ -1,0 +1,574 @@
+openapi: 3.0.0
+info:
+  description: This is the API for managing users and roles in Mastro. Users are the people who can access Mastro and roles are the permissions that users have in Mastro. This API allows you to create, update, delete and get information about users and roles.
+  version: 1.0.0
+  title: Users & Roles API model
+  contact:
+    email: info@obdasystems.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+  - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+    variables:
+      protocol:
+        default: https
+      tenant:
+        default: localhost
+      port:
+        default: ':8989'
+security:
+  - apiKey: []
+  - jwt: []
+paths:
+  /users:
+    get:
+      summary: Returns the list of available users of this MWS installation
+      operationId: get__users
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+        '401':
+          description: Unhauthorized
+    put:
+      summary: Adds multiple users to the system
+      operationId: put__users
+      parameters:
+        - name: op
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/Users'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsersCreationReport'
+        '401':
+          description: Unhauthorized
+  /user/{username}:
+    get:
+      summary: Returns the user names <code>username</code>
+      operationId: get__user_name
+      parameters:
+        - name: username
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '401':
+          description: Unhauthorized
+    put:
+      summary: Modifies the user identified by <code>username</code>
+      operationId: put__user
+      parameters:
+        - name: username
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: onlyInfo
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '401':
+          description: Unhauthorized
+    delete:
+      summary: DELETE mwsx/user/{username}
+      operationId: delete__user
+      parameters:
+        - name: username
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '401':
+          description: Unhauthorized
+  /user:
+    post:
+      summary: Creates a new user
+      operationId: post__user
+      parameters:
+        - name: secret
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '401':
+          description: Unhauthorized
+  /user/{username}/passwd:
+    put:
+      summary: Changes the user password for the user named <code>username</code>
+      operationId: put__user_passwd
+      parameters:
+        - name: username
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: secret
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: oldSecret
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+  /user/{username}/passwd/reset:
+    put:
+      summary: PUT mwsx/user/{username}/passwd/reset
+      operationId: put__user_passwd_reset
+      parameters:
+        - name: username
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: email
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+  /roles:
+    get:
+      summary: GET mwsx/roles
+      operationId: get__roles
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Role'
+        '401':
+          description: Unhauthorized
+  /role/{rolename}:
+    get:
+      summary: GET mwsx/role/{rolename}
+      operationId: get__role_name
+      parameters:
+        - name: rolename
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Role'
+        '401':
+          description: Unhauthorized
+    put:
+      summary: PUT mwsx/role/{rolename}
+      operationId: put__role
+      parameters:
+        - name: rolename
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Role'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Role'
+        '401':
+          description: Unhauthorized
+    delete:
+      summary: DELETE mwsx/role/{rolename}
+      operationId: delete__role
+      parameters:
+        - name: rolename
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Role'
+        '401':
+          description: Unhauthorized
+  /role:
+    post:
+      summary: POST mwsx/role
+      operationId: post__role
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Role'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Role'
+        '401':
+          description: Unhauthorized
+  /role/configurations:
+    get:
+      summary: GET mwsx/role/configurations
+      operationId: get__role_configs
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PermissionParameters'
+        '401':
+          description: Unhauthorized
+  /monolith/roles:
+    get:
+      summary: GET mwsx/monolith/roles
+      operationId: get__monolith__roles
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoleMonolith'
+        '401':
+          description: Unhauthorized
+  /monolith/role/{rolename}:
+    put:
+      summary: PUT mwsx/monolith/role/{rolename}
+      operationId: put__monolith__role
+      parameters:
+        - name: rolename
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RoleMonolith'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoleMonolith'
+        '401':
+          description: Unhauthorized
+  /users/feedback:
+    get:
+      summary: Returns the feedback provided by all the users
+      operationId: get__users_feedback
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsersFeedback'
+        '401':
+          description: Unhauthorized
+  /user/feedback:
+    get:
+      summary: Returns the feedback provided by a specific user
+      operationId: get__user_feedback
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserFeedback'
+        '401':
+          description: Unhauthorized
+  /user/{username}/feedback:
+    delete:
+      summary: Returns the feedback provided by a specific user
+      operationId: delete__user_feedback
+      parameters:
+        - name: username
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserFeedback'
+        '401':
+          description: Unhauthorized
+  /user/feedback/comment:
+    post:
+      summary: Returns the feedback provided by all the users
+      operationId: post__user_feedback_comment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserFeedbackComment'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserFeedback'
+        '401':
+          description: Unhauthorized
+  /logout:
+    get:
+      summary: REST call for basic authentication, returns the session ID as a response header
+      operationId: get__logout
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unhauthorized
+  /logout/{username}:
+    put:
+      summary: Closes the MWS session opened by the user 'username' - returns 0 if the closing operation succeed
+      operationId: put__logout_by_username
+      parameters:
+        - name: username
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+        '401':
+          description: Unhauthorized
+components:
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-MONOLITH-SESSION-ID
+      description: |
+        This session ID is generated from Basic Authentication on the login route.
+    jwt:
+      description: |
+        Generate your JWT when you log in. JWT configurations should be placed in `$MASTRO_HOME/config/mastro.jwt` file
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Permission:
+      title: Permission
+      type: object
+      properties:
+        domain:
+          type: string
+        action:
+          type: string
+        id:
+          type: string
+    Role:
+      title: Role
+      type: object
+      properties:
+        permissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Permission'
+        name:
+          type: string
+    User:
+      title: User
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Role'
+        name:
+          type: string
+        email:
+          type: string
+    Users:
+      title: Users
+      type: object
+      properties:
+        genericRoles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Role'
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+        enabledDomainChecks:
+          type: object
+    UsersCreationReport:
+      title: UsersCreationReport
+      type: object
+      properties:
+        added:
+          type: array
+          items:
+            type: string
+        ignored:
+          type: array
+          items:
+            type: string
+        failed:
+          type: array
+          items:
+            type: string
+    PermissionParameters:
+      title: PermissionParameters
+      type: object
+      properties:
+        domains:
+          type: array
+          items:
+            type: string
+        actions:
+          type: array
+          items:
+            type: string
+    RoleMonolith:
+      title: RoleMonolith
+      type: object
+      properties:
+        name:
+          type: string
+        deactivatedMenus:
+          type: array
+          items:
+            type: string
+    UserFeedbackComment:
+      title: UserFeedbackComment
+      type: object
+      properties:
+        rating:
+          type: number
+        timestamp:
+          type: integer
+        comment:
+          type: string
+    UserFeedback:
+      title: UserFeedback
+      type: object
+      properties:
+        comments:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserFeedbackComment'
+    UsersFeedback:
+      title: UsersFeedback
+      type: object
+      properties:
+        usersFeedback:
+          additionalProperties:
+            $ref: '#/components/schemas/UserFeedback'

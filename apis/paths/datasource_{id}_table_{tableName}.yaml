@@ -1,0 +1,20 @@
+get:
+  summary: Returns the source table info available for the table tableName in the
+    catalog of a given datasource
+  operationId: getTable
+  parameters:
+  - name: id
+    in: path
+    required: true
+    schema: {type: string}
+  - name: tableName
+    in: path
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/SourceTableInfo.yaml}
+    '401': {description: Unhauthorized}

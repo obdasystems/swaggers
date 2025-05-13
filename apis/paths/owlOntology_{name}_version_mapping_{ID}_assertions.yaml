@@ -1,0 +1,53 @@
+get:
+  summary: Returns the list of all mapping assertions identified by ID
+  operationId: get__owlOntology_name_version_mapping_ID_assertions
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: ID
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items: {$ref: ../components/schemas/MappingAssertion.yaml}
+    '401': {description: Unhauthorized}
+post:
+  summary: Adds a new mapping assertion to a set of mappings
+  operationId: post__owlOntology_name_version_mapping_ID_assertions
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: ID
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  requestBody:
+    content:
+      application/json:
+        schema: {$ref: ../components/schemas/MappingAssertion.yaml}
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/MappingAssertion.yaml}
+    '401': {description: Unhauthorized}

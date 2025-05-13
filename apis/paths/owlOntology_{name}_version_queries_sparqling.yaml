@@ -1,0 +1,21 @@
+get:
+  summary: Returns a list of the SPARQLING queries currently stored in the catalog
+  operationId: get__owlOntology_name_version_queries_sparqling
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items: {$ref: ../components/schemas/SparqlingSPARQLQuery.yaml}
+    '401': {description: Unhauthorized}

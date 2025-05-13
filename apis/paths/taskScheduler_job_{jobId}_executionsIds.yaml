@@ -1,0 +1,17 @@
+get:
+  summary: Un-schedules and deletes a job in the task scheduler
+  operationId: get__task_scheduler_job_entries_executions_ids
+  parameters:
+  - name: jobId
+    in: path
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items: {type: string}
+    '401': {description: Unhauthorized}

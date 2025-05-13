@@ -1,0 +1,24 @@
+delete:
+  summary: Deletes all the data quality check set execution logs saved on the server
+    for the given ontology/version
+  operationId: delete_ontologyConstraints_checkSetId_execution_timestamps
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: setId
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {type: integer}
+    '401': {description: Unhauthorized}

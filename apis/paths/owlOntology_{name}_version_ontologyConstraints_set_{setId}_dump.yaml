@@ -1,0 +1,23 @@
+get:
+  summary: Returns the dump of a data quality check set
+  operationId: get_ontologyConstraints_checkSetId_export
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: setId
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/DataQualityCheckSetDump.yaml}
+    '401': {description: Unhauthorized}

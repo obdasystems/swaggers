@@ -1,0 +1,11 @@
+title: MastroID
+type: object
+properties:
+  mappingID:
+    type: string
+  datasourceID:
+    type: string
+  avpID:
+    type: string
+  ontologyID:
+    $ref: ./OntologyID.yaml

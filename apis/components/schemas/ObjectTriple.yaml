@@ -1,0 +1,17 @@
+title: ObjectTriple
+type: object
+properties:
+  predicate:
+    type: string
+  subjects_types:
+    type: array
+    items:
+      $ref: ./SubjectType.yaml
+  predicate_short:
+    type: string
+  instance_count:
+    type: integer
+    format: int32
+  page_count:
+    type: integer
+    format: int32

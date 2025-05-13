@@ -1,0 +1,5 @@
+title: ObjectLiteral
+type: object
+properties:
+  object_literal:
+    type: string

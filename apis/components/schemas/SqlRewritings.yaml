@@ -1,0 +1,7 @@
+title: SqlRewritings
+type: object
+properties:
+  viewRewritings:
+    type: array
+    items:
+      $ref: ./SqlRewriting.yaml

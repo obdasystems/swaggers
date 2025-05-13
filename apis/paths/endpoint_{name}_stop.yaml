@@ -1,0 +1,15 @@
+put:
+  summary: Stops the given endpoint, returns 0 if the stop operation succeeds
+  operationId: stop_endpoint
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {type: integer}
+    '401': {description: Unhauthorized}

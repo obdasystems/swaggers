@@ -1,0 +1,56 @@
+title: DataQualityCheckExecutionLog
+type: object
+properties:
+  direct:
+    type: array
+    items:
+      type: boolean
+  errorMessage:
+    type: string
+  objectProperties:
+    type: array
+    items:
+      $ref: ./OntologyEntity.yaml
+  priority:
+    type: integer
+    format: int32
+  type:
+    type: string
+  sqlQueries:
+    type: array
+    items:
+      type: string
+  cardinality:
+    type: integer
+    format: int32
+  executionTime:
+    type: integer
+    format: int32
+  dataProperties:
+    type: array
+    items:
+      $ref: ./OntologyEntity.yaml
+  cardinalityType:
+    type: integer
+    format: int32
+  checkSemantics:
+    type: string
+  resultsCount:
+    type: integer
+    format: int32
+  property:
+    $ref: ./OntologyEntity.yaml
+  filler:
+    $ref: ./OntologyEntity.yaml
+  sparqlCode:
+    type: string
+  id:
+    type: string
+  results:
+    $ref: ./SPARQLResults.yaml
+  entity:
+    $ref: ./OntologyEntity.yaml
+  status:
+    type: string
+  disjointMWSEntity:
+    $ref: ./OntologyEntity.yaml

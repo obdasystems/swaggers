@@ -1,0 +1,19 @@
+get:
+  summary: Returns the execution status of construct query on the given endpoint
+  operationId: get__owlOntology_name_version_construct_query_ID_status
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: queryID
+    in: path
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/SPARQLStatus.yaml}
+    '401': {description: Unhauthorized}

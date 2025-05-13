@@ -1,0 +1,15 @@
+get:
+  summary: GET mwsx/logger/mastroapi
+  operationId: get_set_mastroapi_logger
+  parameters:
+  - name: mode
+    in: query
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        '*/*':
+          schema: {type: integer, format: int32}
+    '401': {description: Unhauthorized}

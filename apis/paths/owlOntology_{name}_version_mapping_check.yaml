@@ -1,0 +1,32 @@
+post:
+  summary: Perform checks on a given mapping file
+  operationId: post__owlOntology_name_version_mapping_ID_check
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  - name: check
+    in: query
+    required: true
+    schema: {type: string}
+  - name: checkDeprecation
+    in: query
+    required: true
+    schema: {type: string}
+  requestBody:
+    content:
+      application/json:
+        schema: {$ref: ../components/schemas/FileInfo.yaml}
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/MappingsCheckResult.yaml}
+    '401': {description: Unhauthorized}

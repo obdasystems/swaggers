@@ -1,0 +1,12 @@
+type: object
+allOf:
+  - $ref: ./Action.yaml
+properties:
+  subject:
+    $ref: ./Annotation.yaml
+  previousState:
+    $ref: ./Annotation.yaml
+  entity:
+    $ref: ./GrapholscapeEntity.yaml
+  onOntology:
+    type: boolean

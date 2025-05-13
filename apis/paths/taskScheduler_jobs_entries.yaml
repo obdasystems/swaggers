@@ -1,0 +1,13 @@
+get:
+  summary: Schedules a new job in the task scheduler, returns the ID of the scheduled
+    job
+  operationId: get__task_scheduler_job_entries
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items: {$ref: ../components/schemas/MwsxTaskSchedulerJobEntry.yaml}
+    '401': {description: Unhauthorized}

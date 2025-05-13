@@ -1,0 +1,15 @@
+title: EmptyUnfoldingEntities
+type: object
+properties:
+  emptyUnfoldingDataProperties:
+    type: array
+    items:
+      $ref: ./OntologyEntity.yaml
+  emptyUnfoldingObjectProperties:
+    type: array
+    items:
+      $ref: ./OntologyEntity.yaml
+  emptyUnfoldingClasses:
+    type: array
+    items:
+      $ref: ./OntologyEntity.yaml

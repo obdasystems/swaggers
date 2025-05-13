@@ -1,0 +1,17 @@
+get:
+  summary: Returns the set of prefixes that are relevant for a given endpoint
+  operationId: get__owlOntology_name_version_mapping_ID_prefixes
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items: {$ref: ../components/schemas/Prefix.yaml}
+    '401': {description: Unhauthorized}

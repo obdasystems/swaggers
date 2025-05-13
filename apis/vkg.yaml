@@ -1,0 +1,41 @@
+openapi: 3.0.0
+servers:
+  - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+    variables:
+      protocol:
+        default: https
+      tenant:
+        default: localhost
+      port:
+        default: ':8989'
+info:
+  description: >-
+    This is the API for managing virtual knowledge graphs VKGs. VKGs are 
+    crwated by exploring the data through the interface and then saved through this API.
+  version: 1.0.0
+  title: VKG API model
+  contact:
+    email: info@obdasystems.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+paths:
+  /owlOntology/{name}/version/vkg/catalog:
+    $ref: paths/owlOntology_{name}_version_vkg_catalog.yaml
+  /owlOntology/{name}/version/vkg/catalog/{snapshotId}:
+    $ref: paths/owlOntology_{name}_version_vkg_catalog_{snapshotId}.yaml
+  /owlOntology/{name}/version/vkg/catalog/export:
+    $ref: paths/owlOntology_{name}_version_vkg_catalog_export.yaml
+  /owlOntology/{name}/version/vkg/catalog/import:
+    $ref: paths/owlOntology_{name}_version_vkg_catalog_import.yaml
+  /owlOntology/{name}/version/vkg/node-rendering:
+    $ref: paths/owlOntology_{name}_version_vkg_node-rendering.yaml
+components: 
+  securitySchemes: 
+    apiKey: 
+      $ref: './components/securitySchemes/api-key.yaml'
+    jwt:
+      $ref: './components/securitySchemes/jwt.yaml'
+security: 
+  - apiKey: []
+  - jwt: []

@@ -1,0 +1,7 @@
+title: Endpoints
+type: object
+properties:
+  endpoints:
+    type: array
+    items:
+      $ref: ./Endpoint.yaml

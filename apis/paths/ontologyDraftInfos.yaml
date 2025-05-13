@@ -1,0 +1,13 @@
+get:
+  tags: [Ontology Designer]
+  summary: Returns the list of all ontology drafts made by the user
+  operationId: getOntologyDrafts
+  responses:
+    '200':
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            type: array
+            items: {$ref: ../components/schemas/OntologyDraftInfo.yaml}
+    '401': {description: Unhauthorized}

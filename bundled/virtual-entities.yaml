@@ -1,0 +1,619 @@
+openapi: 3.0.0
+info:
+  description: This is the API for managing virtual entities in Mastro. Virtual entities are the SPARQL queries that are used to access the virtual data from external OData feeds. Once  created virtual entitìes the OData feed is available at  `https://{tenant}/odata/{endpointName}`
+  version: 1.0.0
+  title: Virtual Entities API model
+  contact:
+    email: info@obdasystems.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+  - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+    variables:
+      protocol:
+        default: https
+      tenant:
+        default: localhost
+      port:
+        default: ':8989'
+security:
+  - apiKey: []
+  - jwt: []
+paths:
+  /owlOntology/{name}/version/virtualEntities:
+    get:
+      summary: Returns the virtual entities available for a given ontology
+      operationId: get_virtualEntities
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  $ref: '#/components/schemas/SparqlingVirtualEntity'
+        '401':
+          description: Unhauthorized
+    delete:
+      summary: Deletes the virtual entities for a given ontology
+      operationId: delete_virtualEntities
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SparqlingVirtualEntities'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/virtualEntities/export:
+    get:
+      summary: Returns the virtual entities available for a given ontology
+      operationId: export_virtualEntities
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SparqlingVirtualEntities'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/virtualEntities/import:
+    post:
+      summary: Upload virtual entities for a given ontology
+      operationId: import_virtualEntities
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: additive
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SparqlingVirtualEntities'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SparqlingVirtualEntities'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/virtualEntity/{vname}:
+    get:
+      summary: Get a virtual entity by name for a given ontology
+      operationId: get_virtualEntity
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: vname
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SparqlingVirtualEntity'
+        '401':
+          description: Unhauthorized
+    delete:
+      summary: DELETE a virtual entity by name for a given ontology
+      operationId: delete_virtualEntity
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: vname
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SparqlingVirtualEntity'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/virtualEntity:
+    post:
+      summary: Create a new virtual entity for a given ontology
+      operationId: post_virtualEntity
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SparqlingVirtualEntity'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SparqlingVirtualEntity'
+        '401':
+          description: Unhauthorized
+    put:
+      summary: Overwrite a virtual entity for a given ontology
+      operationId: put_virtualEntity
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SparqlingVirtualEntity'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SparqlingVirtualEntity'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/virtualEntity/semantics:
+    post:
+      summary: POST mwsx/owlOntology/{name}/version/virtualEntity/semantics
+      operationId: post_virtualEntity_semantics
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SparqlingVirtualEntity'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+components:
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-MONOLITH-SESSION-ID
+      description: |
+        This session ID is generated from Basic Authentication on the login route.
+    jwt:
+      description: |
+        Generate your JWT when you log in. JWT configurations should be placed in `$MASTRO_HOME/config/mastro.jwt` file
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    VarOrConstant:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - var
+            - constant
+            - iri
+        value:
+          type: string
+        constantType:
+          type: string
+          enum:
+            - xsd:string
+            - xsd:decimal
+            - xsd:dateTime
+    Function:
+      type: object
+      properties:
+        name:
+          type: string
+          enum:
+            - ADD
+            - SUBCTRACT
+            - MULTIPLY
+            - DIVIDE
+            - SUBSTR
+            - UCASE
+            - LCASE
+            - CONTAINS
+            - CONCAT
+            - ROUND
+            - CEIL
+            - FLOOR
+            - YEAR
+            - MONTH
+            - DAY
+            - HOURS
+            - MINUTES
+            - SECONDS
+            - STRLEN
+            - STRSTARTS
+            - STRENDS
+            - STRBEFORE
+            - STRAFTER
+        parameters:
+          type: array
+          items:
+            $ref: '#/components/schemas/VarOrConstant'
+    GroupByElement:
+      type: object
+      properties:
+        distinct:
+          type: boolean
+        aggregateFunction:
+          type: string
+          enum:
+            - count
+            - sum
+            - min
+            - max
+            - average
+    FilterExpression:
+      type: object
+      properties:
+        operator:
+          type: string
+          enum:
+            - '='
+            - '!='
+            - <
+            - '>'
+            - <=
+            - '>='
+            - IN
+            - NOT IN
+            - REGEX
+            - ISBLANK
+            - NOT ISBLANK
+        parameters:
+          type: array
+          items:
+            $ref: '#/components/schemas/VarOrConstant'
+    Filter:
+      type: object
+      properties:
+        expression:
+          $ref: '#/components/schemas/FilterExpression'
+    HeadElement:
+      type: object
+      properties:
+        id:
+          type: string
+        graphElementId:
+          type: string
+        var:
+          type: string
+        alias:
+          type: string
+        ordering:
+          description: 1 is ascending -1 descending 0 not defined
+          type: integer
+        function:
+          $ref: '#/components/schemas/Function'
+        groupBy:
+          $ref: '#/components/schemas/GroupByElement'
+        having:
+          type: array
+          items:
+            $ref: '#/components/schemas/Filter'
+    SparqlingEntity:
+      type: object
+      required:
+        - type
+        - iri
+        - prefixedIri
+      properties:
+        type:
+          type: string
+          enum:
+            - class
+            - objectProperty
+            - inverseObjectProperty
+            - dataProperty
+            - annotation
+        iri:
+          type: string
+        prefixedIri:
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+    GraphElement:
+      type: object
+      properties:
+        id:
+          type: string
+          description: This id corrensopond to the variable when entity type is a class.
+        variables:
+          type: array
+          description: This element could refer to one variable (if it's a class) or to two variables (if it's a property)
+          items:
+            type: string
+        entities:
+          type: array
+          description: It could have more than one entity only when entity type is a class (could be derived after clicking on two borther classes)
+          items:
+            $ref: '#/components/schemas/SparqlingEntity'
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/GraphElement'
+    Optional:
+      type: object
+      properties:
+        id:
+          type: integer
+        graphIds:
+          description: Path of ids that describe optional.
+          type: array
+          items:
+            type: string
+    QueryGraph:
+      required:
+        - graph
+        - head
+        - sparql
+      type: object
+      properties:
+        distinct:
+          type: boolean
+        count_star:
+          type: boolean
+          default: false
+        head:
+          type: array
+          items:
+            $ref: '#/components/schemas/HeadElement'
+        graph:
+          $ref: '#/components/schemas/GraphElement'
+        activeGraphElementId:
+          type: string
+        filters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Filter'
+        optionals:
+          type: array
+          items:
+            $ref: '#/components/schemas/Optional'
+        limit:
+          type: integer
+        offset:
+          type: integer
+        sparql:
+          type: string
+    ChartConfiguration:
+      title: ChartConfiguration
+      type: object
+      properties:
+        yVariables:
+          type: array
+          items:
+            type: string
+        series:
+          type: string
+        xVariable:
+          type: string
+        chartType:
+          type: string
+        cutoff:
+          type: integer
+          format: int32
+    Tag:
+      title: Tag
+      type: object
+      properties:
+        color:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+    VirtualEntityQueryInfos:
+      title: VirtualEntityQueryInfos
+      type: object
+      properties:
+        virtualEntityname:
+          type: string
+        idSelection:
+          type: string
+        fieldFilters:
+          type: object
+          additionalProperties:
+            type: string
+    SPARQLQuery:
+      title: SPARQLQuery
+      type: object
+      properties:
+        selectedMappingIds:
+          type: array
+          items:
+            type: string
+        chartConfiguration:
+          $ref: '#/components/schemas/ChartConfiguration'
+        languages:
+          type: string
+        mappingParameters:
+          type: object
+          additionalProperties:
+            type: string
+        semantics:
+          type: string
+        constructCode:
+          type: string
+        queryTags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+        queryDescription:
+          type: string
+        queryID:
+          type: string
+        queryCode:
+          type: string
+        isConstruct:
+          type: boolean
+        constructResultsRDFSyntax:
+          type: string
+        virtualEntityQueryInfos:
+          $ref: '#/components/schemas/VirtualEntityQueryInfos'
+    SparqlingSPARQLQuery:
+      title: SparqlingSPARQLQuery
+      type: object
+      properties:
+        queryGraph:
+          $ref: '#/components/schemas/QueryGraph'
+        sparqlQuery:
+          $ref: '#/components/schemas/SPARQLQuery'
+        user:
+          type: string
+    VirtualEntityField:
+      title: VirtualEntityField
+      type: object
+      properties:
+        fieldName:
+          type: string
+        isNullable:
+          type: boolean
+        isKey:
+          type: boolean
+        fieldType:
+          type: string
+    VirtualEntity:
+      title: VirtualEntity
+      type: object
+      properties:
+        signature:
+          type: array
+          items:
+            $ref: '#/components/schemas/VirtualEntityField'
+        name:
+          type: string
+        description:
+          type: string
+        sparqlCode:
+          type: string
+        semantics:
+          type: string
+    SparqlingVirtualEntity:
+      title: SparqlingVirtualEntity
+      type: object
+      properties:
+        sparqlingSPARQLQuery:
+          $ref: '#/components/schemas/SparqlingSPARQLQuery'
+        entity:
+          $ref: '#/components/schemas/VirtualEntity'
+    SparqlingVirtualEntities:
+      title: SparqlingVirtualEntities
+      type: object
+      properties:
+        entities:
+          type: array
+          items:
+            $ref: '#/components/schemas/SparqlingVirtualEntity'

@@ -1,0 +1,70 @@
+get:
+  tags: [VKG]
+  summary: Returns the saved RDFGraph for VKGs exploration
+  parameters:
+  - name: ontologyName
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    description: Ontology version
+    in: query
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            type: array
+            items: {$ref: ../components/schemas/VKGSnapshot.yaml}
+    '401': {description: Unhauthorized}
+post:
+  tags: [VKG]
+  summary: Save a new VKG exploration
+  requestBody:
+    content:
+      application/json:
+        schema: {$ref: ../components/schemas/VKGSnapshot.yaml}
+  parameters:
+  - name: ontologyName
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    description: Ontology version
+    in: query
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            type: array
+            items: {$ref: ../components/schemas/VKGSnapshot.yaml}
+    '401': {description: Unhauthorized}
+delete:
+  tags: [VKG]
+  summary: Delete all the saved RDFGraph for VKGs exploration
+  parameters:
+  - name: ontologyName
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    description: Ontology version
+    in: query
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            type: array
+            items: {$ref: ../components/schemas/VKGSnapshot.yaml}
+    '401': {description: Unhauthorized}

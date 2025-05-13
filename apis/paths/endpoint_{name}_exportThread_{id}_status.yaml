@@ -1,0 +1,19 @@
+get:
+  summary: Returns the status of an export thread running on the given endpoint
+  operationId: get__owlOntology_name_version_query_ID_export_thread_id_status
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: id
+    in: path
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {type: string}
+    '401': {description: Unhauthorized}

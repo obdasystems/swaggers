@@ -1,0 +1,46 @@
+openapi: 3.0.0
+servers:
+  - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+    variables:
+      protocol:
+        default: https
+      tenant:
+        default: localhost
+      port:
+        default: ':8989'
+info:
+  description: >-
+    This is the API for managing virtual entities in Mastro.
+    Virtual entities are the SPARQL queries that are used to
+    access the virtual data from external OData feeds. Once 
+    created virtual entitìes the OData feed is available at 
+    `https://{tenant}/odata/{endpointName}`
+  version: 1.0.0
+  title: Virtual Entities API model
+  contact:
+    email: info@obdasystems.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+paths:
+  /owlOntology/{name}/version/virtualEntities:
+    $ref: paths/owlOntology_{name}_version_virtualEntities.yaml
+  /owlOntology/{name}/version/virtualEntities/export:
+    $ref: paths/owlOntology_{name}_version_virtualEntities_export.yaml
+  /owlOntology/{name}/version/virtualEntities/import:
+    $ref: paths/owlOntology_{name}_version_virtualEntities_import.yaml
+  /owlOntology/{name}/version/virtualEntity/{vname}:
+    $ref: paths/owlOntology_{name}_version_virtualEntity_{vname}.yaml
+  /owlOntology/{name}/version/virtualEntity:
+    $ref: paths/owlOntology_{name}_version_virtualEntity.yaml
+  /owlOntology/{name}/version/virtualEntity/semantics:
+    $ref: paths/owlOntology_{name}_version_virtualEntity_semantics.yaml
+components: 
+  securitySchemes: 
+    apiKey: 
+      $ref: './components/securitySchemes/api-key.yaml'
+    jwt:
+      $ref: './components/securitySchemes/jwt.yaml'
+security: 
+  - apiKey: []
+  - jwt: []

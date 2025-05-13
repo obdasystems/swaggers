@@ -1,0 +1,19 @@
+title: IntensionalAnnotationMappingAssertion
+type: object
+properties:
+  annotationSubjectIRI:
+    type: string
+  annotationValueContent:
+    type: string
+  mappingBody:
+    $ref: ./MappingBody.yaml
+  mappingDescription:
+    type: string
+  annotationProperty:
+    type: string
+  userQuery:
+    type: string
+  id:
+    type: string
+  annotationValueLang:
+    type: string

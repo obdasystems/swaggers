@@ -1,0 +1,31 @@
+post:
+  summary: Start a thread computing a shortest path on the ontology
+  operationId: post_shortest_path_thread_start
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  - name: lastSelectedIRI
+    in: query
+    required: true
+    schema: {type: string}
+  - name: clickedIRI
+    in: query
+    required: true
+    schema: {type: string}
+  - name: kShortest
+    in: query
+    required: true
+    schema: {type: boolean}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {type: string}
+    '401': {description: Unhauthorized}

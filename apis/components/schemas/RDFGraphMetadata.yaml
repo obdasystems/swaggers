@@ -1,0 +1,27 @@
+title: RDFGraphMetadata
+type: object
+properties:
+  annotationProperties:
+    type: array
+    items:
+      type: string
+  iri:
+    type: string
+  defaultLanguage:
+    type: string
+  languages:
+    type: array
+    items:
+      type: string
+  name:
+    type: string
+  annotations:
+    type: array
+    items:
+      $ref: ./Annotation.yaml
+  version:
+    type: string
+  namespaces:
+    type: array
+    items:
+      $ref: ./Namespace.yaml

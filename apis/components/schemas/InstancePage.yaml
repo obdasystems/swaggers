@@ -1,0 +1,9 @@
+title: InstancePage
+type: object
+properties:
+  subjects:
+    $ref: ./InstanceSubjectTripsGroup.yaml
+  objects:
+    $ref: ./InstanceObjectTripsGroup.yaml
+  title:
+    $ref: ./InstanceLabelType.yaml

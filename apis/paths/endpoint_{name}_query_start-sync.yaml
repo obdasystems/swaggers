@@ -1,0 +1,60 @@
+post:
+  summary: Starts a new query in synchronous mode on the given endpoint
+  operationId: start_new_sync_query_on_endpoint
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: reasoning
+    in: query
+    required: true
+    schema: {type: boolean}
+  - name: expandSparqlTables
+    in: query
+    required: true
+    schema: {type: boolean}
+  - name: querySemantics
+    in: query
+    required: true
+    schema: {type: string}
+  - name: answersBufferSize
+    in: query
+    required: true
+    schema: {type: string}
+  - name: skipSqlEvaluation
+    in: query
+    required: true
+    schema: {type: string}
+  - name: useReplaceForUrlEncoding
+    in: query
+    required: true
+    schema: {type: string}
+  - name: filterNullValuesOnIri
+    in: query
+    required: true
+    schema: {type: string}
+  - name: lang
+    in: query
+    required: true
+    schema: {type: string}
+  - name: agent
+    in: query
+    required: true
+    schema: {type: string}
+  - name: unfolderCountThreshold
+    in: query
+    required: true
+    schema: {type: string}
+  requestBody:
+    content:
+      '*/*':
+        schema: {$ref: ../components/schemas/SPARQLQuery.yaml}
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/SPARQLResults.yaml}
+    '401': {description: Unhauthorized}

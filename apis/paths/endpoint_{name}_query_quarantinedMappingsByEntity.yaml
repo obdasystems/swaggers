@@ -1,0 +1,25 @@
+post:
+  summary: Given a SPARQL query, returns a map with entity as key and a set of quarantined
+    mapping identifiers as a value
+  operationId: check_query_on_endpoint_for_quarantinedMappings
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  requestBody:
+    content:
+      '*/*':
+        schema: {$ref: ../components/schemas/SPARQLQuery.yaml}
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            additionalProperties:
+              type: array
+              items: {type: string}
+    '401': {description: Unhauthorized}

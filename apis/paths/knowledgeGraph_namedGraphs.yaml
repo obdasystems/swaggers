@@ -1,0 +1,17 @@
+get:
+  summary: GET mwsx/knowledgeGraph/namedGraphs
+  operationId: get__knowledgeGraph_named_graphs
+  parameters:
+  - name: iri
+    in: query
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items: {type: string}
+    '401': {description: Unhauthorized}

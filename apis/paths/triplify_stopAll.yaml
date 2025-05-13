@@ -1,0 +1,6 @@
+put:
+  summary: Stops the thread identified by threadID
+  operationId: put_mappings_triplification_stop_all
+  responses:
+    '200': {description: OK}
+    '401': {description: Unhauthorized}

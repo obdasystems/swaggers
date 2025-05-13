@@ -1,0 +1,37 @@
+title: MappingTemplatePrompt
+type: object
+properties:
+  template:
+    $ref: ./MappingTemplate.yaml
+  reason:
+    type: string
+  SUPER_DATA_PROPERTY_DOMAIN_REASON:
+    type: string
+  OBJECT_PROPERTY_DOMAIN_REASON:
+    type: string
+  SUPER_OBJECT_PROPERTY_RANGE_REASON:
+    type: string
+  SUPER_OBJECT_PROPERTY_DOMAIN_REASON:
+    type: string
+  DATA_PROPERTY_DOMAIN_REASON:
+    type: string
+  DATA_PROPERTY_DOMAIN_PARTICIPATION_REASON:
+    type: string
+  SUB_OBJECT_PROPERTY_RANGE_REASON:
+    type: string
+  sourceEntity:
+    $ref: ./OntologyEntity.yaml
+  OBJECT_PROPERTY_RANGE_REASON:
+    type: string
+  SUPER_CLASS_REASON:
+    type: string
+  SUB_DATA_PROPERTY_DOMAIN_REASON:
+    type: string
+  SUB_OBJECT_PROPERTY_DOMAIN_REASON:
+    type: string
+  SUB_CLASS_REASON:
+    type: string
+  OBJECT_PROPERTY_DOMAIN_PARTICIPATION_REASON:
+    type: string
+  OBJECT_PROPERTY_RANGE_PARTICIPATION_REASON:
+    type: string

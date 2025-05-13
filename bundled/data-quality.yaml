@@ -1,0 +1,1020 @@
+openapi: 3.0.0
+info:
+  description: This is the API for Data Quality in Mastro. It generates queries and execute them in order to verify if the underlying data in the DBMS is consistent with the ontology.
+  version: 1.0.0
+  title: Data Quality API model
+  contact:
+    email: info@obdasystems.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+  - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+    variables:
+      protocol:
+        default: https
+      tenant:
+        default: localhost
+      port:
+        default: ':8989'
+security:
+  - apiKey: []
+  - jwt: []
+paths:
+  /owlOntology/{name}/version/ontologyConstraints:
+    get:
+      summary: Returns the available constraints defined over the ontology / version
+      operationId: get_ontologyConstraints
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OntologyConstraints'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/ontologyConstraints/set:
+    post:
+      summary: Create a new data quality check set
+      operationId: post_ontologyConstraints_check_start
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DataQualityCheckSet'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '401':
+          description: Unhauthorized
+    get:
+      summary: Returns a list of the check sets available for the ontology / version
+      operationId: get_ontologyConstraints_check_sets
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DataQualityCheckSet'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}:
+    get:
+      summary: Returns a check set defined over the ontology / version
+      operationId: get_ontologyConstraints_check_set_setId
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: setId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataQualityCheckSet'
+        '401':
+          description: Unhauthorized
+    delete:
+      summary: Deletes the given check set from
+      operationId: delete_ontologyConstraints_check_set_setId
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: setId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataQualityCheckSet'
+        '401':
+          description: Unhauthorized
+    put:
+      summary: Updates the definition of a specific check set
+      operationId: put_ontologyConstraints_check
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: setId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DataQualityCheckSet'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataQualityCheckSet'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}/start/{endpoint}:
+    put:
+      summary: Starts a new execution of the given check set over a specific endpoint
+      operationId: put_ontologyConstraints_check_start
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: setId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: endpoint
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: answersBufferSize
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: autosave
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: concurrentChecksNumber
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}/stop:
+    put:
+      summary: Stops the execution of the thread executing the specific check set
+      operationId: put_ontologyConstraints_check_stop
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: setId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}/removeThread:
+    delete:
+      summary: Deletes the execution thread of the specified check set from the server
+      operationId: delete_ontologyConstraints_check_removeThread
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: setId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}/status:
+    get:
+      summary: Returns the running state of the specified check set
+      operationId: get_ontologyConstraints_check_status
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: setId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataQualityCheckSetStatus'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/ontologyConstraints/sets/running:
+    get:
+      summary: Returns the identifiers of the currently running check sets
+      operationId: get_ontologyConstraints_check_running
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/ontologyConstraints/sets/executionLogs:
+    get:
+      summary: Returns all the execution logs of the given check set
+      operationId: get_ontologyConstraints_execution_log
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataQualityCheckSetExecutionLogs'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}/executionLog:
+    get:
+      summary: Returns the execution log of the last execution of the specified check set
+      operationId: get_ontologyConstraints_checkSetId_execution_log
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: setId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataQualityCheckSetExecutionLogs'
+        '401':
+          description: Unhauthorized
+    put:
+      summary: Returns the execution log of a data quality check set
+      operationId: put_ontologyConstraints_checkSetId_execution_timestamps
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: setId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataQualityCheckSetExecutionLog'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}/executionLogs/timestamps:
+    get:
+      summary: Returns a list of the available timestamps for a check set of the given ontology/version
+      operationId: get_ontologyConstraints_checkSetId_execution_timestamps
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: setId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}/executionLogs/timestamp/{timestamp}:
+    get:
+      summary: Returns the execution log of a check set run at the provided timestamp
+      operationId: get_ontologyConstraints_checkSetId_execution_timestamp
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: setId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: timestamp
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataQualityCheckSetExecutionLog'
+        '401':
+          description: Unhauthorized
+    delete:
+      summary: Deletes the execution log of a check set run at the provided timestamp
+      operationId: delete_ontologyConstraints_checkSetId_execution_timestamp
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: setId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: timestamp
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataQualityCheckSetExecutionLog'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}/executionLog/timestamps:
+    delete:
+      summary: Deletes all the data quality check set execution logs saved on the server for the given ontology/version
+      operationId: delete_ontologyConstraints_checkSetId_execution_timestamps
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: setId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/ontologyConstraints/set/{setId}/dump:
+    get:
+      summary: Returns the dump of a data quality check set
+      operationId: get_ontologyConstraints_checkSetId_export
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: setId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataQualityCheckSetDump'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/ontologyConstraints/sets/dump:
+    post:
+      summary: Imports a data quality check set dump and returns a report of the performed operation
+      operationId: post_ontologyConstraints_checkSetId_import
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: importMappingParameters
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DataQualityCheckSetDump'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataQualityCheckSetImportReport'
+        '401':
+          description: Unhauthorized
+components:
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-MONOLITH-SESSION-ID
+      description: |
+        This session ID is generated from Basic Authentication on the login route.
+    jwt:
+      description: |
+        Generate your JWT when you log in. JWT configurations should be placed in `$MASTRO_HOME/config/mastro.jwt` file
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Label:
+      title: Label
+      type: object
+      properties:
+        lang:
+          type: string
+        content:
+          type: string
+    OntologyEntity:
+      title: OntologyEntity
+      type: object
+      properties:
+        entityLabels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Label'
+        isDeprecated:
+          type: boolean
+        entityIRI:
+          type: string
+        entityType:
+          type: string
+        entityPrefixIRI:
+          type: string
+        entityRemainder:
+          type: string
+        entityID:
+          type: string
+    SubClassWithForAllAssertion:
+      title: SubClassWithForAllAssertion
+      type: object
+      properties:
+        property:
+          $ref: '#/components/schemas/OntologyEntity'
+        direct:
+          type: boolean
+        filler:
+          $ref: '#/components/schemas/OntologyEntity'
+    FunctionalPropertyAssertion:
+      title: FunctionalPropertyAssertion
+      type: object
+      properties:
+        direct:
+          type: boolean
+    DisjointClasses:
+      title: DisjointClasses
+      type: object
+      properties:
+        disjointClass:
+          $ref: '#/components/schemas/OntologyEntity'
+    MandatoryParticipationAssertion:
+      title: MandatoryParticipationAssertion
+      type: object
+      properties:
+        property:
+          $ref: '#/components/schemas/OntologyEntity'
+        direct:
+          type: boolean
+        filler:
+          $ref: '#/components/schemas/OntologyEntity'
+    HasKeyAssertion:
+      title: HasKeyAssertion
+      type: object
+      properties:
+        dataProperties:
+          type: array
+          items:
+            $ref: '#/components/schemas/OntologyEntity'
+        direct:
+          type: array
+          items:
+            type: boolean
+        objectProperties:
+          type: array
+          items:
+            $ref: '#/components/schemas/OntologyEntity'
+    SubClassWithCardinalityAssertion:
+      title: SubClassWithCardinalityAssertion
+      type: object
+      properties:
+        MIN_CARDINALITY_TYPE:
+          type: integer
+          format: int32
+        cardinalityType:
+          type: integer
+          format: int32
+        property:
+          $ref: '#/components/schemas/OntologyEntity'
+        direct:
+          type: boolean
+        filler:
+          $ref: '#/components/schemas/OntologyEntity'
+        EXACT_CARDINALITY_TYPE:
+          type: integer
+          format: int32
+        MAX_CARDINALITY_TYPE:
+          type: integer
+          format: int32
+        cardinality:
+          type: integer
+          format: int32
+    IdentificationPathElement:
+      title: IdentificationPathElement
+      type: object
+      properties:
+        inverse:
+          type: boolean
+        entity:
+          $ref: '#/components/schemas/OntologyEntity'
+    IdentificationPath:
+      title: IdentificationPath
+      type: object
+      properties:
+        path:
+          type: array
+          items:
+            $ref: '#/components/schemas/IdentificationPathElement'
+    IdentificationAssertion:
+      title: IdentificationAssertion
+      type: object
+      properties:
+        identificationPaths:
+          type: array
+          items:
+            $ref: '#/components/schemas/IdentificationPath'
+    OntologyConstraints:
+      title: OntologyConstraints
+      type: object
+      properties:
+        universals:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubClassWithForAllAssertion'
+        functionalities:
+          type: array
+          items:
+            $ref: '#/components/schemas/FunctionalPropertyAssertion'
+        disjointnesses:
+          type: array
+          items:
+            $ref: '#/components/schemas/DisjointClasses'
+        mandatories:
+          type: array
+          items:
+            $ref: '#/components/schemas/MandatoryParticipationAssertion'
+        keys:
+          type: array
+          items:
+            $ref: '#/components/schemas/HasKeyAssertion'
+        cardinalities:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubClassWithCardinalityAssertion'
+        identifications:
+          type: array
+          items:
+            $ref: '#/components/schemas/IdentificationAssertion'
+    DataQualityCheck:
+      title: DataQualityCheck
+      type: object
+      properties:
+        id:
+          type: string
+        priority:
+          type: integer
+          format: int32
+    DataQualityCheckSet:
+      title: DataQualityCheckSet
+      type: object
+      properties:
+        ontologyConstraints:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataQualityCheck'
+        mappingParameters:
+          type: object
+          additionalProperties:
+            type: string
+        id:
+          type: string
+        user:
+          type: string
+    DataQualityCheckStatus:
+      title: DataQualityCheckStatus
+      type: object
+      properties:
+        resultsCount:
+          type: integer
+          format: int32
+        id:
+          type: string
+        queryExecutionId:
+          type: string
+        status:
+          type: string
+    DataQualityCheckSetStatus:
+      title: DataQualityCheckSetStatus
+      type: object
+      properties:
+        ontologyConstraints:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataQualityCheckStatus'
+        status:
+          type: string
+    SPARQLResult:
+      title: SPARQLResult
+      type: object
+      properties:
+        shortIRI:
+          type: string
+        type:
+          type: string
+        lang:
+          type: string
+        value:
+          type: string
+    SPARQLResults:
+      title: SPARQLResults
+      type: object
+      properties:
+        headTerms:
+          type: array
+          items:
+            type: string
+        headTypes:
+          type: object
+        construct:
+          type: boolean
+        results:
+          type: array
+          items:
+            type: array
+            items:
+              $ref: '#/components/schemas/SPARQLResult'
+    DataQualityCheckExecutionLog:
+      title: DataQualityCheckExecutionLog
+      type: object
+      properties:
+        direct:
+          type: array
+          items:
+            type: boolean
+        errorMessage:
+          type: string
+        objectProperties:
+          type: array
+          items:
+            $ref: '#/components/schemas/OntologyEntity'
+        priority:
+          type: integer
+          format: int32
+        type:
+          type: string
+        sqlQueries:
+          type: array
+          items:
+            type: string
+        cardinality:
+          type: integer
+          format: int32
+        executionTime:
+          type: integer
+          format: int32
+        dataProperties:
+          type: array
+          items:
+            $ref: '#/components/schemas/OntologyEntity'
+        cardinalityType:
+          type: integer
+          format: int32
+        checkSemantics:
+          type: string
+        resultsCount:
+          type: integer
+          format: int32
+        property:
+          $ref: '#/components/schemas/OntologyEntity'
+        filler:
+          $ref: '#/components/schemas/OntologyEntity'
+        sparqlCode:
+          type: string
+        id:
+          type: string
+        results:
+          $ref: '#/components/schemas/SPARQLResults'
+        entity:
+          $ref: '#/components/schemas/OntologyEntity'
+        status:
+          type: string
+        disjointMWSEntity:
+          $ref: '#/components/schemas/OntologyEntity'
+    OntologyID:
+      title: OntologyID
+      type: object
+      properties:
+        ontologyVersion:
+          type: string
+        ontologyName:
+          type: string
+    MastroID:
+      title: MastroID
+      type: object
+      properties:
+        mappingID:
+          type: string
+        datasourceID:
+          type: string
+        avpID:
+          type: string
+        ontologyID:
+          $ref: '#/components/schemas/OntologyID'
+    Endpoint:
+      title: Endpoint
+      type: object
+      properties:
+        restartNeeded:
+          type: boolean
+        name:
+          type: string
+        description:
+          type: string
+        user:
+          type: string
+        mastroID:
+          $ref: '#/components/schemas/MastroID'
+    DataQualityCheckSetExecutionLog:
+      title: DataQualityCheckSetExecutionLog
+      type: object
+      properties:
+        ontologyConstraints:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataQualityCheckExecutionLog'
+        endpoint:
+          type: string
+        endpointInfo:
+          $ref: '#/components/schemas/Endpoint'
+        endTimestamp:
+          type: integer
+          format: int64
+        user:
+          type: string
+        checkSetId:
+          type: string
+        timestamp:
+          type: integer
+          format: int64
+    DataQualityCheckSetExecutionLogs:
+      title: DataQualityCheckSetExecutionLogs
+      type: object
+      properties:
+        executions:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataQualityCheckSetExecutionLog'
+    DataQualityCheckSetDump:
+      title: DataQualityCheckSetDump
+      type: object
+      properties:
+        set:
+          $ref: '#/components/schemas/DataQualityCheckSet'
+        constraints:
+          $ref: '#/components/schemas/OntologyConstraints'
+    DataQualityCheckSetImportReport:
+      title: DataQualityCheckSetImportReport
+      type: object
+      properties:
+        actualCheckSet:
+          $ref: '#/components/schemas/DataQualityCheckSet'
+        importReport:
+          type: object

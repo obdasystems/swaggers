@@ -1,0 +1,84 @@
+get:
+  summary: Returns the query statistics for the given endpoint
+  operationId: get_statistics_endpoint_queries
+  parameters:
+  - name: endpoint
+    in: path
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items: {$ref: ../components/schemas/QueryUsageLog.yaml}
+    '401': {description: Unhauthorized}
+post:
+  summary: Replace the current query statistics with the one provided for the given
+    endpoint
+  operationId: post_statistics_endpoint_queries
+  parameters:
+  - name: endpoint
+    in: path
+    required: true
+    schema: {type: string}
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: array
+          items: {$ref: ../components/schemas/QueryUsageLog.yaml}
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items: {$ref: ../components/schemas/QueryUsageLog.yaml}
+    '401': {description: Unhauthorized}
+put:
+  summary: Adds the provided query statistics for the given endpoint to the one registered
+    in the system
+  operationId: put_statistics_endpoint_queries
+  parameters:
+  - name: endpoint
+    in: path
+    required: true
+    schema: {type: string}
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: array
+          items: {$ref: ../components/schemas/QueryUsageLog.yaml}
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items: {$ref: ../components/schemas/QueryUsageLog.yaml}
+    '401': {description: Unhauthorized}
+delete:
+  summary: Deletes from the system the query statistics for the given endpoint
+  operationId: delete_statistics_endpoint_queries
+  parameters:
+  - name: endpoint
+    in: path
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items: {$ref: ../components/schemas/QueryUsageLog.yaml}
+    '401': {description: Unhauthorized}

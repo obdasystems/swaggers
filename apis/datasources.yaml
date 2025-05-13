@@ -1,0 +1,59 @@
+openapi: 3.0.0
+servers:
+  - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+    variables:
+      protocol:
+        default: https
+      tenant:
+        default: localhost
+      port:
+        default: ':8989'
+info:
+  description: >-
+    This is the API to manage Mastro connections to DBMSs. You can create,
+    update, delete and test connections to DBMSs by means of JDBC connections.
+  version: 1.0.0
+  title: Datasources API model
+  contact:
+    email: info@obdasystems.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+paths:
+  /datasource/{name}:
+    $ref: paths/datasource_{name}.yaml
+  /datasource/{name}/downloadMetadata:
+    $ref: paths/datasource_{name}_downloadMetadata.yaml
+  /datasource/{name}/metadata:
+    $ref: paths/datasource_{name}_metadata.yaml
+  /datasource/{name}/updateMetadata:
+    $ref: paths/datasource_{name}_updateMetadata.yaml
+  /datasource/{name}/uploadMetadata:
+    $ref: paths/datasource_{name}_uploadMetadata.yaml
+  /datasource:
+    $ref: paths/datasource.yaml
+  /datasource/drivers:
+    $ref: paths/datasource_drivers.yaml
+  /datasource/test:
+    $ref: paths/datasource_test.yaml
+  /datasource/schemas:
+    $ref: paths/datasource_schemas.yaml
+  /datasource/{id}/schemas:
+    $ref: paths/datasource_{id}_schemas.yaml
+  /datasource/schema/{schemaName}/tableNames:
+    $ref: paths/datasource_schema_{schemaName}_tableNames.yaml
+  /datasource/{id}/tables:
+    $ref: paths/datasource_{id}_tables.yaml
+  /datasource/{id}/tables/results:
+    $ref: paths/datasource_{id}_tables_results.yaml
+  /datasource/{id}/table/{tableName}:
+    $ref: paths/datasource_{id}_table_{tableName}.yaml
+components: 
+  securitySchemes: 
+    apiKey: 
+      $ref: './components/securitySchemes/api-key.yaml'
+    jwt:
+      $ref: './components/securitySchemes/jwt.yaml'
+security: 
+  - apiKey: []
+  - jwt: []

@@ -1,0 +1,8 @@
+type: object
+allOf:
+  - $ref: ./Action.yaml
+properties:
+  subject:
+    $ref: ./GrapholscapeEntity.yaml
+  previousState:
+    $ref: ./GrapholscapeEntity.yaml

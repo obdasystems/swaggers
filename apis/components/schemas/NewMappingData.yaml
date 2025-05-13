@@ -1,0 +1,13 @@
+title: NewMappingData
+type: object
+properties:
+  template:
+    type: string
+  viewName:
+    type: string
+  rangeTemplate:
+    type: string
+  description:
+    type: string
+  entityID:
+    type: string
