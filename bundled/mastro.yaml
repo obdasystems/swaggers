@@ -18382,6 +18382,8 @@ components:
           type: string
         isQuarantined:
           type: boolean
+        isExtensionallyComplete:
+          type: boolean
     SQLViews:
       title: SQLViews
       type: object
