@@ -48,9 +48,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/RDFGraph'
+                $ref: '#/components/schemas/RDFGraph'
         '401':
           description: Unhauthorized
 components:
