@@ -4,5 +4,5 @@ properties:
   numberOfMappings:
     type: integer
     format: int32
-  MWSEntity:
+  entity:
     $ref: ./OntologyEntity.yaml

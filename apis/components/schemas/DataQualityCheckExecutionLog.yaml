@@ -52,5 +52,5 @@ properties:
     $ref: ./OntologyEntity.yaml
   status:
     type: string
-  disjointMWSEntity:
+  disjointEntity:
     $ref: ./OntologyEntity.yaml

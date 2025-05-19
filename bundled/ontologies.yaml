@@ -1772,7 +1772,7 @@ components:
         numberOfMappings:
           type: integer
           format: int32
-        MWSEntity:
+        entity:
           $ref: '#/components/schemas/OntologyEntity'
     HierarchyTree:
       title: HierarchyTree
@@ -1898,7 +1898,7 @@ components:
             $ref: '#/components/schemas/OntologyEntity'
         iri:
           $ref: '#/components/schemas/IRI'
-        currentMWSEntity:
+        currentEntity:
           $ref: '#/components/schemas/OntologyEntity'
         equivalentClasses:
           type: array
@@ -1942,7 +1942,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Participation'
-        MWSEntityDiagrams:
+        entityDiagrams:
           type: array
           items:
             $ref: '#/components/schemas/DiagramNode'
@@ -1981,7 +1981,7 @@ components:
             $ref: '#/components/schemas/OntologyEntity'
         iri:
           $ref: '#/components/schemas/IRI'
-        currentMWSEntity:
+        currentEntity:
           $ref: '#/components/schemas/OntologyEntity'
         objectPropertyInverseFunctional:
           type: boolean
@@ -2049,7 +2049,7 @@ components:
             $ref: '#/components/schemas/OntologyEntity'
         dataPropertyFunctional:
           type: boolean
-        currentMWSEntity:
+        currentEntity:
           $ref: '#/components/schemas/OntologyEntity'
         equivalentDataProperties:
           type: array
@@ -2075,7 +2075,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/OntologyEntity'
-        MWSEntityDiagrams:
+        entityDiagrams:
           type: array
           items:
             $ref: '#/components/schemas/DiagramNode'

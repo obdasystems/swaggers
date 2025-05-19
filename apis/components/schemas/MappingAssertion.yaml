@@ -5,7 +5,7 @@ properties:
     $ref: ./MappingTemplate.yaml
   iri:
     $ref: ./IRI.yaml
-  currentMWSEntity:
+  currentEntity:
     $ref: ./OntologyEntity.yaml
   annotationMappings:
     type: array

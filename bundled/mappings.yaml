@@ -2954,7 +2954,7 @@ components:
         numberOfMappings:
           type: integer
           format: int32
-        MWSEntity:
+        entity:
           $ref: '#/components/schemas/OntologyEntity'
     MappingEntityCount:
       title: MappingEntityCount
@@ -3057,7 +3057,7 @@ components:
           $ref: '#/components/schemas/MappingTemplate'
         iri:
           $ref: '#/components/schemas/IRI'
-        currentMWSEntity:
+        currentEntity:
           $ref: '#/components/schemas/OntologyEntity'
         annotationMappings:
           type: array

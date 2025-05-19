@@ -7,7 +7,7 @@ properties:
       $ref: ./OntologyEntity.yaml
   iri:
     $ref: ./IRI.yaml
-  currentMWSEntity:
+  currentEntity:
     $ref: ./OntologyEntity.yaml
   objectPropertyInverseFunctional:
     type: boolean

@@ -936,7 +936,7 @@ components:
           $ref: '#/components/schemas/OntologyEntity'
         status:
           type: string
-        disjointMWSEntity:
+        disjointEntity:
           $ref: '#/components/schemas/OntologyEntity'
     OntologyID:
       title: OntologyID

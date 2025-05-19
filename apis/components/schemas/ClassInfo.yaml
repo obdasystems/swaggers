@@ -7,7 +7,7 @@ properties:
       $ref: ./OntologyEntity.yaml
   iri:
     $ref: ./IRI.yaml
-  currentMWSEntity:
+  currentEntity:
     $ref: ./OntologyEntity.yaml
   equivalentClasses:
     type: array
@@ -51,7 +51,7 @@ properties:
     type: array
     items:
       $ref: ./Participation.yaml
-  MWSEntityDiagrams:
+  entityDiagrams:
     type: array
     items:
       $ref: ./DiagramNode.yaml

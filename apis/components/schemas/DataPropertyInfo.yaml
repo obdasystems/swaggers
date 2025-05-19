@@ -9,7 +9,7 @@ properties:
       $ref: ./OntologyEntity.yaml
   dataPropertyFunctional:
     type: boolean
-  currentMWSEntity:
+  currentEntity:
     $ref: ./OntologyEntity.yaml
   equivalentDataProperties:
     type: array
@@ -35,7 +35,7 @@ properties:
     type: array
     items:
       $ref: ./OntologyEntity.yaml
-  MWSEntityDiagrams:
+  entityDiagrams:
     type: array
     items:
       $ref: ./DiagramNode.yaml
