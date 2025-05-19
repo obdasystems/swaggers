@@ -18382,7 +18382,7 @@ components:
           type: string
         isQuarantined:
           type: boolean
-        isExtensionallyComplete:
+        extensionallyComplete:
           type: boolean
     SQLViews:
       title: SQLViews
