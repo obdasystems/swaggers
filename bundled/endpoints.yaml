@@ -2858,6 +2858,15 @@ components:
           type: string
         type:
           $ref: '#/components/schemas/TypesEnum'
+        ai_generated:
+          required:
+            - chunkId
+          type: object
+          properties:
+            chunkId:
+              type: string
+            isNew:
+              type: boolean
     Position:
       type: object
       required:

@@ -28,6 +28,8 @@ paths:
     $ref: paths/ai_individual_description.yaml
   /ontologyDraft/ai/class_data_properties:
     $ref: paths/ai_class_data_properties.yaml
+  /ontologyDraft/ai/class_subclasses:
+    $ref: paths/ai_class_subclasses.yaml
   /ontologyDraft/ai/sparql_description:
     $ref: paths/ai_sparql_description.yaml
 components: 
