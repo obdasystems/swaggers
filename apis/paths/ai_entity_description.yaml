@@ -25,10 +25,14 @@ post:
               description: if the entity is a data or object property, this objects contains domain and range names. In case of data properties, the range is its datatype (string, number, ...)
               type: object
               properties:
-                domainName: 
+                domainName:
                   type: string
                 rangeName:
                   type: string
+            language:
+              description: the language to use for the answer.
+              type: string
+              default: "English"
   responses:
     "200":
       description: Successful operation

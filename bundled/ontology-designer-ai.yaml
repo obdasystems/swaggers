@@ -87,6 +87,10 @@ paths:
                       type: string
                     rangeName:
                       type: string
+                language:
+                  description: the language to use for the answer. Default "English"
+                  type: string
+                  default: English
       responses:
         '200':
           description: Successful operation
@@ -123,6 +127,10 @@ paths:
                   type: array
                   items:
                     type: string
+                language:
+                  description: the language to use for the answer. Default "English"
+                  type: string
+                  default: English
       responses:
         '200':
           description: Successful operation
@@ -156,6 +164,11 @@ paths:
                 numberResults:
                   description: the number of data properties to return
                   type: number
+                  default: 5
+                language:
+                  description: the language to use for the answer. Default "English"
+                  type: string
+                  default: English
       responses:
         '200':
           description: Successful operation
@@ -191,6 +204,11 @@ paths:
                 numberResults:
                   description: the number of data properties to return
                   type: number
+                  default: 5
+                language:
+                  description: the language to use for the answer. Default "English"
+                  type: string
+                  default: English
       responses:
         '200':
           description: Successful operation
@@ -219,6 +237,10 @@ paths:
                 queryCode:
                   description: the sparql query code to describe
                   type: string
+                language:
+                  description: the language to use for the answer. Default "English"
+                  type: string
+                  default: English
       responses:
         '200':
           description: Successful operation
