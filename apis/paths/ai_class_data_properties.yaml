@@ -1,0 +1,32 @@
+post:
+  tags: [AI]
+  summary: Returns a list of possible data properties for a given class
+  operationId: suggestClassDataProperties
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - className
+            - context
+          properties:
+            className:
+              description: the name (probably the label) of the class for which the data properties are extracted
+              type: string
+            context:
+              description: the context in which the class exists, most likely the name of the ontology
+              type: string
+            numberResults:
+              description: the number of data properties to return
+              type: number
+  responses:
+    "200":
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: string
+    "401": { description: Unhauthorized }

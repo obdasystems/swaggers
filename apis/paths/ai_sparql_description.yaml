@@ -1,0 +1,22 @@
+post:
+  tags: [AI]
+  summary: Returns a description of a sparql query
+  operationId: describeSparqlQuery
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - queryCode
+          properties:
+            queryCode:
+              description: the sparql query code to describe
+              type: string
+  responses:
+    "200":
+      description: Successful operation
+      content:
+        application/json:
+          schema: { type: string }
+    "401": { description: Unhauthorized }
