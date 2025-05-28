@@ -13,7 +13,7 @@ properties:
     format: int32
   catalog:
     $ref: ./OntologyCatalog.yaml
-  isGraphol:
+  graphol:
     type: boolean
   individualInfos:
     $ref: ./IndividualInfos.yaml
@@ -35,7 +35,7 @@ properties:
     type: string
   ontologyIRI:
     type: string
-  isGScape:
+  gscape:
     type: boolean
   versionOwner:
     $ref: ./User.yaml
