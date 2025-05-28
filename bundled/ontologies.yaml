@@ -1587,7 +1587,7 @@ components:
           format: int32
         catalog:
           $ref: '#/components/schemas/OntologyCatalog'
-        isGraphol:
+        graphol:
           type: boolean
         individualInfos:
           $ref: '#/components/schemas/IndividualInfos'
@@ -1609,7 +1609,7 @@ components:
           type: string
         ontologyIRI:
           type: string
-        isGScape:
+        gscape:
           type: boolean
         versionOwner:
           $ref: '#/components/schemas/User'
