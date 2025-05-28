@@ -1607,6 +1607,8 @@ components:
           type: string
         ontologyID:
           type: string
+        ontologyIRI:
+          type: string
         isGScape:
           type: boolean
         versionOwner:
