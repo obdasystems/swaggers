@@ -88,7 +88,7 @@ paths:
                     rangeName:
                       type: string
                 language:
-                  description: the language to use for the answer. Default "English"
+                  description: the language to use for the answer.
                   type: string
                   default: English
       responses:
@@ -128,7 +128,7 @@ paths:
                   items:
                     type: string
                 language:
-                  description: the language to use for the answer. Default "English"
+                  description: the language to use for the answer.
                   type: string
                   default: English
       responses:
@@ -166,7 +166,7 @@ paths:
                   type: number
                   default: 5
                 language:
-                  description: the language to use for the answer. Default "English"
+                  description: the language to use for the answer.
                   type: string
                   default: English
       responses:
@@ -206,7 +206,7 @@ paths:
                   type: number
                   default: 5
                 language:
-                  description: the language to use for the answer. Default "English"
+                  description: the language to use for the answer.
                   type: string
                   default: English
       responses:
@@ -238,7 +238,7 @@ paths:
                   description: the sparql query code to describe
                   type: string
                 language:
-                  description: the language to use for the answer. Default "English"
+                  description: the language to use for the answer.
                   type: string
                   default: English
       responses:
