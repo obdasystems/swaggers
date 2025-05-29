@@ -3,9 +3,9 @@ type: object
 properties:
   fieldName:
     type: string
-  isNullable:
+  nullable:
     type: boolean
-  isKey:
+  key:
     type: boolean
   fieldType:
     type: string

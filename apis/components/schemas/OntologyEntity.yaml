@@ -5,7 +5,7 @@ properties:
     type: array
     items:
       $ref: ./Label.yaml
-  isDeprecated:
+  deprecated:
     type: boolean
   entityIRI:
     type: string

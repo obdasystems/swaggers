@@ -13,7 +13,7 @@ properties:
     type: string
   dataSourceUsername:
     type: string
-  isMetadataPresent:
+  metadataPresent:
     type: boolean
   jdbcUsername:
     type: string

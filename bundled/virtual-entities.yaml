@@ -557,7 +557,7 @@ components:
           type: string
         queryCode:
           type: string
-        isConstruct:
+        construct:
           type: boolean
         constructResultsRDFSyntax:
           type: string
@@ -579,9 +579,9 @@ components:
       properties:
         fieldName:
           type: string
-        isNullable:
+        nullable:
           type: boolean
-        isKey:
+        key:
           type: boolean
         fieldType:
           type: string

@@ -10,7 +10,7 @@ properties:
       $ref: "./Annotation.yaml"
   datatype:
     type: string
-  isDataPropertyFunctional:
+  dataPropertyFunctional:
     type: boolean
   functionProperties:
     type: array

@@ -272,7 +272,7 @@ components:
           type: string
         queryCode:
           type: string
-        isConstruct:
+        construct:
           type: boolean
         constructResultsRDFSyntax:
           type: string

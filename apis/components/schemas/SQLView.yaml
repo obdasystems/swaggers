@@ -13,7 +13,7 @@ properties:
     type: array
     items:
       type: string
-  isQuarantined:
+  quarantined:
     type: boolean
   sqlViewCode:
     type: string

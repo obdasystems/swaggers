@@ -1,17 +1,17 @@
 title: QueryRecordInfo
 type: object
 properties:
-  isOntologyRewritingEnabled:
+  ontologyRewritingEnabled:
     type: integer
     format: int32
-  isBoolean:
+  boolean:
     type: integer
     format: int32
   code:
     type: string
   catalogId:
     type: string
-  isSQLEvaluationDisabled:
+  sQLEvaluationDisabled:
     type: integer
     format: int32
   customParams:

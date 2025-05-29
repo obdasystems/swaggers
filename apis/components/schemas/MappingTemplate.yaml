@@ -3,7 +3,7 @@ type: object
 properties:
   template:
     type: string
-  isValueTemplate:
+  valueTemplate:
     type: boolean
   terms:
     type: array
