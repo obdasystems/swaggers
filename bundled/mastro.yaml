@@ -17222,7 +17222,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Label'
-        isDeprecated:
+        deprecated:
           type: boolean
         entityIRI:
           type: string
@@ -17413,9 +17413,9 @@ components:
           type: integer
         ontologyIri:
           type: string
-        isComputeEmpties:
+        computeEmpties:
           type: boolean
-        isComputeGeneralConceptInclusions:
+        computeGeneralConceptInclusions:
           type: boolean
     MetadataSubject:
       type: object
@@ -18143,7 +18143,7 @@ components:
           type: string
         queryCode:
           type: string
-        isConstruct:
+        construct:
           type: boolean
         constructResultsRDFSyntax:
           type: string
@@ -18299,7 +18299,7 @@ components:
       properties:
         template:
           type: string
-        isValueTemplate:
+        valueTemplate:
           type: boolean
         terms:
           type: array
@@ -18331,7 +18331,7 @@ components:
           type: array
           items:
             type: string
-        isQuarantined:
+        quarantined:
           type: boolean
         sqlViewCode:
           type: string
@@ -18387,7 +18387,7 @@ components:
           type: string
         id:
           type: string
-        isQuarantined:
+        quarantined:
           type: boolean
         extensionallyComplete:
           type: boolean
@@ -18479,7 +18479,7 @@ components:
           type: array
           items:
             type: string
-        isSafe:
+        safe:
           type: boolean
     ViewRefactoringAnalysis:
       title: ViewRefactoringAnalysis
@@ -18541,7 +18541,7 @@ components:
             type: string
         id:
           type: string
-        isQuarantined:
+        quarantined:
           type: boolean
     DenialConstraint:
       title: DenialConstraint
@@ -18557,7 +18557,7 @@ components:
             type: string
         id:
           type: string
-        isQuarantined:
+        quarantined:
           type: boolean
     KeyDependency:
       title: KeyDependency
@@ -18577,7 +18577,7 @@ components:
             type: string
         id:
           type: string
-        isQuarantined:
+        quarantined:
           type: boolean
     MappingDependencies:
       title: MappingDependencies
@@ -18767,7 +18767,7 @@ components:
           type: string
         dataSourceUsername:
           type: string
-        isMetadataPresent:
+        metadataPresent:
           type: boolean
         jdbcUsername:
           type: string
@@ -19164,17 +19164,17 @@ components:
       title: QueryRecordInfo
       type: object
       properties:
-        isOntologyRewritingEnabled:
+        ontologyRewritingEnabled:
           type: integer
           format: int32
-        isBoolean:
+        boolean:
           type: integer
           format: int32
         code:
           type: string
         catalogId:
           type: string
-        isSQLEvaluationDisabled:
+        sQLEvaluationDisabled:
           type: integer
           format: int32
         customParams:
@@ -19466,7 +19466,7 @@ components:
             $ref: '#/components/schemas/Annotation'
         datatype:
           type: string
-        isDataPropertyFunctional:
+        dataPropertyFunctional:
           type: boolean
         functionProperties:
           type: array
@@ -20171,9 +20171,9 @@ components:
       properties:
         fieldName:
           type: string
-        isNullable:
+        nullable:
           type: boolean
-        isKey:
+        key:
           type: boolean
         fieldType:
           type: string

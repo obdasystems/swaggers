@@ -11,5 +11,5 @@ properties:
       type: string
   id:
     type: string
-  isQuarantined:
+  quarantined:
     type: boolean

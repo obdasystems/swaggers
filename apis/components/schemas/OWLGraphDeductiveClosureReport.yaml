@@ -23,7 +23,7 @@ properties:
     type: integer
   ontologyIri:
     type: string
-  isComputeEmpties:
+  computeEmpties:
     type: boolean
-  isComputeGeneralConceptInclusions:
+  computeGeneralConceptInclusions:
     type: boolean

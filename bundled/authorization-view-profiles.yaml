@@ -206,7 +206,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Label'
-        isDeprecated:
+        deprecated:
           type: boolean
         entityIRI:
           type: string

@@ -2419,7 +2419,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Label'
-        isDeprecated:
+        deprecated:
           type: boolean
         entityIRI:
           type: string
@@ -2532,7 +2532,7 @@ components:
           type: string
         queryCode:
           type: string
-        isConstruct:
+        construct:
           type: boolean
         constructResultsRDFSyntax:
           type: string
@@ -2683,17 +2683,17 @@ components:
       title: QueryRecordInfo
       type: object
       properties:
-        isOntologyRewritingEnabled:
+        ontologyRewritingEnabled:
           type: integer
           format: int32
-        isBoolean:
+        boolean:
           type: integer
           format: int32
         code:
           type: string
         catalogId:
           type: string
-        isSQLEvaluationDisabled:
+        sQLEvaluationDisabled:
           type: integer
           format: int32
         customParams:
@@ -2996,7 +2996,7 @@ components:
             $ref: '#/components/schemas/Annotation'
         datatype:
           type: string
-        isDataPropertyFunctional:
+        dataPropertyFunctional:
           type: boolean
         functionProperties:
           type: array

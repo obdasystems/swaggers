@@ -1569,7 +1569,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Label'
-        isDeprecated:
+        deprecated:
           type: boolean
         entityIRI:
           type: string
@@ -1794,7 +1794,7 @@ components:
           type: string
         queryCode:
           type: string
-        isConstruct:
+        construct:
           type: boolean
         constructResultsRDFSyntax:
           type: string

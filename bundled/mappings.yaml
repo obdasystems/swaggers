@@ -2935,7 +2935,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Label'
-        isDeprecated:
+        deprecated:
           type: boolean
         entityIRI:
           type: string
@@ -2981,7 +2981,7 @@ components:
       properties:
         template:
           type: string
-        isValueTemplate:
+        valueTemplate:
           type: boolean
         terms:
           type: array
@@ -3021,7 +3021,7 @@ components:
           type: array
           items:
             type: string
-        isQuarantined:
+        quarantined:
           type: boolean
         sqlViewCode:
           type: string
@@ -3077,7 +3077,7 @@ components:
           type: string
         id:
           type: string
-        isQuarantined:
+        quarantined:
           type: boolean
         extensionallyComplete:
           type: boolean
@@ -3169,7 +3169,7 @@ components:
           type: array
           items:
             type: string
-        isSafe:
+        safe:
           type: boolean
     ViewRefactoringAnalysis:
       title: ViewRefactoringAnalysis
@@ -3231,7 +3231,7 @@ components:
             type: string
         id:
           type: string
-        isQuarantined:
+        quarantined:
           type: boolean
     DenialConstraint:
       title: DenialConstraint
@@ -3247,7 +3247,7 @@ components:
             type: string
         id:
           type: string
-        isQuarantined:
+        quarantined:
           type: boolean
     KeyDependency:
       title: KeyDependency
@@ -3267,7 +3267,7 @@ components:
             type: string
         id:
           type: string
-        isQuarantined:
+        quarantined:
           type: boolean
     MappingDependencies:
       title: MappingDependencies
