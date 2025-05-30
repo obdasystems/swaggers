@@ -51,6 +51,205 @@ paths:
                 $ref: '#/components/schemas/RDFGraph'
         '401':
           description: Unhauthorized
+  /ontologyDraft/ai/entity_description:
+    post:
+      tags:
+        - AI
+      summary: Returns the description for an entity
+      operationId: describeOntologyEntity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - entityName
+                - entityType
+                - context
+              properties:
+                entityName:
+                  description: the name of the entity to describe
+                  type: string
+                entityType:
+                  type: string
+                  enum:
+                    - class
+                    - attribute
+                    - relationship
+                context:
+                  description: the context in which the individual exists, most likely the name of the ontology
+                  type: string
+                propertyInfo:
+                  description: if the entity is a data or object property, this objects contains domain and range names. In case of data properties, the range is its datatype (string, number, ...)
+                  type: object
+                  properties:
+                    domainName:
+                      type: string
+                    rangeName:
+                      type: string
+                language:
+                  description: the language to use for the answer.
+                  type: string
+                  default: English
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+  /ontologyDraft/ai/individual_description:
+    post:
+      tags:
+        - AI
+      summary: Returns the description for an individual (class instance)
+      operationId: describeIndividual
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - individualName
+                - context
+                - entityType
+              properties:
+                individualName:
+                  description: the name (probably the label) of the individual to describe
+                  type: string
+                context:
+                  description: the context in which the individual exists, most likely the name of the ontology
+                  type: string
+                individualTypes:
+                  description: a list of classes for which the individual is instance of
+                  type: array
+                  items:
+                    type: string
+                language:
+                  description: the language to use for the answer.
+                  type: string
+                  default: English
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+  /ontologyDraft/ai/class_data_properties:
+    post:
+      tags:
+        - AI
+      summary: Returns a list of possible data properties for a given class
+      operationId: suggestClassDataProperties
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - className
+                - context
+              properties:
+                className:
+                  description: the name (probably the label) of the class for which the data properties are extracted
+                  type: string
+                context:
+                  description: the context in which the class exists, most likely the name of the ontology
+                  type: string
+                numberResults:
+                  description: the number of data properties to return
+                  type: number
+                  default: 5
+                language:
+                  description: the language to use for the answer.
+                  type: string
+                  default: English
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        '401':
+          description: Unhauthorized
+  /ontologyDraft/ai/class_subclasses:
+    post:
+      tags:
+        - AI
+      summary: Returns a list of possible subclasses for a given class
+      operationId: suggestClassSubclasses
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - className
+                - context
+              properties:
+                className:
+                  description: the name (probably the label) of the class for which the data properties are extracted
+                  type: string
+                context:
+                  description: the context in which the class exists, most likely the name of the ontology
+                  type: string
+                numberResults:
+                  description: the number of data properties to return
+                  type: number
+                  default: 5
+                language:
+                  description: the language to use for the answer.
+                  type: string
+                  default: English
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        '401':
+          description: Unhauthorized
+  /ontologyDraft/ai/sparql_description:
+    post:
+      tags:
+        - AI
+      summary: Returns a description of a sparql query
+      operationId: describeSparqlQuery
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - queryCode
+              properties:
+                queryCode:
+                  description: the sparql query code to describe
+                  type: string
+                language:
+                  description: the language to use for the answer.
+                  type: string
+                  default: English
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
 components:
   securitySchemes:
     jwt:
@@ -120,6 +319,15 @@ components:
           type: string
         type:
           $ref: '#/components/schemas/TypesEnum'
+        ai_generated:
+          required:
+            - chunkId
+          type: object
+          properties:
+            chunkId:
+              type: string
+            isNew:
+              type: boolean
     Position:
       type: object
       required:

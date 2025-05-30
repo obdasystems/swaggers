@@ -10897,7 +10897,12 @@ paths:
             application/xml:
               schema:
                 description: THE SPARQL CONSTRUCT query that will compute the shortest path
-                type: string
+                type: object
+                properties:
+                  type:
+                    type: string
+                  message:
+                    type: string
         '401':
           description: Unhauthorized
         '404':
@@ -19344,6 +19349,15 @@ components:
           type: string
         type:
           $ref: '#/components/schemas/TypesEnum'
+        ai_generated:
+          required:
+            - chunkId
+          type: object
+          properties:
+            chunkId:
+              type: string
+            isNew:
+              type: boolean
     Position:
       type: object
       required:

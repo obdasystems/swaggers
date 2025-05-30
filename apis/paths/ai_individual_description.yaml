@@ -1,0 +1,36 @@
+post:
+  tags: [AI]
+  summary: Returns the description for an individual (class instance)
+  operationId: describeIndividual
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - individualName
+            - context
+            - entityType
+          properties:
+            individualName:
+              description: the name (probably the label) of the individual to describe
+              type: string
+            context:
+              description: the context in which the individual exists, most likely the name of the ontology
+              type: string
+            individualTypes:
+              description: a list of classes for which the individual is instance of
+              type: array
+              items:
+                type: string
+            language:
+              description: the language to use for the answer.
+              type: string
+              default: "English"
+  responses:
+    "200":
+      description: Successful operation
+      content:
+        application/json:
+          schema: { type: string }
+    "401": { description: Unhauthorized }
