@@ -457,7 +457,7 @@ components:
             $ref: '#/components/schemas/Annotation'
         datatype:
           type: string
-        dataPropertyFunctional:
+        isDataPropertyFunctional:
           type: boolean
         functionProperties:
           type: array
