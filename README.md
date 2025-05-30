@@ -44,4 +44,4 @@ npx @redocly/cli@latest bundle
 
 ## External APIs
 
-- [ontology-designer-ai](https://obdasystems.github.io/swaggers/ui/?api=ontology-designer-ai)
+- [ai-assistant](https://obdasystems.github.io/swaggers/ui/?api=ai-assistant)
