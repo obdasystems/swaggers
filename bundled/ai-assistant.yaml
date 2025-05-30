@@ -1,8 +1,8 @@
 openapi: 3.0.0
 info:
-  description: This is the API for retaining a Grapholscape's loaded ontology (or graph) in order to restart navigation from a previous state.
+  description: This is the API for the AI assistant module
   version: 1.0.0
-  title: Ontology Designer AI API model
+  title: AI assistant API model
   contact:
     email: info@obdasystems.com
   license:
@@ -51,7 +51,7 @@ paths:
                 $ref: '#/components/schemas/RDFGraph'
         '401':
           description: Unhauthorized
-  /ontologyDraft/ai/entity_description:
+  /ai/entity_description:
     post:
       tags:
         - AI
@@ -100,7 +100,7 @@ paths:
                 type: string
         '401':
           description: Unhauthorized
-  /ontologyDraft/ai/individual_description:
+  /ai/individual_description:
     post:
       tags:
         - AI
@@ -140,7 +140,7 @@ paths:
                 type: string
         '401':
           description: Unhauthorized
-  /ontologyDraft/ai/class_data_properties:
+  /ai/class_data_properties:
     post:
       tags:
         - AI
@@ -180,7 +180,7 @@ paths:
                   type: string
         '401':
           description: Unhauthorized
-  /ontologyDraft/ai/class_subclasses:
+  /ai/class_subclasses:
     post:
       tags:
         - AI
@@ -220,7 +220,7 @@ paths:
                   type: string
         '401':
           description: Unhauthorized
-  /ontologyDraft/ai/sparql_description:
+  /ai/sparql_description:
     post:
       tags:
         - AI
