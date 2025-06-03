@@ -1,7 +1,7 @@
 title: Prefix
 type: object
 properties:
-  prefix:
+  name:
     type: string
-  value:
+  namespace:
     type: string
