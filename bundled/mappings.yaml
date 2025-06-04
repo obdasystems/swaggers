@@ -3081,6 +3081,8 @@ components:
           type: boolean
         extensionallyComplete:
           type: boolean
+        rangeLanguageTag:
+          type: string
     SQLViews:
       title: SQLViews
       type: object
