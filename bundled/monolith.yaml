@@ -19620,7 +19620,7 @@ components:
           type: string
         type:
           $ref: '#/components/schemas/TypesEnum'
-        ai_generated:
+        aiGenerated:
           required:
             - chunkId
           type: object
