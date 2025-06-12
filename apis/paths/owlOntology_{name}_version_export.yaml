@@ -1,0 +1,19 @@
+get:
+  summary: Creates and streams to output a zip archive containing the folder of the version <code>version</code> of the ontology named <code>name</code>
+  operationId: get__owlOntology_name_version_export
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/octet-stream:
+          schema: {type: string, format: binary}
+    '401': {description: Unhauthorized}

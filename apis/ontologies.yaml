@@ -27,6 +27,10 @@ paths:
     $ref: paths/owlOntology_{name}_folder.yaml
   /owlOntology/{name}/version/folder:
     $ref: paths/owlOntology_{name}_version_folder.yaml
+  /owlOntology/{name}/export:
+    $ref: paths/owlOntology_{name}_export.yaml
+  /owlOntology/{name}/version/export:
+    $ref: paths/owlOntology_{name}_version_export.yaml
   /owlOntology/{name}/version:
     $ref: paths/owlOntology_{name}_version.yaml
   /owlOntology/{name}/version/ignoredImports:
