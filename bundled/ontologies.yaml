@@ -1880,6 +1880,8 @@ components:
           type: array
           items:
             type: string
+        ontologyMetricsNoImport:
+          $ref: '#/components/schemas/OntologyMetrics'
     Participation:
       title: Participation
       type: object
