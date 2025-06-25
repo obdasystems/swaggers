@@ -11,3 +11,7 @@ properties:
     type: string
   mastroID:
     $ref: ./MastroID.yaml
+  autoStart:
+    type: boolean
+  emptyUnfoldingEntities:
+    $ref: EmptyUnfoldingEntities.yaml

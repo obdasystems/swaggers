@@ -2329,6 +2329,50 @@ components:
           type: string
         ontologyID:
           $ref: '#/components/schemas/OntologyID'
+    Label:
+      title: Label
+      type: object
+      properties:
+        lang:
+          type: string
+        content:
+          type: string
+    OntologyEntity:
+      title: OntologyEntity
+      type: object
+      properties:
+        entityLabels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Label'
+        deprecated:
+          type: boolean
+        entityIRI:
+          type: string
+        entityType:
+          type: string
+        entityPrefixIRI:
+          type: string
+        entityRemainder:
+          type: string
+        entityID:
+          type: string
+    EmptyUnfoldingEntities:
+      title: EmptyUnfoldingEntities
+      type: object
+      properties:
+        emptyUnfoldingDataProperties:
+          type: array
+          items:
+            $ref: '#/components/schemas/OntologyEntity'
+        emptyUnfoldingObjectProperties:
+          type: array
+          items:
+            $ref: '#/components/schemas/OntologyEntity'
+        emptyUnfoldingClasses:
+          type: array
+          items:
+            $ref: '#/components/schemas/OntologyEntity'
     Endpoint:
       title: Endpoint
       type: object
@@ -2343,6 +2387,10 @@ components:
           type: string
         mastroID:
           $ref: '#/components/schemas/MastroID'
+        autoStart:
+          type: boolean
+        emptyUnfoldingEntities:
+          $ref: '#/components/schemas/EmptyUnfoldingEntities'
     Endpoints:
       title: Endpoints
       type: object
@@ -2403,34 +2451,6 @@ components:
           $ref: '#/components/schemas/MastroProperties'
         status:
           $ref: '#/components/schemas/OBDAStatus'
-    Label:
-      title: Label
-      type: object
-      properties:
-        lang:
-          type: string
-        content:
-          type: string
-    OntologyEntity:
-      title: OntologyEntity
-      type: object
-      properties:
-        entityLabels:
-          type: array
-          items:
-            $ref: '#/components/schemas/Label'
-        deprecated:
-          type: boolean
-        entityIRI:
-          type: string
-        entityType:
-          type: string
-        entityPrefixIRI:
-          type: string
-        entityRemainder:
-          type: string
-        entityID:
-          type: string
     EmptyEntities:
       title: EmptyEntities
       type: object
@@ -2444,22 +2464,6 @@ components:
           items:
             $ref: '#/components/schemas/OntologyEntity'
         emptyClasses:
-          type: array
-          items:
-            $ref: '#/components/schemas/OntologyEntity'
-    EmptyUnfoldingEntities:
-      title: EmptyUnfoldingEntities
-      type: object
-      properties:
-        emptyUnfoldingDataProperties:
-          type: array
-          items:
-            $ref: '#/components/schemas/OntologyEntity'
-        emptyUnfoldingObjectProperties:
-          type: array
-          items:
-            $ref: '#/components/schemas/OntologyEntity'
-        emptyUnfoldingClasses:
           type: array
           items:
             $ref: '#/components/schemas/OntologyEntity'

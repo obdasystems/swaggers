@@ -18935,6 +18935,22 @@ components:
           type: string
         ontologyID:
           $ref: '#/components/schemas/OntologyID'
+    EmptyUnfoldingEntities:
+      title: EmptyUnfoldingEntities
+      type: object
+      properties:
+        emptyUnfoldingDataProperties:
+          type: array
+          items:
+            $ref: '#/components/schemas/OntologyEntity'
+        emptyUnfoldingObjectProperties:
+          type: array
+          items:
+            $ref: '#/components/schemas/OntologyEntity'
+        emptyUnfoldingClasses:
+          type: array
+          items:
+            $ref: '#/components/schemas/OntologyEntity'
     Endpoint:
       title: Endpoint
       type: object
@@ -18949,6 +18965,10 @@ components:
           type: string
         mastroID:
           $ref: '#/components/schemas/MastroID'
+        autoStart:
+          type: boolean
+        emptyUnfoldingEntities:
+          $ref: '#/components/schemas/EmptyUnfoldingEntities'
     Endpoints:
       title: Endpoints
       type: object
@@ -19014,22 +19034,6 @@ components:
           items:
             $ref: '#/components/schemas/OntologyEntity'
         emptyClasses:
-          type: array
-          items:
-            $ref: '#/components/schemas/OntologyEntity'
-    EmptyUnfoldingEntities:
-      title: EmptyUnfoldingEntities
-      type: object
-      properties:
-        emptyUnfoldingDataProperties:
-          type: array
-          items:
-            $ref: '#/components/schemas/OntologyEntity'
-        emptyUnfoldingObjectProperties:
-          type: array
-          items:
-            $ref: '#/components/schemas/OntologyEntity'
-        emptyUnfoldingClasses:
           type: array
           items:
             $ref: '#/components/schemas/OntologyEntity'
