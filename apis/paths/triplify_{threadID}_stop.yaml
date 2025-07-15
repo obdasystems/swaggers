@@ -1,4 +1,5 @@
 put:
+  tags: [Execution]
   summary: Stops the thread identified by threadID
   operationId: put_mappings_triplification_stop
   parameters:

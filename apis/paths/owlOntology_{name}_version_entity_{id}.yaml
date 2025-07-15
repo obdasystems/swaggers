@@ -1,4 +1,5 @@
 get:
+  tags: [Logical]
   summary: GET mwsx/owlOntology/{name}/version/entity/{id}
   operationId: get__owlOntology_name_version_entity
   parameters:

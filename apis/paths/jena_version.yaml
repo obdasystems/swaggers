@@ -1,4 +1,5 @@
 get:
+  tags: [Versions]
   summary: Returns the version of the Jena library used by Mastro
   operationId: get__jena_version
   responses:

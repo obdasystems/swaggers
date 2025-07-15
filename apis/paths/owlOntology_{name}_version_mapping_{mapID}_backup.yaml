@@ -1,4 +1,5 @@
 get:
+  tags: [Persistence]
   summary: Verifies whether a backup copy of a given mapping file exists
   operationId: get__owlOntology_name_version_mapping_ID_backup
   parameters:
@@ -22,6 +23,7 @@ get:
           schema: {type: boolean}
     '401': {description: Unhauthorized}
 post:
+  tags: [Persistence]
   summary: Creates a backup copy of a given mapping file
   operationId: post__owlOntology_name_version_mapping_ID_backup
   parameters:
@@ -45,6 +47,7 @@ post:
           schema: {type: boolean}
     '401': {description: Unhauthorized}
 put:
+  tags: [Persistence]
   summary: Restore a backup copy of a given mapping file
   operationId: post__owlOntology_name_version_mapping_ID_restore
   parameters:
@@ -68,6 +71,7 @@ put:
           schema: {type: boolean}
     '401': {description: Unhauthorized}
 delete:
+  tags: [Persistence]
   summary: Deletes the backup copy of a given mapping file
   operationId: post__owlOntology_name_version_mapping_ID_delete
   parameters:

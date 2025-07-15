@@ -1,5 +1,5 @@
 post:
-  tags: [Ontology Catalog]
+  tags: [Persistence]
   summary: Perform an action for ontology to the catalog
   description: Modifies the ontology catalog byacoording to the action provided
   operationId: editCatalog
@@ -22,6 +22,7 @@ post:
           schema: {type: boolean}
     '401': {description: Unhauthorized}
 get:
+  tags: [Persistence]
   summary: GET mwsx/ontologyCatalog
   operationId: get_ontology_catalog
   responses:
@@ -32,6 +33,7 @@ get:
           schema: {$ref: ../components/schemas/OntologyCatalogEntries.yaml}
     '401': {description: Unhauthorized}
 delete:
+  tags: [Persistence]
   summary: DELETE mwsx/ontologyCatalog
   operationId: delete_ontology_catalog
   responses:

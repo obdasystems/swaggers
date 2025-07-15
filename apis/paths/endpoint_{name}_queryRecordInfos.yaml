@@ -1,4 +1,5 @@
 get:
+  tags: [Query]
   summary: Returns the query record info of all the queries running on the given endpoint
   operationId: get__owlOntology_name_version_query_ID_record_infos
   parameters:

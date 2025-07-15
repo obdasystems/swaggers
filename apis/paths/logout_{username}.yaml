@@ -1,6 +1,7 @@
 put:
   summary: Closes the MWS session opened by the user 'username' - returns 0 if the
     closing operation succeed
+  tags: [Logout]
   operationId: put__logout_by_username
   parameters:
   - name: username

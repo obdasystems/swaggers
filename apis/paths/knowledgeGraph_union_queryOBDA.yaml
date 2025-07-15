@@ -1,4 +1,5 @@
 put:
+  tags: [Union]
   summary: PUT mwsx/knowledgeGraph/union/queryOBDA
   operationId: put__knowledgeGraph_union_queryOBDA
   parameters:

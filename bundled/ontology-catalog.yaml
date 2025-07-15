@@ -24,7 +24,7 @@ paths:
   /ontologyCatalog:
     post:
       tags:
-        - Ontology Catalog
+        - Persistence
       summary: Perform an action for ontology to the catalog
       description: Modifies the ontology catalog byacoording to the action provided
       operationId: editCatalog
@@ -52,6 +52,8 @@ paths:
         '401':
           description: Unhauthorized
     get:
+      tags:
+        - Persistence
       summary: GET mwsx/ontologyCatalog
       operationId: get_ontology_catalog
       responses:
@@ -64,6 +66,8 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Persistence
       summary: DELETE mwsx/ontologyCatalog
       operationId: delete_ontology_catalog
       responses:
@@ -78,7 +82,7 @@ paths:
   /ontologyCatalog/query/start:
     post:
       tags:
-        - Ontology Catalog
+        - Query
       summary: Starts a SPARQL query over the catalog
       operationId: startQuery
       requestBody:
@@ -98,7 +102,7 @@ paths:
   /ontologyCatalog/query/{queryID}/stop:
     put:
       tags:
-        - Ontology Catalog
+        - Query
       summary: Stops a SPARQL query over the catalog
       operationId: stopQuery
       parameters:
@@ -118,6 +122,8 @@ paths:
           description: Unhauthorized
   /ontologyCatalog/query/{queryID}/status:
     get:
+      tags:
+        - Query
       summary: Check the status of a SPARQL query
       description: Check the status of a SPARQL query
       operationId: check_ontology_catalog_query_status
@@ -127,8 +133,6 @@ paths:
           required: true
           schema:
             type: string
-      tags:
-        - Ontology Catalog
       responses:
         '200':
           description: OK
@@ -140,6 +144,8 @@ paths:
           description: Unhauthorized
   /ontologyCatalog/query/{queryID}/results:
     get:
+      tags:
+        - Query
       summary: Retrieve the results of a SPARQL query
       description: Retrieve the results of a SPARQL query
       operationId: get_ontology_catalog_query_results
@@ -161,8 +167,6 @@ paths:
           schema:
             type: integer
             format: int32
-      tags:
-        - Ontology Catalog
       responses:
         '200':
           description: OK

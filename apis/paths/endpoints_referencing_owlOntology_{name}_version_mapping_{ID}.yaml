@@ -1,4 +1,5 @@
 get:
+  tags: [Referring]
   summary: Returns all available endpoints defined on a given ontology name, ontology
     version and mapping
   operationId: get_endpoints_referencing_onto_mapping

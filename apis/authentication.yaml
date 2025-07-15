@@ -10,9 +10,9 @@ servers:
         default: ':8989'
 info:
   description: >-
-    This is the API for login using mastro authentication.
+    This is the API to obtain the X-MONOLITH-SESSION-ID using mastro authentication.
   version: 1.0.0
-  title: Login API
+  title: Authentication API
   contact:
     email: info@obdasystems.com
   license:
@@ -21,6 +21,10 @@ info:
 paths:
   /login:
     $ref: paths/login.yaml
+  /logout:
+    $ref: paths/logout.yaml
+  /logout/{username}:
+    $ref: paths/logout_{username}.yaml
 components: 
   securitySchemes:
       basicAuth:

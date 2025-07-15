@@ -23,6 +23,8 @@ security:
 paths:
   /triplify/start:
     post:
+      tags:
+        - Execution
       summary: Starts a new thread of mappings triplification with the given parameters
       operationId: post_mappings_triplification_start
       requestBody:
@@ -42,6 +44,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/mappings/{mapID}/triplify/listThreads:
     get:
+      tags:
+        - Threads
       summary: Lists the triplification threads for a given mapping specification
       operationId: get_mappings_triplification_list
       parameters:
@@ -73,6 +77,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/mappings/{mapID}/triplify/listThreadProgresses:
     get:
+      tags:
+        - Threads
       summary: Lists the triplification threads for a given mapping specification
       operationId: get_mappings_triplification_listProgresses
       parameters:
@@ -104,7 +110,9 @@ paths:
           description: Unhauthorized
   /triplify/stopAll:
     put:
-      summary: Stops the thread identified by threadID
+      tags:
+        - Execution
+      summary: Stops all running triplification threads
       operationId: put_mappings_triplification_stop_all
       responses:
         '200':
@@ -113,6 +121,8 @@ paths:
           description: Unhauthorized
   /triplify/{threadID}/stop:
     put:
+      tags:
+        - Execution
       summary: Stops the thread identified by threadID
       operationId: put_mappings_triplification_stop
       parameters:
@@ -132,6 +142,8 @@ paths:
           description: Unhauthorized
   /triplify/{threadID}:
     delete:
+      tags:
+        - Execution
       summary: Stops the thread identified by threadID
       operationId: delete_mappings_triplification_thread
       parameters:
@@ -151,6 +163,8 @@ paths:
           description: Unhauthorized
   /triplify/{threadID}/status:
     get:
+      tags:
+        - Execution
       summary: Returns the status of a triplification thread
       operationId: get_mappings_triplification_status
       parameters:
@@ -170,6 +184,8 @@ paths:
           description: Unhauthorized
   /triplify/{threadID}/report:
     get:
+      tags:
+        - Execution
       summary: Returns the report of a triplification thread
       operationId: get_mappings_triplification_report
       parameters:
@@ -189,6 +205,8 @@ paths:
           description: Unhauthorized
   /triplify/{threadID}/download:
     get:
+      tags:
+        - Execution
       summary: Returns the report of a triplification thread
       operationId: get_mappings_triplification_download
       parameters:
@@ -214,6 +232,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{mapID}/triplify/{datasource}:
     get:
+      tags:
+        - Start
       summary: Triplifies the OBDA mapping specification, streaming the produced triples to the client
       operationId: get__owlOntology_name_version_query_ID_export_directcsv
       parameters:

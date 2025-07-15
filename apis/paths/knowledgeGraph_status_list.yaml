@@ -1,4 +1,5 @@
 get:
+  tags: [Status]
   summary: GET mwsx/knowledgeGraph/status/list
   operationId: get__knowledgeGraph_status_list
   responses:

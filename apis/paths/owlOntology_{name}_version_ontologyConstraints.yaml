@@ -1,4 +1,5 @@
 get:
+  tags: [Constraints]
   summary: Returns the available constraints defined over the ontology / version
   operationId: get_ontologyConstraints
   parameters:

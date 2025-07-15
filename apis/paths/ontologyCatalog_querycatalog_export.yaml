@@ -1,4 +1,5 @@
 get:
+  tags: [Query]
   summary: Exports the ontology catalog returning its JSON representation
   operationId: get_ontologycatalog_querycatalog_export
   responses:

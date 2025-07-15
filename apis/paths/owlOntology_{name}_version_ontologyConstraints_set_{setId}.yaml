@@ -1,4 +1,5 @@
 get:
+  tags: [CheckSet]
   summary: Returns a check set defined over the ontology / version
   operationId: get_ontologyConstraints_check_set_setId
   parameters:
@@ -22,6 +23,7 @@ get:
           schema: {$ref: ../components/schemas/DataQualityCheckSet.yaml}
     '401': {description: Unhauthorized}
 delete:
+  tags: [CheckSet]
   summary: Deletes the given check set from
   operationId: delete_ontologyConstraints_check_set_setId
   parameters:
@@ -45,6 +47,7 @@ delete:
           schema: {$ref: ../components/schemas/DataQualityCheckSet.yaml}
     '401': {description: Unhauthorized}
 put:
+  tags: [CheckSet]
   summary: Updates the definition of a specific check set
   operationId: put_ontologyConstraints_check
   parameters:

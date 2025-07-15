@@ -1,4 +1,5 @@
 get:
+  tags: [Publication]
   summary: Removes a specific query from the catalog available for this version of
     the ontology
   operationId: get_query_publication_requests

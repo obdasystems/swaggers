@@ -1,4 +1,5 @@
 get:
+  tags: [Execution]
   summary: Returns the status of a triplification thread
   operationId: get_mappings_triplification_status
   parameters:

@@ -1,4 +1,5 @@
 post:
+  tags: [FileSystem]
   summary: POST mwsx/knowledgeGraph/store/file
   operationId: post__knowledgeGraph_store_file
   requestBody:
@@ -14,6 +15,7 @@ post:
           schema: {type: boolean}
     '401': {description: Unhauthorized}
 get:
+  tags: [FileSystem]
   summary: GET mwsx/knowledgeGraph/store/file
   operationId: get__knowledgeGraph_store_files
   responses:

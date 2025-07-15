@@ -23,6 +23,8 @@ security:
 paths:
   /log/{env}/{mode}:
     get:
+      tags:
+        - Logger
       summary: GET mwsx/log/{env}/{mode}
       operationId: setLogger
       parameters:
@@ -47,6 +49,8 @@ paths:
           description: Unhauthorized
   /mastro/version:
     get:
+      tags:
+        - Versions
       summary: Returns the version of Mastro
       operationId: get__mastro_version
       responses:
@@ -60,6 +64,8 @@ paths:
           description: Unhauthorized
   /jena/version:
     get:
+      tags:
+        - Versions
       summary: Returns the version of the Jena library used by Mastro
       operationId: get__jena_version
       responses:
@@ -73,6 +79,8 @@ paths:
           description: Unhauthorized
   /owlapi/version:
     get:
+      tags:
+        - Versions
       summary: Returns the version of the OWL API used by Mastro
       operationId: get__owlapi_version
       responses:
@@ -86,6 +94,8 @@ paths:
           description: Unhauthorized
   /resources/ontologies:
     get:
+      tags:
+        - Resources
       summary: GET mwsx/resources/ontologies
       operationId: get__resources_ids
       responses:
@@ -101,6 +111,8 @@ paths:
           description: Unhauthorized
   /resources/ontology/{name}/versions:
     get:
+      tags:
+        - Resources
       summary: GET mwsx/resources/ontology/{name}/versions
       operationId: get__resources_ids_versions
       parameters:
@@ -122,6 +134,8 @@ paths:
           description: Unhauthorized
   /resources/ontology/{name}/version/mappings:
     get:
+      tags:
+        - Resources
       summary: GET mwsx/resources/ontology/{name}/version/mappings
       operationId: get__resources_ids_mappings
       parameters:
@@ -148,6 +162,8 @@ paths:
           description: Unhauthorized
   /resources/datasources:
     get:
+      tags:
+        - Resources
       summary: GET mwsx/resources/datasources
       operationId: get__resources_ds_ids
       responses:
@@ -163,6 +179,8 @@ paths:
           description: Unhauthorized
   /resources/endpoints:
     get:
+      tags:
+        - Resources
       summary: GET mwsx/resources/endpoints
       operationId: get__resources_ep_ids
       responses:
@@ -178,6 +196,8 @@ paths:
           description: Unhauthorized
   /mastro/instances:
     get:
+      tags:
+        - Mastro
       summary: GET mwsx/mastro/instances
       operationId: get__available_instances
       responses:
@@ -193,6 +213,8 @@ paths:
           description: Unhauthorized
   /lastLoaded/ontology:
     get:
+      tags:
+        - LastLoaded
       summary: GET mwsx/lastLoaded/ontology
       operationId: get_lastLoaded_ontology
       responses:
@@ -206,8 +228,27 @@ paths:
                   $ref: '#/components/schemas/OntologyOpeningEvent'
         '401':
           description: Unhauthorized
+  /lastLoaded/knowledgeGraph:
+    get:
+      tags:
+        - LastLoaded
+      summary: GET mwsx/lastLoaded/knowledgeGraph
+      operationId: get_lastLoaded_knowledgeGraph
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/KGOpeningEvent'
+        '401':
+          description: Unhauthorized
   /globalAnnotations:
     get:
+      tags:
+        - GlobalAnnotation
       summary: GET mwsx/globalAnnotations
       operationId: get_global_annotations
       responses:
@@ -223,6 +264,8 @@ paths:
           description: Unhauthorized
   /globalAnnotation:
     post:
+      tags:
+        - GlobalAnnotation
       summary: POST mwsx/globalAnnotation
       operationId: post_global_annotation
       requestBody:
@@ -244,6 +287,8 @@ paths:
           description: Unhauthorized
   /globalAnnotation/{entityId}:
     delete:
+      tags:
+        - GlobalAnnotation
       summary: DELETE mwsx/globalAnnotation/{entityId}
       operationId: delete_global_annotation
       parameters:
@@ -265,6 +310,8 @@ paths:
           description: Unhauthorized
   /server/license/info:
     get:
+      tags:
+        - Server
       summary: Computes and returns the system storage report
       operationId: get_server_license_expiration_date
       responses:
@@ -278,6 +325,8 @@ paths:
           description: Unhauthorized
   /server/storage/report:
     get:
+      tags:
+        - Server
       summary: Computes and returns the system storage report
       operationId: get_system_storage_report
       responses:
@@ -291,6 +340,8 @@ paths:
           description: Unhauthorized
   /server/storage/{folder}:
     delete:
+      tags:
+        - Server
       summary: Computes and returns the system storage report
       operationId: get_empty_folder
       parameters:
@@ -310,6 +361,8 @@ paths:
           description: Unhauthorized
   /server/systemSnapshot:
     get:
+      tags:
+        - Server
       summary: Computes and returns the system storage report
       operationId: get_system_snapshot
       responses:
@@ -323,6 +376,8 @@ paths:
           description: Unhauthorized
   /server/systemMemory:
     get:
+      tags:
+        - Server
       summary: Computes and returns the system storage report
       operationId: get_system_memory
       responses:
@@ -336,6 +391,8 @@ paths:
           description: Unhauthorized
   /server/userlog/{username}/count:
     get:
+      tags:
+        - Server
       summary: Returns the user log lines count
       operationId: get_userlog_count
       parameters:
@@ -355,6 +412,8 @@ paths:
           description: Unhauthorized
   /server/userlog/{username}:
     get:
+      tags:
+        - Server
       summary: Returns the user log lines count
       operationId: get_userlog_count_user
       parameters:
@@ -388,6 +447,8 @@ paths:
           description: Unhauthorized
   /geocoding/servers:
     get:
+      tags:
+        - Geocoding
       summary: Returns the list of available Geocoding servers
       operationId: get_geocoding_servers
       responses:
@@ -401,6 +462,8 @@ paths:
           description: Unhauthorized
   /geocoding/server/{serverId}:
     put:
+      tags:
+        - Geocoding
       summary: Adds or modifies the specified Geocoding server and returns the new list of available servers
       operationId: put_geocoding_server
       parameters:
@@ -425,6 +488,8 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Geocoding
       summary: Removes the specified server from the list of available servers
       operationId: delete_geocoding_server
       parameters:
@@ -444,6 +509,8 @@ paths:
           description: Unhauthorized
   /logger/mastroapi:
     get:
+      tags:
+        - Logger
       summary: GET mwsx/logger/mastroapi
       operationId: get_set_mastroapi_logger
       parameters:
@@ -464,6 +531,8 @@ paths:
           description: Unhauthorized
   /logger/service:
     get:
+      tags:
+        - Logger
       summary: GET mwsx/logger/service
       operationId: get_set_service_logger
       parameters:
@@ -484,6 +553,8 @@ paths:
           description: Unhauthorized
   /logger:
     get:
+      tags:
+        - Logger
       summary: GET mwsx/logger
       operationId: get_set_logger
       parameters:
@@ -514,6 +585,8 @@ paths:
           description: Unhauthorized
   /logger/class:
     get:
+      tags:
+        - Logger
       summary: GET mwsx/logger/class
       operationId: get_set_service_class
       parameters:
@@ -544,6 +617,8 @@ paths:
           description: Unhauthorized
   /logger/package:
     get:
+      tags:
+        - Logger
       summary: GET mwsx/logger/package
       operationId: get_set_service_package
       parameters:
@@ -574,6 +649,8 @@ paths:
           description: Unhauthorized
   /logger/list:
     get:
+      tags:
+        - Logger
       summary: GET mwsx/logger/list
       operationId: get_set_service_logger_list
       responses:
@@ -587,6 +664,8 @@ paths:
           description: Unhauthorized
   /logger/monitor:
     get:
+      tags:
+        - Logger
       summary: GET mwsx/logger/monitor
       operationId: get_set_monitor_logger
       parameters:
@@ -607,6 +686,8 @@ paths:
           description: Unhauthorized
   /statics/sparql/extractProjectVarNames:
     post:
+      tags:
+        - Statics
       summary: POST mwsx/statics/sparql/extractProjectVarNames
       operationId: post_extract_query_head
       requestBody:
@@ -628,6 +709,8 @@ paths:
           description: Unhauthorized
   /statics/sparql/templateSize:
     post:
+      tags:
+        - Statics
       summary: POST mwsx/statics/sparql/templateSize
       operationId: post_extract_template_size
       requestBody:
@@ -647,6 +730,8 @@ paths:
           description: Unhauthorized
   /statics/reporting/request:
     post:
+      tags:
+        - Statics
       summary: POST mwsx/statics/reporting/request
       operationId: post_extract_issue_report
       requestBody:
@@ -666,6 +751,8 @@ paths:
           description: Unhauthorized
   /system/jdbcDrivers:
     get:
+      tags:
+        - System
       summary: Returns the available JDBC drivers
       operationId: getJdbcDrivers
       responses:
@@ -681,6 +768,8 @@ paths:
           description: Unhauthorized
   /system/jdbcDriver/{driver}:
     get:
+      tags:
+        - System
       summary: Returns information about a specific JDBC driver
       operationId: getJdbcDriver
       parameters:
@@ -699,6 +788,8 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - System
       summary: Adds information about a new JDBC driver to the system
       operationId: DELETEJdbcDrivers
       parameters:
@@ -717,6 +808,8 @@ paths:
         '401':
           description: Unhauthorized
     put:
+      tags:
+        - System
       summary: Adds information about a new JDBC driver to the system
       operationId: putJdbcDrivers
       parameters:
@@ -742,6 +835,8 @@ paths:
           description: Unhauthorized
   /system/jdbcDriver:
     post:
+      tags:
+        - System
       summary: Adds information about a new JDBC driver to the system
       operationId: postJdbcDrivers
       requestBody:
@@ -761,6 +856,8 @@ paths:
           description: Unhauthorized
   /queryTags:
     get:
+      tags:
+        - QueryTags
       summary: Returns all the available query tags
       operationId: get_queryTags
       responses:
@@ -773,6 +870,8 @@ paths:
         '401':
           description: Unhauthorized
     post:
+      tags:
+        - QueryTags
       summary: Adds a new query tag to the set of available tags
       operationId: post_queryTags
       requestBody:
@@ -792,6 +891,8 @@ paths:
           description: Unhauthorized
   /queryTags/{tagName}:
     delete:
+      tags:
+        - QueryTags
       summary: Deletes the given query tag from the list of available tags
       operationId: delete_queryTags_tagName
       parameters:
@@ -811,6 +912,8 @@ paths:
           description: Unhauthorized
   /statistics/accesses:
     get:
+      tags:
+        - Statistics
       summary: Returns the access log
       operationId: get_accesses_statistics
       responses:
@@ -825,6 +928,8 @@ paths:
         '401':
           description: Unhauthorized
     post:
+      tags:
+        - Statistics
       summary: Replace the current access log with the one provided
       operationId: post_accesses_statistics
       requestBody:
@@ -847,6 +952,8 @@ paths:
         '401':
           description: Unhauthorized
     put:
+      tags:
+        - Statistics
       summary: Adds the provided access log to the one registered in the system
       operationId: put_accesses_statistics
       requestBody:
@@ -869,6 +976,8 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Statistics
       summary: Replace the current access log with the one provided
       operationId: delete_accesses_statistics
       responses:
@@ -884,6 +993,8 @@ paths:
           description: Unhauthorized
   /statistics/ontologies:
     get:
+      tags:
+        - Statistics
       summary: Returns the ontologies statistics
       operationId: get_ontologies_statistics
       responses:
@@ -898,6 +1009,8 @@ paths:
         '401':
           description: Unhauthorized
     post:
+      tags:
+        - Statistics
       summary: Replace the current ontologies statistics with the one provided
       operationId: post_ontologies_statistics
       requestBody:
@@ -920,7 +1033,9 @@ paths:
         '401':
           description: Unhauthorized
     put:
-      summary: Adds the provided access log to the one registered in the system
+      tags:
+        - Statistics
+      summary: Adds the provided ontologies statistics to the one registered in the system
       operationId: put_ontologies_statistics
       requestBody:
         content:
@@ -942,7 +1057,9 @@ paths:
         '401':
           description: Unhauthorized
     delete:
-      summary: Adds the provided access log to the one registered in the system
+      tags:
+        - Statistics
+      summary: Delete the provided ontologies statistics from the system
       operationId: delete_ontologies_statistics
       responses:
         '200':
@@ -957,6 +1074,8 @@ paths:
           description: Unhauthorized
   /statistics/{endpoint}/queries:
     get:
+      tags:
+        - Statistics
       summary: Returns the query statistics for the given endpoint
       operationId: get_statistics_endpoint_queries
       parameters:
@@ -977,6 +1096,8 @@ paths:
         '401':
           description: Unhauthorized
     post:
+      tags:
+        - Statistics
       summary: Replace the current query statistics with the one provided for the given endpoint
       operationId: post_statistics_endpoint_queries
       parameters:
@@ -1005,6 +1126,8 @@ paths:
         '401':
           description: Unhauthorized
     put:
+      tags:
+        - Statistics
       summary: Adds the provided query statistics for the given endpoint to the one registered in the system
       operationId: put_statistics_endpoint_queries
       parameters:
@@ -1033,6 +1156,8 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Statistics
       summary: Deletes from the system the query statistics for the given endpoint
       operationId: delete_statistics_endpoint_queries
       parameters:
@@ -1054,6 +1179,8 @@ paths:
           description: Unhauthorized
   /statistics/{endpoint}/entities:
     get:
+      tags:
+        - Statistics
       summary: Returns the entities statistics for the given endpoint
       operationId: get_statistics_endpoint_entities
       parameters:
@@ -1128,6 +1255,15 @@ components:
           type: boolean
         onto:
           $ref: '#/components/schemas/OntologyID'
+        timestamp:
+          type: integer
+          format: int64
+    KGOpeningEvent:
+      title: KGOpeningEvent
+      type: object
+      properties:
+        iri:
+          type: string
         timestamp:
           type: integer
           format: int64

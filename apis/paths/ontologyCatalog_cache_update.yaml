@@ -1,4 +1,5 @@
 put:
+  tags: [Cache]
   summary: PUT mwsx/ontologyCatalog/cache/update
   operationId: put_ontology_catalog_cache_manager_update
   parameters:

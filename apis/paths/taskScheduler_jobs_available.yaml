@@ -1,4 +1,5 @@
 get:
+  tags: [Persistence]
   summary: Lists the jobs available in the scheduler folder
   operationId: get__task_scheduler_jobs_available
   responses:

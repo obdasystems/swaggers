@@ -1,4 +1,5 @@
 post:
+  tags: [Query]
   summary: Adds a new query to the catalog
   operationId: post_ontologycatalog_query_ID
   requestBody:

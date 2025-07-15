@@ -1,4 +1,5 @@
 post:
+  tags: [GlobalAnnotation]
   summary: POST mwsx/globalAnnotation
   operationId: post_global_annotation
   requestBody:

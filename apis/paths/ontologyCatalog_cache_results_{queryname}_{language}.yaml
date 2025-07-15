@@ -1,4 +1,5 @@
 get:
+  tags: [Cache]
   summary: GET mwsx/ontologyCatalog/cache/results/{queryname}/{language}
   operationId: get_ontology_catalog_cache_manager_query_results_language
   parameters:

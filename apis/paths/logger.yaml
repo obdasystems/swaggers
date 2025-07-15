@@ -1,4 +1,5 @@
 get:
+  tags: [Logger]
   summary: GET mwsx/logger
   operationId: get_set_logger
   parameters:

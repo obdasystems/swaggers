@@ -35,6 +35,8 @@ paths:
     $ref: paths/owlOntology_{name}_version_virtualEntity.yaml
   /owlOntology/{name}/version/virtualEntity/semantics:
     $ref: paths/owlOntology_{name}_version_virtualEntity_semantics.yaml
+  /endpoint/{name}/virtualEntity/{veName}:
+    $ref: paths/endpoint_{name}_virtualEntity_{veName}.yaml
 components: 
   securitySchemes: 
     apiKey: 

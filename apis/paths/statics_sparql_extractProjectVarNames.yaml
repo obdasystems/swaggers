@@ -1,4 +1,5 @@
 post:
+  tags: [Statics]
   summary: POST mwsx/statics/sparql/extractProjectVarNames
   operationId: post_extract_query_head
   requestBody:

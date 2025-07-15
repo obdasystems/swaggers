@@ -1,4 +1,5 @@
 post:
+  tags: [Persistence]
   summary: Create a new virtual entity for a given ontology
   operationId: post_virtualEntity
   parameters:
@@ -23,6 +24,7 @@ post:
           schema: {$ref: ../components/schemas/SparqlingVirtualEntity.yaml}
     '401': {description: Unhauthorized}
 put:
+  tags: [Persistence]
   summary: Overwrite a virtual entity for a given ontology
   operationId: put_virtualEntity
   parameters:

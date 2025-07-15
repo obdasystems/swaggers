@@ -1,4 +1,5 @@
 post:
+  tags: [Query]
   summary: Starts a new query
   operationId: start_new_query_on_endpoint
   parameters:

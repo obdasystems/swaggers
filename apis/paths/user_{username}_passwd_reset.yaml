@@ -1,4 +1,5 @@
 put:
+  tags: [User]
   summary: PUT mwsx/user/{username}/passwd/reset
   operationId: put__user_passwd_reset
   parameters:

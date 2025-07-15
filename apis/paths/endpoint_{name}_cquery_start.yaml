@@ -1,4 +1,5 @@
 post:
+  tags: [ConstructQuery]
   summary: Starts the SPARQL construct query on the given endpoint
   operationId: post__owlOntology_name_version_construct_query_start
   parameters:

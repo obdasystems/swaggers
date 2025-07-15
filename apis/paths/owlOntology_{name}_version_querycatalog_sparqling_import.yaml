@@ -1,4 +1,5 @@
 post:
+  tags: [Persistence]
   summary: 'Imports a new catalog of SPARQLING queries: if the additive switch is
     true, all new queries will be added to the existing ones, otherwise the old catalog
     will be overwritten'

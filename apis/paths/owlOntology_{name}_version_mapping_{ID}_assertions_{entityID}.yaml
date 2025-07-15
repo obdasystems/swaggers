@@ -1,4 +1,5 @@
 get:
+  tags: [Assertion]
   summary: Returns the list of maping assertion involving the passed entity
   operationId: get__owlOntology_name_version_mapping_ID_assertions_entityID
   parameters:

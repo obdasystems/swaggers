@@ -1,4 +1,5 @@
 get:
+  tags: [State]
   summary: Starts the task scheduler
   operationId: get__task_scheduler_state
   responses:
@@ -9,6 +10,7 @@ get:
           schema: {type: boolean}
     '401': {description: Unhauthorized}
 put:
+  tags: [State]
   summary: Starts the task scheduler
   operationId: put__task_scheduler_state
   parameters:

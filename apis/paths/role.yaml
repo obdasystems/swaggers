@@ -1,4 +1,5 @@
 post:
+  tags: [Roles]
   summary: POST mwsx/role
   operationId: post__role
   requestBody:

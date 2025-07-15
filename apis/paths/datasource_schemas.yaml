@@ -1,4 +1,5 @@
 post:
+  tags: [Metadata]
   summary: Returns the list of schema names available at the datasource
   operationId: getDatasourceSchemas
   requestBody:

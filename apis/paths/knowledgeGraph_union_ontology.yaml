@@ -1,4 +1,5 @@
 put:
+  tags: [Union]
   summary: PUT mwsx/knowledgeGraph/union/ontology
   operationId: patch__knowledgeGraph_union_ontology
   requestBody:

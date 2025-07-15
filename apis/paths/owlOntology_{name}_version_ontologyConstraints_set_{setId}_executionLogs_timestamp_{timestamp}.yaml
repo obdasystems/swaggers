@@ -1,4 +1,5 @@
 get:
+  tags: [CheckSet]
   summary: Returns the execution log of a check set run at the provided timestamp
   operationId: get_ontologyConstraints_checkSetId_execution_timestamp
   parameters:
@@ -26,6 +27,7 @@ get:
           schema: {$ref: ../components/schemas/DataQualityCheckSetExecutionLog.yaml}
     '401': {description: Unhauthorized}
 delete:
+  tags: [CheckSet]
   summary: Deletes the execution log of a check set run at the provided timestamp
   operationId: delete_ontologyConstraints_checkSetId_execution_timestamp
   parameters:

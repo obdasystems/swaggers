@@ -1,4 +1,5 @@
 get:
+  tags: [Versions]
   summary: Returns the version of Mastro
   operationId: get__mastro_version
   responses:

@@ -1,4 +1,5 @@
 get:
+  tags: [Resources]
   summary: GET mwsx/resources/datasources
   operationId: get__resources_ds_ids
   responses:

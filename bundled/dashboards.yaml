@@ -23,6 +23,8 @@ security:
 paths:
   /owlOntology/{name}/version/dashboards:
     get:
+      tags:
+        - Persistence
       summary: GET mwsx/owlOntology/{name}/version/dashboards
       operationId: get__owlOntology_version_dashboards
       parameters:
@@ -46,6 +48,8 @@ paths:
         '401':
           description: Unhauthorized
     post:
+      tags:
+        - Persistence
       summary: POST mwsx/owlOntology/{name}/version/dashboards
       operationId: post__owlOntology_version_dashboards
       parameters:
@@ -76,6 +80,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/dashboard/{dashboardId}/migrate:
     post:
+      tags:
+        - Persistence
       summary: Migrates dashboard with ID dashboardId from version 'version' to 'version' targetVersion for ontology named 'name'
       operationId: post__owlOntology_version_dashboard_migrate
       parameters:
@@ -110,6 +116,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/dashboards/migrate:
     post:
+      tags:
+        - Persistence
       summary: Migrates all dashboards from version 'version' to 'version' targetVersion for ontology named 'name'
       operationId: post__owlOntology_version_dashboards_migrate
       parameters:
@@ -139,6 +147,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/dashboard/{dashboardId}:
     put:
+      tags:
+        - Persistence
       summary: PUT mwsx/owlOntology/{name}/version/dashboard/{dashboardId}
       operationId: put__owlOntology_version_dashboards
       parameters:
@@ -173,6 +183,8 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Persistence
       summary: DELETE mwsx/owlOntology/{name}/version/dashboard/{dashboardId}
       operationId: delete__owlOntology_version_dashboards
       parameters:

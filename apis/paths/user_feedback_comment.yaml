@@ -1,4 +1,5 @@
 post:
+  tags: [User]
   summary: Returns the feedback provided by all the users
   operationId: post__user_feedback_comment
   requestBody:

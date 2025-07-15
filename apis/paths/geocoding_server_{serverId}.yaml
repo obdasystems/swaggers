@@ -1,4 +1,5 @@
 put:
+  tags: [Geocoding]
   summary: Adds or modifies the specified Geocoding server and returns the new list
     of available servers
   operationId: put_geocoding_server
@@ -20,6 +21,7 @@ put:
           schema: {$ref: ../components/schemas/GeocodingServers.yaml}
     '401': {description: Unhauthorized}
 delete:
+  tags: [Geocoding]
   summary: Removes the specified server from the list of available servers
   operationId: delete_geocoding_server
   parameters:

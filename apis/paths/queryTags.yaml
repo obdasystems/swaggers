@@ -1,4 +1,5 @@
 get:
+  tags: [QueryTags]
   summary: Returns all the available query tags
   operationId: get_queryTags
   responses:
@@ -9,6 +10,7 @@ get:
           schema: {$ref: ../components/schemas/Tags.yaml}
     '401': {description: Unhauthorized}
 post:
+  tags: [QueryTags]
   summary: Adds a new query tag to the set of available tags
   operationId: post_queryTags
   requestBody:

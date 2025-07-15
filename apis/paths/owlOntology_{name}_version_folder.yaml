@@ -1,4 +1,5 @@
 get:
+  tags: [FileSystem]
   summary: Returns the folder where ontology named <code>name</code> is stored in
   operationId: get__owlOntology_version_folder_name
   parameters:

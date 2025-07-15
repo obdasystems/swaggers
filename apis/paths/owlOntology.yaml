@@ -1,4 +1,5 @@
 get:
+  tags: [Persistence]
   summary: Returns all the available ontologies
   operationId: get__owlOntology
   responses:
@@ -11,6 +12,7 @@ get:
             items: {$ref: ../components/schemas/Ontology.yaml}
     '401': {description: Unhauthorized}
 post:
+  tags: [Persistence]
   summary: Creates a new ontology
   operationId: post__owlOntology_name
   requestBody:
@@ -26,6 +28,7 @@ post:
           schema: {$ref: ../components/schemas/Ontology.yaml}
     '401': {description: Unhauthorized}
 delete:
+  tags: [Persistence]
   summary: Deletes all the ontologies stored in the repository
   operationId: delete__all_owlOntologies
   responses:

@@ -1,4 +1,5 @@
 get:
+  tags: [Logical]
   summary: Returns the list of ignored ontology import IRIs
   operationId: get__owlOntology_name_version_ignoredImports
   parameters:

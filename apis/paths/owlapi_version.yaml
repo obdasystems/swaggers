@@ -1,4 +1,5 @@
 get:
+  tags: [Versions]
   summary: Returns the version of the OWL API used by Mastro
   operationId: get__owlapi_version
   responses:

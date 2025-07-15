@@ -1,4 +1,5 @@
 get:
+  tags: [Logical]
   summary: GET mwsx/owlOntology/{name}/version/alphabet/individual/{ID}/logical
   operationId: get_individual_info
   parameters:

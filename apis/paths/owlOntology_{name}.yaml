@@ -1,4 +1,5 @@
 get:
+  tags: [Persistence]
   summary: Returns the ontology named <code>name</code>
   operationId: get__owlOntology_name
   parameters:
@@ -14,6 +15,7 @@ get:
           schema: {$ref: ../components/schemas/Ontology.yaml}
     '401': {description: Unhauthorized}
 post:
+  tags: [Persistence]
   summary: 'Adds a new version to the ontology <code>name</code>.<br/> The ''syntax''
     parameter assumes one of the following values: <br/>''MANCHESTER_SYNTAX'', ''FUNCTIONAL_SYNTAX'''
   operationId: post__owlOntology_name_version
@@ -39,6 +41,7 @@ post:
           schema: {$ref: ../components/schemas/FileInfo.yaml}
     '401': {description: Unhauthorized}
 delete:
+  tags: [Persistence]
   summary: 'Deletes the ontology named <code>name</code>.<br/> '
   operationId: delete__owlOntology
   parameters:

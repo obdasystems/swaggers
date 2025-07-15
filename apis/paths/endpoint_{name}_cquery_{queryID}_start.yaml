@@ -1,4 +1,5 @@
 post:
+  tags: [ConstructQuery]
   summary: Starts the construct query with the provided identified on the given endpoint
   operationId: post__owlOntology_name_version_construct_query_ID_start
   parameters:

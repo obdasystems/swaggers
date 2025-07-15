@@ -1,4 +1,5 @@
 post:
+  tags: [SQLView]
   summary: No description available
   operationId: get__owlOntology_name_version_mapping_ID_views_refactoring
   parameters:
@@ -27,6 +28,7 @@ post:
           schema: {$ref: ../components/schemas/ViewRefactoringAnalysis.yaml}
     '401': {description: Unhauthorized}
 put:
+  tags: [SQLView]
   summary: No description available
   operationId: post__owlOntology_name_version_mapping_ID_views_refactoring
   parameters:

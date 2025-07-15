@@ -1,4 +1,5 @@
 get:
+  tags: [Query]
   summary: GET mwsx/knowledgeGraph/query/catalog/{queryID}
   operationId: get__knowledgeGraph_query_catalog_queryID
   parameters:
@@ -18,6 +19,7 @@ get:
           schema: {$ref: ../components/schemas/SPARQLQuery.yaml}
     '401': {description: Unhauthorized}
 put:
+  tags: [Query]
   summary: PUT mwsx/knowledgeGraph/query/catalog/{queryID}
   operationId: put__knowledgeGraph_query_catalog_queryID
   parameters:
@@ -42,6 +44,7 @@ put:
           schema: {type: boolean}
     '401': {description: Unhauthorized}
 delete:
+  tags: [Query]
   summary: DELETE mwsx/knowledgeGraph/query/catalog/{queryID}
   operationId: delete__knowledgeGraph_query_catalog_queryID
   parameters:

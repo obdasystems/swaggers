@@ -1,4 +1,5 @@
 get:
+  tags: [Roles]
   summary: GET mwsx/roles
   operationId: get__roles
   responses:

@@ -1,4 +1,5 @@
 put:
+  tags: [Persistence]
   summary: PUT mwsx/owlOntology/{name}/version/authorizationViewProfile/{avpId}
   operationId: put_authorizationViewProfiles
   parameters:
@@ -27,6 +28,7 @@ put:
           schema: {$ref: ../components/schemas/AuthorizationViewProfileInfo.yaml}
     '401': {description: Unhauthorized}
 delete:
+  tags: [Persistence]
   summary: DELETE mwsx/owlOntology/{name}/version/authorizationViewProfile/{avpId}
   operationId: delete_authorizationViewProfiles
   parameters:

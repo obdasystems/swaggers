@@ -1,4 +1,5 @@
 get:
+  tags: [Metadata]
   summary: GET mwsx/owlOntology/{name}/version/metadata
   operationId: get_ontology_metadata_snapshot
   parameters:

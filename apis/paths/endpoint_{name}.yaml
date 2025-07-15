@@ -1,4 +1,5 @@
 get:
+  tags: [Persistence]
   summary: Returns an endpoint by its name
   operationId: get_endpoint
   parameters:
@@ -14,6 +15,7 @@ get:
           schema: {$ref: ../components/schemas/Endpoint.yaml}
     '401': {description: Unhauthorized}
 delete:
+  tags: [Persistence]
   summary: Deletes the endpoint by its name
   operationId: delete_endpoint
   parameters:
@@ -29,6 +31,7 @@ delete:
           schema: {$ref: ../components/schemas/Endpoint.yaml}
     '401': {description: Unhauthorized}
 put:
+  tags: [Persistence]
   summary: Updates the endpoint with the new values provided
   operationId: put_endpoint
   parameters:

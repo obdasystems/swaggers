@@ -1,4 +1,5 @@
 get:
+  tags: [User]
   summary: Returns the user names <code>username</code>
   operationId: get__user_name
   parameters:
@@ -14,6 +15,7 @@ get:
           schema: {$ref: ../components/schemas/User.yaml}
     '401': {description: Unhauthorized}
 put:
+  tags: [User]
   summary: Modifies the user identified by <code>username</code>
   operationId: put__user
   parameters:
@@ -38,6 +40,7 @@ put:
           schema: {$ref: ../components/schemas/User.yaml}
     '401': {description: Unhauthorized}
 delete:
+  tags: [User]
   summary: DELETE mwsx/user/{username}
   operationId: delete__user
   parameters:

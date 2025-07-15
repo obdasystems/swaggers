@@ -1,4 +1,5 @@
 post:
+  tags: [Test]
   summary: Test a given data source connection
   operationId: testDatasource
   requestBody:

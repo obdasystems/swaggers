@@ -1,4 +1,5 @@
 post:
+  tags: [Parameters]
   summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/parameter
   operationId: post__owlOntology_name_version_mapping_ID_parameter
   parameters:
@@ -27,6 +28,7 @@ post:
           schema: {$ref: ../components/schemas/MappingParameter.yaml}
     '401': {description: Unhauthorized}
 put:
+  tags: [Parameters]
   summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/parameter
   operationId: put__owlOntology_name_version_mapping_ID_parameter
   parameters:

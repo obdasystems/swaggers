@@ -1,4 +1,5 @@
 get:
+  tags: [Highlights]
   summary: Get the state of the thread computing a shortest path on the ontology
   operationId: get_shortest_path_thread_state
   parameters:

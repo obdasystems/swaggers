@@ -1,4 +1,5 @@
 get:
+  tags: [Query]
   summary: Returns the file containing exported results for a query on the given endpoint
   operationId: export_catalog_query_on_endpoint
   parameters:

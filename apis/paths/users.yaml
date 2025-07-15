@@ -1,4 +1,5 @@
 get:
+  tags: [User]
   summary: Returns the list of available users of this MWS installation
   operationId: get__users
   responses:
@@ -11,6 +12,7 @@ get:
             items: {$ref: ../components/schemas/User.yaml}
     '401': {description: Unhauthorized}
 put:
+  tags: [User]
   summary: Adds multiple users to the system
   operationId: put__users
   parameters:

@@ -1,4 +1,5 @@
 get:
+  tags: [Upload]
   summary: GET mwsx/owlOntology/{name}/importFromIRI
   operationId: get__owlOntology_name_version_import_from_iri
   parameters:

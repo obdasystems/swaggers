@@ -23,6 +23,8 @@ security:
 paths:
   /owlOntology/{name}/version/mapping:
     get:
+      tags:
+        - Persistence
       summary: Returns the list of mappings available for a given ontology version
       operationId: get__owlOntology_name_version_mapping
       parameters:
@@ -46,6 +48,8 @@ paths:
         '401':
           description: Unhauthorized
     post:
+      tags:
+        - Persistence
       summary: Creates a new set of mappings
       operationId: post__owlOntology_name_version_mapping_ID
       parameters:
@@ -94,6 +98,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{mapID}:
     get:
+      tags:
+        - Persistence
       summary: 'Returns the set of mappings identified ID for a given ontology version  '
       operationId: get__owlOntology_name_version_mapping_ID
       parameters:
@@ -127,6 +133,8 @@ paths:
         '401':
           description: Unhauthorized
     put:
+      tags:
+        - Persistence
       summary: 'Updates mapping infos (passed as a Base64 encoded object NewMappingFileInfo in the query string) '
       operationId: put__owlOntology_name_version_mapping_ID
       parameters:
@@ -166,6 +174,8 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Persistence
       summary: Deletes a set of mappings
       operationId: delete__owlOntology_name_version_mapping_ID
       parameters:
@@ -195,6 +205,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/checkDeprecation:
     get:
+      tags:
+        - Analysis
       summary: Performs mapping analysis returning a list of deprecation messages
       operationId: get__owlOntology_name_version_mapping_ID_checkDeprecation
       parameters:
@@ -226,6 +238,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/count:
     get:
+      tags:
+        - Analysis
       summary: Returns mapping statistics by ontology entity
       operationId: get__owlOntology_name_version_mapping_ID_count
       parameters:
@@ -255,6 +269,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{mapID}/duplicate:
     post:
+      tags:
+        - Persistence
       summary: Duplicates a given set of mappings
       operationId: post__owlOntology_name_version_mapping_ID_duplicate
       parameters:
@@ -294,6 +310,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{mapID}/backup:
     get:
+      tags:
+        - Persistence
       summary: Verifies whether a backup copy of a given mapping file exists
       operationId: get__owlOntology_name_version_mapping_ID_backup
       parameters:
@@ -322,6 +340,8 @@ paths:
         '401':
           description: Unhauthorized
     post:
+      tags:
+        - Persistence
       summary: Creates a backup copy of a given mapping file
       operationId: post__owlOntology_name_version_mapping_ID_backup
       parameters:
@@ -350,6 +370,8 @@ paths:
         '401':
           description: Unhauthorized
     put:
+      tags:
+        - Persistence
       summary: Restore a backup copy of a given mapping file
       operationId: post__owlOntology_name_version_mapping_ID_restore
       parameters:
@@ -378,6 +400,8 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Persistence
       summary: Deletes the backup copy of a given mapping file
       operationId: post__owlOntology_name_version_mapping_ID_delete
       parameters:
@@ -407,6 +431,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{mapID}/migrate:
     post:
+      tags:
+        - Persistence
       summary: Copy a given set of mappins from a source ontology version to a target ontology version (works under the same ontology name)
       operationId: post__owlOntology_name_version_mapping_ID_migrate
       parameters:
@@ -451,6 +477,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{mapID}/fixDeprecated:
     post:
+      tags:
+        - Persistence
       summary: Tentatively fixes mapping deprecations
       operationId: post__owlOntology_name_version_mapping_ID_fix_deprecated
       parameters:
@@ -480,6 +508,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/check:
     post:
+      tags:
+        - Test
       summary: Perform checks on a given mapping file
       operationId: post__owlOntology_name_version_mapping_ID_check
       parameters:
@@ -520,6 +550,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/info:
     get:
+      tags:
+        - Info
       summary: Returns info of a set of mappings
       operationId: get__owlOntology_name_version_mapping_ID_info
       parameters:
@@ -549,6 +581,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/templates:
     get:
+      tags:
+        - Template
       summary: Returns the list of templates defined in a mapping file
       operationId: get__owlOntology_name_version_mapping_ID_templates
       parameters:
@@ -580,6 +614,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/templates/refactoring:
     put:
+      tags:
+        - Template
       summary: Applies templates refactoring to mapping specification and returns a list of affected mappings ids
       operationId: get__owlOntology_name_version_mapping_ID_templates_refactoring
       parameters:
@@ -617,6 +653,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/template:
     post:
+      tags:
+        - Template
       summary: Adds a new template to a mappng file
       operationId: post__owlOntology_name_version_mapping_ID_template
       parameters:
@@ -651,6 +689,8 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Template
       summary: Deletes a template from a mapping file
       operationId: delete__owlOntology_name_version_mapping_ID_template
       parameters:
@@ -685,6 +725,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/assertions/{entityID}:
     get:
+      tags:
+        - Assertion
       summary: Returns the list of maping assertion involving the passed entity
       operationId: get__owlOntology_name_version_mapping_ID_assertions_entityID
       parameters:
@@ -721,6 +763,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/assertions:
     get:
+      tags:
+        - Assertion
       summary: Returns the list of all mapping assertions identified by ID
       operationId: get__owlOntology_name_version_mapping_ID_assertions
       parameters:
@@ -751,6 +795,8 @@ paths:
         '401':
           description: Unhauthorized
     post:
+      tags:
+        - Assertion
       summary: Adds a new mapping assertion to a set of mappings
       operationId: post__owlOntology_name_version_mapping_ID_assertions
       parameters:
@@ -786,6 +832,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}:
     delete:
+      tags:
+        - Assertion
       summary: Remove the mapping assertion mapID from a given set of mappings
       operationId: delete__owlOntology_name_version_mapping_ID_assertions
       parameters:
@@ -819,6 +867,8 @@ paths:
         '401':
           description: Unhauthorized
     put:
+      tags:
+        - Assertion
       summary: Updates the mapping assertion mapID within a given set of mappings
       operationId: put__owlOntology_name_version_mapping_ID_assertions
       parameters:
@@ -859,6 +909,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/views:
     get:
+      tags:
+        - SQLView
       summary: Returns the list of view definitions declared in a  given set of mappings
       operationId: get__owlOntology_name_version_mapping_ID_views
       parameters:
@@ -887,6 +939,8 @@ paths:
         '401':
           description: Unhauthorized
     post:
+      tags:
+        - SQLView
       summary: Creates a new view definition in a set of mappings
       operationId: post__owlOntology_name_version_mapping_ID_views
       parameters:
@@ -922,6 +976,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/view/{view_name}/referencedTables:
     get:
+      tags:
+        - SQLView
       summary: Returns the view definition identified by view_name in a given set of mappings
       operationId: get__owlOntology_name_version_mapping_ID_view_refTables
       parameters:
@@ -958,6 +1014,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/views/referencedTables:
     get:
+      tags:
+        - SQLView
       summary: Returns the whole map of tables referenced by view definitions of a given set of mappings
       operationId: get__owlOntology_name_version_mapping_ID_views_allRefTablesMap
       parameters:
@@ -993,6 +1051,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/view/{view_name}:
     put:
+      tags:
+        - SQLView
       summary: Returns the view definition identified by view_name in a given set of mappings
       operationId: put__owlOntology_name_version_mapping_ID_views
       parameters:
@@ -1032,6 +1092,8 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - SQLView
       summary: Deletes a view definition
       operationId: delete__owlOntology_name_version_mapping_ID_views
       parameters:
@@ -1066,6 +1128,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/view/refactoring:
     post:
+      tags:
+        - SQLView
       summary: No description available
       operationId: get__owlOntology_name_version_mapping_ID_views_refactoring
       parameters:
@@ -1100,6 +1164,8 @@ paths:
         '401':
           description: Unhauthorized
     put:
+      tags:
+        - SQLView
       summary: No description available
       operationId: post__owlOntology_name_version_mapping_ID_views_refactoring
       parameters:
@@ -1135,6 +1201,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/views/{viewID}:
     get:
+      tags:
+        - SQLView
       summary: No description available
       operationId: get__owlOntology_name_version_mapping_ID_views_viewID
       parameters:
@@ -1169,6 +1237,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/annotations:
     get:
+      tags:
+        - IntensionalAnnotation
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/annotations
       operationId: get__owlOntology_name_version_intensional_annotation_mapping
       parameters:
@@ -1199,6 +1269,8 @@ paths:
         '401':
           description: Unhauthorized
     post:
+      tags:
+        - IntensionalAnnotation
       summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/annotations
       operationId: post__owlOntology_name_version_intensional_annotation_mapping_mapId
       parameters:
@@ -1234,6 +1306,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/annotation/{mapID}:
     get:
+      tags:
+        - IntensionalAnnotation
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/annotation/{mapID}
       operationId: get__owlOntology_name_version_intensional_annotation_mapping_mapId
       parameters:
@@ -1267,6 +1341,8 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - IntensionalAnnotation
       summary: DELETE mwsx/owlOntology/{name}/version/mapping/{ID}/annotation/{mapID}
       operationId: delete__owlOntology_name_version_intensional_annotation_mapping_mapId
       parameters:
@@ -1300,6 +1376,8 @@ paths:
         '401':
           description: Unhauthorized
     put:
+      tags:
+        - IntensionalAnnotation
       summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/annotation/{mapID}
       operationId: put__owlOntology_name_version_intensional_annotation_mapping_mapId
       parameters:
@@ -1340,6 +1418,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/generateIntensionalAnnotationsOntology:
     post:
+      tags:
+        - IntensionalAnnotation
       summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/generateIntensionalAnnotationsOntology
       operationId: post__owlOntology_name_version_mapping_ID_generateIntensionalAnnotationsOntology
       parameters:
@@ -1375,6 +1455,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/state:
     get:
+      tags:
+        - IntensionalAnnotation
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/state
       operationId: get__owlOntology_name_version_mapping_ID_generateIntensionalAnnotationsOntology_threadState
       parameters:
@@ -1409,6 +1491,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/error:
     get:
+      tags:
+        - IntensionalAnnotation
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/error
       operationId: get__owlOntology_name_version_mapping_ID_generateIntensionalAnnotationsOntology_error
       parameters:
@@ -1443,6 +1527,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/export:
     get:
+      tags:
+        - IntensionalAnnotation
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/export
       operationId: get__owlOntology_name_version_mapping_ID_generateIntensionalAnnotationsOntology_export
       parameters:
@@ -1477,6 +1563,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/stop:
     put:
+      tags:
+        - IntensionalAnnotation
       summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/stop
       operationId: put__owlOntology_name_version_mapping_ID_generateIntensionalAnnotationsOntology_stop
       parameters:
@@ -1511,6 +1599,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}:
     delete:
+      tags:
+        - IntensionalAnnotation
       summary: DELETE mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}
       operationId: delete__owlOntology_name_version_mapping_ID_generateIntensionalAnnotationsOntology
       parameters:
@@ -1545,6 +1635,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/dependencies:
     get:
+      tags:
+        - Dependencies
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies
       operationId: get__owlOntology_name_version_mapping_ID_dependencies
       parameters:
@@ -1574,6 +1666,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/dependencies/inclusions:
     get:
+      tags:
+        - Dependencies
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/inclusions
       operationId: get__owlOntology_name_version_mapping_ID_dependencies_inclusions
       parameters:
@@ -1604,6 +1698,8 @@ paths:
         '401':
           description: Unhauthorized
     post:
+      tags:
+        - Dependencies
       summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/inclusions
       operationId: post__owlOntology_name_version_mapping_ID_dependencies_inclusions
       parameters:
@@ -1639,6 +1735,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/dependencies/inclusion/{incID}:
     get:
+      tags:
+        - Dependencies
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/inclusion/{incID}
       operationId: get__owlOntology_name_version_mapping_ID_dependencies_inclusion_incID
       parameters:
@@ -1672,6 +1770,8 @@ paths:
         '401':
           description: Unhauthorized
     put:
+      tags:
+        - Dependencies
       summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/inclusion/{incID}
       operationId: put__owlOntology_name_version_mapping_ID_dependencies_inclusion_incID
       parameters:
@@ -1711,6 +1811,8 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Dependencies
       summary: DELETE mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/inclusion/{incID}
       operationId: delete__owlOntology_name_version_mapping_ID_dependencies_inclusion_incID
       parameters:
@@ -1745,6 +1847,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/dependencies/keys:
     get:
+      tags:
+        - Dependencies
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/keys
       operationId: get__owlOntology_name_version_mapping_ID_dependencies_keys
       parameters:
@@ -1775,6 +1879,8 @@ paths:
         '401':
           description: Unhauthorized
     post:
+      tags:
+        - Dependencies
       summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/keys
       operationId: post__owlOntology_name_version_mapping_ID_dependencies_keys
       parameters:
@@ -1810,6 +1916,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/dependencies/key/{keyID}:
     get:
+      tags:
+        - Dependencies
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/key/{keyID}
       operationId: get__owlOntology_name_version_mapping_ID_dependencies_key_keyID
       parameters:
@@ -1843,6 +1951,8 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Dependencies
       summary: DELETE mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/key/{keyID}
       operationId: delete__owlOntology_name_version_mapping_ID_dependencies_key_keyID
       parameters:
@@ -1876,6 +1986,8 @@ paths:
         '401':
           description: Unhauthorized
     put:
+      tags:
+        - Dependencies
       summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/key/{keyID}
       operationId: put__owlOntology_name_version_mapping_ID_dependencies_key_keyID
       parameters:
@@ -1916,6 +2028,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/dependencies/denials:
     get:
+      tags:
+        - Dependencies
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/denials
       operationId: get__owlOntology_name_version_mapping_ID_dependencies_denials
       parameters:
@@ -1946,6 +2060,8 @@ paths:
         '401':
           description: Unhauthorized
     post:
+      tags:
+        - Dependencies
       summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/denials
       operationId: post__owlOntology_name_version_mapping_ID_dependencies_denials
       parameters:
@@ -1981,6 +2097,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/dependencies/denial/{denyID}:
     get:
+      tags:
+        - Dependencies
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/denial/{denyID}
       operationId: get__owlOntology_name_version_mapping_ID_dependencies_denial_denyID
       parameters:
@@ -2014,6 +2132,8 @@ paths:
         '401':
           description: Unhauthorized
     put:
+      tags:
+        - Dependencies
       summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/denial/{denyID}
       operationId: put__owlOntology_name_version_mapping_ID_dependencies_denial_denyID
       parameters:
@@ -2053,6 +2173,8 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Dependencies
       summary: DELETE mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/denial/{denyID}
       operationId: delete__owlOntology_name_version_mapping_ID_dependencies_denial_denyID
       parameters:
@@ -2087,6 +2209,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/parameter:
     post:
+      tags:
+        - Parameters
       summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/parameter
       operationId: post__owlOntology_name_version_mapping_ID_parameter
       parameters:
@@ -2121,6 +2245,8 @@ paths:
         '401':
           description: Unhauthorized
     put:
+      tags:
+        - Parameters
       summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/parameter
       operationId: put__owlOntology_name_version_mapping_ID_parameter
       parameters:
@@ -2156,6 +2282,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/parameters:
     get:
+      tags:
+        - Parameters
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/parameters
       operationId: get__owlOntology_name_version_mapping_ID_parameters
       parameters:
@@ -2185,6 +2313,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}:
     delete:
+      tags:
+        - Parameters
       summary: DELETE mwsx/owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}
       operationId: delete__owlOntology_name_version_mapping_ID_parameter
       parameters:
@@ -2219,6 +2349,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/parameters:
     get:
+      tags:
+        - Parameters
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/parameters
       operationId: get__owlOntology_name_version_mapping_ID_ass_parameters
       parameters:
@@ -2255,6 +2387,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/referencedTables:
     get:
+      tags:
+        - Database
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/referencedTables
       operationId: get__owlOntology_name_version_mapping_ID_ass_refTables
       parameters:
@@ -2291,6 +2425,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/testSQLQuery:
     get:
+      tags:
+        - Test
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/testSQLQuery
       operationId: get__owlOntology_name_version_mapping_ID_ass_testSQLQuery
       parameters:
@@ -2336,6 +2472,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/testCustomSQLQuery:
     post:
+      tags:
+        - Test
       summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/testCustomSQLQuery
       operationId: post__owlOntology_name_version_mapping_ID_ass_testCustomSQLQuery
       parameters:
@@ -2387,6 +2525,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/assertion/testCustomSQLQuery:
     post:
+      tags:
+        - Test
       summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/testCustomSQLQuery
       operationId: post__owlOntology_name_version_mapping_ID_ass_testCustomSQLQuery_from_mapAssertion
       parameters:
@@ -2433,6 +2573,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/typeCheckingReport:
     get:
+      tags:
+        - Test
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/typeCheckingReport
       operationId: get__owlOntology_name_version_mapping_ID_ass_typeCheckingReport
       parameters:
@@ -2474,6 +2616,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/view/{viewName}/parameters:
     get:
+      tags:
+        - SQLView
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/view/{viewName}/parameters
       operationId: get__owlOntology_name_version_mapping_ID_view_parameters
       parameters:
@@ -2510,6 +2654,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}/views:
     get:
+      tags:
+        - Parameters
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}/views
       operationId: get__owlOntology_name_version_mapping_ID_parameter_views
       parameters:
@@ -2546,6 +2692,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}/assertions:
     get:
+      tags:
+        - Parameters
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}/assertions
       operationId: get__owlOntology_name_version_mapping_ID_parameter_assertions
       parameters:
@@ -2616,6 +2764,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{mapID}/suggestedTemplate/{entityID}:
     get:
+      tags:
+        - Template
       summary: GET mwsx/owlOntology/{name}/version/mapping/{mapID}/suggestedTemplate/{entityID}
       operationId: get__owlOntology_name_version_mapID_suggestedTemplate_entityID
       parameters:
@@ -2657,6 +2807,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{mapID}/dataLineage/{entityID}:
     get:
+      tags:
+        - DataLineage
       summary: GET mwsx/owlOntology/{name}/version/mapping/{mapID}/dataLineage/{entityID}
       operationId: get__owlOntology_name_version_mapID_entityID_dataLineage
       parameters:
@@ -2696,6 +2848,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{mapID}/dataLineageProperty/{entityID}:
     get:
+      tags:
+        - DataLineage
       summary: GET mwsx/owlOntology/{name}/version/mapping/{mapID}/dataLineageProperty/{entityID}
       operationId: get__owlOntology_name_version_mapID_entityID_dataLineageProperty
       parameters:
@@ -2730,6 +2884,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{mapID}/dataLineageAnnotationProperty:
     get:
+      tags:
+        - DataLineage
       summary: GET mwsx/owlOntology/{name}/version/mapping/{mapID}/dataLineageAnnotationProperty
       operationId: get__owlOntology_name_version_mapID_entityID_dataLineageAnnotationProperty
       parameters:

@@ -1,4 +1,5 @@
 post:
+  tags: [General]
   summary: POST mwsx/knowledgeGraph/prefixes
   operationId: post__knowledgeGraph_prefixes
   parameters:
@@ -23,6 +24,7 @@ post:
           schema: {type: object}
     '401': {description: Unhauthorized}
 get:
+  tags: [General]
   summary: GET mwsx/knowledgeGraph/prefixes
   operationId: get__knowledgeGraph_prefixes
   parameters:

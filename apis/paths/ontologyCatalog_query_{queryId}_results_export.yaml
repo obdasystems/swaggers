@@ -1,4 +1,5 @@
 get:
+  tags: [Query]
   summary: GET mwsx/ontologyCatalog/query/{queryId}/results/export
   operationId: get_ontology_catalog_query_results_export
   parameters:

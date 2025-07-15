@@ -1,4 +1,5 @@
 post:
+  tags: [Actions]
   summary: Schedules a new job in the task scheduler, returns the ID of the scheduled
     job
   operationId: post__task_scheduler_job_entries

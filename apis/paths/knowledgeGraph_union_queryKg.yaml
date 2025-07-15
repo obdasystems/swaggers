@@ -1,4 +1,5 @@
 put:
+  tags: [Union]
   summary: PUT mwsx/knowledgeGraph/union/queryKg
   operationId: patch__knowledgeGraph_union_queryKg
   requestBody:

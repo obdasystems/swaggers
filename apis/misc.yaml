@@ -41,6 +41,8 @@ paths:
     $ref: paths/mastro_instances.yaml
   /lastLoaded/ontology:
     $ref: paths/lastLoaded_ontology.yaml
+  /lastLoaded/knowledgeGraph:
+    $ref: paths/lastLoaded_knowledgeGraph.yaml
   /globalAnnotations:
     $ref: paths/globalAnnotations.yaml
   /globalAnnotation:

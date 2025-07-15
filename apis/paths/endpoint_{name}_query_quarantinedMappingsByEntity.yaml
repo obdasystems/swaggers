@@ -1,4 +1,5 @@
 post:
+  tags: [Query]
   summary: Given a SPARQL query, returns a map with entity as key and a set of quarantined
     mapping identifiers as a value
   operationId: check_query_on_endpoint_for_quarantinedMappings

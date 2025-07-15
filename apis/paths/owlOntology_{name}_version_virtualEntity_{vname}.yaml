@@ -1,4 +1,5 @@
 get:
+  tags: [Persistence]
   summary: Get a virtual entity by name for a given ontology
   operationId: get_virtualEntity
   parameters:
@@ -22,6 +23,7 @@ get:
           schema: {$ref: ../components/schemas/SparqlingVirtualEntity.yaml}
     '401': {description: Unhauthorized}
 delete:
+  tags: [Persistence]
   summary: DELETE a virtual entity by name for a given ontology
   operationId: delete_virtualEntity
   parameters:

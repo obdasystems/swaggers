@@ -1,4 +1,5 @@
 get:
+  tags: [Query]
   summary: GET mwsx/knowledgeGraph/query/catalog
   operationId: get__knowledgeGraph_query_catalog
   parameters:
@@ -14,6 +15,7 @@ get:
           schema: {$ref: ../components/schemas/OBDACatalog.yaml}
     '401': {description: Unhauthorized}
 post:
+  tags: [Query]
   summary: POST mwsx/knowledgeGraph/query/catalog
   operationId: post__knowledgeGraph_query_catalog
   parameters:

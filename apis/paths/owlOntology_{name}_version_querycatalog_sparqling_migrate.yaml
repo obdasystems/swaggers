@@ -1,4 +1,5 @@
 post:
+  tags: [Persistence]
   summary: Migrates a query catalog of SPARQLING queries between two ontology versions
   operationId: post__owlOntology_name_version_querycatalog_sparqling_migrate
   parameters:

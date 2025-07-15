@@ -1,4 +1,5 @@
 get:
+  tags: [FileSystem]
   summary: GET mwsx/knowledgeGraph/folder
   operationId: get__knowledgeGraph_folder
   parameters:

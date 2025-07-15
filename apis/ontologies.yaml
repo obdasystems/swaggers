@@ -86,14 +86,10 @@ paths:
     $ref: paths/owlOntology_{name}_version_graphol.yaml
   /owlOntology/{name}/version/gscape:
     $ref: paths/owlOntology_{name}_version_gscape.yaml
-  /owlOntology/{name}/version/shacl:
-    $ref: paths/owlOntology_{name}_version_shacl.yaml
   /owlOntology/{name}/version/graphol/check:
     $ref: paths/owlOntology_{name}_version_graphol_check.yaml
   /owlOntology/{name}/version/gscape/check:
     $ref: paths/owlOntology_{name}_version_gscape_check.yaml
-  /owlOntology/{name}/version/shacl/check:
-    $ref: paths/owlOntology_{name}_version_shacl_check.yaml
   /owlOntology/{name}/version/owl:
     $ref: paths/owlOntology_{name}_version_owl.yaml
   /owlOntology/{name}/version/alphabet/individual/{ID}/logical:

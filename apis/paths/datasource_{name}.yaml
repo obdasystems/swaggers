@@ -1,4 +1,5 @@
 get:
+  tags: [Persistence]
   summary: Returns the data source information by its name
   operationId: get__datasource
   parameters:
@@ -14,6 +15,7 @@ get:
           schema: {$ref: ../components/schemas/DataSourceInfoEntry.yaml}
     '401': {description: Unhauthorized}
 put:
+  tags: [Persistence]
   summary: Modifies the data source information by its name
   operationId: put__datasource
   parameters:
@@ -34,6 +36,7 @@ put:
           schema: {$ref: ../components/schemas/DataSourceInfoEntry.yaml}
     '401': {description: Unhauthorized}
 delete:
+  tags: [Persistence]
   summary: Deletes a data source information by its name
   operationId: delete__datasource
   parameters:

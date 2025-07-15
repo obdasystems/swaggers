@@ -1,4 +1,5 @@
 post:
+  tags: [Query]
   summary: POST mwsx/ontologyCatalog/sparql11-endpoint/update
   operationId: post_ontology_catalog_sparql11_endpoint_update_form_encoded
   requestBody:

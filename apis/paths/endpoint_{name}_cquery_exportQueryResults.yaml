@@ -1,4 +1,5 @@
 post:
+  tags: [ConstructQuery]
   summary: Starts the export thread for a construct query on the given endpoint, the
     export thread identifier is returned
   operationId: post__owlOntology_name_version_cquery_ID_export_results

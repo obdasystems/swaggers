@@ -1,4 +1,5 @@
 get:
+  tags: [Query]
   summary: Retrieve the results of a SPARQL query
   description: Retrieve the results of a SPARQL query
   operationId: get_ontology_catalog_query_results
@@ -15,7 +16,6 @@ get:
     in: query
     required: false
     schema: {type: integer, format: int32}
-  tags: [Ontology Catalog]
   responses:
     '200':
       description: OK

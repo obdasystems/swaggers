@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  description: This is the API for login using mastro authentication.
+  description: This is the API to obtain the X-MONOLITH-SESSION-ID using mastro authentication.
   version: 1.0.0
   title: Login API
   contact:
@@ -23,6 +23,8 @@ paths:
   /login:
     get:
       summary: REST call for basic authentication, returns the session ID as a response header
+      tags:
+        - authentication
       operationId: get__login
       responses:
         '200':

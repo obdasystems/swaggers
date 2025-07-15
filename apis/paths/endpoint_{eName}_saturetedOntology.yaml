@@ -1,4 +1,5 @@
 post:
+  tags: [Info]
   summary: POST mwsx/endpoint/{eName}/saturetedOntology
   operationId: get__endpoint_ename_saturetedOntology
   parameters:

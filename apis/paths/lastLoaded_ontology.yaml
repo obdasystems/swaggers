@@ -1,4 +1,5 @@
 get:
+  tags: [LastLoaded]
   summary: GET mwsx/lastLoaded/ontology
   operationId: get_lastLoaded_ontology
   responses:

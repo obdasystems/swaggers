@@ -1,4 +1,5 @@
 get:
+  tags: [GlobalAnnotation]
   summary: GET mwsx/globalAnnotations
   operationId: get_global_annotations
   responses:

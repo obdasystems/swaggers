@@ -1,4 +1,5 @@
 post:
+  tags: [Metadata]
   summary: POST mwsx/ontologyCatalog/crossOntologiesMetadata
   operationId: post_cross_ontologies_individuals_metadata
   requestBody:

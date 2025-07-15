@@ -1,4 +1,5 @@
 post:
+  tags: [Execution]
   summary: Starts a new thread of mappings triplification with the given parameters
   operationId: post_mappings_triplification_start
   requestBody:

@@ -1,4 +1,5 @@
 get:
+  tags: [Empties]
   summary: Returns the collection of entities with empty unfolding that are relevant
     for the given endpoint
   operationId: get_endpoint_empty_unfolding_entities

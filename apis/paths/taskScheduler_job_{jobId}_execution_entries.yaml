@@ -1,4 +1,5 @@
 get:
+  tags: [Execution]
   summary: Returns the execution entries of the job ID
   operationId: get__task_scheduler_job_execution_entries
   parameters:

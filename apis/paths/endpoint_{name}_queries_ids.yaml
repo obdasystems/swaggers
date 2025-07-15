@@ -1,4 +1,5 @@
 get:
+  tags: [Query]
   summary: Returns the IDs of queries loaded in the given endpoint
   operationId: list_query_ids_on_endpoint
   parameters:

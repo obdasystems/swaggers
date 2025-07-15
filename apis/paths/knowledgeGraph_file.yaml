@@ -1,4 +1,5 @@
 put:
+  tags: [Persistence]
   summary: PUT mwsx/knowledgeGraph/file
   operationId: patch__knowledgeGraph_file
   requestBody:
@@ -14,6 +15,7 @@ put:
           schema: {type: boolean}
     '401': {description: Unhauthorized}
 delete:
+  tags: [Persistence]
   summary: DELETE mwsx/knowledgeGraph/file
   operationId: delete__knowledgeGraph_file
   responses:
@@ -24,6 +26,7 @@ delete:
           schema: {type: boolean}
     '401': {description: Unhauthorized}
 get:
+  tags: [Persistence]
   summary: GET mwsx/knowledgeGraph/file
   operationId: get__knowledgeGraph_file
   parameters:

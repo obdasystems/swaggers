@@ -1,4 +1,5 @@
 get:
+  tags: [Query]
   summary: Returns the status of a query running on the given endpoint
   operationId: get__owlOntology_name_version_query_ID_status
   parameters:

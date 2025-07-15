@@ -1,4 +1,5 @@
 post:
+  tags: [Metadata]
   summary: 'Adds a new version to the ontology <code>name</code>.<br/> The ''syntax''
     parameter assumes one of the following values: <br/>''MANCHESTER_SYNTAX'', ''FUNCTIONAL_SYNTAX'''
   operationId: post__owlOntology_name_version_metadata_async

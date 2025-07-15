@@ -138,6 +138,8 @@ paths:
           content: {}
   /owlOntology/{name}/highlights/paths/thread/start:
     post:
+      tags:
+        - Highlights
       summary: Start a thread computing a shortest path on the ontology
       operationId: post_shortest_path_thread_start
       parameters:
@@ -177,6 +179,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/highlights/paths/thread/stop:
     post:
+      tags:
+        - Highlights
       summary: Stop the thread computing a shortest path on the ontology
       operationId: post_shortest_path_thread_stop
       parameters:
@@ -206,6 +210,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/highlights/paths/thread/result:
     get:
+      tags:
+        - Highlights
       summary: GET results of a thread computing ontology paths with multi edges over a given ontology
       operationId: get_shortest_path_thread_result
       parameters:
@@ -237,6 +243,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/highlights/paths/thread/state:
     get:
+      tags:
+        - Highlights
       summary: Get the state of the thread computing a shortest path on the ontology
       operationId: get_shortest_path_thread_state
       parameters:
@@ -266,6 +274,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/highlights/paths/thread/error:
     get:
+      tags:
+        - Highlights
       summary: Get the error of a thread computing a shortest path on the ontology
       operationId: get_shortest_path_thread_error
       parameters:
@@ -1552,7 +1562,10 @@ paths:
           content: {}
   /owlOntology/{ontologyName}/instanceShortestPath:
     post:
+      tags:
+        - Construct
       summary: Return the CONSTRUCT query based on the shortest path between an instance and another instance or class
+      operationId: post_owlOntology_instanceShortestPath
       parameters:
         - name: ontologyName
           in: path
@@ -1603,7 +1616,10 @@ paths:
           content: {}
   /owlOntology/{ontologyName}/constructify:
     post:
+      tags:
+        - Construct
       summary: Return the CONSTRUCT query based on this Query Graph.
+      operationId: post_owlOntology_constructify
       parameters:
         - name: ontologyName
           in: path
@@ -1644,8 +1660,9 @@ paths:
   /owlOntology/{ontologyName}/queryGraph/visualize:
     post:
       tags:
-        - VisualizeSPARQL
+        - Visualize
       summary: Convert SPARQL code to a QueryGraph
+      operationId: post__owlOntology_ontologyName_queryGraph_visualize
       parameters:
         - name: ontologyName
           in: path

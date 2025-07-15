@@ -1,4 +1,5 @@
 post:
+  tags: [Persistence]
   summary: Creates a new data source information
   operationId: post__datasource
   parameters:
@@ -23,6 +24,7 @@ post:
           schema: {$ref: ../components/schemas/DataSourceInfoEntry.yaml}
     '401': {description: Unhauthorized}
 get:
+  tags: [Persistence]
   summary: Returns all the data source definitions available
   operationId: get__datasource_list
   responses:
@@ -33,6 +35,7 @@ get:
           schema: {$ref: ../components/schemas/DataSourceInfoEntry.yaml}
     '401': {description: Unhauthorized}
 delete:
+  tags: [Persistence]
   summary: Deletes all the available data source information
   operationId: delete__all_datasource
   responses:

@@ -1,4 +1,5 @@
 post:
+  tags: [CheckSet]
   summary: Imports a data quality check set dump and returns a report of the performed
     operation
   operationId: post_ontologyConstraints_checkSetId_import

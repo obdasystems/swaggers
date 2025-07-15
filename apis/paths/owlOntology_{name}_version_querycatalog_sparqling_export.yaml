@@ -1,4 +1,5 @@
 get:
+  tags: [Persistence]
   summary: Exports the SPARQLING query catalog
   operationId: get__owlOntology_name_version_querycatalog_sparqling_export
   parameters:

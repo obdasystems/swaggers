@@ -1,4 +1,5 @@
 post:
+  tags: [Persistence]
   summary: Adds a new query to the catalog
   operationId: post__owlOntology_name_version_query_ID
   parameters:

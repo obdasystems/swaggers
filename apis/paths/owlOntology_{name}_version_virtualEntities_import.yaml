@@ -1,4 +1,5 @@
 post:
+  tags: [Persistence]
   summary: Upload virtual entities for a given ontology
   operationId: import_virtualEntities
   parameters:

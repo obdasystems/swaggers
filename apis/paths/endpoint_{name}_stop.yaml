@@ -1,4 +1,5 @@
 put:
+  tags: [Status]
   summary: Stops the given endpoint, returns 0 if the stop operation succeeds
   operationId: stop_endpoint
   parameters:

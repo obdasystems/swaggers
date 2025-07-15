@@ -1,4 +1,5 @@
 post:
+  tags: [Query]
   summary: Checks the syntax of the passed query on the given endpoint
   operationId: check_query_on_endpoint
   parameters:

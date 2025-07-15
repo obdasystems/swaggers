@@ -1,4 +1,5 @@
 put:
+  tags: [Metadata]
   summary: Uploads the data source metadata information for the specified datasource
   operationId: put__datasource_uploadMetadata
   parameters:

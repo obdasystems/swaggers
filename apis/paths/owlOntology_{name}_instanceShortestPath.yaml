@@ -1,4 +1,5 @@
 post:
+  tags: [ShortestPaths]
   summary: POST mwsx/owlOntology/{name}/instanceShortestPath
   operationId: instanceShortestPathPost
   parameters:

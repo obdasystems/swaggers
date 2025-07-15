@@ -1,4 +1,5 @@
 post:
+  tags: [Query]
   summary: POST mwsx/knowledgeGraph/query/start
   operationId: post__knowledgeGraph_query_start
   parameters:

@@ -1,4 +1,5 @@
 get:
+  tags: [Start]
   summary: Triplifies the OBDA mapping specification, streaming the produced triples
     to the client
   operationId: get__owlOntology_name_version_query_ID_export_directcsv

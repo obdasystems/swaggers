@@ -1,4 +1,5 @@
 get:
+  tags: [Logout]
   summary: REST call for basic authentication, returns the session ID as a response
     header
   operationId: get__logout

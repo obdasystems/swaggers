@@ -23,6 +23,8 @@ security:
 paths:
   /datasource/{name}:
     get:
+      tags:
+        - Persistence
       summary: Returns the data source information by its name
       operationId: get__datasource
       parameters:
@@ -41,6 +43,8 @@ paths:
         '401':
           description: Unhauthorized
     put:
+      tags:
+        - Persistence
       summary: Modifies the data source information by its name
       operationId: put__datasource
       parameters:
@@ -65,6 +69,8 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Persistence
       summary: Deletes a data source information by its name
       operationId: delete__datasource
       parameters:
@@ -84,6 +90,8 @@ paths:
           description: Unhauthorized
   /datasource/{name}/downloadMetadata:
     get:
+      tags:
+        - Metadata
       summary: Returns the data source information by its name
       operationId: get__datasource_downloadMetadata
       parameters:
@@ -103,6 +111,8 @@ paths:
           description: Unhauthorized
   /datasource/{name}/metadata:
     get:
+      tags:
+        - Metadata
       summary: Returns the data source information by its name
       operationId: get__datasource_metadata
       parameters:
@@ -122,6 +132,8 @@ paths:
           description: Unhauthorized
   /datasource/{name}/updateMetadata:
     put:
+      tags:
+        - Metadata
       summary: Updates the data source metadata information retrieving it from the JDBC connection
       operationId: put__datasource_updateMetadata
       parameters:
@@ -146,6 +158,8 @@ paths:
           description: Unhauthorized
   /datasource/{name}/uploadMetadata:
     put:
+      tags:
+        - Metadata
       summary: Uploads the data source metadata information for the specified datasource
       operationId: put__datasource_uploadMetadata
       parameters:
@@ -171,6 +185,8 @@ paths:
           description: Unhauthorized
   /datasource:
     post:
+      tags:
+        - Persistence
       summary: Creates a new data source information
       operationId: post__datasource
       parameters:
@@ -200,6 +216,8 @@ paths:
         '401':
           description: Unhauthorized
     get:
+      tags:
+        - Persistence
       summary: Returns all the data source definitions available
       operationId: get__datasource_list
       responses:
@@ -212,6 +230,8 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Persistence
       summary: Deletes all the available data source information
       operationId: delete__all_datasource
       responses:
@@ -225,6 +245,8 @@ paths:
           description: Unhauthorized
   /datasource/drivers:
     get:
+      tags:
+        - Drivers
       summary: Returns the list of available JDBC driver class names
       operationId: get__datasource_driver
       responses:
@@ -240,6 +262,8 @@ paths:
           description: Unhauthorized
   /datasource/test:
     post:
+      tags:
+        - Test
       summary: Test a given data source connection
       operationId: testDatasource
       requestBody:
@@ -259,6 +283,8 @@ paths:
           description: Unhauthorized
   /datasource/schemas:
     post:
+      tags:
+        - Metadata
       summary: Returns the list of schema names available at the datasource
       operationId: getDatasourceSchemas
       requestBody:
@@ -280,6 +306,8 @@ paths:
           description: Unhauthorized
   /datasource/{id}/schemas:
     get:
+      tags:
+        - Metadata
       summary: Returns the list of schemas available in the catalog of a given datasource
       operationId: getSchemas
       parameters:
@@ -301,6 +329,8 @@ paths:
           description: Unhauthorized
   /datasource/schema/{schemaName}/tableNames:
     post:
+      tags:
+        - Metadata
       summary: Returns the list of table names available at the datasource within the provided schema name
       operationId: getDatasourceTablesForSchema
       parameters:
@@ -326,6 +356,8 @@ paths:
           description: Unhauthorized
   /datasource/{id}/tables:
     get:
+      tags:
+        - Metadata
       summary: Returns the list of SourceTables available in the catalog of a given datasource
       operationId: getTables
       parameters:
@@ -345,6 +377,8 @@ paths:
           description: Unhauthorized
   /datasource/{id}/tables/results:
     post:
+      tags:
+        - Test
       summary: Returns the preview of a given SQLQuery executed over a given datasource
       operationId: postSQLEx
       parameters:
@@ -376,6 +410,8 @@ paths:
           description: Unhauthorized
   /datasource/{id}/table/{tableName}:
     get:
+      tags:
+        - Metadata
       summary: Returns the source table info available for the table tableName in the catalog of a given datasource
       operationId: getTable
       parameters:

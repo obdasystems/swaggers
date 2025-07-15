@@ -165,8 +165,6 @@ paths:
     $ref: paths/endpoint_{name}_query_count_{queryId}_state.yaml
   /endpoint/{name}/query/count/{queryId}/error:
     $ref: paths/endpoint_{name}_query_count_{queryId}_error.yaml
-  /endpoint/{name}/virtualEntity/{veName}:
-    $ref: paths/endpoint_{name}_virtualEntity_{veName}.yaml
   /endpoint/{eName}/mappingAnalysisReport:
     $ref: paths/endpoint_{eName}_mappingAnalysisReport.yaml
   /endpoint/{eName}/saturetedOntology:

@@ -1,4 +1,5 @@
 post:
+  tags: [Highlights]
   summary: Start a thread computing a shortest path on the ontology
   operationId: post_shortest_path_thread_start
   parameters:

@@ -1,4 +1,5 @@
 get:
+  tags: [Persistence]
   summary: GET mwsx/knowledgeGraphs
   operationId: get__knowledgeGraphs
   responses:
@@ -11,6 +12,7 @@ get:
             items: {$ref: ../components/schemas/KnowledgeGraph.yaml}
     '401': {description: Unhauthorized}
 post:
+  tags: [Persistence]
   summary: POST mwsx/knowledgeGraphs
   operationId: post__knowledgeGraphs
   requestBody:

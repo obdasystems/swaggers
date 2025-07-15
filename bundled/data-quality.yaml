@@ -23,6 +23,8 @@ security:
 paths:
   /owlOntology/{name}/version/ontologyConstraints:
     get:
+      tags:
+        - Constraints
       summary: Returns the available constraints defined over the ontology / version
       operationId: get_ontologyConstraints
       parameters:
@@ -47,6 +49,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/ontologyConstraints/set:
     post:
+      tags:
+        - CheckSet
       summary: Create a new data quality check set
       operationId: post_ontologyConstraints_check_start
       parameters:
@@ -76,6 +80,8 @@ paths:
         '401':
           description: Unhauthorized
     get:
+      tags:
+        - CheckSet
       summary: Returns a list of the check sets available for the ontology / version
       operationId: get_ontologyConstraints_check_sets
       parameters:
@@ -102,6 +108,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/ontologyConstraints/set/{setId}:
     get:
+      tags:
+        - CheckSet
       summary: Returns a check set defined over the ontology / version
       operationId: get_ontologyConstraints_check_set_setId
       parameters:
@@ -130,6 +138,8 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - CheckSet
       summary: Deletes the given check set from
       operationId: delete_ontologyConstraints_check_set_setId
       parameters:
@@ -158,6 +168,8 @@ paths:
         '401':
           description: Unhauthorized
     put:
+      tags:
+        - CheckSet
       summary: Updates the definition of a specific check set
       operationId: put_ontologyConstraints_check
       parameters:
@@ -193,6 +205,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/ontologyConstraints/set/{setId}/start/{endpoint}:
     put:
+      tags:
+        - CheckSet
       summary: Starts a new execution of the given check set over a specific endpoint
       operationId: put_ontologyConstraints_check_start
       parameters:
@@ -248,6 +262,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/ontologyConstraints/set/{setId}/stop:
     put:
+      tags:
+        - CheckSet
       summary: Stops the execution of the thread executing the specific check set
       operationId: put_ontologyConstraints_check_stop
       parameters:
@@ -277,6 +293,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/ontologyConstraints/set/{setId}/removeThread:
     delete:
+      tags:
+        - CheckSet
       summary: Deletes the execution thread of the specified check set from the server
       operationId: delete_ontologyConstraints_check_removeThread
       parameters:
@@ -306,6 +324,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/ontologyConstraints/set/{setId}/status:
     get:
+      tags:
+        - CheckSet
       summary: Returns the running state of the specified check set
       operationId: get_ontologyConstraints_check_status
       parameters:
@@ -335,6 +355,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/ontologyConstraints/sets/running:
     get:
+      tags:
+        - CheckSet
       summary: Returns the identifiers of the currently running check sets
       operationId: get_ontologyConstraints_check_running
       parameters:
@@ -361,6 +383,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/ontologyConstraints/sets/executionLogs:
     get:
+      tags:
+        - CheckSet
       summary: Returns all the execution logs of the given check set
       operationId: get_ontologyConstraints_execution_log
       parameters:
@@ -385,6 +409,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/ontologyConstraints/set/{setId}/executionLog:
     get:
+      tags:
+        - CheckSet
       summary: Returns the execution log of the last execution of the specified check set
       operationId: get_ontologyConstraints_checkSetId_execution_log
       parameters:
@@ -413,6 +439,8 @@ paths:
         '401':
           description: Unhauthorized
     put:
+      tags:
+        - CheckSet
       summary: Returns the execution log of a data quality check set
       operationId: put_ontologyConstraints_checkSetId_execution_timestamps
       parameters:
@@ -442,6 +470,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/ontologyConstraints/set/{setId}/executionLogs/timestamps:
     get:
+      tags:
+        - CheckSet
       summary: Returns a list of the available timestamps for a check set of the given ontology/version
       operationId: get_ontologyConstraints_checkSetId_execution_timestamps
       parameters:
@@ -473,6 +503,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/ontologyConstraints/set/{setId}/executionLogs/timestamp/{timestamp}:
     get:
+      tags:
+        - CheckSet
       summary: Returns the execution log of a check set run at the provided timestamp
       operationId: get_ontologyConstraints_checkSetId_execution_timestamp
       parameters:
@@ -506,6 +538,8 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - CheckSet
       summary: Deletes the execution log of a check set run at the provided timestamp
       operationId: delete_ontologyConstraints_checkSetId_execution_timestamp
       parameters:
@@ -540,6 +574,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/ontologyConstraints/set/{setId}/executionLog/timestamps:
     delete:
+      tags:
+        - CheckSet
       summary: Deletes all the data quality check set execution logs saved on the server for the given ontology/version
       operationId: delete_ontologyConstraints_checkSetId_execution_timestamps
       parameters:
@@ -569,6 +605,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/ontologyConstraints/set/{setId}/dump:
     get:
+      tags:
+        - CheckSet
       summary: Returns the dump of a data quality check set
       operationId: get_ontologyConstraints_checkSetId_export
       parameters:
@@ -598,6 +636,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/ontologyConstraints/sets/dump:
     post:
+      tags:
+        - CheckSet
       summary: Imports a data quality check set dump and returns a report of the performed operation
       operationId: post_ontologyConstraints_checkSetId_import
       parameters:
@@ -629,6 +669,83 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DataQualityCheckSetImportReport'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/shacl:
+    get:
+      tags:
+        - SHACL
+      summary: 'Returns the JSON constraints file of the version ''version'' of the ontology named <code>name</code>.<br/> '
+      operationId: get__owlOntology_name_version_json_constraints
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileInfo'
+        '401':
+          description: Unhauthorized
+    delete:
+      tags:
+        - SHACL
+      summary: 'Deletes the JSON constraints file of the version ''version'' of the ontology named <code>name</code>.<br/> '
+      operationId: delete__owlOntology_name_version_json_constraints
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileInfo'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/shacl/check:
+    get:
+      tags:
+        - SHACL
+      summary: GET mwsx/owlOntology/{name}/version/shacl/check
+      operationId: get__owlOntology_name_version_json_constraints_check
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
         '401':
           description: Unhauthorized
 components:
@@ -1038,3 +1155,13 @@ components:
           $ref: '#/components/schemas/DataQualityCheckSet'
         importReport:
           type: object
+    FileInfo:
+      title: FileInfo
+      type: object
+      properties:
+        fileName:
+          type: string
+        fileType:
+          type: string
+        content:
+          type: string

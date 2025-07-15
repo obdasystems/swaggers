@@ -1,4 +1,5 @@
 get:
+  tags: [Upload]
   summary: GET mwsx/knowledgeGraph/upload/import/thread
   operationId: get__knowledgeGraph_upload_file_csv_import_thread
   parameters:
@@ -22,6 +23,7 @@ get:
           schema: {$ref: ../components/schemas/KgCsvImportReport.yaml}
     '401': {description: Unhauthorized}
 delete:
+  tags: [Upload]
   summary: DELETE mwsx/knowledgeGraph/upload/import/thread
   operationId: delete__knowledgeGraph_upload_file_csv_import_thread
   parameters:

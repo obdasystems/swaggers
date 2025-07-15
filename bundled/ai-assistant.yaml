@@ -23,7 +23,7 @@ paths:
   /ontologyDraft/ai/{name}:
     put:
       tags:
-        - Ontology Designer
+        - Persistence
       summary: Ask for AI support in ontology design.
       operationId: putOntologyDraftAI
       parameters:

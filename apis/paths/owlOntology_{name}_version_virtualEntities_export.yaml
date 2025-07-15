@@ -1,4 +1,5 @@
 get:
+  tags: [Persistence]
   summary: Returns the virtual entities available for a given ontology
   operationId: export_virtualEntities
   parameters:

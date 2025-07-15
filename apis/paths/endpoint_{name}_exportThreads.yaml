@@ -1,4 +1,5 @@
 get:
+  tags: [ExportedQuery]
   summary: Returns the export thread identifiers available on the given endpoint
   operationId: get__owlOntology_name_version_query_ID_export_threads
   parameters:

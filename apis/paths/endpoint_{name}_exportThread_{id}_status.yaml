@@ -1,4 +1,5 @@
 get:
+  tags: [ExportedQuery]
   summary: Returns the status of an export thread running on the given endpoint
   operationId: get__owlOntology_name_version_query_ID_export_thread_id_status
   parameters:

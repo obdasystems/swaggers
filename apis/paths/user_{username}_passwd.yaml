@@ -1,4 +1,5 @@
 put:
+  tags: [User]
   summary: Changes the user password for the user named <code>username</code>
   operationId: put__user_passwd
   parameters:

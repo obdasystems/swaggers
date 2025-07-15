@@ -1,4 +1,5 @@
 get:
+  tags: [CheckSet]
   summary: Returns a list of the available timestamps for a check set of the given
     ontology/version
   operationId: get_ontologyConstraints_checkSetId_execution_timestamps

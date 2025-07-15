@@ -1,4 +1,5 @@
 delete:
+  tags: [Actions]
   summary: Un-schedules and deletes a job in the task scheduler
   operationId: delete__task_scheduler_job_entries
   parameters:
