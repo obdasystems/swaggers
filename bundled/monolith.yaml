@@ -36,8 +36,6 @@ tags:
     x-displayName: Logout
   - name: mastro_ontologies_Persistence
     x-displayName: Persistence
-  - name: mastro_ontologies_FileSystem
-    x-displayName: FileSystem
   - name: mastro_ontologies_Logical
     x-displayName: Logical
   - name: mastro_ontologies_Reasoning
@@ -52,6 +50,8 @@ tags:
     x-displayName: Difference
   - name: mastro_ontologies_Publication
     x-displayName: Publication
+  - name: mastro_ontologies_FileSystem
+    x-displayName: FileSystem
   - name: mastro_mappings_Persistence
     x-displayName: Persistence
   - name: mastro_mappings_Analysis
@@ -450,59 +450,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/FileInfo'
-        '401':
-          description: Unhauthorized
-      security:
-        - apiKey: []
-        - jwt: []
-  /owlOntology/{name}/folder:
-    get:
-      tags:
-        - mastro_ontologies_FileSystem
-      summary: Returns the folder where ontology named <code>name</code> is stored in
-      operationId: get__owlOntology_folder_name
-      parameters:
-        - name: name
-          in: path
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: string
-        '401':
-          description: Unhauthorized
-      security:
-        - apiKey: []
-        - jwt: []
-  /owlOntology/{name}/version/folder:
-    get:
-      tags:
-        - mastro_ontologies_FileSystem
-      summary: Returns the folder where ontology named <code>name</code> is stored in
-      operationId: get__owlOntology_version_folder_name
-      parameters:
-        - name: name
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: version
-          in: query
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: string
         '401':
           description: Unhauthorized
       security:
@@ -1948,6 +1895,59 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PublicationRequests'
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{name}/folder:
+    get:
+      tags:
+        - mastro_ontologies_FileSystem
+      summary: Returns the folder where ontology named <code>name</code> is stored in
+      operationId: get__owlOntology_folder_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{name}/version/folder:
+    get:
+      tags:
+        - mastro_ontologies_FileSystem
+      summary: Returns the folder where ontology named <code>name</code> is stored in
+      operationId: get__owlOntology_version_folder_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
         '401':
           description: Unhauthorized
       security:
@@ -22046,7 +22046,6 @@ x-tagGroups:
       - mastro_authentication_Login
       - mastro_authentication_Logout
       - mastro_ontologies_Persistence
-      - mastro_ontologies_FileSystem
       - mastro_ontologies_Logical
       - mastro_ontologies_Reasoning
       - mastro_ontologies_Upload
@@ -22054,6 +22053,7 @@ x-tagGroups:
       - mastro_ontologies_Visualize
       - mastro_ontologies_Difference
       - mastro_ontologies_Publication
+      - mastro_ontologies_FileSystem
       - mastro_mappings_Persistence
       - mastro_mappings_Analysis
       - mastro_mappings_Test

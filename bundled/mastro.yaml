@@ -28,8 +28,6 @@ tags:
     x-displayName: Logout
   - name: ontologies_Persistence
     x-displayName: Persistence
-  - name: ontologies_FileSystem
-    x-displayName: FileSystem
   - name: ontologies_Logical
     x-displayName: Logical
   - name: ontologies_Reasoning
@@ -44,6 +42,8 @@ tags:
     x-displayName: Difference
   - name: ontologies_Publication
     x-displayName: Publication
+  - name: ontologies_FileSystem
+    x-displayName: FileSystem
   - name: mappings_Persistence
     x-displayName: Persistence
   - name: mappings_Analysis
@@ -438,59 +438,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/FileInfo'
-        '401':
-          description: Unhauthorized
-      security:
-        - apiKey: []
-        - jwt: []
-  /owlOntology/{name}/folder:
-    get:
-      tags:
-        - ontologies_FileSystem
-      summary: Returns the folder where ontology named <code>name</code> is stored in
-      operationId: get__owlOntology_folder_name
-      parameters:
-        - name: name
-          in: path
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: string
-        '401':
-          description: Unhauthorized
-      security:
-        - apiKey: []
-        - jwt: []
-  /owlOntology/{name}/version/folder:
-    get:
-      tags:
-        - ontologies_FileSystem
-      summary: Returns the folder where ontology named <code>name</code> is stored in
-      operationId: get__owlOntology_version_folder_name
-      parameters:
-        - name: name
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: version
-          in: query
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: string
         '401':
           description: Unhauthorized
       security:
@@ -1936,6 +1883,59 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PublicationRequests'
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{name}/folder:
+    get:
+      tags:
+        - ontologies_FileSystem
+      summary: Returns the folder where ontology named <code>name</code> is stored in
+      operationId: get__owlOntology_folder_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{name}/version/folder:
+    get:
+      tags:
+        - ontologies_FileSystem
+      summary: Returns the folder where ontology named <code>name</code> is stored in
+      operationId: get__owlOntology_version_folder_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
         '401':
           description: Unhauthorized
       security:
@@ -21779,7 +21779,6 @@ x-tagGroups:
   - name: Ontology API model
     tags:
       - ontologies_Persistence
-      - ontologies_FileSystem
       - ontologies_Logical
       - ontologies_Reasoning
       - ontologies_Upload
@@ -21787,6 +21786,7 @@ x-tagGroups:
       - ontologies_Visualize
       - ontologies_Difference
       - ontologies_Publication
+      - ontologies_FileSystem
   - name: Mappings API model
     tags:
       - mappings_Persistence

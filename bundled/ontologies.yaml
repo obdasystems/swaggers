@@ -144,53 +144,6 @@ paths:
                 $ref: '#/components/schemas/FileInfo'
         '401':
           description: Unhauthorized
-  /owlOntology/{name}/folder:
-    get:
-      tags:
-        - FileSystem
-      summary: Returns the folder where ontology named <code>name</code> is stored in
-      operationId: get__owlOntology_folder_name
-      parameters:
-        - name: name
-          in: path
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: string
-        '401':
-          description: Unhauthorized
-  /owlOntology/{name}/version/folder:
-    get:
-      tags:
-        - FileSystem
-      summary: Returns the folder where ontology named <code>name</code> is stored in
-      operationId: get__owlOntology_version_folder_name
-      parameters:
-        - name: name
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: version
-          in: query
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: string
-        '401':
-          description: Unhauthorized
   /owlOntology/{name}/version:
     get:
       tags:
@@ -1449,6 +1402,53 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PublicationRequests'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/folder:
+    get:
+      tags:
+        - FileSystem
+      summary: Returns the folder where ontology named <code>name</code> is stored in
+      operationId: get__owlOntology_folder_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/folder:
+    get:
+      tags:
+        - FileSystem
+      summary: Returns the folder where ontology named <code>name</code> is stored in
+      operationId: get__owlOntology_version_folder_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
         '401':
           description: Unhauthorized
 components:
