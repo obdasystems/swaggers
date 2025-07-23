@@ -17,7 +17,7 @@ get:
 post:
   tags: [Persistence]
   summary: Adds a new draft to the list of all ontology drafts
-  operationId: postOntologyDrafts
+  operationId: postOntologyDraft
   parameters:
   - name: ontologyName
     in: path

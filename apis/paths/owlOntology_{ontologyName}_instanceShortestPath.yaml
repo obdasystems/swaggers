@@ -2,7 +2,7 @@ post:
   tags: [Construct]
   summary: Return the CONSTRUCT query based on the shortest path between an instance
     and another instance or class
-  operationId: post_owlOntology_instanceShortestPath
+  operationId: instanceShortestPathPost
   parameters:
   - name: ontologyName
     in: path

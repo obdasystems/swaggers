@@ -26,7 +26,7 @@ paths:
       tags:
         - Persistence
       summary: Returns the virtual entities available for a given ontology
-      operationId: get_virtualEntities
+      operationId: getOwlOntologyNameVersionOntologyVirtualEntities
       parameters:
         - name: name
           in: path
@@ -53,7 +53,7 @@ paths:
       tags:
         - Persistence
       summary: Deletes the virtual entities for a given ontology
-      operationId: delete_virtualEntities
+      operationId: deleteOwlOntologyNameVersionOntologyVirtualEntities
       parameters:
         - name: name
           in: path
@@ -79,7 +79,7 @@ paths:
       tags:
         - Persistence
       summary: Returns the virtual entities available for a given ontology
-      operationId: export_virtualEntities
+      operationId: getOwlOntologyNameVersionOntologyVirtualEntitiesExport
       parameters:
         - name: name
           in: path
@@ -105,7 +105,7 @@ paths:
       tags:
         - Persistence
       summary: Upload virtual entities for a given ontology
-      operationId: import_virtualEntities
+      operationId: postOwlOntologyNameVersionOntologyVirtualEntitiesImport
       parameters:
         - name: name
           in: path
@@ -142,7 +142,7 @@ paths:
       tags:
         - Persistence
       summary: Get a virtual entity by name for a given ontology
-      operationId: get_virtualEntity
+      operationId: getOwlOntologyNameVersionOntologyVirtualEntity
       parameters:
         - name: name
           in: path
@@ -172,7 +172,7 @@ paths:
       tags:
         - Persistence
       summary: DELETE a virtual entity by name for a given ontology
-      operationId: delete_virtualEntity
+      operationId: deleteOwlOntologyNameVersionOntologyVirtualEntity
       parameters:
         - name: name
           in: path
@@ -203,7 +203,7 @@ paths:
       tags:
         - Persistence
       summary: Create a new virtual entity for a given ontology
-      operationId: post_virtualEntity
+      operationId: postOwlOntologyNameVersionOntologyVirtualEntity
       parameters:
         - name: name
           in: path
@@ -234,7 +234,7 @@ paths:
       tags:
         - Persistence
       summary: Overwrite a virtual entity for a given ontology
-      operationId: put_virtualEntity
+      operationId: putOwlOntologyNameVersionOntologyVirtualEntity
       parameters:
         - name: name
           in: path
@@ -266,7 +266,7 @@ paths:
       tags:
         - Persistence
       summary: POST mwsx/owlOntology/{name}/version/virtualEntity/semantics
-      operationId: post_virtualEntity_semantics
+      operationId: postOwlOntologyNameVersionOntologyVirtualEntitySemantics
       parameters:
         - name: name
           in: path
@@ -298,7 +298,7 @@ paths:
       tags:
         - Persistence
       summary: Returns the virtual entity from a given endpoint by its name
-      operationId: get__owlOntology_name_version_endpoint_virtuslEntity_results
+      operationId: get__owlOntology_name_version_endpoint_virtualEntity_results
       parameters:
         - name: name
           in: path

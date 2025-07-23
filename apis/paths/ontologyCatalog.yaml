@@ -2,7 +2,7 @@ post:
   tags: [Persistence]
   summary: Perform an action for ontology to the catalog
   description: Modifies the ontology catalog byacoording to the action provided
-  operationId: editCatalog
+  operationId: post_ontology_catalog
   parameters:
   - name: action
     in: query

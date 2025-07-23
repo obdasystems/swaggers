@@ -1,7 +1,7 @@
 post:
   tags: [Persistence]
   summary: Upload virtual entities for a given ontology
-  operationId: import_virtualEntities
+  operationId: postOwlOntologyNameVersionOntologyVirtualEntitiesImport
   parameters:
   - name: name
     in: path

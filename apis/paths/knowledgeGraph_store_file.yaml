@@ -17,7 +17,7 @@ post:
 get:
   tags: [FileSystem]
   summary: GET mwsx/knowledgeGraph/store/file
-  operationId: get__knowledgeGraph_store_files
+  operationId: get__knowledgeGraph_store_file
   responses:
     '200':
       description: OK

@@ -1,7 +1,7 @@
 get:
   tags: [Persistence]
   summary: Get a virtual entity by name for a given ontology
-  operationId: get_virtualEntity
+  operationId: getOwlOntologyNameVersionOntologyVirtualEntity
   parameters:
   - name: name
     in: path
@@ -25,7 +25,7 @@ get:
 delete:
   tags: [Persistence]
   summary: DELETE a virtual entity by name for a given ontology
-  operationId: delete_virtualEntity
+  operationId: deleteOwlOntologyNameVersionOntologyVirtualEntity
   parameters:
   - name: name
     in: path

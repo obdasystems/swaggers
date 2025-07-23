@@ -1693,7 +1693,7 @@ paths:
       tags:
         - VKG
       summary: Returns the results for a given construct query in tabular format
-      operationId: getRDFGraphConstruct
+      operationId: getOwlOntologyNameVersionConstructQueryIDResultsRdfGraph
       parameters:
         - name: name
           description: Endpoint name

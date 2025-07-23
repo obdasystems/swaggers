@@ -1031,7 +1031,7 @@ paths:
       tags:
         - FileSystem
       summary: GET mwsx/knowledgeGraph/store/file
-      operationId: get__knowledgeGraph_store_files
+      operationId: get__knowledgeGraph_store_file
       responses:
         '200':
           description: OK
@@ -1068,7 +1068,7 @@ paths:
       tags:
         - FileSystem
       summary: GET mwsx/knowledgeGraph/store/file/{name}
-      operationId: get__knowledgeGraph_store_file
+      operationId: get__knowledgeGraph_store_file_name
       parameters:
         - name: name
           in: path

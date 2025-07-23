@@ -17,7 +17,7 @@ delete:
 get:
   tags: [FileSystem]
   summary: GET mwsx/knowledgeGraph/store/file/{name}
-  operationId: get__knowledgeGraph_store_file
+  operationId: get__knowledgeGraph_store_file_name
   parameters:
   - name: name
     in: path

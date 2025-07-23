@@ -1,7 +1,7 @@
 post:
   tags: [Persistence]
   summary: Create a new virtual entity for a given ontology
-  operationId: post_virtualEntity
+  operationId: postOwlOntologyNameVersionOntologyVirtualEntity
   parameters:
   - name: name
     in: path
@@ -26,7 +26,7 @@ post:
 put:
   tags: [Persistence]
   summary: Overwrite a virtual entity for a given ontology
-  operationId: put_virtualEntity
+  operationId: putOwlOntologyNameVersionOntologyVirtualEntity
   parameters:
   - name: name
     in: path

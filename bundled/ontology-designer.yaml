@@ -63,7 +63,7 @@ paths:
       tags:
         - Persistence
       summary: Adds a new draft to the list of all ontology drafts
-      operationId: postOntologyDrafts
+      operationId: postOntologyDraft
       parameters:
         - name: ontologyName
           in: path
@@ -140,7 +140,7 @@ paths:
       tags:
         - Persistence
       summary: Download the ontology draft {ontologyName} converted in OWL2
-      operationId: downloadOntologyDraft
+      operationId: getOntologyDraftDownload
       requestBody:
         content:
           application/json:

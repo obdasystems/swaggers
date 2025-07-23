@@ -1,7 +1,7 @@
 post:
   tags: [Query]
   summary: Starts a SPARQL query over the catalog
-  operationId: startQuery
+  operationId: post_ontology_catalog_query_start
   requestBody:
     content:
       application/json:

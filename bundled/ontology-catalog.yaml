@@ -27,7 +27,7 @@ paths:
         - Persistence
       summary: Perform an action for ontology to the catalog
       description: Modifies the ontology catalog byacoording to the action provided
-      operationId: editCatalog
+      operationId: post_ontology_catalog
       parameters:
         - name: action
           in: query
@@ -84,7 +84,7 @@ paths:
       tags:
         - Query
       summary: Starts a SPARQL query over the catalog
-      operationId: startQuery
+      operationId: post_ontology_catalog_query_start
       requestBody:
         content:
           application/json:
@@ -104,7 +104,7 @@ paths:
       tags:
         - Query
       summary: Stops a SPARQL query over the catalog
-      operationId: stopQuery
+      operationId: put_ontology_catalog_query_stop
       parameters:
         - name: queryID
           in: path
@@ -126,7 +126,7 @@ paths:
         - Query
       summary: Check the status of a SPARQL query
       description: Check the status of a SPARQL query
-      operationId: check_ontology_catalog_query_status
+      operationId: getOntologyCatalogQueryStatus
       parameters:
         - name: queryID
           in: path

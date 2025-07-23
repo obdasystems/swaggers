@@ -2,7 +2,7 @@ get:
   tags: [Query]
   summary: Check the status of a SPARQL query
   description: Check the status of a SPARQL query
-  operationId: check_ontology_catalog_query_status
+  operationId: getOntologyCatalogQueryStatus
   parameters:
   - name: queryID
     in: path

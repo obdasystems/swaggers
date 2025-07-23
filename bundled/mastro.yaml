@@ -7522,7 +7522,7 @@ paths:
       tags:
         - endpoints_VKG
       summary: Returns the results for a given construct query in tabular format
-      operationId: getRDFGraphConstruct
+      operationId: getOwlOntologyNameVersionConstructQueryIDResultsRdfGraph
       parameters:
         - name: name
           description: Endpoint name
@@ -9188,7 +9188,7 @@ paths:
       description: >-
         The results should be based on Dijkstra algorithm for shortest paths.
         ISA wieght is 0 while role weight is 1.
-      operationId: highligthsPaths
+      operationId: highligthsSharedViewsDataProps
       parameters:
         - name: ontologyName
           in: path
@@ -10877,7 +10877,7 @@ paths:
       summary: >-
         Return the CONSTRUCT query based on the shortest path between an
         instance and another instance or class
-      operationId: post_owlOntology_instanceShortestPath
+      operationId: instanceShortestPathPost
       parameters:
         - name: ontologyName
           in: path
@@ -10934,7 +10934,7 @@ paths:
       tags:
         - sparqling_Construct
       summary: Return the CONSTRUCT query based on this Query Graph.
-      operationId: post_owlOntology_constructify
+      operationId: constructifyPost
       parameters:
         - name: ontologyName
           in: path
@@ -10979,8 +10979,8 @@ paths:
     post:
       tags:
         - sparqling_Visualize
+      operationId: visualizePost
       summary: Convert SPARQL code to a QueryGraph
-      operationId: post__owlOntology_ontologyName_queryGraph_visualize
       parameters:
         - name: ontologyName
           in: path
@@ -11304,7 +11304,7 @@ paths:
       tags:
         - virtual-entities_Persistence
       summary: Returns the virtual entities available for a given ontology
-      operationId: get_virtualEntities
+      operationId: getOwlOntologyNameVersionOntologyVirtualEntities
       parameters:
         - name: name
           in: path
@@ -11334,7 +11334,7 @@ paths:
       tags:
         - virtual-entities_Persistence
       summary: Deletes the virtual entities for a given ontology
-      operationId: delete_virtualEntities
+      operationId: deleteOwlOntologyNameVersionOntologyVirtualEntities
       parameters:
         - name: name
           in: path
@@ -11363,7 +11363,7 @@ paths:
       tags:
         - virtual-entities_Persistence
       summary: Returns the virtual entities available for a given ontology
-      operationId: export_virtualEntities
+      operationId: getOwlOntologyNameVersionOntologyVirtualEntitiesExport
       parameters:
         - name: name
           in: path
@@ -11392,7 +11392,7 @@ paths:
       tags:
         - virtual-entities_Persistence
       summary: Upload virtual entities for a given ontology
-      operationId: import_virtualEntities
+      operationId: postOwlOntologyNameVersionOntologyVirtualEntitiesImport
       parameters:
         - name: name
           in: path
@@ -11432,7 +11432,7 @@ paths:
       tags:
         - virtual-entities_Persistence
       summary: Get a virtual entity by name for a given ontology
-      operationId: get_virtualEntity
+      operationId: getOwlOntologyNameVersionOntologyVirtualEntity
       parameters:
         - name: name
           in: path
@@ -11465,7 +11465,7 @@ paths:
       tags:
         - virtual-entities_Persistence
       summary: DELETE a virtual entity by name for a given ontology
-      operationId: delete_virtualEntity
+      operationId: deleteOwlOntologyNameVersionOntologyVirtualEntity
       parameters:
         - name: name
           in: path
@@ -11499,7 +11499,7 @@ paths:
       tags:
         - virtual-entities_Persistence
       summary: Create a new virtual entity for a given ontology
-      operationId: post_virtualEntity
+      operationId: postOwlOntologyNameVersionOntologyVirtualEntity
       parameters:
         - name: name
           in: path
@@ -11533,7 +11533,7 @@ paths:
       tags:
         - virtual-entities_Persistence
       summary: Overwrite a virtual entity for a given ontology
-      operationId: put_virtualEntity
+      operationId: putOwlOntologyNameVersionOntologyVirtualEntity
       parameters:
         - name: name
           in: path
@@ -11568,7 +11568,7 @@ paths:
       tags:
         - virtual-entities_Persistence
       summary: POST mwsx/owlOntology/{name}/version/virtualEntity/semantics
-      operationId: post_virtualEntity_semantics
+      operationId: postOwlOntologyNameVersionOntologyVirtualEntitySemantics
       parameters:
         - name: name
           in: path
@@ -11603,7 +11603,7 @@ paths:
       tags:
         - virtual-entities_Persistence
       summary: Returns the virtual entity from a given endpoint by its name
-      operationId: get__owlOntology_name_version_endpoint_virtuslEntity_results
+      operationId: get__owlOntology_name_version_endpoint_virtualEntity_results
       parameters:
         - name: name
           in: path
@@ -13132,7 +13132,7 @@ paths:
       tags:
         - knowledge-graphs_FileSystem
       summary: GET mwsx/knowledgeGraph/store/file
-      operationId: get__knowledgeGraph_store_files
+      operationId: get__knowledgeGraph_store_file
       responses:
         '200':
           description: OK
@@ -13175,7 +13175,7 @@ paths:
       tags:
         - knowledge-graphs_FileSystem
       summary: GET mwsx/knowledgeGraph/store/file/{name}
-      operationId: get__knowledgeGraph_store_file
+      operationId: get__knowledgeGraph_store_file_name
       parameters:
         - name: name
           in: path
@@ -13675,7 +13675,7 @@ paths:
       tags:
         - ontology-designer_Persistence
       summary: Adds a new draft to the list of all ontology drafts
-      operationId: postOntologyDrafts
+      operationId: postOntologyDraft
       parameters:
         - name: ontologyName
           in: path
@@ -13763,7 +13763,7 @@ paths:
       tags:
         - ontology-designer_Persistence
       summary: Download the ontology draft {ontologyName} converted in OWL2
-      operationId: downloadOntologyDraft
+      operationId: getOntologyDraftDownload
       requestBody:
         content:
           application/json:
@@ -13788,7 +13788,7 @@ paths:
         - ontology-catalog_Persistence
       summary: Perform an action for ontology to the catalog
       description: Modifies the ontology catalog byacoording to the action provided
-      operationId: editCatalog
+      operationId: post_ontology_catalog
       parameters:
         - name: action
           in: query
@@ -13854,7 +13854,7 @@ paths:
       tags:
         - ontology-catalog_Query
       summary: Starts a SPARQL query over the catalog
-      operationId: startQuery
+      operationId: post_ontology_catalog_query_start
       requestBody:
         content:
           application/json:
@@ -13877,7 +13877,7 @@ paths:
       tags:
         - ontology-catalog_Query
       summary: Stops a SPARQL query over the catalog
-      operationId: stopQuery
+      operationId: put_ontology_catalog_query_stop
       parameters:
         - name: queryID
           in: path
@@ -13902,7 +13902,7 @@ paths:
         - ontology-catalog_Query
       summary: Check the status of a SPARQL query
       description: Check the status of a SPARQL query
-      operationId: check_ontology_catalog_query_status
+      operationId: getOntologyCatalogQueryStatus
       parameters:
         - name: queryID
           in: path

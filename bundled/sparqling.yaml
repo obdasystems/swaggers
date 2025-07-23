@@ -90,7 +90,7 @@ paths:
         - OntologyGraph
       summary: Find paths between selected class and clicked class.
       description: The results should be based on Dijkstra algorithm for shortest paths. ISA wieght is 0 while role weight is 1.
-      operationId: highligthsPaths
+      operationId: highligthsSharedViewsDataProps
       parameters:
         - name: ontologyName
           in: path
@@ -1565,7 +1565,7 @@ paths:
       tags:
         - Construct
       summary: Return the CONSTRUCT query based on the shortest path between an instance and another instance or class
-      operationId: post_owlOntology_instanceShortestPath
+      operationId: instanceShortestPathPost
       parameters:
         - name: ontologyName
           in: path
@@ -1619,7 +1619,7 @@ paths:
       tags:
         - Construct
       summary: Return the CONSTRUCT query based on this Query Graph.
-      operationId: post_owlOntology_constructify
+      operationId: constructifyPost
       parameters:
         - name: ontologyName
           in: path
@@ -1661,8 +1661,8 @@ paths:
     post:
       tags:
         - Visualize
+      operationId: visualizePost
       summary: Convert SPARQL code to a QueryGraph
-      operationId: post__owlOntology_ontologyName_queryGraph_visualize
       parameters:
         - name: ontologyName
           in: path

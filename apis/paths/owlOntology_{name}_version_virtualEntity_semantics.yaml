@@ -1,7 +1,7 @@
 post:
   tags: [Persistence]
   summary: POST mwsx/owlOntology/{name}/version/virtualEntity/semantics
-  operationId: post_virtualEntity_semantics
+  operationId: postOwlOntologyNameVersionOntologyVirtualEntitySemantics
   parameters:
   - name: name
     in: path

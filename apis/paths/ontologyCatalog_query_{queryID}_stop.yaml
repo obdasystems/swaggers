@@ -1,7 +1,7 @@
 put:
   tags: [Query]
   summary: Stops a SPARQL query over the catalog
-  operationId: stopQuery
+  operationId: put_ontology_catalog_query_stop
   parameters:
   - name: queryID
     in: path

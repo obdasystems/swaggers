@@ -1,7 +1,7 @@
 post:
   tags: [Construct]
   summary: Return the CONSTRUCT query based on this Query Graph.
-  operationId: post_owlOntology_constructify
+  operationId: constructifyPost
   parameters:
     - name: ontologyName
       in: path
