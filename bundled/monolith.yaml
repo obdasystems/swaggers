@@ -21866,6 +21866,46 @@ components:
           type: string
         startTimeText:
           type: string
+    EndpointMemorySnapshot:
+      title: MemorySnapshot
+      type: object
+      properties:
+        endpointsMemorySnapshot:
+          type: object
+    CacheMemorySnapshot:
+      title: MemorySnapshot
+      type: object
+      properties:
+        cachedTboxes:
+          type: integer
+        cachedOwlOntologies:
+          type: integer
+        cachedClosedOwlOntologies:
+          type: integer
+        cachedMappingManagers:
+          type: integer
+        cachedMastroAPIInstances:
+          type: integer
+        cachedEndpointMastroAPIInstances:
+          type: integer
+        cachedDataQualityCheckThreads:
+          type: integer
+        cachedAnnotationProcessorThreads:
+          type: integer
+        cachedCountEntityInstancesThreads:
+          type: integer
+        cachedMinMaxDataPropertiesThread:
+          type: integer
+        cachedInstanceCheckingThreads:
+          type: integer
+    MemorySnapshot:
+      title: MemorySnapshot
+      type: object
+      properties:
+        endpointMemorySnapshot:
+          $ref: '#/components/schemas/EndpointMemorySnapshot'
+        cacheMemorySnapshot:
+          $ref: '#/components/schemas/CacheMemorySnapshot'
     Snapshot:
       title: Snapshot
       type: object
@@ -21881,6 +21921,8 @@ components:
         currentlyActiveSessionCount:
           type: integer
           format: int32
+        memorySnapshot:
+          $ref: '#/components/schemas/MemorySnapshot'
     MwsxUserLogMessage:
       title: MwsxUserLogMessage
       type: object
