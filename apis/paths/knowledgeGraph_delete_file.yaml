@@ -3,14 +3,22 @@ delete:
   summary: DELETE mwsx/knowledgeGraph/delete/file
   operationId: delete__knowledgeGraph_delete_file
   parameters:
-  - name: iri
-    in: query
-    required: true
-    schema: {type: string}
+    - name: iri
+      in: query
+      required: true
+      schema: { type: string }
+  requestBody:
+    content:
+      application/json:
+        schema:
+          description: List of files to delete
+          type: array
+          items:
+            type: string
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
-          schema: {type: boolean}
-    '401': {description: Unhauthorized}
+          schema: { type: boolean }
+    "401": { description: Unhauthorized }

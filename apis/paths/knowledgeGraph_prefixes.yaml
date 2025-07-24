@@ -14,7 +14,11 @@ post:
   requestBody:
     content:
       application/json:
-        schema: {type: string}
+        schema: 
+          type: object
+          description: Prefixes to be added or updated
+          additionalProperties:
+            type: string
     required: true
   responses:
     '200':

@@ -54,7 +54,11 @@ post:
   requestBody:
     content:
       '*/*':
-        schema: {type: string}
+        schema: 
+          description: Mapping parameters values
+          type: object
+          additionalProperties:
+            type: string
     required: true
   responses:
     '200':

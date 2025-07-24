@@ -3,18 +3,26 @@ delete:
   summary: DELETE mwsx/knowledgeGraph/delete/file/triples
   operationId: delete__knowledgeGraph_delete_file_triples
   parameters:
-  - name: iri
-    in: query
-    required: true
-    schema: {type: string}
-  - name: namedGraph
-    in: query
-    required: true
-    schema: {type: string}
+    - name: iri
+      in: query
+      required: true
+      schema: { type: string }
+    - name: namedGraph
+      in: query
+      required: true
+      schema: { type: string }
+  requestBody:
+    content:
+      application/json:
+        schema:
+          description: List of files to delete triples from
+          type: array
+          items:
+            type: string
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
-          schema: {type: boolean}
-    '401': {description: Unhauthorized}
+          schema: { type: boolean }
+    "401": { description: Unhauthorized }

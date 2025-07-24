@@ -600,7 +600,10 @@ paths:
         content:
           '*/*':
             schema:
-              type: string
+              description: Mapping parameters values
+              type: object
+              additionalProperties:
+                type: string
         required: true
       responses:
         '200':
@@ -1477,7 +1480,10 @@ paths:
         content:
           '*/*':
             schema:
-              type: string
+              description: Mapping parameters values
+              type: object
+              additionalProperties:
+                type: string
         required: true
       responses:
         '200':

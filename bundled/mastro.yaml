@@ -6299,7 +6299,10 @@ paths:
         content:
           '*/*':
             schema:
-              type: string
+              description: Mapping parameters values
+              type: object
+              additionalProperties:
+                type: string
         required: true
       responses:
         '200':
@@ -7279,7 +7282,10 @@ paths:
         content:
           '*/*':
             schema:
-              type: string
+              description: Mapping parameters values
+              type: object
+              additionalProperties:
+                type: string
         required: true
       responses:
         '200':
@@ -12057,6 +12063,12 @@ paths:
         - knowledge-graphs_Persistence
       summary: DELETE mwsx/knowledgeGraph
       operationId: delete__knowledgeGraph
+      parameters:
+        - name: kg
+          in: query
+          required: true
+          schema:
+            type: string
       responses:
         '200':
           description: OK
@@ -12137,7 +12149,10 @@ paths:
         content:
           application/json:
             schema:
-              type: string
+              type: object
+              description: Prefixes to be added or updated
+              additionalProperties:
+                type: string
         required: true
       responses:
         '200':
@@ -12273,6 +12288,11 @@ paths:
         - knowledge-graphs_Persistence
       summary: DELETE mwsx/knowledgeGraph/file
       operationId: delete__knowledgeGraph_file
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KnowledgeGraphFile'
       responses:
         '200':
           description: OK
@@ -13260,6 +13280,14 @@ paths:
           required: true
           schema:
             type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: List of files to delete
+              type: array
+              items:
+                type: string
       responses:
         '200':
           description: OK
@@ -13289,6 +13317,14 @@ paths:
           required: true
           schema:
             type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: List of files to delete triples from
+              type: array
+              items:
+                type: string
       responses:
         '200':
           description: OK
@@ -13307,6 +13343,11 @@ paths:
         - knowledge-graphs_Upload
       summary: DELETE mwsx/knowledgeGraph/upload/remove
       operationId: delete__knowledgeGraph_upload_remove
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KnowledgeGraphFileDestination'
       responses:
         '200':
           description: OK
@@ -13798,6 +13839,13 @@ paths:
             enum:
               - add
               - delete
+        - name: overwrite
+          in: query
+          schema:
+            type: string
+            enum:
+              - 'true'
+              - 'false'
       requestBody:
         content:
           application/json:
@@ -14584,8 +14632,11 @@ paths:
         content:
           application/json:
             schema:
-              type: string
-        required: true
+              description: Mapping parameters values
+              type: object
+              properties:
+                checkId:
+                  type: string
       responses:
         '200':
           description: OK

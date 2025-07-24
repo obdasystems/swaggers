@@ -64,6 +64,12 @@ paths:
         - Persistence
       summary: DELETE mwsx/knowledgeGraph
       operationId: delete__knowledgeGraph
+      parameters:
+        - name: kg
+          in: query
+          required: true
+          schema:
+            type: string
       responses:
         '200':
           description: OK
@@ -135,7 +141,10 @@ paths:
         content:
           application/json:
             schema:
-              type: string
+              type: object
+              description: Prefixes to be added or updated
+              additionalProperties:
+                type: string
         required: true
       responses:
         '200':
@@ -253,6 +262,11 @@ paths:
         - Persistence
       summary: DELETE mwsx/knowledgeGraph/file
       operationId: delete__knowledgeGraph_file
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KnowledgeGraphFile'
       responses:
         '200':
           description: OK
@@ -1144,6 +1158,14 @@ paths:
           required: true
           schema:
             type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: List of files to delete
+              type: array
+              items:
+                type: string
       responses:
         '200':
           description: OK
@@ -1170,6 +1192,14 @@ paths:
           required: true
           schema:
             type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: List of files to delete triples from
+              type: array
+              items:
+                type: string
       responses:
         '200':
           description: OK
@@ -1185,6 +1215,11 @@ paths:
         - Upload
       summary: DELETE mwsx/knowledgeGraph/upload/remove
       operationId: delete__knowledgeGraph_upload_remove
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KnowledgeGraphFileDestination'
       responses:
         '200':
           description: OK

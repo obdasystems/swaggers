@@ -249,8 +249,11 @@ paths:
         content:
           application/json:
             schema:
-              type: string
-        required: true
+              description: Mapping parameters values
+              type: object
+              properties:
+                checkId:
+                  type: string
       responses:
         '200':
           description: OK

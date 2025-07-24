@@ -37,6 +37,13 @@ paths:
             enum:
               - add
               - delete
+        - name: overwrite
+          in: query
+          schema:
+            type: string
+            enum:
+              - 'true'
+              - 'false'
       requestBody:
         content:
           application/json:
