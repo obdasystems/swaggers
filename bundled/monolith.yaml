@@ -19940,6 +19940,28 @@ components:
           type: array
           items:
             type: string
+    GrapholscapeAnnotation:
+      title: GrapholscapeAnnotation
+      type: object
+      required:
+        - value
+        - property
+      properties:
+        lexicalForm:
+          type: string
+          deprecated: true
+          description: Has been renamed to `value`, kept for back-compatibility.
+        value:
+          type: string
+        hasIriValue:
+          type: boolean
+        property:
+          type: string
+          example: rdfs:label
+        language:
+          type: string
+        datatype:
+          type: string
     Theme:
       type: object
       required:
@@ -20125,7 +20147,7 @@ components:
             annotations:
               type: array
               items:
-                $ref: '#/components/schemas/Annotation'
+                $ref: '#/components/schemas/GrapholscapeAnnotation'
             annotationProperties:
               type: array
               items:
