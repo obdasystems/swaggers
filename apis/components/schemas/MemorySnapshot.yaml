@@ -1,0 +1,7 @@
+title: MemorySnapshot
+type: object
+properties:
+  endpointMemorySnapshot:
+    $ref: ./EndpointMemorySnapshot.yaml
+  cacheMemorySnapshot:
+    $ref: ./CacheMemorySnapshot.yaml
