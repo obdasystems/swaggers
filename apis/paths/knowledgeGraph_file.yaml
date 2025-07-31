@@ -18,10 +18,6 @@ delete:
   tags: [Persistence]
   summary: DELETE mwsx/knowledgeGraph/file
   operationId: delete__knowledgeGraph_file
-  requestBody:
-    content:
-      application/json:
-        schema: { $ref: ../components/schemas/KnowledgeGraphFile.yaml }
   responses:
     "200":
       description: OK

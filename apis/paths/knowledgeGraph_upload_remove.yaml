@@ -2,11 +2,6 @@ delete:
   tags: [Upload]
   summary: DELETE mwsx/knowledgeGraph/upload/remove
   operationId: delete__knowledgeGraph_upload_remove
-  requestBody:
-    content:
-      application/json:
-        schema:
-          { $ref: ../components/schemas/KnowledgeGraphFileDestination.yaml }
   responses:
     "200":
       description: OK

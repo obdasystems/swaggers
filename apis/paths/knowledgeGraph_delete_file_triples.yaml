@@ -11,14 +11,6 @@ delete:
       in: query
       required: true
       schema: { type: string }
-  requestBody:
-    content:
-      application/json:
-        schema:
-          description: List of files to delete triples from
-          type: array
-          items:
-            type: string
   responses:
     "200":
       description: OK
