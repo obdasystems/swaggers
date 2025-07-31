@@ -12300,11 +12300,6 @@ paths:
         - mastro_knowledge-graphs_Persistence
       summary: DELETE mwsx/knowledgeGraph/file
       operationId: delete__knowledgeGraph_file
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/KnowledgeGraphFile'
       responses:
         '200':
           description: OK
@@ -13292,14 +13287,6 @@ paths:
           required: true
           schema:
             type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              description: List of files to delete
-              type: array
-              items:
-                type: string
       responses:
         '200':
           description: OK
@@ -13329,14 +13316,6 @@ paths:
           required: true
           schema:
             type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              description: List of files to delete triples from
-              type: array
-              items:
-                type: string
       responses:
         '200':
           description: OK
@@ -13355,11 +13334,6 @@ paths:
         - mastro_knowledge-graphs_Upload
       summary: DELETE mwsx/knowledgeGraph/upload/remove
       operationId: delete__knowledgeGraph_upload_remove
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/KnowledgeGraphFileDestination'
       responses:
         '200':
           description: OK
