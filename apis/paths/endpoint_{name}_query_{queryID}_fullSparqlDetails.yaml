@@ -16,5 +16,5 @@ get:
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/FullSparqlQueryReport.yaml}
+          schema: {$ref: ../components/schemas/MWSXFullSparqlQueryReport.yaml}
     '401': {description: Unhauthorized}

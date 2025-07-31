@@ -6,13 +6,13 @@ properties:
   foreignKeys:
     type: array
     items:
-      $ref: ./DataSourceForeignKeyMetadata.yaml
+      $ref: ./MWSXDataSourceForeignKeyMetadata.yaml
   columns:
     type: array
     items:
-      $ref: ./DataSourceTableColumnMetadata.yaml
+      $ref: ./MWSXDataSourceTableColumnMetadata.yaml
   keys:
-    $ref: ./DataSourceKeyMetadata.yaml
+    $ref: ./MWSXDataSourceKeyMetadata.yaml
   name:
     type: string
   schemaName:

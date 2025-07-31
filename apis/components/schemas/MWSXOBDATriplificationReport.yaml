@@ -1,0 +1,11 @@
+title: OBDATriplificationReport
+type: object
+properties:
+  request:
+    $ref: ./MWSXOBDATriplificationRequest.yaml
+  progress:
+    $ref: ./MWSXOBDATriplificationProgress.yaml
+  details:
+    type: object
+    additionalProperties:
+      $ref: ./MWSXOBDATriplificationMappingReport.yaml

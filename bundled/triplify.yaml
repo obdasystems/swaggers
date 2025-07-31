@@ -31,7 +31,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/OBDATriplificationRequest'
+              $ref: '#/components/schemas/MWSXOBDATriplificationRequest'
         required: true
       responses:
         '200':
@@ -105,7 +105,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/OBDATriplificationProgress'
+                  $ref: '#/components/schemas/MWSXOBDATriplificationProgress'
         '401':
           description: Unhauthorized
   /triplify/stopAll:
@@ -179,7 +179,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OBDATriplificationProgress'
+                $ref: '#/components/schemas/MWSXOBDATriplificationProgress'
         '401':
           description: Unhauthorized
   /triplify/{threadID}/report:
@@ -200,7 +200,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OBDATriplificationReport'
+                $ref: '#/components/schemas/MWSXOBDATriplificationReport'
         '401':
           description: Unhauthorized
   /triplify/{threadID}/download:
@@ -287,7 +287,7 @@ components:
       scheme: bearer
       bearerFormat: JWT
   schemas:
-    OBDATriplificationRequest:
+    MWSXOBDATriplificationRequest:
       title: OBDATriplificationRequest
       type: object
       properties:
@@ -309,7 +309,7 @@ components:
           type: string
         dataSource:
           type: string
-    OBDATriplificationProgress:
+    MWSXOBDATriplificationProgress:
       title: OBDATriplificationProgress
       type: object
       properties:
@@ -326,7 +326,7 @@ components:
           format: int64
         status:
           type: string
-    OBDATriplificationMappingReport:
+    MWSXOBDATriplificationMappingReport:
       title: OBDATriplificationMappingReport
       type: object
       properties:
@@ -348,15 +348,15 @@ components:
         elapsedTime:
           type: integer
           format: int64
-    OBDATriplificationReport:
+    MWSXOBDATriplificationReport:
       title: OBDATriplificationReport
       type: object
       properties:
         request:
-          $ref: '#/components/schemas/OBDATriplificationRequest'
+          $ref: '#/components/schemas/MWSXOBDATriplificationRequest'
         progress:
-          $ref: '#/components/schemas/OBDATriplificationProgress'
+          $ref: '#/components/schemas/MWSXOBDATriplificationProgress'
         details:
           type: object
           additionalProperties:
-            $ref: '#/components/schemas/OBDATriplificationMappingReport'
+            $ref: '#/components/schemas/MWSXOBDATriplificationMappingReport'

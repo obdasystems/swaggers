@@ -69,7 +69,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OntologyCatalogEntries'
+                $ref: '#/components/schemas/MWSXOntologyCatalogEntries'
         '401':
           description: Unhauthorized
     delete:
@@ -198,6 +198,22 @@ components:
       scheme: bearer
       bearerFormat: JWT
   schemas:
+    MWSXOntologyCatalogEntry:
+      title: OntologyCatalogEntry
+      type: object
+      properties:
+        ontologyVersion:
+          type: string
+        ontologyName:
+          type: string
+    MWSXOntologyCatalogEntries:
+      title: OntologyCatalogEntries
+      type: object
+      properties:
+        entries:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/MWSXOntologyCatalogEntry'
     OntologyID:
       title: OntologyID
       type: object
@@ -206,14 +222,6 @@ components:
           type: string
         ontologyName:
           type: string
-    OntologyCatalogEntries:
-      title: OntologyCatalogEntries
-      type: object
-      properties:
-        entries:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/OntologyID'
     ChartConfiguration:
       title: ChartConfiguration
       type: object
@@ -241,7 +249,7 @@ components:
           type: string
         description:
           type: string
-    VirtualEntityQueryInfos:
+    MWSXVirtualEntityQueryInfos:
       title: VirtualEntityQueryInfos
       type: object
       properties:
@@ -288,7 +296,7 @@ components:
         constructResultsRDFSyntax:
           type: string
         virtualEntityQueryInfos:
-          $ref: '#/components/schemas/VirtualEntityQueryInfos'
+          $ref: '#/components/schemas/MWSXVirtualEntityQueryInfos'
     SPARQLQueryExecution:
       title: SPARQLQueryExecution
       type: object

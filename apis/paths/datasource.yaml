@@ -14,14 +14,14 @@ post:
   requestBody:
     content:
       application/json:
-        schema: {$ref: ../components/schemas/DataSourceInfoEntry.yaml}
+        schema: {$ref: ../components/schemas/MWSXDataSourceInfoEntry.yaml}
     required: true
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/DataSourceInfoEntry.yaml}
+          schema: {$ref: ../components/schemas/MWSXDataSourceInfoEntry.yaml}
     '401': {description: Unhauthorized}
 get:
   tags: [Persistence]
@@ -32,7 +32,7 @@ get:
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/DataSourceInfoEntry.yaml}
+          schema: {$ref: ../components/schemas/MWSXDataSourceInfoEntry.yaml}
     '401': {description: Unhauthorized}
 delete:
   tags: [Persistence]
@@ -43,5 +43,5 @@ delete:
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/DataSourceInfoEntry.yaml}
+          schema: {$ref: ../components/schemas/MWSXDataSourceInfoEntry.yaml}
     '401': {description: Unhauthorized}

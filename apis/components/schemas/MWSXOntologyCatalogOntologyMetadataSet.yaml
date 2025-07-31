@@ -3,4 +3,4 @@ properties:
   metadataTriples:
     type: array
     items:
-      $ref: ./MetadataTriple.yaml
+      $ref: ./MWSXMetadataTriple.yaml

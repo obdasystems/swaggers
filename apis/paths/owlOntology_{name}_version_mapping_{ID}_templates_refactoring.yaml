@@ -19,7 +19,7 @@ put:
   requestBody:
     content:
       application/json:
-        schema: {$ref: ../components/schemas/TemplateRefactoring.yaml}
+        schema: {$ref: ../components/schemas/MWSXTemplateRefactoring.yaml}
     required: true
   responses:
     '200':

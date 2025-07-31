@@ -638,7 +638,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/TemplateRefactoring'
+              $ref: '#/components/schemas/MWSXTemplateRefactoring'
         required: true
       responses:
         '200':
@@ -1152,7 +1152,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ViewRefactoring'
+              $ref: '#/components/schemas/MWSXViewRefactoring'
         required: true
       responses:
         '200':
@@ -1160,7 +1160,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ViewRefactoringAnalysis'
+                $ref: '#/components/schemas/MWSXViewRefactoringAnalysis'
         '401':
           description: Unhauthorized
     put:
@@ -1188,7 +1188,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/MappingViewAtomRefactoringList'
+              $ref: '#/components/schemas/MWSXMappingViewAtomRefactoringList'
         required: true
       responses:
         '200':
@@ -1442,7 +1442,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AnnotationProcessorConfig'
+              $ref: '#/components/schemas/MWSXAnnotationProcessorConfig'
         required: true
       responses:
         '200':
@@ -2233,7 +2233,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/MappingParameter'
+              $ref: '#/components/schemas/MWSXMappingParameter'
         required: true
       responses:
         '200':
@@ -2241,7 +2241,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MappingParameter'
+                $ref: '#/components/schemas/MWSXMappingParameter'
         '401':
           description: Unhauthorized
     put:
@@ -2269,7 +2269,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/MappingParameter'
+              $ref: '#/components/schemas/MWSXMappingParameter'
         required: true
       responses:
         '200':
@@ -2277,7 +2277,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MappingParameter'
+                $ref: '#/components/schemas/MWSXMappingParameter'
         '401':
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/parameters:
@@ -2308,7 +2308,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MappingParameters'
+                $ref: '#/components/schemas/MWSXMappingParameters'
         '401':
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}:
@@ -2344,7 +2344,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MappingParameter'
+                $ref: '#/components/schemas/MWSXMappingParameter'
         '401':
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/parameters:
@@ -3123,7 +3123,7 @@ components:
         countAnnotations:
           type: integer
           format: int32
-    TemplateRefactoring:
+    MWSXTemplateRefactoring:
       title: TemplateRefactoring
       type: object
       properties:
@@ -3247,7 +3247,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SQLView'
-    TermDisplacement:
+    MWSXTermDisplacement:
       title: TermDisplacement
       type: object
       properties:
@@ -3257,7 +3257,7 @@ components:
         oldPosition:
           type: integer
           format: int32
-    MappingViewAtomRefactoring:
+    MWSXMappingViewAtomRefactoring:
       title: MappingViewAtomRefactoring
       type: object
       properties:
@@ -3272,11 +3272,11 @@ components:
         keptTerms:
           type: object
           additionalProperties:
-            $ref: '#/components/schemas/TermDisplacement'
+            $ref: '#/components/schemas/MWSXTermDisplacement'
         addedTerms:
           type: object
           additionalProperties:
-            $ref: '#/components/schemas/TermDisplacement'
+            $ref: '#/components/schemas/MWSXTermDisplacement'
         newSignature:
           type: array
           items:
@@ -3284,10 +3284,10 @@ components:
         removedTerms:
           type: object
           additionalProperties:
-            $ref: '#/components/schemas/TermDisplacement'
+            $ref: '#/components/schemas/MWSXTermDisplacement'
         newDescription:
           type: string
-    MappingViewAtomRefactoringList:
+    MWSXMappingViewAtomRefactoringList:
       title: MappingViewAtomRefactoringList
       type: object
       properties:
@@ -3296,7 +3296,7 @@ components:
           items:
             type: string
         refactoring:
-          $ref: '#/components/schemas/MappingViewAtomRefactoring'
+          $ref: '#/components/schemas/MWSXMappingViewAtomRefactoring'
         keyIds:
           type: array
           items:
@@ -3309,7 +3309,7 @@ components:
           type: array
           items:
             type: string
-    ViewRefactoring:
+    MWSXViewRefactoring:
       title: ViewRefactoring
       type: object
       properties:
@@ -3319,7 +3319,7 @@ components:
           type: string
         newDescription:
           type: string
-    ViewRefactoringSafenessOutcome:
+    MWSXViewRefactoringSafenessOutcome:
       title: ViewRefactoringSafenessOutcome
       type: object
       properties:
@@ -3329,12 +3329,12 @@ components:
             type: string
         safe:
           type: boolean
-    ViewRefactoringAnalysis:
+    MWSXViewRefactoringAnalysis:
       title: ViewRefactoringAnalysis
       type: object
       properties:
         refactoring:
-          $ref: '#/components/schemas/MappingViewAtomRefactoring'
+          $ref: '#/components/schemas/MWSXMappingViewAtomRefactoring'
         invalidatedInclusionDependency:
           type: array
           items:
@@ -3342,7 +3342,7 @@ components:
         safenessAnalisys:
           type: object
           additionalProperties:
-            $ref: '#/components/schemas/ViewRefactoringSafenessOutcome'
+            $ref: '#/components/schemas/MWSXViewRefactoringSafenessOutcome'
         unsafeDenialConstraints:
           type: array
           items:
@@ -3475,7 +3475,7 @@ components:
           type: string
         annotationValueLang:
           type: string
-    AnnotationProcessorConfig:
+    MWSXAnnotationProcessorConfig:
       title: AnnotationProcessorConfig
       type: object
       properties:
@@ -3491,7 +3491,7 @@ components:
             type: string
         ontologyIri:
           type: string
-    MappingParameter:
+    MWSXMappingParameter:
       title: MappingParameter
       type: object
       properties:
@@ -3501,14 +3501,14 @@ components:
           type: string
         paramDefaultValue:
           type: string
-    MappingParameters:
+    MWSXMappingParameters:
       title: MappingParameters
       type: object
       properties:
         mappingParameters:
           type: array
           items:
-            $ref: '#/components/schemas/MappingParameter'
+            $ref: '#/components/schemas/MWSXMappingParameter'
     SQLQuery:
       title: SQLQuery
       type: object

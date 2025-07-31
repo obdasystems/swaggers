@@ -564,7 +564,7 @@ components:
           type: string
         description:
           type: string
-    VirtualEntityQueryInfos:
+    MWSXVirtualEntityQueryInfos:
       title: VirtualEntityQueryInfos
       type: object
       properties:
@@ -611,7 +611,7 @@ components:
         constructResultsRDFSyntax:
           type: string
         virtualEntityQueryInfos:
-          $ref: '#/components/schemas/VirtualEntityQueryInfos'
+          $ref: '#/components/schemas/MWSXVirtualEntityQueryInfos'
     SparqlingSPARQLQuery:
       title: SparqlingSPARQLQuery
       type: object
@@ -622,7 +622,7 @@ components:
           $ref: '#/components/schemas/SPARQLQuery'
         user:
           type: string
-    VirtualEntityField:
+    MWSXVirtualEntityField:
       title: VirtualEntityField
       type: object
       properties:
@@ -634,14 +634,14 @@ components:
           type: boolean
         fieldType:
           type: string
-    VirtualEntity:
+    MWSXVirtualEntity:
       title: VirtualEntity
       type: object
       properties:
         signature:
           type: array
           items:
-            $ref: '#/components/schemas/VirtualEntityField'
+            $ref: '#/components/schemas/MWSXVirtualEntityField'
         name:
           type: string
         description:
@@ -657,7 +657,7 @@ components:
         sparqlingSPARQLQuery:
           $ref: '#/components/schemas/SparqlingSPARQLQuery'
         entity:
-          $ref: '#/components/schemas/VirtualEntity'
+          $ref: '#/components/schemas/MWSXVirtualEntity'
     SparqlingVirtualEntities:
       title: SparqlingVirtualEntities
       type: object

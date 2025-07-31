@@ -28,7 +28,7 @@ properties:
   ontologyName:
     type: string
   datasourceInfo:
-    $ref: ./DataSourceInfoEntry.yaml
+    $ref: ./MWSXDataSourceInfoEntry.yaml
   mappingFileContent:
     type: string
   datasourceName:

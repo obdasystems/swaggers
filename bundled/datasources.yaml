@@ -39,7 +39,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DataSourceInfoEntry'
+                $ref: '#/components/schemas/MWSXDataSourceInfoEntry'
         '401':
           description: Unhauthorized
     put:
@@ -57,7 +57,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DataSourceInfoEntry'
+              $ref: '#/components/schemas/MWSXDataSourceInfoEntry'
         required: true
       responses:
         '200':
@@ -65,7 +65,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DataSourceInfoEntry'
+                $ref: '#/components/schemas/MWSXDataSourceInfoEntry'
         '401':
           description: Unhauthorized
     delete:
@@ -85,7 +85,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DataSourceInfoEntry'
+                $ref: '#/components/schemas/MWSXDataSourceInfoEntry'
         '401':
           description: Unhauthorized
   /datasource/{name}/downloadMetadata:
@@ -127,7 +127,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DataSourceMetadata'
+                $ref: '#/components/schemas/MWSXDataSourceMetadata'
         '401':
           description: Unhauthorized
   /datasource/{name}/updateMetadata:
@@ -153,7 +153,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DataSourceMetadata'
+                $ref: '#/components/schemas/MWSXDataSourceMetadata'
         '401':
           description: Unhauthorized
   /datasource/{name}/uploadMetadata:
@@ -172,7 +172,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DataSourceMetadata'
+              $ref: '#/components/schemas/MWSXDataSourceMetadata'
         required: true
       responses:
         '200':
@@ -180,7 +180,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DataSourceMetadata'
+                $ref: '#/components/schemas/MWSXDataSourceMetadata'
         '401':
           description: Unhauthorized
   /datasource:
@@ -204,7 +204,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DataSourceInfoEntry'
+              $ref: '#/components/schemas/MWSXDataSourceInfoEntry'
         required: true
       responses:
         '200':
@@ -212,7 +212,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DataSourceInfoEntry'
+                $ref: '#/components/schemas/MWSXDataSourceInfoEntry'
         '401':
           description: Unhauthorized
     get:
@@ -226,7 +226,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DataSourceInfoEntry'
+                $ref: '#/components/schemas/MWSXDataSourceInfoEntry'
         '401':
           description: Unhauthorized
     delete:
@@ -240,7 +240,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DataSourceInfoEntry'
+                $ref: '#/components/schemas/MWSXDataSourceInfoEntry'
         '401':
           description: Unhauthorized
   /datasource/drivers:
@@ -270,7 +270,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DataSourceInfoEntry'
+              $ref: '#/components/schemas/MWSXDataSourceInfoEntry'
         required: true
       responses:
         '200':
@@ -291,7 +291,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DataSourceInfoEntry'
+              $ref: '#/components/schemas/MWSXDataSourceInfoEntry'
         required: true
       responses:
         '200':
@@ -343,7 +343,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DataSourceInfoEntry'
+              $ref: '#/components/schemas/MWSXDataSourceInfoEntry'
         required: true
       responses:
         '200':
@@ -449,7 +449,7 @@ components:
       scheme: bearer
       bearerFormat: JWT
   schemas:
-    DataSourceInfoEntry:
+    MWSXDataSourceInfoEntry:
       title: DataSourceInfoEntry
       type: object
       properties:
@@ -479,7 +479,7 @@ components:
           type: string
         content:
           type: string
-    DataSourceColumnReference:
+    MWSXDataSourceColumnReference:
       title: DataSourceColumnReference
       type: object
       properties:
@@ -487,15 +487,15 @@ components:
           type: string
         columnName:
           type: string
-    DataSourceForeignKeyMetadata:
+    MWSXDataSourceForeignKeyMetadata:
       title: DataSourceForeignKeyMetadata
       type: object
       properties:
         references:
           type: object
           additionalProperties:
-            $ref: '#/components/schemas/DataSourceColumnReference'
-    DataSourceTableColumnMetadata:
+            $ref: '#/components/schemas/MWSXDataSourceColumnReference'
+    MWSXDataSourceTableColumnMetadata:
       title: DataSourceTableColumnMetadata
       type: object
       properties:
@@ -519,7 +519,7 @@ components:
         ordinalPosition:
           type: integer
           format: int32
-    DataSourceKeyMetadata:
+    MWSXDataSourceKeyMetadata:
       title: DataSourceKeyMetadata
       type: object
       properties:
@@ -535,7 +535,7 @@ components:
             type: integer
         tableName:
           type: string
-    DataSourceTableMetadata:
+    MWSXDataSourceTableMetadata:
       title: DataSourceTableMetadata
       type: object
       properties:
@@ -544,30 +544,30 @@ components:
         foreignKeys:
           type: array
           items:
-            $ref: '#/components/schemas/DataSourceForeignKeyMetadata'
+            $ref: '#/components/schemas/MWSXDataSourceForeignKeyMetadata'
         columns:
           type: array
           items:
-            $ref: '#/components/schemas/DataSourceTableColumnMetadata'
+            $ref: '#/components/schemas/MWSXDataSourceTableColumnMetadata'
         keys:
-          $ref: '#/components/schemas/DataSourceKeyMetadata'
+          $ref: '#/components/schemas/MWSXDataSourceKeyMetadata'
         name:
           type: string
         schemaName:
           type: string
-    DataSourceSchemaMetadata:
+    MWSXDataSourceSchemaMetadata:
       title: DataSourceSchemaMetadata
       type: object
       properties:
         tables:
           type: object
           additionalProperties:
-            $ref: '#/components/schemas/DataSourceTableMetadata'
+            $ref: '#/components/schemas/MWSXDataSourceTableMetadata'
         views:
           type: object
           additionalProperties:
-            $ref: '#/components/schemas/DataSourceTableMetadata'
-    DataSourceMetadata:
+            $ref: '#/components/schemas/MWSXDataSourceTableMetadata'
+    MWSXDataSourceMetadata:
       title: DataSourceMetadata
       type: object
       properties:
@@ -580,13 +580,13 @@ components:
         schemaMetadata:
           type: object
           additionalProperties:
-            $ref: '#/components/schemas/DataSourceSchemaMetadata'
+            $ref: '#/components/schemas/MWSXDataSourceSchemaMetadata'
         DEFAULT_SCHEMA_NAME:
           type: string
         dataSourceName:
           type: string
         info:
-          $ref: '#/components/schemas/DataSourceInfoEntry'
+          $ref: '#/components/schemas/MWSXDataSourceInfoEntry'
     SourceTableInfo:
       title: SourceTableInfo
       type: object

@@ -4,4 +4,4 @@ properties:
   mappingParameters:
     type: array
     items:
-      $ref: ./MappingParameter.yaml
+      $ref: ./MWSXMappingParameter.yaml

@@ -760,7 +760,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OWLGraphDeductiveClosureReport'
+                $ref: '#/components/schemas/MWSXOWLGraphDeductiveClosureReport'
         '401':
           description: Unhauthorized
       security:
@@ -932,7 +932,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/OntologyCatalogOntologyMetadataSet'
+              $ref: '#/components/schemas/MWSXOntologyCatalogOntologyMetadataSet'
         required: true
       responses:
         '200':
@@ -1804,7 +1804,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OntologyDifference'
+                $ref: '#/components/schemas/MWSXOntologyDifference'
         '401':
           description: Unhauthorized
       security:
@@ -1833,7 +1833,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OntologyCatalogOntologyMetadataSet'
+                $ref: '#/components/schemas/MWSXOntologyCatalogOntologyMetadataSet'
         '401':
           description: Unhauthorized
       security:
@@ -1862,7 +1862,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OntologyCatalogOntologyMetadataSet'
+                $ref: '#/components/schemas/MWSXOntologyCatalogOntologyMetadataSet'
         '401':
           description: Unhauthorized
       security:
@@ -2615,7 +2615,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/TemplateRefactoring'
+              $ref: '#/components/schemas/MWSXTemplateRefactoring'
         required: true
       responses:
         '200':
@@ -3179,7 +3179,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ViewRefactoring'
+              $ref: '#/components/schemas/MWSXViewRefactoring'
         required: true
       responses:
         '200':
@@ -3187,7 +3187,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ViewRefactoringAnalysis'
+                $ref: '#/components/schemas/MWSXViewRefactoringAnalysis'
         '401':
           description: Unhauthorized
       security:
@@ -3218,7 +3218,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/MappingViewAtomRefactoringList'
+              $ref: '#/components/schemas/MWSXMappingViewAtomRefactoringList'
         required: true
       responses:
         '200':
@@ -3496,7 +3496,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AnnotationProcessorConfig'
+              $ref: '#/components/schemas/MWSXAnnotationProcessorConfig'
         required: true
       responses:
         '200':
@@ -4388,7 +4388,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/MappingParameter'
+              $ref: '#/components/schemas/MWSXMappingParameter'
         required: true
       responses:
         '200':
@@ -4396,7 +4396,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MappingParameter'
+                $ref: '#/components/schemas/MWSXMappingParameter'
         '401':
           description: Unhauthorized
       security:
@@ -4427,7 +4427,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/MappingParameter'
+              $ref: '#/components/schemas/MWSXMappingParameter'
         required: true
       responses:
         '200':
@@ -4435,7 +4435,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MappingParameter'
+                $ref: '#/components/schemas/MWSXMappingParameter'
         '401':
           description: Unhauthorized
       security:
@@ -4469,7 +4469,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MappingParameters'
+                $ref: '#/components/schemas/MWSXMappingParameters'
         '401':
           description: Unhauthorized
       security:
@@ -4510,7 +4510,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MappingParameter'
+                $ref: '#/components/schemas/MWSXMappingParameter'
         '401':
           description: Unhauthorized
       security:
@@ -5179,7 +5179,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DataSourceInfoEntry'
+                $ref: '#/components/schemas/MWSXDataSourceInfoEntry'
         '401':
           description: Unhauthorized
       security:
@@ -5200,7 +5200,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DataSourceInfoEntry'
+              $ref: '#/components/schemas/MWSXDataSourceInfoEntry'
         required: true
       responses:
         '200':
@@ -5208,7 +5208,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DataSourceInfoEntry'
+                $ref: '#/components/schemas/MWSXDataSourceInfoEntry'
         '401':
           description: Unhauthorized
       security:
@@ -5231,7 +5231,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DataSourceInfoEntry'
+                $ref: '#/components/schemas/MWSXDataSourceInfoEntry'
         '401':
           description: Unhauthorized
       security:
@@ -5279,7 +5279,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DataSourceMetadata'
+                $ref: '#/components/schemas/MWSXDataSourceMetadata'
         '401':
           description: Unhauthorized
       security:
@@ -5310,7 +5310,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DataSourceMetadata'
+                $ref: '#/components/schemas/MWSXDataSourceMetadata'
         '401':
           description: Unhauthorized
       security:
@@ -5334,7 +5334,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DataSourceMetadata'
+              $ref: '#/components/schemas/MWSXDataSourceMetadata'
         required: true
       responses:
         '200':
@@ -5342,7 +5342,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DataSourceMetadata'
+                $ref: '#/components/schemas/MWSXDataSourceMetadata'
         '401':
           description: Unhauthorized
       security:
@@ -5369,7 +5369,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DataSourceInfoEntry'
+              $ref: '#/components/schemas/MWSXDataSourceInfoEntry'
         required: true
       responses:
         '200':
@@ -5377,7 +5377,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DataSourceInfoEntry'
+                $ref: '#/components/schemas/MWSXDataSourceInfoEntry'
         '401':
           description: Unhauthorized
       security:
@@ -5394,7 +5394,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DataSourceInfoEntry'
+                $ref: '#/components/schemas/MWSXDataSourceInfoEntry'
         '401':
           description: Unhauthorized
       security:
@@ -5411,7 +5411,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DataSourceInfoEntry'
+                $ref: '#/components/schemas/MWSXDataSourceInfoEntry'
         '401':
           description: Unhauthorized
       security:
@@ -5447,7 +5447,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DataSourceInfoEntry'
+              $ref: '#/components/schemas/MWSXDataSourceInfoEntry'
         required: true
       responses:
         '200':
@@ -5471,7 +5471,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DataSourceInfoEntry'
+              $ref: '#/components/schemas/MWSXDataSourceInfoEntry'
         required: true
       responses:
         '200':
@@ -5533,7 +5533,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DataSourceInfoEntry'
+              $ref: '#/components/schemas/MWSXDataSourceInfoEntry'
         required: true
       responses:
         '200':
@@ -6404,7 +6404,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FullSparqlQueryReport'
+                $ref: '#/components/schemas/MWSXFullSparqlQueryReport'
         '401':
           description: Unhauthorized
       security:
@@ -6758,7 +6758,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ExportInfo'
+              $ref: '#/components/schemas/MWSXExportInfo'
         required: true
       responses:
         '200':
@@ -6852,7 +6852,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ExportInfo'
+                  $ref: '#/components/schemas/MWSXExportInfo'
         '401':
           description: Unhauthorized
       security:
@@ -7029,7 +7029,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ExportStats'
+                $ref: '#/components/schemas/MWSXExportStats'
         '401':
           description: Unhauthorized
       security:
@@ -7346,7 +7346,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ExportInfo'
+              $ref: '#/components/schemas/MWSXExportInfo'
         required: true
       responses:
         '200':
@@ -8260,7 +8260,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MappingReport'
+                $ref: '#/components/schemas/MWSXMappingReport'
         '401':
           description: Unhauthorized
       security:
@@ -11032,7 +11032,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/OBDATriplificationRequest'
+              $ref: '#/components/schemas/MWSXOBDATriplificationRequest'
         required: true
       responses:
         '200':
@@ -11112,7 +11112,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/OBDATriplificationProgress'
+                  $ref: '#/components/schemas/MWSXOBDATriplificationProgress'
         '401':
           description: Unhauthorized
       security:
@@ -11198,7 +11198,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OBDATriplificationProgress'
+                $ref: '#/components/schemas/MWSXOBDATriplificationProgress'
         '401':
           description: Unhauthorized
       security:
@@ -11222,7 +11222,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OBDATriplificationReport'
+                $ref: '#/components/schemas/MWSXOBDATriplificationReport'
         '401':
           description: Unhauthorized
       security:
@@ -13874,7 +13874,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OntologyCatalogEntries'
+                $ref: '#/components/schemas/MWSXOntologyCatalogEntries'
         '401':
           description: Unhauthorized
       security:
@@ -17583,7 +17583,7 @@ components:
           type: integer
         timeElapsed:
           type: integer
-    OWLGraphDeductiveClosureReport:
+    MWSXOWLGraphDeductiveClosureReport:
       title: OWLGraphDeductiveClosureReport
       type: object
       properties:
@@ -17613,19 +17613,19 @@ components:
           type: boolean
         computeGeneralConceptInclusions:
           type: boolean
-    MetadataSubject:
+    MWSXMetadataSubject:
       type: object
       properties:
         iri:
           type: string
         impliedClassIri:
           type: string
-    MetadataPredicate:
+    MWSXMetadataPredicate:
       type: object
       properties:
         iri:
           type: string
-    MetadataObject:
+    MWSXMetadataObject:
       type: object
       properties:
         iri:
@@ -17638,22 +17638,22 @@ components:
           type: string
         datatypeIri:
           type: string
-    MetadataTriple:
+    MWSXMetadataTriple:
       type: object
       properties:
         subject:
-          $ref: '#/components/schemas/MetadataSubject'
+          $ref: '#/components/schemas/MWSXMetadataSubject'
         predicate:
-          $ref: '#/components/schemas/MetadataPredicate'
+          $ref: '#/components/schemas/MWSXMetadataPredicate'
         object:
-          $ref: '#/components/schemas/MetadataObject'
-    OntologyCatalogOntologyMetadataSet:
+          $ref: '#/components/schemas/MWSXMetadataObject'
+    MWSXOntologyCatalogOntologyMetadataSet:
       type: object
       properties:
         metadataTriples:
           type: array
           items:
-            $ref: '#/components/schemas/MetadataTriple'
+            $ref: '#/components/schemas/MWSXMetadataTriple'
     MwsxOntologyVersionLoaderStatus:
       title: MwsxOntologyVersionLoaderStatus
       type: object
@@ -18018,7 +18018,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/OntologyEntity'
-    OntologyDifference:
+    MWSXOntologyDifference:
       title: OntologyDifference
       type: object
       properties:
@@ -18299,7 +18299,7 @@ components:
           type: string
         description:
           type: string
-    VirtualEntityQueryInfos:
+    MWSXVirtualEntityQueryInfos:
       title: VirtualEntityQueryInfos
       type: object
       properties:
@@ -18346,7 +18346,7 @@ components:
         constructResultsRDFSyntax:
           type: string
         virtualEntityQueryInfos:
-          $ref: '#/components/schemas/VirtualEntityQueryInfos'
+          $ref: '#/components/schemas/MWSXVirtualEntityQueryInfos'
     SparqlingSPARQLQuery:
       title: SparqlingSPARQLQuery
       type: object
@@ -18483,7 +18483,7 @@ components:
         countAnnotations:
           type: integer
           format: int32
-    TemplateRefactoring:
+    MWSXTemplateRefactoring:
       title: TemplateRefactoring
       type: object
       properties:
@@ -18599,7 +18599,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SQLView'
-    TermDisplacement:
+    MWSXTermDisplacement:
       title: TermDisplacement
       type: object
       properties:
@@ -18609,7 +18609,7 @@ components:
         oldPosition:
           type: integer
           format: int32
-    MappingViewAtomRefactoring:
+    MWSXMappingViewAtomRefactoring:
       title: MappingViewAtomRefactoring
       type: object
       properties:
@@ -18624,11 +18624,11 @@ components:
         keptTerms:
           type: object
           additionalProperties:
-            $ref: '#/components/schemas/TermDisplacement'
+            $ref: '#/components/schemas/MWSXTermDisplacement'
         addedTerms:
           type: object
           additionalProperties:
-            $ref: '#/components/schemas/TermDisplacement'
+            $ref: '#/components/schemas/MWSXTermDisplacement'
         newSignature:
           type: array
           items:
@@ -18636,10 +18636,10 @@ components:
         removedTerms:
           type: object
           additionalProperties:
-            $ref: '#/components/schemas/TermDisplacement'
+            $ref: '#/components/schemas/MWSXTermDisplacement'
         newDescription:
           type: string
-    MappingViewAtomRefactoringList:
+    MWSXMappingViewAtomRefactoringList:
       title: MappingViewAtomRefactoringList
       type: object
       properties:
@@ -18648,7 +18648,7 @@ components:
           items:
             type: string
         refactoring:
-          $ref: '#/components/schemas/MappingViewAtomRefactoring'
+          $ref: '#/components/schemas/MWSXMappingViewAtomRefactoring'
         keyIds:
           type: array
           items:
@@ -18661,7 +18661,7 @@ components:
           type: array
           items:
             type: string
-    ViewRefactoring:
+    MWSXViewRefactoring:
       title: ViewRefactoring
       type: object
       properties:
@@ -18671,7 +18671,7 @@ components:
           type: string
         newDescription:
           type: string
-    ViewRefactoringSafenessOutcome:
+    MWSXViewRefactoringSafenessOutcome:
       title: ViewRefactoringSafenessOutcome
       type: object
       properties:
@@ -18681,12 +18681,12 @@ components:
             type: string
         safe:
           type: boolean
-    ViewRefactoringAnalysis:
+    MWSXViewRefactoringAnalysis:
       title: ViewRefactoringAnalysis
       type: object
       properties:
         refactoring:
-          $ref: '#/components/schemas/MappingViewAtomRefactoring'
+          $ref: '#/components/schemas/MWSXMappingViewAtomRefactoring'
         invalidatedInclusionDependency:
           type: array
           items:
@@ -18694,7 +18694,7 @@ components:
         safenessAnalisys:
           type: object
           additionalProperties:
-            $ref: '#/components/schemas/ViewRefactoringSafenessOutcome'
+            $ref: '#/components/schemas/MWSXViewRefactoringSafenessOutcome'
         unsafeDenialConstraints:
           type: array
           items:
@@ -18827,7 +18827,7 @@ components:
           type: string
         annotationValueLang:
           type: string
-    AnnotationProcessorConfig:
+    MWSXAnnotationProcessorConfig:
       title: AnnotationProcessorConfig
       type: object
       properties:
@@ -18843,7 +18843,7 @@ components:
             type: string
         ontologyIri:
           type: string
-    MappingParameter:
+    MWSXMappingParameter:
       title: MappingParameter
       type: object
       properties:
@@ -18853,14 +18853,14 @@ components:
           type: string
         paramDefaultValue:
           type: string
-    MappingParameters:
+    MWSXMappingParameters:
       title: MappingParameters
       type: object
       properties:
         mappingParameters:
           type: array
           items:
-            $ref: '#/components/schemas/MappingParameter'
+            $ref: '#/components/schemas/MWSXMappingParameter'
     SQLQuery:
       title: SQLQuery
       type: object
@@ -18951,7 +18951,7 @@ components:
           $ref: '#/components/schemas/DataLineageDescription'
         property:
           $ref: '#/components/schemas/DataLineageDescription'
-    DataSourceInfoEntry:
+    MWSXDataSourceInfoEntry:
       title: DataSourceInfoEntry
       type: object
       properties:
@@ -18971,7 +18971,7 @@ components:
           type: boolean
         jdbcUsername:
           type: string
-    DataSourceColumnReference:
+    MWSXDataSourceColumnReference:
       title: DataSourceColumnReference
       type: object
       properties:
@@ -18979,15 +18979,15 @@ components:
           type: string
         columnName:
           type: string
-    DataSourceForeignKeyMetadata:
+    MWSXDataSourceForeignKeyMetadata:
       title: DataSourceForeignKeyMetadata
       type: object
       properties:
         references:
           type: object
           additionalProperties:
-            $ref: '#/components/schemas/DataSourceColumnReference'
-    DataSourceTableColumnMetadata:
+            $ref: '#/components/schemas/MWSXDataSourceColumnReference'
+    MWSXDataSourceTableColumnMetadata:
       title: DataSourceTableColumnMetadata
       type: object
       properties:
@@ -19011,7 +19011,7 @@ components:
         ordinalPosition:
           type: integer
           format: int32
-    DataSourceKeyMetadata:
+    MWSXDataSourceKeyMetadata:
       title: DataSourceKeyMetadata
       type: object
       properties:
@@ -19027,7 +19027,7 @@ components:
             type: integer
         tableName:
           type: string
-    DataSourceTableMetadata:
+    MWSXDataSourceTableMetadata:
       title: DataSourceTableMetadata
       type: object
       properties:
@@ -19036,30 +19036,30 @@ components:
         foreignKeys:
           type: array
           items:
-            $ref: '#/components/schemas/DataSourceForeignKeyMetadata'
+            $ref: '#/components/schemas/MWSXDataSourceForeignKeyMetadata'
         columns:
           type: array
           items:
-            $ref: '#/components/schemas/DataSourceTableColumnMetadata'
+            $ref: '#/components/schemas/MWSXDataSourceTableColumnMetadata'
         keys:
-          $ref: '#/components/schemas/DataSourceKeyMetadata'
+          $ref: '#/components/schemas/MWSXDataSourceKeyMetadata'
         name:
           type: string
         schemaName:
           type: string
-    DataSourceSchemaMetadata:
+    MWSXDataSourceSchemaMetadata:
       title: DataSourceSchemaMetadata
       type: object
       properties:
         tables:
           type: object
           additionalProperties:
-            $ref: '#/components/schemas/DataSourceTableMetadata'
+            $ref: '#/components/schemas/MWSXDataSourceTableMetadata'
         views:
           type: object
           additionalProperties:
-            $ref: '#/components/schemas/DataSourceTableMetadata'
-    DataSourceMetadata:
+            $ref: '#/components/schemas/MWSXDataSourceTableMetadata'
+    MWSXDataSourceMetadata:
       title: DataSourceMetadata
       type: object
       properties:
@@ -19072,13 +19072,13 @@ components:
         schemaMetadata:
           type: object
           additionalProperties:
-            $ref: '#/components/schemas/DataSourceSchemaMetadata'
+            $ref: '#/components/schemas/MWSXDataSourceSchemaMetadata'
         DEFAULT_SCHEMA_NAME:
           type: string
         dataSourceName:
           type: string
         info:
-          $ref: '#/components/schemas/DataSourceInfoEntry'
+          $ref: '#/components/schemas/MWSXDataSourceInfoEntry'
     SourceTableInfo:
       title: SourceTableInfo
       type: object
@@ -19245,7 +19245,7 @@ components:
           type: string
         sparql:
           $ref: '#/components/schemas/SPARQLQuery'
-    CoreQueryInfo:
+    MWSXCoreQueryInfo:
       title: CoreQueryInfo
       type: object
       properties:
@@ -19253,14 +19253,14 @@ components:
           type: string
         sparqlCode:
           type: string
-    FullSparqlQueryReport:
+    MWSXFullSparqlQueryReport:
       title: FullSparqlQueryReport
       type: object
       properties:
         coreQueryInfos:
           type: array
           items:
-            $ref: '#/components/schemas/CoreQueryInfo'
+            $ref: '#/components/schemas/MWSXCoreQueryInfo'
         sqlCode:
           type: string
         id:
@@ -19394,7 +19394,7 @@ components:
           format: int32
         originalConstructCode:
           type: string
-    ExportInfo:
+    MWSXExportInfo:
       title: ExportInfo
       type: object
       properties:
@@ -19441,7 +19441,7 @@ components:
         elapsedTime:
           type: integer
           format: int64
-    ExportStats:
+    MWSXExportStats:
       title: ExportStats
       type: object
       properties:
@@ -20069,32 +20069,32 @@ components:
           type: string
         percentage:
           type: number
-    DataSourceCoverage:
+    MWSXDataSourceCoverage:
       title: DataSourceCoverage
       type: object
       properties:
         tables:
           type: array
           items:
-            $ref: '#/components/schemas/DataSourceTableMetadata'
+            $ref: '#/components/schemas/MWSXDataSourceTableMetadata'
         unmappedTableCount:
           type: integer
           format: int32
         mappedTables:
           type: array
           items:
-            $ref: '#/components/schemas/DataSourceTableMetadata'
+            $ref: '#/components/schemas/MWSXDataSourceTableMetadata'
         unmappedTables:
           type: array
           items:
-            $ref: '#/components/schemas/DataSourceTableMetadata'
+            $ref: '#/components/schemas/MWSXDataSourceTableMetadata'
         mappedTableCount:
           type: integer
           format: int32
         totalTableCount:
           type: integer
           format: int32
-    OntologyPredicatesStatistics:
+    MWSXOntologyPredicatesStatistics:
       title: OntologyPredicatesStatistics
       type: object
       properties:
@@ -20114,7 +20114,7 @@ components:
           type: object
           additionalProperties:
             type: integer
-    Predicate:
+    MWSXPredicate:
       title: Predicate
       type: object
       properties:
@@ -20128,22 +20128,22 @@ components:
           type: string
         shortName:
           type: string
-    OntologyCoverage:
+    MWSXOntologyCoverage:
       title: OntologyCoverage
       type: object
       properties:
         predicates:
           type: array
           items:
-            $ref: '#/components/schemas/Predicate'
+            $ref: '#/components/schemas/MWSXPredicate'
         unmappedPredicates:
           type: array
           items:
-            $ref: '#/components/schemas/Predicate'
+            $ref: '#/components/schemas/MWSXPredicate'
         mappedPredicates:
           type: array
           items:
-            $ref: '#/components/schemas/Predicate'
+            $ref: '#/components/schemas/MWSXPredicate'
         unmappedPredicatesCount:
           type: integer
           format: int32
@@ -20153,7 +20153,7 @@ components:
         mappedPredicatesCount:
           type: integer
           format: int32
-    QuarantinedMappingReport:
+    MWSXQuarantinedMappingReport:
       title: QuarantinedMappingReport
       type: object
       properties:
@@ -20173,18 +20173,18 @@ components:
         quarantinedViewDefinitionsCount:
           type: integer
           format: int32
-    MappingReport:
+    MWSXMappingReport:
       title: MappingReport
       type: object
       properties:
         dataSourceCoverage:
-          $ref: '#/components/schemas/DataSourceCoverage'
+          $ref: '#/components/schemas/MWSXDataSourceCoverage'
         ontologyPredicatesStatistics:
-          $ref: '#/components/schemas/OntologyPredicatesStatistics'
+          $ref: '#/components/schemas/MWSXOntologyPredicatesStatistics'
         ontologyCoverage:
-          $ref: '#/components/schemas/OntologyCoverage'
+          $ref: '#/components/schemas/MWSXOntologyCoverage'
         quarantinedMappingReport:
-          $ref: '#/components/schemas/QuarantinedMappingReport'
+          $ref: '#/components/schemas/MWSXQuarantinedMappingReport'
     OntologySaturationParameters:
       title: OntologySaturationParameters
       type: object
@@ -20318,7 +20318,7 @@ components:
             nodes and edges traversed in the path (ISA edge are marked as ISA)
           items:
             $ref: '#/components/schemas/SparqlingEntity'
-    OBDATriplificationRequest:
+    MWSXOBDATriplificationRequest:
       title: OBDATriplificationRequest
       type: object
       properties:
@@ -20340,7 +20340,7 @@ components:
           type: string
         dataSource:
           type: string
-    OBDATriplificationProgress:
+    MWSXOBDATriplificationProgress:
       title: OBDATriplificationProgress
       type: object
       properties:
@@ -20357,7 +20357,7 @@ components:
           format: int64
         status:
           type: string
-    OBDATriplificationMappingReport:
+    MWSXOBDATriplificationMappingReport:
       title: OBDATriplificationMappingReport
       type: object
       properties:
@@ -20379,19 +20379,19 @@ components:
         elapsedTime:
           type: integer
           format: int64
-    OBDATriplificationReport:
+    MWSXOBDATriplificationReport:
       title: OBDATriplificationReport
       type: object
       properties:
         request:
-          $ref: '#/components/schemas/OBDATriplificationRequest'
+          $ref: '#/components/schemas/MWSXOBDATriplificationRequest'
         progress:
-          $ref: '#/components/schemas/OBDATriplificationProgress'
+          $ref: '#/components/schemas/MWSXOBDATriplificationProgress'
         details:
           type: object
           additionalProperties:
-            $ref: '#/components/schemas/OBDATriplificationMappingReport'
-    VirtualEntityField:
+            $ref: '#/components/schemas/MWSXOBDATriplificationMappingReport'
+    MWSXVirtualEntityField:
       title: VirtualEntityField
       type: object
       properties:
@@ -20403,14 +20403,14 @@ components:
           type: boolean
         fieldType:
           type: string
-    VirtualEntity:
+    MWSXVirtualEntity:
       title: VirtualEntity
       type: object
       properties:
         signature:
           type: array
           items:
-            $ref: '#/components/schemas/VirtualEntityField'
+            $ref: '#/components/schemas/MWSXVirtualEntityField'
         name:
           type: string
         description:
@@ -20426,7 +20426,7 @@ components:
         sparqlingSPARQLQuery:
           $ref: '#/components/schemas/SparqlingSPARQLQuery'
         entity:
-          $ref: '#/components/schemas/VirtualEntity'
+          $ref: '#/components/schemas/MWSXVirtualEntity'
     SparqlingVirtualEntities:
       title: SparqlingVirtualEntities
       type: object
@@ -20971,14 +20971,22 @@ components:
           type: string
         lastModification:
           type: integer
-    OntologyCatalogEntries:
+    MWSXOntologyCatalogEntry:
+      title: OntologyCatalogEntry
+      type: object
+      properties:
+        ontologyVersion:
+          type: string
+        ontologyName:
+          type: string
+    MWSXOntologyCatalogEntries:
       title: OntologyCatalogEntries
       type: object
       properties:
         entries:
           type: object
           additionalProperties:
-            $ref: '#/components/schemas/OntologyID'
+            $ref: '#/components/schemas/MWSXOntologyCatalogEntry'
     AvpTreeNode:
       title: AvpTreeNode
       type: object
@@ -21007,7 +21015,7 @@ components:
       properties:
         avpTree:
           $ref: '#/components/schemas/AvpTree'
-    AuthorizationViewProfile:
+    MWSXAuthorizationViewProfile:
       title: AuthorizationViewProfile
       type: object
       properties:
@@ -21034,7 +21042,7 @@ components:
         ontologyVersion:
           type: string
         profile:
-          $ref: '#/components/schemas/AuthorizationViewProfile'
+          $ref: '#/components/schemas/MWSXAuthorizationViewProfile'
         ontologyName:
           type: string
         description:

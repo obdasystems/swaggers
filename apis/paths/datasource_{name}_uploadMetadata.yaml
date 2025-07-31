@@ -10,12 +10,12 @@ put:
   requestBody:
     content:
       application/json:
-        schema: {$ref: ../components/schemas/DataSourceMetadata.yaml}
+        schema: {$ref: ../components/schemas/MWSXDataSourceMetadata.yaml}
     required: true
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/DataSourceMetadata.yaml}
+          schema: {$ref: ../components/schemas/MWSXDataSourceMetadata.yaml}
     '401': {description: Unhauthorized}

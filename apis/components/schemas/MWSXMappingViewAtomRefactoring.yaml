@@ -12,11 +12,11 @@ properties:
   keptTerms:
     type: object
     additionalProperties:
-      $ref: ./TermDisplacement.yaml
+      $ref: ./MWSXTermDisplacement.yaml
   addedTerms:
     type: object
     additionalProperties:
-      $ref: ./TermDisplacement.yaml
+      $ref: ./MWSXTermDisplacement.yaml
   newSignature:
     type: array
     items:
@@ -24,6 +24,6 @@ properties:
   removedTerms:
     type: object
     additionalProperties:
-      $ref: ./TermDisplacement.yaml
+      $ref: ./MWSXTermDisplacement.yaml
   newDescription:
     type: string

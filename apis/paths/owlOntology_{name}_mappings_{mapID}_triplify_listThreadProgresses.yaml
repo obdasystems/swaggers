@@ -22,5 +22,5 @@ get:
         application/json:
           schema:
             type: array
-            items: {$ref: ../components/schemas/OBDATriplificationProgress.yaml}
+            items: {$ref: ../components/schemas/MWSXOBDATriplificationProgress.yaml}
     '401': {description: Unhauthorized}

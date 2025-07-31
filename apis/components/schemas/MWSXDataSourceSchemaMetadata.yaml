@@ -4,8 +4,8 @@ properties:
   tables:
     type: object
     additionalProperties:
-      $ref: ./DataSourceTableMetadata.yaml
+      $ref: ./MWSXDataSourceTableMetadata.yaml
   views:
     type: object
     additionalProperties:
-      $ref: ./DataSourceTableMetadata.yaml
+      $ref: ./MWSXDataSourceTableMetadata.yaml

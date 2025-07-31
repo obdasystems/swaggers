@@ -419,7 +419,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OWLGraphDeductiveClosureReport'
+                $ref: '#/components/schemas/MWSXOWLGraphDeductiveClosureReport'
         '401':
           description: Unhauthorized
   /owlOntology/{name}/version/closingReportComputed:
@@ -567,7 +567,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/OntologyCatalogOntologyMetadataSet'
+              $ref: '#/components/schemas/MWSXOntologyCatalogOntologyMetadataSet'
         required: true
       responses:
         '200':
@@ -1334,7 +1334,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OntologyDifference'
+                $ref: '#/components/schemas/MWSXOntologyDifference'
         '401':
           description: Unhauthorized
   /owlOntology/{name}/version/metadata:
@@ -1360,7 +1360,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OntologyCatalogOntologyMetadataSet'
+                $ref: '#/components/schemas/MWSXOntologyCatalogOntologyMetadataSet'
         '401':
           description: Unhauthorized
   /owlOntology/{name}/version/metadata/missing:
@@ -1386,7 +1386,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OntologyCatalogOntologyMetadataSet'
+                $ref: '#/components/schemas/MWSXOntologyCatalogOntologyMetadataSet'
         '401':
           description: Unhauthorized
   /owlOntology/queries/publicationRequests:
@@ -1683,7 +1683,7 @@ components:
           type: integer
         timeElapsed:
           type: integer
-    OWLGraphDeductiveClosureReport:
+    MWSXOWLGraphDeductiveClosureReport:
       title: OWLGraphDeductiveClosureReport
       type: object
       properties:
@@ -1713,19 +1713,19 @@ components:
           type: boolean
         computeGeneralConceptInclusions:
           type: boolean
-    MetadataSubject:
+    MWSXMetadataSubject:
       type: object
       properties:
         iri:
           type: string
         impliedClassIri:
           type: string
-    MetadataPredicate:
+    MWSXMetadataPredicate:
       type: object
       properties:
         iri:
           type: string
-    MetadataObject:
+    MWSXMetadataObject:
       type: object
       properties:
         iri:
@@ -1738,22 +1738,22 @@ components:
           type: string
         datatypeIri:
           type: string
-    MetadataTriple:
+    MWSXMetadataTriple:
       type: object
       properties:
         subject:
-          $ref: '#/components/schemas/MetadataSubject'
+          $ref: '#/components/schemas/MWSXMetadataSubject'
         predicate:
-          $ref: '#/components/schemas/MetadataPredicate'
+          $ref: '#/components/schemas/MWSXMetadataPredicate'
         object:
-          $ref: '#/components/schemas/MetadataObject'
-    OntologyCatalogOntologyMetadataSet:
+          $ref: '#/components/schemas/MWSXMetadataObject'
+    MWSXOntologyCatalogOntologyMetadataSet:
       type: object
       properties:
         metadataTriples:
           type: array
           items:
-            $ref: '#/components/schemas/MetadataTriple'
+            $ref: '#/components/schemas/MWSXMetadataTriple'
     MwsxOntologyVersionLoaderStatus:
       title: MwsxOntologyVersionLoaderStatus
       type: object
@@ -2118,7 +2118,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/OntologyEntity'
-    OntologyDifference:
+    MWSXOntologyDifference:
       title: OntologyDifference
       type: object
       properties:
@@ -2395,7 +2395,7 @@ components:
           type: string
         description:
           type: string
-    VirtualEntityQueryInfos:
+    MWSXVirtualEntityQueryInfos:
       title: VirtualEntityQueryInfos
       type: object
       properties:
@@ -2442,7 +2442,7 @@ components:
         constructResultsRDFSyntax:
           type: string
         virtualEntityQueryInfos:
-          $ref: '#/components/schemas/VirtualEntityQueryInfos'
+          $ref: '#/components/schemas/MWSXVirtualEntityQueryInfos'
     SparqlingSPARQLQuery:
       title: SparqlingSPARQLQuery
       type: object

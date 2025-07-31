@@ -5,7 +5,7 @@ post:
   requestBody:
     content:
       application/json:
-        schema: {$ref: ../components/schemas/OntologyCatalogOntologyMetadataSet.yaml}
+        schema: {$ref: ../components/schemas/MWSXOntologyCatalogOntologyMetadataSet.yaml}
     required: true
   responses:
     '200':

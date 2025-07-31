@@ -6,7 +6,7 @@ properties:
     items:
       type: string
   refactoring:
-    $ref: ./MappingViewAtomRefactoring.yaml
+    $ref: ./MWSXMappingViewAtomRefactoring.yaml
   keyIds:
     type: array
     items:

@@ -4,15 +4,15 @@ properties:
   predicates:
     type: array
     items:
-      $ref: ./Predicate.yaml
+      $ref: ./MWSXPredicate.yaml
   unmappedPredicates:
     type: array
     items:
-      $ref: ./Predicate.yaml
+      $ref: ./MWSXPredicate.yaml
   mappedPredicates:
     type: array
     items:
-      $ref: ./Predicate.yaml
+      $ref: ./MWSXPredicate.yaml
   unmappedPredicatesCount:
     type: integer
     format: int32

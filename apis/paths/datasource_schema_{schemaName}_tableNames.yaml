@@ -11,7 +11,7 @@ post:
   requestBody:
     content:
       application/json:
-        schema: {$ref: ../components/schemas/DataSourceInfoEntry.yaml}
+        schema: {$ref: ../components/schemas/MWSXDataSourceInfoEntry.yaml}
     required: true
   responses:
     '200':

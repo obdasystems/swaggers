@@ -12,5 +12,5 @@ get:
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/OBDATriplificationReport.yaml}
+          schema: {$ref: ../components/schemas/MWSXOBDATriplificationReport.yaml}
     '401': {description: Unhauthorized}

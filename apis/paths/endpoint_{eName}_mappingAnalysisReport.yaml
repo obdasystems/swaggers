@@ -12,5 +12,5 @@ get:
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/MappingReport.yaml}
+          schema: {$ref: ../components/schemas/MWSXMappingReport.yaml}
     '401': {description: Unhauthorized}

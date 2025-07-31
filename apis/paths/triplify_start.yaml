@@ -5,7 +5,7 @@ post:
   requestBody:
     content:
       application/json:
-        schema: {$ref: ../components/schemas/OBDATriplificationRequest.yaml}
+        schema: {$ref: ../components/schemas/MWSXOBDATriplificationRequest.yaml}
     required: true
   responses:
     '200':

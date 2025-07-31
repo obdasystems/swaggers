@@ -694,7 +694,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FullSparqlQueryReport'
+                $ref: '#/components/schemas/MWSXFullSparqlQueryReport'
         '401':
           description: Unhauthorized
   /endpoint/{name}/query/{queryID}/ontologyRewritings:
@@ -1006,7 +1006,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ExportInfo'
+              $ref: '#/components/schemas/MWSXExportInfo'
         required: true
       responses:
         '200':
@@ -1087,7 +1087,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ExportInfo'
+                  $ref: '#/components/schemas/MWSXExportInfo'
         '401':
           description: Unhauthorized
   /endpoint/{name}/exported/{fileName}:
@@ -1244,7 +1244,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ExportStats'
+                $ref: '#/components/schemas/MWSXExportStats'
         '401':
           description: Unhauthorized
   /endpoint/{name}/exportThread/{id}/file:
@@ -1536,7 +1536,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ExportInfo'
+              $ref: '#/components/schemas/MWSXExportInfo'
         required: true
       responses:
         '200':
@@ -2352,7 +2352,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MappingReport'
+                $ref: '#/components/schemas/MWSXMappingReport'
         '401':
           description: Unhauthorized
   /endpoint/{eName}/saturetedOntology:
@@ -2623,7 +2623,7 @@ components:
           type: string
         description:
           type: string
-    VirtualEntityQueryInfos:
+    MWSXVirtualEntityQueryInfos:
       title: VirtualEntityQueryInfos
       type: object
       properties:
@@ -2670,7 +2670,7 @@ components:
         constructResultsRDFSyntax:
           type: string
         virtualEntityQueryInfos:
-          $ref: '#/components/schemas/VirtualEntityQueryInfos'
+          $ref: '#/components/schemas/MWSXVirtualEntityQueryInfos'
     OBDARunQueryInstance:
       title: OBDARunQueryInstance
       type: object
@@ -2693,7 +2693,7 @@ components:
           type: string
         content:
           type: string
-    CoreQueryInfo:
+    MWSXCoreQueryInfo:
       title: CoreQueryInfo
       type: object
       properties:
@@ -2701,14 +2701,14 @@ components:
           type: string
         sparqlCode:
           type: string
-    FullSparqlQueryReport:
+    MWSXFullSparqlQueryReport:
       title: FullSparqlQueryReport
       type: object
       properties:
         coreQueryInfos:
           type: array
           items:
-            $ref: '#/components/schemas/CoreQueryInfo'
+            $ref: '#/components/schemas/MWSXCoreQueryInfo'
         sqlCode:
           type: string
         id:
@@ -2842,7 +2842,7 @@ components:
           format: int32
         originalConstructCode:
           type: string
-    ExportInfo:
+    MWSXExportInfo:
       title: ExportInfo
       type: object
       properties:
@@ -2889,7 +2889,7 @@ components:
         elapsedTime:
           type: integer
           format: int64
-    ExportStats:
+    MWSXExportStats:
       title: ExportStats
       type: object
       properties:
@@ -3519,7 +3519,7 @@ components:
           type: string
         percentage:
           type: number
-    DataSourceColumnReference:
+    MWSXDataSourceColumnReference:
       title: DataSourceColumnReference
       type: object
       properties:
@@ -3527,15 +3527,15 @@ components:
           type: string
         columnName:
           type: string
-    DataSourceForeignKeyMetadata:
+    MWSXDataSourceForeignKeyMetadata:
       title: DataSourceForeignKeyMetadata
       type: object
       properties:
         references:
           type: object
           additionalProperties:
-            $ref: '#/components/schemas/DataSourceColumnReference'
-    DataSourceTableColumnMetadata:
+            $ref: '#/components/schemas/MWSXDataSourceColumnReference'
+    MWSXDataSourceTableColumnMetadata:
       title: DataSourceTableColumnMetadata
       type: object
       properties:
@@ -3559,7 +3559,7 @@ components:
         ordinalPosition:
           type: integer
           format: int32
-    DataSourceKeyMetadata:
+    MWSXDataSourceKeyMetadata:
       title: DataSourceKeyMetadata
       type: object
       properties:
@@ -3575,7 +3575,7 @@ components:
             type: integer
         tableName:
           type: string
-    DataSourceTableMetadata:
+    MWSXDataSourceTableMetadata:
       title: DataSourceTableMetadata
       type: object
       properties:
@@ -3584,43 +3584,43 @@ components:
         foreignKeys:
           type: array
           items:
-            $ref: '#/components/schemas/DataSourceForeignKeyMetadata'
+            $ref: '#/components/schemas/MWSXDataSourceForeignKeyMetadata'
         columns:
           type: array
           items:
-            $ref: '#/components/schemas/DataSourceTableColumnMetadata'
+            $ref: '#/components/schemas/MWSXDataSourceTableColumnMetadata'
         keys:
-          $ref: '#/components/schemas/DataSourceKeyMetadata'
+          $ref: '#/components/schemas/MWSXDataSourceKeyMetadata'
         name:
           type: string
         schemaName:
           type: string
-    DataSourceCoverage:
+    MWSXDataSourceCoverage:
       title: DataSourceCoverage
       type: object
       properties:
         tables:
           type: array
           items:
-            $ref: '#/components/schemas/DataSourceTableMetadata'
+            $ref: '#/components/schemas/MWSXDataSourceTableMetadata'
         unmappedTableCount:
           type: integer
           format: int32
         mappedTables:
           type: array
           items:
-            $ref: '#/components/schemas/DataSourceTableMetadata'
+            $ref: '#/components/schemas/MWSXDataSourceTableMetadata'
         unmappedTables:
           type: array
           items:
-            $ref: '#/components/schemas/DataSourceTableMetadata'
+            $ref: '#/components/schemas/MWSXDataSourceTableMetadata'
         mappedTableCount:
           type: integer
           format: int32
         totalTableCount:
           type: integer
           format: int32
-    OntologyPredicatesStatistics:
+    MWSXOntologyPredicatesStatistics:
       title: OntologyPredicatesStatistics
       type: object
       properties:
@@ -3640,7 +3640,7 @@ components:
           type: object
           additionalProperties:
             type: integer
-    Predicate:
+    MWSXPredicate:
       title: Predicate
       type: object
       properties:
@@ -3654,22 +3654,22 @@ components:
           type: string
         shortName:
           type: string
-    OntologyCoverage:
+    MWSXOntologyCoverage:
       title: OntologyCoverage
       type: object
       properties:
         predicates:
           type: array
           items:
-            $ref: '#/components/schemas/Predicate'
+            $ref: '#/components/schemas/MWSXPredicate'
         unmappedPredicates:
           type: array
           items:
-            $ref: '#/components/schemas/Predicate'
+            $ref: '#/components/schemas/MWSXPredicate'
         mappedPredicates:
           type: array
           items:
-            $ref: '#/components/schemas/Predicate'
+            $ref: '#/components/schemas/MWSXPredicate'
         unmappedPredicatesCount:
           type: integer
           format: int32
@@ -3679,7 +3679,7 @@ components:
         mappedPredicatesCount:
           type: integer
           format: int32
-    QuarantinedMappingReport:
+    MWSXQuarantinedMappingReport:
       title: QuarantinedMappingReport
       type: object
       properties:
@@ -3699,18 +3699,18 @@ components:
         quarantinedViewDefinitionsCount:
           type: integer
           format: int32
-    MappingReport:
+    MWSXMappingReport:
       title: MappingReport
       type: object
       properties:
         dataSourceCoverage:
-          $ref: '#/components/schemas/DataSourceCoverage'
+          $ref: '#/components/schemas/MWSXDataSourceCoverage'
         ontologyPredicatesStatistics:
-          $ref: '#/components/schemas/OntologyPredicatesStatistics'
+          $ref: '#/components/schemas/MWSXOntologyPredicatesStatistics'
         ontologyCoverage:
-          $ref: '#/components/schemas/OntologyCoverage'
+          $ref: '#/components/schemas/MWSXOntologyCoverage'
         quarantinedMappingReport:
-          $ref: '#/components/schemas/QuarantinedMappingReport'
+          $ref: '#/components/schemas/MWSXQuarantinedMappingReport'
     OntologySaturationParameters:
       title: OntologySaturationParameters
       type: object

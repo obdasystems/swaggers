@@ -20,5 +20,5 @@ get:
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/MappingParameters.yaml}
+          schema: {$ref: ../components/schemas/MWSXMappingParameters.yaml}
     '401': {description: Unhauthorized}

@@ -4,7 +4,7 @@ properties:
   coreQueryInfos:
     type: array
     items:
-      $ref: ./CoreQueryInfo.yaml
+      $ref: ./MWSXCoreQueryInfo.yaml
   sqlCode:
     type: string
   id:

@@ -10,10 +10,10 @@ properties:
   schemaMetadata:
     type: object
     additionalProperties:
-      $ref: ./DataSourceSchemaMetadata.yaml
+      $ref: ./MWSXDataSourceSchemaMetadata.yaml
   DEFAULT_SCHEMA_NAME:
     type: string
   dataSourceName:
     type: string
   info:
-    $ref: ./DataSourceInfoEntry.yaml
+    $ref: ./MWSXDataSourceInfoEntry.yaml

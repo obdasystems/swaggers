@@ -4,4 +4,4 @@ properties:
   entries:
     type: object
     additionalProperties: 
-      $ref: OntologyID.yaml
+      $ref: MWSXOntologyCatalogEntry.yaml

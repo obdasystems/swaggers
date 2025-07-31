@@ -4,7 +4,7 @@ properties:
   signature:
     type: array
     items:
-      $ref: ./VirtualEntityField.yaml
+      $ref: ./MWSXVirtualEntityField.yaml
   name:
     type: string
   description:

@@ -17,5 +17,5 @@ put:
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/DataSourceMetadata.yaml}
+          schema: {$ref: ../components/schemas/MWSXDataSourceMetadata.yaml}
     '401': {description: Unhauthorized}

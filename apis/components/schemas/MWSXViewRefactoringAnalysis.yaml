@@ -2,7 +2,7 @@ title: ViewRefactoringAnalysis
 type: object
 properties:
   refactoring:
-    $ref: ./MappingViewAtomRefactoring.yaml
+    $ref: ./MWSXMappingViewAtomRefactoring.yaml
   invalidatedInclusionDependency:
     type: array
     items:
@@ -10,7 +10,7 @@ properties:
   safenessAnalisys:
     type: object
     additionalProperties:
-      $ref: ./ViewRefactoringSafenessOutcome.yaml
+      $ref: ./MWSXViewRefactoringSafenessOutcome.yaml
   unsafeDenialConstraints:
     type: array
     items:

@@ -4,18 +4,18 @@ properties:
   tables:
     type: array
     items:
-      $ref: ./DataSourceTableMetadata.yaml
+      $ref: ./MWSXDataSourceTableMetadata.yaml
   unmappedTableCount:
     type: integer
     format: int32
   mappedTables:
     type: array
     items:
-      $ref: ./DataSourceTableMetadata.yaml
+      $ref: ./MWSXDataSourceTableMetadata.yaml
   unmappedTables:
     type: array
     items:
-      $ref: ./DataSourceTableMetadata.yaml
+      $ref: ./MWSXDataSourceTableMetadata.yaml
   mappedTableCount:
     type: integer
     format: int32

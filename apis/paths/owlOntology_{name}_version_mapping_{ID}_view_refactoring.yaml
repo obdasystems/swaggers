@@ -18,14 +18,14 @@ post:
   requestBody:
     content:
       application/json:
-        schema: {$ref: ../components/schemas/ViewRefactoring.yaml}
+        schema: {$ref: ../components/schemas/MWSXViewRefactoring.yaml}
     required: true
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/ViewRefactoringAnalysis.yaml}
+          schema: {$ref: ../components/schemas/MWSXViewRefactoringAnalysis.yaml}
     '401': {description: Unhauthorized}
 put:
   tags: [SQLView]
@@ -47,7 +47,7 @@ put:
   requestBody:
     content:
       application/json:
-        schema: {$ref: ../components/schemas/MappingViewAtomRefactoringList.yaml}
+        schema: {$ref: ../components/schemas/MWSXMappingViewAtomRefactoringList.yaml}
     required: true
   responses:
     '200':
