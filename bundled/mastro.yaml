@@ -20127,6 +20127,17 @@ components:
         mappedPredicatesCount:
           type: integer
           format: int32
+    MWSXQuarantineReason:
+      title: QuarantinedReason
+      type: object
+      properties:
+        objectID:
+          type: string
+        objectType:
+          type: integer
+          format: int32
+        reason:
+          type: string
     MWSXQuarantinedMappingReport:
       title: QuarantinedMappingReport
       type: object
@@ -20141,9 +20152,9 @@ components:
           type: integer
           format: int32
         quarantineReasonsByViewName:
-          type: object
+          $ref: '#/components/schemas/MWSXQuarantineReason'
         quarantineReasonsByMappingId:
-          type: object
+          $ref: '#/components/schemas/MWSXQuarantineReason'
         quarantinedViewDefinitionsCount:
           type: integer
           format: int32

@@ -11,9 +11,9 @@ properties:
     type: integer
     format: int32
   quarantineReasonsByViewName:
-    type: object
+    $ref: './MWSXQuarantineReason.yaml'
   quarantineReasonsByMappingId:
-    type: object
+    $ref: './MWSXQuarantineReason.yaml'
   quarantinedViewDefinitionsCount:
     type: integer
     format: int32
