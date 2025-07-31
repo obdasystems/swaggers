@@ -4,9 +4,12 @@ required:
   - targetClass
   - path
 properties:
+  id:
+    type: string
   type:
     type: string
     enum:
+      - Class
       - MinCount
       - MaxCount
       - MinExclusive
@@ -21,8 +24,6 @@ properties:
       - Disjoint
       - LessThan
       - LessThanOrEquals
-      - GreaterThan
-      - GreaterThanOrEquals
   targetClass:
     type: string
   path:
