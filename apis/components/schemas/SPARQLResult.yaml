@@ -9,3 +9,5 @@ properties:
     type: string
   value:
     type: string
+  isBlankNode:
+    type: boolean

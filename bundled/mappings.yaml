@@ -3143,6 +3143,8 @@ components:
           type: array
           items:
             type: string
+        iriTemplate:
+          type: boolean
     IRI:
       title: IRI
       type: object
@@ -3160,6 +3162,8 @@ components:
         annotationProperty:
           $ref: '#/components/schemas/OntologyEntity'
         lang:
+          type: string
+        subjectTemplate:
           type: string
     SQLView:
       title: SQLView
@@ -3407,6 +3411,8 @@ components:
           type: string
         quarantined:
           type: boolean
+        userQuery:
+          type: string
     KeyDependency:
       title: KeyDependency
       type: object

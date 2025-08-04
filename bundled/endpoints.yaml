@@ -2761,6 +2761,8 @@ components:
           type: string
         value:
           type: string
+        isBlankNode:
+          type: boolean
     SPARQLResults:
       title: SPARQLResults
       type: object
@@ -3105,6 +3107,10 @@ components:
         language:
           type: string
         datatype:
+          type: string
+        propertyIri:
+          type: string
+        entityIri:
           type: string
     FunctionPropertiesEnum:
       type: string

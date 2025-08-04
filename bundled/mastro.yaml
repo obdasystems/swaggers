@@ -17880,6 +17880,10 @@ components:
           type: string
         datatype:
           type: string
+        propertyIri:
+          type: string
+        entityIri:
+          type: string
     ObjectPropertyInfo:
       title: ObjectPropertyInfo
       type: object
@@ -18477,6 +18481,8 @@ components:
           type: array
           items:
             type: string
+        iriTemplate:
+          type: boolean
     ExtensionalAnnotationMapping:
       title: ExtensionalAnnotationMapping
       type: object
@@ -18486,6 +18492,8 @@ components:
         annotationProperty:
           $ref: '#/components/schemas/OntologyEntity'
         lang:
+          type: string
+        subjectTemplate:
           type: string
     SQLView:
       title: SQLView
@@ -18733,6 +18741,8 @@ components:
           type: string
         quarantined:
           type: boolean
+        userQuery:
+          type: string
     KeyDependency:
       title: KeyDependency
       type: object
@@ -19299,6 +19309,8 @@ components:
           type: string
         value:
           type: string
+        isBlankNode:
+          type: boolean
     SPARQLResults:
       title: SPARQLResults
       type: object

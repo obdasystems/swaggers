@@ -13,3 +13,5 @@ properties:
     type: string
   quarantined:
     type: boolean
+  userQuery:
+    type: string

@@ -2006,6 +2006,10 @@ components:
           type: string
         datatype:
           type: string
+        propertyIri:
+          type: string
+        entityIri:
+          type: string
     ObjectPropertyInfo:
       title: ObjectPropertyInfo
       type: object

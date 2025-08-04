@@ -434,6 +434,10 @@ components:
           type: string
         datatype:
           type: string
+        propertyIri:
+          type: string
+        entityIri:
+          type: string
     FunctionPropertiesEnum:
       type: string
       enum:

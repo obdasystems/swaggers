@@ -18,3 +18,7 @@ properties:
     type: string
   datatype:
     type: string
+  propertyIri:
+    type: string
+  entityIri:
+    type: string

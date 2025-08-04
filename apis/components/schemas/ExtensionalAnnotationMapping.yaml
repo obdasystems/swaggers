@@ -7,3 +7,5 @@ properties:
     $ref: ./OntologyEntity.yaml
   lang:
     type: string
+  subjectTemplate:
+    type: string
