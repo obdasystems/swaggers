@@ -794,9 +794,19 @@ components:
           type: string
         entityID:
           type: string
+    AbstractDataQualityConstraint:
+      title: AbstractDataQualityConstraint
+      type: object
+      properties:
+        id:
+          type: string
+        entity:
+          $ref: '#/components/schemas/OntologyEntity'
     SubClassWithForAllAssertion:
       title: SubClassWithForAllAssertion
       type: object
+      allOf:
+        - $ref: '#/components/schemas/AbstractDataQualityConstraint'
       properties:
         property:
           $ref: '#/components/schemas/OntologyEntity'
@@ -807,18 +817,24 @@ components:
     FunctionalPropertyAssertion:
       title: FunctionalPropertyAssertion
       type: object
+      allOf:
+        - $ref: '#/components/schemas/AbstractDataQualityConstraint'
       properties:
         direct:
           type: boolean
     DisjointClasses:
       title: DisjointClasses
       type: object
+      allOf:
+        - $ref: '#/components/schemas/AbstractDataQualityConstraint'
       properties:
         disjointClass:
           $ref: '#/components/schemas/OntologyEntity'
     MandatoryParticipationAssertion:
       title: MandatoryParticipationAssertion
       type: object
+      allOf:
+        - $ref: '#/components/schemas/AbstractDataQualityConstraint'
       properties:
         property:
           $ref: '#/components/schemas/OntologyEntity'
@@ -829,6 +845,8 @@ components:
     HasKeyAssertion:
       title: HasKeyAssertion
       type: object
+      allOf:
+        - $ref: '#/components/schemas/AbstractDataQualityConstraint'
       properties:
         dataProperties:
           type: array
@@ -845,6 +863,8 @@ components:
     SubClassWithCardinalityAssertion:
       title: SubClassWithCardinalityAssertion
       type: object
+      allOf:
+        - $ref: '#/components/schemas/AbstractDataQualityConstraint'
       properties:
         MIN_CARDINALITY_TYPE:
           type: integer
@@ -886,6 +906,8 @@ components:
     IdentificationAssertion:
       title: IdentificationAssertion
       type: object
+      allOf:
+        - $ref: '#/components/schemas/AbstractDataQualityConstraint'
       properties:
         identificationPaths:
           type: array

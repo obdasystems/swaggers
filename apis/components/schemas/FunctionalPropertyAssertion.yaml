@@ -1,5 +1,7 @@
 title: FunctionalPropertyAssertion
 type: object
+allOf: 
+  -  $ref: AbstractDataQualityConstraint.yaml
 properties:
   direct:
     type: boolean

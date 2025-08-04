@@ -1,5 +1,7 @@
 title: IdentificationAssertion
 type: object
+allOf: 
+  -  $ref: AbstractDataQualityConstraint.yaml
 properties:
   identificationPaths:
     type: array

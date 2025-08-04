@@ -1,5 +1,7 @@
 title: SubClassWithCardinalityAssertion
 type: object
+allOf: 
+  -  $ref: AbstractDataQualityConstraint.yaml
 properties:
   MIN_CARDINALITY_TYPE:
     type: integer
