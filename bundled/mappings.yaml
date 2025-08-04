@@ -3569,8 +3569,16 @@ components:
             $ref: '#/components/schemas/MappingAssertion'
         mappingViews:
           type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
         entityMapping:
           type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
         viewsIndex:
           type: object
           additionalProperties:
@@ -3585,6 +3593,10 @@ components:
             $ref: '#/components/schemas/OntologyEntity'
         viewTables:
           type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
         subEntities:
           type: object
           additionalProperties:

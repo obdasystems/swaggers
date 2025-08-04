@@ -7,8 +7,16 @@ properties:
       $ref: ./MappingAssertion.yaml
   mappingViews:
     type: object
+    additionalProperties:
+      type: array
+      items:
+        type: string
   entityMapping:
     type: object
+    additionalProperties:
+      type: array
+      items:
+        type: string
   viewsIndex:
     type: object
     additionalProperties:
@@ -23,6 +31,10 @@ properties:
       $ref: ./OntologyEntity.yaml
   viewTables:
     type: object
+    additionalProperties: 
+      type: array
+      items: 
+        type: string
   subEntities:
     type: object
     additionalProperties:
