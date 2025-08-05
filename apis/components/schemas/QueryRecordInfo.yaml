@@ -27,3 +27,9 @@ properties:
     format: int32
   originalConstructCode:
     type: string
+  agent:
+    type: string
+  user
+    type: string
+  unfolderThresholdReached
+    type: boolean
