@@ -521,6 +521,10 @@ components:
             $ref: '#/components/schemas/User'
         enabledDomainChecks:
           type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
     UsersCreationReport:
       title: UsersCreationReport
       type: object

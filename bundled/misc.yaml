@@ -1549,6 +1549,7 @@ components:
           type: string
         timestamp:
           type: integer
+          format: int64
         resource:
           type: string
         method:

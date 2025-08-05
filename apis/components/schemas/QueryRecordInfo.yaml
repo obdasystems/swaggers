@@ -29,7 +29,7 @@ properties:
     type: string
   agent:
     type: string
-  user
+  user:
     type: string
-  unfolderThresholdReached
+  unfolderThresholdReached:
     type: boolean

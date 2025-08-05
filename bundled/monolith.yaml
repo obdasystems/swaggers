@@ -19467,6 +19467,8 @@ components:
             - RUNNING
             - UNAVAILABLE
             - ERROR
+        lastError:
+          type: string
     EndpointStatus:
       title: EndpointStatus
       type: object
@@ -19569,6 +19571,10 @@ components:
           type: string
         type:
           type: string
+          enum:
+            - INDIVIDUAL
+            - IRI
+            - VALUE
         lang:
           type: string
         value:
@@ -19626,6 +19632,14 @@ components:
           format: int32
         status:
           type: string
+        queryCode:
+          type: string
+        constructQueryCode:
+          type: string
+        evaluationStepTimes:
+          type: object
+          additionalProperties:
+            type: string
     QueryRecordInfo:
       title: QueryRecordInfo
       type: object
@@ -19656,6 +19670,12 @@ components:
           format: int32
         originalConstructCode:
           type: string
+        agent:
+          type: string
+        user:
+          type: string
+        unfolderThresholdReached:
+          type: boolean
     MWSXExportInfo:
       title: ExportInfo
       type: object
@@ -20281,6 +20301,11 @@ components:
           format: int64
         state:
           type: string
+          enum:
+            - RUNNING
+            - READY
+            - FINISHED
+            - ERROR
     InstanceCheckingInfo:
       title: InstanceCheckingInfo
       type: object
@@ -20325,10 +20350,17 @@ components:
             $ref: '#/components/schemas/EntityMinMax'
         startTime:
           type: integer
+          format: int64
         endTime:
           type: integer
+          format: int64
         state:
           type: string
+          enum:
+            - RUNNING
+            - READY
+            - FINISHED
+            - ERROR
         percentage:
           type: number
     MWSXDataSourceCoverage:
@@ -20848,6 +20880,15 @@ components:
         kgLastModifiedTs:
           type: integer
           format: int64
+        kgType:
+          type: string
+          enum:
+            - JENA
+            - RDF4J
+        prefixes:
+          type: object
+          additionalProperties:
+            type: string
     KGStatus:
       title: KGStatus
       type: object
@@ -21959,6 +22000,7 @@ components:
           type: string
         timestamp:
           type: integer
+          format: int64
         resource:
           type: string
         method:
@@ -22120,6 +22162,10 @@ components:
             $ref: '#/components/schemas/User'
         enabledDomainChecks:
           type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
     UsersCreationReport:
       title: UsersCreationReport
       type: object

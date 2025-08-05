@@ -1589,6 +1589,15 @@ components:
         kgLastModifiedTs:
           type: integer
           format: int64
+        kgType:
+          type: string
+          enum:
+            - JENA
+            - RDF4J
+        prefixes:
+          type: object
+          additionalProperties:
+            type: string
     KGStatus:
       title: KGStatus
       type: object
@@ -1938,6 +1947,14 @@ components:
           format: int32
         status:
           type: string
+        queryCode:
+          type: string
+        constructQueryCode:
+          type: string
+        evaluationStepTimes:
+          type: object
+          additionalProperties:
+            type: string
     SPARQLResult:
       title: SPARQLResult
       type: object
@@ -1946,6 +1963,10 @@ components:
           type: string
         type:
           type: string
+          enum:
+            - INDIVIDUAL
+            - IRI
+            - VALUE
         lang:
           type: string
         value:

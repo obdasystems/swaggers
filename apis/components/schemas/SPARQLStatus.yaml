@@ -30,11 +30,11 @@ properties:
     format: int32
   status:
     type: string
-  queryCode
+  queryCode:
     type: string
-  constructQueryCode
+  constructQueryCode:
     type: string
-  evaluationStepTimes
+  evaluationStepTimes:
     type: object
     additionalProperties:
       type: string
