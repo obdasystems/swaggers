@@ -35,3 +35,7 @@ properties:
     enum:
       - JENA
       - RDF4J
+  prefixes:
+    type: object
+    additionalProperties:
+      type: string
