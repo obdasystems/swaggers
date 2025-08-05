@@ -30,3 +30,7 @@ properties:
     format: int32
   status:
     type: string
+  queryCode
+    type: string
+  constructQueryCode
+    type: string
