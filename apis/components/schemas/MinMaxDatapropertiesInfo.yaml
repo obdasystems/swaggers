@@ -15,5 +15,10 @@ properties:
     type: integer
   state: 
     type: string
+    enum:
+      - RUNNING
+      - READY
+      - FINISHED
+      - ERROR
   percentage:
     type: number
