@@ -1,26 +1,20 @@
 title: SubClassWithCardinalityAssertion
 type: object
-allOf: 
-  -  $ref: AbstractDataQualityConstraint.yaml
+allOf:
+  - $ref: AbstractDataQualityConstraint.yaml
 properties:
-  MIN_CARDINALITY_TYPE:
-    type: integer
-    format: int32
   cardinalityType:
-    type: integer
-    format: int32
+    type: string
+    enum:
+      - EXACT
+      - MAX
+      - MIN
   property:
     $ref: ./OntologyEntity.yaml
   direct:
     type: boolean
   filler:
     $ref: ./OntologyEntity.yaml
-  EXACT_CARDINALITY_TYPE:
-    type: integer
-    format: int32
-  MAX_CARDINALITY_TYPE:
-    type: integer
-    format: int32
   cardinality:
     type: integer
     format: int32

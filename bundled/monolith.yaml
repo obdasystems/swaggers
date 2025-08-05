@@ -19458,20 +19458,15 @@ components:
       title: OBDAStatus
       type: object
       properties:
-        LOADING:
-          type: string
-        lastError:
-          type: string
-        RUNNING:
-          type: string
-        UNAVAILABLE:
-          type: string
-        ERROR:
-          type: string
         id:
           $ref: '#/components/schemas/MastroID'
         status:
           type: string
+          enum:
+            - LOADING
+            - RUNNING
+            - UNAVAILABLE
+            - ERROR
     EndpointStatus:
       title: EndpointStatus
       type: object
@@ -21466,24 +21461,18 @@ components:
       allOf:
         - $ref: '#/components/schemas/AbstractDataQualityConstraint'
       properties:
-        MIN_CARDINALITY_TYPE:
-          type: integer
-          format: int32
         cardinalityType:
-          type: integer
-          format: int32
+          type: string
+          enum:
+            - EXACT
+            - MAX
+            - MIN
         property:
           $ref: '#/components/schemas/OntologyEntity'
         direct:
           type: boolean
         filler:
           $ref: '#/components/schemas/OntologyEntity'
-        EXACT_CARDINALITY_TYPE:
-          type: integer
-          format: int32
-        MAX_CARDINALITY_TYPE:
-          type: integer
-          format: int32
         cardinality:
           type: integer
           format: int32

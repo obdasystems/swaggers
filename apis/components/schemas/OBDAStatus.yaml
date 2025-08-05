@@ -1,17 +1,12 @@
 title: OBDAStatus
 type: object
 properties:
-  LOADING:
-    type: string
-  lastError:
-    type: string
-  RUNNING:
-    type: string
-  UNAVAILABLE:
-    type: string
-  ERROR:
-    type: string
   id:
     $ref: ./MastroID.yaml
   status:
     type: string
+    enum:
+      - LOADING
+      - RUNNING
+      - UNAVAILABLE
+      - ERROR
