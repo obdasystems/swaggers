@@ -34,3 +34,7 @@ properties:
     type: string
   constructQueryCode
     type: string
+  evaluationStepTimes
+    type: object
+    additionalProperties:
+      type: string
