@@ -15,3 +15,8 @@ properties:
     format: int64
   state:
     type: string
+    enum:
+      - RUNNING
+      - READY
+      - FINISHED
+      - ERROR
