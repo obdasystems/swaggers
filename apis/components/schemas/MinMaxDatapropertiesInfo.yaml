@@ -11,8 +11,10 @@ properties:
       $ref: './EntityMinMax.yaml'
   startTime:
     type: integer
+    format: int64
   endTime:
     type: integer
+    format: int64
   state: 
     type: string
     enum:
