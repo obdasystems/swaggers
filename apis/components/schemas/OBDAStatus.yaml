@@ -10,3 +10,5 @@ properties:
       - RUNNING
       - UNAVAILABLE
       - ERROR
+  lastError:
+    type: string
