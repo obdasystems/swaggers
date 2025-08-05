@@ -5,6 +5,10 @@ properties:
     type: string
   type:
     type: string
+    enum:
+      - INDIVIDUAL
+      - IRI
+      - VALUE
   lang:
     type: string
   value:
