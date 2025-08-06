@@ -21877,6 +21877,8 @@ components:
           type: string
         jobData:
           type: object
+          additionalProperties:
+            type: string
         cronExpression:
           type: string
     MwsxTaskSchedulerJobEntry:
