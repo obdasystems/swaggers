@@ -16,7 +16,7 @@ post:
   requestBody:
     content:
       application/json:
-        schema: {$ref: ../components/schemas/Tag.yaml}
+        schema: {$ref: ../components/schemas/MwsxTag.yaml}
     required: true
   responses:
     '200':

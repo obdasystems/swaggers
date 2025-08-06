@@ -20,7 +20,7 @@ properties:
   queryTags:
     type: array
     items:
-      $ref: ./Tag.yaml
+      $ref: ./MwsxTag.yaml
   queryDescription:
     type: string
   queryID:

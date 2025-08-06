@@ -16165,7 +16165,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Tag'
+              $ref: '#/components/schemas/MwsxTag'
         required: true
       responses:
         '200':
@@ -18536,8 +18536,8 @@ components:
         cutoff:
           type: integer
           format: int32
-    Tag:
-      title: Tag
+    MwsxTag:
+      title: MwsxTag
       type: object
       properties:
         color:
@@ -18581,7 +18581,7 @@ components:
         queryTags:
           type: array
           items:
-            $ref: '#/components/schemas/Tag'
+            $ref: '#/components/schemas/MwsxTag'
         queryDescription:
           type: string
         queryID:
@@ -22084,7 +22084,7 @@ components:
         tags:
           type: array
           items:
-            $ref: '#/components/schemas/Tag'
+            $ref: '#/components/schemas/MwsxTag'
     AccessLog:
       type: object
       properties:

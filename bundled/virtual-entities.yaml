@@ -554,8 +554,8 @@ components:
         cutoff:
           type: integer
           format: int32
-    Tag:
-      title: Tag
+    MwsxTag:
+      title: MwsxTag
       type: object
       properties:
         color:
@@ -599,7 +599,7 @@ components:
         queryTags:
           type: array
           items:
-            $ref: '#/components/schemas/Tag'
+            $ref: '#/components/schemas/MwsxTag'
         queryDescription:
           type: string
         queryID:
