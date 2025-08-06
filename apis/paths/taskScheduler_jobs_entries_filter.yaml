@@ -11,9 +11,10 @@ post:
   requestBody:
     content:
       application/json:
-        type: object
-        additionalProperties:
-          type: string
+        schema:
+          type: object
+          additionalProperties:
+            type: string
     required: true
   responses:
     '200':
