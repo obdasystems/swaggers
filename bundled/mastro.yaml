@@ -16675,7 +16675,7 @@ paths:
           in: query
           required: true
           schema:
-            type: object
+            type: string
       requestBody:
         content:
           application/json:

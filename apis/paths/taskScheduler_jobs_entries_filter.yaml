@@ -7,7 +7,7 @@ post:
   - name: mode
     in: query
     required: true
-    schema: {type: object}
+    schema: {type: string}
   requestBody:
     content:
       application/json:
