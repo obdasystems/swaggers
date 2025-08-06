@@ -413,7 +413,8 @@ components:
             $ref: '#/components/schemas/Edge'
         lastViewportState:
           $ref: '#/components/schemas/Viewport'
-    Annotation:
+    GrapholscapeAnnotation:
+      title: GrapholscapeAnnotation
       type: object
       required:
         - value
@@ -433,10 +434,6 @@ components:
         language:
           type: string
         datatype:
-          type: string
-        propertyIri:
-          type: string
-        entityIri:
           type: string
     FunctionPropertiesEnum:
       type: string
@@ -458,7 +455,7 @@ components:
         annotations:
           type: array
           items:
-            $ref: '#/components/schemas/Annotation'
+            $ref: '#/components/schemas/GrapholscapeAnnotation'
         datatype:
           type: string
         isDataPropertyFunctional:
@@ -513,28 +510,6 @@ components:
           type: array
           items:
             type: string
-    GrapholscapeAnnotation:
-      title: GrapholscapeAnnotation
-      type: object
-      required:
-        - value
-        - property
-      properties:
-        lexicalForm:
-          type: string
-          deprecated: true
-          description: Has been renamed to `value`, kept for back-compatibility.
-        value:
-          type: string
-        hasIriValue:
-          type: boolean
-        property:
-          type: string
-          example: rdfs:label
-        language:
-          type: string
-        datatype:
-          type: string
     Theme:
       type: object
       required:

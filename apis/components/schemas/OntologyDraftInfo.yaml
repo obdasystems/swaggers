@@ -8,3 +8,4 @@ properties:
     type: string
   lastModification:
     type: integer
+    format: int64

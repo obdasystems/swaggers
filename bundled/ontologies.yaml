@@ -1784,14 +1784,20 @@ components:
           type: string
         timeStart:
           type: integer
+          format: int64
         timeEnd:
           type: integer
+          format: int64
         hasError:
           type: boolean
         errorMessage:
           type: string
         missingImports:
           type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
     TreeNode:
       title: TreeNode
       type: object
@@ -1811,6 +1817,8 @@ components:
           format: int32
         entity:
           $ref: '#/components/schemas/OntologyEntity'
+        empty:
+          type: boolean
     HierarchyTree:
       title: HierarchyTree
       type: object

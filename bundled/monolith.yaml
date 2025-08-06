@@ -17927,14 +17927,20 @@ components:
           type: string
         timeStart:
           type: integer
+          format: int64
         timeEnd:
           type: integer
+          format: int64
         hasError:
           type: boolean
         errorMessage:
           type: string
         missingImports:
           type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
     TreeNode:
       title: TreeNode
       type: object
@@ -17954,6 +17960,8 @@ components:
           format: int32
         entity:
           $ref: '#/components/schemas/OntologyEntity'
+        empty:
+          type: boolean
     HierarchyTree:
       title: HierarchyTree
       type: object
@@ -19951,6 +19959,28 @@ components:
             $ref: '#/components/schemas/Edge'
         lastViewportState:
           $ref: '#/components/schemas/Viewport'
+    GrapholscapeAnnotation:
+      title: GrapholscapeAnnotation
+      type: object
+      required:
+        - value
+        - property
+      properties:
+        lexicalForm:
+          type: string
+          deprecated: true
+          description: Has been renamed to `value`, kept for back-compatibility.
+        value:
+          type: string
+        hasIriValue:
+          type: boolean
+        property:
+          type: string
+          example: rdfs:label
+        language:
+          type: string
+        datatype:
+          type: string
     FunctionPropertiesEnum:
       type: string
       enum:
@@ -19971,7 +20001,7 @@ components:
         annotations:
           type: array
           items:
-            $ref: '#/components/schemas/Annotation'
+            $ref: '#/components/schemas/GrapholscapeAnnotation'
         datatype:
           type: string
         isDataPropertyFunctional:
@@ -20026,28 +20056,6 @@ components:
           type: array
           items:
             type: string
-    GrapholscapeAnnotation:
-      title: GrapholscapeAnnotation
-      type: object
-      required:
-        - value
-        - property
-      properties:
-        lexicalForm:
-          type: string
-          deprecated: true
-          description: Has been renamed to `value`, kept for back-compatibility.
-        value:
-          type: string
-        hasIriValue:
-          type: boolean
-        property:
-          type: string
-          example: rdfs:label
-        language:
-          type: string
-        datatype:
-          type: string
     Theme:
       type: object
       required:
@@ -21313,6 +21321,7 @@ components:
           type: string
         lastModification:
           type: integer
+          format: int64
     MWSXOntologyCatalogEntry:
       title: OntologyCatalogEntry
       type: object

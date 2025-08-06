@@ -7,7 +7,7 @@ properties:
   annotations:
     type: array
     items:
-      $ref: "./Annotation.yaml"
+      $ref: "./GrapholscapeAnnotation.yaml"
   datatype:
     type: string
   isDataPropertyFunctional:
