@@ -33,3 +33,19 @@ properties:
     type: string
   virtualEntityQueryInfos:
     $ref: ./MWSXVirtualEntityQueryInfos.yaml
+  creator:
+    type: string
+  entryCreation:
+    type: integer
+    format: int64
+  entryLastModification:
+    type: integer
+    format: int64
+  public:
+    type: boolean
+  publicationRequestDate:
+    type: integer
+    format: int64
+  publicationResponseDate:
+    type: integer
+    format: int64

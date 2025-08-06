@@ -297,6 +297,22 @@ components:
           type: string
         virtualEntityQueryInfos:
           $ref: '#/components/schemas/MWSXVirtualEntityQueryInfos'
+        creator:
+          type: string
+        entryCreation:
+          type: integer
+          format: int64
+        entryLastModification:
+          type: integer
+          format: int64
+        public:
+          type: boolean
+        publicationRequestDate:
+          type: integer
+          format: int64
+        publicationResponseDate:
+          type: integer
+          format: int64
     SPARQLQueryExecution:
       title: SPARQLQueryExecution
       type: object
