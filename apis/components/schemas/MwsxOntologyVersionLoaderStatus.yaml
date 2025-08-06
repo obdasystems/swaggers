@@ -7,9 +7,11 @@ properties:
     type: string
   timeStart:
     type: integer
+    format: int64
   timeElapsed:
     type: integer
+    format: int64
   currentStep:
     type: string
   progress:
-    type: number
+    type: double

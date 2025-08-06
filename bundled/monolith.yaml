@@ -17824,8 +17824,10 @@ components:
           type: string
         timeStart:
           type: integer
+          format: int64
         timeElapsed:
           type: integer
+          format: int64
     MWSXOWLGraphDeductiveClosureReport:
       title: OWLGraphDeductiveClosureReport
       type: object
@@ -17907,12 +17909,14 @@ components:
           type: string
         timeStart:
           type: integer
+          format: int64
         timeElapsed:
           type: integer
+          format: int64
         currentStep:
           type: string
         progress:
-          type: number
+          type: double
     MwsxOntologyVersionLoaderReport:
       title: MwsxOntologyVersionLoaderReport
       type: object
@@ -19523,6 +19527,8 @@ components:
           type: string
         sparql:
           $ref: '#/components/schemas/SPARQLQuery'
+        deleted:
+          type: boolean
     MWSXCoreQueryInfo:
       title: CoreQueryInfo
       type: object
