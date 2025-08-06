@@ -3535,36 +3535,23 @@ components:
           $ref: '#/components/schemas/MappingTemplate'
         reason:
           type: string
-        SUPER_DATA_PROPERTY_DOMAIN_REASON:
-          type: string
-        OBJECT_PROPERTY_DOMAIN_REASON:
-          type: string
-        SUPER_OBJECT_PROPERTY_RANGE_REASON:
-          type: string
-        SUPER_OBJECT_PROPERTY_DOMAIN_REASON:
-          type: string
-        DATA_PROPERTY_DOMAIN_REASON:
-          type: string
-        DATA_PROPERTY_DOMAIN_PARTICIPATION_REASON:
-          type: string
-        SUB_OBJECT_PROPERTY_RANGE_REASON:
-          type: string
+          enum:
+            - SUB_CLASS_REASON
+            - SUPER_CLASS_REASON
+            - OBJECT_PROPERTY_DOMAIN_REASON
+            - SUB_OBJECT_PROPERTY_DOMAIN_REASON
+            - SUPER_OBJECT_PROPERTY_DOMAIN_REASON
+            - OBJECT_PROPERTY_RANGE_REASON
+            - SUB_OBJECT_PROPERTY_RANGE_REASON
+            - SUPER_OBJECT_PROPERTY_RANGE_REASON
+            - DATA_PROPERTY_DOMAIN_REASON
+            - SUB_DATA_PROPERTY_DOMAIN_REASON
+            - SUPER_DATA_PROPERTY_DOMAIN_REASON
+            - OBJECT_PROPERTY_DOMAIN_PARTICIPATION_REASON
+            - OBJECT_PROPERTY_RANGE_PARTICIPATION_REASON
+            - DATA_PROPERTY_DOMAIN_PARTICIPATION_REASON
         sourceEntity:
           $ref: '#/components/schemas/OntologyEntity'
-        OBJECT_PROPERTY_RANGE_REASON:
-          type: string
-        SUPER_CLASS_REASON:
-          type: string
-        SUB_DATA_PROPERTY_DOMAIN_REASON:
-          type: string
-        SUB_OBJECT_PROPERTY_DOMAIN_REASON:
-          type: string
-        SUB_CLASS_REASON:
-          type: string
-        OBJECT_PROPERTY_DOMAIN_PARTICIPATION_REASON:
-          type: string
-        OBJECT_PROPERTY_RANGE_PARTICIPATION_REASON:
-          type: string
     DataLineageDescription:
       title: DataLineageDescription
       type: object

@@ -571,6 +571,7 @@ components:
           type: number
         timestamp:
           type: integer
+          format: int64
         comment:
           type: string
     UserFeedback:
