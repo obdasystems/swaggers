@@ -3513,6 +3513,12 @@ components:
           format: int64
         state:
           type: string
+          enum:
+            - READY
+            - RUNNING
+            - FINISHED
+            - ERROR
+            - STOPPED
     EntityMinMax:
       title: EntityMinMax
       type: object
