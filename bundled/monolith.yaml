@@ -17565,9 +17565,8 @@ paths:
             schema:
               description: Mapping parameters values
               type: object
-              properties:
-                checkId:
-                  type: string
+              additionalProperties:
+                type: string
       responses:
         '200':
           description: OK

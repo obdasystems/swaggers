@@ -37,8 +37,7 @@ put:
         schema: 
           description: Mapping parameters values
           type: object
-          properties:
-            checkId:
+          additionalProperties:
               type: string
   responses:
     '200':
