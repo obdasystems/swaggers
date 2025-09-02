@@ -12288,6 +12288,12 @@ paths:
         - knowledge-graphs_Persistence
       summary: DELETE mwsx/knowledgeGraph/file
       operationId: delete__knowledgeGraph_file
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KnowledgeGraphFile'
+        required: true
       responses:
         '200':
           description: OK
