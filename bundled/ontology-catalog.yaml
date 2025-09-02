@@ -48,14 +48,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/OntologyID'
+              $ref: '#/components/schemas/MWSXOntologyCatalogEntry'
       responses:
         '200':
           description: Successful operation
           content:
             application/json:
               schema:
-                type: boolean
+                $ref: '#/components/schemas/MWSXOntologyCatalogEntries'
         '401':
           description: Unhauthorized
     get:
@@ -214,14 +214,6 @@ components:
           type: object
           additionalProperties:
             $ref: '#/components/schemas/MWSXOntologyCatalogEntry'
-    OntologyID:
-      title: OntologyID
-      type: object
-      properties:
-        ontologyVersion:
-          type: string
-        ontologyName:
-          type: string
     ChartConfiguration:
       title: ChartConfiguration
       type: object

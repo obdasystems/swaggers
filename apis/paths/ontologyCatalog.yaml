@@ -18,13 +18,13 @@ post:
   requestBody:
     content:
       application/json:
-        schema: {$ref: ../components/schemas/OntologyID.yaml}
+        schema: {$ref: ../components/schemas/MWSXOntologyCatalogEntry.yaml}
   responses:
     '200':
       description: Successful operation
       content:
         application/json:
-          schema: {type: boolean}
+          schema: {$ref: ../components/schemas/MWSXOntologyCatalogEntries.yaml}
     '401': {description: Unhauthorized}
 get:
   tags: [Persistence]

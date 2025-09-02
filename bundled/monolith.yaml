@@ -16646,14 +16646,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/OntologyID'
+              $ref: '#/components/schemas/MWSXOntologyCatalogEntry'
       responses:
         '200':
           description: Successful operation
           content:
             application/json:
               schema:
-                type: boolean
+                $ref: '#/components/schemas/MWSXOntologyCatalogEntries'
         '401':
           description: Unhauthorized
       security:
