@@ -1,5 +1,8 @@
 title: SPARQLQuery
 type: object
+required:
+  - queryID
+  - queryCode
 properties:
   selectedMappingIds:
     type: array
@@ -14,7 +17,7 @@ properties:
     additionalProperties:
       type: string
   semantics:
-    enum: 
+    enum:
       - auto
       - cq
       - eql

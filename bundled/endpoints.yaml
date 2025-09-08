@@ -2441,6 +2441,9 @@ components:
     OntologyID:
       title: OntologyID
       type: object
+      required:
+        - ontologyName
+        - ontologyVersion
       properties:
         ontologyVersion:
           type: string
@@ -2449,6 +2452,10 @@ components:
     MastroID:
       title: MastroID
       type: object
+      required:
+        - ontologyID
+        - mappingID
+        - datasourceID
       properties:
         mappingID:
           type: string
@@ -2469,6 +2476,8 @@ components:
     OntologyEntity:
       title: OntologyEntity
       type: object
+      required:
+        - entityIRI
       properties:
         entityLabels:
           type: array
@@ -2506,6 +2515,7 @@ components:
       title: Endpoint
       type: object
       required:
+        - name
         - mastroID
       properties:
         restartNeeded:
@@ -2557,6 +2567,9 @@ components:
     OBDAStatus:
       title: OBDAStatus
       type: object
+      required:
+        - id
+        - status
       properties:
         id:
           $ref: '#/components/schemas/MastroID'
@@ -2572,6 +2585,8 @@ components:
     EndpointStatus:
       title: EndpointStatus
       type: object
+      required:
+        - status
       properties:
         restartNeeded:
           type: boolean
@@ -2637,6 +2652,9 @@ components:
     SPARQLQuery:
       title: SPARQLQuery
       type: object
+      required:
+        - queryID
+        - queryCode
       properties:
         selectedMappingIds:
           type: array
@@ -2809,6 +2827,16 @@ components:
     SPARQLStatus:
       title: SPARQLStatus
       type: object
+      required:
+        - status
+        - executionTime
+        - numResults
+        - percentage
+        - numHighLevelQueries
+        - numLowLevelQueries
+        - numOntologyRewritings
+        - numOptimizedQueries
+        - hasError
       properties:
         executionTime:
           type: integer
@@ -3467,6 +3495,10 @@ components:
     EntityCount:
       title: EntityCount
       type: object
+      required:
+        - entity
+        - count
+        - state
       properties:
         count:
           type: integer
@@ -3480,6 +3512,12 @@ components:
     CountEntityInstancesInfo:
       title: CountEntityInstancesInfo
       type: object
+      required:
+        - countsMap
+        - percentage
+        - startTime
+        - endTime
+        - state
       properties:
         countsMap:
           type: object
@@ -3539,6 +3577,13 @@ components:
     MinMaxDatapropertiesInfo:
       title: MinMaxDatapropertiesInfo
       type: object
+      required:
+        - mins
+        - maxs
+        - startTime
+        - endTime
+        - state
+        - percentage
       properties:
         mins:
           type: object

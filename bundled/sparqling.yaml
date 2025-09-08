@@ -269,7 +269,7 @@ paths:
           content:
             application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/HighlightsPathsThreadState'
         '401':
           description: Unhauthorized
   /owlOntology/{name}/highlights/paths/thread/error:
@@ -1794,6 +1794,12 @@ components:
           description: The list of edges connecting two nodes
           items:
             $ref: '#/components/schemas/ObjectPropertiesMultiEdge'
+    HighlightsPathsThreadState:
+      title: HighlightsPathsThreadState
+      enum:
+        - RUNNING
+        - FINISHED
+        - READY
     VarOrConstant:
       type: object
       properties:

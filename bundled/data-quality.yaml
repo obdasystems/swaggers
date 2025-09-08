@@ -776,6 +776,8 @@ components:
     OntologyEntity:
       title: OntologyEntity
       type: object
+      required:
+        - entityIRI
       properties:
         entityLabels:
           type: array
@@ -1082,6 +1084,9 @@ components:
     OntologyID:
       title: OntologyID
       type: object
+      required:
+        - ontologyName
+        - ontologyVersion
       properties:
         ontologyVersion:
           type: string
@@ -1090,6 +1095,10 @@ components:
     MastroID:
       title: MastroID
       type: object
+      required:
+        - ontologyID
+        - mappingID
+        - datasourceID
       properties:
         mappingID:
           type: string
@@ -1119,6 +1128,7 @@ components:
       title: Endpoint
       type: object
       required:
+        - name
         - mastroID
       properties:
         restartNeeded:

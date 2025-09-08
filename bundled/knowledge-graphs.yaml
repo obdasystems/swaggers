@@ -1696,6 +1696,8 @@ components:
     OntologyEntity:
       title: OntologyEntity
       type: object
+      required:
+        - entityIRI
       properties:
         entityLabels:
           type: array
@@ -1899,6 +1901,9 @@ components:
     SPARQLQuery:
       title: SPARQLQuery
       type: object
+      required:
+        - queryID
+        - queryCode
       properties:
         selectedMappingIds:
           type: array
@@ -1963,6 +1968,16 @@ components:
     SPARQLStatus:
       title: SPARQLStatus
       type: object
+      required:
+        - status
+        - executionTime
+        - numResults
+        - percentage
+        - numHighLevelQueries
+        - numLowLevelQueries
+        - numOntologyRewritings
+        - numOptimizedQueries
+        - hasError
       properties:
         executionTime:
           type: integer
@@ -2272,6 +2287,9 @@ components:
     OntologyID:
       title: OntologyID
       type: object
+      required:
+        - ontologyName
+        - ontologyVersion
       properties:
         ontologyVersion:
           type: string
@@ -2280,6 +2298,10 @@ components:
     MastroID:
       title: MastroID
       type: object
+      required:
+        - ontologyID
+        - mappingID
+        - datasourceID
       properties:
         mappingID:
           type: string

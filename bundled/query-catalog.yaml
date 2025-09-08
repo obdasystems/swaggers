@@ -766,6 +766,9 @@ components:
     SPARQLQuery:
       title: SPARQLQuery
       type: object
+      required:
+        - queryID
+        - queryCode
       properties:
         selectedMappingIds:
           type: array
@@ -1028,6 +1031,8 @@ components:
     SparqlingSPARQLQuery:
       title: SparqlingSPARQLQuery
       type: object
+      required:
+        - sparqlQuery
       properties:
         queryGraph:
           $ref: '#/components/schemas/QueryGraph'

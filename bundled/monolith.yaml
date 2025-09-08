@@ -11263,7 +11263,7 @@ paths:
           content:
             application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/HighlightsPathsThreadState'
         '401':
           description: Unhauthorized
       security:
@@ -21383,6 +21383,8 @@ components:
     OntologyEntity:
       title: OntologyEntity
       type: object
+      required:
+        - entityIRI
       properties:
         entityLabels:
           type: array
@@ -21643,7 +21645,8 @@ components:
         currentStep:
           type: string
         progress:
-          type: double
+          type: number
+          format: double
     MwsxOntologyVersionLoaderReport:
       title: MwsxOntologyVersionLoaderReport
       type: object
@@ -22300,6 +22303,9 @@ components:
     SPARQLQuery:
       title: SPARQLQuery
       type: object
+      required:
+        - queryID
+        - queryCode
       properties:
         selectedMappingIds:
           type: array
@@ -22356,6 +22362,8 @@ components:
     SparqlingSPARQLQuery:
       title: SparqlingSPARQLQuery
       type: object
+      required:
+        - sparqlQuery
       properties:
         queryGraph:
           $ref: '#/components/schemas/QueryGraph'
@@ -22366,6 +22374,10 @@ components:
     PublicationRequest:
       title: PublicationRequest
       type: object
+      required:
+        - ontologyName
+        - ontologyVersion
+        - sparqlingSparqlQuery
       properties:
         ontologyName:
           type: string
@@ -23125,6 +23137,9 @@ components:
     OntologyID:
       title: OntologyID
       type: object
+      required:
+        - ontologyName
+        - ontologyVersion
       properties:
         ontologyVersion:
           type: string
@@ -23133,6 +23148,10 @@ components:
     MastroID:
       title: MastroID
       type: object
+      required:
+        - ontologyID
+        - mappingID
+        - datasourceID
       properties:
         mappingID:
           type: string
@@ -23162,6 +23181,7 @@ components:
       title: Endpoint
       type: object
       required:
+        - name
         - mastroID
       properties:
         restartNeeded:
@@ -23205,6 +23225,9 @@ components:
     OBDAStatus:
       title: OBDAStatus
       type: object
+      required:
+        - id
+        - status
       properties:
         id:
           $ref: '#/components/schemas/MastroID'
@@ -23220,6 +23243,8 @@ components:
     EndpointStatus:
       title: EndpointStatus
       type: object
+      required:
+        - status
       properties:
         restartNeeded:
           type: boolean
@@ -23352,6 +23377,16 @@ components:
     SPARQLStatus:
       title: SPARQLStatus
       type: object
+      required:
+        - status
+        - executionTime
+        - numResults
+        - percentage
+        - numHighLevelQueries
+        - numLowLevelQueries
+        - numOntologyRewritings
+        - numOptimizedQueries
+        - hasError
       properties:
         executionTime:
           type: integer
@@ -24029,6 +24064,10 @@ components:
     EntityCount:
       title: EntityCount
       type: object
+      required:
+        - entity
+        - count
+        - state
       properties:
         count:
           type: integer
@@ -24042,6 +24081,12 @@ components:
     CountEntityInstancesInfo:
       title: CountEntityInstancesInfo
       type: object
+      required:
+        - countsMap
+        - percentage
+        - startTime
+        - endTime
+        - state
       properties:
         countsMap:
           type: object
@@ -24101,6 +24146,13 @@ components:
     MinMaxDatapropertiesInfo:
       title: MinMaxDatapropertiesInfo
       type: object
+      required:
+        - mins
+        - maxs
+        - startTime
+        - endTime
+        - state
+        - percentage
       properties:
         mins:
           type: object
@@ -24376,6 +24428,12 @@ components:
           description: The list of edges connecting two nodes
           items:
             $ref: '#/components/schemas/ObjectPropertiesMultiEdge'
+    HighlightsPathsThreadState:
+      title: HighlightsPathsThreadState
+      enum:
+        - RUNNING
+        - FINISHED
+        - READY
     OntologyPath:
       properties:
         entities:

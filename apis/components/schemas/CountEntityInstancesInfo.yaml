@@ -1,5 +1,11 @@
 title: CountEntityInstancesInfo
 type: object
+required:
+  - countsMap
+  - percentage
+  - startTime
+  - endTime
+  - state
 properties:
   countsMap:
     type: object

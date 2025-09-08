@@ -1,5 +1,15 @@
 title: SPARQLStatus
 type: object
+required:
+  - status
+  - executionTime
+  - numResults
+  - percentage
+  - numHighLevelQueries
+  - numLowLevelQueries
+  - numOntologyRewritings
+  - numOptimizedQueries
+  - hasError
 properties:
   executionTime:
     type: integer

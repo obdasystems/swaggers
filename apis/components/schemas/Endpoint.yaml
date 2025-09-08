@@ -1,6 +1,7 @@
 title: Endpoint
 type: object
 required: 
+  - name
   - mastroID
 properties:
   restartNeeded:

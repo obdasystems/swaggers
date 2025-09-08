@@ -1,5 +1,7 @@
 title: EndpointStatus
 type: object
+required:
+  - status
 properties:
   restartNeeded:
     type: boolean

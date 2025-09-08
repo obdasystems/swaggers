@@ -1,5 +1,8 @@
 title: OBDAStatus
 type: object
+required:
+  - id
+  - status
 properties:
   id:
     $ref: ./MastroID.yaml
