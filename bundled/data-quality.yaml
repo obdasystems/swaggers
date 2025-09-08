@@ -1118,6 +1118,8 @@ components:
     Endpoint:
       title: Endpoint
       type: object
+      required:
+        - mastroID
       properties:
         restartNeeded:
           type: boolean
