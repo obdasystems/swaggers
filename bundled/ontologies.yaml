@@ -2440,7 +2440,11 @@ components:
           additionalProperties:
             type: string
         semantics:
-          type: string
+          enum:
+            - auto
+            - cq
+            - eql
+            - newcq
         constructCode:
           type: string
         queryTags:
