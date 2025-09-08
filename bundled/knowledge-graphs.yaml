@@ -1992,7 +1992,13 @@ components:
           type: integer
           format: int32
         status:
-          type: string
+          enum:
+            - READY
+            - FINISHED
+            - UNAVAILABLE
+            - ERROR
+            - RUNNING
+            - STOPPED
         queryCode:
           type: string
         constructQueryCode:
