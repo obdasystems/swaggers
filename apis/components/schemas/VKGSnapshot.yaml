@@ -1,4 +1,10 @@
 type: object
+title: VKGSnapshot
+required:
+  - id
+  - name
+  - lastModification
+  - rdfGraph
 properties:
   id:
     type: string
@@ -11,3 +17,12 @@ properties:
     format: int64
   rdfGraph:
     $ref: ./RDFGraph.yaml
+  customNodeRenderings:
+    type: object
+    additionalProperties:
+      $ref: ./CustomNodeRendering.yaml
+  customFilters:
+    type: object
+    additionalProperties:
+      $ref: ./VKGCustomFilter.yaml
+  

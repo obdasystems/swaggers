@@ -24591,20 +24591,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SparqlingVirtualEntity'
-    VKGSnapshot:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
-        lastModification:
-          type: integer
-          format: int64
-        rdfGraph:
-          $ref: '#/components/schemas/RDFGraph'
     BasePropertyInfo:
       type: object
       properties:
@@ -24677,6 +24663,80 @@ components:
                   type: string
                 dataPropertyIriY:
                   type: string
+    InstanceFilter:
+      type: object
+      required:
+        - operator
+        - values
+        - property
+      properties:
+        operator:
+          type: string
+        valid:
+          type: boolean
+        values:
+          type: array
+          items:
+            type: string
+        rangeClasses:
+          type: array
+          items:
+            type: string
+        rangeDataProperty:
+          type: string
+        property:
+          type: object
+          properties:
+            iri:
+              type: string
+            direct:
+              type: boolean
+            type:
+              $ref: '#/components/schemas/TypesEnum'
+    VKGCustomFilter:
+      type: object
+      required:
+        - active
+        - filters
+      properties:
+        active:
+          type: integer
+          enum:
+            - 0
+            - 1
+            - 2
+        filters:
+          type: array
+          items:
+            $ref: '#/components/schemas/InstanceFilter'
+    VKGSnapshot:
+      type: object
+      title: VKGSnapshot
+      required:
+        - id
+        - name
+        - lastModification
+        - rdfGraph
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        lastModification:
+          type: integer
+          format: int64
+        rdfGraph:
+          $ref: '#/components/schemas/RDFGraph'
+        customNodeRenderings:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/CustomNodeRendering'
+        customFilters:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/VKGCustomFilter'
     CustomNodeRenderingMap:
       description: Map <classIri, CustomRendering>
       type: object
