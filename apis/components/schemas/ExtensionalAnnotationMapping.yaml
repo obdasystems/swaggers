@@ -1,5 +1,8 @@
 title: ExtensionalAnnotationMapping
 type: object
+required:
+  - template
+  - annotationProperty
 properties:
   template:
     $ref: ./MappingTemplate.yaml

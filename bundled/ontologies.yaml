@@ -1841,11 +1841,13 @@ components:
     Entities:
       title: Entities
       type: object
+      required:
+        - classEntities
+        - annotationPropertyEntities
+        - objectPropertyEntities
+        - dataPropertyEntities
+        - namedIndividualEntities
       properties:
-        dataPropertyEntities:
-          type: array
-          items:
-            $ref: '#/components/schemas/OntologyEntity'
         classEntities:
           type: array
           items:
@@ -1855,6 +1857,10 @@ components:
           items:
             $ref: '#/components/schemas/OntologyEntity'
         objectPropertyEntities:
+          type: array
+          items:
+            $ref: '#/components/schemas/OntologyEntity'
+        dataPropertyEntities:
           type: array
           items:
             $ref: '#/components/schemas/OntologyEntity'
@@ -2431,7 +2437,6 @@ components:
       type: object
       required:
         - queryID
-        - queryCode
       properties:
         selectedMappingIds:
           type: array

@@ -1903,7 +1903,6 @@ components:
       type: object
       required:
         - queryID
-        - queryCode
       properties:
         selectedMappingIds:
           type: array
@@ -2022,6 +2021,22 @@ components:
           type: object
           additionalProperties:
             type: string
+    SPARQLResultsHeadTypes:
+      title: SPARQLResultsHeadTypes
+      enum:
+        - OBJECT
+        - VALUE
+        - UNSPECIFIED
+        - xsd:double
+        - iri
+        - xsd:dateTime
+        - literal
+        - xsd:string
+        - xsd:boolean
+        - xsd:integer
+        - numeric
+        - xsd:decimal
+        - xsd:float
     SPARQLResult:
       title: SPARQLResult
       type: object
@@ -2043,6 +2058,9 @@ components:
     SPARQLResults:
       title: SPARQLResults
       type: object
+      required:
+        - headTerms
+        - headTypes
       properties:
         headTerms:
           type: array
@@ -2050,6 +2068,10 @@ components:
             type: string
         headTypes:
           type: object
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/SPARQLResultsHeadTypes'
         construct:
           type: boolean
         results:

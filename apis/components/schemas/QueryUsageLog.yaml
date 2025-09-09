@@ -1,4 +1,9 @@
 type: object
+title: QueryUsageLog
+required: 
+  - username
+  - timestamp
+  - queryCode
 properties:
   username:
     type: string

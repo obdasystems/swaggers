@@ -1,5 +1,8 @@
 title: SPARQLResults
 type: object
+required: 
+  - headTerms
+  - headTypes
 properties:
   headTerms:
     type: array
@@ -7,6 +10,10 @@ properties:
       type: string
   headTypes:
     type: object
+    additionalProperties:
+      type: array
+      items:
+        $ref: SPARQLResultsHeadTypes.yaml
   construct:
     type: boolean
   results:

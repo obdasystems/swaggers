@@ -2,7 +2,6 @@ title: SPARQLQuery
 type: object
 required:
   - queryID
-  - queryCode
 properties:
   selectedMappingIds:
     type: array

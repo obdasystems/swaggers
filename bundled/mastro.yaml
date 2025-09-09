@@ -17742,11 +17742,13 @@ components:
     Entities:
       title: Entities
       type: object
+      required:
+        - classEntities
+        - annotationPropertyEntities
+        - objectPropertyEntities
+        - dataPropertyEntities
+        - namedIndividualEntities
       properties:
-        dataPropertyEntities:
-          type: array
-          items:
-            $ref: '#/components/schemas/OntologyEntity'
         classEntities:
           type: array
           items:
@@ -17756,6 +17758,10 @@ components:
           items:
             $ref: '#/components/schemas/OntologyEntity'
         objectPropertyEntities:
+          type: array
+          items:
+            $ref: '#/components/schemas/OntologyEntity'
+        dataPropertyEntities:
           type: array
           items:
             $ref: '#/components/schemas/OntologyEntity'
@@ -18336,7 +18342,6 @@ components:
       type: object
       required:
         - queryID
-        - queryCode
       properties:
         selectedMappingIds:
           type: array
@@ -18557,6 +18562,9 @@ components:
     ExtensionalAnnotationMapping:
       title: ExtensionalAnnotationMapping
       type: object
+      required:
+        - template
+        - annotationProperty
       properties:
         template:
           $ref: '#/components/schemas/MappingTemplate'
@@ -19369,6 +19377,22 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SqlRewriting'
+    SPARQLResultsHeadTypes:
+      title: SPARQLResultsHeadTypes
+      enum:
+        - OBJECT
+        - VALUE
+        - UNSPECIFIED
+        - xsd:double
+        - iri
+        - xsd:dateTime
+        - literal
+        - xsd:string
+        - xsd:boolean
+        - xsd:integer
+        - numeric
+        - xsd:decimal
+        - xsd:float
     SPARQLResult:
       title: SPARQLResult
       type: object
@@ -19390,6 +19414,9 @@ components:
     SPARQLResults:
       title: SPARQLResults
       type: object
+      required:
+        - headTerms
+        - headTypes
       properties:
         headTerms:
           type: array
@@ -19397,6 +19424,10 @@ components:
             type: string
         headTypes:
           type: object
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/SPARQLResultsHeadTypes'
         construct:
           type: boolean
         results:
@@ -21935,6 +21966,10 @@ components:
             $ref: '#/components/schemas/MwsxTag'
     AccessLog:
       type: object
+      title: AccessLog
+      required:
+        - username
+        - timestamp
       properties:
         username:
           type: string
@@ -21952,6 +21987,11 @@ components:
           type: integer
     QueryUsageLog:
       type: object
+      title: QueryUsageLog
+      required:
+        - username
+        - timestamp
+        - queryCode
       properties:
         username:
           type: string
@@ -21961,6 +22001,10 @@ components:
           type: string
     EntityUsageLog:
       type: object
+      title: EntityUsageLog
+      required:
+        - entity
+        - count
       properties:
         entity:
           $ref: '#/components/schemas/OntologyEntity'

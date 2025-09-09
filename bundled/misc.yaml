@@ -1659,6 +1659,10 @@ components:
             $ref: '#/components/schemas/MwsxTag'
     AccessLog:
       type: object
+      title: AccessLog
+      required:
+        - username
+        - timestamp
       properties:
         username:
           type: string
@@ -1676,6 +1680,11 @@ components:
           type: integer
     QueryUsageLog:
       type: object
+      title: QueryUsageLog
+      required:
+        - username
+        - timestamp
+        - queryCode
       properties:
         username:
           type: string
@@ -1685,6 +1694,10 @@ components:
           type: string
     EntityUsageLog:
       type: object
+      title: EntityUsageLog
+      required:
+        - entity
+        - count
       properties:
         entity:
           $ref: '#/components/schemas/OntologyEntity'

@@ -3158,6 +3158,9 @@ components:
     ExtensionalAnnotationMapping:
       title: ExtensionalAnnotationMapping
       type: object
+      required:
+        - template
+        - annotationProperty
       properties:
         template:
           $ref: '#/components/schemas/MappingTemplate'
