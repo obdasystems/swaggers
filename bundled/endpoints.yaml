@@ -563,32 +563,26 @@ paths:
             type: string
         - name: answersBufferSize
           in: query
-          required: true
           schema:
             type: string
         - name: skipSqlEvaluation
           in: query
-          required: true
           schema:
             type: string
         - name: useReplaceForUrlEncoding
           in: query
-          required: true
           schema:
             type: string
         - name: filterNullValuesOnIri
           in: query
-          required: true
           schema:
             type: string
         - name: lang
           in: query
-          required: true
           schema:
             type: string
         - name: agent
           in: query
-          required: true
           schema:
             type: string
         - name: unfolderCountThreshold
@@ -1361,37 +1355,30 @@ paths:
             type: string
         - name: answersBufferSize
           in: query
-          required: true
           schema:
             type: string
         - name: skipSqlEvaluation
           in: query
-          required: true
           schema:
             type: string
         - name: useReplaceForUrlEncoding
           in: query
-          required: true
           schema:
             type: string
         - name: filterNullValuesOnIri
           in: query
-          required: true
           schema:
             type: string
         - name: lang
           in: query
-          required: true
           schema:
             type: string
         - name: agent
           in: query
-          required: true
           schema:
             type: string
         - name: unfolderCountThreshold
           in: query
-          required: true
           schema:
             type: string
       requestBody:
@@ -1443,37 +1430,30 @@ paths:
             type: string
         - name: answersBufferSize
           in: query
-          required: true
           schema:
             type: string
         - name: skipSqlEvaluation
           in: query
-          required: true
           schema:
             type: string
         - name: useReplaceForUrlEncoding
           in: query
-          required: true
           schema:
             type: string
         - name: filterNullValuesOnIri
           in: query
-          required: true
           schema:
             type: string
         - name: lang
           in: query
-          required: true
           schema:
             type: string
         - name: agent
           in: query
-          required: true
           schema:
             type: string
         - name: unfolderCountThreshold
           in: query
-          required: true
           schema:
             type: string
       requestBody:
@@ -2105,37 +2085,30 @@ paths:
             type: string
         - name: answersBufferSize
           in: query
-          required: true
           schema:
             type: string
         - name: skipSqlEvaluation
           in: query
-          required: true
           schema:
             type: string
         - name: useReplaceForUrlEncoding
           in: query
-          required: true
           schema:
             type: string
         - name: filterNullValuesOnIri
           in: query
-          required: true
           schema:
             type: string
         - name: lang
           in: query
-          required: true
           schema:
             type: string
         - name: agent
           in: query
-          required: true
           schema:
             type: string
         - name: unfolderCountThreshold
           in: query
-          required: true
           schema:
             type: string
       requestBody:
@@ -2182,37 +2155,30 @@ paths:
             type: string
         - name: answersBufferSize
           in: query
-          required: true
           schema:
             type: string
         - name: skipSqlEvaluation
           in: query
-          required: true
           schema:
             type: string
         - name: useReplaceForUrlEncoding
           in: query
-          required: true
           schema:
             type: string
         - name: filterNullValuesOnIri
           in: query
-          required: true
           schema:
             type: string
         - name: lang
           in: query
-          required: true
           schema:
             type: string
         - name: agent
           in: query
-          required: true
           schema:
             type: string
         - name: unfolderCountThreshold
           in: query
-          required: true
           schema:
             type: string
       requestBody:
