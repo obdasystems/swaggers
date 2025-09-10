@@ -10,3 +10,7 @@ properties:
     type: string
   datatypeIri:
     type: string
+  isIri:
+    type: boolean
+  isBlankNode:
+    type: boolean

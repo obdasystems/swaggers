@@ -21612,6 +21612,10 @@ components:
           type: string
         datatypeIri:
           type: string
+        isIri:
+          type: boolean
+        isBlankNode:
+          type: boolean
     MWSXMetadataTriple:
       type: object
       properties:
@@ -21881,6 +21885,7 @@ components:
       required:
         - value
         - property
+        - propertyIri
       properties:
         lexicalForm:
           type: string

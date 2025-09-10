@@ -2,6 +2,7 @@ type: object
 required:
   - value
   - property
+  - propertyIri
 properties:
   lexicalForm:
     type: string
