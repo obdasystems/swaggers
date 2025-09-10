@@ -943,6 +943,8 @@ components:
     DataQualityCheck:
       title: DataQualityCheck
       type: object
+      required:
+        - id
       properties:
         id:
           type: string
@@ -952,6 +954,9 @@ components:
     DataQualityCheckSet:
       title: DataQualityCheckSet
       type: object
+      required:
+        - id
+        - ontologyConstraints
       properties:
         ontologyConstraints:
           type: array
