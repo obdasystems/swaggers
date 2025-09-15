@@ -19265,6 +19265,10 @@ components:
     EmptyEntities:
       title: EmptyEntities
       type: object
+      required:
+        - emptyObjectProperties
+        - emptyDataProperties
+        - emptyClasses
       properties:
         emptyObjectProperties:
           type: array
