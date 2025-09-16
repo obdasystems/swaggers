@@ -1,5 +1,7 @@
 title: QueryRecordInfo
 type: object
+required: 
+  - id
 properties:
   ontologyRewritingEnabled:
     type: integer
