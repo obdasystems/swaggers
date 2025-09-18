@@ -6,7 +6,10 @@ put:
     - name: languages
       in: query
       required: true
-      schema: { type: array }
+      schema:
+        type: array
+        items:
+          type: string
   responses:
     "200":
       description: OK

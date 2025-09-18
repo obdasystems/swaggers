@@ -14126,6 +14126,8 @@ paths:
           required: true
           schema:
             type: array
+            items:
+              type: string
       responses:
         '200':
           description: OK
@@ -14166,6 +14168,8 @@ paths:
           required: true
           schema:
             type: array
+            items:
+              type: string
       responses:
         '200':
           description: OK
@@ -14306,7 +14310,7 @@ paths:
       description: Retrieve the results of a SPARQL query
       operationId: get_ontology_catalog_query_results
       parameters:
-        - name: queryID
+        - name: queryId
           in: path
           required: true
           schema:
