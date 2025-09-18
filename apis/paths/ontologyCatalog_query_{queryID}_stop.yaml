@@ -3,14 +3,14 @@ put:
   summary: Stops a SPARQL query over the catalog
   operationId: put_ontology_catalog_query_stop
   parameters:
-  - name: queryID
-    in: path
-    required: true
-    schema: {type: string}
+    - name: queryId
+      in: path
+      required: true
+      schema: { type: string }
   responses:
-    '200':
+    "200":
       description: Successful operation
       content:
         application/json:
-          schema: {type: boolean}
-    '401': {description: Unhauthorized}
+          schema: { type: boolean }
+    "401": { description: Unhauthorized }

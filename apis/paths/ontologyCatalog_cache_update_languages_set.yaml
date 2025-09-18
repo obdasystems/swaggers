@@ -3,14 +3,11 @@ put:
   summary: PUT mwsx/ontologyCatalog/cache/update/languages/set
   operationId: put_ontology_catalog_cache_manager_set_languages
   parameters:
-  - name: languages
-    in: query
-    required: true
-    schema: {type: array}
+    - name: languages
+      in: query
+      required: true
+      schema: { type: array }
   responses:
-    '200':
+    "200":
       description: OK
-      content:
-        application/json:
-          schema: {$ref: ../components/schemas/Response.yaml}
-    '401': {description: Unhauthorized}
+    "401": { description: Unhauthorized }

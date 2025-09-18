@@ -8,18 +8,19 @@ post:
         schema:
           required: [update, using-graph-uri, using-named-graph-uri]
           properties:
-            update: {type: string}
+            update: { type: string }
             using-graph-uri:
               type: array
-              items: {type: string}
+              items: { type: string }
             using-named-graph-uri:
               type: array
-              items: {type: string}
+              items: { type: string }
     required: true
   responses:
-    '200':
+    "200":
       description: OK
       content:
-        '*/*':
-          schema: {$ref: ../components/schemas/Response.yaml}
-    '401': {description: Unhauthorized}
+        "*/*":
+          schema:
+            type: object
+    "401": { description: Unhauthorized }
