@@ -1,15 +1,16 @@
 post:
+  tags: [Query]
   summary: Adds a new query to the catalog
   operationId: post_ontologycatalog_query_ID
   requestBody:
     content:
       application/json:
-        schema: {$ref: ../components/schemas/SPARQLQuery.yaml}
+        schema: { $ref: ../components/schemas/SPARQLQuery.yaml }
     required: true
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/Response.yaml}
-    '401': {description: Unhauthorized}
+          schema: { $ref: ../components/schemas/SPARQLQuery.yaml }
+    "401": { description: Unhauthorized }

@@ -1,0 +1,11 @@
+title: DataSourceSchemaMetadata
+type: object
+properties:
+  tables:
+    type: object
+    additionalProperties:
+      $ref: ./MWSXDataSourceTableMetadata.yaml
+  views:
+    type: object
+    additionalProperties:
+      $ref: ./MWSXDataSourceTableMetadata.yaml

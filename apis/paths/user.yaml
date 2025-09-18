@@ -1,4 +1,5 @@
 post:
+  tags: [User]
   summary: Creates a new user
   operationId: post__user
   parameters:

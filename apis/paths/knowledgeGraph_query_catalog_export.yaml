@@ -1,4 +1,5 @@
 get:
+  tags: [Query]
   summary: GET mwsx/knowledgeGraph/query/catalog/export
   operationId: get__knowledgeGraph_query_catalog_export
   parameters:

@@ -1,4 +1,5 @@
 post:
+  tags: [Test]
   summary: Returns the preview of a given SQLQuery executed over a given datasource
   operationId: postSQLEx
   parameters:

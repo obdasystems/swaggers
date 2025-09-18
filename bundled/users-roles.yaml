@@ -23,6 +23,8 @@ security:
 paths:
   /users:
     get:
+      tags:
+        - User
       summary: Returns the list of available users of this MWS installation
       operationId: get__users
       responses:
@@ -37,6 +39,8 @@ paths:
         '401':
           description: Unhauthorized
     put:
+      tags:
+        - User
       summary: Adds multiple users to the system
       operationId: put__users
       parameters:
@@ -62,6 +66,8 @@ paths:
           description: Unhauthorized
   /user/{username}:
     get:
+      tags:
+        - User
       summary: Returns the user names <code>username</code>
       operationId: get__user_name
       parameters:
@@ -80,6 +86,8 @@ paths:
         '401':
           description: Unhauthorized
     put:
+      tags:
+        - User
       summary: Modifies the user identified by <code>username</code>
       operationId: put__user
       parameters:
@@ -109,6 +117,8 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - User
       summary: DELETE mwsx/user/{username}
       operationId: delete__user
       parameters:
@@ -128,6 +138,8 @@ paths:
           description: Unhauthorized
   /user:
     post:
+      tags:
+        - User
       summary: Creates a new user
       operationId: post__user
       parameters:
@@ -153,6 +165,8 @@ paths:
           description: Unhauthorized
   /user/{username}/passwd:
     put:
+      tags:
+        - User
       summary: Changes the user password for the user named <code>username</code>
       operationId: put__user_passwd
       parameters:
@@ -182,6 +196,8 @@ paths:
           description: Unhauthorized
   /user/{username}/passwd/reset:
     put:
+      tags:
+        - User
       summary: PUT mwsx/user/{username}/passwd/reset
       operationId: put__user_passwd_reset
       parameters:
@@ -206,6 +222,8 @@ paths:
           description: Unhauthorized
   /roles:
     get:
+      tags:
+        - Roles
       summary: GET mwsx/roles
       operationId: get__roles
       responses:
@@ -221,6 +239,8 @@ paths:
           description: Unhauthorized
   /role/{rolename}:
     get:
+      tags:
+        - Roles
       summary: GET mwsx/role/{rolename}
       operationId: get__role_name
       parameters:
@@ -239,6 +259,8 @@ paths:
         '401':
           description: Unhauthorized
     put:
+      tags:
+        - Roles
       summary: PUT mwsx/role/{rolename}
       operationId: put__role
       parameters:
@@ -263,6 +285,8 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Roles
       summary: DELETE mwsx/role/{rolename}
       operationId: delete__role
       parameters:
@@ -282,6 +306,8 @@ paths:
           description: Unhauthorized
   /role:
     post:
+      tags:
+        - Roles
       summary: POST mwsx/role
       operationId: post__role
       requestBody:
@@ -301,6 +327,8 @@ paths:
           description: Unhauthorized
   /role/configurations:
     get:
+      tags:
+        - Roles
       summary: GET mwsx/role/configurations
       operationId: get__role_configs
       responses:
@@ -314,6 +342,8 @@ paths:
           description: Unhauthorized
   /monolith/roles:
     get:
+      tags:
+        - MonolithRole
       summary: GET mwsx/monolith/roles
       operationId: get__monolith__roles
       responses:
@@ -329,6 +359,8 @@ paths:
           description: Unhauthorized
   /monolith/role/{rolename}:
     put:
+      tags:
+        - MonolithRole
       summary: PUT mwsx/monolith/role/{rolename}
       operationId: put__monolith__role
       parameters:
@@ -354,6 +386,8 @@ paths:
           description: Unhauthorized
   /users/feedback:
     get:
+      tags:
+        - User
       summary: Returns the feedback provided by all the users
       operationId: get__users_feedback
       responses:
@@ -367,6 +401,8 @@ paths:
           description: Unhauthorized
   /user/feedback:
     get:
+      tags:
+        - User
       summary: Returns the feedback provided by a specific user
       operationId: get__user_feedback
       responses:
@@ -380,6 +416,8 @@ paths:
           description: Unhauthorized
   /user/{username}/feedback:
     delete:
+      tags:
+        - User
       summary: Returns the feedback provided by a specific user
       operationId: delete__user_feedback
       parameters:
@@ -399,6 +437,8 @@ paths:
           description: Unhauthorized
   /user/feedback/comment:
     post:
+      tags:
+        - User
       summary: Returns the feedback provided by all the users
       operationId: post__user_feedback_comment
       requestBody:
@@ -414,34 +454,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/UserFeedback'
-        '401':
-          description: Unhauthorized
-  /logout:
-    get:
-      summary: REST call for basic authentication, returns the session ID as a response header
-      operationId: get__logout
-      responses:
-        '200':
-          description: OK
-        '401':
-          description: Unhauthorized
-  /logout/{username}:
-    put:
-      summary: Closes the MWS session opened by the user 'username' - returns 0 if the closing operation succeed
-      operationId: put__logout_by_username
-      parameters:
-        - name: username
-          in: path
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: integer
         '401':
           description: Unhauthorized
 components:
@@ -509,6 +521,10 @@ components:
             $ref: '#/components/schemas/User'
         enabledDomainChecks:
           type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
     UsersCreationReport:
       title: UsersCreationReport
       type: object
@@ -555,6 +571,7 @@ components:
           type: number
         timestamp:
           type: integer
+          format: int64
         comment:
           type: string
     UserFeedback:

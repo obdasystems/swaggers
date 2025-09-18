@@ -1,4 +1,5 @@
 get:
+  tags: [Utils]
   summary: Returns a list of SparqlingSPARQLQuery obtaining converted the SPARQLQuery
     queries available in the catalog to SparqlingSPARQLQuery
   operationId: get__owlOntology_name_version_querycatalog_converted2spargling

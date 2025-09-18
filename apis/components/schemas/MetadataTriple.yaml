@@ -1,8 +1,0 @@
-type: object
-properties:
-  subject:
-    $ref: ./MetadataSubject.yaml
-  predicate:
-    $ref: ./MetadataPredicate.yaml
-  object:
-    $ref: ./MetadataObject.yaml

@@ -1,4 +1,5 @@
 post:
+  tags: [InstanceChecking]
   summary: Starts the executions of the queries that will count the number of instances
     of each Class of the ontology
   operationId: get__start_endpoint_instance_checking

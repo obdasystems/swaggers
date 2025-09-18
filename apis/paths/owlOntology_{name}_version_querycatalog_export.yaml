@@ -1,4 +1,5 @@
 get:
+  tags: [Persistence]
   summary: Exports the ontology catalog returning its JSON representation
   operationId: get__owlOntology_name_version_querycatalog_export
   parameters:

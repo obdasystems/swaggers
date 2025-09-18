@@ -1,4 +1,5 @@
 get:
+  tags: [Persistence]
   summary: GET mwsx/owlOntology/{name}/version/authorizationViewProfiles
   operationId: get_authorizationViewProfiles
   parameters:
@@ -20,6 +21,7 @@ get:
             items: {$ref: ../components/schemas/AuthorizationViewProfileInfo.yaml}
     '401': {description: Unhauthorized}
 post:
+  tags: [Persistence]
   summary: POST mwsx/owlOntology/{name}/version/authorizationViewProfiles
   operationId: post_authorizationViewProfiles
   parameters:

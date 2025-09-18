@@ -1,4 +1,5 @@
 get:
+  tags: [Persistence]
   summary: GET mwsx/owlOntology/{name}/version/dashboards
   operationId: get__owlOntology_version_dashboards
   parameters:
@@ -18,6 +19,7 @@ get:
           schema: {$ref: ../components/schemas/Dashboards.yaml}
     '401': {description: Unhauthorized}
 post:
+  tags: [Persistence]
   summary: POST mwsx/owlOntology/{name}/version/dashboards
   operationId: post__owlOntology_version_dashboards
   parameters:

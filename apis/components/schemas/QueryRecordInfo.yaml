@@ -1,5 +1,7 @@
 title: QueryRecordInfo
 type: object
+required: 
+  - id
 properties:
   ontologyRewritingEnabled:
     type: integer
@@ -27,3 +29,9 @@ properties:
     format: int32
   originalConstructCode:
     type: string
+  agent:
+    type: string
+  user:
+    type: string
+  unfolderThresholdReached:
+    type: boolean

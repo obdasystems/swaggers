@@ -1,4 +1,5 @@
 get:
+  tags: [LastLoaded]
   summary: GET mwsx/lastLoaded/knowledgeGraph
   operationId: get_lastLoaded_knowledgeGraph
   responses:

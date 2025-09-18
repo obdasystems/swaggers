@@ -1,4 +1,5 @@
 get:
+  tags: [Persistence]
   summary: Returns the SPARQLQuery identified by the passed ID value
   operationId: get__owlOntology_name_version_query_ID
   parameters:
@@ -22,6 +23,7 @@ get:
           schema: {$ref: ../components/schemas/SPARQLQuery.yaml}
     '401': {description: Unhauthorized}
 put:
+  tags: [Persistence]
   summary: Updates the definition of a specific query within the available catalog
   operationId: put__owlOntology_name_version_query_ID
   parameters:
@@ -50,6 +52,7 @@ put:
           schema: {$ref: ../components/schemas/SPARQLQuery.yaml}
     '401': {description: Unhauthorized}
 delete:
+  tags: [Persistence]
   summary: Removes a specific query from the catalog available for this version of
     the ontology
   operationId: delete__owlOntology_name_version_query_ID

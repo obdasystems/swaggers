@@ -1,4 +1,5 @@
 get:
+  tags: [Logical]
   summary: 'Gets the info of the version ''version'' of the ontology named <code>name</code>.<br/> '
   operationId: get__owlOntology_name_version_info
   parameters:

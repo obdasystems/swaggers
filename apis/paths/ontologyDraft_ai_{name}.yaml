@@ -1,5 +1,5 @@
 put:
-  tags: [Ontology Designer]
+  tags: [Persistence]
   summary: Ask for AI support in ontology design.
   operationId: putOntologyDraftAI
   parameters: 

@@ -23,14 +23,6 @@ paths:
     $ref: paths/owlOntology.yaml
   /owlOntology/{name}:
     $ref: paths/owlOntology_{name}.yaml
-  /owlOntology/{name}/folder:
-    $ref: paths/owlOntology_{name}_folder.yaml
-  /owlOntology/{name}/version/folder:
-    $ref: paths/owlOntology_{name}_version_folder.yaml
-  /owlOntology/{name}/export:
-    $ref: paths/owlOntology_{name}_export.yaml
-  /owlOntology/{name}/version/export:
-    $ref: paths/owlOntology_{name}_version_export.yaml
   /owlOntology/{name}/version:
     $ref: paths/owlOntology_{name}_version.yaml
   /owlOntology/{name}/version/ignoredImports:
@@ -90,14 +82,10 @@ paths:
     $ref: paths/owlOntology_{name}_version_graphol.yaml
   /owlOntology/{name}/version/gscape:
     $ref: paths/owlOntology_{name}_version_gscape.yaml
-  /owlOntology/{name}/version/shacl:
-    $ref: paths/owlOntology_{name}_version_shacl.yaml
   /owlOntology/{name}/version/graphol/check:
     $ref: paths/owlOntology_{name}_version_graphol_check.yaml
   /owlOntology/{name}/version/gscape/check:
     $ref: paths/owlOntology_{name}_version_gscape_check.yaml
-  /owlOntology/{name}/version/shacl/check:
-    $ref: paths/owlOntology_{name}_version_shacl_check.yaml
   /owlOntology/{name}/version/owl:
     $ref: paths/owlOntology_{name}_version_owl.yaml
   /owlOntology/{name}/version/alphabet/individual/{ID}/logical:
@@ -112,6 +100,10 @@ paths:
     $ref: paths/owlOntology_{name}_version_metadata_missing.yaml
   /owlOntology/queries/publicationRequests:
     $ref: paths/owlOntology_queries_publicationRequests.yaml
+  /owlOntology/{name}/folder:
+    $ref: paths/owlOntology_{name}_folder.yaml
+  /owlOntology/{name}/version/folder:
+    $ref: paths/owlOntology_{name}_version_folder.yaml
 components: 
   securitySchemes: 
     apiKey: 

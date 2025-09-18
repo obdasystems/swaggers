@@ -1,4 +1,5 @@
 put:
+  tags: [Status]
   summary: Starts the given endpoint, returns 0 if the operation succeeds
   operationId: start_endpoint
   parameters:

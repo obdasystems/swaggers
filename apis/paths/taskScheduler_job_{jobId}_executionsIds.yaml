@@ -1,4 +1,5 @@
 get:
+  tags: [Execution]
   summary: Un-schedules and deletes a job in the task scheduler
   operationId: get__task_scheduler_job_entries_executions_ids
   parameters:

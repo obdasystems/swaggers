@@ -34,8 +34,6 @@ paths:
     $ref: paths/knowledgeGraph_status.yaml
   /knowledgeGraph/status/list:
     $ref: paths/knowledgeGraph_status_list.yaml
-  /lastLoaded/knowledgeGraph:
-    $ref: paths/lastLoaded_knowledgeGraph.yaml
   /knowledgeGraph/file:
     $ref: paths/knowledgeGraph_file.yaml
   /knowledgeGraph/classes:

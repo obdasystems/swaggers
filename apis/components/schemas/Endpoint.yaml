@@ -1,5 +1,8 @@
 title: Endpoint
 type: object
+required: 
+  - name
+  - mastroID
 properties:
   restartNeeded:
     type: boolean
@@ -11,3 +14,7 @@ properties:
     type: string
   mastroID:
     $ref: ./MastroID.yaml
+  autoStart:
+    type: boolean
+  emptyUnfoldingEntities:
+    $ref: EmptyUnfoldingEntities.yaml

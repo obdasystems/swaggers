@@ -1,4 +1,5 @@
 get:
+  tags: [Statistics]
   summary: Returns the ontologies statistics
   operationId: get_ontologies_statistics
   responses:
@@ -11,6 +12,7 @@ get:
             items: {$ref: ../components/schemas/OntologyUsageLog.yaml}
     '401': {description: Unhauthorized}
 post:
+  tags: [Statistics]
   summary: Replace the current ontologies statistics with the one provided
   operationId: post_ontologies_statistics
   requestBody:
@@ -30,7 +32,8 @@ post:
             items: {$ref: ../components/schemas/OntologyUsageLog.yaml}
     '401': {description: Unhauthorized}
 put:
-  summary: Adds the provided access log to the one registered in the system
+  tags: [Statistics]
+  summary: Adds the provided ontologies statistics to the one registered in the system
   operationId: put_ontologies_statistics
   requestBody:
     content:
@@ -49,7 +52,8 @@ put:
             items: {$ref: ../components/schemas/OntologyUsageLog.yaml}
     '401': {description: Unhauthorized}
 delete:
-  summary: Adds the provided access log to the one registered in the system
+  tags: [Statistics]
+  summary: Delete the provided ontologies statistics from the system
   operationId: delete_ontologies_statistics
   responses:
     '200':

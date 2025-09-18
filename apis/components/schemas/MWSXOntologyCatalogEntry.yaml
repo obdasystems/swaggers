@@ -1,0 +1,7 @@
+title: OntologyCatalogEntry
+type: object
+properties:
+  ontologyVersion:
+    type: string
+  ontologyName:
+    type: string

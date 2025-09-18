@@ -1,4 +1,5 @@
 get:
+  tags: [ExportedQuery]
   summary: Returns the content of an export file for the given endpoint
   operationId: get__owlOntology_name_version_query_ID_exported_fileName
   parameters:
@@ -18,6 +19,7 @@ get:
           schema: {$ref: ../components/schemas/FileInfo.yaml}
     '401': {description: Unhauthorized}
 delete:
+  tags: [ExportedQuery]
   summary: Deletes the export file for the given endpoint from the server, returns
     0 in the deletion succeeded
   operationId: delete__owlOntology_name_version_query_ID_exported_fileName

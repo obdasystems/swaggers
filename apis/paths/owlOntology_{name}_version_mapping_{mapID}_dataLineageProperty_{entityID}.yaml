@@ -1,4 +1,5 @@
 get:
+  tags: [DataLineage]
   summary: GET mwsx/owlOntology/{name}/version/mapping/{mapID}/dataLineageProperty/{entityID}
   operationId: get__owlOntology_name_version_mapID_entityID_dataLineageProperty
   parameters:

@@ -1,4 +1,5 @@
 get:
+  tags: [Empties]
   summary: Returns the collection of empty entities relevant for the given endpoint
   operationId: get_endpoint_empties
   parameters:

@@ -1,5 +1,7 @@
 title: SubClassWithForAllAssertion
 type: object
+allOf: 
+  -  $ref: AbstractDataQualityConstraint.yaml
 properties:
   property:
     $ref: ./OntologyEntity.yaml

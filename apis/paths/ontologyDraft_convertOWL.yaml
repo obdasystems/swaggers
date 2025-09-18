@@ -1,4 +1,5 @@
 post:
+  tags: [Persistence]
   summary: Convert an OWL file in RDFGraph model
   operationId: post_ontologyDraft_convertOWL
   requestBody:

@@ -1,4 +1,5 @@
 get:
+  tags: [Statistics]
   summary: Returns the entities statistics for the given endpoint
   operationId: get_statistics_endpoint_entities
   parameters:

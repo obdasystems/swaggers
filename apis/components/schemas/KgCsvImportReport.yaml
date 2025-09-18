@@ -35,8 +35,10 @@ properties:
     type: object
   timeStart:
     type: integer
+    format: int64
   timeEnd:
     type: integer
+    format: int64
   generatedTriplesFile:
     type: string 
   numberOfTriplesPerLine:

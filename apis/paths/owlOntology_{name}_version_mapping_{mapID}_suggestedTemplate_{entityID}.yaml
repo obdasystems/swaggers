@@ -1,4 +1,5 @@
 get:
+  tags: [Template]
   summary: GET mwsx/owlOntology/{name}/version/mapping/{mapID}/suggestedTemplate/{entityID}
   operationId: get__owlOntology_name_version_mapID_suggestedTemplate_entityID
   parameters:

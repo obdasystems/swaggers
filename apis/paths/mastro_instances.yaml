@@ -1,4 +1,5 @@
 get:
+  tags: [Mastro]
   summary: GET mwsx/mastro/instances
   operationId: get__available_instances
   responses:

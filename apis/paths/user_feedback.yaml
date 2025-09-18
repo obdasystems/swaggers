@@ -1,4 +1,5 @@
 get:
+  tags: [User]
   summary: Returns the feedback provided by a specific user
   operationId: get__user_feedback
   responses:

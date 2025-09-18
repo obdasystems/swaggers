@@ -1,0 +1,19 @@
+title: QuarantinedMappingReport
+type: object
+properties:
+  viewDefinitionsCount:
+    type: integer
+    format: int32
+  mappingsCount:
+    type: integer
+    format: int32
+  quarantinedMappingsCount:
+    type: integer
+    format: int32
+  quarantineReasonsByViewName:
+    $ref: './MWSXQuarantineReason.yaml'
+  quarantineReasonsByMappingId:
+    $ref: './MWSXQuarantineReason.yaml'
+  quarantinedViewDefinitionsCount:
+    type: integer
+    format: int32

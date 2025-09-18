@@ -1,19 +1,33 @@
 title: MinMaxDatapropertiesInfo
 type: object
+required:
+  - mins
+  - maxs
+  - startTime
+  - endTime
+  - state
+  - percentage
 properties:
   mins:
     type: object
     additionalProperties:
-      $ref: './EntityMinMax.yaml'
+      $ref: "./EntityMinMax.yaml"
   maxs:
     type: object
     additionalProperties:
-      $ref: './EntityMinMax.yaml'
+      $ref: "./EntityMinMax.yaml"
   startTime:
     type: integer
+    format: int64
   endTime:
     type: integer
-  state: 
+    format: int64
+  state:
     type: string
+    enum:
+      - RUNNING
+      - READY
+      - FINISHED
+      - ERROR
   percentage:
     type: number

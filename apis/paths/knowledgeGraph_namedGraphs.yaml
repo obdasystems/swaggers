@@ -1,4 +1,5 @@
 get:
+  tags: [General]
   summary: GET mwsx/knowledgeGraph/namedGraphs
   operationId: get__knowledgeGraph_named_graphs
   parameters:

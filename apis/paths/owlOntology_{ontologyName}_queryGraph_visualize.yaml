@@ -1,5 +1,6 @@
 post:
-  tags: [VisualizeSPARQL]
+  tags: [Visualize]
+  operationId: visualizePost
   summary: Convert SPARQL code to a QueryGraph
   parameters:
   - name: ontologyName

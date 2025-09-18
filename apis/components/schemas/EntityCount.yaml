@@ -1,5 +1,9 @@
 title: EntityCount
 type: object
+required:
+  - entity
+  - count
+  - state
 properties:
   count:
     type: integer

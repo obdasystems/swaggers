@@ -1,4 +1,5 @@
 get:
+  tags: [Logical]
   summary: 'Gets the set of entities of object property version ''version'' of the
     ontology named <code>name</code>.<br/> '
   operationId: get__owlOntology_name_version_entities_objectProperties

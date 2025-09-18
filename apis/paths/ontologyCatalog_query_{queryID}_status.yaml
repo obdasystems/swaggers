@@ -1,17 +1,17 @@
 get:
+  tags: [Query]
   summary: Check the status of a SPARQL query
   description: Check the status of a SPARQL query
-  operationId: check_ontology_catalog_query_status
+  operationId: getOntologyCatalogQueryStatus
   parameters:
-  - name: queryID
-    in: path
-    required: true
-    schema: {type: string}
-  tags: [Ontology Catalog]
+    - name: queryId
+      in: path
+      required: true
+      schema: { type: string }
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/SPARQLStatus.yaml}
-    '401': {description: Unhauthorized}
+          schema: { $ref: ../components/schemas/SPARQLStatus.yaml }
+    "401": { description: Unhauthorized }

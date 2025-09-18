@@ -4,4 +4,4 @@ properties:
   tags:
     type: array
     items:
-      $ref: ./Tag.yaml
+      $ref: ./MwsxTag.yaml

@@ -1,0 +1,111 @@
+openapi: 3.0.0
+info:
+  description: This is the API to obtain the X-MONOLITH-SESSION-ID using mastro authentication.
+  version: 1.0.0
+  title: Authentication API
+  contact:
+    email: info@obdasystems.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+  - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+    variables:
+      protocol:
+        default: https
+      tenant:
+        default: localhost
+      port:
+        default: ':8989'
+security:
+  - basicAuth: []
+paths:
+  /login:
+    get:
+      summary: REST call for basic authentication, returns the session ID as a response header
+      tags:
+        - Login
+      operationId: get__login
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '401':
+          description: Unhauthorized
+  /logout:
+    get:
+      tags:
+        - Logout
+      summary: REST call for basic authentication, returns the session ID as a response header
+      operationId: get__logout
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unhauthorized
+  /logout/{username}:
+    put:
+      summary: Closes the MWS session opened by the user 'username' - returns 0 if the closing operation succeed
+      tags:
+        - Logout
+      operationId: put__logout_by_username
+      parameters:
+        - name: username
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+        '401':
+          description: Unhauthorized
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+  schemas:
+    Permission:
+      title: Permission
+      type: object
+      properties:
+        domain:
+          type: string
+        action:
+          type: string
+        id:
+          type: string
+    Role:
+      title: Role
+      type: object
+      properties:
+        permissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Permission'
+        name:
+          type: string
+    User:
+      title: User
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Role'
+        name:
+          type: string
+        email:
+          type: string

@@ -1,4 +1,5 @@
 put:
+  tags: [Metadata]
   summary: Updates the data source metadata information retrieving it from the JDBC
     connection
   operationId: put__datasource_updateMetadata
@@ -16,5 +17,5 @@ put:
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/DataSourceMetadata.yaml}
+          schema: {$ref: ../components/schemas/MWSXDataSourceMetadata.yaml}
     '401': {description: Unhauthorized}

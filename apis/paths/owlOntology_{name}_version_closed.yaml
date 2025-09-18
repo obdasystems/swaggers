@@ -1,4 +1,5 @@
 get:
+  tags: [Reasoning]
   summary: 'Returns the file containing the definition of the closed ontology <code>name</code>,
     with version ''version''. <br/>The format parameter assumes one of the following
     values: ''graphol'', ''fss'', ''xml'', ''turtle'''
@@ -24,6 +25,7 @@ get:
           schema: {$ref: ../components/schemas/FileInfo.yaml}
     '401': {description: Unhauthorized}
 delete:
+  tags: [Reasoning]
   summary: Deletes the closed ontology <code>name</code>, with version 'version'.
     <br/>
   operationId: delete__owlOntology_name_version_closed
@@ -44,6 +46,7 @@ delete:
           schema: {type: integer}
     '401': {description: Unhauthorized}
 post:
+  tags: [Reasoning]
   summary: Starts the thread for the computation of the deductive closure of ontology
     <code>name</code>, with version 'version'.Returns the ID of the thread
   operationId: post__owlOntology_name_version_closed

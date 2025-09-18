@@ -1,4 +1,5 @@
 post:
+  tags: [Persistence]
   summary: Migrates dashboard with ID dashboardId from version 'version' to 'version'
     targetVersion for ontology named 'name'
   operationId: post__owlOntology_version_dashboard_migrate

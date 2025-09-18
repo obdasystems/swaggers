@@ -1,4 +1,5 @@
 get:
+  tags: [Server]
   summary: Computes and returns the system storage report
   operationId: get_server_license_expiration_date
   responses:

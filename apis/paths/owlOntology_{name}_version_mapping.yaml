@@ -1,4 +1,5 @@
 get:
+  tags: [Persistence]
   summary: Returns the list of mappings available for a given ontology version
   operationId: get__owlOntology_name_version_mapping
   parameters:
@@ -18,6 +19,7 @@ get:
           schema: {$ref: ../components/schemas/Mappings.yaml}
     '401': {description: Unhauthorized}
 post:
+  tags: [Persistence]
   summary: Creates a new set of mappings
   operationId: post__owlOntology_name_version_mapping_ID
   parameters:

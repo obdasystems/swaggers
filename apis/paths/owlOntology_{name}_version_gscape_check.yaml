@@ -1,4 +1,5 @@
 get:
+  tags: [Visualize]
   summary: GET mwsx/owlOntology/{name}/version/gscape/check
   operationId: get__owlOntology_name_version_gscape_check
   parameters:

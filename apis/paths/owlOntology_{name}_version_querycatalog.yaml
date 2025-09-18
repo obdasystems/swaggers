@@ -1,4 +1,5 @@
 get:
+  tags: [Persistence]
   summary: Returns the query catalog available for the given version of the ontology
   operationId: get__owlOntology_name_version_querycatalog
   parameters:
@@ -18,6 +19,7 @@ get:
           schema: {$ref: ../components/schemas/OBDACatalog.yaml}
     '401': {description: Unhauthorized}
 delete:
+  tags: [Persistence]
   summary: Deletes the query catalog available for the given version of the ontology
   operationId: delete__owlOntology_name_version_querycatalog
   parameters:

@@ -1,4 +1,5 @@
 get:
+  tags: [CountEntityInstances]
   summary: Count the number of instances of the Class or the Object Property of the
     ontology
   operationId: get__endpoint_instances

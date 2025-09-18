@@ -1,4 +1,5 @@
 get:
+  tags: [Logical]
   summary: GET mwsx/owlOntology/{name}/version/alphabet/dataProperty/{ID}/logical
   operationId: get__owlOntology_name_version_alphabet_dataProperty_ID_logical
   parameters:

@@ -41,7 +41,7 @@ properties:
       annotations:
         type: array
         items:
-          $ref: ./Annotation.yaml
+          $ref: ./GrapholscapeAnnotation.yaml
       annotationProperties:
         type: array
         items:

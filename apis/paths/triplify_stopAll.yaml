@@ -1,5 +1,6 @@
 put:
-  summary: Stops the thread identified by threadID
+  tags: [Execution]
+  summary: Stops all running triplification threads
   operationId: put_mappings_triplification_stop_all
   responses:
     '200': {description: OK}

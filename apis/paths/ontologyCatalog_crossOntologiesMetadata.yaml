@@ -1,25 +1,23 @@
 post:
+  tags: [Metadata]
   summary: POST mwsx/ontologyCatalog/crossOntologiesMetadata
   operationId: post_cross_ontologies_individuals_metadata
   requestBody:
     content:
       application/json:
-        schema: {$ref: ../components/schemas/OntologyCatalogOntologyMetadataSet.yaml}
+        schema:
+          {
+            $ref: ../components/schemas/MWSXOntologyCatalogOntologyMetadataSet.yaml,
+          }
     required: true
   responses:
-    '200':
+    "200":
       description: OK
-      content:
-        application/json:
-          schema: {$ref: ../components/schemas/Response.yaml}
-    '401': {description: Unhauthorized}
+    "401": { description: Unhauthorized }
 delete:
   summary: DELETE mwsx/ontologyCatalog/crossOntologiesMetadata
-  operationId: delete_ontology_catalog
+  operationId: delete_ontology_catalog_metadata
   responses:
-    '200':
+    "200":
       description: OK
-      content:
-        application/json:
-          schema: {$ref: ../components/schemas/Response.yaml}
-    '401': {description: Unhauthorized}
+    "401": { description: Unhauthorized }

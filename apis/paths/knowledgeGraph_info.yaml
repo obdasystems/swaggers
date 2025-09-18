@@ -1,4 +1,5 @@
 get:
+  tags: [Persistence]
   summary: GET mwsx/knowledgeGraph/info
   operationId: get__knowledgeGraph_info
   parameters:

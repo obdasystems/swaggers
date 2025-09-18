@@ -1,4 +1,5 @@
 get:
+  tags: [ConstructQuery]
   summary: Returns the results for a given construct query in tabular format
   operationId: get__owlOntology_name_version_construct_query_ID_results_tabular
   parameters:

@@ -1,0 +1,5 @@
+title: MemorySnapshot
+type: object
+properties:
+  endpointsMemorySnapshot:
+    type: object

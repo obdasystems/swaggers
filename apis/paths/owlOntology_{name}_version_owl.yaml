@@ -1,4 +1,5 @@
 get:
+  tags: [Persistence]
   summary: 'Returns the OWL file of the version ''version'' of the ontology named
     <code>name</code>.<br/> '
   operationId: get__owlOntology_name_version_owl

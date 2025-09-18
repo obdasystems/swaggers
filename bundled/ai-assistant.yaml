@@ -23,7 +23,7 @@ paths:
   /ontologyDraft/ai/{name}:
     put:
       tags:
-        - Ontology Designer
+        - Persistence
       summary: Ask for AI support in ontology design.
       operationId: putOntologyDraftAI
       parameters:
@@ -413,7 +413,8 @@ components:
             $ref: '#/components/schemas/Edge'
         lastViewportState:
           $ref: '#/components/schemas/Viewport'
-    Annotation:
+    GrapholscapeAnnotation:
+      title: GrapholscapeAnnotation
       type: object
       required:
         - value
@@ -454,7 +455,7 @@ components:
         annotations:
           type: array
           items:
-            $ref: '#/components/schemas/Annotation'
+            $ref: '#/components/schemas/GrapholscapeAnnotation'
         datatype:
           type: string
         isDataPropertyFunctional:
@@ -685,7 +686,7 @@ components:
             annotations:
               type: array
               items:
-                $ref: '#/components/schemas/Annotation'
+                $ref: '#/components/schemas/GrapholscapeAnnotation'
             annotationProperties:
               type: array
               items:

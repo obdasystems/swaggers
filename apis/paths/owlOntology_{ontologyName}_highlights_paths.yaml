@@ -3,7 +3,7 @@ get:
   summary: Find paths between selected class and clicked class.
   description: The results should be based on Dijkstra algorithm for shortest paths.
     ISA wieght is 0 while role weight is 1.
-  operationId: highligthsPaths
+  operationId: highligthsSharedViewsDataProps
   parameters:
   - name: ontologyName
     in: path

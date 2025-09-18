@@ -1,0 +1,25 @@
+title: MemorySnapshot
+type: object
+properties:
+  cachedTboxes:
+    type: integer
+  cachedOwlOntologies:
+    type: integer
+  cachedClosedOwlOntologies:
+    type: integer
+  cachedMappingManagers:
+    type: integer
+  cachedMastroAPIInstances:
+    type: integer
+  cachedEndpointMastroAPIInstances:
+    type: integer
+  cachedDataQualityCheckThreads:
+    type: integer
+  cachedAnnotationProcessorThreads:
+    type: integer
+  cachedCountEntityInstancesThreads:
+    type: integer
+  cachedMinMaxDataPropertiesThread:
+    type: integer
+  cachedInstanceCheckingThreads:
+    type: integer

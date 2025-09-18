@@ -9,3 +9,5 @@ properties:
     type: string
   sparql:
     $ref: ./SPARQLQuery.yaml
+  deleted:
+    type: boolean

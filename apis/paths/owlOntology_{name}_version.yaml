@@ -1,4 +1,5 @@
 get:
+  tags: [Persistence]
   summary: 'Returns the file containing the definition of the ontology <code>name</code>,
     with version ''version''. <br/>The format parameter assumes one of the following
     values: ''graphol'', ''fss'', ''xml'', ''turtle'''
@@ -28,6 +29,7 @@ get:
           schema: {$ref: ../components/schemas/FileInfo.yaml}
     '401': {description: Unhauthorized}
 delete:
+  tags: [Persistence]
   summary: 'Deletes version ''version'' of the ontology named <code>name</code>.<br/> '
   operationId: delete__owlOntology_name_version
   parameters:

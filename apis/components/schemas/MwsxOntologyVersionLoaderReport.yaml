@@ -7,11 +7,17 @@ properties:
     type: string 
   timeStart: 
     type: integer 
+    format: int64
   timeEnd: 
     type: integer
+    format: int64
   hasError: 
     type: boolean 
   errorMessage: 
     type: string 
   missingImports: 
     type: object
+    additionalProperties:
+      type: array
+      items:
+        type: string

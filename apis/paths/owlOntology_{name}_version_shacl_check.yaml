@@ -1,4 +1,5 @@
 get:
+  tags: [SHACL]
   summary: GET mwsx/owlOntology/{name}/version/shacl/check
   operationId: get__owlOntology_name_version_json_constraints_check
   parameters:

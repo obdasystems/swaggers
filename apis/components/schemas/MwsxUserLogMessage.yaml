@@ -4,7 +4,8 @@ properties:
   userName:
     type: string 
   timestamp:
-    type: integer 
+    type: integer
+    format: int64
   resource:
     type: string 
   method:

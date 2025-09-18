@@ -1,4 +1,5 @@
 get:
+  tags: [Query]
   summary: Returns the report of a Full Sparql query executed on the given endpoint
   operationId: get_eqldeatils_catalog_query_on_endpoint
   parameters:
@@ -15,5 +16,5 @@ get:
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/FullSparqlQueryReport.yaml}
+          schema: {$ref: ../components/schemas/MWSXFullSparqlQueryReport.yaml}
     '401': {description: Unhauthorized}

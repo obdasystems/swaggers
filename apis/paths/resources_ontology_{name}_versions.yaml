@@ -1,4 +1,5 @@
 get:
+  tags: [Resources]
   summary: GET mwsx/resources/ontology/{name}/versions
   operationId: get__resources_ids_versions
   parameters:

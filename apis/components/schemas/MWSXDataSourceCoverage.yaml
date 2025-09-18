@@ -1,0 +1,24 @@
+title: DataSourceCoverage
+type: object
+properties:
+  tables:
+    type: array
+    items:
+      $ref: ./MWSXDataSourceTableMetadata.yaml
+  unmappedTableCount:
+    type: integer
+    format: int32
+  mappedTables:
+    type: array
+    items:
+      $ref: ./MWSXDataSourceTableMetadata.yaml
+  unmappedTables:
+    type: array
+    items:
+      $ref: ./MWSXDataSourceTableMetadata.yaml
+  mappedTableCount:
+    type: integer
+    format: int32
+  totalTableCount:
+    type: integer
+    format: int32

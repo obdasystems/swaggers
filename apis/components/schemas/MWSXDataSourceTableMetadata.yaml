@@ -1,0 +1,19 @@
+title: DataSourceTableMetadata
+type: object
+properties:
+  catalogName:
+    type: string
+  foreignKeys:
+    type: array
+    items:
+      $ref: ./MWSXDataSourceForeignKeyMetadata.yaml
+  columns:
+    type: array
+    items:
+      $ref: ./MWSXDataSourceTableColumnMetadata.yaml
+  keys:
+    $ref: ./MWSXDataSourceKeyMetadata.yaml
+  name:
+    type: string
+  schemaName:
+    type: string

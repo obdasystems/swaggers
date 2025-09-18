@@ -1,6 +1,7 @@
 get:
+  tags: [Persistence]
   summary: Returns the virtual entities available for a given ontology
-  operationId: get_virtualEntities
+  operationId: getOwlOntologyNameVersionOntologyVirtualEntities
   parameters:
   - name: name
     in: path
@@ -20,8 +21,9 @@ get:
             additionalProperties: {$ref: ../components/schemas/SparqlingVirtualEntity.yaml}
     '401': {description: Unhauthorized}
 delete:
+  tags: [Persistence]
   summary: Deletes the virtual entities for a given ontology
-  operationId: delete_virtualEntities
+  operationId: deleteOwlOntologyNameVersionOntologyVirtualEntities
   parameters:
   - name: name
     in: path

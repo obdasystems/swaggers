@@ -1,4 +1,5 @@
 get:
+  tags: [Highlights]
   summary: Get the error of a thread computing a shortest path on the ontology
   operationId: get_shortest_path_thread_error
   parameters:

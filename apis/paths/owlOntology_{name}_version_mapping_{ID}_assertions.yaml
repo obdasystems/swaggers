@@ -1,4 +1,5 @@
 get:
+  tags: [Assertion]
   summary: Returns the list of all mapping assertions identified by ID
   operationId: get__owlOntology_name_version_mapping_ID_assertions
   parameters:
@@ -24,6 +25,7 @@ get:
             items: {$ref: ../components/schemas/MappingAssertion.yaml}
     '401': {description: Unhauthorized}
 post:
+  tags: [Assertion]
   summary: Adds a new mapping assertion to a set of mappings
   operationId: post__owlOntology_name_version_mapping_ID_assertions
   parameters:

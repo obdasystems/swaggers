@@ -1,4 +1,5 @@
 put:
+  tags: [Upload]
   summary: PUT mwsx/knowledgeGraph/upload/import
   operationId: put__knowledgeGraph_upload_import
   requestBody:

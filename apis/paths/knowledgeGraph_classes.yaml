@@ -1,4 +1,5 @@
 get:
+  tags: [Classes]
   summary: GET mwsx/knowledgeGraph/classes
   operationId: get__knowledgeGraph_mentioned_classes
   parameters:

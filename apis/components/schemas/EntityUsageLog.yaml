@@ -1,4 +1,8 @@
 type: object
+title: EntityUsageLog
+required: 
+  - entity
+  - count
 properties:
   entity:
     $ref: OntologyEntity.yaml

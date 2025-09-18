@@ -1,4 +1,5 @@
 get:
+  tags: [Statistics]
   summary: Returns the access log
   operationId: get_accesses_statistics
   responses:
@@ -11,6 +12,7 @@ get:
             items: {$ref: ../components/schemas/AccessLog.yaml}
     '401': {description: Unhauthorized}
 post:
+  tags: [Statistics]
   summary: Replace the current access log with the one provided
   operationId: post_accesses_statistics
   requestBody:
@@ -30,6 +32,7 @@ post:
             items: {$ref: ../components/schemas/AccessLog.yaml}
     '401': {description: Unhauthorized}
 put:
+  tags: [Statistics]
   summary: Adds the provided access log to the one registered in the system
   operationId: put_accesses_statistics
   requestBody:
@@ -49,6 +52,7 @@ put:
             items: {$ref: ../components/schemas/AccessLog.yaml}
     '401': {description: Unhauthorized}
 delete:
+  tags: [Statistics]
   summary: Replace the current access log with the one provided
   operationId: delete_accesses_statistics
   responses:

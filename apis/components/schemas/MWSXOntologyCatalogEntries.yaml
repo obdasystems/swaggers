@@ -1,0 +1,7 @@
+title: OntologyCatalogEntries
+type: object
+properties:
+  entries:
+    type: object
+    additionalProperties: 
+      $ref: MWSXOntologyCatalogEntry.yaml

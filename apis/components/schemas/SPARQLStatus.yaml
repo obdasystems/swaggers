@@ -1,5 +1,15 @@
 title: SPARQLStatus
 type: object
+required:
+  - status
+  - executionTime
+  - numResults
+  - percentage
+  - numHighLevelQueries
+  - numLowLevelQueries
+  - numOntologyRewritings
+  - numOptimizedQueries
+  - hasError
 properties:
   executionTime:
     type: integer
@@ -29,4 +39,18 @@ properties:
     type: integer
     format: int32
   status:
+    enum:
+      - READY
+      - FINISHED
+      - UNAVAILABLE
+      - ERROR
+      - RUNNING
+      - STOPPED
+  queryCode:
     type: string
+  constructQueryCode:
+    type: string
+  evaluationStepTimes:
+    type: object
+    additionalProperties:
+      type: string

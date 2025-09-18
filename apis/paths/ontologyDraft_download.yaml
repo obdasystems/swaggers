@@ -1,7 +1,7 @@
 post:
-  tags: [Ontology Designer]
+  tags: [Persistence]
   summary: Download the ontology draft {ontologyName} converted in OWL2
-  operationId: downloadOntologyDraft
+  operationId: getOntologyDraftDownload
   requestBody:
     content:
       application/json:

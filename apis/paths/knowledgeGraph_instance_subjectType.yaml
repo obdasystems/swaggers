@@ -1,4 +1,5 @@
 get:
+  tags: [Instances]
   summary: GET mwsx/knowledgeGraph/instance/subjectType
   operationId: get__knowledgeGraph_instance_subjectType
   parameters:

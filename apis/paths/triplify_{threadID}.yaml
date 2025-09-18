@@ -1,4 +1,5 @@
 delete:
+  tags: [Execution]
   summary: Stops the thread identified by threadID
   operationId: delete_mappings_triplification_thread
   parameters:

@@ -1,4 +1,5 @@
 post:
+  tags: [ConstructQuery]
   summary: Starts the construct query with the provided identified on the given endpoint
   operationId: post__owlOntology_name_version_construct_query_ID_start
   parameters:
@@ -24,36 +25,33 @@ post:
     schema: {type: string}
   - name: answersBufferSize
     in: query
-    required: true
     schema: {type: string}
   - name: skipSqlEvaluation
     in: query
-    required: true
     schema: {type: string}
   - name: useReplaceForUrlEncoding
     in: query
-    required: true
     schema: {type: string}
   - name: filterNullValuesOnIri
     in: query
-    required: true
     schema: {type: string}
   - name: lang
     in: query
-    required: true
     schema: {type: string}
   - name: agent
     in: query
-    required: true
     schema: {type: string}
   - name: unfolderCountThreshold
     in: query
-    required: true
     schema: {type: string}
   requestBody:
     content:
       '*/*':
-        schema: {type: string}
+        schema: 
+          description: Mapping parameters values
+          type: object
+          additionalProperties:
+            type: string
     required: true
   responses:
     '200':

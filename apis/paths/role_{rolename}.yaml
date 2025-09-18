@@ -1,4 +1,5 @@
 get:
+  tags: [Roles]
   summary: GET mwsx/role/{rolename}
   operationId: get__role_name
   parameters:
@@ -14,6 +15,7 @@ get:
           schema: {$ref: ../components/schemas/Role.yaml}
     '401': {description: Unhauthorized}
 put:
+  tags: [Roles]
   summary: PUT mwsx/role/{rolename}
   operationId: put__role
   parameters:
@@ -34,6 +36,7 @@ put:
           schema: {$ref: ../components/schemas/Role.yaml}
     '401': {description: Unhauthorized}
 delete:
+  tags: [Roles]
   summary: DELETE mwsx/role/{rolename}
   operationId: delete__role
   parameters:

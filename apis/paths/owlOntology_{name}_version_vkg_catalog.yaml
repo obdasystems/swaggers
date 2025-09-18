@@ -1,4 +1,5 @@
 get:
+  tags: [Persistence]
   summary: Get the VKG Snaphot catalog for a given ontology (name, version)
   operationId: get_vkg_snapshots
   parameters:
@@ -20,6 +21,7 @@ get:
             items: {$ref: ../components/schemas/VKGSnapshot.yaml}
     '401': {description: Unhauthorized}
 post:
+  tags: [Persistence]
   summary: Save a new VKG Snaphot in the catalog for a given ontology (name, version).
   operationId: post_vkg_snapshot
   parameters:
@@ -46,6 +48,7 @@ post:
             items: {$ref: ../components/schemas/VKGSnapshot.yaml}
     '401': {description: Unhauthorized}
 delete:
+  tags: [Persistence]
   summary: DELETE the entire VKG Snapshot catalog for a given ontology (name, version)
   operationId: delete_vkg_snapshots
   parameters:

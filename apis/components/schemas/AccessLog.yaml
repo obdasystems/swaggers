@@ -1,4 +1,8 @@
 type: object
+title: AccessLog
+required:
+  - username
+  - timestamp
 properties:
   username:
     type: string

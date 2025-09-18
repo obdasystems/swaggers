@@ -23,6 +23,8 @@ security:
 paths:
   /owlOntology/{name}/version/ontologyConstraints:
     get:
+      tags:
+        - Constraints
       summary: Returns the available constraints defined over the ontology / version
       operationId: get_ontologyConstraints
       parameters:
@@ -47,6 +49,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/ontologyConstraints/set:
     post:
+      tags:
+        - CheckSet
       summary: Create a new data quality check set
       operationId: post_ontologyConstraints_check_start
       parameters:
@@ -76,6 +80,8 @@ paths:
         '401':
           description: Unhauthorized
     get:
+      tags:
+        - CheckSet
       summary: Returns a list of the check sets available for the ontology / version
       operationId: get_ontologyConstraints_check_sets
       parameters:
@@ -102,6 +108,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/ontologyConstraints/set/{setId}:
     get:
+      tags:
+        - CheckSet
       summary: Returns a check set defined over the ontology / version
       operationId: get_ontologyConstraints_check_set_setId
       parameters:
@@ -130,6 +138,8 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - CheckSet
       summary: Deletes the given check set from
       operationId: delete_ontologyConstraints_check_set_setId
       parameters:
@@ -158,6 +168,8 @@ paths:
         '401':
           description: Unhauthorized
     put:
+      tags:
+        - CheckSet
       summary: Updates the definition of a specific check set
       operationId: put_ontologyConstraints_check
       parameters:
@@ -193,6 +205,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/ontologyConstraints/set/{setId}/start/{endpoint}:
     put:
+      tags:
+        - CheckSet
       summary: Starts a new execution of the given check set over a specific endpoint
       operationId: put_ontologyConstraints_check_start
       parameters:
@@ -235,8 +249,10 @@ paths:
         content:
           application/json:
             schema:
-              type: string
-        required: true
+              description: Mapping parameters values
+              type: object
+              additionalProperties:
+                type: string
       responses:
         '200':
           description: OK
@@ -248,6 +264,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/ontologyConstraints/set/{setId}/stop:
     put:
+      tags:
+        - CheckSet
       summary: Stops the execution of the thread executing the specific check set
       operationId: put_ontologyConstraints_check_stop
       parameters:
@@ -277,6 +295,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/ontologyConstraints/set/{setId}/removeThread:
     delete:
+      tags:
+        - CheckSet
       summary: Deletes the execution thread of the specified check set from the server
       operationId: delete_ontologyConstraints_check_removeThread
       parameters:
@@ -306,6 +326,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/ontologyConstraints/set/{setId}/status:
     get:
+      tags:
+        - CheckSet
       summary: Returns the running state of the specified check set
       operationId: get_ontologyConstraints_check_status
       parameters:
@@ -335,6 +357,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/ontologyConstraints/sets/running:
     get:
+      tags:
+        - CheckSet
       summary: Returns the identifiers of the currently running check sets
       operationId: get_ontologyConstraints_check_running
       parameters:
@@ -361,6 +385,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/ontologyConstraints/sets/executionLogs:
     get:
+      tags:
+        - CheckSet
       summary: Returns all the execution logs of the given check set
       operationId: get_ontologyConstraints_execution_log
       parameters:
@@ -385,6 +411,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/ontologyConstraints/set/{setId}/executionLog:
     get:
+      tags:
+        - CheckSet
       summary: Returns the execution log of the last execution of the specified check set
       operationId: get_ontologyConstraints_checkSetId_execution_log
       parameters:
@@ -413,6 +441,8 @@ paths:
         '401':
           description: Unhauthorized
     put:
+      tags:
+        - CheckSet
       summary: Returns the execution log of a data quality check set
       operationId: put_ontologyConstraints_checkSetId_execution_timestamps
       parameters:
@@ -442,6 +472,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/ontologyConstraints/set/{setId}/executionLogs/timestamps:
     get:
+      tags:
+        - CheckSet
       summary: Returns a list of the available timestamps for a check set of the given ontology/version
       operationId: get_ontologyConstraints_checkSetId_execution_timestamps
       parameters:
@@ -473,6 +505,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/ontologyConstraints/set/{setId}/executionLogs/timestamp/{timestamp}:
     get:
+      tags:
+        - CheckSet
       summary: Returns the execution log of a check set run at the provided timestamp
       operationId: get_ontologyConstraints_checkSetId_execution_timestamp
       parameters:
@@ -506,6 +540,8 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - CheckSet
       summary: Deletes the execution log of a check set run at the provided timestamp
       operationId: delete_ontologyConstraints_checkSetId_execution_timestamp
       parameters:
@@ -540,6 +576,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/ontologyConstraints/set/{setId}/executionLog/timestamps:
     delete:
+      tags:
+        - CheckSet
       summary: Deletes all the data quality check set execution logs saved on the server for the given ontology/version
       operationId: delete_ontologyConstraints_checkSetId_execution_timestamps
       parameters:
@@ -569,6 +607,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/ontologyConstraints/set/{setId}/dump:
     get:
+      tags:
+        - CheckSet
       summary: Returns the dump of a data quality check set
       operationId: get_ontologyConstraints_checkSetId_export
       parameters:
@@ -598,6 +638,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/ontologyConstraints/sets/dump:
     post:
+      tags:
+        - CheckSet
       summary: Imports a data quality check set dump and returns a report of the performed operation
       operationId: post_ontologyConstraints_checkSetId_import
       parameters:
@@ -631,6 +673,83 @@ paths:
                 $ref: '#/components/schemas/DataQualityCheckSetImportReport'
         '401':
           description: Unhauthorized
+  /owlOntology/{name}/version/shacl:
+    get:
+      tags:
+        - SHACL
+      summary: 'Returns the JSON constraints file of the version ''version'' of the ontology named <code>name</code>.<br/> '
+      operationId: get__owlOntology_name_version_json_constraints
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileInfo'
+        '401':
+          description: Unhauthorized
+    delete:
+      tags:
+        - SHACL
+      summary: 'Deletes the JSON constraints file of the version ''version'' of the ontology named <code>name</code>.<br/> '
+      operationId: delete__owlOntology_name_version_json_constraints
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileInfo'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/shacl/check:
+    get:
+      tags:
+        - SHACL
+      summary: GET mwsx/owlOntology/{name}/version/shacl/check
+      operationId: get__owlOntology_name_version_json_constraints_check
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '401':
+          description: Unhauthorized
 components:
   securitySchemes:
     apiKey:
@@ -657,6 +776,8 @@ components:
     OntologyEntity:
       title: OntologyEntity
       type: object
+      required:
+        - entityIRI
       properties:
         entityLabels:
           type: array
@@ -674,9 +795,19 @@ components:
           type: string
         entityID:
           type: string
+    AbstractDataQualityConstraint:
+      title: AbstractDataQualityConstraint
+      type: object
+      properties:
+        id:
+          type: string
+        entity:
+          $ref: '#/components/schemas/OntologyEntity'
     SubClassWithForAllAssertion:
       title: SubClassWithForAllAssertion
       type: object
+      allOf:
+        - $ref: '#/components/schemas/AbstractDataQualityConstraint'
       properties:
         property:
           $ref: '#/components/schemas/OntologyEntity'
@@ -687,18 +818,24 @@ components:
     FunctionalPropertyAssertion:
       title: FunctionalPropertyAssertion
       type: object
+      allOf:
+        - $ref: '#/components/schemas/AbstractDataQualityConstraint'
       properties:
         direct:
           type: boolean
     DisjointClasses:
       title: DisjointClasses
       type: object
+      allOf:
+        - $ref: '#/components/schemas/AbstractDataQualityConstraint'
       properties:
         disjointClass:
           $ref: '#/components/schemas/OntologyEntity'
     MandatoryParticipationAssertion:
       title: MandatoryParticipationAssertion
       type: object
+      allOf:
+        - $ref: '#/components/schemas/AbstractDataQualityConstraint'
       properties:
         property:
           $ref: '#/components/schemas/OntologyEntity'
@@ -709,6 +846,8 @@ components:
     HasKeyAssertion:
       title: HasKeyAssertion
       type: object
+      allOf:
+        - $ref: '#/components/schemas/AbstractDataQualityConstraint'
       properties:
         dataProperties:
           type: array
@@ -725,25 +864,21 @@ components:
     SubClassWithCardinalityAssertion:
       title: SubClassWithCardinalityAssertion
       type: object
+      allOf:
+        - $ref: '#/components/schemas/AbstractDataQualityConstraint'
       properties:
-        MIN_CARDINALITY_TYPE:
-          type: integer
-          format: int32
         cardinalityType:
-          type: integer
-          format: int32
+          type: string
+          enum:
+            - EXACT
+            - MAX
+            - MIN
         property:
           $ref: '#/components/schemas/OntologyEntity'
         direct:
           type: boolean
         filler:
           $ref: '#/components/schemas/OntologyEntity'
-        EXACT_CARDINALITY_TYPE:
-          type: integer
-          format: int32
-        MAX_CARDINALITY_TYPE:
-          type: integer
-          format: int32
         cardinality:
           type: integer
           format: int32
@@ -766,6 +901,8 @@ components:
     IdentificationAssertion:
       title: IdentificationAssertion
       type: object
+      allOf:
+        - $ref: '#/components/schemas/AbstractDataQualityConstraint'
       properties:
         identificationPaths:
           type: array
@@ -806,6 +943,8 @@ components:
     DataQualityCheck:
       title: DataQualityCheck
       type: object
+      required:
+        - id
       properties:
         id:
           type: string
@@ -815,6 +954,9 @@ components:
     DataQualityCheckSet:
       title: DataQualityCheckSet
       type: object
+      required:
+        - id
+        - ontologyConstraints
       properties:
         ontologyConstraints:
           type: array
@@ -851,6 +993,22 @@ components:
             $ref: '#/components/schemas/DataQualityCheckStatus'
         status:
           type: string
+    SPARQLResultsHeadTypes:
+      title: SPARQLResultsHeadTypes
+      enum:
+        - OBJECT
+        - VALUE
+        - UNSPECIFIED
+        - xsd:double
+        - iri
+        - xsd:dateTime
+        - literal
+        - xsd:string
+        - xsd:boolean
+        - xsd:integer
+        - numeric
+        - xsd:decimal
+        - xsd:float
     SPARQLResult:
       title: SPARQLResult
       type: object
@@ -859,13 +1017,22 @@ components:
           type: string
         type:
           type: string
+          enum:
+            - INDIVIDUAL
+            - IRI
+            - VALUE
         lang:
           type: string
         value:
           type: string
+        isBlankNode:
+          type: boolean
     SPARQLResults:
       title: SPARQLResults
       type: object
+      required:
+        - headTerms
+        - headTypes
       properties:
         headTerms:
           type: array
@@ -873,6 +1040,10 @@ components:
             type: string
         headTypes:
           type: object
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/SPARQLResultsHeadTypes'
         construct:
           type: boolean
         results:
@@ -941,6 +1112,9 @@ components:
     OntologyID:
       title: OntologyID
       type: object
+      required:
+        - ontologyName
+        - ontologyVersion
       properties:
         ontologyVersion:
           type: string
@@ -949,6 +1123,10 @@ components:
     MastroID:
       title: MastroID
       type: object
+      required:
+        - ontologyID
+        - mappingID
+        - datasourceID
       properties:
         mappingID:
           type: string
@@ -958,9 +1136,28 @@ components:
           type: string
         ontologyID:
           $ref: '#/components/schemas/OntologyID'
+    EmptyUnfoldingEntities:
+      title: EmptyUnfoldingEntities
+      type: object
+      properties:
+        emptyUnfoldingDataProperties:
+          type: array
+          items:
+            $ref: '#/components/schemas/OntologyEntity'
+        emptyUnfoldingObjectProperties:
+          type: array
+          items:
+            $ref: '#/components/schemas/OntologyEntity'
+        emptyUnfoldingClasses:
+          type: array
+          items:
+            $ref: '#/components/schemas/OntologyEntity'
     Endpoint:
       title: Endpoint
       type: object
+      required:
+        - name
+        - mastroID
       properties:
         restartNeeded:
           type: boolean
@@ -972,6 +1169,10 @@ components:
           type: string
         mastroID:
           $ref: '#/components/schemas/MastroID'
+        autoStart:
+          type: boolean
+        emptyUnfoldingEntities:
+          $ref: '#/components/schemas/EmptyUnfoldingEntities'
     DataQualityCheckSetExecutionLog:
       title: DataQualityCheckSetExecutionLog
       type: object
@@ -1018,3 +1219,13 @@ components:
           $ref: '#/components/schemas/DataQualityCheckSet'
         importReport:
           type: object
+    FileInfo:
+      title: FileInfo
+      type: object
+      properties:
+        fileName:
+          type: string
+        fileType:
+          type: string
+        content:
+          type: string

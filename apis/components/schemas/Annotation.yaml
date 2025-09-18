@@ -2,6 +2,7 @@ type: object
 required:
   - value
   - property
+  - propertyIri
 properties:
   lexicalForm:
     type: string
@@ -17,4 +18,8 @@ properties:
   language:
     type: string
   datatype:
+    type: string
+  propertyIri:
+    type: string
+  entityIri:
     type: string

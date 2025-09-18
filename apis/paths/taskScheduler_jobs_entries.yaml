@@ -1,6 +1,6 @@
 get:
-  summary: Schedules a new job in the task scheduler, returns the ID of the scheduled
-    job
+  tags: [Persistence]
+  summary: Get the list of job entries in the task scheduler
   operationId: get__task_scheduler_job_entries
   responses:
     '200':

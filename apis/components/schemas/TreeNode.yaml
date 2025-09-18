@@ -16,3 +16,5 @@ properties:
     format: int32
   entity:
     $ref: ./OntologyEntity.yaml
+  empty:
+    type: boolean

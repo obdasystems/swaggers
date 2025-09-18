@@ -90,7 +90,7 @@ paths:
         - OntologyGraph
       summary: Find paths between selected class and clicked class.
       description: The results should be based on Dijkstra algorithm for shortest paths. ISA wieght is 0 while role weight is 1.
-      operationId: highligthsPaths
+      operationId: highligthsSharedViewsDataProps
       parameters:
         - name: ontologyName
           in: path
@@ -138,6 +138,8 @@ paths:
           content: {}
   /owlOntology/{name}/highlights/paths/thread/start:
     post:
+      tags:
+        - Highlights
       summary: Start a thread computing a shortest path on the ontology
       operationId: post_shortest_path_thread_start
       parameters:
@@ -177,6 +179,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/highlights/paths/thread/stop:
     post:
+      tags:
+        - Highlights
       summary: Stop the thread computing a shortest path on the ontology
       operationId: post_shortest_path_thread_stop
       parameters:
@@ -206,6 +210,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/highlights/paths/thread/result:
     get:
+      tags:
+        - Highlights
       summary: GET results of a thread computing ontology paths with multi edges over a given ontology
       operationId: get_shortest_path_thread_result
       parameters:
@@ -237,6 +243,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/highlights/paths/thread/state:
     get:
+      tags:
+        - Highlights
       summary: Get the state of the thread computing a shortest path on the ontology
       operationId: get_shortest_path_thread_state
       parameters:
@@ -261,11 +269,13 @@ paths:
           content:
             application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/HighlightsPathsThreadState'
         '401':
           description: Unhauthorized
   /owlOntology/{name}/highlights/paths/thread/error:
     get:
+      tags:
+        - Highlights
       summary: Get the error of a thread computing a shortest path on the ontology
       operationId: get_shortest_path_thread_error
       parameters:
@@ -1552,7 +1562,10 @@ paths:
           content: {}
   /owlOntology/{ontologyName}/instanceShortestPath:
     post:
+      tags:
+        - Construct
       summary: Return the CONSTRUCT query based on the shortest path between an instance and another instance or class
+      operationId: instanceShortestPathPost
       parameters:
         - name: ontologyName
           in: path
@@ -1603,7 +1616,10 @@ paths:
           content: {}
   /owlOntology/{ontologyName}/constructify:
     post:
+      tags:
+        - Construct
       summary: Return the CONSTRUCT query based on this Query Graph.
+      operationId: constructifyPost
       parameters:
         - name: ontologyName
           in: path
@@ -1644,7 +1660,8 @@ paths:
   /owlOntology/{ontologyName}/queryGraph/visualize:
     post:
       tags:
-        - VisualizeSPARQL
+        - Visualize
+      operationId: visualizePost
       summary: Convert SPARQL code to a QueryGraph
       parameters:
         - name: ontologyName
@@ -1777,6 +1794,12 @@ components:
           description: The list of edges connecting two nodes
           items:
             $ref: '#/components/schemas/ObjectPropertiesMultiEdge'
+    HighlightsPathsThreadState:
+      title: HighlightsPathsThreadState
+      enum:
+        - RUNNING
+        - FINISHED
+        - READY
     VarOrConstant:
       type: object
       properties:

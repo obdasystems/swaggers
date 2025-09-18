@@ -12,3 +12,5 @@ properties:
   currentlyActiveSessionCount:
     type: integer
     format: int32
+  memorySnapshot:
+    $ref: MemorySnapshot.yaml

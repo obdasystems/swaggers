@@ -1,4 +1,5 @@
 get:
+  tags: [Resources]
   summary: GET mwsx/resources/endpoints
   operationId: get__resources_ep_ids
   responses:

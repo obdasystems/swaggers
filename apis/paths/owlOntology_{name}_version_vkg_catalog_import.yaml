@@ -1,4 +1,5 @@
 post:
+  tags: [Persistence]
   summary: Upload the JSON file of a VKG Snapshot catalog for a given ontology (name,
     version)
   operationId: import_vkg_snapshots

@@ -30,3 +30,12 @@ properties:
   kgLastModifiedTs:
     type: integer
     format: int64
+  kgType:
+    type: string
+    enum:
+      - JENA
+      - RDF4J
+  prefixes:
+    type: object
+    additionalProperties:
+      type: string

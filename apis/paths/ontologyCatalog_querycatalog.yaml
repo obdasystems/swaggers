@@ -1,20 +1,22 @@
 get:
+  tags: [Query]
   summary: Returns the query catalog available for the given version of the ontology
   operationId: get_ontologycatalog_querycatalog
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/Response.yaml}
-    '401': {description: Unhauthorized}
+          schema: { $ref: ../components/schemas/OBDACatalog.yaml }
+    "401": { description: Unhauthorized }
 delete:
+  tags: [Query]
   summary: Deletes the query catalog available for the given version of the ontology
   operationId: delete_ontologycatalog_querycatalog
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/Response.yaml}
-    '401': {description: Unhauthorized}
+          schema: { $ref: ../components/schemas/OBDACatalog.yaml }
+    "401": { description: Unhauthorized }

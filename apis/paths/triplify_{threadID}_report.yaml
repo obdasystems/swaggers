@@ -1,4 +1,5 @@
 get:
+  tags: [Execution]
   summary: Returns the report of a triplification thread
   operationId: get_mappings_triplification_report
   parameters:
@@ -11,5 +12,5 @@ get:
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/OBDATriplificationReport.yaml}
+          schema: {$ref: ../components/schemas/MWSXOBDATriplificationReport.yaml}
     '401': {description: Unhauthorized}

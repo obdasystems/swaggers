@@ -23,6 +23,8 @@ security:
 paths:
   /owlOntology:
     get:
+      tags:
+        - Persistence
       summary: Returns all the available ontologies
       operationId: get__owlOntology
       responses:
@@ -37,6 +39,8 @@ paths:
         '401':
           description: Unhauthorized
     post:
+      tags:
+        - Persistence
       summary: Creates a new ontology
       operationId: post__owlOntology_name
       requestBody:
@@ -55,6 +59,8 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Persistence
       summary: Deletes all the ontologies stored in the repository
       operationId: delete__all_owlOntologies
       responses:
@@ -68,6 +74,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}:
     get:
+      tags:
+        - Persistence
       summary: Returns the ontology named <code>name</code>
       operationId: get__owlOntology_name
       parameters:
@@ -86,6 +94,8 @@ paths:
         '401':
           description: Unhauthorized
     post:
+      tags:
+        - Persistence
       summary: 'Adds a new version to the ontology <code>name</code>.<br/> The ''syntax'' parameter assumes one of the following values: <br/>''MANCHESTER_SYNTAX'', ''FUNCTIONAL_SYNTAX'''
       operationId: post__owlOntology_name_version
       parameters:
@@ -115,6 +125,8 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Persistence
       summary: 'Deletes the ontology named <code>name</code>.<br/> '
       operationId: delete__owlOntology
       parameters:
@@ -132,51 +144,10 @@ paths:
                 $ref: '#/components/schemas/FileInfo'
         '401':
           description: Unhauthorized
-  /owlOntology/{name}/folder:
-    get:
-      summary: Returns the folder where ontology named <code>name</code> is stored in
-      operationId: get__owlOntology_folder_name
-      parameters:
-        - name: name
-          in: path
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: string
-        '401':
-          description: Unhauthorized
-  /owlOntology/{name}/version/folder:
-    get:
-      summary: Returns the folder where ontology named <code>name</code> is stored in
-      operationId: get__owlOntology_version_folder_name
-      parameters:
-        - name: name
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: version
-          in: query
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: string
-        '401':
-          description: Unhauthorized
   /owlOntology/{name}/version:
     get:
+      tags:
+        - Persistence
       summary: 'Returns the file containing the definition of the ontology <code>name</code>, with version ''version''. <br/>The format parameter assumes one of the following values: ''graphol'', ''fss'', ''xml'', ''turtle'''
       operationId: get__owlOntology_name_version
       parameters:
@@ -210,6 +181,8 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Persistence
       summary: 'Deletes version ''version'' of the ontology named <code>name</code>.<br/> '
       operationId: delete__owlOntology_name_version
       parameters:
@@ -234,6 +207,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/ignoredImports:
     get:
+      tags:
+        - Logical
       summary: Returns the list of ignored ontology import IRIs
       operationId: get__owlOntology_name_version_ignoredImports
       parameters:
@@ -260,6 +235,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/closed:
     get:
+      tags:
+        - Reasoning
       summary: 'Returns the file containing the definition of the closed ontology <code>name</code>, with version ''version''. <br/>The format parameter assumes one of the following values: ''graphol'', ''fss'', ''xml'', ''turtle'''
       operationId: get__owlOntology_name_version_closed
       parameters:
@@ -288,6 +265,8 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Reasoning
       summary: Deletes the closed ontology <code>name</code>, with version 'version'. <br/>
       operationId: delete__owlOntology_name_version_closed
       parameters:
@@ -311,6 +290,8 @@ paths:
         '401':
           description: Unhauthorized
     post:
+      tags:
+        - Reasoning
       summary: Starts the thread for the computation of the deductive closure of ontology <code>name</code>, with version 'version'.Returns the ID of the thread
       operationId: post__owlOntology_name_version_closed
       parameters:
@@ -350,6 +331,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/closed/{threadId}/status:
     get:
+      tags:
+        - Reasoning
       summary: Returns the status of the deductive closure thread identified by 'threadId'
       operationId: get__owlOntology_name_version_closed_threadId_status
       parameters:
@@ -384,6 +367,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/closedComputed:
     get:
+      tags:
+        - Reasoning
       summary: Returns 0 if the closed ontology <code>name</code>, with version 'version', has been computed, 1 otherwise.
       operationId: get__owlOntology_name_version_closed_computed
       parameters:
@@ -413,6 +398,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/closingReport:
     get:
+      tags:
+        - Reasoning
       summary: 'Returns the file containing the definition of the closed ontology <code>name</code>, with version ''version''. <br/>The format parameter assumes one of the following values: ''graphol'', ''fss'', ''xml'', ''turtle'''
       operationId: get__owlOntology_name_version_closingReport
       parameters:
@@ -432,11 +419,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OWLGraphDeductiveClosureReport'
+                $ref: '#/components/schemas/MWSXOWLGraphDeductiveClosureReport'
         '401':
           description: Unhauthorized
   /owlOntology/{name}/version/closingReportComputed:
     get:
+      tags:
+        - Reasoning
       summary: 'Returns the file containing the definition of the closed ontology <code>name</code>, with version ''version''. <br/>The format parameter assumes one of the following values: ''graphol'', ''fss'', ''xml'', ''turtle'''
       operationId: get__owlOntology_name_version_closingReportComputed
       parameters:
@@ -461,6 +450,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/hierarchy/owl:
     get:
+      tags:
+        - Logical
       summary: Returns the file containing the definition of the ontology <code>name</code>, with version 'version' used to render the hierarchy class and property trees
       operationId: get__owlOntology_name_version_hierarchy_owl
       parameters:
@@ -485,6 +476,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/loaderThreads:
     post:
+      tags:
+        - Upload
       summary: 'Adds a new version to the ontology <code>name</code>.<br/> The ''syntax'' parameter assumes one of the following values: <br/>''MANCHESTER_SYNTAX'', ''FUNCTIONAL_SYNTAX'''
       operationId: post__owlOntology_name_version_async
       parameters:
@@ -530,6 +523,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/loaderThreads/metadata:
     post:
+      tags:
+        - Metadata
       summary: 'Adds a new version to the ontology <code>name</code>.<br/> The ''syntax'' parameter assumes one of the following values: <br/>''MANCHESTER_SYNTAX'', ''FUNCTIONAL_SYNTAX'''
       operationId: post__owlOntology_name_version_metadata_async
       parameters:
@@ -572,7 +567,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/OntologyCatalogOntologyMetadataSet'
+              $ref: '#/components/schemas/MWSXOntologyCatalogOntologyMetadataSet'
         required: true
       responses:
         '200':
@@ -585,6 +580,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/loaderThread/{threadId}/status:
     get:
+      tags:
+        - Upload
       summary: Returns the status of an ontology version loader thread
       operationId: get__owlOntology_name_version_loader_thread_status
       parameters:
@@ -609,6 +606,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/loaderThread/{threadId}/report:
     get:
+      tags:
+        - Upload
       summary: Return the report for completed ontology version loader threads
       operationId: get__owlOntology_name_version_loader_thread_report
       parameters:
@@ -633,6 +632,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/importFromIRI:
     get:
+      tags:
+        - Upload
       summary: GET mwsx/owlOntology/{name}/importFromIRI
       operationId: get__owlOntology_name_version_import_from_iri
       parameters:
@@ -657,6 +658,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/hierarchy:
     get:
+      tags:
+        - Logical
       summary: GET mwsx/owlOntology/{name}/version/hierarchy
       operationId: get__owlOntology_name_version_hierarchy
       parameters:
@@ -681,6 +684,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/catalog:
     get:
+      tags:
+        - Logical
       summary: GET mwsx/owlOntology/{name}/version/catalog
       operationId: get__owlOntology_name_version_catalog
       parameters:
@@ -705,6 +710,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/info:
     get:
+      tags:
+        - Logical
       summary: 'Gets the info of the version ''version'' of the ontology named <code>name</code>.<br/> '
       operationId: get__owlOntology_name_version_info
       parameters:
@@ -729,6 +736,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/entities/classes:
     get:
+      tags:
+        - Logical
       summary: 'Gets the set of class entities of version ''version'' of the ontology named <code>name</code>.<br/> '
       operationId: get__owlOntology_name_version_entities_classes
       parameters:
@@ -755,6 +764,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/entities/objectProperties:
     get:
+      tags:
+        - Logical
       summary: 'Gets the set of entities of object property version ''version'' of the ontology named <code>name</code>.<br/> '
       operationId: get__owlOntology_name_version_entities_objectProperties
       parameters:
@@ -781,6 +792,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/entities/dataProperties:
     get:
+      tags:
+        - Logical
       summary: 'Gets the set of data property entities of version ''version'' of the ontology named <code>name</code>.<br/> '
       operationId: get__owlOntology_name_version_entities_dataProperties
       parameters:
@@ -807,6 +820,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/entities/annotationProperties:
     get:
+      tags:
+        - Logical
       summary: 'Gets the set of annotation property entities of version ''version'' of the ontology named <code>name</code>.<br/> '
       operationId: get__owlOntology_name_version_entities_annotationProperties
       parameters:
@@ -833,6 +848,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/entities:
     get:
+      tags:
+        - Logical
       summary: 'Gets the set of entities of version ''version'' of the ontology named <code>name</code>.<br/> '
       operationId: get__owlOntology_name_version_entities
       parameters:
@@ -857,6 +874,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/entity/{id}:
     get:
+      tags:
+        - Logical
       summary: GET mwsx/owlOntology/{name}/version/entity/{id}
       operationId: get__owlOntology_name_version_entity
       parameters:
@@ -886,6 +905,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/alphabet/class/{ID}/logical:
     get:
+      tags:
+        - Logical
       summary: GET mwsx/owlOntology/{name}/version/alphabet/class/{ID}/logical
       operationId: get__owlOntology_name_version_alphabet_class_ID_logical
       parameters:
@@ -915,6 +936,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/annotations:
     get:
+      tags:
+        - Logical
       summary: GET mwsx/owlOntology/{name}/version/annotations
       operationId: get__owlOntology_name_version_alphabet_class_ID_annotations
       parameters:
@@ -946,6 +969,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/alphabet/objectProperty/{ID}/logical:
     get:
+      tags:
+        - Logical
       summary: GET mwsx/owlOntology/{name}/version/alphabet/objectProperty/{ID}/logical
       operationId: get__owlOntology_name_version_alphabet_objectProperty_ID_logical
       parameters:
@@ -975,6 +1000,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/alphabet/dataProperty/{ID}/logical:
     get:
+      tags:
+        - Logical
       summary: GET mwsx/owlOntology/{name}/version/alphabet/dataProperty/{ID}/logical
       operationId: get__owlOntology_name_version_alphabet_dataProperty_ID_logical
       parameters:
@@ -1004,6 +1031,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/alphabet/dataProperties/domainAndRange:
     get:
+      tags:
+        - Logical
       summary: GET mwsx/owlOntology/{name}/version/alphabet/dataProperties/domainAndRange
       operationId: get__owlOntology_name_version_alphabet_dataProperties_domainAndRange
       parameters:
@@ -1030,6 +1059,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/graphol:
     get:
+      tags:
+        - Visualize
       summary: 'Returns the Graphol file of the version ''version'' of the ontology named <code>name</code>.<br/> '
       operationId: get__owlOntology_name_version_graphol
       parameters:
@@ -1053,6 +1084,8 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Visualize
       summary: 'Deletes the Graphol file of the version ''version'' of the ontology named <code>name</code>.<br/> '
       operationId: delete__owlOntology_name_version_graphol
       parameters:
@@ -1077,6 +1110,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/gscape:
     get:
+      tags:
+        - Visualize
       summary: 'Returns the RDFGraph file of the version ''version'' of the ontology named <code>name</code>.<br/> '
       operationId: get__owlOntology_name_version_gscape
       parameters:
@@ -1100,6 +1135,8 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Visualize
       summary: 'Deletes the RDFGraph file of the version ''version'' of the ontology named <code>name</code>.<br/> '
       operationId: delete__owlOntology_name_version_gscape
       parameters:
@@ -1122,55 +1159,10 @@ paths:
                 $ref: '#/components/schemas/FileInfo'
         '401':
           description: Unhauthorized
-  /owlOntology/{name}/version/shacl:
-    get:
-      summary: 'Returns the JSON constraints file of the version ''version'' of the ontology named <code>name</code>.<br/> '
-      operationId: get__owlOntology_name_version_json_constraints
-      parameters:
-        - name: name
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: version
-          in: query
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FileInfo'
-        '401':
-          description: Unhauthorized
-    delete:
-      summary: 'Deletes the JSON constraints file of the version ''version'' of the ontology named <code>name</code>.<br/> '
-      operationId: delete__owlOntology_name_version_json_constraints
-      parameters:
-        - name: name
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: version
-          in: query
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FileInfo'
-        '401':
-          description: Unhauthorized
   /owlOntology/{name}/version/graphol/check:
     get:
+      tags:
+        - Visualize
       summary: GET mwsx/owlOntology/{name}/version/graphol/check
       operationId: get__owlOntology_name_version_graphol_check
       parameters:
@@ -1195,6 +1187,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/gscape/check:
     get:
+      tags:
+        - Visualize
       summary: GET mwsx/owlOntology/{name}/version/gscape/check
       operationId: get__owlOntology_name_version_gscape_check
       parameters:
@@ -1217,32 +1211,10 @@ paths:
                 type: boolean
         '401':
           description: Unhauthorized
-  /owlOntology/{name}/version/shacl/check:
-    get:
-      summary: GET mwsx/owlOntology/{name}/version/shacl/check
-      operationId: get__owlOntology_name_version_json_constraints_check
-      parameters:
-        - name: name
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: version
-          in: query
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: boolean
-        '401':
-          description: Unhauthorized
   /owlOntology/{name}/version/owl:
     get:
+      tags:
+        - Persistence
       summary: 'Returns the OWL file of the version ''version'' of the ontology named <code>name</code>.<br/> '
       operationId: get__owlOntology_name_version_owl
       parameters:
@@ -1267,6 +1239,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/alphabet/individual/{ID}/logical:
     get:
+      tags:
+        - Logical
       summary: GET mwsx/owlOntology/{name}/version/alphabet/individual/{ID}/logical
       operationId: get_individual_info
       parameters:
@@ -1296,6 +1270,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/alphabet/search/individual:
     get:
+      tags:
+        - Logical
       summary: GET mwsx/owlOntology/{name}/version/alphabet/search/individual
       operationId: get_search_individual_info
       parameters:
@@ -1327,6 +1303,8 @@ paths:
           description: Unhauthorized
   /ontologyDifference/{name}/vs/{otherName}:
     get:
+      tags:
+        - Difference
       summary: GET mwsx/ontologyDifference/{name}/vs/{otherName}
       operationId: get_ontology_difference
       parameters:
@@ -1356,11 +1334,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OntologyDifference'
+                $ref: '#/components/schemas/MWSXOntologyDifference'
         '401':
           description: Unhauthorized
   /owlOntology/{name}/version/metadata:
     get:
+      tags:
+        - Metadata
       summary: GET mwsx/owlOntology/{name}/version/metadata
       operationId: get_ontology_metadata_snapshot
       parameters:
@@ -1380,11 +1360,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OntologyCatalogOntologyMetadataSet'
+                $ref: '#/components/schemas/MWSXOntologyCatalogOntologyMetadataSet'
         '401':
           description: Unhauthorized
   /owlOntology/{name}/version/metadata/missing:
     get:
+      tags:
+        - Metadata
       summary: GET mwsx/owlOntology/{name}/version/metadata/missing
       operationId: get_ontology_missing_metadata_snapshot
       parameters:
@@ -1404,11 +1386,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OntologyCatalogOntologyMetadataSet'
+                $ref: '#/components/schemas/MWSXOntologyCatalogOntologyMetadataSet'
         '401':
           description: Unhauthorized
   /owlOntology/queries/publicationRequests:
     get:
+      tags:
+        - Publication
       summary: Removes a specific query from the catalog available for this version of the ontology
       operationId: get_query_publication_requests
       responses:
@@ -1418,6 +1402,53 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PublicationRequests'
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/folder:
+    get:
+      tags:
+        - FileSystem
+      summary: Returns the folder where ontology named <code>name</code> is stored in
+      operationId: get__owlOntology_folder_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+  /owlOntology/{name}/version/folder:
+    get:
+      tags:
+        - FileSystem
+      summary: Returns the folder where ontology named <code>name</code> is stored in
+      operationId: get__owlOntology_version_folder_name
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
         '401':
           description: Unhauthorized
 components:
@@ -1446,6 +1477,8 @@ components:
     OntologyEntity:
       title: OntologyEntity
       type: object
+      required:
+        - entityIRI
       properties:
         entityLabels:
           type: array
@@ -1650,9 +1683,11 @@ components:
           type: string
         timeStart:
           type: integer
+          format: int64
         timeElapsed:
           type: integer
-    OWLGraphDeductiveClosureReport:
+          format: int64
+    MWSXOWLGraphDeductiveClosureReport:
       title: OWLGraphDeductiveClosureReport
       type: object
       properties:
@@ -1682,19 +1717,19 @@ components:
           type: boolean
         computeGeneralConceptInclusions:
           type: boolean
-    MetadataSubject:
+    MWSXMetadataSubject:
       type: object
       properties:
         iri:
           type: string
         impliedClassIri:
           type: string
-    MetadataPredicate:
+    MWSXMetadataPredicate:
       type: object
       properties:
         iri:
           type: string
-    MetadataObject:
+    MWSXMetadataObject:
       type: object
       properties:
         iri:
@@ -1707,22 +1742,26 @@ components:
           type: string
         datatypeIri:
           type: string
-    MetadataTriple:
+        isIri:
+          type: boolean
+        isBlankNode:
+          type: boolean
+    MWSXMetadataTriple:
       type: object
       properties:
         subject:
-          $ref: '#/components/schemas/MetadataSubject'
+          $ref: '#/components/schemas/MWSXMetadataSubject'
         predicate:
-          $ref: '#/components/schemas/MetadataPredicate'
+          $ref: '#/components/schemas/MWSXMetadataPredicate'
         object:
-          $ref: '#/components/schemas/MetadataObject'
-    OntologyCatalogOntologyMetadataSet:
+          $ref: '#/components/schemas/MWSXMetadataObject'
+    MWSXOntologyCatalogOntologyMetadataSet:
       type: object
       properties:
         metadataTriples:
           type: array
           items:
-            $ref: '#/components/schemas/MetadataTriple'
+            $ref: '#/components/schemas/MWSXMetadataTriple'
     MwsxOntologyVersionLoaderStatus:
       title: MwsxOntologyVersionLoaderStatus
       type: object
@@ -1733,12 +1772,15 @@ components:
           type: string
         timeStart:
           type: integer
+          format: int64
         timeElapsed:
           type: integer
+          format: int64
         currentStep:
           type: string
         progress:
           type: number
+          format: double
     MwsxOntologyVersionLoaderReport:
       title: MwsxOntologyVersionLoaderReport
       type: object
@@ -1749,14 +1791,20 @@ components:
           type: string
         timeStart:
           type: integer
+          format: int64
         timeEnd:
           type: integer
+          format: int64
         hasError:
           type: boolean
         errorMessage:
           type: string
         missingImports:
           type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
     TreeNode:
       title: TreeNode
       type: object
@@ -1776,6 +1824,8 @@ components:
           format: int32
         entity:
           $ref: '#/components/schemas/OntologyEntity'
+        empty:
+          type: boolean
     HierarchyTree:
       title: HierarchyTree
       type: object
@@ -1795,11 +1845,13 @@ components:
     Entities:
       title: Entities
       type: object
+      required:
+        - classEntities
+        - annotationPropertyEntities
+        - objectPropertyEntities
+        - dataPropertyEntities
+        - namedIndividualEntities
       properties:
-        dataPropertyEntities:
-          type: array
-          items:
-            $ref: '#/components/schemas/OntologyEntity'
         classEntities:
           type: array
           items:
@@ -1809,6 +1861,10 @@ components:
           items:
             $ref: '#/components/schemas/OntologyEntity'
         objectPropertyEntities:
+          type: array
+          items:
+            $ref: '#/components/schemas/OntologyEntity'
+        dataPropertyEntities:
           type: array
           items:
             $ref: '#/components/schemas/OntologyEntity'
@@ -1880,6 +1936,8 @@ components:
           type: array
           items:
             type: string
+        ontologyMetricsNoImport:
+          $ref: '#/components/schemas/OntologyMetrics'
     Participation:
       title: Participation
       type: object
@@ -1957,6 +2015,7 @@ components:
       required:
         - value
         - property
+        - propertyIri
       properties:
         lexicalForm:
           type: string
@@ -1972,6 +2031,10 @@ components:
         language:
           type: string
         datatype:
+          type: string
+        propertyIri:
+          type: string
+        entityIri:
           type: string
     ObjectPropertyInfo:
       title: ObjectPropertyInfo
@@ -2085,7 +2148,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/OntologyEntity'
-    OntologyDifference:
+    MWSXOntologyDifference:
       title: OntologyDifference
       type: object
       properties:
@@ -2338,6 +2401,8 @@ components:
     ChartConfiguration:
       title: ChartConfiguration
       type: object
+      required:
+        - yVariables
       properties:
         yVariables:
           type: array
@@ -2352,8 +2417,8 @@ components:
         cutoff:
           type: integer
           format: int32
-    Tag:
-      title: Tag
+    MwsxTag:
+      title: MwsxTag
       type: object
       properties:
         color:
@@ -2362,7 +2427,7 @@ components:
           type: string
         description:
           type: string
-    VirtualEntityQueryInfos:
+    MWSXVirtualEntityQueryInfos:
       title: VirtualEntityQueryInfos
       type: object
       properties:
@@ -2377,6 +2442,8 @@ components:
     SPARQLQuery:
       title: SPARQLQuery
       type: object
+      required:
+        - queryID
       properties:
         selectedMappingIds:
           type: array
@@ -2391,13 +2458,17 @@ components:
           additionalProperties:
             type: string
         semantics:
-          type: string
+          enum:
+            - auto
+            - cq
+            - eql
+            - newcq
         constructCode:
           type: string
         queryTags:
           type: array
           items:
-            $ref: '#/components/schemas/Tag'
+            $ref: '#/components/schemas/MwsxTag'
         queryDescription:
           type: string
         queryID:
@@ -2409,10 +2480,28 @@ components:
         constructResultsRDFSyntax:
           type: string
         virtualEntityQueryInfos:
-          $ref: '#/components/schemas/VirtualEntityQueryInfos'
+          $ref: '#/components/schemas/MWSXVirtualEntityQueryInfos'
+        creator:
+          type: string
+        entryCreation:
+          type: integer
+          format: int64
+        entryLastModification:
+          type: integer
+          format: int64
+        public:
+          type: boolean
+        publicationRequestDate:
+          type: integer
+          format: int64
+        publicationResponseDate:
+          type: integer
+          format: int64
     SparqlingSPARQLQuery:
       title: SparqlingSPARQLQuery
       type: object
+      required:
+        - sparqlQuery
       properties:
         queryGraph:
           $ref: '#/components/schemas/QueryGraph'
@@ -2423,6 +2512,10 @@ components:
     PublicationRequest:
       title: PublicationRequest
       type: object
+      required:
+        - ontologyName
+        - ontologyVersion
+        - sparqlingSparqlQuery
       properties:
         ontologyName:
           type: string

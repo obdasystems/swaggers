@@ -1,5 +1,7 @@
 title: SPARQLQuery
 type: object
+required:
+  - queryID
 properties:
   selectedMappingIds:
     type: array
@@ -14,13 +16,17 @@ properties:
     additionalProperties:
       type: string
   semantics:
-    type: string
+    enum:
+      - auto
+      - cq
+      - eql
+      - newcq
   constructCode:
     type: string
   queryTags:
     type: array
     items:
-      $ref: ./Tag.yaml
+      $ref: ./MwsxTag.yaml
   queryDescription:
     type: string
   queryID:
@@ -32,4 +38,20 @@ properties:
   constructResultsRDFSyntax:
     type: string
   virtualEntityQueryInfos:
-    $ref: ./VirtualEntityQueryInfos.yaml
+    $ref: ./MWSXVirtualEntityQueryInfos.yaml
+  creator:
+    type: string
+  entryCreation:
+    type: integer
+    format: int64
+  entryLastModification:
+    type: integer
+    format: int64
+  public:
+    type: boolean
+  publicationRequestDate:
+    type: integer
+    format: int64
+  publicationResponseDate:
+    type: integer
+    format: int64

@@ -1,6 +1,12 @@
 delete:
+  tags: [Persistence]
   summary: DELETE mwsx/knowledgeGraph
   operationId: delete__knowledgeGraph
+  parameters: 
+    - name: kg
+      in: query
+      required: true
+      schema: {type: string}
   responses:
     '200':
       description: OK
@@ -9,6 +15,7 @@ delete:
           schema: {type: boolean}
     '401': {description: Unhauthorized}
 get:
+  tags: [Persistence]
   summary: GET mwsx/knowledgeGraph
   operationId: get__knowledgeGraph
   parameters:

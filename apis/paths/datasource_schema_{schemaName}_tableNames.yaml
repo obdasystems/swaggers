@@ -1,4 +1,5 @@
 post:
+  tags: [Metadata]
   summary: Returns the list of table names available at the datasource within the
     provided schema name
   operationId: getDatasourceTablesForSchema
@@ -10,7 +11,7 @@ post:
   requestBody:
     content:
       application/json:
-        schema: {$ref: ../components/schemas/DataSourceInfoEntry.yaml}
+        schema: {$ref: ../components/schemas/MWSXDataSourceInfoEntry.yaml}
     required: true
   responses:
     '200':

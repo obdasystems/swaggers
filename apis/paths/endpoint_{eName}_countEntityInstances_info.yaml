@@ -1,4 +1,5 @@
 get:
+  tags: [CountEntityInstances]
   summary: Get the info about the queries that will count the number of instances
     of each Class of the ontology
   operationId: get__endpoint_entity_instances_info

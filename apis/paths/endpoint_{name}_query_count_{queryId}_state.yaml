@@ -1,4 +1,5 @@
 get:
+  tags: [QueryCount]
   summary: Returns the current state of the count thread for the given SPARQL query
   operationId: get_query_count_state
   parameters:

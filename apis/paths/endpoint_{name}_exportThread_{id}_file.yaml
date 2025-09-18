@@ -1,4 +1,5 @@
 get:
+  tags: [ExportedQuery]
   summary: Streams the file content of an export thread run on the given endpoint
   operationId: get__owlOntology_name_version_query_ID_export_thread_id_file
   parameters:

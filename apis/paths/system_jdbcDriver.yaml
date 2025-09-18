@@ -1,4 +1,5 @@
 post:
+  tags: [System]
   summary: Adds information about a new JDBC driver to the system
   operationId: postJdbcDrivers
   requestBody:

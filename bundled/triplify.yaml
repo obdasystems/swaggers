@@ -23,13 +23,15 @@ security:
 paths:
   /triplify/start:
     post:
+      tags:
+        - Execution
       summary: Starts a new thread of mappings triplification with the given parameters
       operationId: post_mappings_triplification_start
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/OBDATriplificationRequest'
+              $ref: '#/components/schemas/MWSXOBDATriplificationRequest'
         required: true
       responses:
         '200':
@@ -42,6 +44,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/mappings/{mapID}/triplify/listThreads:
     get:
+      tags:
+        - Threads
       summary: Lists the triplification threads for a given mapping specification
       operationId: get_mappings_triplification_list
       parameters:
@@ -73,6 +77,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/mappings/{mapID}/triplify/listThreadProgresses:
     get:
+      tags:
+        - Threads
       summary: Lists the triplification threads for a given mapping specification
       operationId: get_mappings_triplification_listProgresses
       parameters:
@@ -99,12 +105,14 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/OBDATriplificationProgress'
+                  $ref: '#/components/schemas/MWSXOBDATriplificationProgress'
         '401':
           description: Unhauthorized
   /triplify/stopAll:
     put:
-      summary: Stops the thread identified by threadID
+      tags:
+        - Execution
+      summary: Stops all running triplification threads
       operationId: put_mappings_triplification_stop_all
       responses:
         '200':
@@ -113,6 +121,8 @@ paths:
           description: Unhauthorized
   /triplify/{threadID}/stop:
     put:
+      tags:
+        - Execution
       summary: Stops the thread identified by threadID
       operationId: put_mappings_triplification_stop
       parameters:
@@ -132,6 +142,8 @@ paths:
           description: Unhauthorized
   /triplify/{threadID}:
     delete:
+      tags:
+        - Execution
       summary: Stops the thread identified by threadID
       operationId: delete_mappings_triplification_thread
       parameters:
@@ -151,6 +163,8 @@ paths:
           description: Unhauthorized
   /triplify/{threadID}/status:
     get:
+      tags:
+        - Execution
       summary: Returns the status of a triplification thread
       operationId: get_mappings_triplification_status
       parameters:
@@ -165,11 +179,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OBDATriplificationProgress'
+                $ref: '#/components/schemas/MWSXOBDATriplificationProgress'
         '401':
           description: Unhauthorized
   /triplify/{threadID}/report:
     get:
+      tags:
+        - Execution
       summary: Returns the report of a triplification thread
       operationId: get_mappings_triplification_report
       parameters:
@@ -184,11 +200,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OBDATriplificationReport'
+                $ref: '#/components/schemas/MWSXOBDATriplificationReport'
         '401':
           description: Unhauthorized
   /triplify/{threadID}/download:
     get:
+      tags:
+        - Execution
       summary: Returns the report of a triplification thread
       operationId: get_mappings_triplification_download
       parameters:
@@ -214,6 +232,8 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/mapping/{mapID}/triplify/{datasource}:
     get:
+      tags:
+        - Start
       summary: Triplifies the OBDA mapping specification, streaming the produced triples to the client
       operationId: get__owlOntology_name_version_query_ID_export_directcsv
       parameters:
@@ -267,7 +287,7 @@ components:
       scheme: bearer
       bearerFormat: JWT
   schemas:
-    OBDATriplificationRequest:
+    MWSXOBDATriplificationRequest:
       title: OBDATriplificationRequest
       type: object
       properties:
@@ -289,7 +309,7 @@ components:
           type: string
         dataSource:
           type: string
-    OBDATriplificationProgress:
+    MWSXOBDATriplificationProgress:
       title: OBDATriplificationProgress
       type: object
       properties:
@@ -306,7 +326,7 @@ components:
           format: int64
         status:
           type: string
-    OBDATriplificationMappingReport:
+    MWSXOBDATriplificationMappingReport:
       title: OBDATriplificationMappingReport
       type: object
       properties:
@@ -328,15 +348,15 @@ components:
         elapsedTime:
           type: integer
           format: int64
-    OBDATriplificationReport:
+    MWSXOBDATriplificationReport:
       title: OBDATriplificationReport
       type: object
       properties:
         request:
-          $ref: '#/components/schemas/OBDATriplificationRequest'
+          $ref: '#/components/schemas/MWSXOBDATriplificationRequest'
         progress:
-          $ref: '#/components/schemas/OBDATriplificationProgress'
+          $ref: '#/components/schemas/MWSXOBDATriplificationProgress'
         details:
           type: object
           additionalProperties:
-            $ref: '#/components/schemas/OBDATriplificationMappingReport'
+            $ref: '#/components/schemas/MWSXOBDATriplificationMappingReport'

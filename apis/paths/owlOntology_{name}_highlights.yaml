@@ -1,4 +1,5 @@
 get:
+  tags: [Highlights]
   summary: GET mwsx/owlOntology/{name}/highlights
   operationId: highligths
   parameters:
