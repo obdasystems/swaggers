@@ -18,7 +18,7 @@ properties:
     type: string
   type:
     $ref: ./TypesEnum.yaml
-  ai_generated:
+  aiGenerated:
     required:
       - chunkId
     type: object
