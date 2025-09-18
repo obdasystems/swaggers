@@ -2583,6 +2583,8 @@ components:
     ChartConfiguration:
       title: ChartConfiguration
       type: object
+      required:
+        - yVariables
       properties:
         yVariables:
           type: array
