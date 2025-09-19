@@ -2,7 +2,6 @@ type: object
 required:
   - id
   - name
-  - elements
 properties:
   id:
     type: integer

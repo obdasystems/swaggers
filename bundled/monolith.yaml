@@ -22000,6 +22000,8 @@ components:
     User:
       title: User
       type: object
+      required:
+        - name
       properties:
         firstName:
           type: string
@@ -23581,6 +23583,16 @@ components:
     DataLineageDescription:
       title: DataLineageDescription
       type: object
+      required:
+        - mappingAssertionsIndex
+        - mappingViews
+        - entityMapping
+        - viewsIndex
+        - projection
+        - entity
+        - entitiesIndex
+        - viewTables
+        - subEntities
       properties:
         mappingAssertionsIndex:
           type: object
@@ -24389,7 +24401,6 @@ components:
       required:
         - id
         - name
-        - elements
       properties:
         id:
           type: integer

@@ -1,5 +1,15 @@
 title: DataLineageDescription
 type: object
+required:
+  - mappingAssertionsIndex
+  - mappingViews
+  - entityMapping
+  - viewsIndex
+  - projection
+  - entity
+  - entitiesIndex
+  - viewTables
+  - subEntities
 properties:
   mappingAssertionsIndex:
     type: object
@@ -31,9 +41,9 @@ properties:
       $ref: ./OntologyEntity.yaml
   viewTables:
     type: object
-    additionalProperties: 
+    additionalProperties:
       type: array
-      items: 
+      items:
         type: string
   subEntities:
     type: object
