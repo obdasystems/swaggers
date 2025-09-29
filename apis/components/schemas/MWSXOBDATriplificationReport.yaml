@@ -9,3 +9,7 @@ properties:
     type: object
     additionalProperties:
       $ref: ./MWSXOBDATriplificationMappingReport.yaml
+  isError:
+    type: boolean
+  errorMessage:
+    type: string

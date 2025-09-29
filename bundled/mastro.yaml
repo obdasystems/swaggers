@@ -21090,6 +21090,10 @@ components:
           type: object
           additionalProperties:
             $ref: '#/components/schemas/MWSXOBDATriplificationMappingReport'
+        isError:
+          type: boolean
+        errorMessage:
+          type: string
     MWSXVirtualEntityField:
       title: VirtualEntityField
       type: object
