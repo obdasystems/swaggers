@@ -1,5 +1,7 @@
 title: MappingAssertion
 type: object
+required:
+  - template
 properties:
   template:
     $ref: ./MappingTemplate.yaml

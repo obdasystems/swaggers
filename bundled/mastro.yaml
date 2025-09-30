@@ -19041,6 +19041,9 @@ components:
     MappingTemplate:
       title: MappingTemplate
       type: object
+      required:
+        - template
+        - terms
       properties:
         template:
           type: string
@@ -19114,6 +19117,8 @@ components:
     MappingAssertion:
       title: MappingAssertion
       type: object
+      required:
+        - template
       properties:
         template:
           $ref: '#/components/schemas/MappingTemplate'

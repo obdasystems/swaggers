@@ -1,5 +1,8 @@
 title: MappingTemplate
 type: object
+required:
+  - template
+  - terms
 properties:
   template:
     type: string
