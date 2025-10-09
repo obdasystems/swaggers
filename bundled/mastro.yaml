@@ -203,10 +203,10 @@ tags:
     x-displayName: Persistence
   - name: data-quality_Constraints
     x-displayName: Constraints
-  - name: data-quality_CheckSet
-    x-displayName: CheckSet
   - name: data-quality_SHACL
     x-displayName: SHACL
+  - name: data-quality_CheckSet
+    x-displayName: CheckSet
   - name: misc_Logger
     x-displayName: Logger
   - name: misc_Versions
@@ -14901,6 +14901,8 @@ paths:
         - jwt: []
   /owlOntology/{name}/version/shaclConstraints:
     get:
+      tags:
+        - data-quality_SHACL
       summary: Returns the SHACL constraints defined over the ontology / version
       operationId: get_shaclConstraints
       parameters:
@@ -14925,12 +14927,12 @@ paths:
                   $ref: '#/components/schemas/SHACLShape'
         '401':
           description: Unhauthorized
-      tags:
-        - data-quality_other
       security:
         - apiKey: []
         - jwt: []
     put:
+      tags:
+        - data-quality_SHACL
       summary: Add the given SHACL constraints for ontology / version
       operationId: put_shaclConstraints
       parameters:
@@ -14961,12 +14963,12 @@ paths:
                 type: boolean
         '401':
           description: Unhauthorized
-      tags:
-        - data-quality_other
       security:
         - apiKey: []
         - jwt: []
     delete:
+      tags:
+        - data-quality_SHACL
       summary: Delete the given SHACL constraint for ontology / version
       operationId: delete_shaclConstraints
       parameters:
@@ -14995,8 +14997,6 @@ paths:
                 type: boolean
         '401':
           description: Unhauthorized
-      tags:
-        - data-quality_other
       security:
         - apiKey: []
         - jwt: []
@@ -22929,8 +22929,8 @@ x-tagGroups:
   - name: Data Quality API model
     tags:
       - data-quality_Constraints
-      - data-quality_CheckSet
       - data-quality_SHACL
+      - data-quality_CheckSet
   - name: Misc API model
     tags:
       - misc_Logger

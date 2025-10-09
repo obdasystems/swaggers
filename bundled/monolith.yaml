@@ -194,10 +194,10 @@ tags:
     x-displayName: Persistence
   - name: mastro_data-quality_Constraints
     x-displayName: Constraints
-  - name: mastro_data-quality_CheckSet
-    x-displayName: CheckSet
   - name: mastro_data-quality_SHACL
     x-displayName: SHACL
+  - name: mastro_data-quality_CheckSet
+    x-displayName: CheckSet
   - name: mastro_misc_Logger
     x-displayName: Logger
   - name: mastro_misc_Versions
@@ -17954,6 +17954,116 @@ paths:
       security:
         - apiKey: []
         - jwt: []
+  /owlOntology/{name}/version/shaclConstraints:
+    servers:
+      - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+        variables:
+          protocol:
+            default: https
+          tenant:
+            default: localhost
+          port:
+            default: ':8989'
+    get:
+      tags:
+        - mastro_data-quality_SHACL
+      summary: Returns the SHACL constraints defined over the ontology / version
+      operationId: get_shaclConstraints
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SHACLShape'
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
+    put:
+      tags:
+        - mastro_data-quality_SHACL
+      summary: Add the given SHACL constraints for ontology / version
+      operationId: put_shaclConstraints
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/SHACLShape'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
+    delete:
+      tags:
+        - mastro_data-quality_SHACL
+      summary: Delete the given SHACL constraint for ontology / version
+      operationId: delete_shaclConstraints
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SHACLShape'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
   /owlOntology/{name}/version/ontologyConstraints/set:
     servers:
       - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
@@ -24626,9 +24736,12 @@ components:
         - targetClass
         - path
       properties:
+        id:
+          type: string
         type:
           type: string
           enum:
+            - Class
             - MinCount
             - MaxCount
             - MinExclusive
@@ -24643,8 +24756,6 @@ components:
             - Disjoint
             - LessThan
             - LessThanOrEquals
-            - GreaterThan
-            - GreaterThanOrEquals
         targetClass:
           type: string
         path:
@@ -26919,8 +27030,8 @@ x-tagGroups:
       - mastro_authorization-view-profiles_Persistence
       - mastro_dashboards_Persistence
       - mastro_data-quality_Constraints
-      - mastro_data-quality_CheckSet
       - mastro_data-quality_SHACL
+      - mastro_data-quality_CheckSet
       - mastro_misc_Logger
       - mastro_misc_Versions
       - mastro_misc_Resources

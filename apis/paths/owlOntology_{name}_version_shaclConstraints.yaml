@@ -1,4 +1,5 @@
 get:
+  tags: [SHACL]
   summary: Returns the SHACL constraints defined over the ontology / version
   operationId: get_shaclConstraints
   parameters:
@@ -20,6 +21,7 @@ get:
             items: {$ref: ../components/schemas/SHACLShape.yaml}
     '401': {description: Unhauthorized}
 put:
+  tags: [SHACL]
   summary: Add the given SHACL constraints for ontology / version
   operationId: put_shaclConstraints
   parameters:
@@ -47,6 +49,7 @@ put:
             type: boolean
     '401': {description: Unhauthorized}
 delete:
+  tags: [SHACL]
   summary: Delete the given SHACL constraint for ontology / version
   operationId: delete_shaclConstraints
   parameters:
