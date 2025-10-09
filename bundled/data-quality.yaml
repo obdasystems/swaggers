@@ -47,6 +47,92 @@ paths:
                 $ref: '#/components/schemas/OntologyConstraints'
         '401':
           description: Unhauthorized
+  /owlOntology/{name}/version/shaclConstraints:
+    get:
+      summary: Returns the SHACL constraints defined over the ontology / version
+      operationId: get_shaclConstraints
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SHACLShape'
+        '401':
+          description: Unhauthorized
+    put:
+      summary: Add the given SHACL constraints for ontology / version
+      operationId: put_shaclConstraints
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/SHACLShape'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '401':
+          description: Unhauthorized
+    delete:
+      summary: Delete the given SHACL constraint for ontology / version
+      operationId: delete_shaclConstraints
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SHACLShape'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '401':
+          description: Unhauthorized
   /owlOntology/{name}/version/ontologyConstraints/set:
     post:
       tags:
@@ -940,6 +1026,43 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/IdentificationAssertion'
+    SHACLShape:
+      type: object
+      required:
+        - type
+        - targetClass
+        - path
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          enum:
+            - Class
+            - MinCount
+            - MaxCount
+            - MinExclusive
+            - MaxExclusive
+            - MinInclusive
+            - MaxInclusive
+            - MinLength
+            - MaxLength
+            - Pattern
+            - In
+            - Equals
+            - Disjoint
+            - LessThan
+            - LessThanOrEquals
+        targetClass:
+          type: string
+        path:
+          type: string
+        property:
+          type: string
+        constraintValue:
+          type: array
+          items:
+            type: string
     DataQualityCheck:
       title: DataQualityCheck
       type: object

@@ -3355,9 +3355,12 @@ components:
         - targetClass
         - path
       properties:
+        id:
+          type: string
         type:
           type: string
           enum:
+            - Class
             - MinCount
             - MaxCount
             - MinExclusive
@@ -3372,8 +3375,6 @@ components:
             - Disjoint
             - LessThan
             - LessThanOrEquals
-            - GreaterThan
-            - GreaterThanOrEquals
         targetClass:
           type: string
         path:

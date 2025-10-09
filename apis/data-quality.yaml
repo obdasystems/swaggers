@@ -23,6 +23,8 @@ info:
 paths:
   /owlOntology/{name}/version/ontologyConstraints:
     $ref: paths/owlOntology_{name}_version_ontologyConstraints.yaml
+  /owlOntology/{name}/version/shaclConstraints:
+    $ref: paths/owlOntology_{name}_version_shaclConstraints.yaml
   /owlOntology/{name}/version/ontologyConstraints/set:
     $ref: paths/owlOntology_{name}_version_ontologyConstraints_set.yaml
   /owlOntology/{name}/version/ontologyConstraints/set/{setId}:
