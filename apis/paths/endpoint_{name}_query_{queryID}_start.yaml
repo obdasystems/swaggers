@@ -25,16 +25,16 @@ post:
     schema: {type: string}
   - name: answersBufferSize
     in: query
-    schema: {type: string}
+    schema: {type: integer}
   - name: skipSqlEvaluation
     in: query
-    schema: {type: string}
+    schema: {type: boolean}
   - name: useReplaceForUrlEncoding
     in: query
-    schema: {type: string}
+    schema: {type: boolean}
   - name: filterNullValuesOnIri
     in: query
-    schema: {type: string}
+    schema: {type: boolean}
   - name: lang
     in: query
     schema: {type: string}
@@ -45,6 +45,11 @@ post:
     in: query
     required: true
     schema: {type: integer}
+  - name: addDistinctOnCores
+    in: query
+    required: true
+    schema: 
+      type: boolean
   requestBody:
     content:
       '*/*':

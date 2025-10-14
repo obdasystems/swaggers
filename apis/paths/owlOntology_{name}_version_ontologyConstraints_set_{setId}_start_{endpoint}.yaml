@@ -22,7 +22,7 @@ put:
   - name: answersBufferSize
     in: query
     required: true
-    schema: {type: string}
+    schema: {type: integer}
   - name: autosave
     in: query
     required: true
@@ -31,6 +31,11 @@ put:
     in: query
     required: true
     schema: {type: string}
+  - name: addDistinctOnCores
+    in: query
+    required: true
+    schema: 
+      type: boolean
   requestBody:
     content:
       application/json:

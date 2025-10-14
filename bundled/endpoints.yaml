@@ -564,19 +564,19 @@ paths:
         - name: answersBufferSize
           in: query
           schema:
-            type: string
+            type: integer
         - name: skipSqlEvaluation
           in: query
           schema:
-            type: string
+            type: boolean
         - name: useReplaceForUrlEncoding
           in: query
           schema:
-            type: string
+            type: boolean
         - name: filterNullValuesOnIri
           in: query
           schema:
-            type: string
+            type: boolean
         - name: lang
           in: query
           schema:
@@ -590,6 +590,11 @@ paths:
           required: true
           schema:
             type: integer
+        - name: addDistinctOnCores
+          in: query
+          required: true
+          schema:
+            type: boolean
       requestBody:
         content:
           '*/*':
@@ -1356,19 +1361,19 @@ paths:
         - name: answersBufferSize
           in: query
           schema:
-            type: string
+            type: integer
         - name: skipSqlEvaluation
           in: query
           schema:
-            type: string
+            type: boolean
         - name: useReplaceForUrlEncoding
           in: query
           schema:
-            type: string
+            type: boolean
         - name: filterNullValuesOnIri
           in: query
           schema:
-            type: string
+            type: boolean
         - name: lang
           in: query
           schema:
@@ -1381,6 +1386,11 @@ paths:
           in: query
           schema:
             type: integer
+        - name: addDistinctOnCores
+          in: query
+          required: true
+          schema:
+            type: boolean
       requestBody:
         content:
           application/json:
@@ -1431,19 +1441,19 @@ paths:
         - name: answersBufferSize
           in: query
           schema:
-            type: string
+            type: integer
         - name: skipSqlEvaluation
           in: query
           schema:
-            type: string
+            type: boolean
         - name: useReplaceForUrlEncoding
           in: query
           schema:
-            type: string
+            type: boolean
         - name: filterNullValuesOnIri
           in: query
           schema:
-            type: string
+            type: boolean
         - name: lang
           in: query
           schema:
@@ -1456,6 +1466,11 @@ paths:
           in: query
           schema:
             type: integer
+        - name: addDistinctOnCores
+          in: query
+          required: true
+          schema:
+            type: boolean
       requestBody:
         content:
           '*/*':
@@ -2086,19 +2101,19 @@ paths:
         - name: answersBufferSize
           in: query
           schema:
-            type: string
+            type: integer
         - name: skipSqlEvaluation
           in: query
           schema:
-            type: string
+            type: boolean
         - name: useReplaceForUrlEncoding
           in: query
           schema:
-            type: string
+            type: boolean
         - name: filterNullValuesOnIri
           in: query
           schema:
-            type: string
+            type: boolean
         - name: lang
           in: query
           schema:
@@ -2112,6 +2127,11 @@ paths:
           required: true
           schema:
             type: integer
+        - name: addDistinctOnCores
+          in: query
+          required: true
+          schema:
+            type: boolean
       requestBody:
         content:
           '*/*':
@@ -2157,19 +2177,19 @@ paths:
         - name: answersBufferSize
           in: query
           schema:
-            type: string
+            type: integer
         - name: skipSqlEvaluation
           in: query
           schema:
-            type: string
+            type: boolean
         - name: useReplaceForUrlEncoding
           in: query
           schema:
-            type: string
+            type: boolean
         - name: filterNullValuesOnIri
           in: query
           schema:
-            type: string
+            type: boolean
         - name: lang
           in: query
           schema:
@@ -2182,6 +2202,11 @@ paths:
           in: query
           schema:
             type: integer
+        - name: addDistinctOnCores
+          in: query
+          required: true
+          schema:
+            type: boolean
       requestBody:
         content:
           '*/*':
