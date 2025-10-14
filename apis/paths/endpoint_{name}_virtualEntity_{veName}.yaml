@@ -14,7 +14,7 @@ get:
   - name: unfolderCountThreshold
     in: query
     required: true
-    schema: {type: string}
+    schema: {type: integer}
   responses:
     '200':
       description: OK

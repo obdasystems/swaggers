@@ -39,7 +39,7 @@ post:
     schema: {type: string}
   - name: unfolderCountThreshold
     in: query
-    schema: {type: string}
+    schema: {type: integer}
   requestBody:
     content:
       '*/*':

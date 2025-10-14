@@ -7482,7 +7482,7 @@ paths:
           in: query
           required: true
           schema:
-            type: string
+            type: integer
       requestBody:
         content:
           '*/*':
@@ -8596,7 +8596,7 @@ paths:
         - name: unfolderCountThreshold
           in: query
           schema:
-            type: string
+            type: integer
       requestBody:
         content:
           application/json:
@@ -8685,7 +8685,7 @@ paths:
         - name: unfolderCountThreshold
           in: query
           schema:
-            type: string
+            type: integer
       requestBody:
         content:
           '*/*':
@@ -9619,8 +9619,9 @@ paths:
             type: string
         - name: unfolderCountThreshold
           in: query
+          required: true
           schema:
-            type: string
+            type: integer
       requestBody:
         content:
           '*/*':
@@ -9702,7 +9703,7 @@ paths:
         - name: unfolderCountThreshold
           in: query
           schema:
-            type: string
+            type: integer
       requestBody:
         content:
           '*/*':
@@ -9766,7 +9767,7 @@ paths:
           in: query
           required: true
           schema:
-            type: string
+            type: integer
       requestBody:
         content:
           '*/*':
@@ -13901,7 +13902,7 @@ paths:
           in: query
           required: true
           schema:
-            type: string
+            type: integer
       responses:
         '200':
           description: OK
@@ -15130,7 +15131,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
+                $ref: '#/components/schemas/FileInfo'
         '401':
           description: Unhauthorized
       security:
