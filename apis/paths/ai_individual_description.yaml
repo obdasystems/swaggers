@@ -10,7 +10,6 @@ post:
           required:
             - individualName
             - context
-            - entityType
           properties:
             individualName:
               description: the name (probably the label) of the individual to describe

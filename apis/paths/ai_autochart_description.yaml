@@ -1,0 +1,26 @@
+post:
+  tags: [AI]
+  summary: Returns a description of a chart
+  operationId: describeChart
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - chartConfiguration
+          properties:
+            chartConfiguration:
+              description: the chart configuration to describe
+              $ref: ../components/schemas/ChartConfiguration.yaml
+            language:
+              description: the language to use for the answer.
+              type: string
+              default: "English"
+  responses:
+    "200":
+      description: Successful operation
+      content:
+        application/json:
+          schema: { type: string }
+    "401": { description: Unhauthorized }

@@ -1,0 +1,27 @@
+post:
+  tags: [AI]
+  summary: Returns a chart configuration for a SPARQL query suggested by AI
+  operationId: autoChart
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - queryCode
+          properties:
+            queryCode:
+              description: Code of the query that provides the results that the user want to visualize in the chart
+              type: string
+            language:
+              description: the language to use for the answer.
+              type: string
+              default: "English"
+  responses:
+    "200":
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ChartConfiguration.yaml
+    "401": { description: Unhauthorized }
