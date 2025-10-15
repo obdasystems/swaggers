@@ -183,6 +183,10 @@ components:
         lastModification:
           type: integer
           format: int64
+        fileName:
+          type: string
+        creator:
+          type: string
     TypesEnum:
       description: |-
         Contiene tutti i tipi di nodi/archi orginirari dal Graphol per evitare di duplicare gli enumeratori. Nella rappresentazione Floaty/vkg vengono usati questi valori.

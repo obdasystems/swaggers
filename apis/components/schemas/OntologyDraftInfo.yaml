@@ -9,3 +9,7 @@ properties:
   lastModification:
     type: integer
     format: int64
+  fileName:
+    type: string
+  creator:
+    type: string
