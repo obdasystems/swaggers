@@ -292,10 +292,17 @@ paths:
               type: object
               required:
                 - chartConfiguration
+                - queryCode
               properties:
                 chartConfiguration:
                   description: the chart configuration to describe
                   $ref: '#/components/schemas/ChartConfiguration'
+                queryCode:
+                  description: the SPARQL code that generates the data for the chart
+                  type: string
+                queryDescription:
+                  description: the description of the query to use. If not provided, LLM will generate one.
+                  type: string
                 language:
                   description: the language to use for the answer.
                   type: string
