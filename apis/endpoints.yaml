@@ -167,8 +167,8 @@ paths:
     $ref: paths/endpoint_{name}_query_count_{queryId}_error.yaml
   /endpoint/{eName}/mappingAnalysisReport:
     $ref: paths/endpoint_{eName}_mappingAnalysisReport.yaml
-  /endpoint/{eName}/saturetedOntology:
-    $ref: paths/endpoint_{eName}_saturetedOntology.yaml
+  /endpoint/{eName}/saturatedOntology:
+    $ref: paths/endpoint_{eName}_saturatedOntology.yaml
   /endpoint/{endpointName}/highligthsSharedViewsProps:
     $ref: paths/endpoint_{endpointName}_highligthsSharedViewsProps.yaml
 components: 

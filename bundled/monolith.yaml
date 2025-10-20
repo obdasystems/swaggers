@@ -9920,7 +9920,7 @@ paths:
       security:
         - apiKey: []
         - jwt: []
-  /endpoint/{eName}/saturetedOntology:
+  /endpoint/{eName}/saturatedOntology:
     servers:
       - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
         variables:
@@ -9933,8 +9933,8 @@ paths:
     post:
       tags:
         - mastro_endpoints_Info
-      summary: POST mwsx/endpoint/{eName}/saturetedOntology
-      operationId: get__endpoint_ename_saturetedOntology
+      summary: POST mwsx/endpoint/{eName}/saturatedOntology
+      operationId: get__endpoint_ename_saturatedOntology
       parameters:
         - name: eName
           in: path
