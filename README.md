@@ -1,10 +1,10 @@
 # OpenAPI specifications
 [![pages-build-deployment](https://github.com/obdasystems/swaggers/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/obdasystems/swaggers/actions/workflows/pages/pages-build-deployment)
 
-This repository contains the definitions of the available REST APIs served by Mastro.
+This repository contains the definitions of the available REST APIs delivered by OBDA Systems.
 
 
-## APIs
+## Mastro APIs
 
 - [mastro (whole specs)](https://obdasystems.github.io/swaggers/ui/?api=mastro)
 
@@ -42,6 +42,6 @@ Generated with th following command:
 npx @redocly/cli@latest bundle
 ```
 
-## External APIs
+## AI Assistant APIs
 
 - [ai-assistant](https://obdasystems.github.io/swaggers/ui/?api=ai-assistant)
