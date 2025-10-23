@@ -35,7 +35,9 @@ paths:
     $ref: paths/ai_autochart.yaml
   /ai/autochart_description:
     $ref: paths/ai_autochart_description.yaml
-    
+  /ai/text2sparql:
+    $ref: paths/ai_text2sparql.yaml
+
 components: 
   securitySchemes: 
     jwt:

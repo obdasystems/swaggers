@@ -1,0 +1,18 @@
+post:
+  tags: [AI]
+  summary: Converts a natural language text into a SPARQL query
+  operationId: text2sparql
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: string
+  responses:
+    "200":
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            type: string
+            description: The generated SPARQL query
+    "401": { description: Unhauthorized }
