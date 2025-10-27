@@ -22205,7 +22205,13 @@ paths:
         content:
           application/json:
             schema:
-              type: string
+              type: object
+              properties:
+                text:
+                  description: The natural language text to convert
+                  type: string
+                endpointName:
+                  type: string
       responses:
         '200':
           description: Successful operation
