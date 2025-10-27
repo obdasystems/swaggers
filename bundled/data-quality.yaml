@@ -144,7 +144,7 @@ paths:
       tags:
         - CheckSet
       summary: Create a new data quality check set
-      operationId: post_ontologyConstraints_check_start
+      operationId: post_ontologyConstraints_check_set
       parameters:
         - name: name
           in: path
