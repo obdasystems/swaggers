@@ -22210,8 +22210,8 @@ paths:
                 text:
                   description: The natural language text to convert
                   type: string
-                endpointName:
-                  type: string
+                currentRdfGraph:
+                  $ref: '#/components/schemas/RDFGraph'
       responses:
         '200':
           description: Successful operation
