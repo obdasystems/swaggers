@@ -2297,7 +2297,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
         '401':
@@ -2335,7 +2335,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
         '401':
@@ -22210,8 +22210,8 @@ paths:
                 text:
                   description: The natural language text to convert
                   type: string
-                currentRdfGraph:
-                  $ref: '#/components/schemas/RDFGraph'
+                endpointName:
+                  type: string
       responses:
         '200':
           description: Successful operation
@@ -26586,6 +26586,9 @@ components:
     DataQualityCheckSetImportReport:
       title: DataQualityCheckSetImportReport
       type: object
+      required:
+        - actualCheckSet
+        - importReport
       properties:
         actualCheckSet:
           $ref: '#/components/schemas/DataQualityCheckSet'

@@ -1,5 +1,8 @@
 title: DataQualityCheckSetImportReport
 type: object
+required: 
+  - actualCheckSet
+  - importReport
 properties:
   actualCheckSet:
     $ref: ./DataQualityCheckSet.yaml

@@ -11,7 +11,8 @@ post:
             text:
               description: The natural language text to convert
               type: string
-            currentRdfGraph: { $ref: ../components/schemas/RDFGraph.yaml }
+            endpointName: 
+              type: string
   responses:
     "200":
       description: Successful operation

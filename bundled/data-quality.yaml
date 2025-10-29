@@ -1348,6 +1348,9 @@ components:
     DataQualityCheckSetImportReport:
       title: DataQualityCheckSetImportReport
       type: object
+      required:
+        - actualCheckSet
+        - importReport
       properties:
         actualCheckSet:
           $ref: '#/components/schemas/DataQualityCheckSet'
