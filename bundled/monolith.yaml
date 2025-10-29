@@ -18273,7 +18273,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DataQualityCheckSet'
+                type: boolean
         '401':
           description: Unhauthorized
       security:
