@@ -319,7 +319,7 @@ paths:
           in: query
           required: true
           schema:
-            type: string
+            type: boolean
       requestBody:
         content:
           application/json:
