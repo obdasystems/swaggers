@@ -1,0 +1,11 @@
+get:
+  tags: [Server]
+  summary: Returns the license contact information
+  operationId: get_server_license_contact_info
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema: { $ref: ../components/schemas/LicenseContactInfo.yaml }
+    "401": { description: Unauthorized }

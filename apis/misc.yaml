@@ -51,6 +51,8 @@ paths:
     $ref: paths/globalAnnotation_{entityId}.yaml
   /server/license/info:
     $ref: paths/server_license_info.yaml
+  /server/license/contactInfo:
+    $ref: paths/server_license_contact_info.yaml
   /server/storage/report:
     $ref: paths/server_storage_report.yaml
   /server/storage/{folder}:

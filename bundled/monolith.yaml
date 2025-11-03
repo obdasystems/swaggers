@@ -19500,7 +19500,7 @@ paths:
     get:
       tags:
         - mastro_misc_Server
-      summary: Computes and returns the system storage report
+      summary: Returns the license expiration date
       operationId: get_server_license_expiration_date
       responses:
         '200':
@@ -19511,6 +19511,33 @@ paths:
                 $ref: '#/components/schemas/LicenseInfo'
         '401':
           description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
+  /server/license/contactInfo:
+    servers:
+      - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+        variables:
+          protocol:
+            default: https
+          tenant:
+            default: localhost
+          port:
+            default: ':8989'
+    get:
+      tags:
+        - mastro_misc_Server
+      summary: Returns the license contact information
+      operationId: get_server_license_contact_info
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LicenseContactInfo'
+        '401':
+          description: Unauthorized
       security:
         - apiKey: []
         - jwt: []
@@ -26628,30 +26655,44 @@ components:
       properties:
         licenseType:
           type: string
-        SERVER_IP_ADDRESS:
-          type: string
         productVersion:
           type: string
         licensee:
           type: string
         licensor:
           type: string
+        project:
+          type: string
         generationDate:
           type: integer
           format: int64
-        MAX_NUMBER_OF_ONTOLOGIES_ALLOWED:
-          type: string
         productName:
           type: string
         licenseInfoDetails:
           type: array
           items:
             $ref: '#/components/schemas/LicenseInfoDetail'
-        MAX_NUMBER_OF_USERS_ALLOWED:
-          type: string
         expirationDate:
           type: integer
           format: int64
+        SERVER_IP_ADDRESS:
+          type: string
+        MAX_NUMBER_OF_USERS_ALLOWED:
+          type: string
+        MAX_NUMBER_OF_ONTOLOGIES_ALLOWED:
+          type: string
+    LicenseContactInfo:
+      title: LicenseContactInfo
+      type: object
+      properties:
+        licensee:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
     OntologyVersionStorageReport:
       title: OntologyVersionStorageReport
       type: object
