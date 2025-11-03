@@ -16,6 +16,6 @@ put:
     '200':
       description: OK
       content:
-        application/json:
-          schema: {type: string}
+        text/plain:
+          schema: { type: string }
     '401': {description: Unhauthorized}
