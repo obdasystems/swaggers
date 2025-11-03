@@ -22376,41 +22376,38 @@ components:
       type: object
       properties:
         detailName:
-          type: string
+          enum:
+            - SERVER_IP_ADDRESS
+            - MAX_NUMBER_OF_USERS_ALLOWED
+            - MAX_NUMBER_OF_ONTOLOGIES_ALLOWED
         detailValue:
           type: string
     LicenseInfo:
       title: LicenseInfo
       type: object
       properties:
-        licenseType:
-          type: string
-        productVersion:
+        licensor:
           type: string
         licensee:
           type: string
-        licensor:
+        productName:
           type: string
-        project:
+        productVersion:
+          type: string
+        licenseType:
           type: string
         generationDate:
           type: integer
           format: int64
-        productName:
+        expirationDate:
+          type: integer
+          format: int64
+        project:
           type: string
         licenseInfoDetails:
           type: array
           items:
             $ref: '#/components/schemas/LicenseInfoDetail'
-        expirationDate:
-          type: integer
-          format: int64
-        SERVER_IP_ADDRESS:
-          type: string
-        MAX_NUMBER_OF_USERS_ALLOWED:
-          type: string
-        MAX_NUMBER_OF_ONTOLOGIES_ALLOWED:
-          type: string
     LicenseContactInfo:
       title: LicenseContactInfo
       type: object
