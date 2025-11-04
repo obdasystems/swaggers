@@ -137,6 +137,8 @@ paths:
   #   $ref: paths/endpoint_{endpointName}_highligthsSharedViewsProps.yaml
   # /endpoint/{endpointName}/instanceShortestPath:
   #   $ref: paths/endpoint_{endpointName}_instanceShortestPath.yaml
+  /owlOntology/{name}/highlightedRDFGraph:
+    $ref: paths/owlOntology_{name}_highlightedRDFGraph.yaml
 components: 
   securitySchemes: 
     apiKey: 

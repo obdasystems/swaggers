@@ -11016,6 +11016,42 @@ paths:
       security:
         - apiKey: []
         - jwt: []
+  /owlOntology/{name}/highlightedRDFGraph:
+    get:
+      tags:
+        - sparqling_Highlights
+      operationId: highlightedRDFGraph
+      summary: >-
+        Get the gscape file representing the highlighted RDF graph. It is used
+        to implement Natural Language Query.
+      parameters:
+        - name: name
+          in: path
+          description: The name of the ontology
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          description: The version of the ontology
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RDFGraph'
+        '401':
+          description: Unhauthorized
+        '404':
+          description: Ontology not uploaded
+          content: {}
+      security:
+        - apiKey: []
+        - jwt: []
   /triplify/start:
     post:
       tags:
