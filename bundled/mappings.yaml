@@ -3110,6 +3110,9 @@ components:
     MappingCount:
       title: MappingCount
       type: object
+      required:
+        - numberOfMappings
+        - entity
       properties:
         numberOfMappings:
           type: integer
@@ -3119,6 +3122,8 @@ components:
     MappingEntityCount:
       title: MappingEntityCount
       type: object
+      required:
+        - count
       properties:
         count:
           type: array

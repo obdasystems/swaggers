@@ -1,80 +1,79 @@
 get:
   tags: [Reasoning]
-  summary: 'Returns the file containing the definition of the closed ontology <code>name</code>,
-    with version ''version''. <br/>The format parameter assumes one of the following
-    values: ''graphol'', ''fss'', ''xml'', ''turtle'''
+  summary:
+    "Returns the file containing the definition of the closed ontology <code>name</code>,
+    with version 'version'. <br/>The format parameter assumes one of the following
+    values: 'graphol', 'fss', 'xml', 'turtle'"
   operationId: get__owlOntology_name_version_closed
   parameters:
-  - name: name
-    in: path
-    required: true
-    schema: {type: string}
-  - name: version
-    in: query
-    required: true
-    schema: {type: string}
-  - name: format
-    in: query
-    required: true
-    schema: {type: string}
+    - name: name
+      in: path
+      required: true
+      schema: { type: string }
+    - name: version
+      in: query
+      required: true
+      schema: { type: string }
+    - name: format
+      in: query
+      required: true
+      schema: { type: string }
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/FileInfo.yaml}
-    '401': {description: Unhauthorized}
+          schema: { $ref: ../components/schemas/FileInfo.yaml }
+    "401": { description: Unhauthorized }
 delete:
   tags: [Reasoning]
-  summary: Deletes the closed ontology <code>name</code>, with version 'version'.
+  summary:
+    Deletes the closed ontology <code>name</code>, with version 'version'.
     <br/>
   operationId: delete__owlOntology_name_version_closed
   parameters:
-  - name: name
-    in: path
-    required: true
-    schema: {type: string}
-  - name: version
-    in: query
-    required: true
-    schema: {type: string}
+    - name: name
+      in: path
+      required: true
+      schema: { type: string }
+    - name: version
+      in: query
+      required: true
+      schema: { type: string }
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
-          schema: {type: integer}
-    '401': {description: Unhauthorized}
+          schema: { type: integer }
+    "401": { description: Unhauthorized }
 post:
   tags: [Reasoning]
-  summary: Starts the thread for the computation of the deductive closure of ontology
+  summary:
+    Starts the thread for the computation of the deductive closure of ontology
     <code>name</code>, with version 'version'.Returns the ID of the thread
   operationId: post__owlOntology_name_version_closed
   parameters:
-  - name: name
-    in: path
-    required: true
-    schema: {type: string}
-  - name: version
-    in: query
-    required: true
-    schema: {type: string}
-  - name: format
-    in: query
-    required: true
-    schema: {type: string}
-  - name: computeEmpties
-    in: query
-    required: true
-    schema: {type: string}
-  - name: computeGeneralConceptInclusions
-    in: query
-    required: true
-    schema: {type: string}
+    - name: name
+      in: path
+      required: true
+      schema: { type: string }
+    - name: version
+      in: query
+      required: true
+      schema: { type: string }
+    - name: computeEmpties
+      in: query
+      required: true
+      schema: { type: boolean }
+    - name: computeGeneralConceptInclusions
+      in: query
+      required: true
+      schema: { type: boolean }
   responses:
-    '200':
+    "200":
       description: OK
       content:
         text/plain:
           schema: { type: string }
-    '401': {description: Unhauthorized}
+    "401": { description: Unhauthorized }

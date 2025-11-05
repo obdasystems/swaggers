@@ -703,21 +703,16 @@ paths:
           required: true
           schema:
             type: string
-        - name: format
-          in: query
-          required: true
-          schema:
-            type: string
         - name: computeEmpties
           in: query
           required: true
           schema:
-            type: string
+            type: boolean
         - name: computeGeneralConceptInclusions
           in: query
           required: true
           schema:
-            type: string
+            type: boolean
       responses:
         '200':
           description: OK
@@ -804,11 +799,6 @@ paths:
           schema:
             type: string
         - name: version
-          in: query
-          required: true
-          schema:
-            type: string
-        - name: format
           in: query
           required: true
           schema:
@@ -23478,6 +23468,9 @@ components:
     MappingCount:
       title: MappingCount
       type: object
+      required:
+        - numberOfMappings
+        - entity
       properties:
         numberOfMappings:
           type: integer
@@ -23487,6 +23480,8 @@ components:
     MappingEntityCount:
       title: MappingEntityCount
       type: object
+      required:
+        - count
       properties:
         count:
           type: array

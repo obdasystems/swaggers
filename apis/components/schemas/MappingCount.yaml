@@ -1,5 +1,8 @@
 title: MappingCount
 type: object
+required:
+  - numberOfMappings
+  - entity
 properties:
   numberOfMappings:
     type: integer
