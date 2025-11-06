@@ -1,7 +1,7 @@
 put:
   tags: [ExportedQuery]
   summary: Stops the execution of an export thread on the given endpoint
-  operationId: put__owlOntology_name_version_query_ID_export_thread_id_status
+  operationId: put__owlOntology_name_version_query_ID_export_thread_id_stop
   parameters:
   - name: name
     in: path

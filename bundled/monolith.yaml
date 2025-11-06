@@ -7217,7 +7217,7 @@ paths:
       tags:
         - mastro_endpoints_QueryCount
       summary: Forces the count thread of the given SPARQL query to stop
-      operationId: get_query_count_stop
+      operationId: put_query_count_stop
       parameters:
         - name: name
           in: path
@@ -8345,7 +8345,7 @@ paths:
       tags:
         - mastro_endpoints_ExportedQuery
       summary: Stops the execution of an export thread on the given endpoint
-      operationId: put__owlOntology_name_version_query_ID_export_thread_id_status
+      operationId: put__owlOntology_name_version_query_ID_export_thread_id_stop
       parameters:
         - name: name
           in: path
