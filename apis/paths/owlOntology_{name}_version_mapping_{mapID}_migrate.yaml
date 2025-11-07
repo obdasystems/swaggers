@@ -22,7 +22,6 @@ post:
     schema: {type: string}
   - name: check
     in: query
-    required: true
     schema: {type: string}
   - name: create
     in: query

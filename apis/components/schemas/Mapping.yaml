@@ -1,5 +1,8 @@
 title: Mapping
 type: object
+required:
+  - mappingID
+  - mappingDate
 properties:
   mappingID:
     type: string

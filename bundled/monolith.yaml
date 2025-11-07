@@ -2389,17 +2389,14 @@ paths:
             type: string
         - name: create
           in: query
-          required: true
           schema:
             type: string
         - name: check
           in: query
-          required: true
           schema:
-            type: string
+            type: boolean
         - name: checkDeprecation
           in: query
-          required: true
           schema:
             type: string
       requestBody:
@@ -2407,7 +2404,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/FileInfo'
-        required: true
+        required: false
       responses:
         '200':
           description: OK
@@ -2504,7 +2501,7 @@ paths:
           application/json:
             schema:
               type: string
-        required: true
+        required: false
       responses:
         '200':
           description: OK
@@ -2671,7 +2668,6 @@ paths:
             type: string
         - name: check
           in: query
-          required: true
           schema:
             type: string
         - name: create
@@ -2873,7 +2869,6 @@ paths:
             type: string
         - name: check
           in: query
-          required: true
           schema:
             type: string
         - name: create
@@ -23380,6 +23375,9 @@ components:
     Mapping:
       title: Mapping
       type: object
+      required:
+        - mappingID
+        - mappingDate
       properties:
         mappingID:
           type: string
@@ -23418,6 +23416,8 @@ components:
     Mappings:
       title: Mappings
       type: object
+      required:
+        - mappingList
       properties:
         mappingList:
           type: array
@@ -23440,6 +23440,9 @@ components:
     MappingInfo:
       title: MappingInfo
       type: object
+      required:
+        - mapping
+        - mappingTemplates
       properties:
         mapping:
           $ref: '#/components/schemas/Mapping'
