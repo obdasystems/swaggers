@@ -3213,7 +3213,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
+                type: boolean
         '401':
           description: Unhauthorized
       security:
