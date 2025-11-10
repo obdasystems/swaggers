@@ -58,5 +58,5 @@ put:
       description: OK
       content:
         application/json:
-          schema: { type: object }
+          schema: { type: boolean }
     "401": { description: Unhauthorized }
