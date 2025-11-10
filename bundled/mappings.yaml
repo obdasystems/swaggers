@@ -3265,6 +3265,8 @@ components:
           type: string
     SQLViews:
       title: SQLViews
+      required:
+        - sqlViews
       type: object
       properties:
         sqlViews:

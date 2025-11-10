@@ -1,4 +1,6 @@
 title: SQLViews
+required:
+  - sqlViews
 type: object
 properties:
   sqlViews:
