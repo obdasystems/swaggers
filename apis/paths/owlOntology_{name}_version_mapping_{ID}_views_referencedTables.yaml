@@ -1,5 +1,5 @@
 get:
-  tags: [SQLView]
+  tags: [Database]
   summary: Returns the whole map of tables referenced by view definitions of a given
     set of mappings
   operationId: get__owlOntology_name_version_mapping_ID_views_allRefTablesMap
