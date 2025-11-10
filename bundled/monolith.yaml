@@ -3734,7 +3734,7 @@ paths:
       tags:
         - mastro_mappings_SQLView
       summary: No description available
-      operationId: get__owlOntology_name_version_mapping_ID_views_refactoring
+      operationId: post__owlOntology_name_version_mapping_ID_views_refactoring
       parameters:
         - name: name
           in: path
@@ -3773,7 +3773,7 @@ paths:
       tags:
         - mastro_mappings_SQLView
       summary: No description available
-      operationId: post__owlOntology_name_version_mapping_ID_views_refactoring
+      operationId: put__owlOntology_name_version_mapping_ID_views_refactoring
       parameters:
         - name: name
           in: path
