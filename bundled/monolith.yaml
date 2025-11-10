@@ -23708,6 +23708,8 @@ components:
     MWSXViewRefactoringAnalysis:
       title: ViewRefactoringAnalysis
       type: object
+      required:
+        - safenessAnalisys
       properties:
         refactoring:
           $ref: '#/components/schemas/MWSXMappingViewAtomRefactoring'
@@ -23727,6 +23729,10 @@ components:
           type: array
           items:
             type: string
+        generallyUnsafe:
+          type: boolean
+        message:
+          type: string
     InclusionView:
       title: InclusionView
       type: object

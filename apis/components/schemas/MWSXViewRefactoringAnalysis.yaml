@@ -1,5 +1,7 @@
 title: ViewRefactoringAnalysis
 type: object
+required:
+  - safenessAnalisys
 properties:
   refactoring:
     $ref: ./MWSXMappingViewAtomRefactoring.yaml
@@ -19,3 +21,7 @@ properties:
     type: array
     items:
       type: string
+  generallyUnsafe:
+    type: boolean
+  message:
+    type: string

@@ -3,56 +3,60 @@ post:
   summary: No description available
   operationId: post__owlOntology_name_version_mapping_ID_views_refactoring
   parameters:
-  - name: name
-    in: path
-    required: true
-    schema: {type: string}
-  - name: ID
-    in: path
-    required: true
-    schema: {type: string}
-  - name: version
-    in: query
-    required: true
-    schema: {type: string}
+    - name: name
+      in: path
+      required: true
+      schema: { type: string }
+    - name: ID
+      in: path
+      required: true
+      schema: { type: string }
+    - name: version
+      in: query
+      required: true
+      schema: { type: string }
   requestBody:
     content:
       application/json:
-        schema: {$ref: ../components/schemas/MWSXViewRefactoring.yaml}
+        schema: { $ref: ../components/schemas/MWSXViewRefactoring.yaml }
     required: true
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/MWSXViewRefactoringAnalysis.yaml}
-    '401': {description: Unhauthorized}
+          schema:
+            { $ref: ../components/schemas/MWSXViewRefactoringAnalysis.yaml }
+    "401": { description: Unhauthorized }
 put:
   tags: [SQLView]
   summary: No description available
   operationId: put__owlOntology_name_version_mapping_ID_views_refactoring
   parameters:
-  - name: name
-    in: path
-    required: true
-    schema: {type: string}
-  - name: ID
-    in: path
-    required: true
-    schema: {type: string}
-  - name: version
-    in: query
-    required: true
-    schema: {type: string}
+    - name: name
+      in: path
+      required: true
+      schema: { type: string }
+    - name: ID
+      in: path
+      required: true
+      schema: { type: string }
+    - name: version
+      in: query
+      required: true
+      schema: { type: string }
   requestBody:
     content:
       application/json:
-        schema: {$ref: ../components/schemas/MWSXMappingViewAtomRefactoringList.yaml}
+        schema:
+          {
+            $ref: ../components/schemas/MWSXMappingViewAtomRefactoringList.yaml,
+          }
     required: true
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
-          schema: {type: object}
-    '401': {description: Unhauthorized}
+          schema: { type: object }
+    "401": { description: Unhauthorized }
