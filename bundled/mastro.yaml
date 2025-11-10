@@ -58,14 +58,14 @@ tags:
     x-displayName: Assertion
   - name: mappings_SQLView
     x-displayName: SQLView
+  - name: mappings_Database
+    x-displayName: Database
   - name: mappings_IntensionalAnnotation
     x-displayName: IntensionalAnnotation
   - name: mappings_Dependencies
     x-displayName: Dependencies
   - name: mappings_Parameters
     x-displayName: Parameters
-  - name: mappings_Database
-    x-displayName: Database
   - name: mappings_other
     x-displayName: other
   - name: mappings_DataLineage
@@ -2973,7 +2973,7 @@ paths:
   /owlOntology/{name}/version/mapping/{ID}/view/{view_name}/referencedTables:
     get:
       tags:
-        - mappings_SQLView
+        - mappings_Database
       summary: >-
         Returns the view definition identified by view_name in a given set of
         mappings
@@ -3016,7 +3016,7 @@ paths:
   /owlOntology/{name}/version/mapping/{ID}/views/referencedTables:
     get:
       tags:
-        - mappings_SQLView
+        - mappings_Database
       summary: >-
         Returns the whole map of tables referenced by view definitions of a
         given set of mappings
@@ -22942,10 +22942,10 @@ x-tagGroups:
       - mappings_Template
       - mappings_Assertion
       - mappings_SQLView
+      - mappings_Database
       - mappings_IntensionalAnnotation
       - mappings_Dependencies
       - mappings_Parameters
-      - mappings_Database
       - mappings_other
       - mappings_DataLineage
   - name: Datasources API model

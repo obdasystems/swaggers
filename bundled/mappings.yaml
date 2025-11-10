@@ -972,7 +972,7 @@ paths:
   /owlOntology/{name}/version/mapping/{ID}/view/{view_name}/referencedTables:
     get:
       tags:
-        - SQLView
+        - Database
       summary: Returns the view definition identified by view_name in a given set of mappings
       operationId: get__owlOntology_name_version_mapping_ID_view_refTables
       parameters:
@@ -1010,7 +1010,7 @@ paths:
   /owlOntology/{name}/version/mapping/{ID}/views/referencedTables:
     get:
       tags:
-        - SQLView
+        - Database
       summary: Returns the whole map of tables referenced by view definitions of a given set of mappings
       operationId: get__owlOntology_name_version_mapping_ID_views_allRefTablesMap
       parameters:

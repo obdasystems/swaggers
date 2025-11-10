@@ -49,14 +49,14 @@ tags:
     x-displayName: Assertion
   - name: mastro_mappings_SQLView
     x-displayName: SQLView
+  - name: mastro_mappings_Database
+    x-displayName: Database
   - name: mastro_mappings_IntensionalAnnotation
     x-displayName: IntensionalAnnotation
   - name: mastro_mappings_Dependencies
     x-displayName: Dependencies
   - name: mastro_mappings_Parameters
     x-displayName: Parameters
-  - name: mastro_mappings_Database
-    x-displayName: Database
   - name: mastro_mappings_other
     x-displayName: other
   - name: mastro_mappings_DataLineage
@@ -3535,7 +3535,7 @@ paths:
             default: ':8989'
     get:
       tags:
-        - mastro_mappings_SQLView
+        - mastro_mappings_Database
       summary: >-
         Returns the view definition identified by view_name in a given set of
         mappings
@@ -3587,7 +3587,7 @@ paths:
             default: ':8989'
     get:
       tags:
-        - mastro_mappings_SQLView
+        - mastro_mappings_Database
       summary: >-
         Returns the whole map of tables referenced by view definitions of a
         given set of mappings
@@ -27217,10 +27217,10 @@ x-tagGroups:
       - mastro_mappings_Template
       - mastro_mappings_Assertion
       - mastro_mappings_SQLView
+      - mastro_mappings_Database
       - mastro_mappings_IntensionalAnnotation
       - mastro_mappings_Dependencies
       - mastro_mappings_Parameters
-      - mastro_mappings_Database
       - mastro_mappings_other
       - mastro_mappings_DataLineage
       - mastro_datasources_Persistence
