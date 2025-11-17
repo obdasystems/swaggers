@@ -344,14 +344,29 @@ paths:
         '401':
           description: Unhauthorized
 components:
-  securitySchemes:
-    jwt:
-      description: |
-        Generate your JWT when you log in. JWT configurations should be placed in `$MASTRO_HOME/config/mastro.jwt` file
-      type: http
-      scheme: bearer
-      bearerFormat: JWT
   schemas:
+    OntologyEntity:
+      title: OntologyEntity
+      type: object
+      required:
+        - entityIRI
+      properties:
+        entityLabels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Label'
+        deprecated:
+          type: boolean
+        entityIRI:
+          type: string
+        entityType:
+          type: string
+        entityPrefixIRI:
+          type: string
+        entityRemainder:
+          type: string
+        entityID:
+          type: string
     TypesEnum:
       description: |-
         Contiene tutti i tipi di nodi/archi orginirari dal Graphol per evitare di duplicare gli enumeratori. Nella rappresentazione Floaty/vkg vengono usati questi valori.
@@ -857,3 +872,18 @@ components:
         cutoff:
           type: integer
           format: int32
+    Label:
+      title: Label
+      type: object
+      properties:
+        lang:
+          type: string
+        content:
+          type: string
+  securitySchemes:
+    jwt:
+      description: |
+        Generate your JWT when you log in. JWT configurations should be placed in `$MASTRO_HOME/config/mastro.jwt` file
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

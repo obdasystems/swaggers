@@ -1,13 +1,13 @@
 openapi: 3.0.0
 servers:
-  - url: '{protocol}://{tenant}{port}'
+  - url: "{protocol}://{tenant}{port}"
     variables:
       protocol:
         default: https
       tenant:
         default: localhost
-      port: 
-        default: ':8080'
+      port:
+        default: ":8080"
 info:
   description: >-
     This is the API for the AI assistant module
@@ -38,9 +38,12 @@ paths:
   /ai/text2sparql:
     $ref: paths/ai_text2sparql.yaml
 
-components: 
-  securitySchemes: 
+components:
+  schemas:
+    OntologyEntity:
+      $ref: ./components/schemas/OntologyEntity.yaml
+  securitySchemes:
     jwt:
-      $ref: './components/securitySchemes/jwt.yaml'
-security: 
+      $ref: "./components/securitySchemes/jwt.yaml"
+security:
   - jwt: []
