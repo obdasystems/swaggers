@@ -1,0 +1,37 @@
+get:
+  tags: [NLQ]
+  summary: Check the vector database status for a specific ontology version.
+  operationId: checkVectorDBStatus
+  parameters:
+    - name: ontologyName
+      in: path
+      schema:
+        type: string
+    - name: ontologyVersion
+      in: query
+      schema:
+        type: string
+      required: true
+  responses:
+    "200":
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            description: The status of the vector database.
+            properties:
+              status:
+                type: string
+                enum: ["NOT_INITIALIZED", "INITIALIZING", "FINISHED", "ERROR"]
+                description: The current status of the vector database.
+              errorMessage:
+                type: string
+                description: The error message if the status is ERROR.
+              percentage:
+                type: integer
+                description: The initialization progress percentage (0-100).
+              executionTime:
+                type: integer
+                description: The time taken for the last operation in milliseconds.
+    "401": { description: Unhauthorized }

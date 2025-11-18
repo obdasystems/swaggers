@@ -1,0 +1,39 @@
+post:
+  tags: [NLQ]
+  summary: Initialize the vector database for a specific ontology version
+  operationId: initializeVectorDB
+  parameters:
+    - name: ontologyName
+      in: path
+      schema:
+        type: string
+        description: The name used my mastro to identify an ontology collection.
+    - name: ontologyVersion
+      in: query
+      schema:
+        type: string
+      required: true
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          required: 
+            - highlightedGraph
+            - baseGraph
+          properties:
+            highlightedGraph:
+              $ref: ../components/schemas/RDFGraph.yaml
+              description: The RDF graph containing ontology graph with properties expanded by Mastro reasoner.
+            baseGraph:
+              $ref: ../components/schemas/RDFGraph.yaml
+              description: The RDF graph representing the base ontology for vectorization.
+  responses:
+    "200":
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            type: boolean
+            description: Returns true if the initialization was successful.
+    "401": { description: Unhauthorized }

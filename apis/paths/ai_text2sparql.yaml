@@ -11,7 +11,8 @@ post:
             text:
               description: The natural language text to convert
               type: string
-            endpointName: 
+            owl:
+              description: The OWL ontology serialization in one of the supported formats (e.g., RDF/XML, Turtle).
               type: string
   responses:
     "200":

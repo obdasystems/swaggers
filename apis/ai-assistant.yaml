@@ -37,7 +37,14 @@ paths:
     $ref: paths/ai_autochart_description.yaml
   /ai/text2sparql:
     $ref: paths/ai_text2sparql.yaml
-
+  /nlq/{ontologyName}/vectorDB/initialize:
+    $ref: paths/nlq_ontologyName_vectorDB_initialize.yaml
+  /nlq/{ontologyName}/vectorDB/status:
+    $ref: paths/nlq_ontologyName_vectorDB_status.yaml
+  /nlq/{ontologyName}/vectorDB/delete:
+    $ref: paths/nlq_ontologyName_vectorDB_delete.yaml
+  /nlq/{ontologyName}/vectorDB/query:
+    $ref: paths/nlq_ontologyName_vectorDB_query.yaml
 components:
   schemas:
     OntologyEntity:

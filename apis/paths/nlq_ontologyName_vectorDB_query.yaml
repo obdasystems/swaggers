@@ -1,0 +1,40 @@
+post:
+  tags: [NLQ]
+  summary: Generate a SPARQL query from a natural
+    language query using the vector database for a specific ontology version.
+  operationId: naturalLanguageQuery
+  parameters:
+    - name: ontologyName
+      in: path
+      schema:
+        type: string
+    - name: ontologyVersion
+      in: query
+      schema:
+        type: string
+      required: true
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            text:
+              description: The natural language query to convert
+              type: string
+  responses:
+    "200":
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            description: The generated SPARQL query from the natural language input.
+            properties:
+              sparqlQuery:
+                type: string
+                description: The generated SPARQL query.
+              description:
+                type: string
+                description: A brief explanation of the generated query.
+    "401": { description: Unhauthorized }

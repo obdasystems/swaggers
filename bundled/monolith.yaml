@@ -240,6 +240,8 @@ tags:
     x-displayName: Persistence
   - name: ai-assistant_AI
     x-displayName: AI
+  - name: ai-assistant_NLQ
+    x-displayName: NLQ
 paths:
   /login:
     servers:
@@ -22267,7 +22269,10 @@ paths:
                 text:
                   description: The natural language text to convert
                   type: string
-                endpointName:
+                owl:
+                  description: >-
+                    The OWL ontology serialization in one of the supported
+                    formats (e.g., RDF/XML, Turtle).
                   type: string
       responses:
         '200':
@@ -22277,6 +22282,210 @@ paths:
               schema:
                 type: string
                 description: The generated SPARQL query
+        '401':
+          description: Unhauthorized
+      security:
+        - jwt: []
+  /nlq/{ontologyName}/vectorDB/initialize:
+    servers:
+      - url: '{protocol}://{tenant}{port}'
+        variables:
+          protocol:
+            default: https
+          tenant:
+            default: localhost
+          port:
+            default: ':8080'
+    post:
+      tags:
+        - ai-assistant_NLQ
+      summary: Initialize the vector database for a specific ontology version
+      operationId: initializeVectorDB
+      parameters:
+        - name: ontologyName
+          in: path
+          schema:
+            type: string
+            description: The name used my mastro to identify an ontology collection.
+        - name: ontologyVersion
+          in: query
+          schema:
+            type: string
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - highlightedGraph
+                - baseGraph
+              properties:
+                highlightedGraph:
+                  $ref: '#/components/schemas/RDFGraph'
+                  description: >-
+                    The RDF graph containing ontology graph with properties
+                    expanded by Mastro reasoner.
+                baseGraph:
+                  $ref: '#/components/schemas/RDFGraph'
+                  description: >-
+                    The RDF graph representing the base ontology for
+                    vectorization.
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: boolean
+                description: Returns true if the initialization was successful.
+        '401':
+          description: Unhauthorized
+      security:
+        - jwt: []
+  /nlq/{ontologyName}/vectorDB/status:
+    servers:
+      - url: '{protocol}://{tenant}{port}'
+        variables:
+          protocol:
+            default: https
+          tenant:
+            default: localhost
+          port:
+            default: ':8080'
+    get:
+      tags:
+        - ai-assistant_NLQ
+      summary: Check the vector database status for a specific ontology version.
+      operationId: checkVectorDBStatus
+      parameters:
+        - name: ontologyName
+          in: path
+          schema:
+            type: string
+        - name: ontologyVersion
+          in: query
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                description: The status of the vector database.
+                properties:
+                  status:
+                    type: string
+                    enum:
+                      - NOT_INITIALIZED
+                      - INITIALIZING
+                      - FINISHED
+                      - ERROR
+                    description: The current status of the vector database.
+                  errorMessage:
+                    type: string
+                    description: The error message if the status is ERROR.
+                  percentage:
+                    type: integer
+                    description: The initialization progress percentage (0-100).
+                  executionTime:
+                    type: integer
+                    description: The time taken for the last operation in milliseconds.
+        '401':
+          description: Unhauthorized
+      security:
+        - jwt: []
+  /nlq/{ontologyName}/vectorDB/delete:
+    servers:
+      - url: '{protocol}://{tenant}{port}'
+        variables:
+          protocol:
+            default: https
+          tenant:
+            default: localhost
+          port:
+            default: ':8080'
+    delete:
+      tags:
+        - ai-assistant_NLQ
+      summary: Delete the vector database for a specific ontology version.
+      operationId: deleteVectorDB
+      parameters:
+        - name: ontologyName
+          in: path
+          schema:
+            type: string
+        - name: ontologyVersion
+          in: query
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: boolean
+                description: Returns true if the deletion was successful.
+        '401':
+          description: Unhauthorized
+      security:
+        - jwt: []
+  /nlq/{ontologyName}/vectorDB/query:
+    servers:
+      - url: '{protocol}://{tenant}{port}'
+        variables:
+          protocol:
+            default: https
+          tenant:
+            default: localhost
+          port:
+            default: ':8080'
+    post:
+      tags:
+        - ai-assistant_NLQ
+      summary: >-
+        Generate a SPARQL query from a natural language query using the vector
+        database for a specific ontology version.
+      operationId: naturalLanguageQuery
+      parameters:
+        - name: ontologyName
+          in: path
+          schema:
+            type: string
+        - name: ontologyVersion
+          in: query
+          schema:
+            type: string
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  description: The natural language query to convert
+                  type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                description: The generated SPARQL query from the natural language input.
+                properties:
+                  sparqlQuery:
+                    type: string
+                    description: The generated SPARQL query.
+                  description:
+                    type: string
+                    description: A brief explanation of the generated query.
         '401':
           description: Unhauthorized
       security:
@@ -27312,3 +27521,4 @@ x-tagGroups:
     tags:
       - ai-assistant_Persistence
       - ai-assistant_AI
+      - ai-assistant_NLQ
