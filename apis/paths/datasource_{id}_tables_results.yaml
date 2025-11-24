@@ -3,23 +3,27 @@ post:
   summary: Returns the preview of a given SQLQuery executed over a given datasource
   operationId: postSQLEx
   parameters:
-  - name: id
-    in: path
-    required: true
-    schema: {type: string}
-  - name: limit
-    in: query
-    required: true
-    schema: {type: integer, format: int32}
+    - name: id
+      in: path
+      required: true
+      schema: { type: string }
+    - name: limit
+      in: query
+      required: true
+      schema: { type: integer, format: int32 }
+    - name: bypassQueryChecks
+      in: query
+      schema:
+        type: boolean
   requestBody:
     content:
       application/json:
-        schema: {$ref: ../components/schemas/SQLQuery.yaml}
+        schema: { $ref: ../components/schemas/SQLQuery.yaml }
     required: true
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/TableContentPreview.yaml}
-    '401': {description: Unhauthorized}
+          schema: { $ref: ../components/schemas/TableContentPreview.yaml }
+    "401": { description: Unhauthorized }
