@@ -5,6 +5,7 @@ get:
   parameters:
     - name: ontologyName
       in: path
+      required: true
       schema:
         type: string
     - name: ontologyVersion

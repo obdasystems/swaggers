@@ -1,11 +1,11 @@
 post:
-  tags: [Persistence]
+  tags: [Convert]
   summary: Download the ontology draft converted in OWL2
-  operationId: getOntologyDraftDownload
-  parameters: 
+  operationId: getOntologyDraftAIDownload
+  parameters:
     - name: format
       in: query
-      schema: 
+      schema:
         type: string
   requestBody:
     content:
@@ -15,6 +15,6 @@ post:
     "200":
       description: Successful operation
       content:
-        application/json:
-          schema: { $ref: ../components/schemas/FileInfo.yaml }
+        application/octet-stream:
+          schema: { type: string, format: binary }
     "401": { description: Unhauthorized }

@@ -8,6 +8,7 @@ post:
       in: path
       schema:
         type: string
+      required: true
     - name: ontologyVersion
       in: query
       schema:

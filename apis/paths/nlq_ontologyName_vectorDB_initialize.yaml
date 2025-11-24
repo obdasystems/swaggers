@@ -5,6 +5,7 @@ post:
   parameters:
     - name: ontologyName
       in: path
+      required: true
       schema:
         type: string
         description: The name used my mastro to identify an ontology collection.

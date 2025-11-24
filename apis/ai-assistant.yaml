@@ -45,6 +45,10 @@ paths:
     $ref: paths/nlq_ontologyName_vectorDB_delete.yaml
   /nlq/{ontologyName}/vectorDB/query:
     $ref: paths/nlq_ontologyName_vectorDB_query.yaml
+  /ontologyDraft/ai/download:
+    $ref: paths/ontologyDraft_ai_download.yaml
+  /ontologyDraft/ai/convertOWL:
+    $ref: paths/ontologyDraft_ai_convertOWL.yaml
 components:
   schemas:
     OntologyEntity:

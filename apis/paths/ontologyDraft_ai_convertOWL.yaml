@@ -1,11 +1,12 @@
 post:
-  tags: [Persistence]
+  tags: [Convert]
   summary: Convert an OWL file in RDFGraph model
-  operationId: post_ontologyDraft_convertOWL
+  operationId: postOntologyDraftAIConvertOWL
   requestBody:
     content:
       application/json:
-        schema: { $ref: ../components/schemas/FileInfo.yaml }
+        schema:
+          type: string
     required: true
   responses:
     "200":

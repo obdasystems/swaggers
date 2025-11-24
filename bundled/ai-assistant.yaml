@@ -353,6 +353,7 @@ paths:
       parameters:
         - name: ontologyName
           in: path
+          required: true
           schema:
             type: string
             description: The name used my mastro to identify an ontology collection.
@@ -395,6 +396,7 @@ paths:
       parameters:
         - name: ontologyName
           in: path
+          required: true
           schema:
             type: string
         - name: ontologyVersion
@@ -441,6 +443,7 @@ paths:
           in: path
           schema:
             type: string
+          required: true
         - name: ontologyVersion
           in: query
           schema:
@@ -467,6 +470,7 @@ paths:
           in: path
           schema:
             type: string
+          required: true
         - name: ontologyVersion
           in: query
           schema:
@@ -496,6 +500,53 @@ paths:
                   description:
                     type: string
                     description: A brief explanation of the generated query.
+        '401':
+          description: Unhauthorized
+  /ontologyDraft/ai/download:
+    post:
+      tags:
+        - Convert
+      summary: Download the ontology draft converted in OWL2
+      operationId: getOntologyDraftAIDownload
+      parameters:
+        - name: format
+          in: query
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RDFGraph'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        '401':
+          description: Unhauthorized
+  /ontologyDraft/ai/convertOWL:
+    post:
+      tags:
+        - Convert
+      summary: Convert an OWL file in RDFGraph model
+      operationId: postOntologyDraftAIConvertOWL
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RDFGraph'
         '401':
           description: Unhauthorized
 components:

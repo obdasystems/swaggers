@@ -26,6 +26,8 @@ paths:
     $ref: paths/ontologyDraft_{ontologyName}.yaml
   /ontologyDraft/download:
     $ref: paths/ontologyDraft_download.yaml
+  /ontologyDraft/convertOWL:
+    $ref: paths/ontologyDraft_convertOWL.yaml
 components: 
   securitySchemes: 
     apiKey: 

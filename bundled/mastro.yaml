@@ -13818,8 +13818,13 @@ paths:
     post:
       tags:
         - ontology-designer_Persistence
-      summary: Download the ontology draft {ontologyName} converted in OWL2
+      summary: Download the ontology draft converted in OWL2
       operationId: getOntologyDraftDownload
+      parameters:
+        - name: format
+          in: query
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -13831,8 +13836,31 @@ paths:
           content:
             application/json:
               schema:
-                type: string
-                description: FileInfo object
+                $ref: '#/components/schemas/FileInfo'
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
+  /ontologyDraft/convertOWL:
+    post:
+      tags:
+        - ontology-designer_Persistence
+      summary: Convert an OWL file in RDFGraph model
+      operationId: post_ontologyDraft_convertOWL
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileInfo'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RDFGraph'
         '401':
           description: Unhauthorized
       security:
