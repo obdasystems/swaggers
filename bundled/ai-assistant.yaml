@@ -522,10 +522,9 @@ paths:
         '200':
           description: Successful operation
           content:
-            application/octet-stream:
+            text/plain:
               schema:
                 type: string
-                format: binary
         '401':
           description: Unhauthorized
   /ontologyDraft/ai/convertOWL:

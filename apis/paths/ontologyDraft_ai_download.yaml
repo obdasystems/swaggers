@@ -15,6 +15,6 @@ post:
     "200":
       description: Successful operation
       content:
-        application/octet-stream:
-          schema: { type: string, format: binary }
+        text/plain:
+          schema: { type: string }
     "401": { description: Unhauthorized }
