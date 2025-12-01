@@ -4,9 +4,13 @@ post:
   operationId: postOntologyDraftAIConvertOWL
   requestBody:
     content:
-      application/json:
+      multipart/form-data:
         schema:
-          type: string
+          type: object
+          properties:
+            file:
+              type: string
+              format: binary
     required: true
   responses:
     "200":
