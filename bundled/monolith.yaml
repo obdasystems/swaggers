@@ -22590,9 +22590,13 @@ paths:
       operationId: postOntologyDraftAIConvertOWL
       requestBody:
         content:
-          text/plain:
+          multipart/form-data:
             schema:
-              type: string
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
         required: true
       responses:
         '200':
