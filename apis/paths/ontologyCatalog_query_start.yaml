@@ -5,11 +5,11 @@ post:
   requestBody:
     content:
       application/json:
-        schema: { $ref: ../components/schemas/SPARQLQuery.yaml }
+        schema: { $ref: ../components/schemas/OntologyCatalogQuery.yaml }
   responses:
     "200":
       description: Successful operation
       content:
         application/json:
-          schema: { $ref: ../components/schemas/SPARQLQueryExecution.yaml }
+          schema: { $ref: ../components/schemas/OntologyCatalogQueryExecutionId.yaml }
     "401": { description: Unhauthorized }

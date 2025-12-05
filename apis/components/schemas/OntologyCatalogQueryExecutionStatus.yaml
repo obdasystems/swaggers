@@ -1,0 +1,22 @@
+title: OntologyCatalogQueryExecutionStatus
+type: object
+required:
+  - id
+  - timeStart
+  - timeEnd
+  - resultsNumber
+properties:
+  id:
+    $ref: OntologyCatalogQueryExecutionId.yaml
+  timeStart:
+    type: number
+  timeEnd:
+    type: number
+  resultsNumber:
+    type: number
+  errorMessages:
+    type: array
+    items:
+      type: string
+  status:
+    type: string

@@ -40,10 +40,7 @@ paths:
         - name: overwrite
           in: query
           schema:
-            type: string
-            enum:
-              - 'true'
-              - 'false'
+            type: boolean
       requestBody:
         content:
           application/json:
@@ -83,7 +80,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
+                type: boolean
         '401':
           description: Unhauthorized
   /ontologyCatalog/querycatalog:
@@ -420,14 +417,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/SPARQLQuery'
+              $ref: '#/components/schemas/OntologyCatalogQuery'
       responses:
         '200':
           description: Successful operation
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SPARQLQueryExecution'
+                $ref: '#/components/schemas/OntologyCatalogQueryExecutionId'
         '401':
           description: Unhauthorized
   /ontologyCatalog/query/{queryId}:
@@ -531,7 +528,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SPARQLStatus'
+                $ref: '#/components/schemas/OntologyCatalogQueryExecutionStatus'
         '401':
           description: Unhauthorized
   /ontologyCatalog/query/{queryId}/stop:
@@ -882,66 +879,41 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/MWSXMetadataTriple'
-    SPARQLQueryExecution:
-      title: SPARQLQueryExecution
-      type: object
+    OntologyCatalogQuery:
+      title: OntologyCatalogQuery
       properties:
-        queryID:
+        queryCode:
           type: string
-    SPARQLStatus:
-      title: SPARQLStatus
+        isConstruct:
+          type: boolean
+    OntologyCatalogQueryExecutionId:
+      title: OntologyCatalogQueryExecutionId
       type: object
       required:
-        - status
-        - executionTime
-        - numResults
-        - percentage
-        - numHighLevelQueries
-        - numLowLevelQueries
-        - numOntologyRewritings
-        - numOptimizedQueries
-        - hasError
+        - queryExecutionId
       properties:
-        executionTime:
-          type: integer
-          format: int32
+        queryExecutionId:
+          type: string
+    OntologyCatalogQueryExecutionStatus:
+      title: OntologyCatalogQueryExecutionStatus
+      type: object
+      required:
+        - id
+        - timeStart
+        - timeEnd
+        - resultsNumber
+      properties:
+        id:
+          $ref: '#/components/schemas/OntologyCatalogQueryExecutionId'
+        timeStart:
+          type: number
+        timeEnd:
+          type: number
+        resultsNumber:
+          type: number
         errorMessages:
           type: array
           items:
             type: string
-        percentage:
-          type: integer
-          format: int32
-        numLowLevelQueries:
-          type: integer
-          format: int32
-        numResults:
-          type: integer
-          format: int32
-        numOntologyRewritings:
-          type: integer
-          format: int32
-        numOptimizedQueries:
-          type: integer
-          format: int32
-        hasError:
-          type: boolean
-        numHighLevelQueries:
-          type: integer
-          format: int32
         status:
-          enum:
-            - READY
-            - FINISHED
-            - UNAVAILABLE
-            - ERROR
-            - RUNNING
-            - STOPPED
-        queryCode:
           type: string
-        constructQueryCode:
-          type: string
-        evaluationStepTimes:
-          type: object
-          additionalProperties:
-            type: string

@@ -1,0 +1,6 @@
+title: OntologyCatalogQuery
+properties:
+  queryCode:
+    type: string
+  isConstruct:
+    type: boolean

@@ -13,5 +13,5 @@ get:
       description: OK
       content:
         application/json:
-          schema: { $ref: ../components/schemas/SPARQLStatus.yaml }
+          schema: { $ref: ../components/schemas/OntologyCatalogQueryExecutionStatus.yaml }
     "401": { description: Unhauthorized }

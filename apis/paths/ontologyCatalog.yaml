@@ -4,47 +4,48 @@ post:
   description: Modifies the ontology catalog byacoording to the action provided
   operationId: post_ontology_catalog
   parameters:
-  - name: action
-    in: query
-    required: true
-    schema:
-      type: string
-      enum: [add, delete]
-  - name: overwrite
-    in: query
-    schema:
-      type: string
-      enum: ['true', 'false']
+    - name: action
+      in: query
+      required: true
+      schema:
+        type: string
+        enum: [add, delete]
+    - name: overwrite
+      in: query
+      schema:
+        type: boolean
   requestBody:
     content:
       application/json:
-        schema: {$ref: ../components/schemas/MWSXOntologyCatalogEntry.yaml}
+        schema: { $ref: ../components/schemas/MWSXOntologyCatalogEntry.yaml }
   responses:
-    '200':
+    "200":
       description: Successful operation
       content:
         application/json:
-          schema: {$ref: ../components/schemas/MWSXOntologyCatalogEntries.yaml}
-    '401': {description: Unhauthorized}
+          schema:
+            { $ref: ../components/schemas/MWSXOntologyCatalogEntries.yaml }
+    "401": { description: Unhauthorized }
 get:
   tags: [Persistence]
   summary: GET mwsx/ontologyCatalog
   operationId: get_ontology_catalog
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/MWSXOntologyCatalogEntries.yaml}
-    '401': {description: Unhauthorized}
+          schema:
+            { $ref: ../components/schemas/MWSXOntologyCatalogEntries.yaml }
+    "401": { description: Unhauthorized }
 delete:
   tags: [Persistence]
   summary: DELETE mwsx/ontologyCatalog
   operationId: delete_ontology_catalog
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
-          schema: {type: object}
-    '401': {description: Unhauthorized}
+          schema: { type: boolean }
+    "401": { description: Unhauthorized }

@@ -1,0 +1,7 @@
+title: OntologyCatalogQueryExecutionId
+type: object
+required:
+  - queryExecutionId
+properties:
+  queryExecutionId:
+    type: string

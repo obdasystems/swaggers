@@ -16705,10 +16705,7 @@ paths:
         - name: overwrite
           in: query
           schema:
-            type: string
-            enum:
-              - 'true'
-              - 'false'
+            type: boolean
       requestBody:
         content:
           application/json:
@@ -16754,7 +16751,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
+                type: boolean
         '401':
           description: Unhauthorized
       security:
@@ -17282,14 +17279,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/SPARQLQuery'
+              $ref: '#/components/schemas/OntologyCatalogQuery'
       responses:
         '200':
           description: Successful operation
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SPARQLQueryExecution'
+                $ref: '#/components/schemas/OntologyCatalogQueryExecutionId'
         '401':
           description: Unhauthorized
       security:
@@ -17441,7 +17438,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SPARQLStatus'
+                $ref: '#/components/schemas/OntologyCatalogQueryExecutionStatus'
         '401':
           description: Unhauthorized
       security:
@@ -26572,6 +26569,44 @@ components:
           type: object
           additionalProperties:
             $ref: '#/components/schemas/MWSXOntologyCatalogEntry'
+    OntologyCatalogQuery:
+      title: OntologyCatalogQuery
+      properties:
+        queryCode:
+          type: string
+        isConstruct:
+          type: boolean
+    OntologyCatalogQueryExecutionId:
+      title: OntologyCatalogQueryExecutionId
+      type: object
+      required:
+        - queryExecutionId
+      properties:
+        queryExecutionId:
+          type: string
+    OntologyCatalogQueryExecutionStatus:
+      title: OntologyCatalogQueryExecutionStatus
+      type: object
+      required:
+        - id
+        - timeStart
+        - timeEnd
+        - resultsNumber
+      properties:
+        id:
+          $ref: '#/components/schemas/OntologyCatalogQueryExecutionId'
+        timeStart:
+          type: number
+        timeEnd:
+          type: number
+        resultsNumber:
+          type: number
+        errorMessages:
+          type: array
+          items:
+            type: string
+        status:
+          type: string
     AvpTreeNode:
       title: AvpTreeNode
       type: object
