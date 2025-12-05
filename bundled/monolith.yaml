@@ -26554,6 +26554,9 @@ components:
     MWSXOntologyCatalogEntry:
       title: OntologyCatalogEntry
       type: object
+      required:
+        - ontologyName
+        - ontologyVersion
       properties:
         ontologyVersion:
           type: string
@@ -26562,6 +26565,8 @@ components:
     MWSXOntologyCatalogEntries:
       title: OntologyCatalogEntries
       type: object
+      required:
+        - entries
       properties:
         entries:
           type: object
