@@ -20,41 +20,10 @@ servers:
 security:
   - jwt: []
 paths:
-  /ontologyDraft/ai/{name}:
-    put:
-      tags:
-        - Persistence
-      summary: Ask for AI support in ontology design.
-      operationId: putOntologyDraftAI
-      parameters:
-        - name: name
-          in: path
-          required: true
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                text:
-                  type: string
-                currentRdfGraph:
-                  $ref: '#/components/schemas/RDFGraph'
-      responses:
-        '200':
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RDFGraph'
-        '401':
-          description: Unhauthorized
   /ai/entity_description:
     post:
       tags:
-        - AI
+        - Prompt
       summary: Returns the description for an entity
       operationId: describeOntologyEntity
       requestBody:
@@ -103,7 +72,7 @@ paths:
   /ai/individual_description:
     post:
       tags:
-        - AI
+        - Prompt
       summary: Returns the description for an individual (class instance)
       operationId: describeIndividual
       requestBody:
@@ -142,7 +111,7 @@ paths:
   /ai/class_data_properties:
     post:
       tags:
-        - AI
+        - Prompt
       summary: Returns a list of possible data properties for a given class
       operationId: suggestClassDataProperties
       requestBody:
@@ -182,7 +151,7 @@ paths:
   /ai/class_subclasses:
     post:
       tags:
-        - AI
+        - Prompt
       summary: Returns a list of possible subclasses for a given class
       operationId: suggestClassSubclasses
       requestBody:
@@ -222,7 +191,7 @@ paths:
   /ai/sparql_description:
     post:
       tags:
-        - AI
+        - Prompt
       summary: Returns a description of a sparql query
       operationId: describeSparqlQuery
       requestBody:
@@ -252,7 +221,7 @@ paths:
   /ai/autochart:
     post:
       tags:
-        - AI
+        - Prompt
       summary: Returns a chart configuration for a SPARQL query suggested by AI
       operationId: autoChart
       requestBody:
@@ -282,7 +251,7 @@ paths:
   /ai/autochart_description:
     post:
       tags:
-        - AI
+        - Prompt
       summary: Returns a description of a chart
       operationId: describeChart
       requestBody:
@@ -319,7 +288,7 @@ paths:
   /ai/text2sparql:
     post:
       tags:
-        - AI
+        - Prompt
       summary: Converts a natural language text into a SPARQL query
       operationId: text2sparql
       requestBody:
@@ -344,10 +313,41 @@ paths:
                 description: The generated SPARQL query
         '401':
           description: Unhauthorized
-  /nlq/{ontologyName}/vectorDB/initialize:
+  /ai/rag/ontologyDraft/{name}:
+    put:
+      tags:
+        - RAG
+      summary: Ask for AI support in ontology design.
+      operationId: putOntologyDraftAI
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+                currentRdfGraph:
+                  $ref: '#/components/schemas/RDFGraph'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RDFGraph'
+        '401':
+          description: Unhauthorized
+  /ai/rag/{ontologyName}/vectorDB/initialize:
     post:
       tags:
-        - NLQ
+        - RAG
       summary: Initialize the vector database for a specific ontology version
       operationId: initializeVectorDB
       parameters:
@@ -387,10 +387,10 @@ paths:
                 description: Returns true if the initialization was successful.
         '401':
           description: Unhauthorized
-  /nlq/{ontologyName}/vectorDB/status:
+  /ai/rag/{ontologyName}/vectorDB/status:
     get:
       tags:
-        - NLQ
+        - RAG
       summary: Check the vector database status for a specific ontology version.
       operationId: checkVectorDBStatus
       parameters:
@@ -410,6 +410,7 @@ paths:
           content:
             application/json:
               schema:
+                title: VectorDBStatus
                 type: object
                 description: The status of the vector database.
                 properties:
@@ -432,10 +433,10 @@ paths:
                     description: The time taken for the last operation in milliseconds.
         '401':
           description: Unhauthorized
-  /nlq/{ontologyName}/vectorDB/delete:
+  /ai/rag/{ontologyName}/vectorDB/delete:
     delete:
       tags:
-        - NLQ
+        - RAG
       summary: Delete the vector database for a specific ontology version.
       operationId: deleteVectorDB
       parameters:
@@ -459,10 +460,10 @@ paths:
                 description: Returns true if the deletion was successful.
         '401':
           description: Unhauthorized
-  /nlq/{ontologyName}/vectorDB/query:
+  /ai/rag/{ontologyName}/vectorDB/nlq:
     post:
       tags:
-        - NLQ
+        - RAG
       summary: Generate a SPARQL query from a natural language query using the vector database for a specific ontology version.
       operationId: naturalLanguageQuery
       parameters:
@@ -502,7 +503,7 @@ paths:
                     description: A brief explanation of the generated query.
         '401':
           description: Unhauthorized
-  /ontologyDraft/ai/download:
+  /ai/ontologyDraft/download:
     post:
       tags:
         - Convert
@@ -527,7 +528,7 @@ paths:
                 type: string
         '401':
           description: Unhauthorized
-  /ontologyDraft/ai/convertOWL:
+  /ai/ontologyDraft/convertOWL:
     post:
       tags:
         - Convert
@@ -576,6 +577,25 @@ components:
           type: string
         entityID:
           type: string
+    ChartConfiguration:
+      title: ChartConfiguration
+      type: object
+      required:
+        - yVariables
+      properties:
+        yVariables:
+          type: array
+          items:
+            type: string
+        series:
+          type: string
+        xVariable:
+          type: string
+        chartType:
+          type: string
+        cutoff:
+          type: integer
+          format: int32
     TypesEnum:
       description: |-
         Contiene tutti i tipi di nodi/archi orginirari dal Graphol per evitare di duplicare gli enumeratori. Nella rappresentazione Floaty/vkg vengono usati questi valori.
@@ -1062,25 +1082,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SHACLShape'
-    ChartConfiguration:
-      title: ChartConfiguration
-      type: object
-      required:
-        - yVariables
-      properties:
-        yVariables:
-          type: array
-          items:
-            type: string
-        series:
-          type: string
-        xVariable:
-          type: string
-        chartType:
-          type: string
-        cutoff:
-          type: integer
-          format: int32
     Label:
       title: Label
       type: object

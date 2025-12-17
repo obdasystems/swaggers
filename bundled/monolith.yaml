@@ -236,12 +236,10 @@ tags:
     x-displayName: Roles
   - name: mastro_users-roles_MonolithRole
     x-displayName: MonolithRole
-  - name: ai-assistant_Persistence
-    x-displayName: Persistence
-  - name: ai-assistant_AI
-    x-displayName: AI
-  - name: ai-assistant_NLQ
-    x-displayName: NLQ
+  - name: ai-assistant_Prompt
+    x-displayName: Prompt
+  - name: ai-assistant_RAG
+    x-displayName: RAG
   - name: ai-assistant_Convert
     x-displayName: Convert
 paths:
@@ -21882,48 +21880,6 @@ paths:
       security:
         - apiKey: []
         - jwt: []
-  /ontologyDraft/ai/{name}:
-    servers:
-      - url: '{protocol}://{tenant}{port}'
-        variables:
-          protocol:
-            default: https
-          tenant:
-            default: localhost
-          port:
-            default: ':8080'
-    put:
-      tags:
-        - ai-assistant_Persistence
-      summary: Ask for AI support in ontology design.
-      operationId: putOntologyDraftAI
-      parameters:
-        - name: name
-          in: path
-          required: true
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                text:
-                  type: string
-                currentRdfGraph:
-                  $ref: '#/components/schemas/RDFGraph'
-      responses:
-        '200':
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RDFGraph'
-        '401':
-          description: Unhauthorized
-      security:
-        - jwt: []
   /ai/entity_description:
     servers:
       - url: '{protocol}://{tenant}{port}'
@@ -21936,7 +21892,7 @@ paths:
             default: ':8080'
     post:
       tags:
-        - ai-assistant_AI
+        - ai-assistant_Prompt
       summary: Returns the description for an entity
       operationId: describeOntologyEntity
       requestBody:
@@ -22001,7 +21957,7 @@ paths:
             default: ':8080'
     post:
       tags:
-        - ai-assistant_AI
+        - ai-assistant_Prompt
       summary: Returns the description for an individual (class instance)
       operationId: describeIndividual
       requestBody:
@@ -22053,7 +22009,7 @@ paths:
             default: ':8080'
     post:
       tags:
-        - ai-assistant_AI
+        - ai-assistant_Prompt
       summary: Returns a list of possible data properties for a given class
       operationId: suggestClassDataProperties
       requestBody:
@@ -22108,7 +22064,7 @@ paths:
             default: ':8080'
     post:
       tags:
-        - ai-assistant_AI
+        - ai-assistant_Prompt
       summary: Returns a list of possible subclasses for a given class
       operationId: suggestClassSubclasses
       requestBody:
@@ -22163,7 +22119,7 @@ paths:
             default: ':8080'
     post:
       tags:
-        - ai-assistant_AI
+        - ai-assistant_Prompt
       summary: Returns a description of a sparql query
       operationId: describeSparqlQuery
       requestBody:
@@ -22204,7 +22160,7 @@ paths:
             default: ':8080'
     post:
       tags:
-        - ai-assistant_AI
+        - ai-assistant_Prompt
       summary: Returns a chart configuration for a SPARQL query suggested by AI
       operationId: autoChart
       requestBody:
@@ -22247,7 +22203,7 @@ paths:
             default: ':8080'
     post:
       tags:
-        - ai-assistant_AI
+        - ai-assistant_Prompt
       summary: Returns a description of a chart
       operationId: describeChart
       requestBody:
@@ -22297,7 +22253,7 @@ paths:
             default: ':8080'
     post:
       tags:
-        - ai-assistant_AI
+        - ai-assistant_Prompt
       summary: Converts a natural language text into a SPARQL query
       operationId: text2sparql
       requestBody:
@@ -22326,7 +22282,49 @@ paths:
           description: Unhauthorized
       security:
         - jwt: []
-  /nlq/{ontologyName}/vectorDB/initialize:
+  /ai/rag/ontologyDraft/{name}:
+    servers:
+      - url: '{protocol}://{tenant}{port}'
+        variables:
+          protocol:
+            default: https
+          tenant:
+            default: localhost
+          port:
+            default: ':8080'
+    put:
+      tags:
+        - ai-assistant_RAG
+      summary: Ask for AI support in ontology design.
+      operationId: putOntologyDraftAI
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+                currentRdfGraph:
+                  $ref: '#/components/schemas/RDFGraph'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RDFGraph'
+        '401':
+          description: Unhauthorized
+      security:
+        - jwt: []
+  /ai/rag/{ontologyName}/vectorDB/initialize:
     servers:
       - url: '{protocol}://{tenant}{port}'
         variables:
@@ -22338,7 +22336,7 @@ paths:
             default: ':8080'
     post:
       tags:
-        - ai-assistant_NLQ
+        - ai-assistant_RAG
       summary: Initialize the vector database for a specific ontology version
       operationId: initializeVectorDB
       parameters:
@@ -22384,7 +22382,7 @@ paths:
           description: Unhauthorized
       security:
         - jwt: []
-  /nlq/{ontologyName}/vectorDB/status:
+  /ai/rag/{ontologyName}/vectorDB/status:
     servers:
       - url: '{protocol}://{tenant}{port}'
         variables:
@@ -22396,7 +22394,7 @@ paths:
             default: ':8080'
     get:
       tags:
-        - ai-assistant_NLQ
+        - ai-assistant_RAG
       summary: Check the vector database status for a specific ontology version.
       operationId: checkVectorDBStatus
       parameters:
@@ -22416,6 +22414,7 @@ paths:
           content:
             application/json:
               schema:
+                title: VectorDBStatus
                 type: object
                 description: The status of the vector database.
                 properties:
@@ -22440,7 +22439,7 @@ paths:
           description: Unhauthorized
       security:
         - jwt: []
-  /nlq/{ontologyName}/vectorDB/delete:
+  /ai/rag/{ontologyName}/vectorDB/delete:
     servers:
       - url: '{protocol}://{tenant}{port}'
         variables:
@@ -22452,7 +22451,7 @@ paths:
             default: ':8080'
     delete:
       tags:
-        - ai-assistant_NLQ
+        - ai-assistant_RAG
       summary: Delete the vector database for a specific ontology version.
       operationId: deleteVectorDB
       parameters:
@@ -22478,7 +22477,7 @@ paths:
           description: Unhauthorized
       security:
         - jwt: []
-  /nlq/{ontologyName}/vectorDB/query:
+  /ai/rag/{ontologyName}/vectorDB/nlq:
     servers:
       - url: '{protocol}://{tenant}{port}'
         variables:
@@ -22490,7 +22489,7 @@ paths:
             default: ':8080'
     post:
       tags:
-        - ai-assistant_NLQ
+        - ai-assistant_RAG
       summary: >-
         Generate a SPARQL query from a natural language query using the vector
         database for a specific ontology version.
@@ -22534,7 +22533,7 @@ paths:
           description: Unhauthorized
       security:
         - jwt: []
-  /ontologyDraft/ai/download:
+  /ai/ontologyDraft/download:
     servers:
       - url: '{protocol}://{tenant}{port}'
         variables:
@@ -22570,7 +22569,7 @@ paths:
           description: Unhauthorized
       security:
         - jwt: []
-  /ontologyDraft/ai/convertOWL:
+  /ai/ontologyDraft/convertOWL:
     servers:
       - url: '{protocol}://{tenant}{port}'
         variables:
@@ -27678,7 +27677,6 @@ x-tagGroups:
       - mastro_users-roles_MonolithRole
   - name: AI assistant API model
     tags:
-      - ai-assistant_Persistence
-      - ai-assistant_AI
-      - ai-assistant_NLQ
+      - ai-assistant_Prompt
+      - ai-assistant_RAG
       - ai-assistant_Convert

@@ -19,8 +19,6 @@ info:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
 paths:
-  /ontologyDraft/ai/{name}:
-    $ref: paths/ontologyDraft_ai_{name}.yaml
   /ai/entity_description:
     $ref: paths/ai_entity_description.yaml
   /ai/individual_description:
@@ -37,18 +35,20 @@ paths:
     $ref: paths/ai_autochart_description.yaml
   /ai/text2sparql:
     $ref: paths/ai_text2sparql.yaml
-  /nlq/{ontologyName}/vectorDB/initialize:
-    $ref: paths/nlq_ontologyName_vectorDB_initialize.yaml
-  /nlq/{ontologyName}/vectorDB/status:
-    $ref: paths/nlq_ontologyName_vectorDB_status.yaml
-  /nlq/{ontologyName}/vectorDB/delete:
-    $ref: paths/nlq_ontologyName_vectorDB_delete.yaml
-  /nlq/{ontologyName}/vectorDB/query:
-    $ref: paths/nlq_ontologyName_vectorDB_query.yaml
-  /ontologyDraft/ai/download:
-    $ref: paths/ontologyDraft_ai_download.yaml
-  /ontologyDraft/ai/convertOWL:
-    $ref: paths/ontologyDraft_ai_convertOWL.yaml
+  /ai/rag/ontologyDraft/{name}:
+    $ref: paths/ai_rag_ontologyDraft_name.yaml
+  /ai/rag/{ontologyName}/vectorDB/initialize:
+    $ref: paths/ai_rag_ontologyName_vectorDB_initialize.yaml
+  /ai/rag/{ontologyName}/vectorDB/status:
+    $ref: paths/ai_rag_ontologyName_vectorDB_status.yaml
+  /ai/rag/{ontologyName}/vectorDB/delete:
+    $ref: paths/ai_rag_ontologyName_vectorDB_delete.yaml
+  /ai/rag/{ontologyName}/vectorDB/nlq:
+    $ref: paths/ai_rag_ontologyName_vectorDB_nlq.yaml
+  /ai/ontologyDraft/download:
+    $ref: paths/ai_ontologyDraft_download.yaml
+  /ai/ontologyDraft/convertOWL:
+    $ref: paths/ai_ontologyDraft_convertOWL.yaml
 components:
   schemas:
     OntologyEntity:

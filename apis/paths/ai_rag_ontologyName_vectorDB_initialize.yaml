@@ -1,5 +1,5 @@
 post:
-  tags: [NLQ]
+  tags: [RAG]
   summary: Initialize the vector database for a specific ontology version
   operationId: initializeVectorDB
   parameters:

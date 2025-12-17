@@ -1,5 +1,5 @@
 delete:
-  tags: [NLQ]
+  tags: [RAG]
   summary: Delete the vector database for a specific ontology version.
   operationId: deleteVectorDB
   parameters:

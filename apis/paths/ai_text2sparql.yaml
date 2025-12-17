@@ -1,5 +1,5 @@
 post:
-  tags: [AI]
+  tags: [Prompt]
   summary: Converts a natural language text into a SPARQL query
   operationId: text2sparql
   requestBody:

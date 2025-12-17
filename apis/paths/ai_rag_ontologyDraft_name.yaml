@@ -1,8 +1,8 @@
 put:
-  tags: [Persistence]
+  tags: [RAG]
   summary: Ask for AI support in ontology design.
   operationId: putOntologyDraftAI
-  parameters: 
+  parameters:
     - name: name
       in: path
       required: true
@@ -14,13 +14,13 @@ put:
         schema:
           type: object
           properties:
-            text: {type: string}
-            currentRdfGraph: {$ref: ../components/schemas/RDFGraph.yaml}
+            text: { type: string }
+            currentRdfGraph: { $ref: ../components/schemas/RDFGraph.yaml }
   responses:
-    '200':
+    "200":
       description: Successful operation
       content:
         application/json:
           schema:
             $ref: ../components/schemas/RDFGraph.yaml
-    '401': {description: Unhauthorized}
+    "401": { description: Unhauthorized }

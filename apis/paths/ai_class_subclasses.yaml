@@ -1,5 +1,5 @@
 post:
-  tags: [AI]
+  tags: [Prompt]
   summary: Returns a list of possible subclasses for a given class
   operationId: suggestClassSubclasses
   requestBody:

@@ -1,5 +1,5 @@
 post:
-  tags: [NLQ]
+  tags: [RAG]
   summary: Generate a SPARQL query from a natural
     language query using the vector database for a specific ontology version.
   operationId: naturalLanguageQuery

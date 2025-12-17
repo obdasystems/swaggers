@@ -1,5 +1,5 @@
 post:
-  tags: [AI]
+  tags: [Prompt]
   summary: Returns a description of a sparql query
   operationId: describeSparqlQuery
   requestBody:

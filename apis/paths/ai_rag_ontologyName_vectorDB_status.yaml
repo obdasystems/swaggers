@@ -1,5 +1,5 @@
 get:
-  tags: [NLQ]
+  tags: [RAG]
   summary: Check the vector database status for a specific ontology version.
   operationId: checkVectorDBStatus
   parameters:
@@ -19,6 +19,7 @@ get:
       content:
         application/json:
           schema:
+            title: VectorDBStatus
             type: object
             description: The status of the vector database.
             properties:

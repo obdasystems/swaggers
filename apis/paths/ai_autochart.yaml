@@ -1,5 +1,5 @@
 post:
-  tags: [AI]
+  tags: [Prompt]
   summary: Returns a chart configuration for a SPARQL query suggested by AI
   operationId: autoChart
   requestBody:
