@@ -417,14 +417,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/OntologyCatalogQuery'
+              $ref: '#/components/schemas/MWSXOntologyCatalogQuery'
       responses:
         '200':
           description: Successful operation
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OntologyCatalogQueryExecutionId'
+                $ref: '#/components/schemas/MWSXOntologyCatalogQueryExecutionId'
         '401':
           description: Unhauthorized
   /ontologyCatalog/query/{queryId}:
@@ -528,7 +528,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OntologyCatalogQueryExecutionStatus'
+                $ref: '#/components/schemas/MWSXOntologyCatalogQueryExecutionStatus'
         '401':
           description: Unhauthorized
   /ontologyCatalog/query/{queryId}/stop:
@@ -879,23 +879,23 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/MWSXMetadataTriple'
-    OntologyCatalogQuery:
-      title: OntologyCatalogQuery
+    MWSXOntologyCatalogQuery:
+      title: MWSXOntologyCatalogQuery
       properties:
         queryCode:
           type: string
         isConstruct:
           type: boolean
-    OntologyCatalogQueryExecutionId:
-      title: OntologyCatalogQueryExecutionId
+    MWSXOntologyCatalogQueryExecutionId:
+      title: MWSXOntologyCatalogQueryExecutionId
       type: object
       required:
         - queryExecutionId
       properties:
         queryExecutionId:
           type: string
-    OntologyCatalogQueryExecutionStatus:
-      title: OntologyCatalogQueryExecutionStatus
+    MWSXOntologyCatalogQueryExecutionStatus:
+      title: MWSXOntologyCatalogQueryExecutionStatus
       type: object
       required:
         - id
@@ -904,7 +904,7 @@ components:
         - resultsNumber
       properties:
         id:
-          $ref: '#/components/schemas/OntologyCatalogQueryExecutionId'
+          $ref: '#/components/schemas/MWSXOntologyCatalogQueryExecutionId'
         timeStart:
           type: number
         timeEnd:
