@@ -1,4 +1,4 @@
-title: OntologyCatalogQuery
+title: MWSXOntologyCatalogQuery
 properties:
   queryCode:
     type: string

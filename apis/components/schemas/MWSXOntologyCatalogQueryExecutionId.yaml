@@ -1,4 +1,4 @@
-title: OntologyCatalogQueryExecutionId
+title: MWSXOntologyCatalogQueryExecutionId
 type: object
 required:
   - queryExecutionId

@@ -1,4 +1,4 @@
-title: OntologyCatalogQueryExecutionStatus
+title: MWSXOntologyCatalogQueryExecutionStatus
 type: object
 required:
   - id
@@ -7,7 +7,7 @@ required:
   - resultsNumber
 properties:
   id:
-    $ref: OntologyCatalogQueryExecutionId.yaml
+    $ref: MWSXOntologyCatalogQueryExecutionId.yaml
   timeStart:
     type: number
   timeEnd:
