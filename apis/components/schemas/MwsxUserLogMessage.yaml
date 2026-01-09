@@ -12,7 +12,11 @@ properties:
     type: string 
   templateParams:
     type: object
+    additionalProperties:
+      type: string
   queryParams:
     type: object
+    additionalProperties:
+      type: string
   statusCode:
     type: integer
