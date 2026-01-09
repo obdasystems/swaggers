@@ -19118,7 +19118,7 @@ components:
       title: PublicationRequests
       type: object
       properties:
-        servers:
+        publicationRequests:
           type: array
           items:
             $ref: '#/components/schemas/PublicationRequest'
