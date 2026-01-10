@@ -20905,6 +20905,7 @@ components:
             - READY
             - FINISHED
             - ERROR
+            - STOPPED
     InstanceCheckingInfo:
       title: InstanceCheckingInfo
       type: object
