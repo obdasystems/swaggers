@@ -20218,6 +20218,7 @@ components:
             - ERROR
             - RUNNING
             - STOPPED
+            - DISABLED
         queryCode:
           type: string
         constructQueryCode:
