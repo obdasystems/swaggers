@@ -17277,14 +17277,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/OntologyCatalogQuery'
+              $ref: '#/components/schemas/MWSXOntologyCatalogQuery'
       responses:
         '200':
           description: Successful operation
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OntologyCatalogQueryExecutionId'
+                $ref: '#/components/schemas/MWSXOntologyCatalogQueryExecutionId'
         '401':
           description: Unhauthorized
       security:
@@ -17436,7 +17436,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OntologyCatalogQueryExecutionStatus'
+                $ref: '#/components/schemas/MWSXOntologyCatalogQueryExecutionStatus'
         '401':
           description: Unhauthorized
       security:
@@ -23692,7 +23692,7 @@ components:
       title: PublicationRequests
       type: object
       properties:
-        servers:
+        publicationRequests:
           type: array
           items:
             $ref: '#/components/schemas/PublicationRequest'
@@ -24792,6 +24792,7 @@ components:
             - ERROR
             - RUNNING
             - STOPPED
+            - DISABLED
         queryCode:
           type: string
         constructQueryCode:
@@ -25478,6 +25479,7 @@ components:
             - READY
             - FINISHED
             - ERROR
+            - STOPPED
     InstanceCheckingInfo:
       title: InstanceCheckingInfo
       type: object
@@ -25546,6 +25548,7 @@ components:
             - READY
             - FINISHED
             - ERROR
+            - STOPPED
         percentage:
           type: number
     MWSXDataSourceCoverage:
@@ -26568,23 +26571,23 @@ components:
           type: object
           additionalProperties:
             $ref: '#/components/schemas/MWSXOntologyCatalogEntry'
-    OntologyCatalogQuery:
-      title: OntologyCatalogQuery
+    MWSXOntologyCatalogQuery:
+      title: MWSXOntologyCatalogQuery
       properties:
         queryCode:
           type: string
         isConstruct:
           type: boolean
-    OntologyCatalogQueryExecutionId:
-      title: OntologyCatalogQueryExecutionId
+    MWSXOntologyCatalogQueryExecutionId:
+      title: MWSXOntologyCatalogQueryExecutionId
       type: object
       required:
         - queryExecutionId
       properties:
         queryExecutionId:
           type: string
-    OntologyCatalogQueryExecutionStatus:
-      title: OntologyCatalogQueryExecutionStatus
+    MWSXOntologyCatalogQueryExecutionStatus:
+      title: MWSXOntologyCatalogQueryExecutionStatus
       type: object
       required:
         - id
@@ -26593,7 +26596,7 @@ components:
         - resultsNumber
       properties:
         id:
-          $ref: '#/components/schemas/OntologyCatalogQueryExecutionId'
+          $ref: '#/components/schemas/MWSXOntologyCatalogQueryExecutionId'
         timeStart:
           type: number
         timeEnd:
@@ -27331,8 +27334,12 @@ components:
           type: string
         templateParams:
           type: object
+          additionalProperties:
+            type: string
         queryParams:
           type: object
+          additionalProperties:
+            type: string
         statusCode:
           type: integer
     GeocodingServer:
