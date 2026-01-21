@@ -2054,7 +2054,7 @@ components:
         - membership
         - attribute-edge
         - iri
-      x-enumNames:
+      x-enum-varnames:
         - CLASS
         - OBJECT_PROPERTY
         - DATA_PROPERTY
