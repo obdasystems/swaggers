@@ -3665,6 +3665,7 @@ components:
             - READY
             - FINISHED
             - ERROR
+            - STOPPED
         percentage:
           type: number
     MWSXDataSourceColumnReference:

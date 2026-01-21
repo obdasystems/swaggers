@@ -29,5 +29,6 @@ properties:
       - READY
       - FINISHED
       - ERROR
+      - STOPPED
   percentage:
     type: number
