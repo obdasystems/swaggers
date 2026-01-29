@@ -1,0 +1,16 @@
+get:
+  tags: [EntitiesExamples]
+  summary: Stops the executions of the queries that compute entities examples
+  operationId: get__stop_endpoint_entities_examples
+  parameters:
+    - name: eName
+      in: path
+      required: true
+      schema: { type: string }
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema: { type: integer }
+    "401": { description: Unhauthorized }

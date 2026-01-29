@@ -1989,6 +1989,80 @@ paths:
                 $ref: '#/components/schemas/MinMaxDatapropertiesInfo'
         '401':
           description: Unhauthorized
+  /endpoint/{eName}/entitiesExamples/start:
+    post:
+      tags:
+        - EntitiesExamples
+      summary: Starts the executions of the queries that save some examples of data properties values and class individuals
+      operationId: post__start_endpoint_entities_examples
+      parameters:
+        - name: eName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: numberOfExamples
+          in: query
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+        '401':
+          description: Unhauthorized
+  /endpoint/{eName}/entitiesExamples/stop:
+    get:
+      tags:
+        - EntitiesExamples
+      summary: Stops the executions of the queries that compute entities examples
+      operationId: get__stop_endpoint_entities_examples
+      parameters:
+        - name: eName
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+        '401':
+          description: Unhauthorized
+  /endpoint/{eName}/entitiesExamples/info:
+    get:
+      tags:
+        - EntitiesExamples
+      summary: Get the info about the queries that will count the number of instances of each Class of the ontology
+      operationId: get__endpoint_entitiesExamples_info
+      parameters:
+        - name: eName
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntitiesExamplesInfo'
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/queries:
     get:
       tags:
@@ -3652,6 +3726,50 @@ components:
           type: object
           additionalProperties:
             $ref: '#/components/schemas/EntityMinMax'
+        startTime:
+          type: integer
+          format: int64
+        endTime:
+          type: integer
+          format: int64
+        state:
+          type: string
+          enum:
+            - RUNNING
+            - READY
+            - FINISHED
+            - ERROR
+            - STOPPED
+        percentage:
+          type: number
+    EntityExamples:
+      title: EntityExamples
+      type: object
+      properties:
+        entity:
+          $ref: '#/components/schemas/OntologyEntity'
+        examples:
+          type: array
+          items:
+            type: string
+        error:
+          type: string
+        state:
+          type: string
+    EntitiesExamplesInfo:
+      title: EntitiesExamplesInfo
+      type: object
+      required:
+        - values
+        - startTime
+        - endTime
+        - state
+        - percentage
+      properties:
+        values:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/EntityExamples'
         startTime:
           type: integer
           format: int64

@@ -106,6 +106,8 @@ tags:
     x-displayName: InstanceChecking
   - name: endpoints_MinMaxDataProperties
     x-displayName: MinMaxDataProperties
+  - name: endpoints_EntitiesExamples
+    x-displayName: EntitiesExamples
   - name: endpoints_MappingAnalysis
     x-displayName: MappingAnalysis
   - name: query-catalog_Persistence
@@ -7862,6 +7864,93 @@ paths:
       security:
         - apiKey: []
         - jwt: []
+  /endpoint/{eName}/entitiesExamples/start:
+    post:
+      tags:
+        - endpoints_EntitiesExamples
+      summary: >-
+        Starts the executions of the queries that save some examples of data
+        properties values and class individuals
+      operationId: post__start_endpoint_entities_examples
+      parameters:
+        - name: eName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: numberOfExamples
+          in: query
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
+  /endpoint/{eName}/entitiesExamples/stop:
+    get:
+      tags:
+        - endpoints_EntitiesExamples
+      summary: Stops the executions of the queries that compute entities examples
+      operationId: get__stop_endpoint_entities_examples
+      parameters:
+        - name: eName
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
+  /endpoint/{eName}/entitiesExamples/info:
+    get:
+      tags:
+        - endpoints_EntitiesExamples
+      summary: >-
+        Get the info about the queries that will count the number of instances
+        of each Class of the ontology
+      operationId: get__endpoint_entitiesExamples_info
+      parameters:
+        - name: eName
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntitiesExamplesInfo'
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
   /endpoint/{name}/queries:
     get:
       tags:
@@ -14012,7 +14101,7 @@ paths:
           in: query
           required: true
           schema:
-            type: string
+            type: boolean
       requestBody:
         content:
           application/json:
@@ -21012,6 +21101,50 @@ components:
             - STOPPED
         percentage:
           type: number
+    EntityExamples:
+      title: EntityExamples
+      type: object
+      properties:
+        entity:
+          $ref: '#/components/schemas/OntologyEntity'
+        examples:
+          type: array
+          items:
+            type: string
+        error:
+          type: string
+        state:
+          type: string
+    EntitiesExamplesInfo:
+      title: EntitiesExamplesInfo
+      type: object
+      required:
+        - values
+        - startTime
+        - endTime
+        - state
+        - percentage
+      properties:
+        values:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/EntityExamples'
+        startTime:
+          type: integer
+          format: int64
+        endTime:
+          type: integer
+          format: int64
+        state:
+          type: string
+          enum:
+            - RUNNING
+            - READY
+            - FINISHED
+            - ERROR
+            - STOPPED
+        percentage:
+          type: number
     MWSXDataSourceCoverage:
       title: DataSourceCoverage
       type: object
@@ -23090,6 +23223,7 @@ x-tagGroups:
       - endpoints_CountEntityInstances
       - endpoints_InstanceChecking
       - endpoints_MinMaxDataProperties
+      - endpoints_EntitiesExamples
       - endpoints_MappingAnalysis
   - name: Queries API model
     tags:

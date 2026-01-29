@@ -1,0 +1,13 @@
+title: EntityExamples
+type: object
+properties:
+  entity:
+    $ref: ./OntologyEntity.yaml
+  examples:
+    type: array
+    items:
+      type: string
+  error:
+    type: string
+  state:
+    type: string

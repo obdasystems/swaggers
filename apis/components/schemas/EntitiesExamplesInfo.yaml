@@ -1,0 +1,29 @@
+title: EntitiesExamplesInfo
+type: object
+required:
+  - values
+  - startTime
+  - endTime
+  - state
+  - percentage
+properties:
+  values:
+    type: object
+    additionalProperties:
+      $ref: "./EntityExamples.yaml"
+  startTime:
+    type: integer
+    format: int64
+  endTime:
+    type: integer
+    format: int64
+  state:
+    type: string
+    enum:
+      - RUNNING
+      - READY
+      - FINISHED
+      - ERROR
+      - STOPPED
+  percentage:
+    type: number

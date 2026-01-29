@@ -9,7 +9,7 @@ post:
     - name: additive
       in: query
       required: true
-      schema: { type: string }
+      schema: { type: boolean }
   requestBody:
     content:
       application/json:

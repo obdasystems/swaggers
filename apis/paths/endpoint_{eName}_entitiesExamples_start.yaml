@@ -1,0 +1,26 @@
+post:
+  tags: [EntitiesExamples]
+  summary: Starts the executions of the queries that save some examples of data properties values and class individuals
+  operationId: post__start_endpoint_entities_examples
+  parameters:
+    - name: eName
+      in: path
+      required: true
+      schema: { type: string }
+    - name: numberOfExamples
+      in: query
+      schema:
+        type: integer
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: array
+          items: { type: string }
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema: { type: integer }
+    "401": { description: Unhauthorized }

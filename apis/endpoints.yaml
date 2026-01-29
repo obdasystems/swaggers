@@ -149,6 +149,12 @@ paths:
     $ref: paths/endpoint_{eName}_minMaxDataproperties_stop.yaml
   /endpoint/{eName}/minMaxDataproperties/info:
     $ref: paths/endpoint_{eName}_minMaxDataproperties_info.yaml
+  /endpoint/{eName}/entitiesExamples/start:
+    $ref: paths/endpoint_{eName}_entitiesExamples_start.yaml
+  /endpoint/{eName}/entitiesExamples/stop:
+    $ref: paths/endpoint_{eName}_entitiesExamples_stop.yaml
+  /endpoint/{eName}/entitiesExamples/info:
+    $ref: paths/endpoint_{eName}_entitiesExamples_info.yaml
   /endpoint/{name}/queries:
     $ref: paths/endpoint_{name}_queries.yaml
   /endpoint/{name}/queries/ids:

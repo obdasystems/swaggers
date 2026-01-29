@@ -97,6 +97,8 @@ tags:
     x-displayName: InstanceChecking
   - name: mastro_endpoints_MinMaxDataProperties
     x-displayName: MinMaxDataProperties
+  - name: mastro_endpoints_EntitiesExamples
+    x-displayName: EntitiesExamples
   - name: mastro_endpoints_MappingAnalysis
     x-displayName: MappingAnalysis
   - name: mastro_query-catalog_Persistence
@@ -9443,6 +9445,120 @@ paths:
       security:
         - apiKey: []
         - jwt: []
+  /endpoint/{eName}/entitiesExamples/start:
+    servers:
+      - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+        variables:
+          protocol:
+            default: https
+          tenant:
+            default: localhost
+          port:
+            default: ':8989'
+    post:
+      tags:
+        - mastro_endpoints_EntitiesExamples
+      summary: >-
+        Starts the executions of the queries that save some examples of data
+        properties values and class individuals
+      operationId: post__start_endpoint_entities_examples
+      parameters:
+        - name: eName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: numberOfExamples
+          in: query
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
+  /endpoint/{eName}/entitiesExamples/stop:
+    servers:
+      - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+        variables:
+          protocol:
+            default: https
+          tenant:
+            default: localhost
+          port:
+            default: ':8989'
+    get:
+      tags:
+        - mastro_endpoints_EntitiesExamples
+      summary: Stops the executions of the queries that compute entities examples
+      operationId: get__stop_endpoint_entities_examples
+      parameters:
+        - name: eName
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
+  /endpoint/{eName}/entitiesExamples/info:
+    servers:
+      - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+        variables:
+          protocol:
+            default: https
+          tenant:
+            default: localhost
+          port:
+            default: ':8989'
+    get:
+      tags:
+        - mastro_endpoints_EntitiesExamples
+      summary: >-
+        Get the info about the queries that will count the number of instances
+        of each Class of the ontology
+      operationId: get__endpoint_entitiesExamples_info
+      parameters:
+        - name: eName
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntitiesExamplesInfo'
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
   /endpoint/{name}/queries:
     servers:
       - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
@@ -16853,7 +16969,7 @@ paths:
           in: query
           required: true
           schema:
-            type: string
+            type: boolean
       requestBody:
         content:
           application/json:
@@ -24976,6 +25092,41 @@ components:
         - membership
         - attribute-edge
         - iri
+      x-enum-varnames:
+        - CLASS
+        - OBJECT_PROPERTY
+        - DATA_PROPERTY
+        - ANNOTATION_PROPERTY
+        - INDIVIDUAL
+        - CLASS_INSTANCE
+        - DOMAIN_RESTRICTION
+        - RANGE_RESTRICTION
+        - UNION
+        - COMPLETE_UNION
+        - DISJOINT_UNION
+        - COMPLETE_DISJOINT_UNION
+        - COMPLEMENT
+        - INTERSECTION
+        - ENUMERATION
+        - HAS_KEY
+        - ROLE_INVERSE
+        - ROLE_CHAIN
+        - DATATYPE_RESTRICTION
+        - VALUE_DOMAIN
+        - PROPERTY_ASSERTION
+        - LITERAL
+        - FACET
+        - NEUTRAL
+        - VALUE
+        - INCLUSION
+        - EQUIVALENCE
+        - INSTANCE_OF
+        - INPUT
+        - SAME
+        - DIFFERENT
+        - MEMBERSHIP
+        - ATTRIBUTE_EDGE
+        - IRI
     Element:
       type: object
       required:
@@ -25535,6 +25686,50 @@ components:
           type: object
           additionalProperties:
             $ref: '#/components/schemas/EntityMinMax'
+        startTime:
+          type: integer
+          format: int64
+        endTime:
+          type: integer
+          format: int64
+        state:
+          type: string
+          enum:
+            - RUNNING
+            - READY
+            - FINISHED
+            - ERROR
+            - STOPPED
+        percentage:
+          type: number
+    EntityExamples:
+      title: EntityExamples
+      type: object
+      properties:
+        entity:
+          $ref: '#/components/schemas/OntologyEntity'
+        examples:
+          type: array
+          items:
+            type: string
+        error:
+          type: string
+        state:
+          type: string
+    EntitiesExamplesInfo:
+      title: EntitiesExamplesInfo
+      type: object
+      required:
+        - values
+        - startTime
+        - endTime
+        - state
+        - percentage
+      properties:
+        values:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/EntityExamples'
         startTime:
           type: integer
           format: int64
@@ -27621,6 +27816,7 @@ x-tagGroups:
       - mastro_endpoints_CountEntityInstances
       - mastro_endpoints_InstanceChecking
       - mastro_endpoints_MinMaxDataProperties
+      - mastro_endpoints_EntitiesExamples
       - mastro_endpoints_MappingAnalysis
       - mastro_query-catalog_Persistence
       - mastro_query-catalog_Utils
