@@ -486,6 +486,13 @@ paths:
                 text:
                   description: The natural language query to convert
                   type: string
+                examples:
+                  description: A map (entityIRI -> examples of instances) to show some examples of the instances for a certain entity.
+                  type: object
+                  additionalProperties:
+                    type: array
+                    items:
+                      type: string
       responses:
         '200':
           description: Successful operation
