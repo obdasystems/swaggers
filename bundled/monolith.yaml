@@ -25721,6 +25721,8 @@ components:
           type: array
           items:
             type: string
+        requestedNumberOfExamples:
+          type: integer
         error:
           type: string
         state:
