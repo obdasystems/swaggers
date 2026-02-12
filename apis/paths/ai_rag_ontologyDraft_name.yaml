@@ -8,6 +8,12 @@ put:
       required: true
       schema:
         type: string
+    - name: iriStyle
+      description: "`True` for camelCase, `False` for snake_case" 
+      in: query
+      schema:
+        type: boolean
+        default: true
   requestBody:
     content:
       application/json:
