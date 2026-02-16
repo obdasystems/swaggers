@@ -1,5 +1,7 @@
 title: DataSourceMetadata
 type: object
+required:
+  - schemaMetadata
 properties:
   catalogName:
     type: string

@@ -1,4 +1,6 @@
 title: DataSourceInfoEntry
+required:
+  - id
 type: object
 properties:
   jdbcDriver:

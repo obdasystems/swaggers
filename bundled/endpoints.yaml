@@ -3752,6 +3752,8 @@ components:
           type: array
           items:
             type: string
+        requestedNumberOfExamples:
+          type: integer
         error:
           type: string
         state:
@@ -3805,6 +3807,8 @@ components:
     MWSXDataSourceTableColumnMetadata:
       title: DataSourceTableColumnMetadata
       type: object
+      required:
+        - name
       properties:
         size:
           type: integer
@@ -3845,6 +3849,9 @@ components:
     MWSXDataSourceTableMetadata:
       title: DataSourceTableMetadata
       type: object
+      required:
+        - name
+        - columns
       properties:
         catalogName:
           type: string

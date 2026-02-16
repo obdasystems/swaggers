@@ -226,7 +226,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MWSXDataSourceInfoEntry'
+                type: array
+                items:
+                  $ref: '#/components/schemas/MWSXDataSourceInfoEntry'
         '401':
           description: Unhauthorized
     delete:
@@ -455,6 +457,8 @@ components:
   schemas:
     MWSXDataSourceInfoEntry:
       title: DataSourceInfoEntry
+      required:
+        - id
       type: object
       properties:
         jdbcDriver:
@@ -502,6 +506,8 @@ components:
     MWSXDataSourceTableColumnMetadata:
       title: DataSourceTableColumnMetadata
       type: object
+      required:
+        - name
       properties:
         size:
           type: integer
@@ -542,6 +548,9 @@ components:
     MWSXDataSourceTableMetadata:
       title: DataSourceTableMetadata
       type: object
+      required:
+        - name
+        - columns
       properties:
         catalogName:
           type: string
@@ -562,6 +571,8 @@ components:
     MWSXDataSourceSchemaMetadata:
       title: DataSourceSchemaMetadata
       type: object
+      required:
+        - tables
       properties:
         tables:
           type: object
@@ -574,6 +585,8 @@ components:
     MWSXDataSourceMetadata:
       title: DataSourceMetadata
       type: object
+      required:
+        - schemaMetadata
       properties:
         catalogName:
           type: string

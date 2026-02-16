@@ -1,5 +1,8 @@
 title: DataSourceTableMetadata
 type: object
+required:
+  - name
+  - columns
 properties:
   catalogName:
     type: string

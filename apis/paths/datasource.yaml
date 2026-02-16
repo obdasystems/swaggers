@@ -3,45 +3,47 @@ post:
   summary: Creates a new data source information
   operationId: post__datasource
   parameters:
-  - name: buildSchema
-    in: query
-    required: true
-    schema: {type: boolean}
-  - name: schemasList
-    in: query
-    required: true
-    schema: {type: string}
+    - name: buildSchema
+      in: query
+      required: true
+      schema: { type: boolean }
+    - name: schemasList
+      in: query
+      required: true
+      schema: { type: string }
   requestBody:
     content:
       application/json:
-        schema: {$ref: ../components/schemas/MWSXDataSourceInfoEntry.yaml}
+        schema: { $ref: ../components/schemas/MWSXDataSourceInfoEntry.yaml }
     required: true
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/MWSXDataSourceInfoEntry.yaml}
-    '401': {description: Unhauthorized}
+          schema: { $ref: ../components/schemas/MWSXDataSourceInfoEntry.yaml }
+    "401": { description: Unhauthorized }
 get:
   tags: [Persistence]
   summary: Returns all the data source definitions available
   operationId: get__datasource_list
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/MWSXDataSourceInfoEntry.yaml}
-    '401': {description: Unhauthorized}
+          schema:
+            type: array
+            items: { $ref: ../components/schemas/MWSXDataSourceInfoEntry.yaml }
+    "401": { description: Unhauthorized }
 delete:
   tags: [Persistence]
   summary: Deletes all the available data source information
   operationId: delete__all_datasource
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/MWSXDataSourceInfoEntry.yaml}
-    '401': {description: Unhauthorized}
+          schema: { $ref: ../components/schemas/MWSXDataSourceInfoEntry.yaml }
+    "401": { description: Unhauthorized }

@@ -1,5 +1,7 @@
 title: DataSourceSchemaMetadata
 type: object
+required:
+  - tables
 properties:
   tables:
     type: object

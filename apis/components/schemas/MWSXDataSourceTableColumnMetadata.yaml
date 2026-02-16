@@ -1,5 +1,7 @@
 title: DataSourceTableColumnMetadata
 type: object
+required:
+  - name
 properties:
   size:
     type: integer
