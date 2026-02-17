@@ -5,32 +5,41 @@ properties:
     type: object
     additionalProperties:
       type: integer
+      default: 0
   securedMethodsCount:
     type: integer
     format: int32
+    default: 0
   describedMethodsCount:
     type: integer
     format: int32
+    default: 0
   securedMethodsCountByHttpMethods:
     type: object
     additionalProperties:
       type: integer
+      default: 0
   methodsCountByTopic:
     type: object
     additionalProperties:
       type: integer
+      default: 0
   securedMethodsCountByTopic:
     type: object
     additionalProperties:
       type: integer
+      default: 0
   methodsCountByHttpMethods:
     type: object
     additionalProperties:
       type: integer
+      default: 0
   methodsCount:
     type: integer
     format: int32
+    default: 0
   describedMethodsCountByTopic:
     type: object
     additionalProperties:
       type: integer
+      default: 0

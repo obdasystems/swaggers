@@ -886,7 +886,6 @@ components:
           type: string
         isConstruct:
           type: boolean
-          nullable: false
           default: false
     MWSXOntologyCatalogQueryExecutionId:
       title: MWSXOntologyCatalogQueryExecutionId

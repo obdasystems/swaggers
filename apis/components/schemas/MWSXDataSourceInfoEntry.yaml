@@ -17,5 +17,6 @@ properties:
     type: string
   metadataPresent:
     type: boolean
+    default: false
   jdbcUsername:
     type: string

@@ -8,6 +8,7 @@ properties:
   unmappedTableCount:
     type: integer
     format: int32
+    default: 0
   mappedTables:
     type: array
     items:
@@ -19,6 +20,8 @@ properties:
   mappedTableCount:
     type: integer
     format: int32
+    default: 0
   totalTableCount:
     type: integer
     format: int32
+    default: 0

@@ -19853,6 +19853,7 @@ components:
           type: string
         metadataPresent:
           type: boolean
+          default: false
         jdbcUsername:
           type: string
     MWSXDataSourceColumnReference:
@@ -19880,6 +19881,7 @@ components:
         size:
           type: integer
           format: int32
+          default: 0
         nullable:
           type: string
         generated:
@@ -19889,14 +19891,17 @@ components:
         decimals:
           type: integer
           format: int32
+          default: 0
         name:
           type: string
         dataTypeId:
           type: integer
           format: int32
+          default: 0
         ordinalPosition:
           type: integer
           format: int32
+          default: 0
     MWSXDataSourceKeyMetadata:
       title: DataSourceKeyMetadata
       type: object
@@ -19911,6 +19916,7 @@ components:
           type: array
           items:
             type: integer
+            default: 0
         tableName:
           type: string
     MWSXDataSourceTableMetadata:
@@ -21171,6 +21177,7 @@ components:
         unmappedTableCount:
           type: integer
           format: int32
+          default: 0
         mappedTables:
           type: array
           items:
@@ -21182,9 +21189,11 @@ components:
         mappedTableCount:
           type: integer
           format: int32
+          default: 0
         totalTableCount:
           type: integer
           format: int32
+          default: 0
     MWSXOntologyPredicatesStatistics:
       title: OntologyPredicatesStatistics
       type: object
@@ -22187,7 +22196,6 @@ components:
           type: string
         isConstruct:
           type: boolean
-          nullable: false
           default: false
     MWSXOntologyCatalogQueryExecutionId:
       title: MWSXOntologyCatalogQueryExecutionId
