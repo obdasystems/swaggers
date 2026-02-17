@@ -16,9 +16,12 @@ properties:
   unmappedPredicatesCount:
     type: integer
     format: int32
+    default: 0
   totalPredicatesCount:
     type: integer
     format: int32
+    default: 0
   mappedPredicatesCount:
     type: integer
     format: int32
+    default: 0

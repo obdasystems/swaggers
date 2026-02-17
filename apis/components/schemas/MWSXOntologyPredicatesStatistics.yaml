@@ -5,15 +5,23 @@ properties:
     type: object
     additionalProperties:
       type: integer
+      format: int32
+      default: 0
   classesStatistics:
     type: object
     additionalProperties:
       type: integer
+      format: int32
+      default: 0
   dataPropertiesStatistics:
     type: object
     additionalProperties:
       type: integer
+      format: int32
+      default: 0
   objectPropertiesStatistics:
     type: object
     additionalProperties:
       type: integer
+      format: int32
+      default: 0

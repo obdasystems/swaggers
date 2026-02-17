@@ -9,11 +9,17 @@ properties:
   id:
     $ref: MWSXOntologyCatalogQueryExecutionId.yaml
   timeStart:
-    type: number
+    type: integer
+    format: int64
+    default: 0
   timeEnd:
-    type: number
+    type: integer
+    format: int64
+    default: 0
   resultsNumber:
-    type: number
+    type: integer
+    format: int32
+    default: 0
   errorMessages:
     type: array
     items:

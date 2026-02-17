@@ -6,11 +6,14 @@ properties:
   progress:
     type: integer
     format: int32
+    default: 0
   startTime:
     type: integer
     format: int64
+    default: 0
   time:
     type: integer
     format: int64
+    default: 0
   status:
     type: string

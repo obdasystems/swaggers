@@ -3026,6 +3026,7 @@ components:
             type: string
         reasoning:
           type: boolean
+          default: false
         sqlCode:
           type: string
         qidsys:
@@ -3045,12 +3046,15 @@ components:
         answersNumber:
           type: integer
           format: int32
+          default: 0
         size:
           type: integer
           format: int64
+          default: 0
         answersBufferSize:
           type: integer
           format: int32
+          default: 0
         sparqlCode:
           type: string
         sparqlConstructCode:
@@ -3058,9 +3062,11 @@ components:
         executionTimestamp:
           type: integer
           format: int64
+          default: 0
         elapsedTime:
           type: integer
           format: int64
+          default: 0
     MWSXExportStats:
       title: ExportStats
       type: object
@@ -3068,9 +3074,11 @@ components:
         resultsNumber:
           type: integer
           format: int32
+          default: 0
         exportTime:
           type: integer
           format: int64
+          default: 0
     CsvPreview:
       title: CsvPreview
       type: object
@@ -3910,18 +3918,26 @@ components:
           type: object
           additionalProperties:
             type: integer
+            format: int32
+            default: 0
         classesStatistics:
           type: object
           additionalProperties:
             type: integer
+            format: int32
+            default: 0
         dataPropertiesStatistics:
           type: object
           additionalProperties:
             type: integer
+            format: int32
+            default: 0
         objectPropertiesStatistics:
           type: object
           additionalProperties:
             type: integer
+            format: int32
+            default: 0
     MWSXPredicate:
       title: Predicate
       type: object
@@ -3955,12 +3971,15 @@ components:
         unmappedPredicatesCount:
           type: integer
           format: int32
+          default: 0
         totalPredicatesCount:
           type: integer
           format: int32
+          default: 0
         mappedPredicatesCount:
           type: integer
           format: int32
+          default: 0
     MWSXQuarantineReason:
       title: QuarantinedReason
       type: object

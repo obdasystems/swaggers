@@ -1672,9 +1672,11 @@ components:
         timeStart:
           type: integer
           format: int64
+          default: 0
         timeElapsed:
           type: integer
           format: int64
+          default: 0
     MWSXOWLGraphDeductiveClosureReport:
       title: OWLGraphDeductiveClosureReport
       type: object
@@ -1697,14 +1699,20 @@ components:
           type: object
         timestampStart:
           type: integer
+          format: int64
+          default: 0
         timestampEnd:
           type: integer
+          format: int64
+          default: 0
         ontologyIri:
           type: string
         computeEmpties:
           type: boolean
+          default: false
         computeGeneralConceptInclusions:
           type: boolean
+          default: false
     MWSXMetadataSubject:
       type: object
       properties:
@@ -1732,8 +1740,10 @@ components:
           type: string
         isIri:
           type: boolean
+          default: false
         isBlankNode:
           type: boolean
+          default: false
     MWSXMetadataTriple:
       type: object
       properties:
@@ -1780,11 +1790,14 @@ components:
         timeStart:
           type: integer
           format: int64
+          default: 0
         timeEnd:
           type: integer
           format: int64
+          default: 0
         hasError:
           type: boolean
+          default: false
         errorMessage:
           type: string
         missingImports:

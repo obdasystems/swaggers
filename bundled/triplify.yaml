@@ -318,12 +318,15 @@ components:
         progress:
           type: integer
           format: int32
+          default: 0
         startTime:
           type: integer
           format: int64
+          default: 0
         time:
           type: integer
           format: int64
+          default: 0
         status:
           type: string
     MWSXOBDATriplificationMappingReport:
@@ -335,19 +338,23 @@ components:
         triplesCount:
           type: integer
           format: int32
+          default: 0
         sqlCode:
           type: string
         startTime:
           type: integer
           format: int64
+          default: 0
         endTime:
           type: integer
           format: int64
+          default: 0
         error:
           type: string
         elapsedTime:
           type: integer
           format: int64
+          default: 0
     MWSXOBDATriplificationReport:
       title: OBDATriplificationReport
       type: object
@@ -362,5 +369,6 @@ components:
             $ref: '#/components/schemas/MWSXOBDATriplificationMappingReport'
         isError:
           type: boolean
+          default: false
         errorMessage:
           type: string

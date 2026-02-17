@@ -18362,9 +18362,11 @@ components:
         timeStart:
           type: integer
           format: int64
+          default: 0
         timeElapsed:
           type: integer
           format: int64
+          default: 0
     MWSXOWLGraphDeductiveClosureReport:
       title: OWLGraphDeductiveClosureReport
       type: object
@@ -18387,14 +18389,20 @@ components:
           type: object
         timestampStart:
           type: integer
+          format: int64
+          default: 0
         timestampEnd:
           type: integer
+          format: int64
+          default: 0
         ontologyIri:
           type: string
         computeEmpties:
           type: boolean
+          default: false
         computeGeneralConceptInclusions:
           type: boolean
+          default: false
     MWSXMetadataSubject:
       type: object
       properties:
@@ -18422,8 +18430,10 @@ components:
           type: string
         isIri:
           type: boolean
+          default: false
         isBlankNode:
           type: boolean
+          default: false
     MWSXMetadataTriple:
       type: object
       properties:
@@ -18470,11 +18480,14 @@ components:
         timeStart:
           type: integer
           format: int64
+          default: 0
         timeEnd:
           type: integer
           format: int64
+          default: 0
         hasError:
           type: boolean
+          default: false
         errorMessage:
           type: string
         missingImports:
@@ -20385,6 +20398,7 @@ components:
             type: string
         reasoning:
           type: boolean
+          default: false
         sqlCode:
           type: string
         qidsys:
@@ -20404,12 +20418,15 @@ components:
         answersNumber:
           type: integer
           format: int32
+          default: 0
         size:
           type: integer
           format: int64
+          default: 0
         answersBufferSize:
           type: integer
           format: int32
+          default: 0
         sparqlCode:
           type: string
         sparqlConstructCode:
@@ -20417,9 +20434,11 @@ components:
         executionTimestamp:
           type: integer
           format: int64
+          default: 0
         elapsedTime:
           type: integer
           format: int64
+          default: 0
     MWSXExportStats:
       title: ExportStats
       type: object
@@ -20427,9 +20446,11 @@ components:
         resultsNumber:
           type: integer
           format: int32
+          default: 0
         exportTime:
           type: integer
           format: int64
+          default: 0
     CsvPreview:
       title: CsvPreview
       type: object
@@ -21202,18 +21223,26 @@ components:
           type: object
           additionalProperties:
             type: integer
+            format: int32
+            default: 0
         classesStatistics:
           type: object
           additionalProperties:
             type: integer
+            format: int32
+            default: 0
         dataPropertiesStatistics:
           type: object
           additionalProperties:
             type: integer
+            format: int32
+            default: 0
         objectPropertiesStatistics:
           type: object
           additionalProperties:
             type: integer
+            format: int32
+            default: 0
     MWSXPredicate:
       title: Predicate
       type: object
@@ -21247,12 +21276,15 @@ components:
         unmappedPredicatesCount:
           type: integer
           format: int32
+          default: 0
         totalPredicatesCount:
           type: integer
           format: int32
+          default: 0
         mappedPredicatesCount:
           type: integer
           format: int32
+          default: 0
     MWSXQuarantineReason:
       title: QuarantinedReason
       type: object
@@ -21466,12 +21498,15 @@ components:
         progress:
           type: integer
           format: int32
+          default: 0
         startTime:
           type: integer
           format: int64
+          default: 0
         time:
           type: integer
           format: int64
+          default: 0
         status:
           type: string
     MWSXOBDATriplificationMappingReport:
@@ -21483,19 +21518,23 @@ components:
         triplesCount:
           type: integer
           format: int32
+          default: 0
         sqlCode:
           type: string
         startTime:
           type: integer
           format: int64
+          default: 0
         endTime:
           type: integer
           format: int64
+          default: 0
         error:
           type: string
         elapsedTime:
           type: integer
           format: int64
+          default: 0
     MWSXOBDATriplificationReport:
       title: OBDATriplificationReport
       type: object
@@ -21510,6 +21549,7 @@ components:
             $ref: '#/components/schemas/MWSXOBDATriplificationMappingReport'
         isError:
           type: boolean
+          default: false
         errorMessage:
           type: string
     MWSXVirtualEntityField:
@@ -22217,11 +22257,17 @@ components:
         id:
           $ref: '#/components/schemas/MWSXOntologyCatalogQueryExecutionId'
         timeStart:
-          type: number
+          type: integer
+          format: int64
+          default: 0
         timeEnd:
-          type: number
+          type: integer
+          format: int64
+          default: 0
         resultsNumber:
-          type: number
+          type: integer
+          format: int32
+          default: 0
         errorMessages:
           type: array
           items:
@@ -23040,6 +23086,8 @@ components:
           type: string
         timestamp:
           type: integer
+          format: int64
+          default: 0
     OntologyUsageLog:
       type: object
       required:

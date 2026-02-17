@@ -12,5 +12,7 @@ properties:
     type: string
   isIri:
     type: boolean
+    default: false
   isBlankNode:
     type: boolean
+    default: false

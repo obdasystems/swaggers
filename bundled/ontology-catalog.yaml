@@ -861,8 +861,10 @@ components:
           type: string
         isIri:
           type: boolean
+          default: false
         isBlankNode:
           type: boolean
+          default: false
     MWSXMetadataTriple:
       type: object
       properties:
@@ -907,11 +909,17 @@ components:
         id:
           $ref: '#/components/schemas/MWSXOntologyCatalogQueryExecutionId'
         timeStart:
-          type: number
+          type: integer
+          format: int64
+          default: 0
         timeEnd:
-          type: number
+          type: integer
+          format: int64
+          default: 0
         resultsNumber:
-          type: number
+          type: integer
+          format: int32
+          default: 0
         errorMessages:
           type: array
           items:

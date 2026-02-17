@@ -9,6 +9,7 @@ properties:
       type: string
   reasoning:
     type: boolean
+    default: false
   sqlCode:
     type: string
   qidsys:
@@ -28,12 +29,15 @@ properties:
   answersNumber:
     type: integer
     format: int32
+    default: 0
   size:
     type: integer
     format: int64
+    default: 0
   answersBufferSize:
     type: integer
     format: int32
+    default: 0
   sparqlCode:
     type: string
   sparqlConstructCode:
@@ -41,6 +45,8 @@ properties:
   executionTimestamp:
     type: integer
     format: int64
+    default: 0
   elapsedTime:
     type: integer
     format: int64
+    default: 0

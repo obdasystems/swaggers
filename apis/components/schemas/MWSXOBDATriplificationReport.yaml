@@ -11,5 +11,6 @@ properties:
       $ref: ./MWSXOBDATriplificationMappingReport.yaml
   isError:
     type: boolean
+    default: false
   errorMessage:
     type: string

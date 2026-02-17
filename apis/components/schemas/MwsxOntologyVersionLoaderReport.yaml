@@ -8,11 +8,14 @@ properties:
   timeStart: 
     type: integer 
     format: int64
+    default: 0
   timeEnd: 
     type: integer
     format: int64
+    default: 0
   hasError: 
     type: boolean 
+    default: false
   errorMessage: 
     type: string 
   missingImports: 

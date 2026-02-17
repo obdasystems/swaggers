@@ -8,9 +8,11 @@ properties:
   timeStart:
     type: integer
     format: int64
+    default: 0
   timeElapsed:
     type: integer
     format: int64
+    default: 0
   currentStep:
     type: string
   progress:

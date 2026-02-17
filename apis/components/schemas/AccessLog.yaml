@@ -8,3 +8,5 @@ properties:
     type: string
   timestamp:
     type: integer
+    format: int64
+    default: 0

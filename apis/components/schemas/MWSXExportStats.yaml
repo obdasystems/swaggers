@@ -4,6 +4,8 @@ properties:
   resultsNumber:
     type: integer
     format: int32
+    default: 0
   exportTime:
     type: integer
     format: int64
+    default: 0

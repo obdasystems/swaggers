@@ -19,11 +19,17 @@ properties:
     type: object
   timestampStart:
     type: integer
+    format: int64
+    default: 0
   timestampEnd:
     type: integer
+    format: int64
+    default: 0
   ontologyIri:
     type: string
   computeEmpties:
     type: boolean
+    default: false
   computeGeneralConceptInclusions:
     type: boolean
+    default: false
