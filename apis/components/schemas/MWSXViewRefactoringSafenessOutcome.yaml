@@ -7,3 +7,4 @@ properties:
       type: string
   safe:
     type: boolean
+    default: false

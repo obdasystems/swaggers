@@ -656,8 +656,10 @@ components:
           type: string
         nullable:
           type: boolean
+          default: false
         key:
           type: boolean
+          default: false
         fieldType:
           type: string
     MWSXVirtualEntity:

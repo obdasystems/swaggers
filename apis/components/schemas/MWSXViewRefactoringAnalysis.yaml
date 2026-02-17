@@ -23,5 +23,6 @@ properties:
       type: string
   generallyUnsafe:
     type: boolean
+    default: false
   message:
     type: string

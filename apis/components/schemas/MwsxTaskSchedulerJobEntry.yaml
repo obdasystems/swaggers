@@ -7,10 +7,16 @@ properties:
     $ref: MwsxTaskSchedulerJobData.yaml
   creationTime: 
     type: integer
+    format: int64
+    default: 0
   startTime: 
     type: integer
+    format: int64
+    default: 0
   endTime: 
     type: integer
+    format: int64
+    default: 0
   state: 
     type: string 
   messages: 

@@ -3280,9 +3280,11 @@ components:
         newPosition:
           type: integer
           format: int32
+          default: 0
         oldPosition:
           type: integer
           format: int32
+          default: 0
     MWSXMappingViewAtomRefactoring:
       title: MappingViewAtomRefactoring
       type: object
@@ -3355,6 +3357,7 @@ components:
             type: string
         safe:
           type: boolean
+          default: false
     MWSXViewRefactoringAnalysis:
       title: ViewRefactoringAnalysis
       type: object
@@ -3381,6 +3384,7 @@ components:
             type: string
         generallyUnsafe:
           type: boolean
+          default: false
         message:
           type: string
     InclusionView:

@@ -3945,9 +3945,11 @@ components:
         arity:
           type: integer
           format: int32
+          default: 0
         serialVersionUID:
           type: integer
           format: int64
+          default: 0
         name:
           type: string
         shortName:
@@ -3989,6 +3991,7 @@ components:
         objectType:
           type: integer
           format: int32
+          default: 0
         reason:
           type: string
     MWSXQuarantinedMappingReport:
@@ -3998,12 +4001,15 @@ components:
         viewDefinitionsCount:
           type: integer
           format: int32
+          default: 0
         mappingsCount:
           type: integer
           format: int32
+          default: 0
         quarantinedMappingsCount:
           type: integer
           format: int32
+          default: 0
         quarantineReasonsByViewName:
           $ref: '#/components/schemas/MWSXQuarantineReason'
         quarantineReasonsByMappingId:
@@ -4011,6 +4017,7 @@ components:
         quarantinedViewDefinitionsCount:
           type: integer
           format: int32
+          default: 0
     MWSXMappingReport:
       title: MappingReport
       type: object

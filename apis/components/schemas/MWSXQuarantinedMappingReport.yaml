@@ -4,12 +4,15 @@ properties:
   viewDefinitionsCount:
     type: integer
     format: int32
+    default: 0
   mappingsCount:
     type: integer
     format: int32
+    default: 0
   quarantinedMappingsCount:
     type: integer
     format: int32
+    default: 0
   quarantineReasonsByViewName:
     $ref: './MWSXQuarantineReason.yaml'
   quarantineReasonsByMappingId:
@@ -17,3 +20,4 @@ properties:
   quarantinedViewDefinitionsCount:
     type: integer
     format: int32
+    default: 0

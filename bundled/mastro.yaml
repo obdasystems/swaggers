@@ -19486,9 +19486,11 @@ components:
         newPosition:
           type: integer
           format: int32
+          default: 0
         oldPosition:
           type: integer
           format: int32
+          default: 0
     MWSXMappingViewAtomRefactoring:
       title: MappingViewAtomRefactoring
       type: object
@@ -19561,6 +19563,7 @@ components:
             type: string
         safe:
           type: boolean
+          default: false
     MWSXViewRefactoringAnalysis:
       title: ViewRefactoringAnalysis
       type: object
@@ -19587,6 +19590,7 @@ components:
             type: string
         generallyUnsafe:
           type: boolean
+          default: false
         message:
           type: string
     InclusionView:
@@ -21252,9 +21256,11 @@ components:
         arity:
           type: integer
           format: int32
+          default: 0
         serialVersionUID:
           type: integer
           format: int64
+          default: 0
         name:
           type: string
         shortName:
@@ -21296,6 +21302,7 @@ components:
         objectType:
           type: integer
           format: int32
+          default: 0
         reason:
           type: string
     MWSXQuarantinedMappingReport:
@@ -21305,12 +21312,15 @@ components:
         viewDefinitionsCount:
           type: integer
           format: int32
+          default: 0
         mappingsCount:
           type: integer
           format: int32
+          default: 0
         quarantinedMappingsCount:
           type: integer
           format: int32
+          default: 0
         quarantineReasonsByViewName:
           $ref: '#/components/schemas/MWSXQuarantineReason'
         quarantineReasonsByMappingId:
@@ -21318,6 +21328,7 @@ components:
         quarantinedViewDefinitionsCount:
           type: integer
           format: int32
+          default: 0
     MWSXMappingReport:
       title: MappingReport
       type: object
@@ -21562,8 +21573,10 @@ components:
           type: string
         nullable:
           type: boolean
+          default: false
         key:
           type: boolean
+          default: false
         fieldType:
           type: string
     MWSXVirtualEntity:
@@ -22995,6 +23008,7 @@ components:
         timestamp:
           type: integer
           format: int64
+          default: 0
         resource:
           type: string
         method:
@@ -23147,10 +23161,16 @@ components:
           $ref: '#/components/schemas/MwsxTaskSchedulerJobData'
         creationTime:
           type: integer
+          format: int64
+          default: 0
         startTime:
           type: integer
+          format: int64
+          default: 0
         endTime:
           type: integer
+          format: int64
+          default: 0
         state:
           type: string
         messages:
