@@ -5,3 +5,4 @@ properties:
   isConstruct:
     type: boolean
     nullable: false
+    default: false

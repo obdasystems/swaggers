@@ -887,6 +887,7 @@ components:
         isConstruct:
           type: boolean
           nullable: false
+          default: false
     MWSXOntologyCatalogQueryExecutionId:
       title: MWSXOntologyCatalogQueryExecutionId
       type: object
