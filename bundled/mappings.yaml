@@ -3154,12 +3154,14 @@ components:
           type: string
         valueTemplate:
           type: boolean
+          default: false
         terms:
           type: array
           items:
             type: string
         iriTemplate:
           type: boolean
+          default: false
     IRI:
       title: IRI
       type: object

@@ -19369,12 +19369,14 @@ components:
           type: string
         valueTemplate:
           type: boolean
+          default: false
         terms:
           type: array
           items:
             type: string
         iriTemplate:
           type: boolean
+          default: false
     ExtensionalAnnotationMapping:
       title: ExtensionalAnnotationMapping
       type: object
