@@ -29,7 +29,9 @@ properties:
     type: string
   quarantined:
     type: boolean
+    default: 0
   extensionallyComplete:
     type: boolean
+    default: 0
   rangeLanguageTag:
     type: string
