@@ -1641,6 +1641,7 @@ components:
         ontologyDate:
           type: integer
           format: int64
+          default: 0
         ontologyVersions:
           type: array
           items:
