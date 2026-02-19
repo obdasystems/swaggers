@@ -19468,10 +19468,10 @@ components:
           type: string
         quarantined:
           type: boolean
-          default: 0
+          default: false
         extensionallyComplete:
           type: boolean
-          default: 0
+          default: false
         rangeLanguageTag:
           type: string
     SQLViews:
