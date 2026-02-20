@@ -18200,6 +18200,7 @@ components:
             $ref: '#/components/schemas/Label'
         deprecated:
           type: boolean
+          default: false
         entityIRI:
           type: string
         entityType:
@@ -20086,6 +20087,7 @@ components:
       properties:
         restartNeeded:
           type: boolean
+          default: false
         name:
           type: string
         description:
@@ -20096,6 +20098,7 @@ components:
           $ref: '#/components/schemas/MastroID'
         autoStart:
           type: boolean
+          default: false
         emptyUnfoldingEntities:
           $ref: '#/components/schemas/EmptyUnfoldingEntities'
     Endpoints:

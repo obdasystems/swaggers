@@ -1707,6 +1707,7 @@ components:
             $ref: '#/components/schemas/Label'
         deprecated:
           type: boolean
+          default: false
         entityIRI:
           type: string
         entityType:

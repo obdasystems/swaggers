@@ -6,6 +6,7 @@ required:
 properties:
   restartNeeded:
     type: boolean
+    default: false
   name:
     type: string
   description:
@@ -16,5 +17,6 @@ properties:
     $ref: ./MastroID.yaml
   autoStart:
     type: boolean
+    default: false
   emptyUnfoldingEntities:
     $ref: EmptyUnfoldingEntities.yaml

@@ -9,6 +9,7 @@ properties:
       $ref: ./Label.yaml
   deprecated:
     type: boolean
+    default: false
   entityIRI:
     type: string
   entityType:
