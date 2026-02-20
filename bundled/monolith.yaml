@@ -16574,6 +16574,46 @@ paths:
       security:
         - apiKey: []
         - jwt: []
+  /knowledgeGraph/import/metadata:
+    servers:
+      - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+        variables:
+          protocol:
+            default: https
+          tenant:
+            default: localhost
+          port:
+            default: ':8989'
+    post:
+      tags:
+        - mastro_knowledge-graphs_Upload
+      summary: >-
+        Import metadata triples like
+        /owlOntology/{name}/version/loaderThreads/metadata:
+      operationId: post__knowledgeGraph_import_metadata
+      parameters:
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MWSXOntologyCatalogOntologyMetadataSet'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
   /ontologyDraftInfos:
     servers:
       - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
@@ -22947,6 +22987,7 @@ components:
         ontologyDate:
           type: integer
           format: int64
+          default: 0
         ontologyVersions:
           type: array
           items:
@@ -22978,9 +23019,11 @@ components:
         timeStart:
           type: integer
           format: int64
+          default: 0
         timeElapsed:
           type: integer
           format: int64
+          default: 0
     MWSXOWLGraphDeductiveClosureReport:
       title: OWLGraphDeductiveClosureReport
       type: object
@@ -23003,14 +23046,20 @@ components:
           type: object
         timestampStart:
           type: integer
+          format: int64
+          default: 0
         timestampEnd:
           type: integer
+          format: int64
+          default: 0
         ontologyIri:
           type: string
         computeEmpties:
           type: boolean
+          default: false
         computeGeneralConceptInclusions:
           type: boolean
+          default: false
     MWSXMetadataSubject:
       type: object
       properties:
@@ -23038,8 +23087,10 @@ components:
           type: string
         isIri:
           type: boolean
+          default: false
         isBlankNode:
           type: boolean
+          default: false
     MWSXMetadataTriple:
       type: object
       properties:
@@ -23067,9 +23118,11 @@ components:
         timeStart:
           type: integer
           format: int64
+          default: 0
         timeElapsed:
           type: integer
           format: int64
+          default: 0
         currentStep:
           type: string
         progress:
@@ -23086,11 +23139,14 @@ components:
         timeStart:
           type: integer
           format: int64
+          default: 0
         timeEnd:
           type: integer
           format: int64
+          default: 0
         hasError:
           type: boolean
+          default: false
         errorMessage:
           type: string
         missingImports:
@@ -23969,12 +24025,14 @@ components:
           type: string
         valueTemplate:
           type: boolean
+          default: false
         terms:
           type: array
           items:
             type: string
         iriTemplate:
           type: boolean
+          default: false
     ExtensionalAnnotationMapping:
       title: ExtensionalAnnotationMapping
       type: object
@@ -24066,8 +24124,10 @@ components:
           type: string
         quarantined:
           type: boolean
+          default: false
         extensionallyComplete:
           type: boolean
+          default: false
         rangeLanguageTag:
           type: string
     SQLViews:
@@ -24087,9 +24147,11 @@ components:
         newPosition:
           type: integer
           format: int32
+          default: 0
         oldPosition:
           type: integer
           format: int32
+          default: 0
     MWSXMappingViewAtomRefactoring:
       title: MappingViewAtomRefactoring
       type: object
@@ -24162,6 +24224,7 @@ components:
             type: string
         safe:
           type: boolean
+          default: false
     MWSXViewRefactoringAnalysis:
       title: ViewRefactoringAnalysis
       type: object
@@ -24188,6 +24251,7 @@ components:
             type: string
         generallyUnsafe:
           type: boolean
+          default: false
         message:
           type: string
     InclusionView:
@@ -24469,6 +24533,7 @@ components:
           type: string
         metadataPresent:
           type: boolean
+          default: false
         jdbcUsername:
           type: string
     MWSXDataSourceColumnReference:
@@ -24496,6 +24561,7 @@ components:
         size:
           type: integer
           format: int32
+          default: 0
         nullable:
           type: string
         generated:
@@ -24505,14 +24571,17 @@ components:
         decimals:
           type: integer
           format: int32
+          default: 0
         name:
           type: string
         dataTypeId:
           type: integer
           format: int32
+          default: 0
         ordinalPosition:
           type: integer
           format: int32
+          default: 0
     MWSXDataSourceKeyMetadata:
       title: DataSourceKeyMetadata
       type: object
@@ -24527,6 +24596,7 @@ components:
           type: array
           items:
             type: integer
+            default: 0
         tableName:
           type: string
     MWSXDataSourceTableMetadata:
@@ -24995,6 +25065,7 @@ components:
             type: string
         reasoning:
           type: boolean
+          default: false
         sqlCode:
           type: string
         qidsys:
@@ -25014,12 +25085,15 @@ components:
         answersNumber:
           type: integer
           format: int32
+          default: 0
         size:
           type: integer
           format: int64
+          default: 0
         answersBufferSize:
           type: integer
           format: int32
+          default: 0
         sparqlCode:
           type: string
         sparqlConstructCode:
@@ -25027,9 +25101,11 @@ components:
         executionTimestamp:
           type: integer
           format: int64
+          default: 0
         elapsedTime:
           type: integer
           format: int64
+          default: 0
     MWSXExportStats:
       title: ExportStats
       type: object
@@ -25037,9 +25113,11 @@ components:
         resultsNumber:
           type: integer
           format: int32
+          default: 0
         exportTime:
           type: integer
           format: int64
+          default: 0
     CsvPreview:
       title: CsvPreview
       type: object
@@ -25787,6 +25865,7 @@ components:
         unmappedTableCount:
           type: integer
           format: int32
+          default: 0
         mappedTables:
           type: array
           items:
@@ -25798,9 +25877,11 @@ components:
         mappedTableCount:
           type: integer
           format: int32
+          default: 0
         totalTableCount:
           type: integer
           format: int32
+          default: 0
     MWSXOntologyPredicatesStatistics:
       title: OntologyPredicatesStatistics
       type: object
@@ -25809,18 +25890,26 @@ components:
           type: object
           additionalProperties:
             type: integer
+            format: int32
+            default: 0
         classesStatistics:
           type: object
           additionalProperties:
             type: integer
+            format: int32
+            default: 0
         dataPropertiesStatistics:
           type: object
           additionalProperties:
             type: integer
+            format: int32
+            default: 0
         objectPropertiesStatistics:
           type: object
           additionalProperties:
             type: integer
+            format: int32
+            default: 0
     MWSXPredicate:
       title: Predicate
       type: object
@@ -25828,9 +25917,11 @@ components:
         arity:
           type: integer
           format: int32
+          default: 0
         serialVersionUID:
           type: integer
           format: int64
+          default: 0
         name:
           type: string
         shortName:
@@ -25854,12 +25945,15 @@ components:
         unmappedPredicatesCount:
           type: integer
           format: int32
+          default: 0
         totalPredicatesCount:
           type: integer
           format: int32
+          default: 0
         mappedPredicatesCount:
           type: integer
           format: int32
+          default: 0
     MWSXQuarantineReason:
       title: QuarantinedReason
       type: object
@@ -25869,6 +25963,7 @@ components:
         objectType:
           type: integer
           format: int32
+          default: 0
         reason:
           type: string
     MWSXQuarantinedMappingReport:
@@ -25878,12 +25973,15 @@ components:
         viewDefinitionsCount:
           type: integer
           format: int32
+          default: 0
         mappingsCount:
           type: integer
           format: int32
+          default: 0
         quarantinedMappingsCount:
           type: integer
           format: int32
+          default: 0
         quarantineReasonsByViewName:
           $ref: '#/components/schemas/MWSXQuarantineReason'
         quarantineReasonsByMappingId:
@@ -25891,6 +25989,7 @@ components:
         quarantinedViewDefinitionsCount:
           type: integer
           format: int32
+          default: 0
     MWSXMappingReport:
       title: MappingReport
       type: object
@@ -26073,12 +26172,15 @@ components:
         progress:
           type: integer
           format: int32
+          default: 0
         startTime:
           type: integer
           format: int64
+          default: 0
         time:
           type: integer
           format: int64
+          default: 0
         status:
           type: string
     MWSXOBDATriplificationMappingReport:
@@ -26090,19 +26192,23 @@ components:
         triplesCount:
           type: integer
           format: int32
+          default: 0
         sqlCode:
           type: string
         startTime:
           type: integer
           format: int64
+          default: 0
         endTime:
           type: integer
           format: int64
+          default: 0
         error:
           type: string
         elapsedTime:
           type: integer
           format: int64
+          default: 0
     MWSXOBDATriplificationReport:
       title: OBDATriplificationReport
       type: object
@@ -26117,6 +26223,7 @@ components:
             $ref: '#/components/schemas/MWSXOBDATriplificationMappingReport'
         isError:
           type: boolean
+          default: false
         errorMessage:
           type: string
     MWSXVirtualEntityField:
@@ -26127,8 +26234,10 @@ components:
           type: string
         nullable:
           type: boolean
+          default: false
         key:
           type: boolean
+          default: false
         fieldType:
           type: string
     MWSXVirtualEntity:
@@ -26803,6 +26912,7 @@ components:
           type: string
         isConstruct:
           type: boolean
+          default: false
     MWSXOntologyCatalogQueryExecutionId:
       title: MWSXOntologyCatalogQueryExecutionId
       type: object
@@ -26823,11 +26933,17 @@ components:
         id:
           $ref: '#/components/schemas/MWSXOntologyCatalogQueryExecutionId'
         timeStart:
-          type: number
+          type: integer
+          format: int64
+          default: 0
         timeEnd:
-          type: number
+          type: integer
+          format: int64
+          default: 0
         resultsNumber:
-          type: number
+          type: integer
+          format: int32
+          default: 0
         errorMessages:
           type: array
           items:
@@ -27553,6 +27669,7 @@ components:
         timestamp:
           type: integer
           format: int64
+          default: 0
         resource:
           type: string
         method:
@@ -27646,6 +27763,8 @@ components:
           type: string
         timestamp:
           type: integer
+          format: int64
+          default: 0
     OntologyUsageLog:
       type: object
       required:
@@ -27668,6 +27787,8 @@ components:
           type: string
         timestamp:
           type: integer
+          format: int64
+          default: 0
         queryCode:
           type: string
     EntityUsageLog:
@@ -27703,10 +27824,16 @@ components:
           $ref: '#/components/schemas/MwsxTaskSchedulerJobData'
         creationTime:
           type: integer
+          format: int64
+          default: 0
         startTime:
           type: integer
+          format: int64
+          default: 0
         endTime:
           type: integer
+          format: int64
+          default: 0
         state:
           type: string
         messages:

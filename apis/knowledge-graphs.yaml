@@ -110,6 +110,8 @@ paths:
     $ref: paths/knowledgeGraph_upload_import_threads.yaml
   /knowledgeGraph/upload/import/thread:
     $ref: paths/knowledgeGraph_upload_import_thread.yaml
+  /knowledgeGraph/import/metadata:
+    $ref: paths/knowledgeGraph_import_metadata.yaml
 components: 
   securitySchemes: 
     apiKey: 

@@ -13778,6 +13778,37 @@ paths:
       security:
         - apiKey: []
         - jwt: []
+  /knowledgeGraph/import/metadata:
+    post:
+      tags:
+        - knowledge-graphs_Upload
+      summary: >-
+        Import metadata triples like
+        /owlOntology/{name}/version/loaderThreads/metadata:
+      operationId: post__knowledgeGraph_import_metadata
+      parameters:
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MWSXOntologyCatalogOntologyMetadataSet'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
   /ontologyDraftInfos:
     get:
       tags:

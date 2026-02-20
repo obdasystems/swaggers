@@ -1507,6 +1507,32 @@ paths:
                 $ref: '#/components/schemas/KgCsvImportReport'
         '401':
           description: Unhauthorized
+  /knowledgeGraph/import/metadata:
+    post:
+      tags:
+        - Upload
+      summary: 'Import metadata triples like /owlOntology/{name}/version/loaderThreads/metadata:'
+      operationId: post__knowledgeGraph_import_metadata
+      parameters:
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MWSXOntologyCatalogOntologyMetadataSet'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '401':
+          description: Unhauthorized
 components:
   securitySchemes:
     apiKey:
@@ -2425,3 +2451,50 @@ components:
           type: string
         numberOfTriplesPerLine:
           type: integer
+    MWSXMetadataSubject:
+      type: object
+      properties:
+        iri:
+          type: string
+        impliedClassIri:
+          type: string
+    MWSXMetadataPredicate:
+      type: object
+      properties:
+        iri:
+          type: string
+    MWSXMetadataObject:
+      type: object
+      properties:
+        iri:
+          type: string
+        impliedClassIri:
+          type: string
+        value:
+          type: string
+        lang:
+          type: string
+        datatypeIri:
+          type: string
+        isIri:
+          type: boolean
+          default: false
+        isBlankNode:
+          type: boolean
+          default: false
+    MWSXMetadataTriple:
+      type: object
+      properties:
+        subject:
+          $ref: '#/components/schemas/MWSXMetadataSubject'
+        predicate:
+          $ref: '#/components/schemas/MWSXMetadataPredicate'
+        object:
+          $ref: '#/components/schemas/MWSXMetadataObject'
+    MWSXOntologyCatalogOntologyMetadataSet:
+      type: object
+      properties:
+        metadataTriples:
+          type: array
+          items:
+            $ref: '#/components/schemas/MWSXMetadataTriple'
