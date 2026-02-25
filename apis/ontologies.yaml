@@ -1,13 +1,13 @@
 openapi: 3.0.0
 servers:
-  - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+  - url: "{protocol}://{tenant}{port}/mws/rest/mwsx"
     variables:
       protocol:
         default: https
       tenant:
         default: localhost
       port:
-        default: ':8989'
+        default: ":8989"
 info:
   description: >-
     This is the API for managing ontologies in Mastro.
@@ -104,12 +104,12 @@ paths:
     $ref: paths/owlOntology_{name}_folder.yaml
   /owlOntology/{name}/version/folder:
     $ref: paths/owlOntology_{name}_version_folder.yaml
-components: 
-  securitySchemes: 
-    apiKey: 
-      $ref: './components/securitySchemes/api-key.yaml'
+components:
+  securitySchemes:
+    apiKey:
+      $ref: "./components/securitySchemes/api-key.yaml"
     jwt:
-      $ref: './components/securitySchemes/jwt.yaml'
-security: 
+      $ref: "./components/securitySchemes/jwt.yaml"
+security:
   - apiKey: []
   - jwt: []

@@ -4,7 +4,7 @@ get:
     "Returns the file containing the definition of the closed ontology <code>name</code>,
     with version 'version'. <br/>The format parameter assumes one of the following
     values: 'graphol', 'fss', 'xml', 'turtle'"
-  operationId: get__owlOntology_name_version_closed
+  operationId: getOwlOntologyNameVersionClosed
   parameters:
     - name: name
       in: path
@@ -30,7 +30,7 @@ delete:
   summary:
     Deletes the closed ontology <code>name</code>, with version 'version'.
     <br/>
-  operationId: delete__owlOntology_name_version_closed
+  operationId: deleteOwlOntologyNameVersionClosed
   parameters:
     - name: name
       in: path
@@ -52,7 +52,7 @@ post:
   summary:
     Starts the thread for the computation of the deductive closure of ontology
     <code>name</code>, with version 'version'.Returns the ID of the thread
-  operationId: post__owlOntology_name_version_closed
+  operationId: postOwlOntologyNameVersionClosed
   parameters:
     - name: name
       in: path

@@ -1,34 +1,35 @@
 post:
   tags: [Upload]
-  summary: 'Adds a new version to the ontology <code>name</code>.<br/> The ''syntax''
-    parameter assumes one of the following values: <br/>''MANCHESTER_SYNTAX'', ''FUNCTIONAL_SYNTAX'''
-  operationId: post__owlOntology_name_version_async
+  summary:
+    "Adds a new version to the ontology <code>name</code>.<br/> The 'syntax'
+    parameter assumes one of the following values: <br/>'MANCHESTER_SYNTAX', 'FUNCTIONAL_SYNTAX'"
+  operationId: postOwlOntologyNameVersionAsync
   parameters:
-  - name: name
-    in: path
-    required: true
-    schema: {type: string}
-  - name: syntax
-    in: query
-    schema: {type: string}
-  - name: params
-    in: query
-    schema: {type: string}
-  - name: computeEmpties
-    in: query
-    schema: {type: string}
-  - name: computeGeneralConceptInclusions
-    in: query
-    schema: {type: string}
+    - name: name
+      in: path
+      required: true
+      schema: { type: string }
+    - name: syntax
+      in: query
+      schema: { type: string }
+    - name: params
+      in: query
+      schema: { type: string }
+    - name: computeEmpties
+      in: query
+      schema: { type: string }
+    - name: computeGeneralConceptInclusions
+      in: query
+      schema: { type: string }
   requestBody:
     content:
       application/json:
-        schema: {$ref: ../components/schemas/FileInfo.yaml}
+        schema: { $ref: ../components/schemas/FileInfo.yaml }
     required: true
   responses:
-    '200':
+    "200":
       description: OK
       content:
         text/plain:
-          schema: {type: string}
-    '401': {description: Unhauthorized}
+          schema: { type: string }
+    "401": { description: Unhauthorized }

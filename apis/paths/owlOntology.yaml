@@ -1,40 +1,40 @@
 get:
   tags: [Persistence]
   summary: Returns all the available ontologies
-  operationId: get__owlOntology
+  operationId: getOwlOntology
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
-          schema: 
+          schema:
             type: array
-            items: {$ref: ../components/schemas/Ontology.yaml}
-    '401': {description: Unhauthorized}
+            items: { $ref: ../components/schemas/Ontology.yaml }
+    "401": { description: Unhauthorized }
 post:
   tags: [Persistence]
   summary: Creates a new ontology
-  operationId: post__owlOntology_name
+  operationId: postOwlOntologyName
   requestBody:
     content:
       application/json:
-        schema: {$ref: ../components/schemas/Ontology.yaml}
+        schema: { $ref: ../components/schemas/Ontology.yaml }
     required: true
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/Ontology.yaml}
-    '401': {description: Unhauthorized}
+          schema: { $ref: ../components/schemas/Ontology.yaml }
+    "401": { description: Unhauthorized }
 delete:
   tags: [Persistence]
   summary: Deletes all the ontologies stored in the repository
-  operationId: delete__all_owlOntologies
+  operationId: deleteAllOwlOntologies
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/Ontology.yaml}
-    '401': {description: Unhauthorized}
+          schema: { $ref: ../components/schemas/Ontology.yaml }
+    "401": { description: Unhauthorized }

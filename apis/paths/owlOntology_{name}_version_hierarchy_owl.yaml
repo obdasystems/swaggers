@@ -1,21 +1,22 @@
 get:
   tags: [Logical]
-  summary: Returns the file containing the definition of the ontology <code>name</code>,
+  summary:
+    Returns the file containing the definition of the ontology <code>name</code>,
     with version 'version' used to render the hierarchy class and property trees
-  operationId: get__owlOntology_name_version_hierarchy_owl
+  operationId: getOwlOntologyNameVersionHierarchyOwl
   parameters:
-  - name: name
-    in: path
-    required: true
-    schema: {type: string}
-  - name: version
-    in: query
-    required: true
-    schema: {type: string}
+    - name: name
+      in: path
+      required: true
+      schema: { type: string }
+    - name: version
+      in: query
+      required: true
+      schema: { type: string }
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/FileInfo.yaml}
-    '401': {description: Unhauthorized}
+          schema: { $ref: ../components/schemas/FileInfo.yaml }
+    "401": { description: Unhauthorized }

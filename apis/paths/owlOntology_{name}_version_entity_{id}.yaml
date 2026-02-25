@@ -3,22 +3,22 @@ get:
   summary: GET mwsx/owlOntology/{name}/version/entity/{id}
   operationId: get__owlOntology_name_version_entity
   parameters:
-  - name: name
-    in: path
-    required: true
-    schema: {type: string}
-  - name: id
-    in: path
-    required: true
-    schema: {type: string}
-  - name: version
-    in: query
-    required: true
-    schema: {type: string}
+    - name: name
+      in: path
+      required: true
+      schema: { type: string }
+    - name: id
+      in: path
+      required: true
+      schema: { type: string }
+    - name: version
+      in: query
+      required: true
+      schema: { type: string }
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/OntologyEntity.yaml}
-    '401': {description: Unhauthorized}
+          schema: { $ref: ../components/schemas/OntologyEntity.yaml }
+    "401": { description: Unhauthorized }

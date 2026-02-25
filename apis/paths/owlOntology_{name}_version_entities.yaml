@@ -1,21 +1,20 @@
 get:
   tags: [Logical]
-  summary: 'Gets the set of entities of version ''version'' of the ontology named
-    <code>name</code>.<br/> '
-  operationId: get__owlOntology_name_version_entities
+  summary: "Gets the set of entities of version 'version' of the ontology named <code>name</code>.<br/> "
+  operationId: getOwlOntologyNameVersionEntities
   parameters:
-  - name: name
-    in: path
-    required: true
-    schema: {type: string}
-  - name: version
-    in: query
-    required: true
-    schema: {type: string}
+    - name: name
+      in: path
+      required: true
+      schema: { type: string }
+    - name: version
+      in: query
+      required: true
+      schema: { type: string }
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/Entities.yaml}
-    '401': {description: Unhauthorized}
+          schema: { $ref: ../components/schemas/Entities.yaml }
+    "401": { description: Unhauthorized }

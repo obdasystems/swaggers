@@ -1,20 +1,20 @@
 get:
   tags: [Upload]
   summary: GET mwsx/owlOntology/{name}/importFromIRI
-  operationId: get__owlOntology_name_version_import_from_iri
+  operationId: getOwlOntologyNameVersionImportFromIri
   parameters:
-  - name: name
-    in: path
-    required: true
-    schema: {type: string}
-  - name: iri
-    in: query
-    required: true
-    schema: {type: string}
+    - name: name
+      in: path
+      required: true
+      schema: { type: string }
+    - name: iri
+      in: query
+      required: true
+      schema: { type: string }
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/OntologyVersion.yaml}
-    '401': {description: Unhauthorized}
+          schema: { $ref: ../components/schemas/OntologyVersion.yaml }
+    "401": { description: Unhauthorized }

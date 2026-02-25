@@ -1,58 +1,59 @@
 get:
   tags: [Persistence]
   summary: Returns the ontology named <code>name</code>
-  operationId: get__owlOntology_name
+  operationId: getOwlOntologyName
   parameters:
-  - name: name
-    in: path
-    required: true
-    schema: {type: string}
+    - name: name
+      in: path
+      required: true
+      schema: { type: string }
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/Ontology.yaml}
-    '401': {description: Unhauthorized}
+          schema: { $ref: ../components/schemas/Ontology.yaml }
+    "401": { description: Unhauthorized }
 post:
   tags: [Persistence]
-  summary: 'Adds a new version to the ontology <code>name</code>.<br/> The ''syntax''
-    parameter assumes one of the following values: <br/>''MANCHESTER_SYNTAX'', ''FUNCTIONAL_SYNTAX'''
-  operationId: post__owlOntology_name_version
+  summary:
+    "Adds a new version to the ontology <code>name</code>.<br/> The 'syntax'
+    parameter assumes one of the following values: <br/>'MANCHESTER_SYNTAX', 'FUNCTIONAL_SYNTAX'"
+  operationId: postOwlOntologyNameVersion
   parameters:
-  - name: name
-    in: path
-    required: true
-    schema: {type: string}
-  - name: syntax
-    in: query
-    required: true
-    schema: {type: string}
+    - name: name
+      in: path
+      required: true
+      schema: { type: string }
+    - name: syntax
+      in: query
+      required: true
+      schema: { type: string }
   requestBody:
     content:
       application/json:
-        schema: {$ref: ../components/schemas/FileInfo.yaml}
+        schema: { $ref: ../components/schemas/FileInfo.yaml }
     required: true
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/FileInfo.yaml}
-    '401': {description: Unhauthorized}
+          schema: { $ref: ../components/schemas/FileInfo.yaml }
+    "401": { description: Unhauthorized }
 delete:
   tags: [Persistence]
-  summary: 'Deletes the ontology named <code>name</code>.<br/> '
-  operationId: delete__owlOntology
+  summary: "Deletes the ontology named <code>name</code>.<br/> "
+  operationId: deleteOwlOntology
   parameters:
-  - name: name
-    in: path
-    required: true
-    schema: {type: string}
+    - name: name
+      in: path
+      required: true
+      schema: { type: string }
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/FileInfo.yaml}
-    '401': {description: Unhauthorized}
+          schema: { $ref: ../components/schemas/FileInfo.yaml }
+    "401": { description: Unhauthorized }
