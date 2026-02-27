@@ -3,7 +3,7 @@ get:
   summary:
     Returns 0 if the closed ontology <code>name</code>, with version 'version',
     has been computed, 1 otherwise.
-  operationId: get__owlOntology_name_version_closed_computed
+  operationId: getOwlOntologyNameVersionClosedComputed
   parameters:
     - name: name
       in: path

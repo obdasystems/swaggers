@@ -1,20 +1,20 @@
 get:
   tags: [Logical]
-  summary: 'Gets the info of the version ''version'' of the ontology named <code>name</code>.<br/> '
-  operationId: get__owlOntology_name_version_info
+  summary: "Gets the info of the version 'version' of the ontology named <code>name</code>.<br/> "
+  operationId: getOwlOntologyNameVersionInfo
   parameters:
-  - name: name
-    in: path
-    required: true
-    schema: {type: string}
-  - name: version
-    in: query
-    required: true
-    schema: {type: string}
+    - name: name
+      in: path
+      required: true
+      schema: { type: string }
+    - name: version
+      in: query
+      required: true
+      schema: { type: string }
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/OntologyInfo.yaml}
-    '401': {description: Unhauthorized}
+          schema: { $ref: ../components/schemas/OntologyInfo.yaml }
+    "401": { description: Unhauthorized }

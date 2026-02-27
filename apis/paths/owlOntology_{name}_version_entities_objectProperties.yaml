@@ -1,23 +1,23 @@
 get:
   tags: [Logical]
-  summary: 'Gets the set of entities of object property version ''version'' of the
-    ontology named <code>name</code>.<br/> '
-  operationId: get__owlOntology_name_version_entities_objectProperties
+  summary: "Gets the set of entities of object property version 'version' of the
+    ontology named <code>name</code>.<br/> "
+  operationId: getOwlOntologyNameVersionEntitiesObjectProperties
   parameters:
-  - name: name
-    in: path
-    required: true
-    schema: {type: string}
-  - name: version
-    in: query
-    required: true
-    schema: {type: string}
+    - name: name
+      in: path
+      required: true
+      schema: { type: string }
+    - name: version
+      in: query
+      required: true
+      schema: { type: string }
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
           schema:
             type: array
-            items: {$ref: ../components/schemas/OntologyEntity.yaml}
-    '401': {description: Unhauthorized}
+            items: { $ref: ../components/schemas/OntologyEntity.yaml }
+    "401": { description: Unhauthorized }

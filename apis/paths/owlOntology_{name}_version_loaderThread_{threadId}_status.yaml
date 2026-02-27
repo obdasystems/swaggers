@@ -1,20 +1,21 @@
 get:
   tags: [Upload]
   summary: Returns the status of an ontology version loader thread
-  operationId: get__owlOntology_name_version_loader_thread_status
+  operationId: getOwlOntologyNameVersionLoaderThreadStatus
   parameters:
-  - name: name
-    in: path
-    required: true
-    schema: {type: string}
-  - name: threadId
-    in: path
-    required: true
-    schema: {type: string}
+    - name: name
+      in: path
+      required: true
+      schema: { type: string }
+    - name: threadId
+      in: path
+      required: true
+      schema: { type: string }
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/MwsxOntologyVersionLoaderStatus.yaml}
-    '401': {description: Unhauthorized}
+          schema:
+            { $ref: ../components/schemas/MwsxOntologyVersionLoaderStatus.yaml }
+    "401": { description: Unhauthorized }
