@@ -19207,6 +19207,7 @@ components:
           type: string
         construct:
           type: boolean
+          default: false
         constructResultsRDFSyntax:
           type: string
         virtualEntityQueryInfos:
@@ -19216,17 +19217,22 @@ components:
         entryCreation:
           type: integer
           format: int64
+          default: 0
         entryLastModification:
           type: integer
           format: int64
+          default: 0
         public:
           type: boolean
+          default: false
         publicationRequestDate:
           type: integer
           format: int64
+          default: 0
         publicationResponseDate:
           type: integer
           format: int64
+          default: 0
     SparqlingSPARQLQuery:
       title: SparqlingSPARQLQuery
       type: object

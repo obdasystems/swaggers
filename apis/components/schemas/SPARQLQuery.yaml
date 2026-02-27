@@ -35,6 +35,7 @@ properties:
     type: string
   construct:
     type: boolean
+    default: false
   constructResultsRDFSyntax:
     type: string
   virtualEntityQueryInfos:
@@ -44,14 +45,19 @@ properties:
   entryCreation:
     type: integer
     format: int64
+    default: 0
   entryLastModification:
     type: integer
     format: int64
+    default: 0
   public:
     type: boolean
+    default: false
   publicationRequestDate:
     type: integer
     format: int64
+    default: 0
   publicationResponseDate:
     type: integer
     format: int64
+    default: 0
