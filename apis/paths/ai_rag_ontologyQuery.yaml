@@ -1,0 +1,27 @@
+put:
+  tags: [RAG]
+  summary: Ask anything about this ontology, and get an answer with the relevant entities.
+  operationId: putOntologyQueryAI
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            text: { type: string }
+            currentRdfGraph: { $ref: ../components/schemas/RDFGraph.yaml }
+  responses:
+    "200":
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              queryAnswer:
+                type: string
+              ontologyEntity:
+                type: array
+                items:
+                  type: string
+    "401": { description: Unhauthorized }

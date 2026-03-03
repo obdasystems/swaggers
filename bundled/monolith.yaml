@@ -345,7 +345,7 @@ paths:
       tags:
         - mastro_ontologies_Persistence
       summary: Returns all the available ontologies
-      operationId: get__owlOntology
+      operationId: getOwlOntology
       responses:
         '200':
           description: OK
@@ -364,7 +364,7 @@ paths:
       tags:
         - mastro_ontologies_Persistence
       summary: Creates a new ontology
-      operationId: post__owlOntology_name
+      operationId: postOwlOntologyName
       requestBody:
         content:
           application/json:
@@ -387,7 +387,7 @@ paths:
       tags:
         - mastro_ontologies_Persistence
       summary: Deletes all the ontologies stored in the repository
-      operationId: delete__all_owlOntologies
+      operationId: deleteAllOwlOntologies
       responses:
         '200':
           description: OK
@@ -414,7 +414,7 @@ paths:
       tags:
         - mastro_ontologies_Persistence
       summary: Returns the ontology named <code>name</code>
-      operationId: get__owlOntology_name
+      operationId: getOwlOntologyName
       parameters:
         - name: name
           in: path
@@ -440,7 +440,7 @@ paths:
         Adds a new version to the ontology <code>name</code>.<br/> The 'syntax'
         parameter assumes one of the following values: <br/>'MANCHESTER_SYNTAX',
         'FUNCTIONAL_SYNTAX'
-      operationId: post__owlOntology_name_version
+      operationId: postOwlOntologyNameVersion
       parameters:
         - name: name
           in: path
@@ -474,7 +474,7 @@ paths:
       tags:
         - mastro_ontologies_Persistence
       summary: 'Deletes the ontology named <code>name</code>.<br/> '
-      operationId: delete__owlOntology
+      operationId: deleteOwlOntology
       parameters:
         - name: name
           in: path
@@ -510,7 +510,7 @@ paths:
         Returns the file containing the definition of the ontology
         <code>name</code>, with version 'version'. <br/>The format parameter
         assumes one of the following values: 'graphol', 'fss', 'xml', 'turtle'
-      operationId: get__owlOntology_name_version
+      operationId: getOwlOntologyNameVersion
       parameters:
         - name: name
           in: path
@@ -548,7 +548,7 @@ paths:
       tags:
         - mastro_ontologies_Persistence
       summary: 'Deletes version ''version'' of the ontology named <code>name</code>.<br/> '
-      operationId: delete__owlOntology_name_version
+      operationId: deleteOwlOntologyNameVersion
       parameters:
         - name: name
           in: path
@@ -586,7 +586,7 @@ paths:
       tags:
         - mastro_ontologies_Logical
       summary: Returns the list of ignored ontology import IRIs
-      operationId: get__owlOntology_name_version_ignoredImports
+      operationId: getOwlOntologyNameVersionIgnoredImports
       parameters:
         - name: name
           in: path
@@ -629,7 +629,7 @@ paths:
         Returns the file containing the definition of the closed ontology
         <code>name</code>, with version 'version'. <br/>The format parameter
         assumes one of the following values: 'graphol', 'fss', 'xml', 'turtle'
-      operationId: get__owlOntology_name_version_closed
+      operationId: getOwlOntologyNameVersionClosed
       parameters:
         - name: name
           in: path
@@ -664,7 +664,7 @@ paths:
       summary: >-
         Deletes the closed ontology <code>name</code>, with version 'version'.
         <br/>
-      operationId: delete__owlOntology_name_version_closed
+      operationId: deleteOwlOntologyNameVersionClosed
       parameters:
         - name: name
           in: path
@@ -695,7 +695,7 @@ paths:
         Starts the thread for the computation of the deductive closure of
         ontology <code>name</code>, with version 'version'.Returns the ID of the
         thread
-      operationId: post__owlOntology_name_version_closed
+      operationId: postOwlOntologyNameVersionClosed
       parameters:
         - name: name
           in: path
@@ -745,7 +745,7 @@ paths:
       summary: >-
         Returns the status of the deductive closure thread identified by
         'threadId'
-      operationId: get__owlOntology_name_version_closed_threadId_status
+      operationId: getOwlOntologyNameVersionClosedThreadIdStatus
       parameters:
         - name: name
           in: path
@@ -795,7 +795,7 @@ paths:
       summary: >-
         Returns 0 if the closed ontology <code>name</code>, with version
         'version', has been computed, 1 otherwise.
-      operationId: get__owlOntology_name_version_closed_computed
+      operationId: getOwlOntologyNameVersionClosedComputed
       parameters:
         - name: name
           in: path
@@ -836,7 +836,7 @@ paths:
         Returns the file containing the definition of the closed ontology
         <code>name</code>, with version 'version'. <br/>The format parameter
         assumes one of the following values: 'graphol', 'fss', 'xml', 'turtle'
-      operationId: get__owlOntology_name_version_closingReport
+      operationId: getOwlOntologyNameVersionClosingReport
       parameters:
         - name: name
           in: path
@@ -877,7 +877,7 @@ paths:
         Returns the file containing the definition of the closed ontology
         <code>name</code>, with version 'version'. <br/>The format parameter
         assumes one of the following values: 'graphol', 'fss', 'xml', 'turtle'
-      operationId: get__owlOntology_name_version_closingReportComputed
+      operationId: getOwlOntologyNameVersionClosingReportComputed
       parameters:
         - name: name
           in: path
@@ -918,7 +918,7 @@ paths:
         Returns the file containing the definition of the ontology
         <code>name</code>, with version 'version' used to render the hierarchy
         class and property trees
-      operationId: get__owlOntology_name_version_hierarchy_owl
+      operationId: getOwlOntologyNameVersionHierarchyOwl
       parameters:
         - name: name
           in: path
@@ -959,7 +959,7 @@ paths:
         Adds a new version to the ontology <code>name</code>.<br/> The 'syntax'
         parameter assumes one of the following values: <br/>'MANCHESTER_SYNTAX',
         'FUNCTIONAL_SYNTAX'
-      operationId: post__owlOntology_name_version_async
+      operationId: postOwlOntologyNameVersionAsync
       parameters:
         - name: name
           in: path
@@ -1017,7 +1017,7 @@ paths:
         Adds a new version to the ontology <code>name</code>.<br/> The 'syntax'
         parameter assumes one of the following values: <br/>'MANCHESTER_SYNTAX',
         'FUNCTIONAL_SYNTAX'
-      operationId: post__owlOntology_name_version_metadata_async
+      operationId: postOwlOntologyNameVersionMetadataAsync
       parameters:
         - name: name
           in: path
@@ -1086,7 +1086,7 @@ paths:
       tags:
         - mastro_ontologies_Upload
       summary: Returns the status of an ontology version loader thread
-      operationId: get__owlOntology_name_version_loader_thread_status
+      operationId: getOwlOntologyNameVersionLoaderThreadStatus
       parameters:
         - name: name
           in: path
@@ -1124,7 +1124,7 @@ paths:
       tags:
         - mastro_ontologies_Upload
       summary: Return the report for completed ontology version loader threads
-      operationId: get__owlOntology_name_version_loader_thread_report
+      operationId: getOwlOntologyNameVersionLoaderThreadReport
       parameters:
         - name: name
           in: path
@@ -1162,7 +1162,7 @@ paths:
       tags:
         - mastro_ontologies_Upload
       summary: GET mwsx/owlOntology/{name}/importFromIRI
-      operationId: get__owlOntology_name_version_import_from_iri
+      operationId: getOwlOntologyNameVersionImportFromIri
       parameters:
         - name: name
           in: path
@@ -1200,7 +1200,7 @@ paths:
       tags:
         - mastro_ontologies_Logical
       summary: GET mwsx/owlOntology/{name}/version/hierarchy
-      operationId: get__owlOntology_name_version_hierarchy
+      operationId: getOwlOntologyNameVersionHierarchy
       parameters:
         - name: name
           in: path
@@ -1238,7 +1238,7 @@ paths:
       tags:
         - mastro_ontologies_Logical
       summary: GET mwsx/owlOntology/{name}/version/catalog
-      operationId: get__owlOntology_name_version_catalog
+      operationId: getOwlOntologyNameVersionCatalog
       parameters:
         - name: name
           in: path
@@ -1278,7 +1278,7 @@ paths:
       summary: >-
         Gets the info of the version 'version' of the ontology named
         <code>name</code>.<br/> 
-      operationId: get__owlOntology_name_version_info
+      operationId: getOwlOntologyNameVersionInfo
       parameters:
         - name: name
           in: path
@@ -1318,7 +1318,7 @@ paths:
       summary: >-
         Gets the set of class entities of version 'version' of the ontology
         named <code>name</code>.<br/> 
-      operationId: get__owlOntology_name_version_entities_classes
+      operationId: getOwlOntologyNameVersionEntitiesClasses
       parameters:
         - name: name
           in: path
@@ -1360,7 +1360,7 @@ paths:
       summary: >-
         Gets the set of entities of object property version 'version' of the
         ontology named <code>name</code>.<br/> 
-      operationId: get__owlOntology_name_version_entities_objectProperties
+      operationId: getOwlOntologyNameVersionEntitiesObjectProperties
       parameters:
         - name: name
           in: path
@@ -1402,7 +1402,7 @@ paths:
       summary: >-
         Gets the set of data property entities of version 'version' of the
         ontology named <code>name</code>.<br/> 
-      operationId: get__owlOntology_name_version_entities_dataProperties
+      operationId: getOwlOntologyNameVersionEntitiesDataProperties
       parameters:
         - name: name
           in: path
@@ -1444,7 +1444,7 @@ paths:
       summary: >-
         Gets the set of annotation property entities of version 'version' of the
         ontology named <code>name</code>.<br/> 
-      operationId: get__owlOntology_name_version_entities_annotationProperties
+      operationId: getOwlOntologyNameVersionEntitiesAnnotationProperties
       parameters:
         - name: name
           in: path
@@ -1486,7 +1486,7 @@ paths:
       summary: >-
         Gets the set of entities of version 'version' of the ontology named
         <code>name</code>.<br/> 
-      operationId: get__owlOntology_name_version_entities
+      operationId: getOwlOntologyNameVersionEntities
       parameters:
         - name: name
           in: path
@@ -22488,6 +22488,51 @@ paths:
           description: Unhauthorized
       security:
         - jwt: []
+  /ai/rag/ontologyQuery:
+    servers:
+      - url: '{protocol}://{tenant}{port}'
+        variables:
+          protocol:
+            default: https
+          tenant:
+            default: localhost
+          port:
+            default: ':8080'
+    put:
+      tags:
+        - ai-assistant_RAG
+      summary: >-
+        Ask anything about this ontology, and get an answer with the relevant
+        entities.
+      operationId: putOntologyQueryAI
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+                currentRdfGraph:
+                  $ref: '#/components/schemas/RDFGraph'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  queryAnswer:
+                    type: string
+                  ontologyEntity:
+                    type: array
+                    items:
+                      type: string
+        '401':
+          description: Unhauthorized
+      security:
+        - jwt: []
   /ai/rag/{ontologyName}/vectorDB/initialize:
     servers:
       - url: '{protocol}://{tenant}{port}'
@@ -22856,6 +22901,7 @@ components:
             $ref: '#/components/schemas/Label'
         deprecated:
           type: boolean
+          default: false
         entityIRI:
           type: string
         entityType:
@@ -23831,6 +23877,7 @@ components:
           type: string
         construct:
           type: boolean
+          default: false
         constructResultsRDFSyntax:
           type: string
         virtualEntityQueryInfos:
@@ -23840,17 +23887,22 @@ components:
         entryCreation:
           type: integer
           format: int64
+          default: 0
         entryLastModification:
           type: integer
           format: int64
+          default: 0
         public:
           type: boolean
+          default: false
         publicationRequestDate:
           type: integer
           format: int64
+          default: 0
         publicationResponseDate:
           type: integer
           format: int64
+          default: 0
     SparqlingSPARQLQuery:
       title: SparqlingSPARQLQuery
       type: object
@@ -24742,6 +24794,7 @@ components:
       properties:
         restartNeeded:
           type: boolean
+          default: false
         name:
           type: string
         description:
@@ -24752,6 +24805,7 @@ components:
           $ref: '#/components/schemas/MastroID'
         autoStart:
           type: boolean
+          default: false
         emptyUnfoldingEntities:
           $ref: '#/components/schemas/EmptyUnfoldingEntities'
     Endpoints:

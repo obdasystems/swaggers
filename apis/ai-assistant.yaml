@@ -37,6 +37,8 @@ paths:
     $ref: paths/ai_text2sparql.yaml
   /ai/rag/ontologyDraft/{name}:
     $ref: paths/ai_rag_ontologyDraft_name.yaml
+  /ai/rag/ontologyQuery:
+    $ref: paths/ai_rag_ontologyQuery.yaml
   /ai/rag/{ontologyName}/vectorDB/initialize:
     $ref: paths/ai_rag_ontologyName_vectorDB_initialize.yaml
   /ai/rag/{ontologyName}/vectorDB/status:
