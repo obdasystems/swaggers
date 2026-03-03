@@ -376,9 +376,10 @@ paths:
                 properties:
                   queryAnswer:
                     type: string
-                  ontologyEntity:
-                    type: array
-                    items:
+                  ontologyEntities:
+                    type: object
+                    description: A map of the relevant words in the answer to the corresponding entities in the ontology, with their IRIs.
+                    additionalProperties:
                       type: string
         '401':
           description: Unhauthorized
