@@ -2,7 +2,7 @@ get:
   tags: [Query]
   summary: Returns the currently running SQL rewritings of a query executed on the
     given endpoint
-  operationId: get__owlOntology_name_version_query_ID_sqlDebugRewritings
+  operationId: getOwlOntologyNameVersionQueryIDSqlDebugRewritings
   parameters:
   - name: name
     in: path

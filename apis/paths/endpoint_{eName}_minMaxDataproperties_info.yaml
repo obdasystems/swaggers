@@ -2,7 +2,7 @@ get:
   tags: [MinMaxDataProperties]
   summary: Get the info about the queries that will count the number of instances
     of each Class of the ontology
-  operationId: get__endpoint_min_max_dataproperties
+  operationId: getEndpointMinMaxDataproperties
   parameters:
   - name: eName
     in: path

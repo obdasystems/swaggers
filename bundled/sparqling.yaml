@@ -141,7 +141,7 @@ paths:
       tags:
         - Highlights
       summary: Start a thread computing a shortest path on the ontology
-      operationId: post_shortest_path_thread_start
+      operationId: postShortestPathThreadStart
       parameters:
         - name: name
           in: path
@@ -182,7 +182,7 @@ paths:
       tags:
         - Highlights
       summary: Stop the thread computing a shortest path on the ontology
-      operationId: post_shortest_path_thread_stop
+      operationId: postShortestPathThreadStop
       parameters:
         - name: name
           in: path
@@ -213,7 +213,7 @@ paths:
       tags:
         - Highlights
       summary: GET results of a thread computing ontology paths with multi edges over a given ontology
-      operationId: get_shortest_path_thread_result
+      operationId: getShortestPathThreadResult
       parameters:
         - name: name
           in: path
@@ -246,7 +246,7 @@ paths:
       tags:
         - Highlights
       summary: Get the state of the thread computing a shortest path on the ontology
-      operationId: get_shortest_path_thread_state
+      operationId: getShortestPathThreadState
       parameters:
         - name: name
           in: path
@@ -277,7 +277,7 @@ paths:
       tags:
         - Highlights
       summary: Get the error of a thread computing a shortest path on the ontology
-      operationId: get_shortest_path_thread_error
+      operationId: getShortestPathThreadError
       parameters:
         - name: name
           in: path

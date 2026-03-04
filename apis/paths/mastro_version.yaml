@@ -1,11 +1,11 @@
 get:
   tags: [Versions]
   summary: Returns the version of Mastro
-  operationId: get__mastro_version
+  operationId: getMastroVersion
   responses:
     '200':
       description: OK
       content:
         text/plain:
-          schema: { type: string }
+          schema: {type: string}
     '401': {description: Unhauthorized}

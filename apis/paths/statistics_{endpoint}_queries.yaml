@@ -1,7 +1,7 @@
 get:
   tags: [Statistics]
   summary: Returns the query statistics for the given endpoint
-  operationId: get_statistics_endpoint_queries
+  operationId: getStatisticsEndpointQueries
   parameters:
   - name: endpoint
     in: path
@@ -20,7 +20,7 @@ post:
   tags: [Statistics]
   summary: Replace the current query statistics with the one provided for the given
     endpoint
-  operationId: post_statistics_endpoint_queries
+  operationId: postStatisticsEndpointQueries
   parameters:
   - name: endpoint
     in: path
@@ -46,7 +46,7 @@ put:
   tags: [Statistics]
   summary: Adds the provided query statistics for the given endpoint to the one registered
     in the system
-  operationId: put_statistics_endpoint_queries
+  operationId: putStatisticsEndpointQueries
   parameters:
   - name: endpoint
     in: path
@@ -71,7 +71,7 @@ put:
 delete:
   tags: [Statistics]
   summary: Deletes from the system the query statistics for the given endpoint
-  operationId: delete_statistics_endpoint_queries
+  operationId: deleteStatisticsEndpointQueries
   parameters:
   - name: endpoint
     in: path

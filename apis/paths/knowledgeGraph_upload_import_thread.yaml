@@ -1,7 +1,7 @@
 get:
   tags: [Upload]
   summary: GET mwsx/knowledgeGraph/upload/import/thread
-  operationId: get__knowledgeGraph_upload_file_csv_import_thread
+  operationId: getKnowledgeGraphUploadFileCsvImportThread
   parameters:
   - name: iri
     in: query
@@ -25,7 +25,7 @@ get:
 delete:
   tags: [Upload]
   summary: DELETE mwsx/knowledgeGraph/upload/import/thread
-  operationId: delete__knowledgeGraph_upload_file_csv_import_thread
+  operationId: deleteKnowledgeGraphUploadFileCsvImportThread
   parameters:
   - name: iri
     in: query

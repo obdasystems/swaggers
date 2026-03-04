@@ -1,7 +1,7 @@
 get:
   tags: [QueryCount]
   summary: Returns the current state of the count thread for the given SPARQL query
-  operationId: get_query_count_state
+  operationId: getQueryCountState
   parameters:
   - name: name
     in: path
@@ -16,5 +16,5 @@ get:
       description: OK
       content:
         text/plain:
-          schema: { type: string }
+          schema: {type: string}
     '401': {description: Unhauthorized}

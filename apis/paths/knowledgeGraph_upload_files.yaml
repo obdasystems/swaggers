@@ -1,7 +1,7 @@
 get:
   tags: [Upload]
   summary: GET mwsx/knowledgeGraph/upload/files
-  operationId: get__knowledgeGraph_upload_files
+  operationId: getKnowledgeGraphUploadFiles
   parameters:
   - name: iri
     in: query

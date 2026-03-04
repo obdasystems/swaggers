@@ -1,26 +1,25 @@
 post:
   tags: [Query]
   summary: POST mwsx/ontologyCatalog/sparql11-endpoint/query
-  operationId: post_ontology_catalog_sparql11_endpoint_query_form_encoded
+  operationId: postOntologyCatalogSparql11EndpointQueryFormEncoded
   requestBody:
     content:
       application/x-www-form-urlencoded:
         schema:
           required: [query, default-graph-uri, named-graph-uri]
           properties:
-            query: { type: string }
+            query: {type: string}
             default-graph-uri:
               type: array
-              items: { type: string }
+              items: {type: string}
             named-graph-uri:
               type: array
-              items: { type: string }
+              items: {type: string}
     required: true
   responses:
-    "200":
+    '200':
       description: OK
       content:
-        "*/*":
-          schema:
-            type: object
-    "401": { description: Unhauthorized }
+        '*/*':
+          schema: {type: object}
+    '401': {description: Unhauthorized}

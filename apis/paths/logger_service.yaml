@@ -1,7 +1,7 @@
 get:
   tags: [Logger]
   summary: GET mwsx/logger/service
-  operationId: get_set_service_logger
+  operationId: getSetServiceLogger
   parameters:
   - name: mode
     in: query

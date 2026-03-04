@@ -1,7 +1,7 @@
 post:
   tags: [Publication]
   summary: Requires the publication of a query from a given user catalog
-  operationId: post__owlOntology_name_version_querycatalog_request_publication
+  operationId: postOwlOntologyNameVersionQuerycatalogRequestPublication
   parameters:
   - name: name
     in: path

@@ -1,7 +1,7 @@
 get:
   tags: [Logical]
   summary: GET mwsx/owlOntology/{name}/version/annotations
-  operationId: get__owlOntology_name_version_alphabet_class_ID_annotations
+  operationId: getOwlOntologyNameVersionAlphabetClassIDAnnotations
   parameters:
   - name: name
     in: path

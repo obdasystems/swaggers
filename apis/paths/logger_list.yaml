@@ -1,7 +1,7 @@
 get:
   tags: [Logger]
   summary: GET mwsx/logger/list
-  operationId: get_set_service_logger_list
+  operationId: getSetServiceLoggerList
   responses:
     '200':
       description: OK

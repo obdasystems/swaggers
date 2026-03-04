@@ -165,7 +165,7 @@ paths:
       tags:
         - Persistence
       summary: Convert an OWL file in RDFGraph model
-      operationId: post_ontologyDraft_convertOWL
+      operationId: postOntologyDraftConvertOWL
       requestBody:
         content:
           application/json:

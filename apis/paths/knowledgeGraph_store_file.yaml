@@ -1,7 +1,7 @@
 post:
   tags: [FileSystem]
   summary: POST mwsx/knowledgeGraph/store/file
-  operationId: post__knowledgeGraph_store_file
+  operationId: postKnowledgeGraphStoreFile
   requestBody:
     content:
       application/json:
@@ -17,7 +17,7 @@ post:
 get:
   tags: [FileSystem]
   summary: GET mwsx/knowledgeGraph/store/file
-  operationId: get__knowledgeGraph_store_file
+  operationId: getKnowledgeGraphStoreFile
   responses:
     '200':
       description: OK

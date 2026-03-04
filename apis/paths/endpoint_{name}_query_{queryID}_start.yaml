@@ -1,7 +1,7 @@
 post:
   tags: [Query]
   summary: Starts a new instance of a query on the given endpoint
-  operationId: start_catalog_query_on_endpoint
+  operationId: startCatalogQueryOnEndpoint
   parameters:
   - name: name
     in: path
@@ -48,16 +48,14 @@ post:
   - name: addDistinctOnCores
     in: query
     required: true
-    schema: 
-      type: boolean
+    schema: {type: boolean}
   requestBody:
     content:
       '*/*':
-        schema: 
+        schema:
           description: Mapping parameters values
           type: object
-          additionalProperties:
-            type: string
+          additionalProperties: {type: string}
     required: true
   responses:
     '200':

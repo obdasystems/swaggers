@@ -1,7 +1,7 @@
 get:
   tags: [User]
   summary: Returns the list of available users of this MWS installation
-  operationId: get__users
+  operationId: getUsers
   responses:
     '200':
       description: OK
@@ -14,7 +14,7 @@ get:
 put:
   tags: [User]
   summary: Adds multiple users to the system
-  operationId: put__users
+  operationId: putUsers
   parameters:
   - name: op
     in: query

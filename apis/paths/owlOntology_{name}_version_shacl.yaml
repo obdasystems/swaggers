@@ -2,7 +2,7 @@ get:
   tags: [SHACL]
   summary: 'Returns the JSON constraints file of the version ''version'' of the ontology
     named <code>name</code>.<br/> '
-  operationId: get__owlOntology_name_version_json_constraints
+  operationId: getOwlOntologyNameVersionJsonConstraints
   parameters:
   - name: name
     in: path
@@ -23,7 +23,7 @@ delete:
   tags: [SHACL]
   summary: 'Deletes the JSON constraints file of the version ''version'' of the ontology
     named <code>name</code>.<br/> '
-  operationId: delete__owlOntology_name_version_json_constraints
+  operationId: deleteOwlOntologyNameVersionJsonConstraints
   parameters:
   - name: name
     in: path

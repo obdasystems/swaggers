@@ -1,7 +1,7 @@
 get:
   tags: [General]
   summary: GET mwsx/knowledgeGraph/namedGraphs
-  operationId: get__knowledgeGraph_named_graphs
+  operationId: getKnowledgeGraphNamedGraphs
   parameters:
   - name: iri
     in: query

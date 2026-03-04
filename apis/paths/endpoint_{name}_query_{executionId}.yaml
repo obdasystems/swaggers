@@ -1,7 +1,7 @@
 delete:
   tags: [Query]
   summary: Returns the IDs of queries loaded in the given endpoint
-  operationId: delete_query_execution_on_endpoint
+  operationId: deleteQueryExecutionOnEndpoint
   parameters:
   - name: name
     in: path

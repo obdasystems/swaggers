@@ -1,7 +1,7 @@
 get:
   tags: [Persistence]
   summary: GET mwsx/owlOntology/{name}/version/dashboards
-  operationId: get__owlOntology_version_dashboards
+  operationId: getOwlOntologyVersionDashboards
   parameters:
   - name: name
     in: path
@@ -21,7 +21,7 @@ get:
 post:
   tags: [Persistence]
   summary: POST mwsx/owlOntology/{name}/version/dashboards
-  operationId: post__owlOntology_version_dashboards
+  operationId: postOwlOntologyVersionDashboards
   parameters:
   - name: name
     in: path

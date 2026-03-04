@@ -1,7 +1,7 @@
 post:
   tags: [Query]
   summary: Starts a new query in synchronous mode on the given endpoint
-  operationId: start_new_sync_query_on_endpoint
+  operationId: startNewSyncQueryOnEndpoint
   parameters:
   - name: name
     in: path
@@ -43,8 +43,7 @@ post:
   - name: addDistinctOnCores
     in: query
     required: true
-    schema: 
-      type: boolean
+    schema: {type: boolean}
   requestBody:
     content:
       '*/*':

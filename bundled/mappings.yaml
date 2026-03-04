@@ -26,7 +26,7 @@ paths:
       tags:
         - Persistence
       summary: Returns the list of mappings available for a given ontology version
-      operationId: get__owlOntology_name_version_mapping
+      operationId: getOwlOntologyNameVersionMapping
       parameters:
         - name: name
           in: path
@@ -51,7 +51,7 @@ paths:
       tags:
         - Persistence
       summary: Creates a new set of mappings
-      operationId: post__owlOntology_name_version_mapping_ID
+      operationId: postOwlOntologyNameVersionMappingID
       parameters:
         - name: name
           in: path
@@ -98,7 +98,7 @@ paths:
       tags:
         - Persistence
       summary: 'Returns the set of mappings identified ID for a given ontology version  '
-      operationId: get__owlOntology_name_version_mapping_ID
+      operationId: getOwlOntologyNameVersionMappingID
       parameters:
         - name: name
           in: path
@@ -133,7 +133,7 @@ paths:
       tags:
         - Persistence
       summary: 'Updates mapping infos (passed as a Base64 encoded object NewMappingFileInfo in the query string) '
-      operationId: put__owlOntology_name_version_mapping_ID
+      operationId: putOwlOntologyNameVersionMappingID
       parameters:
         - name: name
           in: path
@@ -174,7 +174,7 @@ paths:
       tags:
         - Persistence
       summary: Deletes a set of mappings
-      operationId: delete__owlOntology_name_version_mapping_ID
+      operationId: deleteOwlOntologyNameVersionMappingID
       parameters:
         - name: name
           in: path
@@ -205,7 +205,7 @@ paths:
       tags:
         - Analysis
       summary: Performs mapping analysis returning a list of deprecation messages
-      operationId: get__owlOntology_name_version_mapping_ID_checkDeprecation
+      operationId: getOwlOntologyNameVersionMappingIDCheckDeprecation
       parameters:
         - name: name
           in: path
@@ -238,7 +238,7 @@ paths:
       tags:
         - Analysis
       summary: Returns mapping statistics by ontology entity
-      operationId: get__owlOntology_name_version_mapping_ID_count
+      operationId: getOwlOntologyNameVersionMappingIDCount
       parameters:
         - name: name
           in: path
@@ -269,7 +269,7 @@ paths:
       tags:
         - Persistence
       summary: Duplicates a given set of mappings
-      operationId: post__owlOntology_name_version_mapping_ID_duplicate
+      operationId: postOwlOntologyNameVersionMappingIDDuplicate
       parameters:
         - name: name
           in: path
@@ -309,7 +309,7 @@ paths:
       tags:
         - Persistence
       summary: Verifies whether a backup copy of a given mapping file exists
-      operationId: get__owlOntology_name_version_mapping_ID_backup
+      operationId: getOwlOntologyNameVersionMappingIDBackup
       parameters:
         - name: name
           in: path
@@ -339,7 +339,7 @@ paths:
       tags:
         - Persistence
       summary: Creates a backup copy of a given mapping file
-      operationId: post__owlOntology_name_version_mapping_ID_backup
+      operationId: postOwlOntologyNameVersionMappingIDBackup
       parameters:
         - name: name
           in: path
@@ -369,7 +369,7 @@ paths:
       tags:
         - Persistence
       summary: Restore a backup copy of a given mapping file
-      operationId: post__owlOntology_name_version_mapping_ID_restore
+      operationId: postOwlOntologyNameVersionMappingIDRestore
       parameters:
         - name: name
           in: path
@@ -399,7 +399,7 @@ paths:
       tags:
         - Persistence
       summary: Deletes the backup copy of a given mapping file
-      operationId: post__owlOntology_name_version_mapping_ID_delete
+      operationId: postOwlOntologyNameVersionMappingIDDelete
       parameters:
         - name: name
           in: path
@@ -430,7 +430,7 @@ paths:
       tags:
         - Persistence
       summary: Copy a given set of mappins from a source ontology version to a target ontology version (works under the same ontology name)
-      operationId: post__owlOntology_name_version_mapping_ID_migrate
+      operationId: postOwlOntologyNameVersionMappingIDMigrate
       parameters:
         - name: name
           in: path
@@ -475,7 +475,7 @@ paths:
       tags:
         - Persistence
       summary: Tentatively fixes mapping deprecations
-      operationId: post__owlOntology_name_version_mapping_ID_fix_deprecated
+      operationId: postOwlOntologyNameVersionMappingIDFixDeprecated
       parameters:
         - name: name
           in: path
@@ -506,7 +506,7 @@ paths:
       tags:
         - Test
       summary: Perform checks on a given mapping file
-      operationId: post__owlOntology_name_version_mapping_ID_check
+      operationId: postOwlOntologyNameVersionMappingIDCheck
       parameters:
         - name: name
           in: path
@@ -548,7 +548,7 @@ paths:
       tags:
         - Info
       summary: Returns info of a set of mappings
-      operationId: get__owlOntology_name_version_mapping_ID_info
+      operationId: getOwlOntologyNameVersionMappingIDInfo
       parameters:
         - name: name
           in: path
@@ -579,7 +579,7 @@ paths:
       tags:
         - Template
       summary: Returns the list of templates defined in a mapping file
-      operationId: get__owlOntology_name_version_mapping_ID_templates
+      operationId: getOwlOntologyNameVersionMappingIDTemplates
       parameters:
         - name: name
           in: path
@@ -612,7 +612,7 @@ paths:
       tags:
         - Template
       summary: Applies templates refactoring to mapping specification and returns a list of affected mappings ids
-      operationId: get__owlOntology_name_version_mapping_ID_templates_refactoring
+      operationId: getOwlOntologyNameVersionMappingIDTemplatesRefactoring
       parameters:
         - name: name
           in: path
@@ -651,7 +651,7 @@ paths:
       tags:
         - Template
       summary: Adds a new template to a mappng file
-      operationId: post__owlOntology_name_version_mapping_ID_template
+      operationId: postOwlOntologyNameVersionMappingIDTemplate
       parameters:
         - name: name
           in: path
@@ -687,7 +687,7 @@ paths:
       tags:
         - Template
       summary: Deletes a template from a mapping file
-      operationId: delete__owlOntology_name_version_mapping_ID_template
+      operationId: deleteOwlOntologyNameVersionMappingIDTemplate
       parameters:
         - name: name
           in: path
@@ -723,7 +723,7 @@ paths:
       tags:
         - Assertion
       summary: Returns the list of maping assertion involving the passed entity
-      operationId: get__owlOntology_name_version_mapping_ID_assertions_entityID
+      operationId: getOwlOntologyNameVersionMappingIDAssertionsEntityID
       parameters:
         - name: name
           in: path
@@ -761,7 +761,7 @@ paths:
       tags:
         - Assertion
       summary: Returns the list of all mapping assertions identified by ID
-      operationId: get__owlOntology_name_version_mapping_ID_assertions
+      operationId: getOwlOntologyNameVersionMappingIDAssertions
       parameters:
         - name: name
           in: path
@@ -793,7 +793,7 @@ paths:
       tags:
         - Assertion
       summary: Adds a new mapping assertion to a set of mappings
-      operationId: post__owlOntology_name_version_mapping_ID_assertions
+      operationId: postOwlOntologyNameVersionMappingIDAssertions
       parameters:
         - name: name
           in: path
@@ -830,7 +830,7 @@ paths:
       tags:
         - Assertion
       summary: Remove the mapping assertion mapID from a given set of mappings
-      operationId: delete__owlOntology_name_version_mapping_ID_assertions
+      operationId: deleteOwlOntologyNameVersionMappingIDAssertions
       parameters:
         - name: name
           in: path
@@ -865,7 +865,7 @@ paths:
       tags:
         - Assertion
       summary: Updates the mapping assertion mapID within a given set of mappings
-      operationId: put__owlOntology_name_version_mapping_ID_assertions
+      operationId: putOwlOntologyNameVersionMappingIDAssertions
       parameters:
         - name: name
           in: path
@@ -907,7 +907,7 @@ paths:
       tags:
         - SQLView
       summary: Returns the list of view definitions declared in a  given set of mappings
-      operationId: get__owlOntology_name_version_mapping_ID_views
+      operationId: getOwlOntologyNameVersionMappingIDViews
       parameters:
         - name: name
           in: path
@@ -937,7 +937,7 @@ paths:
       tags:
         - SQLView
       summary: Creates a new view definition in a set of mappings
-      operationId: post__owlOntology_name_version_mapping_ID_views
+      operationId: postOwlOntologyNameVersionMappingIDViews
       parameters:
         - name: name
           in: path
@@ -974,7 +974,7 @@ paths:
       tags:
         - Database
       summary: Returns the view definition identified by view_name in a given set of mappings
-      operationId: get__owlOntology_name_version_mapping_ID_view_refTables
+      operationId: getOwlOntologyNameVersionMappingIDViewRefTables
       parameters:
         - name: name
           in: path
@@ -1012,7 +1012,7 @@ paths:
       tags:
         - Database
       summary: Returns the whole map of tables referenced by view definitions of a given set of mappings
-      operationId: get__owlOntology_name_version_mapping_ID_views_allRefTablesMap
+      operationId: getOwlOntologyNameVersionMappingIDViewsAllRefTablesMap
       parameters:
         - name: name
           in: path
@@ -1049,7 +1049,7 @@ paths:
       tags:
         - SQLView
       summary: Returns the view definition identified by view_name in a given set of mappings
-      operationId: put__owlOntology_name_version_mapping_ID_views
+      operationId: putOwlOntologyNameVersionMappingIDViews
       parameters:
         - name: name
           in: path
@@ -1090,7 +1090,7 @@ paths:
       tags:
         - SQLView
       summary: Deletes a view definition
-      operationId: delete__owlOntology_name_version_mapping_ID_views
+      operationId: deleteOwlOntologyNameVersionMappingIDViews
       parameters:
         - name: name
           in: path
@@ -1126,7 +1126,7 @@ paths:
       tags:
         - SQLView
       summary: No description available
-      operationId: post__owlOntology_name_version_mapping_ID_views_refactoring
+      operationId: postOwlOntologyNameVersionMappingIDViewsRefactoring
       parameters:
         - name: name
           in: path
@@ -1162,7 +1162,7 @@ paths:
       tags:
         - SQLView
       summary: No description available
-      operationId: put__owlOntology_name_version_mapping_ID_views_refactoring
+      operationId: putOwlOntologyNameVersionMappingIDViewsRefactoring
       parameters:
         - name: name
           in: path
@@ -1199,7 +1199,7 @@ paths:
       tags:
         - SQLView
       summary: No description available
-      operationId: get__owlOntology_name_version_mapping_ID_views_viewID
+      operationId: getOwlOntologyNameVersionMappingIDViewsViewID
       parameters:
         - name: name
           in: path
@@ -1235,7 +1235,7 @@ paths:
       tags:
         - IntensionalAnnotation
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/annotations
-      operationId: get__owlOntology_name_version_intensional_annotation_mapping
+      operationId: getOwlOntologyNameVersionIntensionalAnnotationMapping
       parameters:
         - name: name
           in: path
@@ -1267,7 +1267,7 @@ paths:
       tags:
         - IntensionalAnnotation
       summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/annotations
-      operationId: post__owlOntology_name_version_intensional_annotation_mapping_mapId
+      operationId: postOwlOntologyNameVersionIntensionalAnnotationMappingMapId
       parameters:
         - name: name
           in: path
@@ -1304,7 +1304,7 @@ paths:
       tags:
         - IntensionalAnnotation
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/annotation/{mapID}
-      operationId: get__owlOntology_name_version_intensional_annotation_mapping_mapId
+      operationId: getOwlOntologyNameVersionIntensionalAnnotationMappingMapId
       parameters:
         - name: name
           in: path
@@ -1339,7 +1339,7 @@ paths:
       tags:
         - IntensionalAnnotation
       summary: DELETE mwsx/owlOntology/{name}/version/mapping/{ID}/annotation/{mapID}
-      operationId: delete__owlOntology_name_version_intensional_annotation_mapping_mapId
+      operationId: deleteOwlOntologyNameVersionIntensionalAnnotationMappingMapId
       parameters:
         - name: name
           in: path
@@ -1374,7 +1374,7 @@ paths:
       tags:
         - IntensionalAnnotation
       summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/annotation/{mapID}
-      operationId: put__owlOntology_name_version_intensional_annotation_mapping_mapId
+      operationId: putOwlOntologyNameVersionIntensionalAnnotationMappingMapId
       parameters:
         - name: name
           in: path
@@ -1416,7 +1416,7 @@ paths:
       tags:
         - IntensionalAnnotation
       summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/generateIntensionalAnnotationsOntology
-      operationId: post__owlOntology_name_version_mapping_ID_generateIntensionalAnnotationsOntology
+      operationId: postOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntology
       parameters:
         - name: name
           in: path
@@ -1453,7 +1453,7 @@ paths:
       tags:
         - IntensionalAnnotation
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/state
-      operationId: get__owlOntology_name_version_mapping_ID_generateIntensionalAnnotationsOntology_threadState
+      operationId: getOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntologyThreadState
       parameters:
         - name: name
           in: path
@@ -1489,7 +1489,7 @@ paths:
       tags:
         - IntensionalAnnotation
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/error
-      operationId: get__owlOntology_name_version_mapping_ID_generateIntensionalAnnotationsOntology_error
+      operationId: getOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntologyError
       parameters:
         - name: name
           in: path
@@ -1525,7 +1525,7 @@ paths:
       tags:
         - IntensionalAnnotation
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/export
-      operationId: get__owlOntology_name_version_mapping_ID_generateIntensionalAnnotationsOntology_export
+      operationId: getOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntologyExport
       parameters:
         - name: name
           in: path
@@ -1561,7 +1561,7 @@ paths:
       tags:
         - IntensionalAnnotation
       summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/stop
-      operationId: put__owlOntology_name_version_mapping_ID_generateIntensionalAnnotationsOntology_stop
+      operationId: putOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntologyStop
       parameters:
         - name: name
           in: path
@@ -1597,7 +1597,7 @@ paths:
       tags:
         - IntensionalAnnotation
       summary: DELETE mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}
-      operationId: delete__owlOntology_name_version_mapping_ID_generateIntensionalAnnotationsOntology
+      operationId: deleteOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntology
       parameters:
         - name: name
           in: path
@@ -1633,7 +1633,7 @@ paths:
       tags:
         - Dependencies
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies
-      operationId: get__owlOntology_name_version_mapping_ID_dependencies
+      operationId: getOwlOntologyNameVersionMappingIDDependencies
       parameters:
         - name: name
           in: path
@@ -1664,7 +1664,7 @@ paths:
       tags:
         - Dependencies
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/inclusions
-      operationId: get__owlOntology_name_version_mapping_ID_dependencies_inclusions
+      operationId: getOwlOntologyNameVersionMappingIDDependenciesInclusions
       parameters:
         - name: name
           in: path
@@ -1696,7 +1696,7 @@ paths:
       tags:
         - Dependencies
       summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/inclusions
-      operationId: post__owlOntology_name_version_mapping_ID_dependencies_inclusions
+      operationId: postOwlOntologyNameVersionMappingIDDependenciesInclusions
       parameters:
         - name: name
           in: path
@@ -1733,7 +1733,7 @@ paths:
       tags:
         - Dependencies
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/inclusion/{incID}
-      operationId: get__owlOntology_name_version_mapping_ID_dependencies_inclusion_incID
+      operationId: getOwlOntologyNameVersionMappingIDDependenciesInclusionIncID
       parameters:
         - name: name
           in: path
@@ -1768,7 +1768,7 @@ paths:
       tags:
         - Dependencies
       summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/inclusion/{incID}
-      operationId: put__owlOntology_name_version_mapping_ID_dependencies_inclusion_incID
+      operationId: putOwlOntologyNameVersionMappingIDDependenciesInclusionIncID
       parameters:
         - name: name
           in: path
@@ -1809,7 +1809,7 @@ paths:
       tags:
         - Dependencies
       summary: DELETE mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/inclusion/{incID}
-      operationId: delete__owlOntology_name_version_mapping_ID_dependencies_inclusion_incID
+      operationId: deleteOwlOntologyNameVersionMappingIDDependenciesInclusionIncID
       parameters:
         - name: name
           in: path
@@ -1845,7 +1845,7 @@ paths:
       tags:
         - Dependencies
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/keys
-      operationId: get__owlOntology_name_version_mapping_ID_dependencies_keys
+      operationId: getOwlOntologyNameVersionMappingIDDependenciesKeys
       parameters:
         - name: name
           in: path
@@ -1877,7 +1877,7 @@ paths:
       tags:
         - Dependencies
       summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/keys
-      operationId: post__owlOntology_name_version_mapping_ID_dependencies_keys
+      operationId: postOwlOntologyNameVersionMappingIDDependenciesKeys
       parameters:
         - name: name
           in: path
@@ -1914,7 +1914,7 @@ paths:
       tags:
         - Dependencies
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/key/{keyID}
-      operationId: get__owlOntology_name_version_mapping_ID_dependencies_key_keyID
+      operationId: getOwlOntologyNameVersionMappingIDDependenciesKeyKeyID
       parameters:
         - name: name
           in: path
@@ -1949,7 +1949,7 @@ paths:
       tags:
         - Dependencies
       summary: DELETE mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/key/{keyID}
-      operationId: delete__owlOntology_name_version_mapping_ID_dependencies_key_keyID
+      operationId: deleteOwlOntologyNameVersionMappingIDDependenciesKeyKeyID
       parameters:
         - name: name
           in: path
@@ -1984,7 +1984,7 @@ paths:
       tags:
         - Dependencies
       summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/key/{keyID}
-      operationId: put__owlOntology_name_version_mapping_ID_dependencies_key_keyID
+      operationId: putOwlOntologyNameVersionMappingIDDependenciesKeyKeyID
       parameters:
         - name: name
           in: path
@@ -2026,7 +2026,7 @@ paths:
       tags:
         - Dependencies
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/denials
-      operationId: get__owlOntology_name_version_mapping_ID_dependencies_denials
+      operationId: getOwlOntologyNameVersionMappingIDDependenciesDenials
       parameters:
         - name: name
           in: path
@@ -2058,7 +2058,7 @@ paths:
       tags:
         - Dependencies
       summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/denials
-      operationId: post__owlOntology_name_version_mapping_ID_dependencies_denials
+      operationId: postOwlOntologyNameVersionMappingIDDependenciesDenials
       parameters:
         - name: name
           in: path
@@ -2095,7 +2095,7 @@ paths:
       tags:
         - Dependencies
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/denial/{denyID}
-      operationId: get__owlOntology_name_version_mapping_ID_dependencies_denial_denyID
+      operationId: getOwlOntologyNameVersionMappingIDDependenciesDenialDenyID
       parameters:
         - name: name
           in: path
@@ -2130,7 +2130,7 @@ paths:
       tags:
         - Dependencies
       summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/denial/{denyID}
-      operationId: put__owlOntology_name_version_mapping_ID_dependencies_denial_denyID
+      operationId: putOwlOntologyNameVersionMappingIDDependenciesDenialDenyID
       parameters:
         - name: name
           in: path
@@ -2171,7 +2171,7 @@ paths:
       tags:
         - Dependencies
       summary: DELETE mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/denial/{denyID}
-      operationId: delete__owlOntology_name_version_mapping_ID_dependencies_denial_denyID
+      operationId: deleteOwlOntologyNameVersionMappingIDDependenciesDenialDenyID
       parameters:
         - name: name
           in: path
@@ -2207,7 +2207,7 @@ paths:
       tags:
         - Parameters
       summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/parameter
-      operationId: post__owlOntology_name_version_mapping_ID_parameter
+      operationId: postOwlOntologyNameVersionMappingIDParameter
       parameters:
         - name: name
           in: path
@@ -2243,7 +2243,7 @@ paths:
       tags:
         - Parameters
       summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/parameter
-      operationId: put__owlOntology_name_version_mapping_ID_parameter
+      operationId: putOwlOntologyNameVersionMappingIDParameter
       parameters:
         - name: name
           in: path
@@ -2280,7 +2280,7 @@ paths:
       tags:
         - Parameters
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/parameters
-      operationId: get__owlOntology_name_version_mapping_ID_parameters
+      operationId: getOwlOntologyNameVersionMappingIDParameters
       parameters:
         - name: name
           in: path
@@ -2311,7 +2311,7 @@ paths:
       tags:
         - Parameters
       summary: DELETE mwsx/owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}
-      operationId: delete__owlOntology_name_version_mapping_ID_parameter
+      operationId: deleteOwlOntologyNameVersionMappingIDParameter
       parameters:
         - name: name
           in: path
@@ -2347,7 +2347,7 @@ paths:
       tags:
         - Parameters
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/parameters
-      operationId: get__owlOntology_name_version_mapping_ID_ass_parameters
+      operationId: getOwlOntologyNameVersionMappingIDAssParameters
       parameters:
         - name: name
           in: path
@@ -2385,7 +2385,7 @@ paths:
       tags:
         - Database
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/referencedTables
-      operationId: get__owlOntology_name_version_mapping_ID_ass_refTables
+      operationId: getOwlOntologyNameVersionMappingIDAssRefTables
       parameters:
         - name: name
           in: path
@@ -2423,7 +2423,7 @@ paths:
       tags:
         - Test
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/testSQLQuery
-      operationId: get__owlOntology_name_version_mapping_ID_ass_testSQLQuery
+      operationId: getOwlOntologyNameVersionMappingIDAssTestSQLQuery
       parameters:
         - name: name
           in: path
@@ -2470,7 +2470,7 @@ paths:
       tags:
         - Test
       summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/testCustomSQLQuery
-      operationId: post__owlOntology_name_version_mapping_ID_ass_testCustomSQLQuery
+      operationId: postOwlOntologyNameVersionMappingIDAssTestCustomSQLQuery
       parameters:
         - name: name
           in: path
@@ -2523,7 +2523,7 @@ paths:
       tags:
         - Test
       summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/testCustomSQLQuery
-      operationId: post__owlOntology_name_version_mapping_ID_ass_testCustomSQLQuery_from_mapAssertion
+      operationId: postOwlOntologyNameVersionMappingIDAssTestCustomSQLQueryFromMapAssertion
       parameters:
         - name: name
           in: path
@@ -2571,7 +2571,7 @@ paths:
       tags:
         - Test
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/typeCheckingReport
-      operationId: get__owlOntology_name_version_mapping_ID_ass_typeCheckingReport
+      operationId: getOwlOntologyNameVersionMappingIDAssTypeCheckingReport
       parameters:
         - name: name
           in: path
@@ -2614,7 +2614,7 @@ paths:
       tags:
         - SQLView
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/view/{viewName}/parameters
-      operationId: get__owlOntology_name_version_mapping_ID_view_parameters
+      operationId: getOwlOntologyNameVersionMappingIDViewParameters
       parameters:
         - name: name
           in: path
@@ -2652,7 +2652,7 @@ paths:
       tags:
         - Parameters
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}/views
-      operationId: get__owlOntology_name_version_mapping_ID_parameter_views
+      operationId: getOwlOntologyNameVersionMappingIDParameterViews
       parameters:
         - name: name
           in: path
@@ -2690,7 +2690,7 @@ paths:
       tags:
         - Parameters
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}/assertions
-      operationId: get__owlOntology_name_version_mapping_ID_parameter_assertions
+      operationId: getOwlOntologyNameVersionMappingIDParameterAssertions
       parameters:
         - name: name
           in: path
@@ -2726,7 +2726,7 @@ paths:
   /owlOntology/{name}/version/mapping/{mapID}/query/{queryID}/delete:
     delete:
       summary: DELETE mwsx/owlOntology/{name}/version/mapping/{mapID}/query/{queryID}/delete
-      operationId: delete__owlOntology_name_version_query_ID_stop
+      operationId: deleteOwlOntologyNameVersionQueryIDStop
       parameters:
         - name: name
           in: path
@@ -2762,7 +2762,7 @@ paths:
       tags:
         - Template
       summary: GET mwsx/owlOntology/{name}/version/mapping/{mapID}/suggestedTemplate/{entityID}
-      operationId: get__owlOntology_name_version_mapID_suggestedTemplate_entityID
+      operationId: getOwlOntologyNameVersionMapIDSuggestedTemplateEntityID
       parameters:
         - name: name
           in: path
@@ -2805,7 +2805,7 @@ paths:
       tags:
         - DataLineage
       summary: GET mwsx/owlOntology/{name}/version/mapping/{mapID}/dataLineage/{entityID}
-      operationId: get__owlOntology_name_version_mapID_entityID_dataLineage
+      operationId: getOwlOntologyNameVersionMapIDEntityIDDataLineage
       parameters:
         - name: name
           in: path
@@ -2846,7 +2846,7 @@ paths:
       tags:
         - DataLineage
       summary: GET mwsx/owlOntology/{name}/version/mapping/{mapID}/dataLineageProperty/{entityID}
-      operationId: get__owlOntology_name_version_mapID_entityID_dataLineageProperty
+      operationId: getOwlOntologyNameVersionMapIDEntityIDDataLineageProperty
       parameters:
         - name: name
           in: path
@@ -2882,7 +2882,7 @@ paths:
       tags:
         - DataLineage
       summary: GET mwsx/owlOntology/{name}/version/mapping/{mapID}/dataLineageAnnotationProperty
-      operationId: get__owlOntology_name_version_mapID_entityID_dataLineageAnnotationProperty
+      operationId: getOwlOntologyNameVersionMapIDEntityIDDataLineageAnnotationProperty
       parameters:
         - name: name
           in: path

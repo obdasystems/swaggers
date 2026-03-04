@@ -1,7 +1,7 @@
 post:
   tags: [Info]
   summary: POST mwsx/endpoint/{eName}/saturatedOntology
-  operationId: get__endpoint_ename_saturatedOntology
+  operationId: getEndpointEnameSaturatedOntology
   parameters:
   - name: eName
     in: path

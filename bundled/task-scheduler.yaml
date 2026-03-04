@@ -26,7 +26,7 @@ paths:
       tags:
         - State
       summary: Starts the task scheduler
-      operationId: get__task_scheduler_state
+      operationId: getTaskSchedulerState
       responses:
         '200':
           description: OK
@@ -40,7 +40,7 @@ paths:
       tags:
         - State
       summary: Starts the task scheduler
-      operationId: put__task_scheduler_state
+      operationId: putTaskSchedulerState
       parameters:
         - name: action
           in: query
@@ -57,7 +57,7 @@ paths:
       tags:
         - Actions
       summary: Schedules a new job in the task scheduler, returns the ID of the scheduled job
-      operationId: post__task_scheduler_jobs
+      operationId: postTaskSchedulerJobs
       requestBody:
         content:
           application/json:
@@ -77,7 +77,7 @@ paths:
       tags:
         - Actions
       summary: Schedules a new job in the task scheduler, returns the ID of the scheduled job
-      operationId: get__task_scheduler_jobs
+      operationId: getTaskSchedulerJobs
       responses:
         '200':
           description: OK
@@ -94,7 +94,7 @@ paths:
       tags:
         - Persistence
       summary: Lists the jobs available in the scheduler folder
-      operationId: get__task_scheduler_jobs_available
+      operationId: getTaskSchedulerJobsAvailable
       responses:
         '200':
           description: OK
@@ -111,7 +111,7 @@ paths:
       tags:
         - Persistence
       summary: Get the list of job entries in the task scheduler
-      operationId: get__task_scheduler_job_entries
+      operationId: getTaskSchedulerJobEntries
       responses:
         '200':
           description: OK
@@ -128,7 +128,7 @@ paths:
       tags:
         - Actions
       summary: Schedules a new job in the task scheduler, returns the ID of the scheduled job
-      operationId: post__task_scheduler_job_entries
+      operationId: postTaskSchedulerJobEntries
       parameters:
         - name: mode
           in: query
@@ -157,7 +157,7 @@ paths:
       tags:
         - Persistence
       summary: Returns the main entry of the job ID
-      operationId: get__task_scheduler_job_entry
+      operationId: getTaskSchedulerJobEntry
       parameters:
         - name: jobId
           in: path
@@ -178,7 +178,7 @@ paths:
       tags:
         - Execution
       summary: Returns the execution entry (identified by execId) of the job (identified by jobId)
-      operationId: get__task_scheduler_job_entries_execution_id
+      operationId: getTaskSchedulerJobEntriesExecutionId
       parameters:
         - name: jobId
           in: path
@@ -204,7 +204,7 @@ paths:
       tags:
         - Execution
       summary: Returns the execution entries of the job ID
-      operationId: get__task_scheduler_job_execution_entries
+      operationId: getTaskSchedulerJobExecutionEntries
       parameters:
         - name: jobId
           in: path
@@ -227,7 +227,7 @@ paths:
       tags:
         - Actions
       summary: Un-schedules and deletes a job in the task scheduler
-      operationId: delete__task_scheduler_job_entries
+      operationId: deleteTaskSchedulerJobEntries
       parameters:
         - name: jobId
           in: path
@@ -248,7 +248,7 @@ paths:
       tags:
         - Execution
       summary: Un-schedules and deletes a job in the task scheduler
-      operationId: get__task_scheduler_job_entries_executions_ids
+      operationId: getTaskSchedulerJobEntriesExecutionsIds
       parameters:
         - name: jobId
           in: path

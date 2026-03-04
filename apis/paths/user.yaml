@@ -1,7 +1,7 @@
 post:
   tags: [User]
   summary: Creates a new user
-  operationId: post__user
+  operationId: postUser
   parameters:
   - name: secret
     in: query

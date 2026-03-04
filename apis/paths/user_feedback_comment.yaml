@@ -1,7 +1,7 @@
 post:
   tags: [User]
   summary: Returns the feedback provided by all the users
-  operationId: post__user_feedback_comment
+  operationId: postUserFeedbackComment
   requestBody:
     content:
       application/json:

@@ -1,7 +1,7 @@
 put:
   tags: [Persistence]
   summary: PUT mwsx/owlOntology/{name}/version/dashboard/{dashboardId}
-  operationId: put__owlOntology_version_dashboards
+  operationId: putOwlOntologyVersionDashboards
   parameters:
   - name: name
     in: path
@@ -30,7 +30,7 @@ put:
 delete:
   tags: [Persistence]
   summary: DELETE mwsx/owlOntology/{name}/version/dashboard/{dashboardId}
-  operationId: delete__owlOntology_version_dashboards
+  operationId: deleteOwlOntologyVersionDashboards
   parameters:
   - name: name
     in: path

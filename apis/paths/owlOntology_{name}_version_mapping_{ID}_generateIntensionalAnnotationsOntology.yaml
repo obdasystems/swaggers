@@ -1,7 +1,7 @@
 post:
   tags: [IntensionalAnnotation]
   summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/generateIntensionalAnnotationsOntology
-  operationId: post__owlOntology_name_version_mapping_ID_generateIntensionalAnnotationsOntology
+  operationId: postOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntology
   parameters:
   - name: name
     in: path
@@ -25,5 +25,5 @@ post:
       description: OK
       content:
         text/plain:
-          schema: { type: string }
+          schema: {type: string}
     '401': {description: Unhauthorized}

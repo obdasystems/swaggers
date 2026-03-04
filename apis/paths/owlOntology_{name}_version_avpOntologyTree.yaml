@@ -1,7 +1,7 @@
 get:
   tags: [Logical]
   summary: GET mwsx/owlOntology/{name}/version/avpOntologyTree
-  operationId: get__owlOntology_name_version_avpOntologyTreet
+  operationId: getOwlOntologyNameVersionAvpOntologyTreet
   parameters:
   - name: name
     in: path

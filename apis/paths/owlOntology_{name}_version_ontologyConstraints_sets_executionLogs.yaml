@@ -1,7 +1,7 @@
 get:
   tags: [CheckSet]
   summary: Returns all the execution logs of the given check set
-  operationId: get_ontologyConstraints_execution_log
+  operationId: getOntologyConstraintsExecutionLog
   parameters:
   - name: name
     in: path

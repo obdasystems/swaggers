@@ -1,7 +1,7 @@
 get:
   tags: [CheckSet]
   summary: Returns the dump of a data quality check set
-  operationId: get_ontologyConstraints_checkSetId_export
+  operationId: getOntologyConstraintsCheckSetIdExport
   parameters:
   - name: name
     in: path

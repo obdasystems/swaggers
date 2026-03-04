@@ -1,7 +1,7 @@
 get:
   tags: [Persistence]
   summary: Returns a list of the SPARQLING queries currently stored in the catalog
-  operationId: get__owlOntology_name_version_queries_sparqling
+  operationId: getOwlOntologyNameVersionQueriesSparqling
   parameters:
   - name: name
     in: path

@@ -2,7 +2,7 @@ put:
   tags: [Publication]
   summary: Accept the publication of a query for which a publication request has been
     formerly requested
-  operationId: put__owlOntology_name_version_querycatalog_accept_publication
+  operationId: putOwlOntologyNameVersionQuerycatalogAcceptPublication
   parameters:
   - name: name
     in: path
@@ -35,7 +35,7 @@ delete:
   tags: [Publication]
   summary: Accept the publication of a query for which a publication request has been
     formerly requested
-  operationId: delete__owlOntology_name_version_querycatalog_accept_publication
+  operationId: deleteOwlOntologyNameVersionQuerycatalogAcceptPublication
   parameters:
   - name: name
     in: path

@@ -1,7 +1,7 @@
 get:
   tags: [Roles]
   summary: GET mwsx/role/{rolename}
-  operationId: get__role_name
+  operationId: getRoleName
   parameters:
   - name: rolename
     in: path
@@ -17,7 +17,7 @@ get:
 put:
   tags: [Roles]
   summary: PUT mwsx/role/{rolename}
-  operationId: put__role
+  operationId: putRole
   parameters:
   - name: rolename
     in: path
@@ -38,7 +38,7 @@ put:
 delete:
   tags: [Roles]
   summary: DELETE mwsx/role/{rolename}
-  operationId: delete__role
+  operationId: deleteRole
   parameters:
   - name: rolename
     in: path

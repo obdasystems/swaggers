@@ -1,7 +1,7 @@
 put:
   tags: [Query]
   summary: PUT mwsx/knowledgeGraph/query/{queryID}/stop
-  operationId: get__knowledgeGraph_query_executionID_stop
+  operationId: getKnowledgeGraphQueryExecutionIDStop
   parameters:
   - name: queryID
     in: path

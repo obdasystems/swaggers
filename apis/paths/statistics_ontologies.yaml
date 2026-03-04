@@ -1,7 +1,7 @@
 get:
   tags: [Statistics]
   summary: Returns the ontologies statistics
-  operationId: get_ontologies_statistics
+  operationId: getOntologiesStatistics
   responses:
     '200':
       description: OK
@@ -14,7 +14,7 @@ get:
 post:
   tags: [Statistics]
   summary: Replace the current ontologies statistics with the one provided
-  operationId: post_ontologies_statistics
+  operationId: postOntologiesStatistics
   requestBody:
     content:
       application/json:
@@ -34,7 +34,7 @@ post:
 put:
   tags: [Statistics]
   summary: Adds the provided ontologies statistics to the one registered in the system
-  operationId: put_ontologies_statistics
+  operationId: putOntologiesStatistics
   requestBody:
     content:
       application/json:
@@ -54,7 +54,7 @@ put:
 delete:
   tags: [Statistics]
   summary: Delete the provided ontologies statistics from the system
-  operationId: delete_ontologies_statistics
+  operationId: deleteOntologiesStatistics
   responses:
     '200':
       description: OK

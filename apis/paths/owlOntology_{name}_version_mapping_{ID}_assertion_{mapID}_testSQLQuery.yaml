@@ -1,7 +1,7 @@
 get:
   tags: [Test]
   summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/testSQLQuery
-  operationId: get__owlOntology_name_version_mapping_ID_ass_testSQLQuery
+  operationId: getOwlOntologyNameVersionMappingIDAssTestSQLQuery
   parameters:
   - name: name
     in: path

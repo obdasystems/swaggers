@@ -1,7 +1,7 @@
 get:
   tags: [Upload]
   summary: GET mwsx/knowledgeGraph/upload/files/csv
-  operationId: get__knowledgeGraph_upload_file_csv
+  operationId: getKnowledgeGraphUploadFileCsv
   responses:
     '200':
       description: OK

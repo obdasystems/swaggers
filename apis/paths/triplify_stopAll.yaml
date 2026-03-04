@@ -1,7 +1,7 @@
 put:
   tags: [Execution]
   summary: Stops all running triplification threads
-  operationId: put_mappings_triplification_stop_all
+  operationId: putMappingsTriplificationStopAll
   responses:
     '200': {description: OK}
     '401': {description: Unhauthorized}

@@ -52,7 +52,7 @@ paths:
       tags:
         - Versions
       summary: Returns the version of Mastro
-      operationId: get__mastro_version
+      operationId: getMastroVersion
       responses:
         '200':
           description: OK
@@ -67,7 +67,7 @@ paths:
       tags:
         - Versions
       summary: Returns the version of the Jena library used by Mastro
-      operationId: get__jena_version
+      operationId: getJenaVersion
       responses:
         '200':
           description: OK
@@ -82,7 +82,7 @@ paths:
       tags:
         - Versions
       summary: Returns the version of the OWL API used by Mastro
-      operationId: get__owlapi_version
+      operationId: getOwlapiVersion
       responses:
         '200':
           description: OK
@@ -97,7 +97,7 @@ paths:
       tags:
         - Resources
       summary: GET mwsx/resources/ontologies
-      operationId: get__resources_ids
+      operationId: getResourcesIds
       responses:
         '200':
           description: OK
@@ -114,7 +114,7 @@ paths:
       tags:
         - Resources
       summary: GET mwsx/resources/ontology/{name}/versions
-      operationId: get__resources_ids_versions
+      operationId: getResourcesIdsVersions
       parameters:
         - name: name
           in: path
@@ -137,7 +137,7 @@ paths:
       tags:
         - Resources
       summary: GET mwsx/resources/ontology/{name}/version/mappings
-      operationId: get__resources_ids_mappings
+      operationId: getResourcesIdsMappings
       parameters:
         - name: name
           in: path
@@ -165,7 +165,7 @@ paths:
       tags:
         - Resources
       summary: GET mwsx/resources/datasources
-      operationId: get__resources_ds_ids
+      operationId: getResourcesDsIds
       responses:
         '200':
           description: OK
@@ -182,7 +182,7 @@ paths:
       tags:
         - Resources
       summary: GET mwsx/resources/endpoints
-      operationId: get__resources_ep_ids
+      operationId: getResourcesEpIds
       responses:
         '200':
           description: OK
@@ -199,7 +199,7 @@ paths:
       tags:
         - Mastro
       summary: GET mwsx/mastro/instances
-      operationId: get__available_instances
+      operationId: getAvailableInstances
       responses:
         '200':
           description: OK
@@ -216,7 +216,7 @@ paths:
       tags:
         - LastLoaded
       summary: GET mwsx/lastLoaded/ontology
-      operationId: get_lastLoaded_ontology
+      operationId: getLastLoadedOntology
       responses:
         '200':
           description: OK
@@ -233,7 +233,7 @@ paths:
       tags:
         - LastLoaded
       summary: GET mwsx/lastLoaded/knowledgeGraph
-      operationId: get_lastLoaded_knowledgeGraph
+      operationId: getLastLoadedKnowledgeGraph
       responses:
         '200':
           description: OK
@@ -250,7 +250,7 @@ paths:
       tags:
         - GlobalAnnotation
       summary: GET mwsx/globalAnnotations
-      operationId: get_global_annotations
+      operationId: getGlobalAnnotations
       responses:
         '200':
           description: OK
@@ -267,7 +267,7 @@ paths:
       tags:
         - GlobalAnnotation
       summary: POST mwsx/globalAnnotation
-      operationId: post_global_annotation
+      operationId: postGlobalAnnotation
       requestBody:
         content:
           application/json:
@@ -290,7 +290,7 @@ paths:
       tags:
         - GlobalAnnotation
       summary: DELETE mwsx/globalAnnotation/{entityId}
-      operationId: delete_global_annotation
+      operationId: deleteGlobalAnnotation
       parameters:
         - name: entityId
           in: path
@@ -313,7 +313,7 @@ paths:
       tags:
         - Server
       summary: Returns the license expiration date
-      operationId: get_server_license_expiration_date
+      operationId: getServerLicenseExpirationDate
       responses:
         '200':
           description: OK
@@ -328,7 +328,7 @@ paths:
       tags:
         - Server
       summary: Returns the license contact information
-      operationId: get_server_license_contact_info
+      operationId: getServerLicenseContactInfo
       responses:
         '200':
           description: OK
@@ -343,7 +343,7 @@ paths:
       tags:
         - Server
       summary: Computes and returns the system storage report
-      operationId: get_system_storage_report
+      operationId: getSystemStorageReport
       responses:
         '200':
           description: OK
@@ -358,7 +358,7 @@ paths:
       tags:
         - Server
       summary: Computes and returns the system storage report
-      operationId: get_empty_folder
+      operationId: getEmptyFolder
       parameters:
         - name: folder
           in: path
@@ -379,7 +379,7 @@ paths:
       tags:
         - Server
       summary: Computes and returns the system storage report
-      operationId: get_system_snapshot
+      operationId: getSystemSnapshot
       responses:
         '200':
           description: OK
@@ -394,7 +394,7 @@ paths:
       tags:
         - Server
       summary: Computes and returns the system storage report
-      operationId: get_system_memory
+      operationId: getSystemMemory
       responses:
         '200':
           description: OK
@@ -409,7 +409,7 @@ paths:
       tags:
         - Server
       summary: Returns the user log lines count
-      operationId: get_userlog_count
+      operationId: getUserlogCount
       parameters:
         - name: username
           in: path
@@ -430,7 +430,7 @@ paths:
       tags:
         - Server
       summary: Returns the user log lines count
-      operationId: get_userlog_count_user
+      operationId: getUserlogCountUser
       parameters:
         - name: username
           in: path
@@ -465,7 +465,7 @@ paths:
       tags:
         - Geocoding
       summary: Returns the list of available Geocoding servers
-      operationId: get_geocoding_servers
+      operationId: getGeocodingServers
       responses:
         '200':
           description: OK
@@ -480,7 +480,7 @@ paths:
       tags:
         - Geocoding
       summary: Adds or modifies the specified Geocoding server and returns the new list of available servers
-      operationId: put_geocoding_server
+      operationId: putGeocodingServer
       parameters:
         - name: serverId
           in: path
@@ -506,7 +506,7 @@ paths:
       tags:
         - Geocoding
       summary: Removes the specified server from the list of available servers
-      operationId: delete_geocoding_server
+      operationId: deleteGeocodingServer
       parameters:
         - name: serverId
           in: path
@@ -527,7 +527,7 @@ paths:
       tags:
         - Logger
       summary: GET mwsx/logger/mastroapi
-      operationId: get_set_mastroapi_logger
+      operationId: getSetMastroapiLogger
       parameters:
         - name: mode
           in: query
@@ -549,7 +549,7 @@ paths:
       tags:
         - Logger
       summary: GET mwsx/logger/service
-      operationId: get_set_service_logger
+      operationId: getSetServiceLogger
       parameters:
         - name: mode
           in: query
@@ -571,7 +571,7 @@ paths:
       tags:
         - Logger
       summary: GET mwsx/logger
-      operationId: get_set_logger
+      operationId: getSetLogger
       parameters:
         - name: className
           in: query
@@ -603,7 +603,7 @@ paths:
       tags:
         - Logger
       summary: GET mwsx/logger/class
-      operationId: get_set_service_class
+      operationId: getSetServiceClass
       parameters:
         - name: className
           in: query
@@ -635,7 +635,7 @@ paths:
       tags:
         - Logger
       summary: GET mwsx/logger/package
-      operationId: get_set_service_package
+      operationId: getSetServicePackage
       parameters:
         - name: packageName
           in: query
@@ -667,7 +667,7 @@ paths:
       tags:
         - Logger
       summary: GET mwsx/logger/list
-      operationId: get_set_service_logger_list
+      operationId: getSetServiceLoggerList
       responses:
         '200':
           description: OK
@@ -682,7 +682,7 @@ paths:
       tags:
         - Logger
       summary: GET mwsx/logger/monitor
-      operationId: get_set_monitor_logger
+      operationId: getSetMonitorLogger
       parameters:
         - name: mode
           in: query
@@ -704,7 +704,7 @@ paths:
       tags:
         - Statics
       summary: POST mwsx/statics/sparql/extractProjectVarNames
-      operationId: post_extract_query_head
+      operationId: postExtractQueryHead
       requestBody:
         content:
           text/plain:
@@ -727,7 +727,7 @@ paths:
       tags:
         - Statics
       summary: POST mwsx/statics/sparql/templateSize
-      operationId: post_extract_template_size
+      operationId: postExtractTemplateSize
       requestBody:
         content:
           application/json:
@@ -748,7 +748,7 @@ paths:
       tags:
         - Statics
       summary: POST mwsx/statics/reporting/request
-      operationId: post_extract_issue_report
+      operationId: postExtractIssueReport
       requestBody:
         content:
           application/json:
@@ -874,7 +874,7 @@ paths:
       tags:
         - QueryTags
       summary: Returns all the available query tags
-      operationId: get_queryTags
+      operationId: getQueryTags
       responses:
         '200':
           description: OK
@@ -888,7 +888,7 @@ paths:
       tags:
         - QueryTags
       summary: Adds a new query tag to the set of available tags
-      operationId: post_queryTags
+      operationId: postQueryTags
       requestBody:
         content:
           application/json:
@@ -909,7 +909,7 @@ paths:
       tags:
         - QueryTags
       summary: Deletes the given query tag from the list of available tags
-      operationId: delete_queryTags_tagName
+      operationId: deleteQueryTagsTagName
       parameters:
         - name: tagName
           in: path
@@ -930,7 +930,7 @@ paths:
       tags:
         - Statistics
       summary: Returns the access log
-      operationId: get_accesses_statistics
+      operationId: getAccessesStatistics
       responses:
         '200':
           description: OK
@@ -946,7 +946,7 @@ paths:
       tags:
         - Statistics
       summary: Replace the current access log with the one provided
-      operationId: post_accesses_statistics
+      operationId: postAccessesStatistics
       requestBody:
         content:
           application/json:
@@ -970,7 +970,7 @@ paths:
       tags:
         - Statistics
       summary: Adds the provided access log to the one registered in the system
-      operationId: put_accesses_statistics
+      operationId: putAccessesStatistics
       requestBody:
         content:
           application/json:
@@ -994,7 +994,7 @@ paths:
       tags:
         - Statistics
       summary: Replace the current access log with the one provided
-      operationId: delete_accesses_statistics
+      operationId: deleteAccessesStatistics
       responses:
         '200':
           description: OK
@@ -1011,7 +1011,7 @@ paths:
       tags:
         - Statistics
       summary: Returns the ontologies statistics
-      operationId: get_ontologies_statistics
+      operationId: getOntologiesStatistics
       responses:
         '200':
           description: OK
@@ -1027,7 +1027,7 @@ paths:
       tags:
         - Statistics
       summary: Replace the current ontologies statistics with the one provided
-      operationId: post_ontologies_statistics
+      operationId: postOntologiesStatistics
       requestBody:
         content:
           application/json:
@@ -1051,7 +1051,7 @@ paths:
       tags:
         - Statistics
       summary: Adds the provided ontologies statistics to the one registered in the system
-      operationId: put_ontologies_statistics
+      operationId: putOntologiesStatistics
       requestBody:
         content:
           application/json:
@@ -1075,7 +1075,7 @@ paths:
       tags:
         - Statistics
       summary: Delete the provided ontologies statistics from the system
-      operationId: delete_ontologies_statistics
+      operationId: deleteOntologiesStatistics
       responses:
         '200':
           description: OK
@@ -1092,7 +1092,7 @@ paths:
       tags:
         - Statistics
       summary: Returns the query statistics for the given endpoint
-      operationId: get_statistics_endpoint_queries
+      operationId: getStatisticsEndpointQueries
       parameters:
         - name: endpoint
           in: path
@@ -1114,7 +1114,7 @@ paths:
       tags:
         - Statistics
       summary: Replace the current query statistics with the one provided for the given endpoint
-      operationId: post_statistics_endpoint_queries
+      operationId: postStatisticsEndpointQueries
       parameters:
         - name: endpoint
           in: path
@@ -1144,7 +1144,7 @@ paths:
       tags:
         - Statistics
       summary: Adds the provided query statistics for the given endpoint to the one registered in the system
-      operationId: put_statistics_endpoint_queries
+      operationId: putStatisticsEndpointQueries
       parameters:
         - name: endpoint
           in: path
@@ -1174,7 +1174,7 @@ paths:
       tags:
         - Statistics
       summary: Deletes from the system the query statistics for the given endpoint
-      operationId: delete_statistics_endpoint_queries
+      operationId: deleteStatisticsEndpointQueries
       parameters:
         - name: endpoint
           in: path
@@ -1197,7 +1197,7 @@ paths:
       tags:
         - Statistics
       summary: Returns the entities statistics for the given endpoint
-      operationId: get_statistics_endpoint_entities
+      operationId: getStatisticsEndpointEntities
       parameters:
         - name: endpoint
           in: path

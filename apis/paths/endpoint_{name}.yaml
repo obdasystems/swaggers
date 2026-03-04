@@ -1,7 +1,7 @@
 get:
   tags: [Persistence]
   summary: Returns an endpoint by its name
-  operationId: get_endpoint
+  operationId: getEndpoint
   parameters:
   - name: name
     in: path
@@ -17,7 +17,7 @@ get:
 delete:
   tags: [Persistence]
   summary: Deletes the endpoint by its name
-  operationId: delete_endpoint
+  operationId: deleteEndpoint
   parameters:
   - name: name
     in: path
@@ -33,7 +33,7 @@ delete:
 put:
   tags: [Persistence]
   summary: Updates the endpoint with the new values provided
-  operationId: put_endpoint
+  operationId: putEndpoint
   parameters:
   - name: name
     in: path

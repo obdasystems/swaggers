@@ -2,7 +2,7 @@ post:
   tags: [Actions]
   summary: Schedules a new job in the task scheduler, returns the ID of the scheduled
     job
-  operationId: post__task_scheduler_job_entries
+  operationId: postTaskSchedulerJobEntries
   parameters:
   - name: mode
     in: query
@@ -13,8 +13,7 @@ post:
       application/json:
         schema:
           type: object
-          additionalProperties:
-            type: string
+          additionalProperties: {type: string}
     required: true
   responses:
     '200':

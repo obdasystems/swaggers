@@ -1,7 +1,7 @@
 put:
   tags: [MonolithRole]
   summary: PUT mwsx/monolith/role/{rolename}
-  operationId: put__monolith__role
+  operationId: putMonolithRole
   parameters:
   - name: rolename
     in: path

@@ -1,7 +1,7 @@
 post:
   tags: [Persistence]
   summary: Duplicates a given set of mappings
-  operationId: post__owlOntology_name_version_mapping_ID_duplicate
+  operationId: postOwlOntologyNameVersionMappingIDDuplicate
   parameters:
   - name: name
     in: path

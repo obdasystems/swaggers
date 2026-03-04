@@ -1,7 +1,7 @@
 get:
   tags: [Resources]
   summary: GET mwsx/resources/ontologies
-  operationId: get__resources_ids
+  operationId: getResourcesIds
   responses:
     '200':
       description: OK

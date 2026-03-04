@@ -1,7 +1,7 @@
 get:
   tags: [Persistence]
   summary: Verifies whether a backup copy of a given mapping file exists
-  operationId: get__owlOntology_name_version_mapping_ID_backup
+  operationId: getOwlOntologyNameVersionMappingIDBackup
   parameters:
   - name: name
     in: path
@@ -25,7 +25,7 @@ get:
 post:
   tags: [Persistence]
   summary: Creates a backup copy of a given mapping file
-  operationId: post__owlOntology_name_version_mapping_ID_backup
+  operationId: postOwlOntologyNameVersionMappingIDBackup
   parameters:
   - name: name
     in: path
@@ -49,7 +49,7 @@ post:
 put:
   tags: [Persistence]
   summary: Restore a backup copy of a given mapping file
-  operationId: post__owlOntology_name_version_mapping_ID_restore
+  operationId: postOwlOntologyNameVersionMappingIDRestore
   parameters:
   - name: name
     in: path
@@ -73,7 +73,7 @@ put:
 delete:
   tags: [Persistence]
   summary: Deletes the backup copy of a given mapping file
-  operationId: post__owlOntology_name_version_mapping_ID_delete
+  operationId: postOwlOntologyNameVersionMappingIDDelete
   parameters:
   - name: name
     in: path

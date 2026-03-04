@@ -1,7 +1,7 @@
 get:
   tags: [Metadata]
   summary: Returns the data source information by its name
-  operationId: get__datasource_metadata
+  operationId: getDatasourceMetadata
   parameters:
   - name: name
     in: path

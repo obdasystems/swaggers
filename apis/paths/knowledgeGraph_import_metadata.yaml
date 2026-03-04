@@ -1,22 +1,20 @@
 post:
   tags: [Upload]
-  summary: "Import metadata triples like /owlOntology/{name}/version/loaderThreads/metadata:"
-  operationId: post__knowledgeGraph_import_metadata
+  summary: 'Import metadata triples like /owlOntology/{name}/version/loaderThreads/metadata:'
+  operationId: postKnowledgeGraphImportMetadata
   parameters:
-    - name: iri
-      in: query
-      required: true
-      schema: { type: string }
+  - name: iri
+    in: query
+    required: true
+    schema: {type: string}
   requestBody:
     content:
       application/json:
-        schema:
-          $ref: ../components/schemas/MWSXOntologyCatalogOntologyMetadataSet.yaml
+        schema: {$ref: ../components/schemas/MWSXOntologyCatalogOntologyMetadataSet.yaml}
   responses:
-    "200":
+    '200':
       description: OK
       content:
         application/json:
-          schema:
-            type: boolean
-    "401": { description: Unhauthorized }
+          schema: {type: boolean}
+    '401': {description: Unhauthorized}

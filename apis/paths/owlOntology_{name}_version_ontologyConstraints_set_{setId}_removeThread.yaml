@@ -1,7 +1,7 @@
 delete:
   tags: [CheckSet]
   summary: Deletes the execution thread of the specified check set from the server
-  operationId: delete_ontologyConstraints_check_removeThread
+  operationId: deleteOntologyConstraintsCheckRemoveThread
   parameters:
   - name: name
     in: path

@@ -1,7 +1,7 @@
 get:
   tags: [Instances]
   summary: GET mwsx/knowledgeGraph/instance/objectType
-  operationId: get__knowledgeGraph_instance_objectType
+  operationId: getKnowledgeGraphInstanceObjectType
   parameters:
   - name: kgIri
     in: query

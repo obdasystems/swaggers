@@ -1,7 +1,7 @@
 post:
   tags: [Test]
   summary: Perform checks on a given mapping file
-  operationId: post__owlOntology_name_version_mapping_ID_check
+  operationId: postOwlOntologyNameVersionMappingIDCheck
   parameters:
   - name: name
     in: path

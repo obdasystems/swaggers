@@ -1,7 +1,7 @@
 get:
   tags: [Persistence]
   summary: Returns the SPARQLQuery identified by the passed ID value
-  operationId: get__owlOntology_name_version_query_ID
+  operationId: getOwlOntologyNameVersionQueryID
   parameters:
   - name: name
     in: path
@@ -25,7 +25,7 @@ get:
 put:
   tags: [Persistence]
   summary: Updates the definition of a specific query within the available catalog
-  operationId: put__owlOntology_name_version_query_ID
+  operationId: putOwlOntologyNameVersionQueryID
   parameters:
   - name: name
     in: path
@@ -55,7 +55,7 @@ delete:
   tags: [Persistence]
   summary: Removes a specific query from the catalog available for this version of
     the ontology
-  operationId: delete__owlOntology_name_version_query_ID
+  operationId: deleteOwlOntologyNameVersionQueryID
   parameters:
   - name: name
     in: path

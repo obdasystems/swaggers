@@ -1,6 +1,6 @@
 delete:
   summary: DELETE mwsx/owlOntology/{name}/version/mapping/{mapID}/query/{queryID}/delete
-  operationId: delete__owlOntology_name_version_query_ID_stop
+  operationId: deleteOwlOntologyNameVersionQueryIDStop
   parameters:
   - name: name
     in: path

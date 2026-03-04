@@ -2,7 +2,7 @@ post:
   tags: [Persistence]
   summary: Copy a given set of mappins from a source ontology version to a target
     ontology version (works under the same ontology name)
-  operationId: post__owlOntology_name_version_mapping_ID_migrate
+  operationId: postOwlOntologyNameVersionMappingIDMigrate
   parameters:
   - name: name
     in: path

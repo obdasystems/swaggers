@@ -1,7 +1,7 @@
 get:
   tags: [Query]
   summary: GET mwsx/knowledgeGraph/query/{queryID}/status
-  operationId: get__knowledgeGraph_query_executionID_status
+  operationId: getKnowledgeGraphQueryExecutionIDStatus
   parameters:
   - name: queryID
     in: path

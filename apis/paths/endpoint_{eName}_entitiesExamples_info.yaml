@@ -1,18 +1,17 @@
 get:
   tags: [EntitiesExamples]
-  summary:
-    Get the info about the queries that will count the number of instances
+  summary: Get the info about the queries that will count the number of instances
     of each Class of the ontology
-  operationId: get__endpoint_entitiesExamples_info
+  operationId: getEndpointEntitiesExamplesInfo
   parameters:
-    - name: eName
-      in: path
-      required: true
-      schema: { type: string }
+  - name: eName
+    in: path
+    required: true
+    schema: {type: string}
   responses:
-    "200":
+    '200':
       description: OK
       content:
         application/json:
-          schema: { $ref: ../components/schemas/EntitiesExamplesInfo.yaml }
-    "401": { description: Unhauthorized }
+          schema: {$ref: ../components/schemas/EntitiesExamplesInfo.yaml}
+    '401': {description: Unhauthorized}

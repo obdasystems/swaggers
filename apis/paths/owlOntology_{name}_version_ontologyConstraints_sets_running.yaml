@@ -1,7 +1,7 @@
 get:
   tags: [CheckSet]
   summary: Returns the identifiers of the currently running check sets
-  operationId: get_ontologyConstraints_check_running
+  operationId: getOntologyConstraintsCheckRunning
   parameters:
   - name: name
     in: path

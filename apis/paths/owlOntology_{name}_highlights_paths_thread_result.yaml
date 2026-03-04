@@ -2,7 +2,7 @@ get:
   tags: [Highlights]
   summary: GET results of a thread computing ontology paths with multi edges over
     a given ontology
-  operationId: get_shortest_path_thread_result
+  operationId: getShortestPathThreadResult
   parameters:
   - name: name
     in: path

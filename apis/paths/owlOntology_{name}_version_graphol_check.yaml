@@ -1,7 +1,7 @@
 get:
   tags: [Visualize]
   summary: GET mwsx/owlOntology/{name}/version/graphol/check
-  operationId: get__owlOntology_name_version_graphol_check
+  operationId: getOwlOntologyNameVersionGrapholCheck
   parameters:
   - name: name
     in: path

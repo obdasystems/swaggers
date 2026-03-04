@@ -26,7 +26,7 @@ paths:
       tags:
         - Constraints
       summary: Returns the available constraints defined over the ontology / version
-      operationId: get_ontologyConstraints
+      operationId: getOntologyConstraints
       parameters:
         - name: name
           in: path
@@ -52,7 +52,7 @@ paths:
       tags:
         - SHACL
       summary: Returns the SHACL constraints defined over the ontology / version
-      operationId: get_shaclConstraints
+      operationId: getShaclConstraints
       parameters:
         - name: name
           in: path
@@ -79,7 +79,7 @@ paths:
       tags:
         - SHACL
       summary: Add the given SHACL constraints for ontology / version
-      operationId: put_shaclConstraints
+      operationId: putShaclConstraints
       parameters:
         - name: name
           in: path
@@ -112,7 +112,7 @@ paths:
       tags:
         - SHACL
       summary: Delete the given SHACL constraint for ontology / version
-      operationId: delete_shaclConstraints
+      operationId: deleteShaclConstraints
       parameters:
         - name: name
           in: path
@@ -144,7 +144,7 @@ paths:
       tags:
         - CheckSet
       summary: Create a new data quality check set
-      operationId: post_ontologyConstraints_check_set
+      operationId: postOntologyConstraintsCheckSet
       parameters:
         - name: name
           in: path
@@ -175,7 +175,7 @@ paths:
       tags:
         - CheckSet
       summary: Returns a list of the check sets available for the ontology / version
-      operationId: get_ontologyConstraints_check_sets
+      operationId: getOntologyConstraintsCheckSets
       parameters:
         - name: name
           in: path
@@ -203,7 +203,7 @@ paths:
       tags:
         - CheckSet
       summary: Returns a check set defined over the ontology / version
-      operationId: get_ontologyConstraints_check_set_setId
+      operationId: getOntologyConstraintsCheckSetSetId
       parameters:
         - name: name
           in: path
@@ -233,7 +233,7 @@ paths:
       tags:
         - CheckSet
       summary: Deletes the given check set from
-      operationId: delete_ontologyConstraints_check_set_setId
+      operationId: deleteOntologyConstraintsCheckSetSetId
       parameters:
         - name: name
           in: path
@@ -263,7 +263,7 @@ paths:
       tags:
         - CheckSet
       summary: Updates the definition of a specific check set
-      operationId: put_ontologyConstraints_check
+      operationId: putOntologyConstraintsCheck
       parameters:
         - name: name
           in: path
@@ -300,7 +300,7 @@ paths:
       tags:
         - CheckSet
       summary: Starts a new execution of the given check set over a specific endpoint
-      operationId: put_ontologyConstraints_check_start
+      operationId: putOntologyConstraintsCheckStart
       parameters:
         - name: name
           in: path
@@ -364,7 +364,7 @@ paths:
       tags:
         - CheckSet
       summary: Stops the execution of the thread executing the specific check set
-      operationId: put_ontologyConstraints_check_stop
+      operationId: putOntologyConstraintsCheckStop
       parameters:
         - name: name
           in: path
@@ -395,7 +395,7 @@ paths:
       tags:
         - CheckSet
       summary: Deletes the execution thread of the specified check set from the server
-      operationId: delete_ontologyConstraints_check_removeThread
+      operationId: deleteOntologyConstraintsCheckRemoveThread
       parameters:
         - name: name
           in: path
@@ -426,7 +426,7 @@ paths:
       tags:
         - CheckSet
       summary: Returns the running state of the specified check set
-      operationId: get_ontologyConstraints_check_status
+      operationId: getOntologyConstraintsCheckStatus
       parameters:
         - name: name
           in: path
@@ -457,7 +457,7 @@ paths:
       tags:
         - CheckSet
       summary: Returns the identifiers of the currently running check sets
-      operationId: get_ontologyConstraints_check_running
+      operationId: getOntologyConstraintsCheckRunning
       parameters:
         - name: name
           in: path
@@ -485,7 +485,7 @@ paths:
       tags:
         - CheckSet
       summary: Returns all the execution logs of the given check set
-      operationId: get_ontologyConstraints_execution_log
+      operationId: getOntologyConstraintsExecutionLog
       parameters:
         - name: name
           in: path
@@ -511,7 +511,7 @@ paths:
       tags:
         - CheckSet
       summary: Returns the execution log of the last execution of the specified check set
-      operationId: get_ontologyConstraints_checkSetId_execution_log
+      operationId: getOntologyConstraintsCheckSetIdExecutionLog
       parameters:
         - name: name
           in: path
@@ -541,7 +541,7 @@ paths:
       tags:
         - CheckSet
       summary: Returns the execution log of a data quality check set
-      operationId: put_ontologyConstraints_checkSetId_execution_timestamps
+      operationId: putOntologyConstraintsCheckSetIdExecutionTimestamps
       parameters:
         - name: name
           in: path
@@ -572,7 +572,7 @@ paths:
       tags:
         - CheckSet
       summary: Returns a list of the available timestamps for a check set of the given ontology/version
-      operationId: get_ontologyConstraints_checkSetId_execution_timestamps
+      operationId: getOntologyConstraintsCheckSetIdExecutionTimestamps
       parameters:
         - name: name
           in: path
@@ -605,7 +605,7 @@ paths:
       tags:
         - CheckSet
       summary: Returns the execution log of a check set run at the provided timestamp
-      operationId: get_ontologyConstraints_checkSetId_execution_timestamp
+      operationId: getOntologyConstraintsCheckSetIdExecutionTimestamp
       parameters:
         - name: name
           in: path
@@ -640,7 +640,7 @@ paths:
       tags:
         - CheckSet
       summary: Deletes the execution log of a check set run at the provided timestamp
-      operationId: delete_ontologyConstraints_checkSetId_execution_timestamp
+      operationId: deleteOntologyConstraintsCheckSetIdExecutionTimestamp
       parameters:
         - name: name
           in: path
@@ -676,7 +676,7 @@ paths:
       tags:
         - CheckSet
       summary: Deletes all the data quality check set execution logs saved on the server for the given ontology/version
-      operationId: delete_ontologyConstraints_checkSetId_execution_timestamps
+      operationId: deleteOntologyConstraintsCheckSetIdExecutionTimestamps
       parameters:
         - name: name
           in: path
@@ -707,7 +707,7 @@ paths:
       tags:
         - CheckSet
       summary: Returns the dump of a data quality check set
-      operationId: get_ontologyConstraints_checkSetId_export
+      operationId: getOntologyConstraintsCheckSetIdExport
       parameters:
         - name: name
           in: path
@@ -738,7 +738,7 @@ paths:
       tags:
         - CheckSet
       summary: Imports a data quality check set dump and returns a report of the performed operation
-      operationId: post_ontologyConstraints_checkSetId_import
+      operationId: postOntologyConstraintsCheckSetIdImport
       parameters:
         - name: name
           in: path
@@ -775,7 +775,7 @@ paths:
       tags:
         - SHACL
       summary: 'Returns the JSON constraints file of the version ''version'' of the ontology named <code>name</code>.<br/> '
-      operationId: get__owlOntology_name_version_json_constraints
+      operationId: getOwlOntologyNameVersionJsonConstraints
       parameters:
         - name: name
           in: path
@@ -800,7 +800,7 @@ paths:
       tags:
         - SHACL
       summary: 'Deletes the JSON constraints file of the version ''version'' of the ontology named <code>name</code>.<br/> '
-      operationId: delete__owlOntology_name_version_json_constraints
+      operationId: deleteOwlOntologyNameVersionJsonConstraints
       parameters:
         - name: name
           in: path
@@ -826,7 +826,7 @@ paths:
       tags:
         - SHACL
       summary: GET mwsx/owlOntology/{name}/version/shacl/check
-      operationId: get__owlOntology_name_version_json_constraints_check
+      operationId: getOwlOntologyNameVersionJsonConstraintsCheck
       parameters:
         - name: name
           in: path

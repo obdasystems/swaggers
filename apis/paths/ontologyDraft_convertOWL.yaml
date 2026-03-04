@@ -1,17 +1,16 @@
 post:
   tags: [Persistence]
   summary: Convert an OWL file in RDFGraph model
-  operationId: post_ontologyDraft_convertOWL
+  operationId: postOntologyDraftConvertOWL
   requestBody:
     content:
       application/json:
-        schema: { $ref: ../components/schemas/FileInfo.yaml }
+        schema: {$ref: ../components/schemas/FileInfo.yaml}
     required: true
   responses:
-    "200":
+    '200':
       description: OK
       content:
         application/json:
-          schema:
-            $ref: ../components/schemas/RDFGraph.yaml
-    "401": { description: Unhauthorized }
+          schema: {$ref: ../components/schemas/RDFGraph.yaml}
+    '401': {description: Unhauthorized}

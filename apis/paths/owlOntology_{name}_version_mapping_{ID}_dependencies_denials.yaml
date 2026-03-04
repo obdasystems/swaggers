@@ -1,7 +1,7 @@
 get:
   tags: [Dependencies]
   summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/denials
-  operationId: get__owlOntology_name_version_mapping_ID_dependencies_denials
+  operationId: getOwlOntologyNameVersionMappingIDDependenciesDenials
   parameters:
   - name: name
     in: path
@@ -27,7 +27,7 @@ get:
 post:
   tags: [Dependencies]
   summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/denials
-  operationId: post__owlOntology_name_version_mapping_ID_dependencies_denials
+  operationId: postOwlOntologyNameVersionMappingIDDependenciesDenials
   parameters:
   - name: name
     in: path

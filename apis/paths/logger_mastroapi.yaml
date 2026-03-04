@@ -1,7 +1,7 @@
 get:
   tags: [Logger]
   summary: GET mwsx/logger/mastroapi
-  operationId: get_set_mastroapi_logger
+  operationId: getSetMastroapiLogger
   parameters:
   - name: mode
     in: query

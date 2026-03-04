@@ -1,7 +1,7 @@
 post:
   tags: [Persistence]
   summary: Adds a new SPARQLING query to the catalog
-  operationId: post__owlOntology_name_version_query_sparqling_ID
+  operationId: postOwlOntologyNameVersionQuerySparqlingID
   parameters:
   - name: name
     in: path

@@ -863,7 +863,7 @@ paths:
       tags:
         - Logical
       summary: GET mwsx/owlOntology/{name}/version/entity/{id}
-      operationId: get__owlOntology_name_version_entity
+      operationId: getOwlOntologyNameVersionEntity
       parameters:
         - name: name
           in: path
@@ -894,7 +894,7 @@ paths:
       tags:
         - Logical
       summary: GET mwsx/owlOntology/{name}/version/alphabet/class/{ID}/logical
-      operationId: get__owlOntology_name_version_alphabet_class_ID_logical
+      operationId: getOwlOntologyNameVersionAlphabetClassIDLogical
       parameters:
         - name: name
           in: path
@@ -925,7 +925,7 @@ paths:
       tags:
         - Logical
       summary: GET mwsx/owlOntology/{name}/version/annotations
-      operationId: get__owlOntology_name_version_alphabet_class_ID_annotations
+      operationId: getOwlOntologyNameVersionAlphabetClassIDAnnotations
       parameters:
         - name: name
           in: path
@@ -958,7 +958,7 @@ paths:
       tags:
         - Logical
       summary: GET mwsx/owlOntology/{name}/version/alphabet/objectProperty/{ID}/logical
-      operationId: get__owlOntology_name_version_alphabet_objectProperty_ID_logical
+      operationId: getOwlOntologyNameVersionAlphabetObjectPropertyIDLogical
       parameters:
         - name: name
           in: path
@@ -989,7 +989,7 @@ paths:
       tags:
         - Logical
       summary: GET mwsx/owlOntology/{name}/version/alphabet/dataProperty/{ID}/logical
-      operationId: get__owlOntology_name_version_alphabet_dataProperty_ID_logical
+      operationId: getOwlOntologyNameVersionAlphabetDataPropertyIDLogical
       parameters:
         - name: name
           in: path
@@ -1020,7 +1020,7 @@ paths:
       tags:
         - Logical
       summary: GET mwsx/owlOntology/{name}/version/alphabet/dataProperties/domainAndRange
-      operationId: get__owlOntology_name_version_alphabet_dataProperties_domainAndRange
+      operationId: getOwlOntologyNameVersionAlphabetDataPropertiesDomainAndRange
       parameters:
         - name: name
           in: path
@@ -1048,7 +1048,7 @@ paths:
       tags:
         - Visualize
       summary: 'Returns the Graphol file of the version ''version'' of the ontology named <code>name</code>.<br/> '
-      operationId: get__owlOntology_name_version_graphol
+      operationId: getOwlOntologyNameVersionGraphol
       parameters:
         - name: name
           in: path
@@ -1073,7 +1073,7 @@ paths:
       tags:
         - Visualize
       summary: 'Deletes the Graphol file of the version ''version'' of the ontology named <code>name</code>.<br/> '
-      operationId: delete__owlOntology_name_version_graphol
+      operationId: deleteOwlOntologyNameVersionGraphol
       parameters:
         - name: name
           in: path
@@ -1099,7 +1099,7 @@ paths:
       tags:
         - Visualize
       summary: 'Returns the RDFGraph file of the version ''version'' of the ontology named <code>name</code>.<br/> '
-      operationId: get__owlOntology_name_version_gscape
+      operationId: getOwlOntologyNameVersionGscape
       parameters:
         - name: name
           in: path
@@ -1124,7 +1124,7 @@ paths:
       tags:
         - Visualize
       summary: 'Deletes the RDFGraph file of the version ''version'' of the ontology named <code>name</code>.<br/> '
-      operationId: delete__owlOntology_name_version_gscape
+      operationId: deleteOwlOntologyNameVersionGscape
       parameters:
         - name: name
           in: path
@@ -1150,7 +1150,7 @@ paths:
       tags:
         - Visualize
       summary: GET mwsx/owlOntology/{name}/version/graphol/check
-      operationId: get__owlOntology_name_version_graphol_check
+      operationId: getOwlOntologyNameVersionGrapholCheck
       parameters:
         - name: name
           in: path
@@ -1176,7 +1176,7 @@ paths:
       tags:
         - Visualize
       summary: GET mwsx/owlOntology/{name}/version/gscape/check
-      operationId: get__owlOntology_name_version_gscape_check
+      operationId: getOwlOntologyNameVersionGscapeCheck
       parameters:
         - name: name
           in: path
@@ -1202,7 +1202,7 @@ paths:
       tags:
         - Persistence
       summary: 'Returns the OWL file of the version ''version'' of the ontology named <code>name</code>.<br/> '
-      operationId: get__owlOntology_name_version_owl
+      operationId: getOwlOntologyNameVersionOwl
       parameters:
         - name: name
           in: path
@@ -1228,7 +1228,7 @@ paths:
       tags:
         - Logical
       summary: GET mwsx/owlOntology/{name}/version/alphabet/individual/{ID}/logical
-      operationId: get_individual_info
+      operationId: getIndividualInfo
       parameters:
         - name: name
           in: path
@@ -1259,7 +1259,7 @@ paths:
       tags:
         - Logical
       summary: GET mwsx/owlOntology/{name}/version/alphabet/search/individual
-      operationId: get_search_individual_info
+      operationId: getSearchIndividualInfo
       parameters:
         - name: name
           in: path
@@ -1292,7 +1292,7 @@ paths:
       tags:
         - Difference
       summary: GET mwsx/ontologyDifference/{name}/vs/{otherName}
-      operationId: get_ontology_difference
+      operationId: getOntologyDifference
       parameters:
         - name: name
           in: path
@@ -1328,7 +1328,7 @@ paths:
       tags:
         - Metadata
       summary: GET mwsx/owlOntology/{name}/version/metadata
-      operationId: get_ontology_metadata_snapshot
+      operationId: getOntologyMetadataSnapshot
       parameters:
         - name: name
           in: path
@@ -1354,7 +1354,7 @@ paths:
       tags:
         - Metadata
       summary: GET mwsx/owlOntology/{name}/version/metadata/missing
-      operationId: get_ontology_missing_metadata_snapshot
+      operationId: getOntologyMissingMetadataSnapshot
       parameters:
         - name: name
           in: path
@@ -1380,7 +1380,7 @@ paths:
       tags:
         - Publication
       summary: Removes a specific query from the catalog available for this version of the ontology
-      operationId: get_query_publication_requests
+      operationId: getQueryPublicationRequests
       responses:
         '200':
           description: OK
@@ -1395,7 +1395,7 @@ paths:
       tags:
         - FileSystem
       summary: Returns the folder where ontology named <code>name</code> is stored in
-      operationId: get__owlOntology_folder_name
+      operationId: getOwlOntologyFolderName
       parameters:
         - name: name
           in: path
@@ -1416,7 +1416,7 @@ paths:
       tags:
         - FileSystem
       summary: Returns the folder where ontology named <code>name</code> is stored in
-      operationId: get__owlOntology_version_folder_name
+      operationId: getOwlOntologyVersionFolderName
       parameters:
         - name: name
           in: path

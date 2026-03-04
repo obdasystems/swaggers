@@ -1,7 +1,7 @@
 get:
   tags: [LastLoaded]
   summary: GET mwsx/lastLoaded/ontology
-  operationId: get_lastLoaded_ontology
+  operationId: getLastLoadedOntology
   responses:
     '200':
       description: OK

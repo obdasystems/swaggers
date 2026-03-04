@@ -1,7 +1,7 @@
 delete:
   tags: [Query]
   summary: DELETE mwsx/knowledgeGraph/query/{queryId}
-  operationId: delete__knowledgeGraph_query_executionID_thread
+  operationId: deleteKnowledgeGraphQueryExecutionIDThread
   parameters:
   - name: queryId
     in: path

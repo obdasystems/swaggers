@@ -1,7 +1,7 @@
 get:
   tags: [Persistence]
   summary: Returns all endpoints with status running
-  operationId: get_running_endpoints
+  operationId: getRunningEndpoints
   responses:
     '200':
       description: OK

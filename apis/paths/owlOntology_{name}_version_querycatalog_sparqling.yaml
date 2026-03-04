@@ -2,7 +2,7 @@ delete:
   tags: [Persistence]
   summary: Deletes the catalog of SPARQLING queries available for this version of
     the ontology
-  operationId: delete__owlOntology_name_version_querycatalog_sparqling
+  operationId: deleteOwlOntologyNameVersionQuerycatalogSparqling
   parameters:
   - name: name
     in: path

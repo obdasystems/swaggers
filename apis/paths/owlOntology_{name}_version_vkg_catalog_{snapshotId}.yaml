@@ -2,7 +2,7 @@ put:
   tags: [Persistence]
   summary: Overwrite a VKG Snapshot (given its snapshotId) in the catalog for a given
     ontology (name, version)
-  operationId: put_vkg_snapshot
+  operationId: putVkgSnapshot
   parameters:
   - name: name
     in: path
@@ -33,7 +33,7 @@ put:
 delete:
   tags: [Persistence]
   summary: Delete a given VKG Snapshot from catalog for a given ontology (name, version)
-  operationId: delete_vkg_snapshot
+  operationId: deleteVkgSnapshot
   parameters:
   - name: name
     in: path

@@ -1,7 +1,7 @@
 get:
   tags: [Upload]
   summary: GET mwsx/knowledgeGraph/upload/import/threads
-  operationId: get__knowledgeGraph_upload_file_csv_import
+  operationId: getKnowledgeGraphUploadFileCsvImport
   parameters:
   - name: iri
     in: query

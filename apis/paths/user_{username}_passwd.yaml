@@ -1,7 +1,7 @@
 put:
   tags: [User]
   summary: Changes the user password for the user named <code>username</code>
-  operationId: put__user_passwd
+  operationId: putUserPasswd
   parameters:
   - name: username
     in: path
@@ -20,5 +20,5 @@ put:
       description: OK
       content:
         text/plain:
-          schema: { type: string }
+          schema: {type: string}
     '401': {description: Unhauthorized}

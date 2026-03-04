@@ -1,7 +1,7 @@
 get:
   tags: [DataLineage]
   summary: GET mwsx/owlOntology/{name}/version/mapping/{mapID}/dataLineage/{entityID}
-  operationId: get__owlOntology_name_version_mapID_entityID_dataLineage
+  operationId: getOwlOntologyNameVersionMapIDEntityIDDataLineage
   parameters:
   - name: name
     in: path

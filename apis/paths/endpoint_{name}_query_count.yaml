@@ -1,7 +1,7 @@
 post:
   tags: [QueryCount]
   summary: Counts the results of the given SPARQL query
-  operationId: start_new_query_on_count
+  operationId: startNewQueryOnCount
   parameters:
   - name: name
     in: path

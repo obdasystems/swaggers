@@ -1,7 +1,7 @@
 put:
   tags: [IntensionalAnnotation]
   summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/stop
-  operationId: put__owlOntology_name_version_mapping_ID_generateIntensionalAnnotationsOntology_stop
+  operationId: putOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntologyStop
   parameters:
   - name: name
     in: path

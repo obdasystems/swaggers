@@ -1,7 +1,7 @@
 post:
   tags: [Query]
   summary: POST mwsx/knowledgeGraph/query/catalog/{queryID}/start
-  operationId: post__knowledgeGraph_query_catalog_queryID_start
+  operationId: postKnowledgeGraphQueryCatalogQueryIDStart
   parameters:
   - name: queryID
     in: path

@@ -1,7 +1,7 @@
 get:
   tags: [Persistence]
   summary: Returns the data source information by its name
-  operationId: get__datasource
+  operationId: getDatasource
   parameters:
   - name: name
     in: path
@@ -17,7 +17,7 @@ get:
 put:
   tags: [Persistence]
   summary: Modifies the data source information by its name
-  operationId: put__datasource
+  operationId: putDatasource
   parameters:
   - name: name
     in: path
@@ -38,7 +38,7 @@ put:
 delete:
   tags: [Persistence]
   summary: Deletes a data source information by its name
-  operationId: delete__datasource
+  operationId: deleteDatasource
   parameters:
   - name: name
     in: path

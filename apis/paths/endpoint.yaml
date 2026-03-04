@@ -1,7 +1,7 @@
 post:
   tags: [Persistence]
   summary: Creates a new endpoint
-  operationId: post_endpoint
+  operationId: postEndpoint
   requestBody:
     content:
       application/json:

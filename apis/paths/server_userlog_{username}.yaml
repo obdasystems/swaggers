@@ -1,7 +1,7 @@
 get:
   tags: [Server]
   summary: Returns the user log lines count
-  operationId: get_userlog_count_user
+  operationId: getUserlogCountUser
   parameters:
   - name: username
     in: path

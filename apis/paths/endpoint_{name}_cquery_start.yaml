@@ -1,7 +1,7 @@
 post:
   tags: [ConstructQuery]
   summary: Starts the SPARQL construct query on the given endpoint
-  operationId: post__owlOntology_name_version_construct_query_start
+  operationId: postOwlOntologyNameVersionConstructQueryStart
   parameters:
   - name: name
     in: path
@@ -43,8 +43,7 @@ post:
   - name: addDistinctOnCores
     in: query
     required: true
-    schema: 
-      type: boolean
+    schema: {type: boolean}
   requestBody:
     content:
       application/json:

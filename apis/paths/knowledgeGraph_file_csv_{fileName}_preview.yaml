@@ -1,7 +1,7 @@
 get:
   tags: [CSV]
   summary: GET mwsx/knowledgeGraph/file/csv/{fileName}/preview
-  operationId: get__knowledgeGraph_upload_file_csv_preview
+  operationId: getKnowledgeGraphUploadFileCsvPreview
   parameters:
   - name: fileName
     in: path

@@ -1,7 +1,7 @@
 get:
   tags: [Execution]
   summary: Returns the report of a triplification thread
-  operationId: get_mappings_triplification_report
+  operationId: getMappingsTriplificationReport
   parameters:
   - name: threadID
     in: path

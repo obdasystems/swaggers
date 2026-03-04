@@ -1,7 +1,7 @@
 get:
   tags: [ExportedQuery]
   summary: Returns the first 'lines' lines of the exported file content
-  operationId: get__owlOntology_name_version_query_ID_export_thread_id_preview
+  operationId: getOwlOntologyNameVersionQueryIDExportThreadIdPreview
   parameters:
   - name: name
     in: path

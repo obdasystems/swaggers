@@ -2,7 +2,7 @@ get:
   tags: [QueryCount]
   summary: Returns the counts the results of a SPARQL query executed on the given
     endpoint
-  operationId: get_query_count_result
+  operationId: getQueryCountResult
   parameters:
   - name: name
     in: path

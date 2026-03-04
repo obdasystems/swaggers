@@ -1,7 +1,7 @@
 get:
   tags: [Query]
   summary: GET mwsx/knowledgeGraph/query/catalog/{queryID}
-  operationId: get__knowledgeGraph_query_catalog_queryID
+  operationId: getKnowledgeGraphQueryCatalogQueryID
   parameters:
   - name: queryID
     in: path
@@ -21,7 +21,7 @@ get:
 put:
   tags: [Query]
   summary: PUT mwsx/knowledgeGraph/query/catalog/{queryID}
-  operationId: put__knowledgeGraph_query_catalog_queryID
+  operationId: putKnowledgeGraphQueryCatalogQueryID
   parameters:
   - name: queryID
     in: path
@@ -46,7 +46,7 @@ put:
 delete:
   tags: [Query]
   summary: DELETE mwsx/knowledgeGraph/query/catalog/{queryID}
-  operationId: delete__knowledgeGraph_query_catalog_queryID
+  operationId: deleteKnowledgeGraphQueryCatalogQueryID
   parameters:
   - name: queryID
     in: path

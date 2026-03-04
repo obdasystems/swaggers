@@ -1,7 +1,7 @@
 put:
   tags: [Persistence]
   summary: PUT mwsx/owlOntology/{name}/version/authorizationViewProfile/{avpId}
-  operationId: put_authorizationViewProfiles
+  operationId: putAuthorizationViewProfiles
   parameters:
   - name: name
     in: path
@@ -30,7 +30,7 @@ put:
 delete:
   tags: [Persistence]
   summary: DELETE mwsx/owlOntology/{name}/version/authorizationViewProfile/{avpId}
-  operationId: delete_authorizationViewProfiles
+  operationId: deleteAuthorizationViewProfiles
   parameters:
   - name: name
     in: path

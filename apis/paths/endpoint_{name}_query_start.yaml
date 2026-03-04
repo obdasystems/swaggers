@@ -1,7 +1,7 @@
 post:
   tags: [Query]
   summary: Starts a new query
-  operationId: start_new_query_on_endpoint
+  operationId: startNewQueryOnEndpoint
   parameters:
   - name: name
     in: path
@@ -44,8 +44,7 @@ post:
   - name: addDistinctOnCores
     in: query
     required: true
-    schema: 
-      type: boolean
+    schema: {type: boolean}
   requestBody:
     content:
       '*/*':

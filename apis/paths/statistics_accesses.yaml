@@ -1,7 +1,7 @@
 get:
   tags: [Statistics]
   summary: Returns the access log
-  operationId: get_accesses_statistics
+  operationId: getAccessesStatistics
   responses:
     '200':
       description: OK
@@ -14,7 +14,7 @@ get:
 post:
   tags: [Statistics]
   summary: Replace the current access log with the one provided
-  operationId: post_accesses_statistics
+  operationId: postAccessesStatistics
   requestBody:
     content:
       application/json:
@@ -34,7 +34,7 @@ post:
 put:
   tags: [Statistics]
   summary: Adds the provided access log to the one registered in the system
-  operationId: put_accesses_statistics
+  operationId: putAccessesStatistics
   requestBody:
     content:
       application/json:
@@ -54,7 +54,7 @@ put:
 delete:
   tags: [Statistics]
   summary: Replace the current access log with the one provided
-  operationId: delete_accesses_statistics
+  operationId: deleteAccessesStatistics
   responses:
     '200':
       description: OK

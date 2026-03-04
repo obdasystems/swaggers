@@ -1,7 +1,7 @@
 get:
   tags: [ConstructQuery]
   summary: Returns the execution status of construct query on the given endpoint
-  operationId: get__owlOntology_name_version_construct_query_ID_status
+  operationId: getOwlOntologyNameVersionConstructQueryIDStatus
   parameters:
   - name: name
     in: path

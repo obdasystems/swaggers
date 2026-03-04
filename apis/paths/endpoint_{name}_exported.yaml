@@ -1,7 +1,7 @@
 get:
   tags: [ExportedQuery]
   summary: Returns the collection of export information available for the given endpoint
-  operationId: get__owlOntology_name_version_query_ID_exported
+  operationId: getOwlOntologyNameVersionQueryIDExported
   parameters:
   - name: name
     in: path

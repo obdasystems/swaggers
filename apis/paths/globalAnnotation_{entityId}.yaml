@@ -1,7 +1,7 @@
 delete:
   tags: [GlobalAnnotation]
   summary: DELETE mwsx/globalAnnotation/{entityId}
-  operationId: delete_global_annotation
+  operationId: deleteGlobalAnnotation
   parameters:
   - name: entityId
     in: path

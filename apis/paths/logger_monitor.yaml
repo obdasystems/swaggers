@@ -1,7 +1,7 @@
 get:
   tags: [Logger]
   summary: GET mwsx/logger/monitor
-  operationId: get_set_monitor_logger
+  operationId: getSetMonitorLogger
   parameters:
   - name: mode
     in: query

@@ -1,7 +1,7 @@
 post:
   tags: [ConstructQuery]
   summary: Starts the construct query with the provided identified on the given endpoint
-  operationId: post__owlOntology_name_version_construct_query_ID_start
+  operationId: postOwlOntologyNameVersionConstructQueryIDStart
   parameters:
   - name: name
     in: path
@@ -47,16 +47,14 @@ post:
   - name: addDistinctOnCores
     in: query
     required: true
-    schema: 
-      type: boolean
+    schema: {type: boolean}
   requestBody:
     content:
       '*/*':
-        schema: 
+        schema:
           description: Mapping parameters values
           type: object
-          additionalProperties:
-            type: string
+          additionalProperties: {type: string}
     required: true
   responses:
     '200':

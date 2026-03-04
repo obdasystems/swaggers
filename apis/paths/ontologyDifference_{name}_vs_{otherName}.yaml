@@ -1,7 +1,7 @@
 get:
   tags: [Difference]
   summary: GET mwsx/ontologyDifference/{name}/vs/{otherName}
-  operationId: get_ontology_difference
+  operationId: getOntologyDifference
   parameters:
   - name: name
     in: path

@@ -1,7 +1,7 @@
 get:
   tags: [Geocoding]
   summary: Returns the list of available Geocoding servers
-  operationId: get_geocoding_servers
+  operationId: getGeocodingServers
   responses:
     '200':
       description: OK

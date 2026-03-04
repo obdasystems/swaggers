@@ -1,7 +1,7 @@
 get:
   tags: [IntensionalAnnotation]
   summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/annotations
-  operationId: get__owlOntology_name_version_intensional_annotation_mapping
+  operationId: getOwlOntologyNameVersionIntensionalAnnotationMapping
   parameters:
   - name: name
     in: path
@@ -27,7 +27,7 @@ get:
 post:
   tags: [IntensionalAnnotation]
   summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/annotations
-  operationId: post__owlOntology_name_version_intensional_annotation_mapping_mapId
+  operationId: postOwlOntologyNameVersionIntensionalAnnotationMappingMapId
   parameters:
   - name: name
     in: path

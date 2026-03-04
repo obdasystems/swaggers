@@ -1,7 +1,7 @@
 put:
   tags: [CheckSet]
   summary: Stops the execution of the thread executing the specific check set
-  operationId: put_ontologyConstraints_check_stop
+  operationId: putOntologyConstraintsCheckStop
   parameters:
   - name: name
     in: path

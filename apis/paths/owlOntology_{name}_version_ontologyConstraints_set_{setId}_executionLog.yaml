@@ -2,7 +2,7 @@ get:
   tags: [CheckSet]
   summary: Returns the execution log of the last execution of the specified check
     set
-  operationId: get_ontologyConstraints_checkSetId_execution_log
+  operationId: getOntologyConstraintsCheckSetIdExecutionLog
   parameters:
   - name: name
     in: path
@@ -26,7 +26,7 @@ get:
 put:
   tags: [CheckSet]
   summary: Returns the execution log of a data quality check set
-  operationId: put_ontologyConstraints_checkSetId_execution_timestamps
+  operationId: putOntologyConstraintsCheckSetIdExecutionTimestamps
   parameters:
   - name: name
     in: path

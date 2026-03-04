@@ -1,7 +1,7 @@
 get:
   tags: [Query]
   summary: Returns the ontology rewriting of a query executed on the given endpoint
-  operationId: get__owlOntology_name_version_query_ID_ontologyRewritings
+  operationId: getOwlOntologyNameVersionQueryIDOntologyRewritings
   parameters:
   - name: name
     in: path

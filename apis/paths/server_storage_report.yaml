@@ -1,7 +1,7 @@
 get:
   tags: [Server]
   summary: Computes and returns the system storage report
-  operationId: get_system_storage_report
+  operationId: getSystemStorageReport
   responses:
     '200':
       description: OK

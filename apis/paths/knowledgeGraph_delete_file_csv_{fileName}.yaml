@@ -1,7 +1,7 @@
 delete:
   tags: [CSV]
   summary: DELETE mwsx/knowledgeGraph/delete/file/csv/{fileName}
-  operationId: delete__knowledgeGraph_upload_file_csv
+  operationId: deleteKnowledgeGraphUploadFileCsv
   parameters:
   - name: fileName
     in: path

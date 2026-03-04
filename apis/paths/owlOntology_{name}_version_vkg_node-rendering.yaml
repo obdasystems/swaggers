@@ -1,7 +1,7 @@
 get:
   tags: [NodeRendering]
   summary: Returns the default VKG node rendering for the ontology version
-  operationId: get_default_node_rendering
+  operationId: getDefaultNodeRendering
   parameters:
   - name: name
     in: path
@@ -21,7 +21,7 @@ get:
 post:
   tags: [NodeRendering]
   summary: Set a default VKG node rendering for the ontology version
-  operationId: post_default_node_rendering
+  operationId: postDefaultNodeRendering
   parameters:
   - name: name
     in: path
@@ -46,7 +46,7 @@ post:
 put:
   tags: [NodeRendering]
   summary: Modifies the default VKG node rendering for the ontology version
-  operationId: put_default_node_rendering
+  operationId: putDefaultNodeRendering
   parameters:
   - name: name
     in: path
@@ -71,7 +71,7 @@ put:
 delete:
   tags: [NodeRendering]
   summary: DELETE mwsx/owlOntology/{name}/version/vkg/node-rendering
-  operationId: delete_vkg_node_rendering
+  operationId: deleteVkgNodeRendering
   parameters:
   - name: name
     in: path

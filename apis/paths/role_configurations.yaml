@@ -1,7 +1,7 @@
 get:
   tags: [Roles]
   summary: GET mwsx/role/configurations
-  operationId: get__role_configs
+  operationId: getRoleConfigs
   responses:
     '200':
       description: OK

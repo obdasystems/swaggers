@@ -1,11 +1,11 @@
 get:
   tags: [Versions]
   summary: Returns the version of the Jena library used by Mastro
-  operationId: get__jena_version
+  operationId: getJenaVersion
   responses:
     '200':
       description: OK
       content:
         text/plain:
-          schema: { type: string }
+          schema: {type: string}
     '401': {description: Unhauthorized}

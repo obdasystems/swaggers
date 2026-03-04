@@ -1,7 +1,7 @@
 post:
   tags: [Test]
   summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/testCustomSQLQuery
-  operationId: post__owlOntology_name_version_mapping_ID_ass_testCustomSQLQuery_from_mapAssertion
+  operationId: postOwlOntologyNameVersionMappingIDAssTestCustomSQLQueryFromMapAssertion
   parameters:
   - name: name
     in: path

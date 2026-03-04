@@ -1,7 +1,7 @@
 post:
   tags: [Statics]
   summary: POST mwsx/statics/sparql/templateSize
-  operationId: post_extract_template_size
+  operationId: postExtractTemplateSize
   requestBody:
     content:
       application/json:

@@ -2,7 +2,7 @@ get:
   tags: [Query]
   summary: Returns the current state of all the queries in status <code>status</code>
     loaded in the endpoint named <code>name</code>
-  operationId: list_query_statuses_on_endpoint
+  operationId: listQueryStatusesOnEndpoint
   parameters:
   - name: name
     in: path

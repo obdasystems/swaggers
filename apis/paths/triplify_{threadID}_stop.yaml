@@ -1,7 +1,7 @@
 put:
   tags: [Execution]
   summary: Stops the thread identified by threadID
-  operationId: put_mappings_triplification_stop
+  operationId: putMappingsTriplificationStop
   parameters:
   - name: threadID
     in: path
@@ -12,5 +12,5 @@ put:
       description: OK
       content:
         text/plain:
-          schema: { type: string }
+          schema: {type: string}
     '401': {description: Unhauthorized}

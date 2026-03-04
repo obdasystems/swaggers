@@ -1,7 +1,7 @@
 get:
   tags: [SHACL]
   summary: Returns the SHACL constraints defined over the ontology / version
-  operationId: get_shaclConstraints
+  operationId: getShaclConstraints
   parameters:
   - name: name
     in: path
@@ -23,7 +23,7 @@ get:
 put:
   tags: [SHACL]
   summary: Add the given SHACL constraints for ontology / version
-  operationId: put_shaclConstraints
+  operationId: putShaclConstraints
   parameters:
   - name: name
     in: path
@@ -37,21 +37,20 @@ put:
     content:
       application/json:
         schema:
-            type: array
-            items: {$ref: ../components/schemas/SHACLShape.yaml}
+          type: array
+          items: {$ref: ../components/schemas/SHACLShape.yaml}
     required: true
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema:
-            type: boolean
+          schema: {type: boolean}
     '401': {description: Unhauthorized}
 delete:
   tags: [SHACL]
   summary: Delete the given SHACL constraint for ontology / version
-  operationId: delete_shaclConstraints
+  operationId: deleteShaclConstraints
   parameters:
   - name: name
     in: path
@@ -71,6 +70,5 @@ delete:
       description: OK
       content:
         application/json:
-          schema:
-            type: boolean
+          schema: {type: boolean}
     '401': {description: Unhauthorized}

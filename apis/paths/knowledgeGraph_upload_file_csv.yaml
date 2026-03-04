@@ -1,7 +1,7 @@
 post:
   tags: [Upload]
   summary: POST mwsx/knowledgeGraph/upload/file/csv
-  operationId: post__knowledgeGraph_upload_file_csv
+  operationId: postKnowledgeGraphUploadFileCsv
   parameters:
   - name: hasHeadersRow
     in: query

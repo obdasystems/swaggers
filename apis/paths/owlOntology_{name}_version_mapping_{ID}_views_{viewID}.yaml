@@ -1,7 +1,7 @@
 get:
   tags: [SQLView]
   summary: No description available
-  operationId: get__owlOntology_name_version_mapping_ID_views_viewID
+  operationId: getOwlOntologyNameVersionMappingIDViewsViewID
   parameters:
   - name: name
     in: path

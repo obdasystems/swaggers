@@ -26,7 +26,7 @@ paths:
       tags:
         - Execution
       summary: Starts a new thread of mappings triplification with the given parameters
-      operationId: post_mappings_triplification_start
+      operationId: postMappingsTriplificationStart
       requestBody:
         content:
           application/json:
@@ -47,7 +47,7 @@ paths:
       tags:
         - Threads
       summary: Lists the triplification threads for a given mapping specification
-      operationId: get_mappings_triplification_list
+      operationId: getMappingsTriplificationList
       parameters:
         - name: name
           in: path
@@ -80,7 +80,7 @@ paths:
       tags:
         - Threads
       summary: Lists the triplification threads for a given mapping specification
-      operationId: get_mappings_triplification_listProgresses
+      operationId: getMappingsTriplificationListProgresses
       parameters:
         - name: name
           in: path
@@ -113,7 +113,7 @@ paths:
       tags:
         - Execution
       summary: Stops all running triplification threads
-      operationId: put_mappings_triplification_stop_all
+      operationId: putMappingsTriplificationStopAll
       responses:
         '200':
           description: OK
@@ -124,7 +124,7 @@ paths:
       tags:
         - Execution
       summary: Stops the thread identified by threadID
-      operationId: put_mappings_triplification_stop
+      operationId: putMappingsTriplificationStop
       parameters:
         - name: threadID
           in: path
@@ -145,7 +145,7 @@ paths:
       tags:
         - Execution
       summary: Stops the thread identified by threadID
-      operationId: delete_mappings_triplification_thread
+      operationId: deleteMappingsTriplificationThread
       parameters:
         - name: threadID
           in: path
@@ -166,7 +166,7 @@ paths:
       tags:
         - Execution
       summary: Returns the status of a triplification thread
-      operationId: get_mappings_triplification_status
+      operationId: getMappingsTriplificationStatus
       parameters:
         - name: threadID
           in: path
@@ -187,7 +187,7 @@ paths:
       tags:
         - Execution
       summary: Returns the report of a triplification thread
-      operationId: get_mappings_triplification_report
+      operationId: getMappingsTriplificationReport
       parameters:
         - name: threadID
           in: path
@@ -208,7 +208,7 @@ paths:
       tags:
         - Execution
       summary: Returns the report of a triplification thread
-      operationId: get_mappings_triplification_download
+      operationId: getMappingsTriplificationDownload
       parameters:
         - name: threadID
           in: path
@@ -235,7 +235,7 @@ paths:
       tags:
         - Start
       summary: Triplifies the OBDA mapping specification, streaming the produced triples to the client
-      operationId: get__owlOntology_name_version_query_ID_export_directcsv
+      operationId: getOwlOntologyNameVersionQueryIDExportDirectcsv
       parameters:
         - name: name
           in: path

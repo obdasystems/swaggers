@@ -1,7 +1,7 @@
 delete:
   tags: [QueryCount]
   summary: Deletes the count thread on the given endpoint for a SPARQL query
-  operationId: delete_query_count
+  operationId: deleteQueryCount
   parameters:
   - name: name
     in: path

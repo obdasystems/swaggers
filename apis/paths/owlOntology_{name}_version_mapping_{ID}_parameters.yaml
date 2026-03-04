@@ -1,7 +1,7 @@
 get:
   tags: [Parameters]
   summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/parameters
-  operationId: get__owlOntology_name_version_mapping_ID_parameters
+  operationId: getOwlOntologyNameVersionMappingIDParameters
   parameters:
   - name: name
     in: path

@@ -1,6 +1,7 @@
 get:
-  summary: Creates and streams to output a zip archive containing the folder of the ontology named <code>name</code>
-  operationId: get__owlOntology_name_export
+  summary: Creates and streams to output a zip archive containing the folder of the
+    ontology named <code>name</code>
+  operationId: getOwlOntologyNameExport
   parameters:
   - name: name
     in: path

@@ -1,7 +1,7 @@
 get:
   tags: [Analysis]
   summary: Performs mapping analysis returning a list of deprecation messages
-  operationId: get__owlOntology_name_version_mapping_ID_checkDeprecation
+  operationId: getOwlOntologyNameVersionMappingIDCheckDeprecation
   parameters:
   - name: name
     in: path

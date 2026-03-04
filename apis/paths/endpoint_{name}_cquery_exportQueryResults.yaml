@@ -2,7 +2,7 @@ post:
   tags: [ConstructQuery]
   summary: Starts the export thread for a construct query on the given endpoint, the
     export thread identifier is returned
-  operationId: post__owlOntology_name_version_cquery_ID_export_results
+  operationId: postOwlOntologyNameVersionCqueryIDExportResults
   parameters:
   - name: name
     in: path
@@ -18,5 +18,5 @@ post:
       description: OK
       content:
         text/plain:
-          schema: { type: string }
+          schema: {type: string}
     '401': {description: Unhauthorized}

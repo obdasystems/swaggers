@@ -26,7 +26,7 @@ paths:
       tags:
         - User
       summary: Returns the list of available users of this MWS installation
-      operationId: get__users
+      operationId: getUsers
       responses:
         '200':
           description: OK
@@ -42,7 +42,7 @@ paths:
       tags:
         - User
       summary: Adds multiple users to the system
-      operationId: put__users
+      operationId: putUsers
       parameters:
         - name: op
           in: query
@@ -69,7 +69,7 @@ paths:
       tags:
         - User
       summary: Returns the user names <code>username</code>
-      operationId: get__user_name
+      operationId: getUserName
       parameters:
         - name: username
           in: path
@@ -89,7 +89,7 @@ paths:
       tags:
         - User
       summary: Modifies the user identified by <code>username</code>
-      operationId: put__user
+      operationId: putUser
       parameters:
         - name: username
           in: path
@@ -120,7 +120,7 @@ paths:
       tags:
         - User
       summary: DELETE mwsx/user/{username}
-      operationId: delete__user
+      operationId: deleteUser
       parameters:
         - name: username
           in: path
@@ -141,7 +141,7 @@ paths:
       tags:
         - User
       summary: Creates a new user
-      operationId: post__user
+      operationId: postUser
       parameters:
         - name: secret
           in: query
@@ -168,7 +168,7 @@ paths:
       tags:
         - User
       summary: Changes the user password for the user named <code>username</code>
-      operationId: put__user_passwd
+      operationId: putUserPasswd
       parameters:
         - name: username
           in: path
@@ -199,7 +199,7 @@ paths:
       tags:
         - User
       summary: PUT mwsx/user/{username}/passwd/reset
-      operationId: put__user_passwd_reset
+      operationId: putUserPasswdReset
       parameters:
         - name: username
           in: path
@@ -225,7 +225,7 @@ paths:
       tags:
         - Roles
       summary: GET mwsx/roles
-      operationId: get__roles
+      operationId: getRoles
       responses:
         '200':
           description: OK
@@ -242,7 +242,7 @@ paths:
       tags:
         - Roles
       summary: GET mwsx/role/{rolename}
-      operationId: get__role_name
+      operationId: getRoleName
       parameters:
         - name: rolename
           in: path
@@ -262,7 +262,7 @@ paths:
       tags:
         - Roles
       summary: PUT mwsx/role/{rolename}
-      operationId: put__role
+      operationId: putRole
       parameters:
         - name: rolename
           in: path
@@ -288,7 +288,7 @@ paths:
       tags:
         - Roles
       summary: DELETE mwsx/role/{rolename}
-      operationId: delete__role
+      operationId: deleteRole
       parameters:
         - name: rolename
           in: path
@@ -309,7 +309,7 @@ paths:
       tags:
         - Roles
       summary: POST mwsx/role
-      operationId: post__role
+      operationId: postRole
       requestBody:
         content:
           application/json:
@@ -330,7 +330,7 @@ paths:
       tags:
         - Roles
       summary: GET mwsx/role/configurations
-      operationId: get__role_configs
+      operationId: getRoleConfigs
       responses:
         '200':
           description: OK
@@ -345,7 +345,7 @@ paths:
       tags:
         - MonolithRole
       summary: GET mwsx/monolith/roles
-      operationId: get__monolith__roles
+      operationId: getMonolithRoles
       responses:
         '200':
           description: OK
@@ -362,7 +362,7 @@ paths:
       tags:
         - MonolithRole
       summary: PUT mwsx/monolith/role/{rolename}
-      operationId: put__monolith__role
+      operationId: putMonolithRole
       parameters:
         - name: rolename
           in: path
@@ -389,7 +389,7 @@ paths:
       tags:
         - User
       summary: Returns the feedback provided by all the users
-      operationId: get__users_feedback
+      operationId: getUsersFeedback
       responses:
         '200':
           description: OK
@@ -404,7 +404,7 @@ paths:
       tags:
         - User
       summary: Returns the feedback provided by a specific user
-      operationId: get__user_feedback
+      operationId: getUserFeedback
       responses:
         '200':
           description: OK
@@ -419,7 +419,7 @@ paths:
       tags:
         - User
       summary: Returns the feedback provided by a specific user
-      operationId: delete__user_feedback
+      operationId: deleteUserFeedback
       parameters:
         - name: username
           in: path
@@ -440,7 +440,7 @@ paths:
       tags:
         - User
       summary: Returns the feedback provided by all the users
-      operationId: post__user_feedback_comment
+      operationId: postUserFeedbackComment
       requestBody:
         content:
           application/json:

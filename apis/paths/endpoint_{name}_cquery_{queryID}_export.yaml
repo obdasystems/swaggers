@@ -2,7 +2,7 @@ get:
   tags: [ConstructQuery]
   summary: Returns the file content of the export thread of a construct query running
     on the given endpoint
-  operationId: get__owlOntology_name_version_construct_query_ID_export
+  operationId: getOwlOntologyNameVersionConstructQueryIDExport
   parameters:
   - name: name
     in: path

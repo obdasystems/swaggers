@@ -1,7 +1,7 @@
 get:
   tags: [IntensionalAnnotation]
   summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/error
-  operationId: get__owlOntology_name_version_mapping_ID_generateIntensionalAnnotationsOntology_error
+  operationId: getOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntologyError
   parameters:
   - name: name
     in: path
@@ -24,5 +24,5 @@ get:
       description: OK
       content:
         text/plain:
-          schema: { type: string }
+          schema: {type: string}
     '401': {description: Unhauthorized}

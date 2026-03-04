@@ -1,7 +1,7 @@
 put:
   tags: [Query]
   summary: Forces the termination of the query running on the given endpoint
-  operationId: stop_catalog_query_on_endpoint
+  operationId: stopCatalogQueryOnEndpoint
   parameters:
   - name: name
     in: path

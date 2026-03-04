@@ -1,7 +1,7 @@
 get:
   tags: [Query]
   summary: Returns the view rewritings of a query executed on the given endpoint
-  operationId: get__owlOntology_name_version_query_ID_viewRewritings
+  operationId: getOwlOntologyNameVersionQueryIDViewRewritings
   parameters:
   - name: name
     in: path

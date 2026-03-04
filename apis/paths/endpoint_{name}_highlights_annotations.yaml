@@ -2,7 +2,7 @@ get:
   tags: [Highlights]
   summary: Returns the collection of entities with empty unfolding that are relevant
     for the given endpoint
-  operationId: get_endpoint_highlights_annotations
+  operationId: getEndpointHighlightsAnnotations
   parameters:
   - name: name
     in: path

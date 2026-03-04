@@ -26,7 +26,7 @@ paths:
       tags:
         - Persistence
       summary: GET mwsx/knowledgeGraphs
-      operationId: get__knowledgeGraphs
+      operationId: getKnowledgeGraphs
       responses:
         '200':
           description: OK
@@ -42,7 +42,7 @@ paths:
       tags:
         - Persistence
       summary: POST mwsx/knowledgeGraphs
-      operationId: post__knowledgeGraphs
+      operationId: postKnowledgeGraphs
       requestBody:
         content:
           application/json:
@@ -63,7 +63,7 @@ paths:
       tags:
         - Persistence
       summary: DELETE mwsx/knowledgeGraph
-      operationId: delete__knowledgeGraph
+      operationId: deleteKnowledgeGraph
       parameters:
         - name: kg
           in: query
@@ -83,7 +83,7 @@ paths:
       tags:
         - Persistence
       summary: GET mwsx/knowledgeGraph
-      operationId: get__knowledgeGraph
+      operationId: getKnowledgeGraph
       parameters:
         - name: iri
           in: query
@@ -104,7 +104,7 @@ paths:
       tags:
         - Persistence
       summary: GET mwsx/knowledgeGraph/info
-      operationId: get__knowledgeGraph_info
+      operationId: getKnowledgeGraphInfo
       parameters:
         - name: iri
           in: query
@@ -125,7 +125,7 @@ paths:
       tags:
         - General
       summary: POST mwsx/knowledgeGraph/prefixes
-      operationId: post__knowledgeGraph_prefixes
+      operationId: postKnowledgeGraphPrefixes
       parameters:
         - name: iri
           in: query
@@ -159,7 +159,7 @@ paths:
       tags:
         - General
       summary: GET mwsx/knowledgeGraph/prefixes
-      operationId: get__knowledgeGraph_prefixes
+      operationId: getKnowledgeGraphPrefixes
       parameters:
         - name: iri
           in: query
@@ -180,7 +180,7 @@ paths:
       tags:
         - FileSystem
       summary: GET mwsx/knowledgeGraph/folder
-      operationId: get__knowledgeGraph_folder
+      operationId: getKnowledgeGraphFolder
       parameters:
         - name: iri
           in: query
@@ -201,7 +201,7 @@ paths:
       tags:
         - Status
       summary: GET mwsx/knowledgeGraph/status
-      operationId: get__knowledgeGraph_status
+      operationId: getKnowledgeGraphStatus
       parameters:
         - name: iri
           in: query
@@ -222,7 +222,7 @@ paths:
       tags:
         - Status
       summary: GET mwsx/knowledgeGraph/status/list
-      operationId: get__knowledgeGraph_status_list
+      operationId: getKnowledgeGraphStatusList
       responses:
         '200':
           description: OK
@@ -241,7 +241,7 @@ paths:
       tags:
         - Persistence
       summary: PUT mwsx/knowledgeGraph/file
-      operationId: patch__knowledgeGraph_file
+      operationId: patchKnowledgeGraphFile
       requestBody:
         content:
           application/json:
@@ -261,7 +261,7 @@ paths:
       tags:
         - Persistence
       summary: DELETE mwsx/knowledgeGraph/file
-      operationId: delete__knowledgeGraph_file
+      operationId: deleteKnowledgeGraphFile
       requestBody:
         content:
           application/json:
@@ -281,7 +281,7 @@ paths:
       tags:
         - Persistence
       summary: GET mwsx/knowledgeGraph/file
-      operationId: get__knowledgeGraph_file
+      operationId: getKnowledgeGraphFile
       parameters:
         - name: iri
           in: query
@@ -317,7 +317,7 @@ paths:
       tags:
         - Classes
       summary: GET mwsx/knowledgeGraph/classes
-      operationId: get__knowledgeGraph_mentioned_classes
+      operationId: getKnowledgeGraphMentionedClasses
       parameters:
         - name: iri
           in: query
@@ -345,7 +345,7 @@ paths:
       tags:
         - Classes
       summary: GET mwsx/knowledgeGraph/classes/stats
-      operationId: get__knowledgeGraph_mentioned_classes_stats
+      operationId: getKnowledgeGraphMentionedClassesStats
       parameters:
         - name: iri
           in: query
@@ -373,7 +373,7 @@ paths:
       tags:
         - Classes
       summary: GET mwsx/knowledgeGraph/class/instances
-      operationId: get__knowledgeGraph_mentioned_instances_by_class
+      operationId: getKnowledgeGraphMentionedInstancesByClass
       parameters:
         - name: kgIri
           in: query
@@ -411,7 +411,7 @@ paths:
       tags:
         - General
       summary: GET mwsx/knowledgeGraph/namedGraphs
-      operationId: get__knowledgeGraph_named_graphs
+      operationId: getKnowledgeGraphNamedGraphs
       parameters:
         - name: iri
           in: query
@@ -434,7 +434,7 @@ paths:
       tags:
         - Instances
       summary: GET mwsx/knowledgeGraph/instances
-      operationId: get__knowledgeGraph_instances
+      operationId: getKnowledgeGraphInstances
       parameters:
         - name: iri
           in: query
@@ -462,7 +462,7 @@ paths:
       tags:
         - Union
       summary: PUT mwsx/knowledgeGraph/union
-      operationId: patch__knowledgeGraph_union
+      operationId: patchKnowledgeGraphUnion
       requestBody:
         content:
           application/json:
@@ -483,7 +483,7 @@ paths:
       tags:
         - Union
       summary: PUT mwsx/knowledgeGraph/union/ontology
-      operationId: patch__knowledgeGraph_union_ontology
+      operationId: patchKnowledgeGraphUnionOntology
       requestBody:
         content:
           application/json:
@@ -504,7 +504,7 @@ paths:
       tags:
         - Union
       summary: PUT mwsx/knowledgeGraph/union/queryKg
-      operationId: patch__knowledgeGraph_union_queryKg
+      operationId: patchKnowledgeGraphUnionQueryKg
       requestBody:
         content:
           application/json:
@@ -525,7 +525,7 @@ paths:
       tags:
         - Query
       summary: GET mwsx/knowledgeGraph/query/catalog
-      operationId: get__knowledgeGraph_query_catalog
+      operationId: getKnowledgeGraphQueryCatalog
       parameters:
         - name: iri
           in: query
@@ -545,7 +545,7 @@ paths:
       tags:
         - Query
       summary: POST mwsx/knowledgeGraph/query/catalog
-      operationId: post__knowledgeGraph_query_catalog
+      operationId: postKnowledgeGraphQueryCatalog
       parameters:
         - name: iri
           in: query
@@ -572,7 +572,7 @@ paths:
       tags:
         - Query
       summary: GET mwsx/knowledgeGraph/query/catalog/export
-      operationId: get__knowledgeGraph_query_catalog_export
+      operationId: getKnowledgeGraphQueryCatalogExport
       parameters:
         - name: iri
           in: query
@@ -593,7 +593,7 @@ paths:
       tags:
         - Query
       summary: GET mwsx/knowledgeGraph/query/catalog/{queryID}
-      operationId: get__knowledgeGraph_query_catalog_queryID
+      operationId: getKnowledgeGraphQueryCatalogQueryID
       parameters:
         - name: queryID
           in: path
@@ -618,7 +618,7 @@ paths:
       tags:
         - Query
       summary: PUT mwsx/knowledgeGraph/query/catalog/{queryID}
-      operationId: put__knowledgeGraph_query_catalog_queryID
+      operationId: putKnowledgeGraphQueryCatalogQueryID
       parameters:
         - name: queryID
           in: path
@@ -649,7 +649,7 @@ paths:
       tags:
         - Query
       summary: DELETE mwsx/knowledgeGraph/query/catalog/{queryID}
-      operationId: delete__knowledgeGraph_query_catalog_queryID
+      operationId: deleteKnowledgeGraphQueryCatalogQueryID
       parameters:
         - name: queryID
           in: path
@@ -675,7 +675,7 @@ paths:
       tags:
         - Query
       summary: POST mwsx/knowledgeGraph/query/start
-      operationId: post__knowledgeGraph_query_start
+      operationId: postKnowledgeGraphQueryStart
       parameters:
         - name: iri
           in: query
@@ -707,7 +707,7 @@ paths:
       tags:
         - Query
       summary: POST mwsx/knowledgeGraph/query/catalog/{queryID}/start
-      operationId: post__knowledgeGraph_query_catalog_queryID_start
+      operationId: postKnowledgeGraphQueryCatalogQueryIDStart
       parameters:
         - name: queryID
           in: path
@@ -738,7 +738,7 @@ paths:
       tags:
         - Query
       summary: PUT mwsx/knowledgeGraph/query/{queryID}/stop
-      operationId: get__knowledgeGraph_query_executionID_stop
+      operationId: getKnowledgeGraphQueryExecutionIDStop
       parameters:
         - name: queryID
           in: path
@@ -764,7 +764,7 @@ paths:
       tags:
         - Query
       summary: GET mwsx/knowledgeGraph/query/{queryID}/exportResults
-      operationId: get__knowledgeGraph_query_executionID_exportResults
+      operationId: getKnowledgeGraphQueryExecutionIDExportResults
       parameters:
         - name: queryID
           in: path
@@ -796,7 +796,7 @@ paths:
       tags:
         - Query
       summary: GET mwsx/knowledgeGraph/query/{queryID}/status
-      operationId: get__knowledgeGraph_query_executionID_status
+      operationId: getKnowledgeGraphQueryExecutionIDStatus
       parameters:
         - name: queryID
           in: path
@@ -822,7 +822,7 @@ paths:
       tags:
         - Query
       summary: DELETE mwsx/knowledgeGraph/query/{queryId}
-      operationId: delete__knowledgeGraph_query_executionID_thread
+      operationId: deleteKnowledgeGraphQueryExecutionIDThread
       parameters:
         - name: queryId
           in: path
@@ -848,7 +848,7 @@ paths:
       tags:
         - Query
       summary: GET mwsx/knowledgeGraph/query/{queryID}/results
-      operationId: get__knowledgeGraph_query_executionID_results
+      operationId: getKnowledgeGraphQueryExecutionIDResults
       parameters:
         - name: queryID
           in: path
@@ -886,7 +886,7 @@ paths:
       tags:
         - Instances
       summary: GET mwsx/knowledgeGraph/instance/page
-      operationId: get__knowledgeGraph_instance_page
+      operationId: getKnowledgeGraphInstancePage
       parameters:
         - name: instanceIri
           in: query
@@ -922,7 +922,7 @@ paths:
       tags:
         - Instances
       summary: GET mwsx/knowledgeGraph/instance/objectType
-      operationId: get__knowledgeGraph_instance_objectType
+      operationId: getKnowledgeGraphInstanceObjectType
       parameters:
         - name: kgIri
           in: query
@@ -974,7 +974,7 @@ paths:
       tags:
         - Instances
       summary: GET mwsx/knowledgeGraph/instance/subjectType
-      operationId: get__knowledgeGraph_instance_subjectType
+      operationId: getKnowledgeGraphInstanceSubjectType
       parameters:
         - name: kgIri
           in: query
@@ -1026,7 +1026,7 @@ paths:
       tags:
         - FileSystem
       summary: POST mwsx/knowledgeGraph/store/file
-      operationId: post__knowledgeGraph_store_file
+      operationId: postKnowledgeGraphStoreFile
       requestBody:
         content:
           application/json:
@@ -1046,7 +1046,7 @@ paths:
       tags:
         - FileSystem
       summary: GET mwsx/knowledgeGraph/store/file
-      operationId: get__knowledgeGraph_store_file
+      operationId: getKnowledgeGraphStoreFile
       responses:
         '200':
           description: OK
@@ -1063,7 +1063,7 @@ paths:
       tags:
         - FileSystem
       summary: DELETE mwsx/knowledgeGraph/store/file/{name}
-      operationId: delete__knowledgeGraph_store_file
+      operationId: deleteKnowledgeGraphStoreFile
       parameters:
         - name: name
           in: path
@@ -1083,7 +1083,7 @@ paths:
       tags:
         - FileSystem
       summary: GET mwsx/knowledgeGraph/store/file/{name}
-      operationId: get__knowledgeGraph_store_file_name
+      operationId: getKnowledgeGraphStoreFileName
       parameters:
         - name: name
           in: path
@@ -1104,7 +1104,7 @@ paths:
       tags:
         - Upload
       summary: POST mwsx/knowledgeGraph/upload/file
-      operationId: post__knowledgeGraph_upload_file
+      operationId: postKnowledgeGraphUploadFile
       parameters:
         - name: iri
           in: query
@@ -1131,7 +1131,7 @@ paths:
       tags:
         - Upload
       summary: PUT mwsx/knowledgeGraph/upload/import
-      operationId: put__knowledgeGraph_upload_import
+      operationId: putKnowledgeGraphUploadImport
       requestBody:
         content:
           application/json:
@@ -1152,7 +1152,7 @@ paths:
       tags:
         - Persistence
       summary: DELETE mwsx/knowledgeGraph/delete/file
-      operationId: delete__knowledgeGraph_delete_file
+      operationId: deleteKnowledgeGraphDeleteFile
       parameters:
         - name: iri
           in: query
@@ -1180,7 +1180,7 @@ paths:
       tags:
         - Persistence
       summary: DELETE mwsx/knowledgeGraph/delete/file/triples
-      operationId: delete__knowledgeGraph_delete_file_triples
+      operationId: deleteKnowledgeGraphDeleteFileTriples
       parameters:
         - name: iri
           in: query
@@ -1213,7 +1213,7 @@ paths:
       tags:
         - Upload
       summary: DELETE mwsx/knowledgeGraph/upload/remove
-      operationId: delete__knowledgeGraph_upload_remove
+      operationId: deleteKnowledgeGraphUploadRemove
       requestBody:
         content:
           application/json:
@@ -1234,7 +1234,7 @@ paths:
       tags:
         - Upload
       summary: GET mwsx/knowledgeGraph/upload/files
-      operationId: get__knowledgeGraph_upload_files
+      operationId: getKnowledgeGraphUploadFiles
       parameters:
         - name: iri
           in: query
@@ -1257,7 +1257,7 @@ paths:
       tags:
         - Union
       summary: PUT mwsx/knowledgeGraph/union/queryOBDA
-      operationId: put__knowledgeGraph_union_queryOBDA
+      operationId: putKnowledgeGraphUnionQueryOBDA
       parameters:
         - name: fileName
           in: query
@@ -1294,7 +1294,7 @@ paths:
       tags:
         - Upload
       summary: POST mwsx/knowledgeGraph/upload/file/csv
-      operationId: post__knowledgeGraph_upload_file_csv
+      operationId: postKnowledgeGraphUploadFileCsv
       parameters:
         - name: hasHeadersRow
           in: query
@@ -1341,7 +1341,7 @@ paths:
       tags:
         - Upload
       summary: GET mwsx/knowledgeGraph/upload/files/csv
-      operationId: get__knowledgeGraph_upload_file_csv
+      operationId: getKnowledgeGraphUploadFileCsv
       responses:
         '200':
           description: OK
@@ -1358,7 +1358,7 @@ paths:
       tags:
         - CSV
       summary: DELETE mwsx/knowledgeGraph/delete/file/csv/{fileName}
-      operationId: delete__knowledgeGraph_upload_file_csv
+      operationId: deleteKnowledgeGraphUploadFileCsv
       parameters:
         - name: fileName
           in: path
@@ -1379,7 +1379,7 @@ paths:
       tags:
         - CSV
       summary: GET mwsx/knowledgeGraph/file/csv/{fileName}/preview
-      operationId: get__knowledgeGraph_upload_file_csv_preview
+      operationId: getKnowledgeGraphUploadFileCsvPreview
       parameters:
         - name: fileName
           in: path
@@ -1406,7 +1406,7 @@ paths:
       tags:
         - Upload
       summary: PUT mwsx/knowledgeGraph/upload/import/csv
-      operationId: put__knowledgeGraph_upload_file_csv_import
+      operationId: putKnowledgeGraphUploadFileCsvImport
       parameters:
         - name: synchronousMode
           in: query
@@ -1433,7 +1433,7 @@ paths:
       tags:
         - Upload
       summary: GET mwsx/knowledgeGraph/upload/import/threads
-      operationId: get__knowledgeGraph_upload_file_csv_import
+      operationId: getKnowledgeGraphUploadFileCsvImport
       parameters:
         - name: iri
           in: query
@@ -1456,7 +1456,7 @@ paths:
       tags:
         - Upload
       summary: GET mwsx/knowledgeGraph/upload/import/thread
-      operationId: get__knowledgeGraph_upload_file_csv_import_thread
+      operationId: getKnowledgeGraphUploadFileCsvImportThread
       parameters:
         - name: iri
           in: query
@@ -1486,7 +1486,7 @@ paths:
       tags:
         - Upload
       summary: DELETE mwsx/knowledgeGraph/upload/import/thread
-      operationId: delete__knowledgeGraph_upload_file_csv_import_thread
+      operationId: deleteKnowledgeGraphUploadFileCsvImportThread
       parameters:
         - name: iri
           in: query
@@ -1512,7 +1512,7 @@ paths:
       tags:
         - Upload
       summary: 'Import metadata triples like /owlOntology/{name}/version/loaderThreads/metadata:'
-      operationId: post__knowledgeGraph_import_metadata
+      operationId: postKnowledgeGraphImportMetadata
       parameters:
         - name: iri
           in: query

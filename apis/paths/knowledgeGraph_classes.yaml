@@ -1,7 +1,7 @@
 get:
   tags: [Classes]
   summary: GET mwsx/knowledgeGraph/classes
-  operationId: get__knowledgeGraph_mentioned_classes
+  operationId: getKnowledgeGraphMentionedClasses
   parameters:
   - name: iri
     in: query

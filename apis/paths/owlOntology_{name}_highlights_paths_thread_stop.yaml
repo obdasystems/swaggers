@@ -1,7 +1,7 @@
 post:
   tags: [Highlights]
   summary: Stop the thread computing a shortest path on the ontology
-  operationId: post_shortest_path_thread_stop
+  operationId: postShortestPathThreadStop
   parameters:
   - name: name
     in: path

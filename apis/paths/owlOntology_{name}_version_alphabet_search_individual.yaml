@@ -1,7 +1,7 @@
 get:
   tags: [Logical]
   summary: GET mwsx/owlOntology/{name}/version/alphabet/search/individual
-  operationId: get_search_individual_info
+  operationId: getSearchIndividualInfo
   parameters:
   - name: name
     in: path

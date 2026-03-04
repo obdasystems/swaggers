@@ -1,7 +1,7 @@
 get:
   tags: [FileSystem]
   summary: GET mwsx/knowledgeGraph/folder
-  operationId: get__knowledgeGraph_folder
+  operationId: getKnowledgeGraphFolder
   parameters:
   - name: iri
     in: query
@@ -12,5 +12,5 @@ get:
       description: OK
       content:
         text/plain:
-          schema: { type: string }
+          schema: {type: string}
     '401': {description: Unhauthorized}

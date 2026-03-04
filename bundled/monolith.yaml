@@ -261,7 +261,7 @@ paths:
         header
       tags:
         - mastro_authentication_Login
-      operationId: get__login
+      operationId: getLogin
       responses:
         '200':
           description: OK
@@ -289,7 +289,7 @@ paths:
       summary: >-
         REST call for basic authentication, returns the session ID as a response
         header
-      operationId: get__logout
+      operationId: getLogout
       responses:
         '200':
           description: OK
@@ -313,7 +313,7 @@ paths:
         closing operation succeed
       tags:
         - mastro_authentication_Logout
-      operationId: put__logout_by_username
+      operationId: putLogoutByUsername
       parameters:
         - name: username
           in: path
@@ -1524,7 +1524,7 @@ paths:
       tags:
         - mastro_ontologies_Logical
       summary: GET mwsx/owlOntology/{name}/version/entity/{id}
-      operationId: get__owlOntology_name_version_entity
+      operationId: getOwlOntologyNameVersionEntity
       parameters:
         - name: name
           in: path
@@ -1567,7 +1567,7 @@ paths:
       tags:
         - mastro_ontologies_Logical
       summary: GET mwsx/owlOntology/{name}/version/alphabet/class/{ID}/logical
-      operationId: get__owlOntology_name_version_alphabet_class_ID_logical
+      operationId: getOwlOntologyNameVersionAlphabetClassIDLogical
       parameters:
         - name: name
           in: path
@@ -1610,7 +1610,7 @@ paths:
       tags:
         - mastro_ontologies_Logical
       summary: GET mwsx/owlOntology/{name}/version/annotations
-      operationId: get__owlOntology_name_version_alphabet_class_ID_annotations
+      operationId: getOwlOntologyNameVersionAlphabetClassIDAnnotations
       parameters:
         - name: name
           in: path
@@ -1655,7 +1655,7 @@ paths:
       tags:
         - mastro_ontologies_Logical
       summary: GET mwsx/owlOntology/{name}/version/alphabet/objectProperty/{ID}/logical
-      operationId: get__owlOntology_name_version_alphabet_objectProperty_ID_logical
+      operationId: getOwlOntologyNameVersionAlphabetObjectPropertyIDLogical
       parameters:
         - name: name
           in: path
@@ -1698,7 +1698,7 @@ paths:
       tags:
         - mastro_ontologies_Logical
       summary: GET mwsx/owlOntology/{name}/version/alphabet/dataProperty/{ID}/logical
-      operationId: get__owlOntology_name_version_alphabet_dataProperty_ID_logical
+      operationId: getOwlOntologyNameVersionAlphabetDataPropertyIDLogical
       parameters:
         - name: name
           in: path
@@ -1743,7 +1743,7 @@ paths:
       summary: >-
         GET
         mwsx/owlOntology/{name}/version/alphabet/dataProperties/domainAndRange
-      operationId: get__owlOntology_name_version_alphabet_dataProperties_domainAndRange
+      operationId: getOwlOntologyNameVersionAlphabetDataPropertiesDomainAndRange
       parameters:
         - name: name
           in: path
@@ -1785,7 +1785,7 @@ paths:
       summary: >-
         Returns the Graphol file of the version 'version' of the ontology named
         <code>name</code>.<br/> 
-      operationId: get__owlOntology_name_version_graphol
+      operationId: getOwlOntologyNameVersionGraphol
       parameters:
         - name: name
           in: path
@@ -1815,7 +1815,7 @@ paths:
       summary: >-
         Deletes the Graphol file of the version 'version' of the ontology named
         <code>name</code>.<br/> 
-      operationId: delete__owlOntology_name_version_graphol
+      operationId: deleteOwlOntologyNameVersionGraphol
       parameters:
         - name: name
           in: path
@@ -1855,7 +1855,7 @@ paths:
       summary: >-
         Returns the RDFGraph file of the version 'version' of the ontology named
         <code>name</code>.<br/> 
-      operationId: get__owlOntology_name_version_gscape
+      operationId: getOwlOntologyNameVersionGscape
       parameters:
         - name: name
           in: path
@@ -1885,7 +1885,7 @@ paths:
       summary: >-
         Deletes the RDFGraph file of the version 'version' of the ontology named
         <code>name</code>.<br/> 
-      operationId: delete__owlOntology_name_version_gscape
+      operationId: deleteOwlOntologyNameVersionGscape
       parameters:
         - name: name
           in: path
@@ -1923,7 +1923,7 @@ paths:
       tags:
         - mastro_ontologies_Visualize
       summary: GET mwsx/owlOntology/{name}/version/graphol/check
-      operationId: get__owlOntology_name_version_graphol_check
+      operationId: getOwlOntologyNameVersionGrapholCheck
       parameters:
         - name: name
           in: path
@@ -1961,7 +1961,7 @@ paths:
       tags:
         - mastro_ontologies_Visualize
       summary: GET mwsx/owlOntology/{name}/version/gscape/check
-      operationId: get__owlOntology_name_version_gscape_check
+      operationId: getOwlOntologyNameVersionGscapeCheck
       parameters:
         - name: name
           in: path
@@ -2001,7 +2001,7 @@ paths:
       summary: >-
         Returns the OWL file of the version 'version' of the ontology named
         <code>name</code>.<br/> 
-      operationId: get__owlOntology_name_version_owl
+      operationId: getOwlOntologyNameVersionOwl
       parameters:
         - name: name
           in: path
@@ -2039,7 +2039,7 @@ paths:
       tags:
         - mastro_ontologies_Logical
       summary: GET mwsx/owlOntology/{name}/version/alphabet/individual/{ID}/logical
-      operationId: get_individual_info
+      operationId: getIndividualInfo
       parameters:
         - name: name
           in: path
@@ -2082,7 +2082,7 @@ paths:
       tags:
         - mastro_ontologies_Logical
       summary: GET mwsx/owlOntology/{name}/version/alphabet/search/individual
-      operationId: get_search_individual_info
+      operationId: getSearchIndividualInfo
       parameters:
         - name: name
           in: path
@@ -2127,7 +2127,7 @@ paths:
       tags:
         - mastro_ontologies_Difference
       summary: GET mwsx/ontologyDifference/{name}/vs/{otherName}
-      operationId: get_ontology_difference
+      operationId: getOntologyDifference
       parameters:
         - name: name
           in: path
@@ -2175,7 +2175,7 @@ paths:
       tags:
         - mastro_ontologies_Metadata
       summary: GET mwsx/owlOntology/{name}/version/metadata
-      operationId: get_ontology_metadata_snapshot
+      operationId: getOntologyMetadataSnapshot
       parameters:
         - name: name
           in: path
@@ -2213,7 +2213,7 @@ paths:
       tags:
         - mastro_ontologies_Metadata
       summary: GET mwsx/owlOntology/{name}/version/metadata/missing
-      operationId: get_ontology_missing_metadata_snapshot
+      operationId: getOntologyMissingMetadataSnapshot
       parameters:
         - name: name
           in: path
@@ -2253,7 +2253,7 @@ paths:
       summary: >-
         Removes a specific query from the catalog available for this version of
         the ontology
-      operationId: get_query_publication_requests
+      operationId: getQueryPublicationRequests
       responses:
         '200':
           description: OK
@@ -2280,7 +2280,7 @@ paths:
       tags:
         - mastro_ontologies_FileSystem
       summary: Returns the folder where ontology named <code>name</code> is stored in
-      operationId: get__owlOntology_folder_name
+      operationId: getOwlOntologyFolderName
       parameters:
         - name: name
           in: path
@@ -2313,7 +2313,7 @@ paths:
       tags:
         - mastro_ontologies_FileSystem
       summary: Returns the folder where ontology named <code>name</code> is stored in
-      operationId: get__owlOntology_version_folder_name
+      operationId: getOwlOntologyVersionFolderName
       parameters:
         - name: name
           in: path
@@ -2351,7 +2351,7 @@ paths:
       tags:
         - mastro_mappings_Persistence
       summary: Returns the list of mappings available for a given ontology version
-      operationId: get__owlOntology_name_version_mapping
+      operationId: getOwlOntologyNameVersionMapping
       parameters:
         - name: name
           in: path
@@ -2379,7 +2379,7 @@ paths:
       tags:
         - mastro_mappings_Persistence
       summary: Creates a new set of mappings
-      operationId: post__owlOntology_name_version_mapping_ID
+      operationId: postOwlOntologyNameVersionMappingID
       parameters:
         - name: name
           in: path
@@ -2438,7 +2438,7 @@ paths:
       tags:
         - mastro_mappings_Persistence
       summary: 'Returns the set of mappings identified ID for a given ontology version  '
-      operationId: get__owlOntology_name_version_mapping_ID
+      operationId: getOwlOntologyNameVersionMappingID
       parameters:
         - name: name
           in: path
@@ -2478,7 +2478,7 @@ paths:
       summary: >-
         Updates mapping infos (passed as a Base64 encoded object
         NewMappingFileInfo in the query string) 
-      operationId: put__owlOntology_name_version_mapping_ID
+      operationId: putOwlOntologyNameVersionMappingID
       parameters:
         - name: name
           in: path
@@ -2522,7 +2522,7 @@ paths:
       tags:
         - mastro_mappings_Persistence
       summary: Deletes a set of mappings
-      operationId: delete__owlOntology_name_version_mapping_ID
+      operationId: deleteOwlOntologyNameVersionMappingID
       parameters:
         - name: name
           in: path
@@ -2565,7 +2565,7 @@ paths:
       tags:
         - mastro_mappings_Analysis
       summary: Performs mapping analysis returning a list of deprecation messages
-      operationId: get__owlOntology_name_version_mapping_ID_checkDeprecation
+      operationId: getOwlOntologyNameVersionMappingIDCheckDeprecation
       parameters:
         - name: name
           in: path
@@ -2610,7 +2610,7 @@ paths:
       tags:
         - mastro_mappings_Analysis
       summary: Returns mapping statistics by ontology entity
-      operationId: get__owlOntology_name_version_mapping_ID_count
+      operationId: getOwlOntologyNameVersionMappingIDCount
       parameters:
         - name: name
           in: path
@@ -2653,7 +2653,7 @@ paths:
       tags:
         - mastro_mappings_Persistence
       summary: Duplicates a given set of mappings
-      operationId: post__owlOntology_name_version_mapping_ID_duplicate
+      operationId: postOwlOntologyNameVersionMappingIDDuplicate
       parameters:
         - name: name
           in: path
@@ -2705,7 +2705,7 @@ paths:
       tags:
         - mastro_mappings_Persistence
       summary: Verifies whether a backup copy of a given mapping file exists
-      operationId: get__owlOntology_name_version_mapping_ID_backup
+      operationId: getOwlOntologyNameVersionMappingIDBackup
       parameters:
         - name: name
           in: path
@@ -2738,7 +2738,7 @@ paths:
       tags:
         - mastro_mappings_Persistence
       summary: Creates a backup copy of a given mapping file
-      operationId: post__owlOntology_name_version_mapping_ID_backup
+      operationId: postOwlOntologyNameVersionMappingIDBackup
       parameters:
         - name: name
           in: path
@@ -2771,7 +2771,7 @@ paths:
       tags:
         - mastro_mappings_Persistence
       summary: Restore a backup copy of a given mapping file
-      operationId: post__owlOntology_name_version_mapping_ID_restore
+      operationId: postOwlOntologyNameVersionMappingIDRestore
       parameters:
         - name: name
           in: path
@@ -2804,7 +2804,7 @@ paths:
       tags:
         - mastro_mappings_Persistence
       summary: Deletes the backup copy of a given mapping file
-      operationId: post__owlOntology_name_version_mapping_ID_delete
+      operationId: postOwlOntologyNameVersionMappingIDDelete
       parameters:
         - name: name
           in: path
@@ -2849,7 +2849,7 @@ paths:
       summary: >-
         Copy a given set of mappins from a source ontology version to a target
         ontology version (works under the same ontology name)
-      operationId: post__owlOntology_name_version_mapping_ID_migrate
+      operationId: postOwlOntologyNameVersionMappingIDMigrate
       parameters:
         - name: name
           in: path
@@ -2906,7 +2906,7 @@ paths:
       tags:
         - mastro_mappings_Persistence
       summary: Tentatively fixes mapping deprecations
-      operationId: post__owlOntology_name_version_mapping_ID_fix_deprecated
+      operationId: postOwlOntologyNameVersionMappingIDFixDeprecated
       parameters:
         - name: name
           in: path
@@ -2949,7 +2949,7 @@ paths:
       tags:
         - mastro_mappings_Test
       summary: Perform checks on a given mapping file
-      operationId: post__owlOntology_name_version_mapping_ID_check
+      operationId: postOwlOntologyNameVersionMappingIDCheck
       parameters:
         - name: name
           in: path
@@ -3003,7 +3003,7 @@ paths:
       tags:
         - mastro_mappings_Info
       summary: Returns info of a set of mappings
-      operationId: get__owlOntology_name_version_mapping_ID_info
+      operationId: getOwlOntologyNameVersionMappingIDInfo
       parameters:
         - name: name
           in: path
@@ -3046,7 +3046,7 @@ paths:
       tags:
         - mastro_mappings_Template
       summary: Returns the list of templates defined in a mapping file
-      operationId: get__owlOntology_name_version_mapping_ID_templates
+      operationId: getOwlOntologyNameVersionMappingIDTemplates
       parameters:
         - name: name
           in: path
@@ -3093,7 +3093,7 @@ paths:
       summary: >-
         Applies templates refactoring to mapping specification and returns a
         list of affected mappings ids
-      operationId: get__owlOntology_name_version_mapping_ID_templates_refactoring
+      operationId: getOwlOntologyNameVersionMappingIDTemplatesRefactoring
       parameters:
         - name: name
           in: path
@@ -3144,7 +3144,7 @@ paths:
       tags:
         - mastro_mappings_Template
       summary: Adds a new template to a mappng file
-      operationId: post__owlOntology_name_version_mapping_ID_template
+      operationId: postOwlOntologyNameVersionMappingIDTemplate
       parameters:
         - name: name
           in: path
@@ -3183,7 +3183,7 @@ paths:
       tags:
         - mastro_mappings_Template
       summary: Deletes a template from a mapping file
-      operationId: delete__owlOntology_name_version_mapping_ID_template
+      operationId: deleteOwlOntologyNameVersionMappingIDTemplate
       parameters:
         - name: name
           in: path
@@ -3231,7 +3231,7 @@ paths:
       tags:
         - mastro_mappings_Assertion
       summary: Returns the list of maping assertion involving the passed entity
-      operationId: get__owlOntology_name_version_mapping_ID_assertions_entityID
+      operationId: getOwlOntologyNameVersionMappingIDAssertionsEntityID
       parameters:
         - name: name
           in: path
@@ -3281,7 +3281,7 @@ paths:
       tags:
         - mastro_mappings_Assertion
       summary: Returns the list of all mapping assertions identified by ID
-      operationId: get__owlOntology_name_version_mapping_ID_assertions
+      operationId: getOwlOntologyNameVersionMappingIDAssertions
       parameters:
         - name: name
           in: path
@@ -3316,7 +3316,7 @@ paths:
       tags:
         - mastro_mappings_Assertion
       summary: Adds a new mapping assertion to a set of mappings
-      operationId: post__owlOntology_name_version_mapping_ID_assertions
+      operationId: postOwlOntologyNameVersionMappingIDAssertions
       parameters:
         - name: name
           in: path
@@ -3365,7 +3365,7 @@ paths:
       tags:
         - mastro_mappings_Assertion
       summary: Remove the mapping assertion mapID from a given set of mappings
-      operationId: delete__owlOntology_name_version_mapping_ID_assertions
+      operationId: deleteOwlOntologyNameVersionMappingIDAssertions
       parameters:
         - name: name
           in: path
@@ -3403,7 +3403,7 @@ paths:
       tags:
         - mastro_mappings_Assertion
       summary: Updates the mapping assertion mapID within a given set of mappings
-      operationId: put__owlOntology_name_version_mapping_ID_assertions
+      operationId: putOwlOntologyNameVersionMappingIDAssertions
       parameters:
         - name: name
           in: path
@@ -3459,7 +3459,7 @@ paths:
       summary: >-
         Returns the list of view definitions declared in a  given set of
         mappings
-      operationId: get__owlOntology_name_version_mapping_ID_views
+      operationId: getOwlOntologyNameVersionMappingIDViews
       parameters:
         - name: name
           in: path
@@ -3492,7 +3492,7 @@ paths:
       tags:
         - mastro_mappings_SQLView
       summary: Creates a new view definition in a set of mappings
-      operationId: post__owlOntology_name_version_mapping_ID_views
+      operationId: postOwlOntologyNameVersionMappingIDViews
       parameters:
         - name: name
           in: path
@@ -3543,7 +3543,7 @@ paths:
       summary: >-
         Returns the view definition identified by view_name in a given set of
         mappings
-      operationId: get__owlOntology_name_version_mapping_ID_view_refTables
+      operationId: getOwlOntologyNameVersionMappingIDViewRefTables
       parameters:
         - name: name
           in: path
@@ -3595,7 +3595,7 @@ paths:
       summary: >-
         Returns the whole map of tables referenced by view definitions of a
         given set of mappings
-      operationId: get__owlOntology_name_version_mapping_ID_views_allRefTablesMap
+      operationId: getOwlOntologyNameVersionMappingIDViewsAllRefTablesMap
       parameters:
         - name: name
           in: path
@@ -3646,7 +3646,7 @@ paths:
       summary: >-
         Returns the view definition identified by view_name in a given set of
         mappings
-      operationId: put__owlOntology_name_version_mapping_ID_views
+      operationId: putOwlOntologyNameVersionMappingIDViews
       parameters:
         - name: name
           in: path
@@ -3690,7 +3690,7 @@ paths:
       tags:
         - mastro_mappings_SQLView
       summary: Deletes a view definition
-      operationId: delete__owlOntology_name_version_mapping_ID_views
+      operationId: deleteOwlOntologyNameVersionMappingIDViews
       parameters:
         - name: name
           in: path
@@ -3738,7 +3738,7 @@ paths:
       tags:
         - mastro_mappings_SQLView
       summary: No description available
-      operationId: post__owlOntology_name_version_mapping_ID_views_refactoring
+      operationId: postOwlOntologyNameVersionMappingIDViewsRefactoring
       parameters:
         - name: name
           in: path
@@ -3777,7 +3777,7 @@ paths:
       tags:
         - mastro_mappings_SQLView
       summary: No description available
-      operationId: put__owlOntology_name_version_mapping_ID_views_refactoring
+      operationId: putOwlOntologyNameVersionMappingIDViewsRefactoring
       parameters:
         - name: name
           in: path
@@ -3826,7 +3826,7 @@ paths:
       tags:
         - mastro_mappings_SQLView
       summary: No description available
-      operationId: get__owlOntology_name_version_mapping_ID_views_viewID
+      operationId: getOwlOntologyNameVersionMappingIDViewsViewID
       parameters:
         - name: name
           in: path
@@ -3874,7 +3874,7 @@ paths:
       tags:
         - mastro_mappings_IntensionalAnnotation
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/annotations
-      operationId: get__owlOntology_name_version_intensional_annotation_mapping
+      operationId: getOwlOntologyNameVersionIntensionalAnnotationMapping
       parameters:
         - name: name
           in: path
@@ -3909,7 +3909,7 @@ paths:
       tags:
         - mastro_mappings_IntensionalAnnotation
       summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/annotations
-      operationId: post__owlOntology_name_version_intensional_annotation_mapping_mapId
+      operationId: postOwlOntologyNameVersionIntensionalAnnotationMappingMapId
       parameters:
         - name: name
           in: path
@@ -3958,7 +3958,7 @@ paths:
       tags:
         - mastro_mappings_IntensionalAnnotation
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/annotation/{mapID}
-      operationId: get__owlOntology_name_version_intensional_annotation_mapping_mapId
+      operationId: getOwlOntologyNameVersionIntensionalAnnotationMappingMapId
       parameters:
         - name: name
           in: path
@@ -3996,7 +3996,7 @@ paths:
       tags:
         - mastro_mappings_IntensionalAnnotation
       summary: DELETE mwsx/owlOntology/{name}/version/mapping/{ID}/annotation/{mapID}
-      operationId: delete__owlOntology_name_version_intensional_annotation_mapping_mapId
+      operationId: deleteOwlOntologyNameVersionIntensionalAnnotationMappingMapId
       parameters:
         - name: name
           in: path
@@ -4034,7 +4034,7 @@ paths:
       tags:
         - mastro_mappings_IntensionalAnnotation
       summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/annotation/{mapID}
-      operationId: put__owlOntology_name_version_intensional_annotation_mapping_mapId
+      operationId: putOwlOntologyNameVersionIntensionalAnnotationMappingMapId
       parameters:
         - name: name
           in: path
@@ -4091,7 +4091,7 @@ paths:
         POST
         mwsx/owlOntology/{name}/version/mapping/{ID}/generateIntensionalAnnotationsOntology
       operationId: >-
-        post__owlOntology_name_version_mapping_ID_generateIntensionalAnnotationsOntology
+        postOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntology
       parameters:
         - name: name
           in: path
@@ -4143,7 +4143,7 @@ paths:
         GET
         mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/state
       operationId: >-
-        get__owlOntology_name_version_mapping_ID_generateIntensionalAnnotationsOntology_threadState
+        getOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntologyThreadState
       parameters:
         - name: name
           in: path
@@ -4194,7 +4194,7 @@ paths:
         GET
         mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/error
       operationId: >-
-        get__owlOntology_name_version_mapping_ID_generateIntensionalAnnotationsOntology_error
+        getOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntologyError
       parameters:
         - name: name
           in: path
@@ -4245,7 +4245,7 @@ paths:
         GET
         mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/export
       operationId: >-
-        get__owlOntology_name_version_mapping_ID_generateIntensionalAnnotationsOntology_export
+        getOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntologyExport
       parameters:
         - name: name
           in: path
@@ -4296,7 +4296,7 @@ paths:
         PUT
         mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/stop
       operationId: >-
-        put__owlOntology_name_version_mapping_ID_generateIntensionalAnnotationsOntology_stop
+        putOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntologyStop
       parameters:
         - name: name
           in: path
@@ -4347,7 +4347,7 @@ paths:
         DELETE
         mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}
       operationId: >-
-        delete__owlOntology_name_version_mapping_ID_generateIntensionalAnnotationsOntology
+        deleteOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntology
       parameters:
         - name: name
           in: path
@@ -4395,7 +4395,7 @@ paths:
       tags:
         - mastro_mappings_Dependencies
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies
-      operationId: get__owlOntology_name_version_mapping_ID_dependencies
+      operationId: getOwlOntologyNameVersionMappingIDDependencies
       parameters:
         - name: name
           in: path
@@ -4438,7 +4438,7 @@ paths:
       tags:
         - mastro_mappings_Dependencies
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/inclusions
-      operationId: get__owlOntology_name_version_mapping_ID_dependencies_inclusions
+      operationId: getOwlOntologyNameVersionMappingIDDependenciesInclusions
       parameters:
         - name: name
           in: path
@@ -4475,7 +4475,7 @@ paths:
       summary: >-
         POST
         mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/inclusions
-      operationId: post__owlOntology_name_version_mapping_ID_dependencies_inclusions
+      operationId: postOwlOntologyNameVersionMappingIDDependenciesInclusions
       parameters:
         - name: name
           in: path
@@ -4526,7 +4526,7 @@ paths:
       summary: >-
         GET
         mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/inclusion/{incID}
-      operationId: get__owlOntology_name_version_mapping_ID_dependencies_inclusion_incID
+      operationId: getOwlOntologyNameVersionMappingIDDependenciesInclusionIncID
       parameters:
         - name: name
           in: path
@@ -4566,7 +4566,7 @@ paths:
       summary: >-
         PUT
         mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/inclusion/{incID}
-      operationId: put__owlOntology_name_version_mapping_ID_dependencies_inclusion_incID
+      operationId: putOwlOntologyNameVersionMappingIDDependenciesInclusionIncID
       parameters:
         - name: name
           in: path
@@ -4612,7 +4612,7 @@ paths:
       summary: >-
         DELETE
         mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/inclusion/{incID}
-      operationId: delete__owlOntology_name_version_mapping_ID_dependencies_inclusion_incID
+      operationId: deleteOwlOntologyNameVersionMappingIDDependenciesInclusionIncID
       parameters:
         - name: name
           in: path
@@ -4660,7 +4660,7 @@ paths:
       tags:
         - mastro_mappings_Dependencies
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/keys
-      operationId: get__owlOntology_name_version_mapping_ID_dependencies_keys
+      operationId: getOwlOntologyNameVersionMappingIDDependenciesKeys
       parameters:
         - name: name
           in: path
@@ -4695,7 +4695,7 @@ paths:
       tags:
         - mastro_mappings_Dependencies
       summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/keys
-      operationId: post__owlOntology_name_version_mapping_ID_dependencies_keys
+      operationId: postOwlOntologyNameVersionMappingIDDependenciesKeys
       parameters:
         - name: name
           in: path
@@ -4746,7 +4746,7 @@ paths:
       summary: >-
         GET
         mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/key/{keyID}
-      operationId: get__owlOntology_name_version_mapping_ID_dependencies_key_keyID
+      operationId: getOwlOntologyNameVersionMappingIDDependenciesKeyKeyID
       parameters:
         - name: name
           in: path
@@ -4786,7 +4786,7 @@ paths:
       summary: >-
         DELETE
         mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/key/{keyID}
-      operationId: delete__owlOntology_name_version_mapping_ID_dependencies_key_keyID
+      operationId: deleteOwlOntologyNameVersionMappingIDDependenciesKeyKeyID
       parameters:
         - name: name
           in: path
@@ -4826,7 +4826,7 @@ paths:
       summary: >-
         PUT
         mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/key/{keyID}
-      operationId: put__owlOntology_name_version_mapping_ID_dependencies_key_keyID
+      operationId: putOwlOntologyNameVersionMappingIDDependenciesKeyKeyID
       parameters:
         - name: name
           in: path
@@ -4880,7 +4880,7 @@ paths:
       tags:
         - mastro_mappings_Dependencies
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/denials
-      operationId: get__owlOntology_name_version_mapping_ID_dependencies_denials
+      operationId: getOwlOntologyNameVersionMappingIDDependenciesDenials
       parameters:
         - name: name
           in: path
@@ -4915,7 +4915,7 @@ paths:
       tags:
         - mastro_mappings_Dependencies
       summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/denials
-      operationId: post__owlOntology_name_version_mapping_ID_dependencies_denials
+      operationId: postOwlOntologyNameVersionMappingIDDependenciesDenials
       parameters:
         - name: name
           in: path
@@ -4966,7 +4966,7 @@ paths:
       summary: >-
         GET
         mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/denial/{denyID}
-      operationId: get__owlOntology_name_version_mapping_ID_dependencies_denial_denyID
+      operationId: getOwlOntologyNameVersionMappingIDDependenciesDenialDenyID
       parameters:
         - name: name
           in: path
@@ -5006,7 +5006,7 @@ paths:
       summary: >-
         PUT
         mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/denial/{denyID}
-      operationId: put__owlOntology_name_version_mapping_ID_dependencies_denial_denyID
+      operationId: putOwlOntologyNameVersionMappingIDDependenciesDenialDenyID
       parameters:
         - name: name
           in: path
@@ -5052,7 +5052,7 @@ paths:
       summary: >-
         DELETE
         mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/denial/{denyID}
-      operationId: delete__owlOntology_name_version_mapping_ID_dependencies_denial_denyID
+      operationId: deleteOwlOntologyNameVersionMappingIDDependenciesDenialDenyID
       parameters:
         - name: name
           in: path
@@ -5100,7 +5100,7 @@ paths:
       tags:
         - mastro_mappings_Parameters
       summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/parameter
-      operationId: post__owlOntology_name_version_mapping_ID_parameter
+      operationId: postOwlOntologyNameVersionMappingIDParameter
       parameters:
         - name: name
           in: path
@@ -5139,7 +5139,7 @@ paths:
       tags:
         - mastro_mappings_Parameters
       summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/parameter
-      operationId: put__owlOntology_name_version_mapping_ID_parameter
+      operationId: putOwlOntologyNameVersionMappingIDParameter
       parameters:
         - name: name
           in: path
@@ -5188,7 +5188,7 @@ paths:
       tags:
         - mastro_mappings_Parameters
       summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/parameters
-      operationId: get__owlOntology_name_version_mapping_ID_parameters
+      operationId: getOwlOntologyNameVersionMappingIDParameters
       parameters:
         - name: name
           in: path
@@ -5233,7 +5233,7 @@ paths:
       summary: >-
         DELETE
         mwsx/owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}
-      operationId: delete__owlOntology_name_version_mapping_ID_parameter
+      operationId: deleteOwlOntologyNameVersionMappingIDParameter
       parameters:
         - name: name
           in: path
@@ -5283,7 +5283,7 @@ paths:
       summary: >-
         GET
         mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/parameters
-      operationId: get__owlOntology_name_version_mapping_ID_ass_parameters
+      operationId: getOwlOntologyNameVersionMappingIDAssParameters
       parameters:
         - name: name
           in: path
@@ -5335,7 +5335,7 @@ paths:
       summary: >-
         GET
         mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/referencedTables
-      operationId: get__owlOntology_name_version_mapping_ID_ass_refTables
+      operationId: getOwlOntologyNameVersionMappingIDAssRefTables
       parameters:
         - name: name
           in: path
@@ -5387,7 +5387,7 @@ paths:
       summary: >-
         GET
         mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/testSQLQuery
-      operationId: get__owlOntology_name_version_mapping_ID_ass_testSQLQuery
+      operationId: getOwlOntologyNameVersionMappingIDAssTestSQLQuery
       parameters:
         - name: name
           in: path
@@ -5448,7 +5448,7 @@ paths:
       summary: >-
         POST
         mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/testCustomSQLQuery
-      operationId: post__owlOntology_name_version_mapping_ID_ass_testCustomSQLQuery
+      operationId: postOwlOntologyNameVersionMappingIDAssTestCustomSQLQuery
       parameters:
         - name: name
           in: path
@@ -5515,8 +5515,7 @@ paths:
       summary: >-
         POST
         mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/testCustomSQLQuery
-      operationId: >-
-        post__owlOntology_name_version_mapping_ID_ass_testCustomSQLQuery_from_mapAssertion
+      operationId: postOwlOntologyNameVersionMappingIDAssTestCustomSQLQueryFromMapAssertion
       parameters:
         - name: name
           in: path
@@ -5578,7 +5577,7 @@ paths:
       summary: >-
         GET
         mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/typeCheckingReport
-      operationId: get__owlOntology_name_version_mapping_ID_ass_typeCheckingReport
+      operationId: getOwlOntologyNameVersionMappingIDAssTypeCheckingReport
       parameters:
         - name: name
           in: path
@@ -5635,7 +5634,7 @@ paths:
       summary: >-
         GET
         mwsx/owlOntology/{name}/version/mapping/{ID}/view/{viewName}/parameters
-      operationId: get__owlOntology_name_version_mapping_ID_view_parameters
+      operationId: getOwlOntologyNameVersionMappingIDViewParameters
       parameters:
         - name: name
           in: path
@@ -5687,7 +5686,7 @@ paths:
       summary: >-
         GET
         mwsx/owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}/views
-      operationId: get__owlOntology_name_version_mapping_ID_parameter_views
+      operationId: getOwlOntologyNameVersionMappingIDParameterViews
       parameters:
         - name: name
           in: path
@@ -5739,7 +5738,7 @@ paths:
       summary: >-
         GET
         mwsx/owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}/assertions
-      operationId: get__owlOntology_name_version_mapping_ID_parameter_assertions
+      operationId: getOwlOntologyNameVersionMappingIDParameterAssertions
       parameters:
         - name: name
           in: path
@@ -5789,7 +5788,7 @@ paths:
       summary: >-
         DELETE
         mwsx/owlOntology/{name}/version/mapping/{mapID}/query/{queryID}/delete
-      operationId: delete__owlOntology_name_version_query_ID_stop
+      operationId: deleteOwlOntologyNameVersionQueryIDStop
       parameters:
         - name: name
           in: path
@@ -5841,7 +5840,7 @@ paths:
       summary: >-
         GET
         mwsx/owlOntology/{name}/version/mapping/{mapID}/suggestedTemplate/{entityID}
-      operationId: get__owlOntology_name_version_mapID_suggestedTemplate_entityID
+      operationId: getOwlOntologyNameVersionMapIDSuggestedTemplateEntityID
       parameters:
         - name: name
           in: path
@@ -5898,7 +5897,7 @@ paths:
       summary: >-
         GET
         mwsx/owlOntology/{name}/version/mapping/{mapID}/dataLineage/{entityID}
-      operationId: get__owlOntology_name_version_mapID_entityID_dataLineage
+      operationId: getOwlOntologyNameVersionMapIDEntityIDDataLineage
       parameters:
         - name: name
           in: path
@@ -5953,7 +5952,7 @@ paths:
       summary: >-
         GET
         mwsx/owlOntology/{name}/version/mapping/{mapID}/dataLineageProperty/{entityID}
-      operationId: get__owlOntology_name_version_mapID_entityID_dataLineageProperty
+      operationId: getOwlOntologyNameVersionMapIDEntityIDDataLineageProperty
       parameters:
         - name: name
           in: path
@@ -6003,8 +6002,7 @@ paths:
       summary: >-
         GET
         mwsx/owlOntology/{name}/version/mapping/{mapID}/dataLineageAnnotationProperty
-      operationId: >-
-        get__owlOntology_name_version_mapID_entityID_dataLineageAnnotationProperty
+      operationId: getOwlOntologyNameVersionMapIDEntityIDDataLineageAnnotationProperty
       parameters:
         - name: name
           in: path
@@ -6052,7 +6050,7 @@ paths:
       tags:
         - mastro_datasources_Persistence
       summary: Returns the data source information by its name
-      operationId: get__datasource
+      operationId: getDatasource
       parameters:
         - name: name
           in: path
@@ -6075,7 +6073,7 @@ paths:
       tags:
         - mastro_datasources_Persistence
       summary: Modifies the data source information by its name
-      operationId: put__datasource
+      operationId: putDatasource
       parameters:
         - name: name
           in: path
@@ -6104,7 +6102,7 @@ paths:
       tags:
         - mastro_datasources_Persistence
       summary: Deletes a data source information by its name
-      operationId: delete__datasource
+      operationId: deleteDatasource
       parameters:
         - name: name
           in: path
@@ -6137,7 +6135,7 @@ paths:
       tags:
         - mastro_datasources_Metadata
       summary: Returns the data source information by its name
-      operationId: get__datasource_downloadMetadata
+      operationId: getDatasourceDownloadMetadata
       parameters:
         - name: name
           in: path
@@ -6170,7 +6168,7 @@ paths:
       tags:
         - mastro_datasources_Metadata
       summary: Returns the data source information by its name
-      operationId: get__datasource_metadata
+      operationId: getDatasourceMetadata
       parameters:
         - name: name
           in: path
@@ -6205,7 +6203,7 @@ paths:
       summary: >-
         Updates the data source metadata information retrieving it from the JDBC
         connection
-      operationId: put__datasource_updateMetadata
+      operationId: putDatasourceUpdateMetadata
       parameters:
         - name: name
           in: path
@@ -6245,7 +6243,7 @@ paths:
       summary: >-
         Uploads the data source metadata information for the specified
         datasource
-      operationId: put__datasource_uploadMetadata
+      operationId: putDatasourceUploadMetadata
       parameters:
         - name: name
           in: path
@@ -6284,7 +6282,7 @@ paths:
       tags:
         - mastro_datasources_Persistence
       summary: Creates a new data source information
-      operationId: post__datasource
+      operationId: postDatasource
       parameters:
         - name: buildSchema
           in: query
@@ -6318,7 +6316,7 @@ paths:
       tags:
         - mastro_datasources_Persistence
       summary: Returns all the data source definitions available
-      operationId: get__datasource_list
+      operationId: getDatasourceList
       responses:
         '200':
           description: OK
@@ -6337,7 +6335,7 @@ paths:
       tags:
         - mastro_datasources_Persistence
       summary: Deletes all the available data source information
-      operationId: delete__all_datasource
+      operationId: deleteAllDatasource
       responses:
         '200':
           description: OK
@@ -6364,7 +6362,7 @@ paths:
       tags:
         - mastro_datasources_Drivers
       summary: Returns the list of available JDBC driver class names
-      operationId: get__datasource_driver
+      operationId: getDatasourceDriver
       responses:
         '200':
           description: OK
@@ -6663,7 +6661,7 @@ paths:
       tags:
         - mastro_endpoints_Persistence
       summary: Returns all available endpoints
-      operationId: get_endpoints
+      operationId: getEndpoints
       responses:
         '200':
           description: OK
@@ -6680,7 +6678,7 @@ paths:
       tags:
         - mastro_endpoints_Persistence
       summary: Deletes all available endpoints
-      operationId: delete_endpoints
+      operationId: deleteEndpoints
       responses:
         '200':
           description: OK
@@ -6709,7 +6707,7 @@ paths:
       summary: >-
         Returns all available endpoints defined on a given ontology name and
         ontology version
-      operationId: get_endpoints_referencing_onto
+      operationId: getEndpointsReferencingOnto
       parameters:
         - name: name
           in: path
@@ -6749,7 +6747,7 @@ paths:
       summary: >-
         Returns all available endpoints defined on a given ontology name,
         ontology version and mapping
-      operationId: get_endpoints_referencing_onto_mapping
+      operationId: getEndpointsReferencingOntoMapping
       parameters:
         - name: name
           in: path
@@ -6794,7 +6792,7 @@ paths:
       summary: >-
         Returns all available endpoints that are defined for a specific
         datasource
-      operationId: get_endpoints_referencing_datasource
+      operationId: getEndpointsReferencingDatasource
       parameters:
         - name: name
           in: path
@@ -6827,7 +6825,7 @@ paths:
       tags:
         - mastro_endpoints_Persistence
       summary: Returns all endpoints with status running
-      operationId: get_running_endpoints
+      operationId: getRunningEndpoints
       responses:
         '200':
           description: OK
@@ -6854,7 +6852,7 @@ paths:
       tags:
         - mastro_endpoints_Persistence
       summary: Returns an endpoint by its name
-      operationId: get_endpoint
+      operationId: getEndpoint
       parameters:
         - name: name
           in: path
@@ -6877,7 +6875,7 @@ paths:
       tags:
         - mastro_endpoints_Persistence
       summary: Deletes the endpoint by its name
-      operationId: delete_endpoint
+      operationId: deleteEndpoint
       parameters:
         - name: name
           in: path
@@ -6900,7 +6898,7 @@ paths:
       tags:
         - mastro_endpoints_Persistence
       summary: Updates the endpoint with the new values provided
-      operationId: put_endpoint
+      operationId: putEndpoint
       parameters:
         - name: name
           in: path
@@ -6939,7 +6937,7 @@ paths:
       tags:
         - mastro_endpoints_Persistence
       summary: Creates a new endpoint
-      operationId: post_endpoint
+      operationId: postEndpoint
       requestBody:
         content:
           application/json:
@@ -6972,7 +6970,7 @@ paths:
       tags:
         - mastro_endpoints_Info
       summary: Returns the set of prefixes that are relevant for a given endpoint
-      operationId: get__owlOntology_name_version_mapping_ID_prefixes
+      operationId: getOwlOntologyNameVersionMappingIDPrefixes
       parameters:
         - name: name
           in: path
@@ -7007,7 +7005,7 @@ paths:
       tags:
         - mastro_endpoints_Status
       summary: Starts the given endpoint, returns 0 if the operation succeeds
-      operationId: start_endpoint
+      operationId: startEndpoint
       parameters:
         - name: name
           in: path
@@ -7046,7 +7044,7 @@ paths:
       tags:
         - mastro_endpoints_Status
       summary: Stops the given endpoint, returns 0 if the stop operation succeeds
-      operationId: stop_endpoint
+      operationId: stopEndpoint
       parameters:
         - name: name
           in: path
@@ -7079,7 +7077,7 @@ paths:
       tags:
         - mastro_endpoints_Status
       summary: Returns the status of the given endpoint
-      operationId: get_endpoint_status
+      operationId: getEndpointStatus
       parameters:
         - name: name
           in: path
@@ -7112,7 +7110,7 @@ paths:
       tags:
         - mastro_endpoints_Empties
       summary: Returns the collection of empty entities relevant for the given endpoint
-      operationId: get_endpoint_empties
+      operationId: getEndpointEmpties
       parameters:
         - name: name
           in: path
@@ -7147,7 +7145,7 @@ paths:
       summary: >-
         Returns the collection of entities with empty unfolding that are
         relevant for the given endpoint
-      operationId: get_endpoint_empty_unfolding_entities
+      operationId: getEndpointEmptyUnfoldingEntities
       parameters:
         - name: name
           in: path
@@ -7182,7 +7180,7 @@ paths:
       summary: >-
         Returns the collection of entities with empty unfolding that are
         relevant for the given endpoint
-      operationId: get_endpoint_highlights_annotations
+      operationId: getEndpointHighlightsAnnotations
       parameters:
         - name: name
           in: path
@@ -7222,7 +7220,7 @@ paths:
       tags:
         - mastro_endpoints_QueryCount
       summary: Forces the count thread of the given SPARQL query to stop
-      operationId: put_query_count_stop
+      operationId: putQueryCountStop
       parameters:
         - name: name
           in: path
@@ -7260,7 +7258,7 @@ paths:
       tags:
         - mastro_endpoints_QueryCount
       summary: Deletes the count thread on the given endpoint for a SPARQL query
-      operationId: delete_query_count
+      operationId: deleteQueryCount
       parameters:
         - name: name
           in: path
@@ -7300,7 +7298,7 @@ paths:
       summary: >-
         Returns the counts the results of a SPARQL query executed on the given
         endpoint
-      operationId: get_query_count_result
+      operationId: getQueryCountResult
       parameters:
         - name: name
           in: path
@@ -7338,7 +7336,7 @@ paths:
       tags:
         - mastro_endpoints_Query
       summary: Checks the syntax of the passed query on the given endpoint
-      operationId: check_query_on_endpoint
+      operationId: checkQueryOnEndpoint
       parameters:
         - name: name
           in: path
@@ -7379,7 +7377,7 @@ paths:
       summary: >-
         Given a SPARQL query, returns a map with entity as key and a set of
         quarantined mapping identifiers as a value
-      operationId: check_query_on_endpoint_for_quarantinedMappings
+      operationId: checkQueryOnEndpointForQuarantinedMappings
       parameters:
         - name: name
           in: path
@@ -7422,7 +7420,7 @@ paths:
       tags:
         - mastro_endpoints_Query
       summary: Starts a new instance of a query on the given endpoint
-      operationId: start_catalog_query_on_endpoint
+      operationId: startCatalogQueryOnEndpoint
       parameters:
         - name: name
           in: path
@@ -7518,7 +7516,7 @@ paths:
       tags:
         - mastro_endpoints_Query
       summary: Forces the termination of the query running on the given endpoint
-      operationId: stop_catalog_query_on_endpoint
+      operationId: stopCatalogQueryOnEndpoint
       parameters:
         - name: name
           in: path
@@ -7558,7 +7556,7 @@ paths:
       summary: >-
         Returns the file containing exported results for a query on the given
         endpoint
-      operationId: export_catalog_query_on_endpoint
+      operationId: exportCatalogQueryOnEndpoint
       parameters:
         - name: name
           in: path
@@ -7601,7 +7599,7 @@ paths:
       tags:
         - mastro_endpoints_Query
       summary: Returns the report of a Full Sparql query executed on the given endpoint
-      operationId: get_eqldeatils_catalog_query_on_endpoint
+      operationId: getEqldeatilsCatalogQueryOnEndpoint
       parameters:
         - name: name
           in: path
@@ -7639,7 +7637,7 @@ paths:
       tags:
         - mastro_endpoints_Query
       summary: Returns the ontology rewriting of a query executed on the given endpoint
-      operationId: get__owlOntology_name_version_query_ID_ontologyRewritings
+      operationId: getOwlOntologyNameVersionQueryIDOntologyRewritings
       parameters:
         - name: name
           in: path
@@ -7689,7 +7687,7 @@ paths:
       tags:
         - mastro_endpoints_Query
       summary: Returns the view rewritings of a query executed on the given endpoint
-      operationId: get__owlOntology_name_version_query_ID_viewRewritings
+      operationId: getOwlOntologyNameVersionQueryIDViewRewritings
       parameters:
         - name: name
           in: path
@@ -7741,7 +7739,7 @@ paths:
       summary: >-
         Returns the optimized view rewritings of a query executed on the given
         endpoint
-      operationId: get__owlOntology_name_version_query_ID_viewOptimizedRewritings
+      operationId: getOwlOntologyNameVersionQueryIDViewOptimizedRewritings
       parameters:
         - name: name
           in: path
@@ -7791,7 +7789,7 @@ paths:
       tags:
         - mastro_endpoints_Query
       summary: Returns the SQL rewritings of a query executed on the given endpoint
-      operationId: get__owlOntology_name_version_query_ID_sqlRewritings
+      operationId: getOwlOntologyNameVersionQueryIDSqlRewritings
       parameters:
         - name: name
           in: path
@@ -7843,7 +7841,7 @@ paths:
       summary: >-
         Returns the currently running SQL rewritings of a query executed on the
         given endpoint
-      operationId: get__owlOntology_name_version_query_ID_sqlDebugRewritings
+      operationId: getOwlOntologyNameVersionQueryIDSqlDebugRewritings
       parameters:
         - name: name
           in: path
@@ -7885,7 +7883,7 @@ paths:
       summary: >-
         Returns the results of the query running on the given endpoint, the
         results returned contain a page (pagenumber) of a given size (pagesize)
-      operationId: get__owlOntology_name_version_query_ID_results
+      operationId: getOwlOntologyNameVersionQueryIDResults
       parameters:
         - name: name
           in: path
@@ -7935,7 +7933,7 @@ paths:
       tags:
         - mastro_endpoints_Query
       summary: Returns the status of a query running on the given endpoint
-      operationId: get__owlOntology_name_version_query_ID_status
+      operationId: getOwlOntologyNameVersionQueryIDStatus
       parameters:
         - name: name
           in: path
@@ -7975,7 +7973,7 @@ paths:
       summary: >-
         Returns the query record info of all the queries running on the given
         endpoint
-      operationId: get__owlOntology_name_version_query_ID_record_infos
+      operationId: getOwlOntologyNameVersionQueryIDRecordInfos
       parameters:
         - name: name
           in: path
@@ -8012,7 +8010,7 @@ paths:
       summary: >-
         Returns the query record info of a certain query running on the given
         endpoint
-      operationId: get__owlOntology_name_version_query_ID_record_info
+      operationId: getOwlOntologyNameVersionQueryIDRecordInfo
       parameters:
         - name: name
           in: path
@@ -8052,7 +8050,7 @@ paths:
       summary: >-
         Exports on a separate thread the results of a query running on the given
         endpoint, the export thread identifier is returned
-      operationId: post__owlOntology_name_version_query_ID_export_results
+      operationId: postOwlOntologyNameVersionQueryIDExportResults
       parameters:
         - name: name
           in: path
@@ -8093,7 +8091,7 @@ paths:
       summary: >-
         Returns the stream of the results of a query running on the given
         endpoint
-      operationId: post__owlOntology_name_version_query_ID_export_directcsv
+      operationId: postOwlOntologyNameVersionQueryIDExportDirectcsv
       parameters:
         - name: name
           in: path
@@ -8132,7 +8130,7 @@ paths:
       tags:
         - mastro_endpoints_ExportedQuery
       summary: Returns the export thread identifiers available on the given endpoint
-      operationId: get__owlOntology_name_version_query_ID_export_threads
+      operationId: getOwlOntologyNameVersionQueryIDExportThreads
       parameters:
         - name: name
           in: path
@@ -8169,7 +8167,7 @@ paths:
       summary: >-
         Returns the collection of export information available for the given
         endpoint
-      operationId: get__owlOntology_name_version_query_ID_exported
+      operationId: getOwlOntologyNameVersionQueryIDExported
       parameters:
         - name: name
           in: path
@@ -8204,7 +8202,7 @@ paths:
       tags:
         - mastro_endpoints_ExportedQuery
       summary: Returns the content of an export file for the given endpoint
-      operationId: get__owlOntology_name_version_query_ID_exported_fileName
+      operationId: getOwlOntologyNameVersionQueryIDExportedFileName
       parameters:
         - name: name
           in: path
@@ -8234,7 +8232,7 @@ paths:
       summary: >-
         Deletes the export file for the given endpoint from the server, returns
         0 in the deletion succeeded
-      operationId: delete__owlOntology_name_version_query_ID_exported_fileName
+      operationId: deleteOwlOntologyNameVersionQueryIDExportedFileName
       parameters:
         - name: name
           in: path
@@ -8272,7 +8270,7 @@ paths:
       tags:
         - mastro_endpoints_ExportedQuery
       summary: Returns the status of an export thread running on the given endpoint
-      operationId: get__owlOntology_name_version_query_ID_export_thread_id_status
+      operationId: getOwlOntologyNameVersionQueryIDExportThreadIdStatus
       parameters:
         - name: name
           in: path
@@ -8310,7 +8308,7 @@ paths:
       tags:
         - mastro_endpoints_ExportedQuery
       summary: Returns the status of an export thread running on the given endpoint
-      operationId: get__owlOntology_name_version_query_ID_export_thread_id_errors
+      operationId: getOwlOntologyNameVersionQueryIDExportThreadIdErrors
       parameters:
         - name: name
           in: path
@@ -8350,7 +8348,7 @@ paths:
       tags:
         - mastro_endpoints_ExportedQuery
       summary: Stops the execution of an export thread on the given endpoint
-      operationId: put__owlOntology_name_version_query_ID_export_thread_id_stop
+      operationId: putOwlOntologyNameVersionQueryIDExportThreadIdStop
       parameters:
         - name: name
           in: path
@@ -8388,7 +8386,7 @@ paths:
       tags:
         - mastro_endpoints_ExportedQuery
       summary: Returns statistics of an export thread running on the given endpoint
-      operationId: get__owlOntology_name_version_query_ID_export_thread_id_stats
+      operationId: getOwlOntologyNameVersionQueryIDExportThreadIdStats
       parameters:
         - name: name
           in: path
@@ -8426,7 +8424,7 @@ paths:
       tags:
         - mastro_endpoints_ExportedQuery
       summary: Streams the file content of an export thread run on the given endpoint
-      operationId: get__owlOntology_name_version_query_ID_export_thread_id_file
+      operationId: getOwlOntologyNameVersionQueryIDExportThreadIdFile
       parameters:
         - name: name
           in: path
@@ -8465,7 +8463,7 @@ paths:
       tags:
         - mastro_endpoints_ExportedQuery
       summary: Returns the first 'lines' lines of the exported file content
-      operationId: get__owlOntology_name_version_query_ID_export_thread_id_preview
+      operationId: getOwlOntologyNameVersionQueryIDExportThreadIdPreview
       parameters:
         - name: name
           in: path
@@ -8509,7 +8507,7 @@ paths:
       tags:
         - mastro_endpoints_ExportedQuery
       summary: DELETE mwsx/endpoint/{name}/exportThread/{id}
-      operationId: delete__owlOntology_name_version_query_ID_export_thread_id
+      operationId: deleteOwlOntologyNameVersionQueryIDExportThreadId
       parameters:
         - name: name
           in: path
@@ -8547,7 +8545,7 @@ paths:
       tags:
         - mastro_endpoints_ConstructQuery
       summary: Starts the SPARQL construct query on the given endpoint
-      operationId: post__owlOntology_name_version_construct_query_start
+      operationId: postOwlOntologyNameVersionConstructQueryStart
       parameters:
         - name: name
           in: path
@@ -8636,7 +8634,7 @@ paths:
       summary: >-
         Starts the construct query with the provided identified on the given
         endpoint
-      operationId: post__owlOntology_name_version_construct_query_ID_start
+      operationId: postOwlOntologyNameVersionConstructQueryIDStart
       parameters:
         - name: name
           in: path
@@ -8731,7 +8729,7 @@ paths:
       tags:
         - mastro_endpoints_ConstructQuery
       summary: Returns the execution status of construct query on the given endpoint
-      operationId: get__owlOntology_name_version_construct_query_ID_status
+      operationId: getOwlOntologyNameVersionConstructQueryIDStatus
       parameters:
         - name: name
           in: path
@@ -8771,7 +8769,7 @@ paths:
       summary: >-
         Starts the export thread for a construct query on the given endpoint,
         the export thread identifier is returned
-      operationId: post__owlOntology_name_version_cquery_ID_export_results
+      operationId: postOwlOntologyNameVersionCqueryIDExportResults
       parameters:
         - name: name
           in: path
@@ -8812,7 +8810,7 @@ paths:
       summary: >-
         Returns the file content of the export thread of a construct query
         running on the given endpoint
-      operationId: get__owlOntology_name_version_construct_query_ID_export
+      operationId: getOwlOntologyNameVersionConstructQueryIDExport
       parameters:
         - name: name
           in: path
@@ -8857,7 +8855,7 @@ paths:
       summary: >-
         Returns a page of a given size of results of a construct query running
         on the given endpoint
-      operationId: get__owlOntology_name_version_construct_query_ID_results
+      operationId: getOwlOntologyNameVersionConstructQueryIDResults
       parameters:
         - name: name
           in: path
@@ -8907,7 +8905,7 @@ paths:
       tags:
         - mastro_endpoints_ConstructQuery
       summary: Returns the results for a given construct query in a triples format
-      operationId: get__owlOntology_name_version_construct_query_ID_results_triples
+      operationId: getOwlOntologyNameVersionConstructQueryIDResultsTriples
       parameters:
         - name: name
           in: path
@@ -8959,7 +8957,7 @@ paths:
       tags:
         - mastro_endpoints_ConstructQuery
       summary: Returns the results for a given construct query in tabular format
-      operationId: get__owlOntology_name_version_construct_query_ID_results_tabular
+      operationId: getOwlOntologyNameVersionConstructQueryIDResultsTabular
       parameters:
         - name: name
           in: path
@@ -9061,7 +9059,7 @@ paths:
       summary: >-
         Count the number of instances of the Class or the Object Property of the
         ontology
-      operationId: get__endpoint_instances
+      operationId: getEndpointInstances
       parameters:
         - name: eName
           in: path
@@ -9106,7 +9104,7 @@ paths:
       summary: >-
         Starts the executions of the queries that will count the number of
         instances of each Class and Object Property of the ontology
-      operationId: get__start_endpoint_entity_instances
+      operationId: getStartEndpointEntityInstances
       parameters:
         - name: eName
           in: path
@@ -9141,7 +9139,7 @@ paths:
       summary: >-
         Starts the executions of the queries that will count the number of
         instances of each Class of the ontology
-      operationId: get__stop_endpoint_entity_instances
+      operationId: getStopEndpointEntityInstances
       parameters:
         - name: eName
           in: path
@@ -9176,7 +9174,7 @@ paths:
       summary: >-
         Get the info about the queries that will count the number of instances
         of each Class of the ontology
-      operationId: get__endpoint_entity_instances_info
+      operationId: getEndpointEntityInstancesInfo
       parameters:
         - name: eName
           in: path
@@ -9211,7 +9209,7 @@ paths:
       summary: >-
         Starts the executions of the queries that will count the number of
         instances of each Class of the ontology
-      operationId: get__start_endpoint_instance_checking
+      operationId: getStartEndpointInstanceChecking
       parameters:
         - name: eName
           in: path
@@ -9276,7 +9274,7 @@ paths:
       summary: >-
         Starts the executions of the queries that will count the number of
         instances of each Class of the ontology
-      operationId: get__stop_endpoint_instance_checking
+      operationId: getStopEndpointInstanceChecking
       parameters:
         - name: eName
           in: path
@@ -9317,7 +9315,7 @@ paths:
       summary: >-
         Get the info about the queries that will count the number of instances
         of each Class of the ontology
-      operationId: get__endpoint_class_instance_checking
+      operationId: getEndpointClassInstanceChecking
       parameters:
         - name: eName
           in: path
@@ -9358,7 +9356,7 @@ paths:
       summary: >-
         Starts the executions of the queries that will count the number of
         instances of each Class and Object Property of the ontology
-      operationId: get__start_endpoint_min_max_dataproperties
+      operationId: getStartEndpointMinMaxDataproperties
       parameters:
         - name: eName
           in: path
@@ -9393,7 +9391,7 @@ paths:
       summary: >-
         Starts the executions of the queries that will count the number of
         instances of each Class of the ontology
-      operationId: get__stop_endpoint_min_max_dataproperties
+      operationId: getStopEndpointMinMaxDataproperties
       parameters:
         - name: eName
           in: path
@@ -9428,7 +9426,7 @@ paths:
       summary: >-
         Get the info about the queries that will count the number of instances
         of each Class of the ontology
-      operationId: get__endpoint_min_max_dataproperties
+      operationId: getEndpointMinMaxDataproperties
       parameters:
         - name: eName
           in: path
@@ -9463,7 +9461,7 @@ paths:
       summary: >-
         Starts the executions of the queries that save some examples of data
         properties values and class individuals
-      operationId: post__start_endpoint_entities_examples
+      operationId: postStartEndpointEntitiesExamples
       parameters:
         - name: eName
           in: path
@@ -9507,7 +9505,7 @@ paths:
       tags:
         - mastro_endpoints_EntitiesExamples
       summary: Stops the executions of the queries that compute entities examples
-      operationId: get__stop_endpoint_entities_examples
+      operationId: getStopEndpointEntitiesExamples
       parameters:
         - name: eName
           in: path
@@ -9542,7 +9540,7 @@ paths:
       summary: >-
         Get the info about the queries that will count the number of instances
         of each Class of the ontology
-      operationId: get__endpoint_entitiesExamples_info
+      operationId: getEndpointEntitiesExamplesInfo
       parameters:
         - name: eName
           in: path
@@ -9577,7 +9575,7 @@ paths:
       summary: >-
         Returns the current state of all the queries in status
         <code>status</code> loaded in the endpoint named <code>name</code>
-      operationId: list_query_statuses_on_endpoint
+      operationId: listQueryStatusesOnEndpoint
       parameters:
         - name: name
           in: path
@@ -9617,7 +9615,7 @@ paths:
       tags:
         - mastro_endpoints_Query
       summary: Returns the IDs of queries loaded in the given endpoint
-      operationId: list_query_ids_on_endpoint
+      operationId: listQueryIdsOnEndpoint
       parameters:
         - name: name
           in: path
@@ -9657,7 +9655,7 @@ paths:
       tags:
         - mastro_endpoints_Query
       summary: Returns the IDs of queries loaded in the given endpoint
-      operationId: delete_query_execution_on_endpoint
+      operationId: deleteQueryExecutionOnEndpoint
       parameters:
         - name: name
           in: path
@@ -9695,7 +9693,7 @@ paths:
       tags:
         - mastro_endpoints_Query
       summary: Starts a new query
-      operationId: start_new_query_on_endpoint
+      operationId: startNewQueryOnEndpoint
       parameters:
         - name: name
           in: path
@@ -9783,7 +9781,7 @@ paths:
       tags:
         - mastro_endpoints_Query
       summary: Starts a new query in synchronous mode on the given endpoint
-      operationId: start_new_sync_query_on_endpoint
+      operationId: startNewSyncQueryOnEndpoint
       parameters:
         - name: name
           in: path
@@ -9870,7 +9868,7 @@ paths:
       tags:
         - mastro_endpoints_QueryCount
       summary: Counts the results of the given SPARQL query
-      operationId: start_new_query_on_count
+      operationId: startNewQueryOnCount
       parameters:
         - name: name
           in: path
@@ -9934,7 +9932,7 @@ paths:
       tags:
         - mastro_endpoints_QueryCount
       summary: Returns the current state of the count thread for the given SPARQL query
-      operationId: get_query_count_state
+      operationId: getQueryCountState
       parameters:
         - name: name
           in: path
@@ -9972,7 +9970,7 @@ paths:
       tags:
         - mastro_endpoints_QueryCount
       summary: Returns the current state of the count thread for the given SPARQL query
-      operationId: get_query_count_error
+      operationId: getQueryCountError
       parameters:
         - name: name
           in: path
@@ -10010,7 +10008,7 @@ paths:
       tags:
         - mastro_endpoints_MappingAnalysis
       summary: GET mwsx/endpoint/{eName}/mappingAnalysisReport
-      operationId: get__owlOntology_name_version_mapping_ID_analysisReport
+      operationId: getOwlOntologyNameVersionMappingIDAnalysisReport
       parameters:
         - name: eName
           in: path
@@ -10043,7 +10041,7 @@ paths:
       tags:
         - mastro_endpoints_Info
       summary: POST mwsx/endpoint/{eName}/saturatedOntology
-      operationId: get__endpoint_ename_saturatedOntology
+      operationId: getEndpointEnameSaturatedOntology
       parameters:
         - name: eName
           in: path
@@ -10148,7 +10146,7 @@ paths:
       summary: >-
         Returns the query catalog available for the given version of the
         ontology
-      operationId: get__owlOntology_name_version_querycatalog
+      operationId: getOwlOntologyNameVersionQuerycatalog
       parameters:
         - name: name
           in: path
@@ -10178,7 +10176,7 @@ paths:
       summary: >-
         Deletes the query catalog available for the given version of the
         ontology
-      operationId: delete__owlOntology_name_version_querycatalog
+      operationId: deleteOwlOntologyNameVersionQuerycatalog
       parameters:
         - name: name
           in: path
@@ -10218,7 +10216,7 @@ paths:
       summary: >-
         Returns a list of SparqlingSPARQLQuery obtaining converted the
         SPARQLQuery queries available in the catalog to SparqlingSPARQLQuery
-      operationId: get__owlOntology_name_version_querycatalog_converted2spargling
+      operationId: getOwlOntologyNameVersionQuerycatalogConverted2spargling
       parameters:
         - name: name
           in: path
@@ -10258,7 +10256,7 @@ paths:
       tags:
         - mastro_query-catalog_Publication
       summary: Requires the publication of a query from a given user catalog
-      operationId: post__owlOntology_name_version_querycatalog_request_publication
+      operationId: postOwlOntologyNameVersionQuerycatalogRequestPublication
       parameters:
         - name: name
           in: path
@@ -10301,7 +10299,7 @@ paths:
       tags:
         - mastro_query-catalog_Publication
       summary: Requires the publication of a query from a given user catalog
-      operationId: get__owlOntology_name_version_querycatalog_request_publication
+      operationId: getOwlOntologyNameVersionQuerycatalogRequestPublication
       parameters:
         - name: name
           in: path
@@ -10343,7 +10341,7 @@ paths:
       summary: >-
         Accept the publication of a query for which a publication request has
         been formerly requested
-      operationId: put__owlOntology_name_version_querycatalog_accept_publication
+      operationId: putOwlOntologyNameVersionQuerycatalogAcceptPublication
       parameters:
         - name: name
           in: path
@@ -10388,7 +10386,7 @@ paths:
       summary: >-
         Accept the publication of a query for which a publication request has
         been formerly requested
-      operationId: delete__owlOntology_name_version_querycatalog_accept_publication
+      operationId: deleteOwlOntologyNameVersionQuerycatalogAcceptPublication
       parameters:
         - name: name
           in: path
@@ -10436,7 +10434,7 @@ paths:
       tags:
         - mastro_query-catalog_Persistence
       summary: Exports the ontology catalog returning its JSON representation
-      operationId: get__owlOntology_name_version_querycatalog_export
+      operationId: getOwlOntologyNameVersionQuerycatalogExport
       parameters:
         - name: name
           in: path
@@ -10477,7 +10475,7 @@ paths:
         Imports a new catalog for the given version of the ontology: if the
         additive switch is true, all new queries will be added to the existing
         ones, otherwise the old catalog will be overwritten
-      operationId: get__owlOntology_name_version_querycatalog_import
+      operationId: getOwlOntologyNameVersionQuerycatalogImport
       parameters:
         - name: name
           in: path
@@ -10529,7 +10527,7 @@ paths:
         Imports a new catalog of SPARQLING queries: if the additive switch is
         true, all new queries will be added to the existing ones, otherwise the
         old catalog will be overwritten
-      operationId: post__owlOntology_name_version_querycatalog_sparqling_import
+      operationId: postOwlOntologyNameVersionQuerycatalogSparqlingImport
       parameters:
         - name: name
           in: path
@@ -10580,7 +10578,7 @@ paths:
       summary: >-
         Migrates a query catalog of SPARQLING queries between two ontology
         versions
-      operationId: post__owlOntology_name_version_querycatalog_sparqling_migrate
+      operationId: postOwlOntologyNameVersionQuerycatalogSparqlingMigrate
       parameters:
         - name: name
           in: path
@@ -10630,7 +10628,7 @@ paths:
       summary: >-
         Deletes the catalog of SPARQLING queries available for this version of
         the ontology
-      operationId: delete__owlOntology_name_version_querycatalog_sparqling
+      operationId: deleteOwlOntologyNameVersionQuerycatalogSparqling
       parameters:
         - name: name
           in: path
@@ -10668,7 +10666,7 @@ paths:
       tags:
         - mastro_query-catalog_Persistence
       summary: Exports the SPARQLING query catalog
-      operationId: get__owlOntology_name_version_querycatalog_sparqling_export
+      operationId: getOwlOntologyNameVersionQuerycatalogSparqlingExport
       parameters:
         - name: name
           in: path
@@ -10706,7 +10704,7 @@ paths:
       tags:
         - mastro_query-catalog_Persistence
       summary: Returns the SPARQLQuery identified by the passed ID value
-      operationId: get__owlOntology_name_version_query_ID
+      operationId: getOwlOntologyNameVersionQueryID
       parameters:
         - name: name
           in: path
@@ -10739,7 +10737,7 @@ paths:
       tags:
         - mastro_query-catalog_Persistence
       summary: Updates the definition of a specific query within the available catalog
-      operationId: put__owlOntology_name_version_query_ID
+      operationId: putOwlOntologyNameVersionQueryID
       parameters:
         - name: name
           in: path
@@ -10780,7 +10778,7 @@ paths:
       summary: >-
         Removes a specific query from the catalog available for this version of
         the ontology
-      operationId: delete__owlOntology_name_version_query_ID
+      operationId: deleteOwlOntologyNameVersionQueryID
       parameters:
         - name: name
           in: path
@@ -10823,7 +10821,7 @@ paths:
       tags:
         - mastro_query-catalog_Persistence
       summary: Adds a new query to the catalog
-      operationId: post__owlOntology_name_version_query_ID
+      operationId: postOwlOntologyNameVersionQueryID
       parameters:
         - name: name
           in: path
@@ -10867,7 +10865,7 @@ paths:
       tags:
         - mastro_query-catalog_Persistence
       summary: Returns a list of the SPARQLING queries currently stored in the catalog
-      operationId: get__owlOntology_name_version_queries_sparqling
+      operationId: getOwlOntologyNameVersionQueriesSparqling
       parameters:
         - name: name
           in: path
@@ -10907,7 +10905,7 @@ paths:
       tags:
         - mastro_query-catalog_Persistence
       summary: Returns the query identified by ID
-      operationId: get__owlOntology_name_version_query_sparqling_ID
+      operationId: getOwlOntologyNameVersionQuerySparqlingID
       parameters:
         - name: name
           in: path
@@ -10940,7 +10938,7 @@ paths:
       tags:
         - mastro_query-catalog_Persistence
       summary: Updates the definition of the given query
-      operationId: put__owlOntology_name_version_query_sparqling_ID
+      operationId: putOwlOntologyNameVersionQuerySparqlingID
       parameters:
         - name: name
           in: path
@@ -10979,7 +10977,7 @@ paths:
       tags:
         - mastro_query-catalog_Persistence
       summary: Remove the query identified by ID from the current catalog
-      operationId: delete__owlOntology_name_version_query_sparqling_ID
+      operationId: deleteOwlOntologyNameVersionQuerySparqlingID
       parameters:
         - name: name
           in: path
@@ -11022,7 +11020,7 @@ paths:
       tags:
         - mastro_query-catalog_Persistence
       summary: Adds a new SPARQLING query to the catalog
-      operationId: post__owlOntology_name_version_query_sparqling_ID
+      operationId: postOwlOntologyNameVersionQuerySparqlingID
       parameters:
         - name: name
           in: path
@@ -11200,7 +11198,7 @@ paths:
       tags:
         - mastro_sparqling_Highlights
       summary: Start a thread computing a shortest path on the ontology
-      operationId: post_shortest_path_thread_start
+      operationId: postShortestPathThreadStart
       parameters:
         - name: name
           in: path
@@ -11253,7 +11251,7 @@ paths:
       tags:
         - mastro_sparqling_Highlights
       summary: Stop the thread computing a shortest path on the ontology
-      operationId: post_shortest_path_thread_stop
+      operationId: postShortestPathThreadStop
       parameters:
         - name: name
           in: path
@@ -11298,7 +11296,7 @@ paths:
       summary: >-
         GET results of a thread computing ontology paths with multi edges over a
         given ontology
-      operationId: get_shortest_path_thread_result
+      operationId: getShortestPathThreadResult
       parameters:
         - name: name
           in: path
@@ -11343,7 +11341,7 @@ paths:
       tags:
         - mastro_sparqling_Highlights
       summary: Get the state of the thread computing a shortest path on the ontology
-      operationId: get_shortest_path_thread_state
+      operationId: getShortestPathThreadState
       parameters:
         - name: name
           in: path
@@ -11386,7 +11384,7 @@ paths:
       tags:
         - mastro_sparqling_Highlights
       summary: Get the error of a thread computing a shortest path on the ontology
-      operationId: get_shortest_path_thread_error
+      operationId: getShortestPathThreadError
       parameters:
         - name: name
           in: path
@@ -13339,7 +13337,7 @@ paths:
       tags:
         - mastro_triplify_Execution
       summary: Starts a new thread of mappings triplification with the given parameters
-      operationId: post_mappings_triplification_start
+      operationId: postMappingsTriplificationStart
       requestBody:
         content:
           application/json:
@@ -13372,7 +13370,7 @@ paths:
       tags:
         - mastro_triplify_Threads
       summary: Lists the triplification threads for a given mapping specification
-      operationId: get_mappings_triplification_list
+      operationId: getMappingsTriplificationList
       parameters:
         - name: name
           in: path
@@ -13417,7 +13415,7 @@ paths:
       tags:
         - mastro_triplify_Threads
       summary: Lists the triplification threads for a given mapping specification
-      operationId: get_mappings_triplification_listProgresses
+      operationId: getMappingsTriplificationListProgresses
       parameters:
         - name: name
           in: path
@@ -13462,7 +13460,7 @@ paths:
       tags:
         - mastro_triplify_Execution
       summary: Stops all running triplification threads
-      operationId: put_mappings_triplification_stop_all
+      operationId: putMappingsTriplificationStopAll
       responses:
         '200':
           description: OK
@@ -13485,7 +13483,7 @@ paths:
       tags:
         - mastro_triplify_Execution
       summary: Stops the thread identified by threadID
-      operationId: put_mappings_triplification_stop
+      operationId: putMappingsTriplificationStop
       parameters:
         - name: threadID
           in: path
@@ -13518,7 +13516,7 @@ paths:
       tags:
         - mastro_triplify_Execution
       summary: Stops the thread identified by threadID
-      operationId: delete_mappings_triplification_thread
+      operationId: deleteMappingsTriplificationThread
       parameters:
         - name: threadID
           in: path
@@ -13551,7 +13549,7 @@ paths:
       tags:
         - mastro_triplify_Execution
       summary: Returns the status of a triplification thread
-      operationId: get_mappings_triplification_status
+      operationId: getMappingsTriplificationStatus
       parameters:
         - name: threadID
           in: path
@@ -13584,7 +13582,7 @@ paths:
       tags:
         - mastro_triplify_Execution
       summary: Returns the report of a triplification thread
-      operationId: get_mappings_triplification_report
+      operationId: getMappingsTriplificationReport
       parameters:
         - name: threadID
           in: path
@@ -13617,7 +13615,7 @@ paths:
       tags:
         - mastro_triplify_Execution
       summary: Returns the report of a triplification thread
-      operationId: get_mappings_triplification_download
+      operationId: getMappingsTriplificationDownload
       parameters:
         - name: threadID
           in: path
@@ -13658,7 +13656,7 @@ paths:
       summary: >-
         Triplifies the OBDA mapping specification, streaming the produced
         triples to the client
-      operationId: get__owlOntology_name_version_query_ID_export_directcsv
+      operationId: getOwlOntologyNameVersionQueryIDExportDirectcsv
       parameters:
         - name: name
           in: path
@@ -14065,7 +14063,7 @@ paths:
       tags:
         - mastro_virtual-entities_Persistence
       summary: Returns the virtual entity from a given endpoint by its name
-      operationId: get__owlOntology_name_version_endpoint_virtualEntity_results
+      operationId: getOwlOntologyNameVersionEndpointVirtualEntityResults
       parameters:
         - name: name
           in: path
@@ -14108,7 +14106,7 @@ paths:
       tags:
         - mastro_vkg_Persistence
       summary: Get the VKG Snaphot catalog for a given ontology (name, version)
-      operationId: get_vkg_snapshots
+      operationId: getVkgSnapshots
       parameters:
         - name: name
           in: path
@@ -14140,7 +14138,7 @@ paths:
       summary: >-
         Save a new VKG Snaphot in the catalog for a given ontology (name,
         version).
-      operationId: post_vkg_snapshot
+      operationId: postVkgSnapshot
       parameters:
         - name: name
           in: path
@@ -14178,7 +14176,7 @@ paths:
       summary: >-
         DELETE the entire VKG Snapshot catalog for a given ontology (name,
         version)
-      operationId: delete_vkg_snapshots
+      operationId: deleteVkgSnapshots
       parameters:
         - name: name
           in: path
@@ -14220,7 +14218,7 @@ paths:
       summary: >-
         Overwrite a VKG Snapshot (given its snapshotId) in the catalog for a
         given ontology (name, version)
-      operationId: put_vkg_snapshot
+      operationId: putVkgSnapshot
       parameters:
         - name: name
           in: path
@@ -14263,7 +14261,7 @@ paths:
       summary: >-
         Delete a given VKG Snapshot from catalog for a given ontology (name,
         version)
-      operationId: delete_vkg_snapshot
+      operationId: deleteVkgSnapshot
       parameters:
         - name: name
           in: path
@@ -14310,7 +14308,7 @@ paths:
       summary: >-
         Get the entire VKG Snapshot catalog for a given ontology (name, version)
         as a file
-      operationId: export_vkg_snapshots
+      operationId: exportVkgSnapshots
       parameters:
         - name: name
           in: path
@@ -14350,7 +14348,7 @@ paths:
       summary: >-
         Upload the JSON file of a VKG Snapshot catalog for a given ontology
         (name, version)
-      operationId: import_vkg_snapshots
+      operationId: importVkgSnapshots
       parameters:
         - name: name
           in: path
@@ -14399,7 +14397,7 @@ paths:
       tags:
         - mastro_vkg_NodeRendering
       summary: Returns the default VKG node rendering for the ontology version
-      operationId: get_default_node_rendering
+      operationId: getDefaultNodeRendering
       parameters:
         - name: name
           in: path
@@ -14427,7 +14425,7 @@ paths:
       tags:
         - mastro_vkg_NodeRendering
       summary: Set a default VKG node rendering for the ontology version
-      operationId: post_default_node_rendering
+      operationId: postDefaultNodeRendering
       parameters:
         - name: name
           in: path
@@ -14461,7 +14459,7 @@ paths:
       tags:
         - mastro_vkg_NodeRendering
       summary: Modifies the default VKG node rendering for the ontology version
-      operationId: put_default_node_rendering
+      operationId: putDefaultNodeRendering
       parameters:
         - name: name
           in: path
@@ -14495,7 +14493,7 @@ paths:
       tags:
         - mastro_vkg_NodeRendering
       summary: DELETE mwsx/owlOntology/{name}/version/vkg/node-rendering
-      operationId: delete_vkg_node_rendering
+      operationId: deleteVkgNodeRendering
       parameters:
         - name: name
           in: path
@@ -14529,7 +14527,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Persistence
       summary: GET mwsx/knowledgeGraphs
-      operationId: get__knowledgeGraphs
+      operationId: getKnowledgeGraphs
       responses:
         '200':
           description: OK
@@ -14548,7 +14546,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Persistence
       summary: POST mwsx/knowledgeGraphs
-      operationId: post__knowledgeGraphs
+      operationId: postKnowledgeGraphs
       requestBody:
         content:
           application/json:
@@ -14581,7 +14579,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Persistence
       summary: DELETE mwsx/knowledgeGraph
-      operationId: delete__knowledgeGraph
+      operationId: deleteKnowledgeGraph
       parameters:
         - name: kg
           in: query
@@ -14604,7 +14602,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Persistence
       summary: GET mwsx/knowledgeGraph
-      operationId: get__knowledgeGraph
+      operationId: getKnowledgeGraph
       parameters:
         - name: iri
           in: query
@@ -14637,7 +14635,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Persistence
       summary: GET mwsx/knowledgeGraph/info
-      operationId: get__knowledgeGraph_info
+      operationId: getKnowledgeGraphInfo
       parameters:
         - name: iri
           in: query
@@ -14670,7 +14668,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_General
       summary: POST mwsx/knowledgeGraph/prefixes
-      operationId: post__knowledgeGraph_prefixes
+      operationId: postKnowledgeGraphPrefixes
       parameters:
         - name: iri
           in: query
@@ -14707,7 +14705,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_General
       summary: GET mwsx/knowledgeGraph/prefixes
-      operationId: get__knowledgeGraph_prefixes
+      operationId: getKnowledgeGraphPrefixes
       parameters:
         - name: iri
           in: query
@@ -14740,7 +14738,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_FileSystem
       summary: GET mwsx/knowledgeGraph/folder
-      operationId: get__knowledgeGraph_folder
+      operationId: getKnowledgeGraphFolder
       parameters:
         - name: iri
           in: query
@@ -14773,7 +14771,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Status
       summary: GET mwsx/knowledgeGraph/status
-      operationId: get__knowledgeGraph_status
+      operationId: getKnowledgeGraphStatus
       parameters:
         - name: iri
           in: query
@@ -14806,7 +14804,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Status
       summary: GET mwsx/knowledgeGraph/status/list
-      operationId: get__knowledgeGraph_status_list
+      operationId: getKnowledgeGraphStatusList
       responses:
         '200':
           description: OK
@@ -14837,7 +14835,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Persistence
       summary: PUT mwsx/knowledgeGraph/file
-      operationId: patch__knowledgeGraph_file
+      operationId: patchKnowledgeGraphFile
       requestBody:
         content:
           application/json:
@@ -14860,7 +14858,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Persistence
       summary: DELETE mwsx/knowledgeGraph/file
-      operationId: delete__knowledgeGraph_file
+      operationId: deleteKnowledgeGraphFile
       requestBody:
         content:
           application/json:
@@ -14883,7 +14881,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Persistence
       summary: GET mwsx/knowledgeGraph/file
-      operationId: get__knowledgeGraph_file
+      operationId: getKnowledgeGraphFile
       parameters:
         - name: iri
           in: query
@@ -14931,7 +14929,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Classes
       summary: GET mwsx/knowledgeGraph/classes
-      operationId: get__knowledgeGraph_mentioned_classes
+      operationId: getKnowledgeGraphMentionedClasses
       parameters:
         - name: iri
           in: query
@@ -14971,7 +14969,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Classes
       summary: GET mwsx/knowledgeGraph/classes/stats
-      operationId: get__knowledgeGraph_mentioned_classes_stats
+      operationId: getKnowledgeGraphMentionedClassesStats
       parameters:
         - name: iri
           in: query
@@ -15011,7 +15009,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Classes
       summary: GET mwsx/knowledgeGraph/class/instances
-      operationId: get__knowledgeGraph_mentioned_instances_by_class
+      operationId: getKnowledgeGraphMentionedInstancesByClass
       parameters:
         - name: kgIri
           in: query
@@ -15061,7 +15059,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_General
       summary: GET mwsx/knowledgeGraph/namedGraphs
-      operationId: get__knowledgeGraph_named_graphs
+      operationId: getKnowledgeGraphNamedGraphs
       parameters:
         - name: iri
           in: query
@@ -15096,7 +15094,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Instances
       summary: GET mwsx/knowledgeGraph/instances
-      operationId: get__knowledgeGraph_instances
+      operationId: getKnowledgeGraphInstances
       parameters:
         - name: iri
           in: query
@@ -15136,7 +15134,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Union
       summary: PUT mwsx/knowledgeGraph/union
-      operationId: patch__knowledgeGraph_union
+      operationId: patchKnowledgeGraphUnion
       requestBody:
         content:
           application/json:
@@ -15169,7 +15167,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Union
       summary: PUT mwsx/knowledgeGraph/union/ontology
-      operationId: patch__knowledgeGraph_union_ontology
+      operationId: patchKnowledgeGraphUnionOntology
       requestBody:
         content:
           application/json:
@@ -15202,7 +15200,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Union
       summary: PUT mwsx/knowledgeGraph/union/queryKg
-      operationId: patch__knowledgeGraph_union_queryKg
+      operationId: patchKnowledgeGraphUnionQueryKg
       requestBody:
         content:
           application/json:
@@ -15235,7 +15233,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Query
       summary: GET mwsx/knowledgeGraph/query/catalog
-      operationId: get__knowledgeGraph_query_catalog
+      operationId: getKnowledgeGraphQueryCatalog
       parameters:
         - name: iri
           in: query
@@ -15258,7 +15256,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Query
       summary: POST mwsx/knowledgeGraph/query/catalog
-      operationId: post__knowledgeGraph_query_catalog
+      operationId: postKnowledgeGraphQueryCatalog
       parameters:
         - name: iri
           in: query
@@ -15297,7 +15295,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Query
       summary: GET mwsx/knowledgeGraph/query/catalog/export
-      operationId: get__knowledgeGraph_query_catalog_export
+      operationId: getKnowledgeGraphQueryCatalogExport
       parameters:
         - name: iri
           in: query
@@ -15330,7 +15328,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Query
       summary: GET mwsx/knowledgeGraph/query/catalog/{queryID}
-      operationId: get__knowledgeGraph_query_catalog_queryID
+      operationId: getKnowledgeGraphQueryCatalogQueryID
       parameters:
         - name: queryID
           in: path
@@ -15358,7 +15356,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Query
       summary: PUT mwsx/knowledgeGraph/query/catalog/{queryID}
-      operationId: put__knowledgeGraph_query_catalog_queryID
+      operationId: putKnowledgeGraphQueryCatalogQueryID
       parameters:
         - name: queryID
           in: path
@@ -15392,7 +15390,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Query
       summary: DELETE mwsx/knowledgeGraph/query/catalog/{queryID}
-      operationId: delete__knowledgeGraph_query_catalog_queryID
+      operationId: deleteKnowledgeGraphQueryCatalogQueryID
       parameters:
         - name: queryID
           in: path
@@ -15430,7 +15428,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Query
       summary: POST mwsx/knowledgeGraph/query/start
-      operationId: post__knowledgeGraph_query_start
+      operationId: postKnowledgeGraphQueryStart
       parameters:
         - name: iri
           in: query
@@ -15474,7 +15472,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Query
       summary: POST mwsx/knowledgeGraph/query/catalog/{queryID}/start
-      operationId: post__knowledgeGraph_query_catalog_queryID_start
+      operationId: postKnowledgeGraphQueryCatalogQueryIDStart
       parameters:
         - name: queryID
           in: path
@@ -15517,7 +15515,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Query
       summary: PUT mwsx/knowledgeGraph/query/{queryID}/stop
-      operationId: get__knowledgeGraph_query_executionID_stop
+      operationId: getKnowledgeGraphQueryExecutionIDStop
       parameters:
         - name: queryID
           in: path
@@ -15555,7 +15553,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Query
       summary: GET mwsx/knowledgeGraph/query/{queryID}/exportResults
-      operationId: get__knowledgeGraph_query_executionID_exportResults
+      operationId: getKnowledgeGraphQueryExecutionIDExportResults
       parameters:
         - name: queryID
           in: path
@@ -15599,7 +15597,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Query
       summary: GET mwsx/knowledgeGraph/query/{queryID}/status
-      operationId: get__knowledgeGraph_query_executionID_status
+      operationId: getKnowledgeGraphQueryExecutionIDStatus
       parameters:
         - name: queryID
           in: path
@@ -15637,7 +15635,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Query
       summary: DELETE mwsx/knowledgeGraph/query/{queryId}
-      operationId: delete__knowledgeGraph_query_executionID_thread
+      operationId: deleteKnowledgeGraphQueryExecutionIDThread
       parameters:
         - name: queryId
           in: path
@@ -15675,7 +15673,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Query
       summary: GET mwsx/knowledgeGraph/query/{queryID}/results
-      operationId: get__knowledgeGraph_query_executionID_results
+      operationId: getKnowledgeGraphQueryExecutionIDResults
       parameters:
         - name: queryID
           in: path
@@ -15725,7 +15723,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Instances
       summary: GET mwsx/knowledgeGraph/instance/page
-      operationId: get__knowledgeGraph_instance_page
+      operationId: getKnowledgeGraphInstancePage
       parameters:
         - name: instanceIri
           in: query
@@ -15773,7 +15771,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Instances
       summary: GET mwsx/knowledgeGraph/instance/objectType
-      operationId: get__knowledgeGraph_instance_objectType
+      operationId: getKnowledgeGraphInstanceObjectType
       parameters:
         - name: kgIri
           in: query
@@ -15837,7 +15835,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Instances
       summary: GET mwsx/knowledgeGraph/instance/subjectType
-      operationId: get__knowledgeGraph_instance_subjectType
+      operationId: getKnowledgeGraphInstanceSubjectType
       parameters:
         - name: kgIri
           in: query
@@ -15901,7 +15899,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_FileSystem
       summary: POST mwsx/knowledgeGraph/store/file
-      operationId: post__knowledgeGraph_store_file
+      operationId: postKnowledgeGraphStoreFile
       requestBody:
         content:
           application/json:
@@ -15924,7 +15922,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_FileSystem
       summary: GET mwsx/knowledgeGraph/store/file
-      operationId: get__knowledgeGraph_store_file
+      operationId: getKnowledgeGraphStoreFile
       responses:
         '200':
           description: OK
@@ -15953,7 +15951,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_FileSystem
       summary: DELETE mwsx/knowledgeGraph/store/file/{name}
-      operationId: delete__knowledgeGraph_store_file
+      operationId: deleteKnowledgeGraphStoreFile
       parameters:
         - name: name
           in: path
@@ -15976,7 +15974,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_FileSystem
       summary: GET mwsx/knowledgeGraph/store/file/{name}
-      operationId: get__knowledgeGraph_store_file_name
+      operationId: getKnowledgeGraphStoreFileName
       parameters:
         - name: name
           in: path
@@ -16009,7 +16007,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Upload
       summary: POST mwsx/knowledgeGraph/upload/file
-      operationId: post__knowledgeGraph_upload_file
+      operationId: postKnowledgeGraphUploadFile
       parameters:
         - name: iri
           in: query
@@ -16048,7 +16046,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Upload
       summary: PUT mwsx/knowledgeGraph/upload/import
-      operationId: put__knowledgeGraph_upload_import
+      operationId: putKnowledgeGraphUploadImport
       requestBody:
         content:
           application/json:
@@ -16081,7 +16079,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Persistence
       summary: DELETE mwsx/knowledgeGraph/delete/file
-      operationId: delete__knowledgeGraph_delete_file
+      operationId: deleteKnowledgeGraphDeleteFile
       parameters:
         - name: iri
           in: query
@@ -16121,7 +16119,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Persistence
       summary: DELETE mwsx/knowledgeGraph/delete/file/triples
-      operationId: delete__knowledgeGraph_delete_file_triples
+      operationId: deleteKnowledgeGraphDeleteFileTriples
       parameters:
         - name: iri
           in: query
@@ -16166,7 +16164,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Upload
       summary: DELETE mwsx/knowledgeGraph/upload/remove
-      operationId: delete__knowledgeGraph_upload_remove
+      operationId: deleteKnowledgeGraphUploadRemove
       requestBody:
         content:
           application/json:
@@ -16199,7 +16197,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Upload
       summary: GET mwsx/knowledgeGraph/upload/files
-      operationId: get__knowledgeGraph_upload_files
+      operationId: getKnowledgeGraphUploadFiles
       parameters:
         - name: iri
           in: query
@@ -16234,7 +16232,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Union
       summary: PUT mwsx/knowledgeGraph/union/queryOBDA
-      operationId: put__knowledgeGraph_union_queryOBDA
+      operationId: putKnowledgeGraphUnionQueryOBDA
       parameters:
         - name: fileName
           in: query
@@ -16283,7 +16281,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Upload
       summary: POST mwsx/knowledgeGraph/upload/file/csv
-      operationId: post__knowledgeGraph_upload_file_csv
+      operationId: postKnowledgeGraphUploadFileCsv
       parameters:
         - name: hasHeadersRow
           in: query
@@ -16342,7 +16340,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Upload
       summary: GET mwsx/knowledgeGraph/upload/files/csv
-      operationId: get__knowledgeGraph_upload_file_csv
+      operationId: getKnowledgeGraphUploadFileCsv
       responses:
         '200':
           description: OK
@@ -16371,7 +16369,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_CSV
       summary: DELETE mwsx/knowledgeGraph/delete/file/csv/{fileName}
-      operationId: delete__knowledgeGraph_upload_file_csv
+      operationId: deleteKnowledgeGraphUploadFileCsv
       parameters:
         - name: fileName
           in: path
@@ -16404,7 +16402,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_CSV
       summary: GET mwsx/knowledgeGraph/file/csv/{fileName}/preview
-      operationId: get__knowledgeGraph_upload_file_csv_preview
+      operationId: getKnowledgeGraphUploadFileCsvPreview
       parameters:
         - name: fileName
           in: path
@@ -16443,7 +16441,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Upload
       summary: PUT mwsx/knowledgeGraph/upload/import/csv
-      operationId: put__knowledgeGraph_upload_file_csv_import
+      operationId: putKnowledgeGraphUploadFileCsvImport
       parameters:
         - name: synchronousMode
           in: query
@@ -16482,7 +16480,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Upload
       summary: GET mwsx/knowledgeGraph/upload/import/threads
-      operationId: get__knowledgeGraph_upload_file_csv_import
+      operationId: getKnowledgeGraphUploadFileCsvImport
       parameters:
         - name: iri
           in: query
@@ -16517,7 +16515,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Upload
       summary: GET mwsx/knowledgeGraph/upload/import/thread
-      operationId: get__knowledgeGraph_upload_file_csv_import_thread
+      operationId: getKnowledgeGraphUploadFileCsvImportThread
       parameters:
         - name: iri
           in: query
@@ -16550,7 +16548,7 @@ paths:
       tags:
         - mastro_knowledge-graphs_Upload
       summary: DELETE mwsx/knowledgeGraph/upload/import/thread
-      operationId: delete__knowledgeGraph_upload_file_csv_import_thread
+      operationId: deleteKnowledgeGraphUploadFileCsvImportThread
       parameters:
         - name: iri
           in: query
@@ -16590,7 +16588,7 @@ paths:
       summary: >-
         Import metadata triples like
         /owlOntology/{name}/version/loaderThreads/metadata:
-      operationId: post__knowledgeGraph_import_metadata
+      operationId: postKnowledgeGraphImportMetadata
       parameters:
         - name: iri
           in: query
@@ -16814,7 +16812,7 @@ paths:
       tags:
         - mastro_ontology-designer_Persistence
       summary: Convert an OWL file in RDFGraph model
-      operationId: post_ontologyDraft_convertOWL
+      operationId: postOntologyDraftConvertOWL
       requestBody:
         content:
           application/json:
@@ -16848,7 +16846,7 @@ paths:
         - mastro_ontology-catalog_Persistence
       summary: Perform an action for ontology to the catalog
       description: Modifies the ontology catalog byacoording to the action provided
-      operationId: post_ontology_catalog
+      operationId: postOntologyCatalog
       parameters:
         - name: action
           in: query
@@ -16883,7 +16881,7 @@ paths:
       tags:
         - mastro_ontology-catalog_Persistence
       summary: GET mwsx/ontologyCatalog
-      operationId: get_ontology_catalog
+      operationId: getOntologyCatalog
       responses:
         '200':
           description: OK
@@ -16900,7 +16898,7 @@ paths:
       tags:
         - mastro_ontology-catalog_Persistence
       summary: DELETE mwsx/ontologyCatalog
-      operationId: delete_ontology_catalog
+      operationId: deleteOntologyCatalog
       responses:
         '200':
           description: OK
@@ -16929,7 +16927,7 @@ paths:
       summary: >-
         Returns the query catalog available for the given version of the
         ontology
-      operationId: get_ontologycatalog_querycatalog
+      operationId: getOntologycatalogQuerycatalog
       responses:
         '200':
           description: OK
@@ -16948,7 +16946,7 @@ paths:
       summary: >-
         Deletes the query catalog available for the given version of the
         ontology
-      operationId: delete_ontologycatalog_querycatalog
+      operationId: deleteOntologycatalogQuerycatalog
       responses:
         '200':
           description: OK
@@ -16975,7 +16973,7 @@ paths:
       tags:
         - mastro_ontology-catalog_Query
       summary: Exports the ontology catalog returning its JSON representation
-      operationId: get_ontologycatalog_querycatalog_export
+      operationId: getOntologycatalogQuerycatalogExport
       responses:
         '200':
           description: OK
@@ -17005,7 +17003,7 @@ paths:
         Imports a new catalog for the given version of the ontology: if the
         additive switch is true, all new queries will be added to the existing
         ones, otherwise the old catalog will be overwritten
-      operationId: get_ontologycatalog_querycatalog_import
+      operationId: getOntologycatalogQuerycatalogImport
       parameters:
         - name: additive
           in: query
@@ -17044,7 +17042,7 @@ paths:
       tags:
         - mastro_ontology-catalog_Query
       summary: Adds a new query to the catalog
-      operationId: post_ontologycatalog_query_ID
+      operationId: postOntologycatalogQueryID
       requestBody:
         content:
           application/json:
@@ -17077,7 +17075,7 @@ paths:
       tags:
         - mastro_ontology-catalog_Query
       summary: Returns the SPARQLQuery identified by the passed ID value
-      operationId: get_ontologycatalog_query_ID
+      operationId: getOntologycatalogQueryID
       parameters:
         - name: ID
           in: path
@@ -17100,7 +17098,7 @@ paths:
       tags:
         - mastro_ontology-catalog_Query
       summary: Updates the definition of a specific query within the available catalog
-      operationId: put_ontologycatalog_query_ID
+      operationId: putOntologycatalogQueryID
       parameters:
         - name: ID
           in: path
@@ -17131,7 +17129,7 @@ paths:
       summary: >-
         Removes a specific query from the catalog available for this version of
         the ontology
-      operationId: delete_ontologycatalog_query_ID
+      operationId: deleteOntologycatalogQueryID
       parameters:
         - name: ID
           in: path
@@ -17164,7 +17162,7 @@ paths:
       tags:
         - mastro_ontology-catalog_Cache
       summary: GET mwsx/ontologyCatalog/cache/results/{queryname}
-      operationId: get_ontology_catalog_cache_manager_query_results
+      operationId: getOntologyCatalogCacheManagerQueryResults
       parameters:
         - name: queryname
           in: path
@@ -17197,7 +17195,7 @@ paths:
       tags:
         - mastro_ontology-catalog_Cache
       summary: GET mwsx/ontologyCatalog/cache/results/{queryname}/{language}
-      operationId: get_ontology_catalog_cache_manager_query_results_language
+      operationId: getOntologyCatalogCacheManagerQueryResultsLanguage
       parameters:
         - name: queryname
           in: path
@@ -17235,7 +17233,7 @@ paths:
       tags:
         - mastro_ontology-catalog_Cache
       summary: PUT mwsx/ontologyCatalog/cache/update
-      operationId: put_ontology_catalog_cache_manager_update
+      operationId: putOntologyCatalogCacheManagerUpdate
       parameters:
         - name: languages
           in: query
@@ -17266,7 +17264,7 @@ paths:
       tags:
         - mastro_ontology-catalog_Cache
       summary: PUT mwsx/ontologyCatalog/cache/update/languages/add
-      operationId: put_ontology_catalog_cache_manager_add_language
+      operationId: putOntologyCatalogCacheManagerAddLanguage
       parameters:
         - name: language
           in: query
@@ -17295,7 +17293,7 @@ paths:
       tags:
         - mastro_ontology-catalog_Cache
       summary: PUT mwsx/ontologyCatalog/cache/update/languages/set
-      operationId: put_ontology_catalog_cache_manager_set_languages
+      operationId: putOntologyCatalogCacheManagerSetLanguages
       parameters:
         - name: languages
           in: query
@@ -17326,7 +17324,7 @@ paths:
       tags:
         - mastro_ontology-catalog_Metadata
       summary: POST mwsx/ontologyCatalog/crossOntologiesMetadata
-      operationId: post_cross_ontologies_individuals_metadata
+      operationId: postCrossOntologiesIndividualsMetadata
       requestBody:
         content:
           application/json:
@@ -17343,7 +17341,7 @@ paths:
         - jwt: []
     delete:
       summary: DELETE mwsx/ontologyCatalog/crossOntologiesMetadata
-      operationId: delete_ontology_catalog_metadata
+      operationId: deleteOntologyCatalogMetadata
       responses:
         '200':
           description: OK
@@ -17368,7 +17366,7 @@ paths:
       tags:
         - mastro_ontology-catalog_Persistence
       summary: GET mwsx/ontologyCatalog/download
-      operationId: get_ontology_catalog_download
+      operationId: getOntologyCatalogDownload
       parameters:
         - name: format
           in: query
@@ -17401,7 +17399,7 @@ paths:
       tags:
         - mastro_ontology-catalog_Query
       summary: GET mwsx/ontologyCatalog/query/results/export/formats
-      operationId: get_ontology_catalog_query_results_export_formats
+      operationId: getOntologyCatalogQueryResultsExportFormats
       responses:
         '200':
           description: OK
@@ -17430,7 +17428,7 @@ paths:
       tags:
         - mastro_ontology-catalog_Query
       summary: Starts a SPARQL query over the catalog
-      operationId: post_ontology_catalog_query_start
+      operationId: postOntologyCatalogQueryStart
       requestBody:
         content:
           application/json:
@@ -17462,7 +17460,7 @@ paths:
       tags:
         - mastro_ontology-catalog_Query
       summary: DELETE mwsx/ontologyCatalog/query/{queryId}
-      operationId: delete_ontology_catalog_query_thread_delete
+      operationId: deleteOntologyCatalogQueryThreadDelete
       parameters:
         - name: queryId
           in: path
@@ -17496,7 +17494,7 @@ paths:
         - mastro_ontology-catalog_Query
       summary: Retrieve the results of a SPARQL query
       description: Retrieve the results of a SPARQL query
-      operationId: get_ontology_catalog_query_results
+      operationId: getOntologyCatalogQueryResults
       parameters:
         - name: queryId
           in: path
@@ -17541,7 +17539,7 @@ paths:
       tags:
         - mastro_ontology-catalog_Query
       summary: GET mwsx/ontologyCatalog/query/{queryId}/results/export
-      operationId: get_ontology_catalog_query_results_export
+      operationId: getOntologyCatalogQueryResultsExport
       parameters:
         - name: queryId
           in: path
@@ -17614,7 +17612,7 @@ paths:
       tags:
         - mastro_ontology-catalog_Query
       summary: Stops a SPARQL query over the catalog
-      operationId: put_ontology_catalog_query_stop
+      operationId: putOntologyCatalogQueryStop
       parameters:
         - name: queryId
           in: path
@@ -17647,7 +17645,7 @@ paths:
       tags:
         - mastro_ontology-catalog_Query
       summary: POST mwsx/ontologyCatalog/sparql11-endpoint/query
-      operationId: post_ontology_catalog_sparql11_endpoint_query_form_encoded
+      operationId: postOntologyCatalogSparql11EndpointQueryFormEncoded
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -17694,7 +17692,7 @@ paths:
       tags:
         - mastro_ontology-catalog_Query
       summary: POST mwsx/ontologyCatalog/sparql11-endpoint/update
-      operationId: post_ontology_catalog_sparql11_endpoint_update_form_encoded
+      operationId: postOntologyCatalogSparql11EndpointUpdateFormEncoded
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -17741,7 +17739,7 @@ paths:
       tags:
         - mastro_authorization-view-profiles_Logical
       summary: GET mwsx/owlOntology/{name}/version/avpOntologyTree
-      operationId: get__owlOntology_name_version_avpOntologyTreet
+      operationId: getOwlOntologyNameVersionAvpOntologyTreet
       parameters:
         - name: name
           in: path
@@ -17779,7 +17777,7 @@ paths:
       tags:
         - mastro_authorization-view-profiles_Persistence
       summary: GET mwsx/owlOntology/{name}/version/authorizationViewProfiles
-      operationId: get_authorizationViewProfiles
+      operationId: getAuthorizationViewProfiles
       parameters:
         - name: name
           in: path
@@ -17809,7 +17807,7 @@ paths:
       tags:
         - mastro_authorization-view-profiles_Persistence
       summary: POST mwsx/owlOntology/{name}/version/authorizationViewProfiles
-      operationId: post_authorizationViewProfiles
+      operationId: postAuthorizationViewProfiles
       parameters:
         - name: name
           in: path
@@ -17853,7 +17851,7 @@ paths:
       tags:
         - mastro_authorization-view-profiles_Persistence
       summary: PUT mwsx/owlOntology/{name}/version/authorizationViewProfile/{avpId}
-      operationId: put_authorizationViewProfiles
+      operationId: putAuthorizationViewProfiles
       parameters:
         - name: name
           in: path
@@ -17892,7 +17890,7 @@ paths:
       tags:
         - mastro_authorization-view-profiles_Persistence
       summary: DELETE mwsx/owlOntology/{name}/version/authorizationViewProfile/{avpId}
-      operationId: delete_authorizationViewProfiles
+      operationId: deleteAuthorizationViewProfiles
       parameters:
         - name: name
           in: path
@@ -17935,7 +17933,7 @@ paths:
       tags:
         - mastro_dashboards_Persistence
       summary: GET mwsx/owlOntology/{name}/version/dashboards
-      operationId: get__owlOntology_version_dashboards
+      operationId: getOwlOntologyVersionDashboards
       parameters:
         - name: name
           in: path
@@ -17963,7 +17961,7 @@ paths:
       tags:
         - mastro_dashboards_Persistence
       summary: POST mwsx/owlOntology/{name}/version/dashboards
-      operationId: post__owlOntology_version_dashboards
+      operationId: postOwlOntologyVersionDashboards
       parameters:
         - name: name
           in: path
@@ -18009,7 +18007,7 @@ paths:
       summary: >-
         Migrates dashboard with ID dashboardId from version 'version' to
         'version' targetVersion for ontology named 'name'
-      operationId: post__owlOntology_version_dashboard_migrate
+      operationId: postOwlOntologyVersionDashboardMigrate
       parameters:
         - name: name
           in: path
@@ -18059,7 +18057,7 @@ paths:
       summary: >-
         Migrates all dashboards from version 'version' to 'version'
         targetVersion for ontology named 'name'
-      operationId: post__owlOntology_version_dashboards_migrate
+      operationId: postOwlOntologyVersionDashboardsMigrate
       parameters:
         - name: name
           in: path
@@ -18102,7 +18100,7 @@ paths:
       tags:
         - mastro_dashboards_Persistence
       summary: PUT mwsx/owlOntology/{name}/version/dashboard/{dashboardId}
-      operationId: put__owlOntology_version_dashboards
+      operationId: putOwlOntologyVersionDashboards
       parameters:
         - name: name
           in: path
@@ -18141,7 +18139,7 @@ paths:
       tags:
         - mastro_dashboards_Persistence
       summary: DELETE mwsx/owlOntology/{name}/version/dashboard/{dashboardId}
-      operationId: delete__owlOntology_version_dashboards
+      operationId: deleteOwlOntologyVersionDashboards
       parameters:
         - name: name
           in: path
@@ -18184,7 +18182,7 @@ paths:
       tags:
         - mastro_data-quality_Constraints
       summary: Returns the available constraints defined over the ontology / version
-      operationId: get_ontologyConstraints
+      operationId: getOntologyConstraints
       parameters:
         - name: name
           in: path
@@ -18222,7 +18220,7 @@ paths:
       tags:
         - mastro_data-quality_SHACL
       summary: Returns the SHACL constraints defined over the ontology / version
-      operationId: get_shaclConstraints
+      operationId: getShaclConstraints
       parameters:
         - name: name
           in: path
@@ -18252,7 +18250,7 @@ paths:
       tags:
         - mastro_data-quality_SHACL
       summary: Add the given SHACL constraints for ontology / version
-      operationId: put_shaclConstraints
+      operationId: putShaclConstraints
       parameters:
         - name: name
           in: path
@@ -18288,7 +18286,7 @@ paths:
       tags:
         - mastro_data-quality_SHACL
       summary: Delete the given SHACL constraint for ontology / version
-      operationId: delete_shaclConstraints
+      operationId: deleteShaclConstraints
       parameters:
         - name: name
           in: path
@@ -18332,7 +18330,7 @@ paths:
       tags:
         - mastro_data-quality_CheckSet
       summary: Create a new data quality check set
-      operationId: post_ontologyConstraints_check_set
+      operationId: postOntologyConstraintsCheckSet
       parameters:
         - name: name
           in: path
@@ -18366,7 +18364,7 @@ paths:
       tags:
         - mastro_data-quality_CheckSet
       summary: Returns a list of the check sets available for the ontology / version
-      operationId: get_ontologyConstraints_check_sets
+      operationId: getOntologyConstraintsCheckSets
       parameters:
         - name: name
           in: path
@@ -18406,7 +18404,7 @@ paths:
       tags:
         - mastro_data-quality_CheckSet
       summary: Returns a check set defined over the ontology / version
-      operationId: get_ontologyConstraints_check_set_setId
+      operationId: getOntologyConstraintsCheckSetSetId
       parameters:
         - name: name
           in: path
@@ -18439,7 +18437,7 @@ paths:
       tags:
         - mastro_data-quality_CheckSet
       summary: Deletes the given check set from
-      operationId: delete_ontologyConstraints_check_set_setId
+      operationId: deleteOntologyConstraintsCheckSetSetId
       parameters:
         - name: name
           in: path
@@ -18472,7 +18470,7 @@ paths:
       tags:
         - mastro_data-quality_CheckSet
       summary: Updates the definition of a specific check set
-      operationId: put_ontologyConstraints_check
+      operationId: putOntologyConstraintsCheck
       parameters:
         - name: name
           in: path
@@ -18521,7 +18519,7 @@ paths:
       tags:
         - mastro_data-quality_CheckSet
       summary: Starts a new execution of the given check set over a specific endpoint
-      operationId: put_ontologyConstraints_check_start
+      operationId: putOntologyConstraintsCheckStart
       parameters:
         - name: name
           in: path
@@ -18597,7 +18595,7 @@ paths:
       tags:
         - mastro_data-quality_CheckSet
       summary: Stops the execution of the thread executing the specific check set
-      operationId: put_ontologyConstraints_check_stop
+      operationId: putOntologyConstraintsCheckStop
       parameters:
         - name: name
           in: path
@@ -18640,7 +18638,7 @@ paths:
       tags:
         - mastro_data-quality_CheckSet
       summary: Deletes the execution thread of the specified check set from the server
-      operationId: delete_ontologyConstraints_check_removeThread
+      operationId: deleteOntologyConstraintsCheckRemoveThread
       parameters:
         - name: name
           in: path
@@ -18683,7 +18681,7 @@ paths:
       tags:
         - mastro_data-quality_CheckSet
       summary: Returns the running state of the specified check set
-      operationId: get_ontologyConstraints_check_status
+      operationId: getOntologyConstraintsCheckStatus
       parameters:
         - name: name
           in: path
@@ -18726,7 +18724,7 @@ paths:
       tags:
         - mastro_data-quality_CheckSet
       summary: Returns the identifiers of the currently running check sets
-      operationId: get_ontologyConstraints_check_running
+      operationId: getOntologyConstraintsCheckRunning
       parameters:
         - name: name
           in: path
@@ -18766,7 +18764,7 @@ paths:
       tags:
         - mastro_data-quality_CheckSet
       summary: Returns all the execution logs of the given check set
-      operationId: get_ontologyConstraints_execution_log
+      operationId: getOntologyConstraintsExecutionLog
       parameters:
         - name: name
           in: path
@@ -18806,7 +18804,7 @@ paths:
       summary: >-
         Returns the execution log of the last execution of the specified check
         set
-      operationId: get_ontologyConstraints_checkSetId_execution_log
+      operationId: getOntologyConstraintsCheckSetIdExecutionLog
       parameters:
         - name: name
           in: path
@@ -18839,7 +18837,7 @@ paths:
       tags:
         - mastro_data-quality_CheckSet
       summary: Returns the execution log of a data quality check set
-      operationId: put_ontologyConstraints_checkSetId_execution_timestamps
+      operationId: putOntologyConstraintsCheckSetIdExecutionTimestamps
       parameters:
         - name: name
           in: path
@@ -18884,7 +18882,7 @@ paths:
       summary: >-
         Returns a list of the available timestamps for a check set of the given
         ontology/version
-      operationId: get_ontologyConstraints_checkSetId_execution_timestamps
+      operationId: getOntologyConstraintsCheckSetIdExecutionTimestamps
       parameters:
         - name: name
           in: path
@@ -18929,7 +18927,7 @@ paths:
       tags:
         - mastro_data-quality_CheckSet
       summary: Returns the execution log of a check set run at the provided timestamp
-      operationId: get_ontologyConstraints_checkSetId_execution_timestamp
+      operationId: getOntologyConstraintsCheckSetIdExecutionTimestamp
       parameters:
         - name: name
           in: path
@@ -18967,7 +18965,7 @@ paths:
       tags:
         - mastro_data-quality_CheckSet
       summary: Deletes the execution log of a check set run at the provided timestamp
-      operationId: delete_ontologyConstraints_checkSetId_execution_timestamp
+      operationId: deleteOntologyConstraintsCheckSetIdExecutionTimestamp
       parameters:
         - name: name
           in: path
@@ -19017,7 +19015,7 @@ paths:
       summary: >-
         Deletes all the data quality check set execution logs saved on the
         server for the given ontology/version
-      operationId: delete_ontologyConstraints_checkSetId_execution_timestamps
+      operationId: deleteOntologyConstraintsCheckSetIdExecutionTimestamps
       parameters:
         - name: name
           in: path
@@ -19060,7 +19058,7 @@ paths:
       tags:
         - mastro_data-quality_CheckSet
       summary: Returns the dump of a data quality check set
-      operationId: get_ontologyConstraints_checkSetId_export
+      operationId: getOntologyConstraintsCheckSetIdExport
       parameters:
         - name: name
           in: path
@@ -19105,7 +19103,7 @@ paths:
       summary: >-
         Imports a data quality check set dump and returns a report of the
         performed operation
-      operationId: post_ontologyConstraints_checkSetId_import
+      operationId: postOntologyConstraintsCheckSetIdImport
       parameters:
         - name: name
           in: path
@@ -19156,7 +19154,7 @@ paths:
       summary: >-
         Returns the JSON constraints file of the version 'version' of the
         ontology named <code>name</code>.<br/> 
-      operationId: get__owlOntology_name_version_json_constraints
+      operationId: getOwlOntologyNameVersionJsonConstraints
       parameters:
         - name: name
           in: path
@@ -19186,7 +19184,7 @@ paths:
       summary: >-
         Deletes the JSON constraints file of the version 'version' of the
         ontology named <code>name</code>.<br/> 
-      operationId: delete__owlOntology_name_version_json_constraints
+      operationId: deleteOwlOntologyNameVersionJsonConstraints
       parameters:
         - name: name
           in: path
@@ -19224,7 +19222,7 @@ paths:
       tags:
         - mastro_data-quality_SHACL
       summary: GET mwsx/owlOntology/{name}/version/shacl/check
-      operationId: get__owlOntology_name_version_json_constraints_check
+      operationId: getOwlOntologyNameVersionJsonConstraintsCheck
       parameters:
         - name: name
           in: path
@@ -19300,7 +19298,7 @@ paths:
       tags:
         - mastro_misc_Versions
       summary: Returns the version of Mastro
-      operationId: get__mastro_version
+      operationId: getMastroVersion
       responses:
         '200':
           description: OK
@@ -19327,7 +19325,7 @@ paths:
       tags:
         - mastro_misc_Versions
       summary: Returns the version of the Jena library used by Mastro
-      operationId: get__jena_version
+      operationId: getJenaVersion
       responses:
         '200':
           description: OK
@@ -19354,7 +19352,7 @@ paths:
       tags:
         - mastro_misc_Versions
       summary: Returns the version of the OWL API used by Mastro
-      operationId: get__owlapi_version
+      operationId: getOwlapiVersion
       responses:
         '200':
           description: OK
@@ -19381,7 +19379,7 @@ paths:
       tags:
         - mastro_misc_Resources
       summary: GET mwsx/resources/ontologies
-      operationId: get__resources_ids
+      operationId: getResourcesIds
       responses:
         '200':
           description: OK
@@ -19410,7 +19408,7 @@ paths:
       tags:
         - mastro_misc_Resources
       summary: GET mwsx/resources/ontology/{name}/versions
-      operationId: get__resources_ids_versions
+      operationId: getResourcesIdsVersions
       parameters:
         - name: name
           in: path
@@ -19445,7 +19443,7 @@ paths:
       tags:
         - mastro_misc_Resources
       summary: GET mwsx/resources/ontology/{name}/version/mappings
-      operationId: get__resources_ids_mappings
+      operationId: getResourcesIdsMappings
       parameters:
         - name: name
           in: path
@@ -19485,7 +19483,7 @@ paths:
       tags:
         - mastro_misc_Resources
       summary: GET mwsx/resources/datasources
-      operationId: get__resources_ds_ids
+      operationId: getResourcesDsIds
       responses:
         '200':
           description: OK
@@ -19514,7 +19512,7 @@ paths:
       tags:
         - mastro_misc_Resources
       summary: GET mwsx/resources/endpoints
-      operationId: get__resources_ep_ids
+      operationId: getResourcesEpIds
       responses:
         '200':
           description: OK
@@ -19543,7 +19541,7 @@ paths:
       tags:
         - mastro_misc_Mastro
       summary: GET mwsx/mastro/instances
-      operationId: get__available_instances
+      operationId: getAvailableInstances
       responses:
         '200':
           description: OK
@@ -19572,7 +19570,7 @@ paths:
       tags:
         - mastro_misc_LastLoaded
       summary: GET mwsx/lastLoaded/ontology
-      operationId: get_lastLoaded_ontology
+      operationId: getLastLoadedOntology
       responses:
         '200':
           description: OK
@@ -19601,7 +19599,7 @@ paths:
       tags:
         - mastro_misc_LastLoaded
       summary: GET mwsx/lastLoaded/knowledgeGraph
-      operationId: get_lastLoaded_knowledgeGraph
+      operationId: getLastLoadedKnowledgeGraph
       responses:
         '200':
           description: OK
@@ -19630,7 +19628,7 @@ paths:
       tags:
         - mastro_misc_GlobalAnnotation
       summary: GET mwsx/globalAnnotations
-      operationId: get_global_annotations
+      operationId: getGlobalAnnotations
       responses:
         '200':
           description: OK
@@ -19659,7 +19657,7 @@ paths:
       tags:
         - mastro_misc_GlobalAnnotation
       summary: POST mwsx/globalAnnotation
-      operationId: post_global_annotation
+      operationId: postGlobalAnnotation
       requestBody:
         content:
           application/json:
@@ -19694,7 +19692,7 @@ paths:
       tags:
         - mastro_misc_GlobalAnnotation
       summary: DELETE mwsx/globalAnnotation/{entityId}
-      operationId: delete_global_annotation
+      operationId: deleteGlobalAnnotation
       parameters:
         - name: entityId
           in: path
@@ -19729,7 +19727,7 @@ paths:
       tags:
         - mastro_misc_Server
       summary: Returns the license expiration date
-      operationId: get_server_license_expiration_date
+      operationId: getServerLicenseExpirationDate
       responses:
         '200':
           description: OK
@@ -19756,7 +19754,7 @@ paths:
       tags:
         - mastro_misc_Server
       summary: Returns the license contact information
-      operationId: get_server_license_contact_info
+      operationId: getServerLicenseContactInfo
       responses:
         '200':
           description: OK
@@ -19783,7 +19781,7 @@ paths:
       tags:
         - mastro_misc_Server
       summary: Computes and returns the system storage report
-      operationId: get_system_storage_report
+      operationId: getSystemStorageReport
       responses:
         '200':
           description: OK
@@ -19810,7 +19808,7 @@ paths:
       tags:
         - mastro_misc_Server
       summary: Computes and returns the system storage report
-      operationId: get_empty_folder
+      operationId: getEmptyFolder
       parameters:
         - name: folder
           in: path
@@ -19843,7 +19841,7 @@ paths:
       tags:
         - mastro_misc_Server
       summary: Computes and returns the system storage report
-      operationId: get_system_snapshot
+      operationId: getSystemSnapshot
       responses:
         '200':
           description: OK
@@ -19870,7 +19868,7 @@ paths:
       tags:
         - mastro_misc_Server
       summary: Computes and returns the system storage report
-      operationId: get_system_memory
+      operationId: getSystemMemory
       responses:
         '200':
           description: OK
@@ -19897,7 +19895,7 @@ paths:
       tags:
         - mastro_misc_Server
       summary: Returns the user log lines count
-      operationId: get_userlog_count
+      operationId: getUserlogCount
       parameters:
         - name: username
           in: path
@@ -19930,7 +19928,7 @@ paths:
       tags:
         - mastro_misc_Server
       summary: Returns the user log lines count
-      operationId: get_userlog_count_user
+      operationId: getUserlogCountUser
       parameters:
         - name: username
           in: path
@@ -19977,7 +19975,7 @@ paths:
       tags:
         - mastro_misc_Geocoding
       summary: Returns the list of available Geocoding servers
-      operationId: get_geocoding_servers
+      operationId: getGeocodingServers
       responses:
         '200':
           description: OK
@@ -20006,7 +20004,7 @@ paths:
       summary: >-
         Adds or modifies the specified Geocoding server and returns the new list
         of available servers
-      operationId: put_geocoding_server
+      operationId: putGeocodingServer
       parameters:
         - name: serverId
           in: path
@@ -20035,7 +20033,7 @@ paths:
       tags:
         - mastro_misc_Geocoding
       summary: Removes the specified server from the list of available servers
-      operationId: delete_geocoding_server
+      operationId: deleteGeocodingServer
       parameters:
         - name: serverId
           in: path
@@ -20068,7 +20066,7 @@ paths:
       tags:
         - mastro_misc_Logger
       summary: GET mwsx/logger/mastroapi
-      operationId: get_set_mastroapi_logger
+      operationId: getSetMastroapiLogger
       parameters:
         - name: mode
           in: query
@@ -20102,7 +20100,7 @@ paths:
       tags:
         - mastro_misc_Logger
       summary: GET mwsx/logger/service
-      operationId: get_set_service_logger
+      operationId: getSetServiceLogger
       parameters:
         - name: mode
           in: query
@@ -20136,7 +20134,7 @@ paths:
       tags:
         - mastro_misc_Logger
       summary: GET mwsx/logger
-      operationId: get_set_logger
+      operationId: getSetLogger
       parameters:
         - name: className
           in: query
@@ -20180,7 +20178,7 @@ paths:
       tags:
         - mastro_misc_Logger
       summary: GET mwsx/logger/class
-      operationId: get_set_service_class
+      operationId: getSetServiceClass
       parameters:
         - name: className
           in: query
@@ -20224,7 +20222,7 @@ paths:
       tags:
         - mastro_misc_Logger
       summary: GET mwsx/logger/package
-      operationId: get_set_service_package
+      operationId: getSetServicePackage
       parameters:
         - name: packageName
           in: query
@@ -20268,7 +20266,7 @@ paths:
       tags:
         - mastro_misc_Logger
       summary: GET mwsx/logger/list
-      operationId: get_set_service_logger_list
+      operationId: getSetServiceLoggerList
       responses:
         '200':
           description: OK
@@ -20295,7 +20293,7 @@ paths:
       tags:
         - mastro_misc_Logger
       summary: GET mwsx/logger/monitor
-      operationId: get_set_monitor_logger
+      operationId: getSetMonitorLogger
       parameters:
         - name: mode
           in: query
@@ -20329,7 +20327,7 @@ paths:
       tags:
         - mastro_misc_Statics
       summary: POST mwsx/statics/sparql/extractProjectVarNames
-      operationId: post_extract_query_head
+      operationId: postExtractQueryHead
       requestBody:
         content:
           text/plain:
@@ -20364,7 +20362,7 @@ paths:
       tags:
         - mastro_misc_Statics
       summary: POST mwsx/statics/sparql/templateSize
-      operationId: post_extract_template_size
+      operationId: postExtractTemplateSize
       requestBody:
         content:
           application/json:
@@ -20397,7 +20395,7 @@ paths:
       tags:
         - mastro_misc_Statics
       summary: POST mwsx/statics/reporting/request
-      operationId: post_extract_issue_report
+      operationId: postExtractIssueReport
       requestBody:
         content:
           application/json:
@@ -20577,7 +20575,7 @@ paths:
       tags:
         - mastro_misc_QueryTags
       summary: Returns all the available query tags
-      operationId: get_queryTags
+      operationId: getQueryTags
       responses:
         '200':
           description: OK
@@ -20594,7 +20592,7 @@ paths:
       tags:
         - mastro_misc_QueryTags
       summary: Adds a new query tag to the set of available tags
-      operationId: post_queryTags
+      operationId: postQueryTags
       requestBody:
         content:
           application/json:
@@ -20627,7 +20625,7 @@ paths:
       tags:
         - mastro_misc_QueryTags
       summary: Deletes the given query tag from the list of available tags
-      operationId: delete_queryTags_tagName
+      operationId: deleteQueryTagsTagName
       parameters:
         - name: tagName
           in: path
@@ -20660,7 +20658,7 @@ paths:
       tags:
         - mastro_misc_Statistics
       summary: Returns the access log
-      operationId: get_accesses_statistics
+      operationId: getAccessesStatistics
       responses:
         '200':
           description: OK
@@ -20679,7 +20677,7 @@ paths:
       tags:
         - mastro_misc_Statistics
       summary: Replace the current access log with the one provided
-      operationId: post_accesses_statistics
+      operationId: postAccessesStatistics
       requestBody:
         content:
           application/json:
@@ -20706,7 +20704,7 @@ paths:
       tags:
         - mastro_misc_Statistics
       summary: Adds the provided access log to the one registered in the system
-      operationId: put_accesses_statistics
+      operationId: putAccessesStatistics
       requestBody:
         content:
           application/json:
@@ -20733,7 +20731,7 @@ paths:
       tags:
         - mastro_misc_Statistics
       summary: Replace the current access log with the one provided
-      operationId: delete_accesses_statistics
+      operationId: deleteAccessesStatistics
       responses:
         '200':
           description: OK
@@ -20762,7 +20760,7 @@ paths:
       tags:
         - mastro_misc_Statistics
       summary: Returns the ontologies statistics
-      operationId: get_ontologies_statistics
+      operationId: getOntologiesStatistics
       responses:
         '200':
           description: OK
@@ -20781,7 +20779,7 @@ paths:
       tags:
         - mastro_misc_Statistics
       summary: Replace the current ontologies statistics with the one provided
-      operationId: post_ontologies_statistics
+      operationId: postOntologiesStatistics
       requestBody:
         content:
           application/json:
@@ -20810,7 +20808,7 @@ paths:
       summary: >-
         Adds the provided ontologies statistics to the one registered in the
         system
-      operationId: put_ontologies_statistics
+      operationId: putOntologiesStatistics
       requestBody:
         content:
           application/json:
@@ -20837,7 +20835,7 @@ paths:
       tags:
         - mastro_misc_Statistics
       summary: Delete the provided ontologies statistics from the system
-      operationId: delete_ontologies_statistics
+      operationId: deleteOntologiesStatistics
       responses:
         '200':
           description: OK
@@ -20866,7 +20864,7 @@ paths:
       tags:
         - mastro_misc_Statistics
       summary: Returns the query statistics for the given endpoint
-      operationId: get_statistics_endpoint_queries
+      operationId: getStatisticsEndpointQueries
       parameters:
         - name: endpoint
           in: path
@@ -20893,7 +20891,7 @@ paths:
       summary: >-
         Replace the current query statistics with the one provided for the given
         endpoint
-      operationId: post_statistics_endpoint_queries
+      operationId: postStatisticsEndpointQueries
       parameters:
         - name: endpoint
           in: path
@@ -20928,7 +20926,7 @@ paths:
       summary: >-
         Adds the provided query statistics for the given endpoint to the one
         registered in the system
-      operationId: put_statistics_endpoint_queries
+      operationId: putStatisticsEndpointQueries
       parameters:
         - name: endpoint
           in: path
@@ -20961,7 +20959,7 @@ paths:
       tags:
         - mastro_misc_Statistics
       summary: Deletes from the system the query statistics for the given endpoint
-      operationId: delete_statistics_endpoint_queries
+      operationId: deleteStatisticsEndpointQueries
       parameters:
         - name: endpoint
           in: path
@@ -20996,7 +20994,7 @@ paths:
       tags:
         - mastro_misc_Statistics
       summary: Returns the entities statistics for the given endpoint
-      operationId: get_statistics_endpoint_entities
+      operationId: getStatisticsEndpointEntities
       parameters:
         - name: endpoint
           in: path
@@ -21043,7 +21041,7 @@ paths:
       tags:
         - mastro_task-scheduler_State
       summary: Starts the task scheduler
-      operationId: get__task_scheduler_state
+      operationId: getTaskSchedulerState
       responses:
         '200':
           description: OK
@@ -21060,7 +21058,7 @@ paths:
       tags:
         - mastro_task-scheduler_State
       summary: Starts the task scheduler
-      operationId: put__task_scheduler_state
+      operationId: putTaskSchedulerState
       parameters:
         - name: action
           in: query
@@ -21091,7 +21089,7 @@ paths:
       summary: >-
         Schedules a new job in the task scheduler, returns the ID of the
         scheduled job
-      operationId: post__task_scheduler_jobs
+      operationId: postTaskSchedulerJobs
       requestBody:
         content:
           application/json:
@@ -21116,7 +21114,7 @@ paths:
       summary: >-
         Schedules a new job in the task scheduler, returns the ID of the
         scheduled job
-      operationId: get__task_scheduler_jobs
+      operationId: getTaskSchedulerJobs
       responses:
         '200':
           description: OK
@@ -21145,7 +21143,7 @@ paths:
       tags:
         - mastro_task-scheduler_Persistence
       summary: Lists the jobs available in the scheduler folder
-      operationId: get__task_scheduler_jobs_available
+      operationId: getTaskSchedulerJobsAvailable
       responses:
         '200':
           description: OK
@@ -21174,7 +21172,7 @@ paths:
       tags:
         - mastro_task-scheduler_Persistence
       summary: Get the list of job entries in the task scheduler
-      operationId: get__task_scheduler_job_entries
+      operationId: getTaskSchedulerJobEntries
       responses:
         '200':
           description: OK
@@ -21205,7 +21203,7 @@ paths:
       summary: >-
         Schedules a new job in the task scheduler, returns the ID of the
         scheduled job
-      operationId: post__task_scheduler_job_entries
+      operationId: postTaskSchedulerJobEntries
       parameters:
         - name: mode
           in: query
@@ -21246,7 +21244,7 @@ paths:
       tags:
         - mastro_task-scheduler_Persistence
       summary: Returns the main entry of the job ID
-      operationId: get__task_scheduler_job_entry
+      operationId: getTaskSchedulerJobEntry
       parameters:
         - name: jobId
           in: path
@@ -21281,7 +21279,7 @@ paths:
       summary: >-
         Returns the execution entry (identified by execId) of the job
         (identified by jobId)
-      operationId: get__task_scheduler_job_entries_execution_id
+      operationId: getTaskSchedulerJobEntriesExecutionId
       parameters:
         - name: jobId
           in: path
@@ -21319,7 +21317,7 @@ paths:
       tags:
         - mastro_task-scheduler_Execution
       summary: Returns the execution entries of the job ID
-      operationId: get__task_scheduler_job_execution_entries
+      operationId: getTaskSchedulerJobExecutionEntries
       parameters:
         - name: jobId
           in: path
@@ -21354,7 +21352,7 @@ paths:
       tags:
         - mastro_task-scheduler_Actions
       summary: Un-schedules and deletes a job in the task scheduler
-      operationId: delete__task_scheduler_job_entries
+      operationId: deleteTaskSchedulerJobEntries
       parameters:
         - name: jobId
           in: path
@@ -21387,7 +21385,7 @@ paths:
       tags:
         - mastro_task-scheduler_Execution
       summary: Un-schedules and deletes a job in the task scheduler
-      operationId: get__task_scheduler_job_entries_executions_ids
+      operationId: getTaskSchedulerJobEntriesExecutionsIds
       parameters:
         - name: jobId
           in: path
@@ -21422,7 +21420,7 @@ paths:
       tags:
         - mastro_users-roles_User
       summary: Returns the list of available users of this MWS installation
-      operationId: get__users
+      operationId: getUsers
       responses:
         '200':
           description: OK
@@ -21441,7 +21439,7 @@ paths:
       tags:
         - mastro_users-roles_User
       summary: Adds multiple users to the system
-      operationId: put__users
+      operationId: putUsers
       parameters:
         - name: op
           in: query
@@ -21480,7 +21478,7 @@ paths:
       tags:
         - mastro_users-roles_User
       summary: Returns the user names <code>username</code>
-      operationId: get__user_name
+      operationId: getUserName
       parameters:
         - name: username
           in: path
@@ -21503,7 +21501,7 @@ paths:
       tags:
         - mastro_users-roles_User
       summary: Modifies the user identified by <code>username</code>
-      operationId: put__user
+      operationId: putUser
       parameters:
         - name: username
           in: path
@@ -21537,7 +21535,7 @@ paths:
       tags:
         - mastro_users-roles_User
       summary: DELETE mwsx/user/{username}
-      operationId: delete__user
+      operationId: deleteUser
       parameters:
         - name: username
           in: path
@@ -21570,7 +21568,7 @@ paths:
       tags:
         - mastro_users-roles_User
       summary: Creates a new user
-      operationId: post__user
+      operationId: postUser
       parameters:
         - name: secret
           in: query
@@ -21609,7 +21607,7 @@ paths:
       tags:
         - mastro_users-roles_User
       summary: Changes the user password for the user named <code>username</code>
-      operationId: put__user_passwd
+      operationId: putUserPasswd
       parameters:
         - name: username
           in: path
@@ -21652,7 +21650,7 @@ paths:
       tags:
         - mastro_users-roles_User
       summary: PUT mwsx/user/{username}/passwd/reset
-      operationId: put__user_passwd_reset
+      operationId: putUserPasswdReset
       parameters:
         - name: username
           in: path
@@ -21690,7 +21688,7 @@ paths:
       tags:
         - mastro_users-roles_Roles
       summary: GET mwsx/roles
-      operationId: get__roles
+      operationId: getRoles
       responses:
         '200':
           description: OK
@@ -21719,7 +21717,7 @@ paths:
       tags:
         - mastro_users-roles_Roles
       summary: GET mwsx/role/{rolename}
-      operationId: get__role_name
+      operationId: getRoleName
       parameters:
         - name: rolename
           in: path
@@ -21742,7 +21740,7 @@ paths:
       tags:
         - mastro_users-roles_Roles
       summary: PUT mwsx/role/{rolename}
-      operationId: put__role
+      operationId: putRole
       parameters:
         - name: rolename
           in: path
@@ -21771,7 +21769,7 @@ paths:
       tags:
         - mastro_users-roles_Roles
       summary: DELETE mwsx/role/{rolename}
-      operationId: delete__role
+      operationId: deleteRole
       parameters:
         - name: rolename
           in: path
@@ -21804,7 +21802,7 @@ paths:
       tags:
         - mastro_users-roles_Roles
       summary: POST mwsx/role
-      operationId: post__role
+      operationId: postRole
       requestBody:
         content:
           application/json:
@@ -21837,7 +21835,7 @@ paths:
       tags:
         - mastro_users-roles_Roles
       summary: GET mwsx/role/configurations
-      operationId: get__role_configs
+      operationId: getRoleConfigs
       responses:
         '200':
           description: OK
@@ -21864,7 +21862,7 @@ paths:
       tags:
         - mastro_users-roles_MonolithRole
       summary: GET mwsx/monolith/roles
-      operationId: get__monolith__roles
+      operationId: getMonolithRoles
       responses:
         '200':
           description: OK
@@ -21893,7 +21891,7 @@ paths:
       tags:
         - mastro_users-roles_MonolithRole
       summary: PUT mwsx/monolith/role/{rolename}
-      operationId: put__monolith__role
+      operationId: putMonolithRole
       parameters:
         - name: rolename
           in: path
@@ -21932,7 +21930,7 @@ paths:
       tags:
         - mastro_users-roles_User
       summary: Returns the feedback provided by all the users
-      operationId: get__users_feedback
+      operationId: getUsersFeedback
       responses:
         '200':
           description: OK
@@ -21959,7 +21957,7 @@ paths:
       tags:
         - mastro_users-roles_User
       summary: Returns the feedback provided by a specific user
-      operationId: get__user_feedback
+      operationId: getUserFeedback
       responses:
         '200':
           description: OK
@@ -21986,7 +21984,7 @@ paths:
       tags:
         - mastro_users-roles_User
       summary: Returns the feedback provided by a specific user
-      operationId: delete__user_feedback
+      operationId: deleteUserFeedback
       parameters:
         - name: username
           in: path
@@ -22019,7 +22017,7 @@ paths:
       tags:
         - mastro_users-roles_User
       summary: Returns the feedback provided by all the users
-      operationId: post__user_feedback_comment
+      operationId: postUserFeedbackComment
       requestBody:
         content:
           application/json:

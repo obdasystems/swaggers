@@ -1,7 +1,7 @@
 post:
   tags: [Statics]
   summary: POST mwsx/statics/reporting/request
-  operationId: post_extract_issue_report
+  operationId: postExtractIssueReport
   requestBody:
     content:
       application/json:

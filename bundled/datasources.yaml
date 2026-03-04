@@ -26,7 +26,7 @@ paths:
       tags:
         - Persistence
       summary: Returns the data source information by its name
-      operationId: get__datasource
+      operationId: getDatasource
       parameters:
         - name: name
           in: path
@@ -46,7 +46,7 @@ paths:
       tags:
         - Persistence
       summary: Modifies the data source information by its name
-      operationId: put__datasource
+      operationId: putDatasource
       parameters:
         - name: name
           in: path
@@ -72,7 +72,7 @@ paths:
       tags:
         - Persistence
       summary: Deletes a data source information by its name
-      operationId: delete__datasource
+      operationId: deleteDatasource
       parameters:
         - name: name
           in: path
@@ -93,7 +93,7 @@ paths:
       tags:
         - Metadata
       summary: Returns the data source information by its name
-      operationId: get__datasource_downloadMetadata
+      operationId: getDatasourceDownloadMetadata
       parameters:
         - name: name
           in: path
@@ -114,7 +114,7 @@ paths:
       tags:
         - Metadata
       summary: Returns the data source information by its name
-      operationId: get__datasource_metadata
+      operationId: getDatasourceMetadata
       parameters:
         - name: name
           in: path
@@ -135,7 +135,7 @@ paths:
       tags:
         - Metadata
       summary: Updates the data source metadata information retrieving it from the JDBC connection
-      operationId: put__datasource_updateMetadata
+      operationId: putDatasourceUpdateMetadata
       parameters:
         - name: name
           in: path
@@ -161,7 +161,7 @@ paths:
       tags:
         - Metadata
       summary: Uploads the data source metadata information for the specified datasource
-      operationId: put__datasource_uploadMetadata
+      operationId: putDatasourceUploadMetadata
       parameters:
         - name: name
           in: path
@@ -188,7 +188,7 @@ paths:
       tags:
         - Persistence
       summary: Creates a new data source information
-      operationId: post__datasource
+      operationId: postDatasource
       parameters:
         - name: buildSchema
           in: query
@@ -219,7 +219,7 @@ paths:
       tags:
         - Persistence
       summary: Returns all the data source definitions available
-      operationId: get__datasource_list
+      operationId: getDatasourceList
       responses:
         '200':
           description: OK
@@ -235,7 +235,7 @@ paths:
       tags:
         - Persistence
       summary: Deletes all the available data source information
-      operationId: delete__all_datasource
+      operationId: deleteAllDatasource
       responses:
         '200':
           description: OK
@@ -250,7 +250,7 @@ paths:
       tags:
         - Drivers
       summary: Returns the list of available JDBC driver class names
-      operationId: get__datasource_driver
+      operationId: getDatasourceDriver
       responses:
         '200':
           description: OK

@@ -1,7 +1,7 @@
 delete:
   tags: [ExportedQuery]
   summary: DELETE mwsx/endpoint/{name}/exportThread/{id}
-  operationId: delete__owlOntology_name_version_query_ID_export_thread_id
+  operationId: deleteOwlOntologyNameVersionQueryIDExportThreadId
   parameters:
   - name: name
     in: path

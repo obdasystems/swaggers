@@ -1,7 +1,7 @@
 delete:
   tags: [Server]
   summary: Computes and returns the system storage report
-  operationId: get_empty_folder
+  operationId: getEmptyFolder
   parameters:
   - name: folder
     in: path

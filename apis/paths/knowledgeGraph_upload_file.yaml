@@ -1,7 +1,7 @@
 post:
   tags: [Upload]
   summary: POST mwsx/knowledgeGraph/upload/file
-  operationId: post__knowledgeGraph_upload_file
+  operationId: postKnowledgeGraphUploadFile
   parameters:
   - name: iri
     in: query

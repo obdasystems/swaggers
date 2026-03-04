@@ -1,7 +1,7 @@
 delete:
   tags: [User]
   summary: Returns the feedback provided by a specific user
-  operationId: delete__user_feedback
+  operationId: deleteUserFeedback
   parameters:
   - name: username
     in: path

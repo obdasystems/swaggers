@@ -1,7 +1,7 @@
 get:
   tags: [QueryTags]
   summary: Returns all the available query tags
-  operationId: get_queryTags
+  operationId: getQueryTags
   responses:
     '200':
       description: OK
@@ -12,7 +12,7 @@ get:
 post:
   tags: [QueryTags]
   summary: Adds a new query tag to the set of available tags
-  operationId: post_queryTags
+  operationId: postQueryTags
   requestBody:
     content:
       application/json:

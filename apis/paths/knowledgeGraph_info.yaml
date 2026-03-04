@@ -1,7 +1,7 @@
 get:
   tags: [Persistence]
   summary: GET mwsx/knowledgeGraph/info
-  operationId: get__knowledgeGraph_info
+  operationId: getKnowledgeGraphInfo
   parameters:
   - name: iri
     in: query

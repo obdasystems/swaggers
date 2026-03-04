@@ -1,11 +1,11 @@
 get:
   tags: [Server]
   summary: Returns the license expiration date
-  operationId: get_server_license_expiration_date
+  operationId: getServerLicenseExpirationDate
   responses:
-    "200":
+    '200':
       description: OK
       content:
         application/json:
-          schema: { $ref: ../components/schemas/LicenseInfo.yaml }
-    "401": { description: Unhauthorized }
+          schema: {$ref: ../components/schemas/LicenseInfo.yaml}
+    '401': {description: Unhauthorized}

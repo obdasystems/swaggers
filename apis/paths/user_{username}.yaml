@@ -1,7 +1,7 @@
 get:
   tags: [User]
   summary: Returns the user names <code>username</code>
-  operationId: get__user_name
+  operationId: getUserName
   parameters:
   - name: username
     in: path
@@ -17,7 +17,7 @@ get:
 put:
   tags: [User]
   summary: Modifies the user identified by <code>username</code>
-  operationId: put__user
+  operationId: putUser
   parameters:
   - name: username
     in: path
@@ -42,7 +42,7 @@ put:
 delete:
   tags: [User]
   summary: DELETE mwsx/user/{username}
-  operationId: delete__user
+  operationId: deleteUser
   parameters:
   - name: username
     in: path

@@ -1,7 +1,7 @@
 get:
   tags: [Logger]
   summary: GET mwsx/logger/package
-  operationId: get_set_service_package
+  operationId: getSetServicePackage
   parameters:
   - name: packageName
     in: query

@@ -1,7 +1,7 @@
 post:
   tags: [Parameters]
   summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/parameter
-  operationId: post__owlOntology_name_version_mapping_ID_parameter
+  operationId: postOwlOntologyNameVersionMappingIDParameter
   parameters:
   - name: name
     in: path
@@ -30,7 +30,7 @@ post:
 put:
   tags: [Parameters]
   summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/parameter
-  operationId: put__owlOntology_name_version_mapping_ID_parameter
+  operationId: putOwlOntologyNameVersionMappingIDParameter
   parameters:
   - name: name
     in: path

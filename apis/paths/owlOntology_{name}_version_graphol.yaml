@@ -2,7 +2,7 @@ get:
   tags: [Visualize]
   summary: 'Returns the Graphol file of the version ''version'' of the ontology named
     <code>name</code>.<br/> '
-  operationId: get__owlOntology_name_version_graphol
+  operationId: getOwlOntologyNameVersionGraphol
   parameters:
   - name: name
     in: path
@@ -23,7 +23,7 @@ delete:
   tags: [Visualize]
   summary: 'Deletes the Graphol file of the version ''version'' of the ontology named
     <code>name</code>.<br/> '
-  operationId: delete__owlOntology_name_version_graphol
+  operationId: deleteOwlOntologyNameVersionGraphol
   parameters:
   - name: name
     in: path

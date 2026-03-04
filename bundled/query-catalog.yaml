@@ -26,7 +26,7 @@ paths:
       tags:
         - Persistence
       summary: Returns the query catalog available for the given version of the ontology
-      operationId: get__owlOntology_name_version_querycatalog
+      operationId: getOwlOntologyNameVersionQuerycatalog
       parameters:
         - name: name
           in: path
@@ -51,7 +51,7 @@ paths:
       tags:
         - Persistence
       summary: Deletes the query catalog available for the given version of the ontology
-      operationId: delete__owlOntology_name_version_querycatalog
+      operationId: deleteOwlOntologyNameVersionQuerycatalog
       parameters:
         - name: name
           in: path
@@ -77,7 +77,7 @@ paths:
       tags:
         - Utils
       summary: Returns a list of SparqlingSPARQLQuery obtaining converted the SPARQLQuery queries available in the catalog to SparqlingSPARQLQuery
-      operationId: get__owlOntology_name_version_querycatalog_converted2spargling
+      operationId: getOwlOntologyNameVersionQuerycatalogConverted2spargling
       parameters:
         - name: name
           in: path
@@ -105,7 +105,7 @@ paths:
       tags:
         - Publication
       summary: Requires the publication of a query from a given user catalog
-      operationId: post__owlOntology_name_version_querycatalog_request_publication
+      operationId: postOwlOntologyNameVersionQuerycatalogRequestPublication
       parameters:
         - name: name
           in: path
@@ -136,7 +136,7 @@ paths:
       tags:
         - Publication
       summary: Requires the publication of a query from a given user catalog
-      operationId: get__owlOntology_name_version_querycatalog_request_publication
+      operationId: getOwlOntologyNameVersionQuerycatalogRequestPublication
       parameters:
         - name: name
           in: path
@@ -164,7 +164,7 @@ paths:
       tags:
         - Publication
       summary: Accept the publication of a query for which a publication request has been formerly requested
-      operationId: put__owlOntology_name_version_querycatalog_accept_publication
+      operationId: putOwlOntologyNameVersionQuerycatalogAcceptPublication
       parameters:
         - name: name
           in: path
@@ -204,7 +204,7 @@ paths:
       tags:
         - Publication
       summary: Accept the publication of a query for which a publication request has been formerly requested
-      operationId: delete__owlOntology_name_version_querycatalog_accept_publication
+      operationId: deleteOwlOntologyNameVersionQuerycatalogAcceptPublication
       parameters:
         - name: name
           in: path
@@ -240,7 +240,7 @@ paths:
       tags:
         - Persistence
       summary: Exports the ontology catalog returning its JSON representation
-      operationId: get__owlOntology_name_version_querycatalog_export
+      operationId: getOwlOntologyNameVersionQuerycatalogExport
       parameters:
         - name: name
           in: path
@@ -266,7 +266,7 @@ paths:
       tags:
         - Persistence
       summary: 'Imports a new catalog for the given version of the ontology: if the additive switch is true, all new queries will be added to the existing ones, otherwise the old catalog will be overwritten'
-      operationId: get__owlOntology_name_version_querycatalog_import
+      operationId: getOwlOntologyNameVersionQuerycatalogImport
       parameters:
         - name: name
           in: path
@@ -303,7 +303,7 @@ paths:
       tags:
         - Persistence
       summary: 'Imports a new catalog of SPARQLING queries: if the additive switch is true, all new queries will be added to the existing ones, otherwise the old catalog will be overwritten'
-      operationId: post__owlOntology_name_version_querycatalog_sparqling_import
+      operationId: postOwlOntologyNameVersionQuerycatalogSparqlingImport
       parameters:
         - name: name
           in: path
@@ -340,7 +340,7 @@ paths:
       tags:
         - Persistence
       summary: Migrates a query catalog of SPARQLING queries between two ontology versions
-      operationId: post__owlOntology_name_version_querycatalog_sparqling_migrate
+      operationId: postOwlOntologyNameVersionQuerycatalogSparqlingMigrate
       parameters:
         - name: name
           in: path
@@ -376,7 +376,7 @@ paths:
       tags:
         - Persistence
       summary: Deletes the catalog of SPARQLING queries available for this version of the ontology
-      operationId: delete__owlOntology_name_version_querycatalog_sparqling
+      operationId: deleteOwlOntologyNameVersionQuerycatalogSparqling
       parameters:
         - name: name
           in: path
@@ -402,7 +402,7 @@ paths:
       tags:
         - Persistence
       summary: Exports the SPARQLING query catalog
-      operationId: get__owlOntology_name_version_querycatalog_sparqling_export
+      operationId: getOwlOntologyNameVersionQuerycatalogSparqlingExport
       parameters:
         - name: name
           in: path
@@ -428,7 +428,7 @@ paths:
       tags:
         - Persistence
       summary: Returns the SPARQLQuery identified by the passed ID value
-      operationId: get__owlOntology_name_version_query_ID
+      operationId: getOwlOntologyNameVersionQueryID
       parameters:
         - name: name
           in: path
@@ -458,7 +458,7 @@ paths:
       tags:
         - Persistence
       summary: Updates the definition of a specific query within the available catalog
-      operationId: put__owlOntology_name_version_query_ID
+      operationId: putOwlOntologyNameVersionQueryID
       parameters:
         - name: name
           in: path
@@ -494,7 +494,7 @@ paths:
       tags:
         - Persistence
       summary: Removes a specific query from the catalog available for this version of the ontology
-      operationId: delete__owlOntology_name_version_query_ID
+      operationId: deleteOwlOntologyNameVersionQueryID
       parameters:
         - name: name
           in: path
@@ -525,7 +525,7 @@ paths:
       tags:
         - Persistence
       summary: Adds a new query to the catalog
-      operationId: post__owlOntology_name_version_query_ID
+      operationId: postOwlOntologyNameVersionQueryID
       parameters:
         - name: name
           in: path
@@ -557,7 +557,7 @@ paths:
       tags:
         - Persistence
       summary: Returns a list of the SPARQLING queries currently stored in the catalog
-      operationId: get__owlOntology_name_version_queries_sparqling
+      operationId: getOwlOntologyNameVersionQueriesSparqling
       parameters:
         - name: name
           in: path
@@ -585,7 +585,7 @@ paths:
       tags:
         - Persistence
       summary: Returns the query identified by ID
-      operationId: get__owlOntology_name_version_query_sparqling_ID
+      operationId: getOwlOntologyNameVersionQuerySparqlingID
       parameters:
         - name: name
           in: path
@@ -615,7 +615,7 @@ paths:
       tags:
         - Persistence
       summary: Updates the definition of the given query
-      operationId: put__owlOntology_name_version_query_sparqling_ID
+      operationId: putOwlOntologyNameVersionQuerySparqlingID
       parameters:
         - name: name
           in: path
@@ -651,7 +651,7 @@ paths:
       tags:
         - Persistence
       summary: Remove the query identified by ID from the current catalog
-      operationId: delete__owlOntology_name_version_query_sparqling_ID
+      operationId: deleteOwlOntologyNameVersionQuerySparqlingID
       parameters:
         - name: name
           in: path
@@ -682,7 +682,7 @@ paths:
       tags:
         - Persistence
       summary: Adds a new SPARQLING query to the catalog
-      operationId: post__owlOntology_name_version_query_sparqling_ID
+      operationId: postOwlOntologyNameVersionQuerySparqlingID
       parameters:
         - name: name
           in: path

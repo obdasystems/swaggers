@@ -26,7 +26,7 @@ paths:
       tags:
         - Logical
       summary: GET mwsx/owlOntology/{name}/version/avpOntologyTree
-      operationId: get__owlOntology_name_version_avpOntologyTreet
+      operationId: getOwlOntologyNameVersionAvpOntologyTreet
       parameters:
         - name: name
           in: path
@@ -52,7 +52,7 @@ paths:
       tags:
         - Persistence
       summary: GET mwsx/owlOntology/{name}/version/authorizationViewProfiles
-      operationId: get_authorizationViewProfiles
+      operationId: getAuthorizationViewProfiles
       parameters:
         - name: name
           in: path
@@ -79,7 +79,7 @@ paths:
       tags:
         - Persistence
       summary: POST mwsx/owlOntology/{name}/version/authorizationViewProfiles
-      operationId: post_authorizationViewProfiles
+      operationId: postAuthorizationViewProfiles
       parameters:
         - name: name
           in: path
@@ -111,7 +111,7 @@ paths:
       tags:
         - Persistence
       summary: PUT mwsx/owlOntology/{name}/version/authorizationViewProfile/{avpId}
-      operationId: put_authorizationViewProfiles
+      operationId: putAuthorizationViewProfiles
       parameters:
         - name: name
           in: path
@@ -147,7 +147,7 @@ paths:
       tags:
         - Persistence
       summary: DELETE mwsx/owlOntology/{name}/version/authorizationViewProfile/{avpId}
-      operationId: delete_authorizationViewProfiles
+      operationId: deleteAuthorizationViewProfiles
       parameters:
         - name: name
           in: path

@@ -1,7 +1,7 @@
 get:
   tags: [Persistence]
   summary: Returns the query catalog available for the given version of the ontology
-  operationId: get__owlOntology_name_version_querycatalog
+  operationId: getOwlOntologyNameVersionQuerycatalog
   parameters:
   - name: name
     in: path
@@ -21,7 +21,7 @@ get:
 delete:
   tags: [Persistence]
   summary: Deletes the query catalog available for the given version of the ontology
-  operationId: delete__owlOntology_name_version_querycatalog
+  operationId: deleteOwlOntologyNameVersionQuerycatalog
   parameters:
   - name: name
     in: path

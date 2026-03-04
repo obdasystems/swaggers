@@ -1,7 +1,7 @@
 get:
   tags: [State]
   summary: Starts the task scheduler
-  operationId: get__task_scheduler_state
+  operationId: getTaskSchedulerState
   responses:
     '200':
       description: OK
@@ -12,7 +12,7 @@ get:
 put:
   tags: [State]
   summary: Starts the task scheduler
-  operationId: put__task_scheduler_state
+  operationId: putTaskSchedulerState
   parameters:
   - name: action
     in: query

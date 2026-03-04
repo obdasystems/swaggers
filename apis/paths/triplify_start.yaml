@@ -1,7 +1,7 @@
 post:
   tags: [Execution]
   summary: Starts a new thread of mappings triplification with the given parameters
-  operationId: post_mappings_triplification_start
+  operationId: postMappingsTriplificationStart
   requestBody:
     content:
       application/json:
@@ -12,5 +12,5 @@ post:
       description: OK
       content:
         text/plain:
-          schema: { type: string }
+          schema: {type: string}
     '401': {description: Unhauthorized}

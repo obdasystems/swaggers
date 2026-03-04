@@ -1,7 +1,7 @@
 get:
   tags: [GlobalAnnotation]
   summary: GET mwsx/globalAnnotations
-  operationId: get_global_annotations
+  operationId: getGlobalAnnotations
   responses:
     '200':
       description: OK

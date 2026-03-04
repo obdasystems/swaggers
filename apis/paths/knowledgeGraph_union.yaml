@@ -1,7 +1,7 @@
 put:
   tags: [Union]
   summary: PUT mwsx/knowledgeGraph/union
-  operationId: patch__knowledgeGraph_union
+  operationId: patchKnowledgeGraphUnion
   requestBody:
     content:
       application/json:

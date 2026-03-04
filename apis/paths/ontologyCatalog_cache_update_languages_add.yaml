@@ -1,13 +1,12 @@
 put:
   tags: [Cache]
   summary: PUT mwsx/ontologyCatalog/cache/update/languages/add
-  operationId: put_ontology_catalog_cache_manager_add_language
+  operationId: putOntologyCatalogCacheManagerAddLanguage
   parameters:
-    - name: language
-      in: query
-      required: true
-      schema: { type: string }
+  - name: language
+    in: query
+    required: true
+    schema: {type: string}
   responses:
-    "200":
-      description: OK
-    "401": { description: Unhauthorized }
+    '200': {description: OK}
+    '401': {description: Unhauthorized}

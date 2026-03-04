@@ -26,7 +26,7 @@ paths:
       tags:
         - Persistence
       summary: Get the VKG Snaphot catalog for a given ontology (name, version)
-      operationId: get_vkg_snapshots
+      operationId: getVkgSnapshots
       parameters:
         - name: name
           in: path
@@ -53,7 +53,7 @@ paths:
       tags:
         - Persistence
       summary: Save a new VKG Snaphot in the catalog for a given ontology (name, version).
-      operationId: post_vkg_snapshot
+      operationId: postVkgSnapshot
       parameters:
         - name: name
           in: path
@@ -86,7 +86,7 @@ paths:
       tags:
         - Persistence
       summary: DELETE the entire VKG Snapshot catalog for a given ontology (name, version)
-      operationId: delete_vkg_snapshots
+      operationId: deleteVkgSnapshots
       parameters:
         - name: name
           in: path
@@ -114,7 +114,7 @@ paths:
       tags:
         - Persistence
       summary: Overwrite a VKG Snapshot (given its snapshotId) in the catalog for a given ontology (name, version)
-      operationId: put_vkg_snapshot
+      operationId: putVkgSnapshot
       parameters:
         - name: name
           in: path
@@ -152,7 +152,7 @@ paths:
       tags:
         - Persistence
       summary: Delete a given VKG Snapshot from catalog for a given ontology (name, version)
-      operationId: delete_vkg_snapshot
+      operationId: deleteVkgSnapshot
       parameters:
         - name: name
           in: path
@@ -185,7 +185,7 @@ paths:
       tags:
         - Persistence
       summary: Get the entire VKG Snapshot catalog for a given ontology (name, version) as a file
-      operationId: export_vkg_snapshots
+      operationId: exportVkgSnapshots
       parameters:
         - name: name
           in: path
@@ -211,7 +211,7 @@ paths:
       tags:
         - Persistence
       summary: Upload the JSON file of a VKG Snapshot catalog for a given ontology (name, version)
-      operationId: import_vkg_snapshots
+      operationId: importVkgSnapshots
       parameters:
         - name: name
           in: path
@@ -248,7 +248,7 @@ paths:
       tags:
         - NodeRendering
       summary: Returns the default VKG node rendering for the ontology version
-      operationId: get_default_node_rendering
+      operationId: getDefaultNodeRendering
       parameters:
         - name: name
           in: path
@@ -273,7 +273,7 @@ paths:
       tags:
         - NodeRendering
       summary: Set a default VKG node rendering for the ontology version
-      operationId: post_default_node_rendering
+      operationId: postDefaultNodeRendering
       parameters:
         - name: name
           in: path
@@ -304,7 +304,7 @@ paths:
       tags:
         - NodeRendering
       summary: Modifies the default VKG node rendering for the ontology version
-      operationId: put_default_node_rendering
+      operationId: putDefaultNodeRendering
       parameters:
         - name: name
           in: path
@@ -335,7 +335,7 @@ paths:
       tags:
         - NodeRendering
       summary: DELETE mwsx/owlOntology/{name}/version/vkg/node-rendering
-      operationId: delete_vkg_node_rendering
+      operationId: deleteVkgNodeRendering
       parameters:
         - name: name
           in: path

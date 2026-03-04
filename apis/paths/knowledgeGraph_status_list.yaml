@@ -1,7 +1,7 @@
 get:
   tags: [Status]
   summary: GET mwsx/knowledgeGraph/status/list
-  operationId: get__knowledgeGraph_status_list
+  operationId: getKnowledgeGraphStatusList
   responses:
     '200':
       description: OK

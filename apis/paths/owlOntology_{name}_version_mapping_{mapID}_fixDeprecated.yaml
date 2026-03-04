@@ -1,7 +1,7 @@
 post:
   tags: [Persistence]
   summary: Tentatively fixes mapping deprecations
-  operationId: post__owlOntology_name_version_mapping_ID_fix_deprecated
+  operationId: postOwlOntologyNameVersionMappingIDFixDeprecated
   parameters:
   - name: name
     in: path

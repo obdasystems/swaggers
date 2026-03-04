@@ -2,7 +2,7 @@ post:
   tags: [Actions]
   summary: Schedules a new job in the task scheduler, returns the ID of the scheduled
     job
-  operationId: post__task_scheduler_jobs
+  operationId: postTaskSchedulerJobs
   requestBody:
     content:
       application/json:
@@ -13,13 +13,13 @@ post:
       description: OK
       content:
         text/plain:
-          schema: { type: string }
+          schema: {type: string}
     '401': {description: Unhauthorized}
 get:
   tags: [Actions]
   summary: Schedules a new job in the task scheduler, returns the ID of the scheduled
     job
-  operationId: get__task_scheduler_jobs
+  operationId: getTaskSchedulerJobs
   responses:
     '200':
       description: OK

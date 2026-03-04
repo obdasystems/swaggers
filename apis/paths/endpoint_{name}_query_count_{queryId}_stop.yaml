@@ -1,7 +1,7 @@
 put:
   tags: [QueryCount]
   summary: Forces the count thread of the given SPARQL query to stop
-  operationId: put_query_count_stop
+  operationId: putQueryCountStop
   parameters:
   - name: name
     in: path

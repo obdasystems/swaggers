@@ -1,7 +1,7 @@
 get:
   tags: [Assertion]
   summary: Returns the list of all mapping assertions identified by ID
-  operationId: get__owlOntology_name_version_mapping_ID_assertions
+  operationId: getOwlOntologyNameVersionMappingIDAssertions
   parameters:
   - name: name
     in: path
@@ -27,7 +27,7 @@ get:
 post:
   tags: [Assertion]
   summary: Adds a new mapping assertion to a set of mappings
-  operationId: post__owlOntology_name_version_mapping_ID_assertions
+  operationId: postOwlOntologyNameVersionMappingIDAssertions
   parameters:
   - name: name
     in: path

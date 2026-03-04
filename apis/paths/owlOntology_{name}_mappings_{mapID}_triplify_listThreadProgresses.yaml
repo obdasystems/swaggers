@@ -1,7 +1,7 @@
 get:
   tags: [Threads]
   summary: Lists the triplification threads for a given mapping specification
-  operationId: get_mappings_triplification_listProgresses
+  operationId: getMappingsTriplificationListProgresses
   parameters:
   - name: name
     in: path

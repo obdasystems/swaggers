@@ -298,7 +298,7 @@ paths:
       tags:
         - Persistence
       summary: Returns the virtual entity from a given endpoint by its name
-      operationId: get__owlOntology_name_version_endpoint_virtualEntity_results
+      operationId: getOwlOntologyNameVersionEndpointVirtualEntityResults
       parameters:
         - name: name
           in: path

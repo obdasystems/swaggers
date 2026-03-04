@@ -1,7 +1,7 @@
 get:
   tags: [MonolithRole]
   summary: GET mwsx/monolith/roles
-  operationId: get__monolith__roles
+  operationId: getMonolithRoles
   responses:
     '200':
       description: OK

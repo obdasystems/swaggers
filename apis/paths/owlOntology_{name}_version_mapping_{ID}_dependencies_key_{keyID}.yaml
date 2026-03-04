@@ -1,7 +1,7 @@
 get:
   tags: [Dependencies]
   summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/key/{keyID}
-  operationId: get__owlOntology_name_version_mapping_ID_dependencies_key_keyID
+  operationId: getOwlOntologyNameVersionMappingIDDependenciesKeyKeyID
   parameters:
   - name: name
     in: path
@@ -29,7 +29,7 @@ get:
 delete:
   tags: [Dependencies]
   summary: DELETE mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/key/{keyID}
-  operationId: delete__owlOntology_name_version_mapping_ID_dependencies_key_keyID
+  operationId: deleteOwlOntologyNameVersionMappingIDDependenciesKeyKeyID
   parameters:
   - name: name
     in: path
@@ -57,7 +57,7 @@ delete:
 put:
   tags: [Dependencies]
   summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/key/{keyID}
-  operationId: put__owlOntology_name_version_mapping_ID_dependencies_key_keyID
+  operationId: putOwlOntologyNameVersionMappingIDDependenciesKeyKeyID
   parameters:
   - name: name
     in: path

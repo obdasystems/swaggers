@@ -1,7 +1,7 @@
 get:
   tags: [Referring]
   summary: Returns all available endpoints that are defined for a specific datasource
-  operationId: get_endpoints_referencing_datasource
+  operationId: getEndpointsReferencingDatasource
   parameters:
   - name: name
     in: path

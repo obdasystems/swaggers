@@ -1,14 +1,13 @@
 get:
   tags: [Query]
   summary: GET mwsx/ontologyCatalog/query/results/export/formats
-  operationId: get_ontology_catalog_query_results_export_formats
+  operationId: getOntologyCatalogQueryResultsExportFormats
   responses:
-    "200":
+    '200':
       description: OK
       content:
         application/json:
           schema:
             type: array
-            items:
-              type: string
-    "401": { description: Unhauthorized }
+            items: {type: string}
+    '401': {description: Unhauthorized}

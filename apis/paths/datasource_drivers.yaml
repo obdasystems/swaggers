@@ -1,7 +1,7 @@
 get:
   tags: [Drivers]
   summary: Returns the list of available JDBC driver class names
-  operationId: get__datasource_driver
+  operationId: getDatasourceDriver
   responses:
     '200':
       description: OK

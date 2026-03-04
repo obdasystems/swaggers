@@ -2,50 +2,47 @@ post:
   tags: [Persistence]
   summary: Perform an action for ontology to the catalog
   description: Modifies the ontology catalog byacoording to the action provided
-  operationId: post_ontology_catalog
+  operationId: postOntologyCatalog
   parameters:
-    - name: action
-      in: query
-      required: true
-      schema:
-        type: string
-        enum: [add, delete]
-    - name: overwrite
-      in: query
-      schema:
-        type: boolean
+  - name: action
+    in: query
+    required: true
+    schema:
+      type: string
+      enum: [add, delete]
+  - name: overwrite
+    in: query
+    schema: {type: boolean}
   requestBody:
     content:
       application/json:
-        schema: { $ref: ../components/schemas/MWSXOntologyCatalogEntry.yaml }
+        schema: {$ref: ../components/schemas/MWSXOntologyCatalogEntry.yaml}
   responses:
-    "200":
+    '200':
       description: Successful operation
       content:
         application/json:
-          schema:
-            { $ref: ../components/schemas/MWSXOntologyCatalogEntries.yaml }
-    "401": { description: Unhauthorized }
+          schema: {$ref: ../components/schemas/MWSXOntologyCatalogEntries.yaml}
+    '401': {description: Unhauthorized}
 get:
   tags: [Persistence]
   summary: GET mwsx/ontologyCatalog
-  operationId: get_ontology_catalog
+  operationId: getOntologyCatalog
   responses:
-    "200":
+    '200':
       description: OK
       content:
         application/json:
-          schema:
-            { $ref: ../components/schemas/MWSXOntologyCatalogEntries.yaml }
-    "401": { description: Unhauthorized }
+          schema: {$ref: ../components/schemas/MWSXOntologyCatalogEntries.yaml}
+    '401': {description: Unhauthorized}
 delete:
   tags: [Persistence]
   summary: DELETE mwsx/ontologyCatalog
-  operationId: delete_ontology_catalog
+  operationId: deleteOntologyCatalog
   responses:
-    "200":
+    '200':
       description: OK
       content:
         application/json:
-          schema: { type: boolean }
-    "401": { description: Unhauthorized }
+          schema: {type: boolean}
+    '401': {description: Unhauthorized}
