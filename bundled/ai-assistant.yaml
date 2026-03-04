@@ -846,6 +846,7 @@ components:
           type: string
         hasIriValue:
           type: boolean
+          default: false
         property:
           type: string
           example: rdfs:label
@@ -878,6 +879,7 @@ components:
           type: string
         isDataPropertyFunctional:
           type: boolean
+          default: false
         functionProperties:
           type: array
           items:

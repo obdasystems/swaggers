@@ -1,13 +1,9 @@
 type: object
 properties:
-  objectPropertyIRI:
-    type: string
-  cyclic:
-    type: boolean
-    description: It is true when domain and range are the same class.
-  direct:
-    type: boolean
+  objectPropertyIRI: {type: string}
+  cyclic: {type: boolean, description: It is true when domain and range are the same
+      class., default: false}
+  direct: {type: boolean, default: false}
   relatedClasses:
     type: array
-    items:
-      type: string
+    items: {type: string}

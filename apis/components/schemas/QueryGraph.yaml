@@ -1,33 +1,19 @@
-required:
-  - graph
-  - head
-  - sparql
+required: [graph, head, sparql]
 type: object
 properties:
-  distinct:
-    type: boolean
-  count_star:
-    type: boolean
-    default: false
+  distinct: {type: boolean, default: false}
+  count_star: {type: boolean, default: false}
   head:
     type: array
-    items:
-      $ref: ./HeadElement.yaml
-  graph:
-    $ref: ./GraphElement.yaml
-  activeGraphElementId:
-    type: string
+    items: {$ref: ./HeadElement.yaml}
+  graph: {$ref: ./GraphElement.yaml}
+  activeGraphElementId: {type: string}
   filters:
     type: array
-    items:
-      $ref: ./Filter.yaml
+    items: {$ref: ./Filter.yaml}
   optionals:
     type: array
-    items:
-      $ref: ./Optional.yaml
-  limit:
-    type: integer
-  offset:
-    type: integer
-  sparql:
-    type: string
+    items: {$ref: ./Optional.yaml}
+  limit: {type: integer}
+  offset: {type: integer}
+  sparql: {type: string}

@@ -1,63 +1,30 @@
 title: SPARQLQuery
 type: object
-required:
-  - queryID
+required: [queryID]
 properties:
   selectedMappingIds:
     type: array
-    items:
-      type: string
-  chartConfiguration:
-    $ref: ./ChartConfiguration.yaml
-  languages:
-    type: string
+    items: {type: string}
+  chartConfiguration: {$ref: ./ChartConfiguration.yaml}
+  languages: {type: string}
   mappingParameters:
     type: object
-    additionalProperties:
-      type: string
+    additionalProperties: {type: string}
   semantics:
-    enum:
-      - auto
-      - cq
-      - eql
-      - newcq
-  constructCode:
-    type: string
+    enum: [auto, cq, eql, newcq]
+  constructCode: {type: string}
   queryTags:
     type: array
-    items:
-      $ref: ./MwsxTag.yaml
-  queryDescription:
-    type: string
-  queryID:
-    type: string
-  queryCode:
-    type: string
-  construct:
-    type: boolean
-    default: false
-  constructResultsRDFSyntax:
-    type: string
-  virtualEntityQueryInfos:
-    $ref: ./MWSXVirtualEntityQueryInfos.yaml
-  creator:
-    type: string
-  entryCreation:
-    type: integer
-    format: int64
-    default: 0
-  entryLastModification:
-    type: integer
-    format: int64
-    default: 0
-  public:
-    type: boolean
-    default: false
-  publicationRequestDate:
-    type: integer
-    format: int64
-    default: 0
-  publicationResponseDate:
-    type: integer
-    format: int64
-    default: 0
+    items: {$ref: ./MwsxTag.yaml}
+  queryDescription: {type: string}
+  queryID: {type: string}
+  queryCode: {type: string}
+  construct: {type: boolean, default: false}
+  constructResultsRDFSyntax: {type: string}
+  virtualEntityQueryInfos: {$ref: ./MWSXVirtualEntityQueryInfos.yaml}
+  creator: {type: string}
+  entryCreation: {type: integer, format: int64, default: 0}
+  entryLastModification: {type: integer, format: int64, default: 0}
+  public: {type: boolean, default: false}
+  publicationRequestDate: {type: integer, format: int64, default: 0}
+  publicationResponseDate: {type: integer, format: int64, default: 0}

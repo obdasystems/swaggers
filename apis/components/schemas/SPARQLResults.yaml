@@ -1,24 +1,18 @@
 title: SPARQLResults
 type: object
-required: 
-  - headTerms
-  - headTypes
+required: [headTerms, headTypes]
 properties:
   headTerms:
     type: array
-    items:
-      type: string
+    items: {type: string}
   headTypes:
     type: object
     additionalProperties:
       type: array
-      items:
-        $ref: SPARQLResultsHeadTypes.yaml
-  construct:
-    type: boolean
+      items: {$ref: SPARQLResultsHeadTypes.yaml}
+  construct: {type: boolean, default: false}
   results:
     type: array
     items:
       type: array
-      items:
-        $ref: ./SPARQLResult.yaml
+      items: {$ref: ./SPARQLResult.yaml}

@@ -1,22 +1,12 @@
 title: DataSourceInfoEntry
-required:
-  - id
+required: [id]
 type: object
 properties:
-  jdbcDriver:
-    type: string
-  jdbcUrl:
-    type: string
-  description:
-    type: string
-  jdbcPassword:
-    type: string
-  id:
-    type: string
-  dataSourceUsername:
-    type: string
-  metadataPresent:
-    type: boolean
-    default: false
-  jdbcUsername:
-    type: string
+  jdbcDriver: {type: string}
+  jdbcUrl: {type: string}
+  description: {type: string}
+  jdbcPassword: {type: string}
+  id: {type: string}
+  dataSourceUsername: {type: string}
+  metadataPresent: {type: boolean, default: false}
+  jdbcUsername: {type: string}

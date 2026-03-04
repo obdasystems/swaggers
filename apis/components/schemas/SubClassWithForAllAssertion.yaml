@@ -1,11 +1,8 @@
 title: SubClassWithForAllAssertion
 type: object
-allOf: 
-  -  $ref: AbstractDataQualityConstraint.yaml
+allOf:
+- {$ref: AbstractDataQualityConstraint.yaml}
 properties:
-  property:
-    $ref: ./OntologyEntity.yaml
-  direct:
-    type: boolean
-  filler:
-    $ref: ./OntologyEntity.yaml
+  property: {$ref: ./OntologyEntity.yaml}
+  direct: {type: boolean, default: false}
+  filler: {$ref: ./OntologyEntity.yaml}

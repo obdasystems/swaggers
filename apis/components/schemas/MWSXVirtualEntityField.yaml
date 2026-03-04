@@ -1,13 +1,7 @@
 title: VirtualEntityField
 type: object
 properties:
-  fieldName:
-    type: string
-  nullable:
-    type: boolean
-    default: false
-  key:
-    type: boolean
-    default: false
-  fieldType:
-    type: string
+  fieldName: {type: string}
+  nullable: {type: boolean, default: false}
+  key: {type: boolean, default: false}
+  fieldType: {type: string}

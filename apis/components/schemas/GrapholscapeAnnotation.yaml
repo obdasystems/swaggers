@@ -1,21 +1,11 @@
 title: GrapholscapeAnnotation
 type: object
-required:
-  - value
-  - property
+required: [value, property]
 properties:
-  lexicalForm:
-    type: string
-    deprecated: true
-    description: Has been renamed to `value`, kept for back-compatibility.
-  value:
-    type: string
-  hasIriValue:
-    type: boolean
-  property:
-    type: string
-    example: rdfs:label
-  language:
-    type: string
-  datatype:
-    type: string
+  lexicalForm: {type: string, deprecated: true, description: 'Has been renamed to
+      `value`, kept for back-compatibility.'}
+  value: {type: string}
+  hasIriValue: {type: boolean, default: false}
+  property: {type: string, example: 'rdfs:label'}
+  language: {type: string}
+  datatype: {type: string}

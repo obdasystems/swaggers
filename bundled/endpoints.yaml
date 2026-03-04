@@ -2659,6 +2659,7 @@ components:
       properties:
         restartNeeded:
           type: boolean
+          default: false
         config:
           $ref: '#/components/schemas/MastroProperties'
         status:
@@ -2796,12 +2797,14 @@ components:
           type: string
         count:
           type: boolean
+          default: false
         computedSemantics:
           type: string
         sparql:
           $ref: '#/components/schemas/SPARQLQuery'
         deleted:
           type: boolean
+          default: false
     FileInfo:
       title: FileInfo
       type: object
@@ -2902,6 +2905,7 @@ components:
           type: string
         isBlankNode:
           type: boolean
+          default: false
     SPARQLResults:
       title: SPARQLResults
       type: object
@@ -2921,6 +2925,7 @@ components:
               $ref: '#/components/schemas/SPARQLResultsHeadTypes'
         construct:
           type: boolean
+          default: false
         results:
           type: array
           items:
@@ -2965,6 +2970,7 @@ components:
           format: int32
         hasError:
           type: boolean
+          default: false
         numHighLevelQueries:
           type: integer
           format: int32
@@ -3023,6 +3029,7 @@ components:
           type: string
         unfolderThresholdReached:
           type: boolean
+          default: false
     MWSXExportInfo:
       title: ExportInfo
       type: object
@@ -3323,6 +3330,7 @@ components:
           type: string
         hasIriValue:
           type: boolean
+          default: false
         property:
           type: string
           example: rdfs:label
@@ -3355,6 +3363,7 @@ components:
           type: string
         isDataPropertyFunctional:
           type: boolean
+          default: false
         functionProperties:
           type: array
           items:
@@ -4063,8 +4072,10 @@ components:
         cyclic:
           type: boolean
           description: It is true when domain and range are the same class.
+          default: false
         direct:
           type: boolean
+          default: false
         relatedClasses:
           type: array
           items:

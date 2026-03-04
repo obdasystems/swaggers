@@ -394,6 +394,7 @@ components:
       properties:
         distinct:
           type: boolean
+          default: false
         aggregateFunction:
           type: string
           enum:
@@ -512,6 +513,7 @@ components:
       properties:
         distinct:
           type: boolean
+          default: false
         count_star:
           type: boolean
           default: false
@@ -734,6 +736,7 @@ components:
           type: string
         isBlankNode:
           type: boolean
+          default: false
     SPARQLResults:
       title: SPARQLResults
       type: object
@@ -753,6 +756,7 @@ components:
               $ref: '#/components/schemas/SPARQLResultsHeadTypes'
         construct:
           type: boolean
+          default: false
         results:
           type: array
           items:

@@ -1,29 +1,18 @@
 type: object
-required:
-  - operator
-  - values
-  - property
+required: [operator, values, property]
 properties:
-  operator:
-    type: string
-  valid:
-    type: boolean
+  operator: {type: string}
+  valid: {type: boolean, default: false}
   values:
     type: array
-    items:
-      type: string
+    items: {type: string}
   rangeClasses:
     type: array
-    items:
-      type: string
-  rangeDataProperty:
-    type: string
+    items: {type: string}
+  rangeDataProperty: {type: string}
   property:
     type: object
     properties:
-      iri:
-        type: string
-      direct:
-        type: boolean
-      type:
-        $ref: TypesEnum.yaml
+      iri: {type: string}
+      direct: {type: boolean}
+      type: {$ref: TypesEnum.yaml}

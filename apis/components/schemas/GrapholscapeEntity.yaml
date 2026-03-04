@@ -1,18 +1,12 @@
 type: object
-required:
-  - fullIri
+required: [fullIri]
 properties:
-  fullIri:
-    type: string
+  fullIri: {type: string}
   annotations:
     type: array
-    items:
-      $ref: "./GrapholscapeAnnotation.yaml"
-  datatype:
-    type: string
-  isDataPropertyFunctional:
-    type: boolean
+    items: {$ref: ./GrapholscapeAnnotation.yaml}
+  datatype: {type: string}
+  isDataPropertyFunctional: {type: boolean, default: false}
   functionProperties:
     type: array
-    items:
-      $ref: "./FunctionPropertiesEnum.yaml"
+    items: {$ref: ./FunctionPropertiesEnum.yaml}

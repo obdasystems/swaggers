@@ -1,26 +1,14 @@
 title: MwsxOntologyVersionLoaderReport
 type: object
 properties:
-  id: 
-    type: string 
-  state: 
-    type: string 
-  timeStart: 
-    type: integer 
-    format: int64
-    default: 0
-  timeEnd: 
-    type: integer
-    format: int64
-    default: 0
-  hasError: 
-    type: boolean 
-    default: false
-  errorMessage: 
-    type: string 
-  missingImports: 
+  id: {type: string}
+  state: {type: string}
+  timeStart: {type: integer, format: int64, default: 0}
+  timeEnd: {type: integer, format: int64, default: 0}
+  hasError: {type: boolean, default: false}
+  errorMessage: {type: string}
+  missingImports:
     type: object
     additionalProperties:
       type: array
-      items:
-        type: string
+      items: {type: string}

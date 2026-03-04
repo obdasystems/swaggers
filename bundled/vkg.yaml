@@ -570,6 +570,7 @@ components:
           type: string
         hasIriValue:
           type: boolean
+          default: false
         property:
           type: string
           example: rdfs:label
@@ -602,6 +603,7 @@ components:
           type: string
         isDataPropertyFunctional:
           type: boolean
+          default: false
         functionProperties:
           type: array
           items:
@@ -923,12 +925,14 @@ components:
       properties:
         inherited:
           type: boolean
+          default: false
         dataPropertyIri:
           type: string
         pathToDataProperty:
           $ref: '#/components/schemas/OntologyPath'
         log:
           type: boolean
+          default: false
     CustomNodeRendering:
       type: object
       properties:
@@ -997,6 +1001,7 @@ components:
           type: string
         valid:
           type: boolean
+          default: false
         values:
           type: array
           items:

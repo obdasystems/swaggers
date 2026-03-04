@@ -1,18 +1,9 @@
 type: object
 properties:
-  iri:
-    type: string
-  impliedClassIri:
-    type: string
-  value:
-    type: string
-  lang:
-    type: string
-  datatypeIri:
-    type: string
-  isIri:
-    type: boolean
-    default: false
-  isBlankNode:
-    type: boolean
-    default: false
+  iri: {type: string}
+  impliedClassIri: {type: string}
+  value: {type: string}
+  lang: {type: string}
+  datatypeIri: {type: string}
+  isIri: {type: boolean, default: false}
+  isBlankNode: {type: boolean, default: false}

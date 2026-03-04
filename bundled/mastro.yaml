@@ -18332,6 +18332,7 @@ components:
           $ref: '#/components/schemas/OntologyCatalog'
         graphol:
           type: boolean
+          default: false
         individualInfos:
           $ref: '#/components/schemas/IndividualInfos'
         numObjectProperties:
@@ -18354,6 +18355,7 @@ components:
           type: string
         gscape:
           type: boolean
+          default: false
         versionOwner:
           $ref: '#/components/schemas/User'
     Ontology:
@@ -18418,6 +18420,7 @@ components:
             type: string
         success:
           type: boolean
+          default: false
         error:
           type: object
         timestampStart:
@@ -18552,6 +18555,7 @@ components:
           $ref: '#/components/schemas/OntologyEntity'
         empty:
           type: boolean
+          default: false
     HierarchyTree:
       title: HierarchyTree
       type: object
@@ -18670,6 +18674,7 @@ components:
       properties:
         inverse:
           type: boolean
+          default: false
         property:
           $ref: '#/components/schemas/OntologyEntity'
         filler:
@@ -18751,6 +18756,7 @@ components:
           type: string
         hasIriValue:
           type: boolean
+          default: false
         property:
           type: string
           example: rdfs:label
@@ -18776,6 +18782,7 @@ components:
           $ref: '#/components/schemas/OntologyEntity'
         objectPropertyInverseFunctional:
           type: boolean
+          default: false
         objectPropertyDescriptions:
           type: array
           items:
@@ -18786,6 +18793,7 @@ components:
             $ref: '#/components/schemas/OntologyEntity'
         objectPropertySymmetric:
           type: boolean
+          default: false
         superObjectProperties:
           type: array
           items:
@@ -18812,22 +18820,27 @@ components:
             $ref: '#/components/schemas/OntologyEntity'
         objectPropertyReflexive:
           type: boolean
+          default: false
         objectPropertyRange:
           type: array
           items:
             $ref: '#/components/schemas/OntologyEntity'
         objectPropertyTransitive:
           type: boolean
+          default: false
         objectPropertyIrreflexive:
           type: boolean
+          default: false
         entityDiagrams:
           type: array
           items:
             $ref: '#/components/schemas/DiagramNode'
         objectPropertyFunctional:
           type: boolean
+          default: false
         objectPropertyAsymmetric:
           type: boolean
+          default: false
     DataPropertyInfo:
       title: DataPropertyInfo
       type: object
@@ -18840,6 +18853,7 @@ components:
             $ref: '#/components/schemas/OntologyEntity'
         dataPropertyFunctional:
           type: boolean
+          default: false
         currentEntity:
           $ref: '#/components/schemas/OntologyEntity'
         equivalentDataProperties:
@@ -18981,6 +18995,7 @@ components:
       properties:
         distinct:
           type: boolean
+          default: false
         aggregateFunction:
           type: string
           enum:
@@ -19103,6 +19118,7 @@ components:
       properties:
         distinct:
           type: boolean
+          default: false
         count_star:
           type: boolean
           default: false
@@ -19359,6 +19375,7 @@ components:
           $ref: '#/components/schemas/MappingInfo'
         success:
           type: boolean
+          default: false
         deprecations:
           type: array
           items:
@@ -19448,6 +19465,7 @@ components:
             type: string
         quarantined:
           type: boolean
+          default: false
         sqlViewCode:
           type: string
     MappingAtom:
@@ -19676,6 +19694,7 @@ components:
           type: string
         quarantined:
           type: boolean
+          default: false
     DenialConstraint:
       title: DenialConstraint
       type: object
@@ -19692,6 +19711,7 @@ components:
           type: string
         quarantined:
           type: boolean
+          default: false
         userQuery:
           type: string
     KeyDependency:
@@ -19714,6 +19734,7 @@ components:
           type: string
         quarantined:
           type: boolean
+          default: false
     MappingDependencies:
       title: MappingDependencies
       type: object
@@ -20188,6 +20209,7 @@ components:
       properties:
         restartNeeded:
           type: boolean
+          default: false
         config:
           $ref: '#/components/schemas/MastroProperties'
         status:
@@ -20220,12 +20242,14 @@ components:
           type: string
         count:
           type: boolean
+          default: false
         computedSemantics:
           type: string
         sparql:
           $ref: '#/components/schemas/SPARQLQuery'
         deleted:
           type: boolean
+          default: false
     MWSXCoreQueryInfo:
       title: CoreQueryInfo
       type: object
@@ -20316,6 +20340,7 @@ components:
           type: string
         isBlankNode:
           type: boolean
+          default: false
     SPARQLResults:
       title: SPARQLResults
       type: object
@@ -20335,6 +20360,7 @@ components:
               $ref: '#/components/schemas/SPARQLResultsHeadTypes'
         construct:
           type: boolean
+          default: false
         results:
           type: array
           items:
@@ -20379,6 +20405,7 @@ components:
           format: int32
         hasError:
           type: boolean
+          default: false
         numHighLevelQueries:
           type: integer
           format: int32
@@ -20437,6 +20464,7 @@ components:
           type: string
         unfolderThresholdReached:
           type: boolean
+          default: false
     MWSXExportInfo:
       title: ExportInfo
       type: object
@@ -20747,6 +20775,7 @@ components:
           type: string
         hasIriValue:
           type: boolean
+          default: false
         property:
           type: string
           example: rdfs:label
@@ -20779,6 +20808,7 @@ components:
           type: string
         isDataPropertyFunctional:
           type: boolean
+          default: false
         functionProperties:
           type: array
           items:
@@ -21410,8 +21440,10 @@ components:
         cyclic:
           type: boolean
           description: It is true when domain and range are the same class.
+          default: false
         direct:
           type: boolean
+          default: false
         relatedClasses:
           type: array
           items:
@@ -21661,12 +21693,14 @@ components:
       properties:
         inherited:
           type: boolean
+          default: false
         dataPropertyIri:
           type: string
         pathToDataProperty:
           $ref: '#/components/schemas/OntologyPath'
         log:
           type: boolean
+          default: false
     CustomNodeRendering:
       type: object
       properties:
@@ -21739,6 +21773,7 @@ components:
           type: string
         valid:
           type: boolean
+          default: false
         values:
           type: array
           items:
@@ -22180,6 +22215,7 @@ components:
           format: int64
         imported:
           type: boolean
+          default: false
     OBDAConstructResults:
       title: OBDAConstructResults
       type: object
@@ -22481,6 +22517,7 @@ components:
           $ref: '#/components/schemas/OntologyEntity'
         direct:
           type: boolean
+          default: false
         filler:
           $ref: '#/components/schemas/OntologyEntity'
     FunctionalPropertyAssertion:
@@ -22491,6 +22528,7 @@ components:
       properties:
         direct:
           type: boolean
+          default: false
     DisjointClasses:
       title: DisjointClasses
       type: object
@@ -22509,6 +22547,7 @@ components:
           $ref: '#/components/schemas/OntologyEntity'
         direct:
           type: boolean
+          default: false
         filler:
           $ref: '#/components/schemas/OntologyEntity'
     HasKeyAssertion:
@@ -22545,6 +22584,7 @@ components:
           $ref: '#/components/schemas/OntologyEntity'
         direct:
           type: boolean
+          default: false
         filler:
           $ref: '#/components/schemas/OntologyEntity'
         cardinality:
@@ -22556,6 +22596,7 @@ components:
       properties:
         inverse:
           type: boolean
+          default: false
         entity:
           $ref: '#/components/schemas/OntologyEntity'
     IdentificationPath:
@@ -22773,6 +22814,7 @@ components:
       properties:
         deleted:
           type: boolean
+          default: false
         onto:
           $ref: '#/components/schemas/OntologyID'
         timestamp:
@@ -22972,6 +23014,7 @@ components:
           format: int64
         neverExpires:
           type: boolean
+          default: false
         lastUpdate:
           type: integer
           format: int64

@@ -1,55 +1,34 @@
 title: MethodInfo
 type: object
 properties:
-  available:
-    type: boolean
-  concreteReturnType:
-    type: string
-  method:
-    type: string
+  available: {type: boolean, default: false}
+  concreteReturnType: {type: string}
+  method: {type: string}
   pathParams:
     type: array
-    items:
-      type: string
-  innerListReturnType:
-    type: string
+    items: {type: string}
+  innerListReturnType: {type: string}
   queryParams:
     type: array
-    items:
-      type: string
+    items: {type: string}
   bodyParams:
     type: array
-    items:
-      type: string
-  description:
-    type: string
-  innerReturnType:
-    type: string
-  permissionEnabled:
-    type: string
-  returnTypeListOfList:
-    type: boolean
-  path:
-    type: string
+    items: {type: string}
+  description: {type: string}
+  innerReturnType: {type: string}
+  permissionEnabled: {type: string}
+  returnTypeListOfList: {type: boolean, default: false}
+  path: {type: string}
   headerParams:
     type: array
-    items:
-      type: string
-  descriptionAvailable:
-    type: boolean
-  documented:
-    type: boolean
-  permissionActivated:
-    type: boolean
-  name:
-    type: string
-  topic:
-    type: string
-  returnTypeList:
-    type: boolean
+    items: {type: string}
+  descriptionAvailable: {type: boolean, default: false}
+  documented: {type: boolean, default: false}
+  permissionActivated: {type: boolean, default: false}
+  name: {type: string}
+  topic: {type: string}
+  returnTypeList: {type: boolean, default: false}
   bodyParamTypes:
     type: array
-    items:
-      type: string
-  returnType:
-    type: string
+    items: {type: string}
+  returnType: {type: string}

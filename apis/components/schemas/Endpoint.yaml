@@ -1,22 +1,11 @@
 title: Endpoint
 type: object
-required: 
-  - name
-  - mastroID
+required: [name, mastroID]
 properties:
-  restartNeeded:
-    type: boolean
-    default: false
-  name:
-    type: string
-  description:
-    type: string
-  user:
-    type: string
-  mastroID:
-    $ref: ./MastroID.yaml
-  autoStart:
-    type: boolean
-    default: false
-  emptyUnfoldingEntities:
-    $ref: EmptyUnfoldingEntities.yaml
+  restartNeeded: {type: boolean, default: false}
+  name: {type: string}
+  description: {type: string}
+  user: {type: string}
+  mastroID: {$ref: ./MastroID.yaml}
+  autoStart: {type: boolean, default: false}
+  emptyUnfoldingEntities: {$ref: EmptyUnfoldingEntities.yaml}

@@ -911,6 +911,7 @@ components:
           $ref: '#/components/schemas/OntologyEntity'
         direct:
           type: boolean
+          default: false
         filler:
           $ref: '#/components/schemas/OntologyEntity'
     FunctionalPropertyAssertion:
@@ -921,6 +922,7 @@ components:
       properties:
         direct:
           type: boolean
+          default: false
     DisjointClasses:
       title: DisjointClasses
       type: object
@@ -939,6 +941,7 @@ components:
           $ref: '#/components/schemas/OntologyEntity'
         direct:
           type: boolean
+          default: false
         filler:
           $ref: '#/components/schemas/OntologyEntity'
     HasKeyAssertion:
@@ -975,6 +978,7 @@ components:
           $ref: '#/components/schemas/OntologyEntity'
         direct:
           type: boolean
+          default: false
         filler:
           $ref: '#/components/schemas/OntologyEntity'
         cardinality:
@@ -986,6 +990,7 @@ components:
       properties:
         inverse:
           type: boolean
+          default: false
         entity:
           $ref: '#/components/schemas/OntologyEntity'
     IdentificationPath:
@@ -1162,6 +1167,7 @@ components:
           type: string
         isBlankNode:
           type: boolean
+          default: false
     SPARQLResults:
       title: SPARQLResults
       type: object
@@ -1181,6 +1187,7 @@ components:
               $ref: '#/components/schemas/SPARQLResultsHeadTypes'
         construct:
           type: boolean
+          default: false
         results:
           type: array
           items:

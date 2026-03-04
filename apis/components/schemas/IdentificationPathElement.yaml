@@ -1,7 +1,5 @@
 title: IdentificationPathElement
 type: object
 properties:
-  inverse:
-    type: boolean
-  entity:
-    $ref: ./OntologyEntity.yaml
+  inverse: {type: boolean, default: false}
+  entity: {$ref: ./OntologyEntity.yaml}

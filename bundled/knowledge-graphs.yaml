@@ -1834,6 +1834,7 @@ components:
           $ref: '#/components/schemas/OntologyCatalog'
         graphol:
           type: boolean
+          default: false
         individualInfos:
           $ref: '#/components/schemas/IndividualInfos'
         numObjectProperties:
@@ -1856,6 +1857,7 @@ components:
           type: string
         gscape:
           type: boolean
+          default: false
         versionOwner:
           $ref: '#/components/schemas/User'
     KnowledgeGraphOntologyUnion:
@@ -2039,6 +2041,7 @@ components:
           format: int32
         hasError:
           type: boolean
+          default: false
         numHighLevelQueries:
           type: integer
           format: int32
@@ -2093,6 +2096,7 @@ components:
           type: string
         isBlankNode:
           type: boolean
+          default: false
     SPARQLResults:
       title: SPARQLResults
       type: object
@@ -2112,6 +2116,7 @@ components:
               $ref: '#/components/schemas/SPARQLResultsHeadTypes'
         construct:
           type: boolean
+          default: false
         results:
           type: array
           items:
@@ -2344,6 +2349,7 @@ components:
           format: int64
         imported:
           type: boolean
+          default: false
     OntologyID:
       title: OntologyID
       type: object

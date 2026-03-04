@@ -1,7 +1,4 @@
 title: MWSXOntologyCatalogQuery
 properties:
-  queryCode:
-    type: string
-  isConstruct:
-    type: boolean
-    default: false
+  queryCode: {type: string}
+  isConstruct: {type: boolean, default: false}

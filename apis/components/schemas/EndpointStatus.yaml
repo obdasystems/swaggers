@@ -1,11 +1,7 @@
 title: EndpointStatus
 type: object
-required:
-  - status
+required: [status]
 properties:
-  restartNeeded:
-    type: boolean
-  config:
-    $ref: ./MastroProperties.yaml
-  status:
-    $ref: ./OBDAStatus.yaml
+  restartNeeded: {type: boolean, default: false}
+  config: {$ref: ./MastroProperties.yaml}
+  status: {$ref: ./OBDAStatus.yaml}

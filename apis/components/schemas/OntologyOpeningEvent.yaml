@@ -1,10 +1,6 @@
 title: OntologyOpeningEvent
 type: object
 properties:
-  deleted:
-    type: boolean
-  onto:
-    $ref: ./OntologyID.yaml
-  timestamp:
-    type: integer
-    format: int64
+  deleted: {type: boolean, default: false}
+  onto: {$ref: ./OntologyID.yaml}
+  timestamp: {type: integer, format: int64}

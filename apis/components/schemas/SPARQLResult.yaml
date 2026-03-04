@@ -1,17 +1,10 @@
 title: SPARQLResult
 type: object
 properties:
-  shortIRI:
-    type: string
+  shortIRI: {type: string}
   type:
     type: string
-    enum:
-      - INDIVIDUAL
-      - IRI
-      - VALUE
-  lang:
-    type: string
-  value:
-    type: string
-  isBlankNode:
-    type: boolean
+    enum: [INDIVIDUAL, IRI, VALUE]
+  lang: {type: string}
+  value: {type: string}
+  isBlankNode: {type: boolean, default: false}

@@ -3,17 +3,11 @@ type: object
 properties:
   sqlViewHead:
     type: array
-    items:
-      type: string
-  sqlViewID:
-    type: string
-  sqlViewDescription:
-    type: string
+    items: {type: string}
+  sqlViewID: {type: string}
+  sqlViewDescription: {type: string}
   quarantineReasons:
     type: array
-    items:
-      type: string
-  quarantined:
-    type: boolean
-  sqlViewCode:
-    type: string
+    items: {type: string}
+  quarantined: {type: boolean, default: false}
+  sqlViewCode: {type: string}

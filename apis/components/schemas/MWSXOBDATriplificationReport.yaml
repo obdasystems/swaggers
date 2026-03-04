@@ -1,16 +1,10 @@
 title: OBDATriplificationReport
 type: object
 properties:
-  request:
-    $ref: ./MWSXOBDATriplificationRequest.yaml
-  progress:
-    $ref: ./MWSXOBDATriplificationProgress.yaml
+  request: {$ref: ./MWSXOBDATriplificationRequest.yaml}
+  progress: {$ref: ./MWSXOBDATriplificationProgress.yaml}
   details:
     type: object
-    additionalProperties:
-      $ref: ./MWSXOBDATriplificationMappingReport.yaml
-  isError:
-    type: boolean
-    default: false
-  errorMessage:
-    type: string
+    additionalProperties: {$ref: ./MWSXOBDATriplificationMappingReport.yaml}
+  isError: {type: boolean, default: false}
+  errorMessage: {type: string}

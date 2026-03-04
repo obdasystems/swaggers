@@ -1,17 +1,11 @@
 title: DenialConstraint
 type: object
 properties:
-  description:
-    type: string
-  constraint:
-    $ref: ./MappingBody.yaml
+  description: {type: string}
+  constraint: {$ref: ./MappingBody.yaml}
   quarantineReasons:
     type: array
-    items:
-      type: string
-  id:
-    type: string
-  quarantined:
-    type: boolean
-  userQuery:
-    type: string
+    items: {type: string}
+  id: {type: string}
+  quarantined: {type: boolean, default: false}
+  userQuery: {type: string}

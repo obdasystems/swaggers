@@ -3076,6 +3076,7 @@ components:
           $ref: '#/components/schemas/MappingInfo'
         success:
           type: boolean
+          default: false
         deprecations:
           type: array
           items:
@@ -3204,6 +3205,7 @@ components:
             type: string
         quarantined:
           type: boolean
+          default: false
         sqlViewCode:
           type: string
     MappingAtom:
@@ -3432,6 +3434,7 @@ components:
           type: string
         quarantined:
           type: boolean
+          default: false
     DenialConstraint:
       title: DenialConstraint
       type: object
@@ -3448,6 +3451,7 @@ components:
           type: string
         quarantined:
           type: boolean
+          default: false
         userQuery:
           type: string
     KeyDependency:
@@ -3470,6 +3474,7 @@ components:
           type: string
         quarantined:
           type: boolean
+          default: false
     MappingDependencies:
       title: MappingDependencies
       type: object

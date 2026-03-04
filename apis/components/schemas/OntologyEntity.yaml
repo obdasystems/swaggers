@@ -1,22 +1,13 @@
 title: OntologyEntity
 type: object
-required:
-  - entityIRI
+required: [entityIRI]
 properties:
   entityLabels:
     type: array
-    items:
-      $ref: ./Label.yaml
-  deprecated:
-    type: boolean
-    default: false
-  entityIRI:
-    type: string
-  entityType:
-    type: string
-  entityPrefixIRI:
-    type: string
-  entityRemainder:
-    type: string
-  entityID:
-    type: string
+    items: {$ref: ./Label.yaml}
+  deprecated: {type: boolean, default: false}
+  entityIRI: {type: string}
+  entityType: {type: string}
+  entityPrefixIRI: {type: string}
+  entityRemainder: {type: string}
+  entityID: {type: string}

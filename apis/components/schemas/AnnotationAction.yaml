@@ -1,12 +1,8 @@
 type: object
 allOf:
-  - $ref: ./Action.yaml
+- {$ref: ./Action.yaml}
 properties:
-  subject:
-    $ref: ./Annotation.yaml
-  previousState:
-    $ref: ./Annotation.yaml
-  entity:
-    $ref: ./GrapholscapeEntity.yaml
-  onOntology:
-    type: boolean
+  subject: {$ref: ./Annotation.yaml}
+  previousState: {$ref: ./Annotation.yaml}
+  entity: {$ref: ./GrapholscapeEntity.yaml}
+  onOntology: {type: boolean, default: false}

@@ -3,33 +3,17 @@ type: object
 properties:
   successfullyAddedAxioms:
     type: array
-    items:
-      type: string
+    items: {type: string}
   unsuccessfullyAddedAxioms:
     type: array
-    items:
-      type: string
+    items: {type: string}
   noOperationAxioms:
     type: array
-    items:
-      type: string
-  success:
-    type: boolean
-  error:
-    type: object
-  timestampStart:
-    type: integer
-    format: int64
-    default: 0
-  timestampEnd:
-    type: integer
-    format: int64
-    default: 0
-  ontologyIri:
-    type: string
-  computeEmpties:
-    type: boolean
-    default: false
-  computeGeneralConceptInclusions:
-    type: boolean
-    default: false
+    items: {type: string}
+  success: {type: boolean, default: false}
+  error: {type: object}
+  timestampStart: {type: integer, format: int64, default: 0}
+  timestampEnd: {type: integer, format: int64, default: 0}
+  ontologyIri: {type: string}
+  computeEmpties: {type: boolean, default: false}
+  computeGeneralConceptInclusions: {type: boolean, default: false}

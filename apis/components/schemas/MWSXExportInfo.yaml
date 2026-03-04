@@ -1,52 +1,23 @@
 title: ExportInfo
 type: object
 properties:
-  queryCatalogName:
-    type: string
+  queryCatalogName: {type: string}
   customParams:
     type: object
-    additionalProperties:
-      type: string
-  reasoning:
-    type: boolean
-    default: false
-  sqlCode:
-    type: string
-  qidsys:
-    type: string
-  semantics:
-    type: string
-  jsonExportAdapterInfo:
-    type: string
-  userName:
-    type: string
-  exportFilePath:
-    type: string
-  queryHeadVarTypes:
-    type: object
-  endpoinName:
-    type: string
-  answersNumber:
-    type: integer
-    format: int32
-    default: 0
-  size:
-    type: integer
-    format: int64
-    default: 0
-  answersBufferSize:
-    type: integer
-    format: int32
-    default: 0
-  sparqlCode:
-    type: string
-  sparqlConstructCode:
-    type: string
-  executionTimestamp:
-    type: integer
-    format: int64
-    default: 0
-  elapsedTime:
-    type: integer
-    format: int64
-    default: 0
+    additionalProperties: {type: string}
+  reasoning: {type: boolean, default: false}
+  sqlCode: {type: string}
+  qidsys: {type: string}
+  semantics: {type: string}
+  jsonExportAdapterInfo: {type: string}
+  userName: {type: string}
+  exportFilePath: {type: string}
+  queryHeadVarTypes: {type: object}
+  endpoinName: {type: string}
+  answersNumber: {type: integer, format: int32, default: 0}
+  size: {type: integer, format: int64, default: 0}
+  answersBufferSize: {type: integer, format: int32, default: 0}
+  sparqlCode: {type: string}
+  sparqlConstructCode: {type: string}
+  executionTimestamp: {type: integer, format: int64, default: 0}
+  elapsedTime: {type: integer, format: int64, default: 0}

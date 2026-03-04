@@ -1,18 +1,10 @@
 title: MappingTemplate
 type: object
-required:
-  - template
-  - terms
+required: [template, terms]
 properties:
-  template:
-    type: string
-  valueTemplate:
-    type: boolean
-    default: false
+  template: {type: string}
+  valueTemplate: {type: boolean, default: false}
   terms:
     type: array
-    items:
-      type: string
-  iriTemplate:
-    type: boolean
-    default: false
+    items: {type: string}
+  iriTemplate: {type: boolean, default: false}

@@ -1749,8 +1749,10 @@ components:
         cyclic:
           type: boolean
           description: It is true when domain and range are the same class.
+          default: false
         direct:
           type: boolean
+          default: false
         relatedClasses:
           type: array
           items:
@@ -1886,6 +1888,7 @@ components:
       properties:
         distinct:
           type: boolean
+          default: false
         aggregateFunction:
           type: string
           enum:
@@ -1981,6 +1984,7 @@ components:
       properties:
         distinct:
           type: boolean
+          default: false
         count_star:
           type: boolean
           default: false
@@ -2216,6 +2220,7 @@ components:
           type: string
         hasIriValue:
           type: boolean
+          default: false
         property:
           type: string
           example: rdfs:label
@@ -2248,6 +2253,7 @@ components:
           type: string
         isDataPropertyFunctional:
           type: boolean
+          default: false
         functionProperties:
           type: array
           items:

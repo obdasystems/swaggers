@@ -1,37 +1,21 @@
 title: MappingAssertion
 type: object
-required:
-  - template
+required: [template]
 properties:
-  template:
-    $ref: ./MappingTemplate.yaml
-  iri:
-    $ref: ./IRI.yaml
-  currentEntity:
-    $ref: ./OntologyEntity.yaml
+  template: {$ref: ./MappingTemplate.yaml}
+  iri: {$ref: ./IRI.yaml}
+  currentEntity: {$ref: ./OntologyEntity.yaml}
   annotationMappings:
     type: array
-    items:
-      $ref: ./ExtensionalAnnotationMapping.yaml
-  mappingBody:
-    $ref: ./MappingBody.yaml
-  mappingDescription:
-    type: string
-  rangeTemplate:
-    $ref: ./MappingTemplate.yaml
+    items: {$ref: ./ExtensionalAnnotationMapping.yaml}
+  mappingBody: {$ref: ./MappingBody.yaml}
+  mappingDescription: {type: string}
+  rangeTemplate: {$ref: ./MappingTemplate.yaml}
   quarantineReasons:
     type: array
-    items:
-      type: string
-  userQuery:
-    type: string
-  id:
-    type: string
-  quarantined:
-    type: boolean
-    default: false
-  extensionallyComplete:
-    type: boolean
-    default: false
-  rangeLanguageTag:
-    type: string
+    items: {type: string}
+  userQuery: {type: string}
+  id: {type: string}
+  quarantined: {type: boolean, default: false}
+  extensionallyComplete: {type: boolean, default: false}
+  rangeLanguageTag: {type: string}

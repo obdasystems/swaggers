@@ -892,6 +892,7 @@ components:
       properties:
         distinct:
           type: boolean
+          default: false
         aggregateFunction:
           type: string
           enum:
@@ -1010,6 +1011,7 @@ components:
       properties:
         distinct:
           type: boolean
+          default: false
         count_star:
           type: boolean
           default: false
