@@ -3,4 +3,4 @@ type: object
 properties:
   deleted: {type: boolean, default: false}
   onto: {$ref: ./OntologyID.yaml}
-  timestamp: {type: integer, format: int64}
+  timestamp: {type: integer, format: int64, default: 0}

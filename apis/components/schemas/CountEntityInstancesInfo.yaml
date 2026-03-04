@@ -1,29 +1,13 @@
 title: CountEntityInstancesInfo
 type: object
-required:
-  - countsMap
-  - percentage
-  - startTime
-  - endTime
-  - state
+required: [countsMap, percentage, startTime, endTime, state]
 properties:
   countsMap:
     type: object
-    additionalProperties:
-      $ref: ./EntityCount.yaml
-  percentage:
-    type: number
-  startTime:
-    type: integer
-    format: int64
-  endTime:
-    type: integer
-    format: int64
+    additionalProperties: {$ref: ./EntityCount.yaml}
+  percentage: {type: number}
+  startTime: {type: integer, format: int64, default: 0}
+  endTime: {type: integer, format: int64, default: 0}
   state:
     type: string
-    enum:
-      - RUNNING
-      - READY
-      - FINISHED
-      - ERROR
-      - STOPPED
+    enum: [RUNNING, READY, FINISHED, ERROR, STOPPED]

@@ -1,25 +1,14 @@
 title: LicenseInfo
 type: object
 properties:
-  licensor:
-    type: string
-  licensee:
-    type: string
-  productName:
-    type: string
-  productVersion:
-    type: string
-  licenseType:
-    type: string
-  generationDate:
-    type: integer
-    format: int64
-  expirationDate:
-    type: integer
-    format: int64
-  project:
-    type: string
+  licensor: {type: string}
+  licensee: {type: string}
+  productName: {type: string}
+  productVersion: {type: string}
+  licenseType: {type: string}
+  generationDate: {type: integer, format: int64, default: 0}
+  expirationDate: {type: integer, format: int64, default: 0}
+  project: {type: string}
   licenseInfoDetails:
     type: array
-    items:
-      $ref: ./LicenseInfoDetail.yaml
+    items: {$ref: ./LicenseInfoDetail.yaml}

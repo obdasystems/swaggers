@@ -14,6 +14,6 @@ properties:
   optionals:
     type: array
     items: {$ref: ./Optional.yaml}
-  limit: {type: integer}
-  offset: {type: integer}
+  limit: {type: integer, default: 0}
+  offset: {type: integer, default: 0}
   sparql: {type: string}

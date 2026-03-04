@@ -1,15 +1,8 @@
 type: object
 properties:
-  name:
-    type: string
-  iri:
-    type: string
-  version:
-    type: string
-  lastModification:
-    type: integer
-    format: int64
-  fileName:
-    type: string
-  creator:
-    type: string
+  name: {type: string}
+  iri: {type: string}
+  version: {type: string}
+  lastModification: {type: integer, format: int64, default: 0}
+  fileName: {type: string}
+  creator: {type: string}

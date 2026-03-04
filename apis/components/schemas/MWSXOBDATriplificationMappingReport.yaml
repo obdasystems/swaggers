@@ -1,25 +1,10 @@
 title: OBDATriplificationMappingReport
 type: object
 properties:
-  entityIRI:
-    type: string
-  triplesCount:
-    type: integer
-    format: int32
-    default: 0
-  sqlCode:
-    type: string
-  startTime:
-    type: integer
-    format: int64
-    default: 0
-  endTime:
-    type: integer
-    format: int64
-    default: 0
-  error:
-    type: string
-  elapsedTime:
-    type: integer
-    format: int64
-    default: 0
+  entityIRI: {type: string}
+  triplesCount: {type: integer, format: int32, default: 0}
+  sqlCode: {type: string}
+  startTime: {type: integer, format: int64, default: 0}
+  endTime: {type: integer, format: int64, default: 0}
+  error: {type: string}
+  elapsedTime: {type: integer, format: int64, default: 0}

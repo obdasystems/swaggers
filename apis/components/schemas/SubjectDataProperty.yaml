@@ -1,17 +1,10 @@
 title: SubjectDataProperty
 type: object
 properties:
-  predicate:
-    type: string
+  predicate: {type: string}
   objects:
     type: array
-    items:
-      $ref: ./ObjectLiteral.yaml
-  predicate_short:
-    type: string
-  instance_count:
-    type: integer
-    format: int32
-  page_count:
-    type: integer
-    format: int32
+    items: {$ref: ./ObjectLiteral.yaml}
+  predicate_short: {type: string}
+  instance_count: {type: integer, format: int32, default: 0}
+  page_count: {type: integer, format: int32, default: 0}

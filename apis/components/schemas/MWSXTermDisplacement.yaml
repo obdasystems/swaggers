@@ -1,11 +1,5 @@
 title: TermDisplacement
 type: object
 properties:
-  newPosition:
-    type: integer
-    format: int32
-    default: 0
-  oldPosition:
-    type: integer
-    format: int32
-    default: 0
+  newPosition: {type: integer, format: int32, default: 0}
+  oldPosition: {type: integer, format: int32, default: 0}

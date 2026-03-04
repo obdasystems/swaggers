@@ -1,23 +1,14 @@
 title: MwsxUserLogMessage
 type: object
 properties:
-  userName:
-    type: string 
-  timestamp:
-    type: integer
-    format: int64
-    default: 0
-  resource:
-    type: string 
-  method:
-    type: string 
+  userName: {type: string}
+  timestamp: {type: integer, format: int64, default: 0}
+  resource: {type: string}
+  method: {type: string}
   templateParams:
     type: object
-    additionalProperties:
-      type: string
+    additionalProperties: {type: string}
   queryParams:
     type: object
-    additionalProperties:
-      type: string
-  statusCode:
-    type: integer
+    additionalProperties: {type: string}
+  statusCode: {type: integer, default: 0}

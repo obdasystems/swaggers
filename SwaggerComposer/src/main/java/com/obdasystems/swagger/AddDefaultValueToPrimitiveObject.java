@@ -29,8 +29,12 @@ public class AddDefaultValueToPrimitiveObject {
                     if (props != null) {
                         props.forEach((k, v) -> {
                             String type = (String) v.get("type");
-                            if (type != null && type.equals("boolean")) {
+                            /*if (type != null && type.equals("boolean")) {
                                 v.put("default", false);
+                                modified.set(true);
+                            }*/
+                            if (type != null && (type.equals("integer") || type.equals("numeric"))) {
+                                v.put("default", 0);
                                 modified.set(true);
                             }
                         });

@@ -1,11 +1,6 @@
 title: KGStatus
 type: object
 properties:
-  modelsNumber:
-    type: integer
-    format: int32
-  triplesNumber:
-    type: integer
-    format: int32
-  status:
-    type: string
+  modelsNumber: {type: integer, format: int32, default: 0}
+  triplesNumber: {type: integer, format: int32, default: 0}
+  status: {type: string}

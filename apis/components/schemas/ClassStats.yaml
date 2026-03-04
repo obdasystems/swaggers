@@ -1,8 +1,5 @@
 title: ClassStats
 type: object
 properties:
-  instancesNumber:
-    type: integer
-    format: int32
-  classIri:
-    type: string
+  instancesNumber: {type: integer, format: int32, default: 0}
+  classIri: {type: string}

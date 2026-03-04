@@ -1,18 +1,11 @@
 title: ChartConfiguration
 type: object
-required:
-  - yVariables
+required: [yVariables]
 properties:
   yVariables:
     type: array
-    items:
-      type: string
-  series:
-    type: string
-  xVariable:
-    type: string
-  chartType:
-    type: string
-  cutoff:
-    type: integer
-    format: int32
+    items: {type: string}
+  series: {type: string}
+  xVariable: {type: string}
+  chartType: {type: string}
+  cutoff: {type: integer, format: int32, default: 0}

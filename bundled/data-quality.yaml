@@ -984,6 +984,7 @@ components:
         cardinality:
           type: integer
           format: int32
+          default: 0
     IdentificationPathElement:
       title: IdentificationPathElement
       type: object
@@ -1091,6 +1092,7 @@ components:
         priority:
           type: integer
           format: int32
+          default: 0
     DataQualityCheckSet:
       title: DataQualityCheckSet
       type: object
@@ -1117,6 +1119,7 @@ components:
         resultsCount:
           type: integer
           format: int32
+          default: 0
         id:
           type: string
         queryExecutionId:
@@ -1211,6 +1214,7 @@ components:
         priority:
           type: integer
           format: int32
+          default: 0
         type:
           type: string
         sqlQueries:
@@ -1220,9 +1224,11 @@ components:
         cardinality:
           type: integer
           format: int32
+          default: 0
         executionTime:
           type: integer
           format: int32
+          default: 0
         dataProperties:
           type: array
           items:
@@ -1230,11 +1236,13 @@ components:
         cardinalityType:
           type: integer
           format: int32
+          default: 0
         checkSemantics:
           type: string
         resultsCount:
           type: integer
           format: int32
+          default: 0
         property:
           $ref: '#/components/schemas/OntologyEntity'
         filler:
@@ -1332,6 +1340,7 @@ components:
         endTimestamp:
           type: integer
           format: int64
+          default: 0
         user:
           type: string
         checkSetId:
@@ -1339,6 +1348,7 @@ components:
         timestamp:
           type: integer
           format: int64
+          default: 0
     DataQualityCheckSetExecutionLogs:
       title: DataQualityCheckSetExecutionLogs
       type: object

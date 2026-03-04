@@ -1,25 +1,11 @@
 title: ApiResponseMessage
 type: object
 properties:
-  TOO_BUSY:
-    type: integer
-    format: int32
-  code:
-    type: integer
-    format: int32
-  ERROR:
-    type: integer
-    format: int32
-  INFO:
-    type: integer
-    format: int32
-  OK:
-    type: integer
-    format: int32
-  type:
-    type: string
-  message:
-    type: string
-  WARNING:
-    type: integer
-    format: int32
+  TOO_BUSY: {type: integer, format: int32, default: 0}
+  code: {type: integer, format: int32, default: 0}
+  ERROR: {type: integer, format: int32, default: 0}
+  INFO: {type: integer, format: int32, default: 0}
+  OK: {type: integer, format: int32, default: 0}
+  type: {type: string}
+  message: {type: string}
+  WARNING: {type: integer, format: int32, default: 0}

@@ -1,16 +1,7 @@
 type: object
 title: QueryUsageLog
-required: 
-  - username
-  - timestamp
-  - queryCode
+required: [username, timestamp, queryCode]
 properties:
-  username:
-    type: string
-  timestamp:
-    type: integer
-    format: int64
-    default: 0
-  queryCode:
-    type: string
-    
+  username: {type: string}
+  timestamp: {type: integer, format: int64, default: 0}
+  queryCode: {type: string}

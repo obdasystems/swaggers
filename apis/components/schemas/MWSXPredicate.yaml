@@ -1,15 +1,7 @@
 title: Predicate
 type: object
 properties:
-  arity:
-    type: integer
-    format: int32
-    default: 0
-  serialVersionUID:
-    type: integer
-    format: int64
-    default: 0
-  name:
-    type: string
-  shortName:
-    type: string
+  arity: {type: integer, format: int32, default: 0}
+  serialVersionUID: {type: integer, format: int64, default: 0}
+  name: {type: string}
+  shortName: {type: string}

@@ -1,15 +1,10 @@
 title: EntityExamples
 type: object
 properties:
-  entity:
-    $ref: ./OntologyEntity.yaml
+  entity: {$ref: ./OntologyEntity.yaml}
   examples:
     type: array
-    items:
-      type: string
-  requestedNumberOfExamples:
-    type: integer
-  error:
-    type: string
-  state:
-    type: string
+    items: {type: string}
+  requestedNumberOfExamples: {type: integer, default: 0}
+  error: {type: string}
+  state: {type: string}

@@ -1,45 +1,28 @@
 title: KgCsvImportReport
 type: object
 properties:
-  csvImportThreadId:
-    type: string 
-  csvImportThreadState:
-    type: string 
-  csvImportInfo:
-    $ref: CsvImportInfo.yaml
+  csvImportThreadId: {type: string}
+  csvImportThreadState: {type: string}
+  csvImportInfo: {$ref: CsvImportInfo.yaml}
   csvColumnNames:
     type: array
-    items: 
-      type: string
-  triplesCreatedCount:
-    type: integer
-  csvLinesProcessedCount:
-    type: integer
-  csvLinesImportedCount:
-    type: integer
-  csvLinesErrorCount:
-    type: integer
+    items: {type: string}
+  triplesCreatedCount: {type: integer, default: 0}
+  csvLinesProcessedCount: {type: integer, default: 0}
+  csvLinesImportedCount: {type: integer, default: 0}
+  csvLinesErrorCount: {type: integer, default: 0}
   rejectedLines:
     type: object
-    additionalProperties: 
+    additionalProperties:
       type: array
-      items: 
-        type: string
+      items: {type: string}
   rejectedLineErrorMessages:
     type: object
-    additionalProperties: 
+    additionalProperties:
       type: array
-      items: 
-        type: string
-  mainError:
-    type: object
-  timeStart:
-    type: integer
-    format: int64
-  timeEnd:
-    type: integer
-    format: int64
-  generatedTriplesFile:
-    type: string 
-  numberOfTriplesPerLine:
-    type: integer
+      items: {type: string}
+  mainError: {type: object}
+  timeStart: {type: integer, format: int64, default: 0}
+  timeEnd: {type: integer, format: int64, default: 0}
+  generatedTriplesFile: {type: string}
+  numberOfTriplesPerLine: {type: integer, default: 0}

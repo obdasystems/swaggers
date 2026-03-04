@@ -3,14 +3,9 @@ type: object
 properties:
   sessions:
     type: object
-    additionalProperties:
-      $ref: ./SessionSnapshot.yaml
+    additionalProperties: {$ref: ./SessionSnapshot.yaml}
   systemParameters:
     type: object
-    additionalProperties:
-      type: string
-  currentlyActiveSessionCount:
-    type: integer
-    format: int32
-  memorySnapshot:
-    $ref: MemorySnapshot.yaml
+    additionalProperties: {type: string}
+  currentlyActiveSessionCount: {type: integer, format: int32, default: 0}
+  memorySnapshot: {$ref: MemorySnapshot.yaml}

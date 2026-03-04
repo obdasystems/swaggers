@@ -208,6 +208,7 @@ components:
         lastModification:
           type: integer
           format: int64
+          default: 0
         fileName:
           type: string
         creator:
@@ -301,6 +302,7 @@ components:
           description: In case of replicated elements, this is the ID of the original element replicated in multiple occurrences, all of them with different IDs
         diagramId:
           type: integer
+          default: 0
         displayedName:
           type: string
         iri:
@@ -388,6 +390,7 @@ components:
       properties:
         id:
           type: integer
+          default: 0
         name:
           type: string
         nodes:
@@ -719,6 +722,7 @@ components:
                   - has-key
         selectedDiagramId:
           type: integer
+          default: 0
         modelType:
           type: string
           enum:

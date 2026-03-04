@@ -1,12 +1,8 @@
 title: MappingEntityCount
 type: object
-required:
-  - count
+required: [count]
 properties:
   count:
     type: array
-    items:
-      $ref: ./MappingCount.yaml
-  countAnnotations:
-    type: integer
-    format: int32
+    items: {$ref: ./MappingCount.yaml}
+  countAnnotations: {type: integer, format: int32, default: 0}

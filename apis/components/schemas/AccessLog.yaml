@@ -1,12 +1,6 @@
 type: object
 title: AccessLog
-required:
-  - username
-  - timestamp
+required: [username, timestamp]
 properties:
-  username:
-    type: string
-  timestamp:
-    type: integer
-    format: int64
-    default: 0
+  username: {type: string}
+  timestamp: {type: integer, format: int64, default: 0}

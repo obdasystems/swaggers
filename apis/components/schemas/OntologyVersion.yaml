@@ -4,15 +4,15 @@ properties:
   versionDescription:
     type: array
     items: {$ref: ./Label.yaml}
-  numAxioms: {type: integer, format: int32}
-  numIndividuals: {type: integer, format: int32}
+  numAxioms: {type: integer, format: int32, default: 0}
+  numIndividuals: {type: integer, format: int32, default: 0}
   catalog: {$ref: ./OntologyCatalog.yaml}
   graphol: {type: boolean, default: false}
   individualInfos: {$ref: ./IndividualInfos.yaml}
-  numObjectProperties: {type: integer, format: int32}
-  numDataProperties: {type: integer, format: int32}
-  versionDate: {type: integer, format: int64}
-  numClasses: {type: integer, format: int32}
+  numObjectProperties: {type: integer, format: int32, default: 0}
+  numDataProperties: {type: integer, format: int32, default: 0}
+  versionDate: {type: integer, format: int64, default: 0}
+  numClasses: {type: integer, format: int32, default: 0}
   versionID: {type: string}
   ontologyID: {type: string}
   ontologyIRI: {type: string}

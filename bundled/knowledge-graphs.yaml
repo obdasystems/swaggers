@@ -1633,6 +1633,7 @@ components:
         kgTriples:
           type: integer
           format: int64
+          default: 0
         kgContributors:
           type: array
           items:
@@ -1640,9 +1641,11 @@ components:
         kgCreationTs:
           type: integer
           format: int64
+          default: 0
         kgLastModifiedTs:
           type: integer
           format: int64
+          default: 0
         kgType:
           type: string
           enum:
@@ -1659,9 +1662,11 @@ components:
         modelsNumber:
           type: integer
           format: int32
+          default: 0
         triplesNumber:
           type: integer
           format: int32
+          default: 0
         status:
           type: string
     FileInfo:
@@ -1697,6 +1702,7 @@ components:
         instancesNumber:
           type: integer
           format: int32
+          default: 0
         classIri:
           type: string
     InstanceLabelType:
@@ -1827,9 +1833,11 @@ components:
         numAxioms:
           type: integer
           format: int32
+          default: 0
         numIndividuals:
           type: integer
           format: int32
+          default: 0
         catalog:
           $ref: '#/components/schemas/OntologyCatalog'
         graphol:
@@ -1840,15 +1848,19 @@ components:
         numObjectProperties:
           type: integer
           format: int32
+          default: 0
         numDataProperties:
           type: integer
           format: int32
+          default: 0
         versionDate:
           type: integer
           format: int64
+          default: 0
         numClasses:
           type: integer
           format: int32
+          default: 0
         versionID:
           type: string
         ontologyID:
@@ -1909,6 +1921,7 @@ components:
         cutoff:
           type: integer
           format: int32
+          default: 0
     MwsxTag:
       title: MwsxTag
       type: object
@@ -2020,6 +2033,7 @@ components:
         executionTime:
           type: integer
           format: int32
+          default: 0
         errorMessages:
           type: array
           items:
@@ -2027,24 +2041,30 @@ components:
         percentage:
           type: integer
           format: int32
+          default: 0
         numLowLevelQueries:
           type: integer
           format: int32
+          default: 0
         numResults:
           type: integer
           format: int32
+          default: 0
         numOntologyRewritings:
           type: integer
           format: int32
+          default: 0
         numOptimizedQueries:
           type: integer
           format: int32
+          default: 0
         hasError:
           type: boolean
           default: false
         numHighLevelQueries:
           type: integer
           format: int32
+          default: 0
         status:
           enum:
             - READY
@@ -2144,9 +2164,11 @@ components:
         instance_count:
           type: integer
           format: int32
+          default: 0
         page_count:
           type: integer
           format: int32
+          default: 0
     ObjectType:
       title: ObjectType
       type: object
@@ -2158,9 +2180,11 @@ components:
         instance_count:
           type: integer
           format: int32
+          default: 0
         page_count:
           type: integer
           format: int32
+          default: 0
     SubjectObjectProperty:
       title: SubjectObjectProperty
       type: object
@@ -2176,9 +2200,11 @@ components:
         instance_count:
           type: integer
           format: int32
+          default: 0
         page_count:
           type: integer
           format: int32
+          default: 0
     InstanceSubjectTripsGroup:
       title: InstanceSubjectTripsGroup
       type: object
@@ -2202,9 +2228,11 @@ components:
         instance_count:
           type: integer
           format: int32
+          default: 0
         page_count:
           type: integer
           format: int32
+          default: 0
     ObjectTriple:
       title: ObjectTriple
       type: object
@@ -2220,9 +2248,11 @@ components:
         instance_count:
           type: integer
           format: int32
+          default: 0
         page_count:
           type: integer
           format: int32
+          default: 0
     InstanceObjectTripsGroup:
       title: InstanceObjectTripsGroup
       type: object
@@ -2322,6 +2352,7 @@ components:
         timestamp:
           type: integer
           format: int64
+          default: 0
     KnowledgeGraphFileDestination:
       title: KnowledgeGraphFileDestination
       type: object
@@ -2339,14 +2370,17 @@ components:
         numberOfTriples:
           type: integer
           format: int64
+          default: 0
         fileName:
           type: string
         uploadDate:
           type: integer
           format: int64
+          default: 0
         importingTime:
           type: integer
           format: int64
+          default: 0
         imported:
           type: boolean
           default: false
@@ -2433,12 +2467,16 @@ components:
             type: string
         triplesCreatedCount:
           type: integer
+          default: 0
         csvLinesProcessedCount:
           type: integer
+          default: 0
         csvLinesImportedCount:
           type: integer
+          default: 0
         csvLinesErrorCount:
           type: integer
+          default: 0
         rejectedLines:
           type: object
           additionalProperties:
@@ -2456,13 +2494,16 @@ components:
         timeStart:
           type: integer
           format: int64
+          default: 0
         timeEnd:
           type: integer
           format: int64
+          default: 0
         generatedTriplesFile:
           type: string
         numberOfTriplesPerLine:
           type: integer
+          default: 0
     MWSXMetadataSubject:
       type: object
       properties:

@@ -1,28 +1,15 @@
 type: object
 title: VKGSnapshot
-required:
-  - id
-  - name
-  - lastModification
-  - rdfGraph
+required: [id, name, lastModification, rdfGraph]
 properties:
-  id:
-    type: string
-  name:
-    type: string
-  description:
-    type: string
-  lastModification:
-    type: integer
-    format: int64
-  rdfGraph:
-    $ref: ./RDFGraph.yaml
+  id: {type: string}
+  name: {type: string}
+  description: {type: string}
+  lastModification: {type: integer, format: int64, default: 0}
+  rdfGraph: {$ref: ./RDFGraph.yaml}
   customNodeRenderings:
     type: object
-    additionalProperties:
-      $ref: ./CustomNodeRendering.yaml
+    additionalProperties: {$ref: ./CustomNodeRendering.yaml}
   customFilters:
     type: object
-    additionalProperties:
-      $ref: ./VKGCustomFilter.yaml
-  
+    additionalProperties: {$ref: ./VKGCustomFilter.yaml}

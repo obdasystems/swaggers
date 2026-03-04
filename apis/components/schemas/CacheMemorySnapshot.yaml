@@ -1,25 +1,14 @@
 title: MemorySnapshot
 type: object
 properties:
-  cachedTboxes:
-    type: integer
-  cachedOwlOntologies:
-    type: integer
-  cachedClosedOwlOntologies:
-    type: integer
-  cachedMappingManagers:
-    type: integer
-  cachedMastroAPIInstances:
-    type: integer
-  cachedEndpointMastroAPIInstances:
-    type: integer
-  cachedDataQualityCheckThreads:
-    type: integer
-  cachedAnnotationProcessorThreads:
-    type: integer
-  cachedCountEntityInstancesThreads:
-    type: integer
-  cachedMinMaxDataPropertiesThread:
-    type: integer
-  cachedInstanceCheckingThreads:
-    type: integer
+  cachedTboxes: {type: integer, default: 0}
+  cachedOwlOntologies: {type: integer, default: 0}
+  cachedClosedOwlOntologies: {type: integer, default: 0}
+  cachedMappingManagers: {type: integer, default: 0}
+  cachedMastroAPIInstances: {type: integer, default: 0}
+  cachedEndpointMastroAPIInstances: {type: integer, default: 0}
+  cachedDataQualityCheckThreads: {type: integer, default: 0}
+  cachedAnnotationProcessorThreads: {type: integer, default: 0}
+  cachedCountEntityInstancesThreads: {type: integer, default: 0}
+  cachedMinMaxDataPropertiesThread: {type: integer, default: 0}
+  cachedInstanceCheckingThreads: {type: integer, default: 0}

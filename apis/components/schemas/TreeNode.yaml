@@ -8,6 +8,6 @@ properties:
   equivalents:
     type: array
     items: {$ref: ./OntologyEntity.yaml}
-  numberOfMappings: {type: integer, format: int32}
+  numberOfMappings: {type: integer, format: int32, default: 0}
   entity: {$ref: ./OntologyEntity.yaml}
   empty: {type: boolean, default: false}

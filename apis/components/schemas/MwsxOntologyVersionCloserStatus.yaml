@@ -1,15 +1,7 @@
 title: MwsxOntologyVersionCloserStatus
 type: object
 properties:
-  id:
-    type: string
-  state: 
-    type: string
-  timeStart: 
-    type: integer
-    format: int64
-    default: 0
-  timeElapsed: 
-    type: integer
-    format: int64
-    default: 0
+  id: {type: string}
+  state: {type: string}
+  timeStart: {type: integer, format: int64, default: 0}
+  timeElapsed: {type: integer, format: int64, default: 0}

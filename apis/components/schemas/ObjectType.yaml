@@ -1,13 +1,7 @@
 title: ObjectType
 type: object
 properties:
-  object_type:
-    type: string
-  object_type_short:
-    type: string
-  instance_count:
-    type: integer
-    format: int32
-  page_count:
-    type: integer
-    format: int32
+  object_type: {type: string}
+  object_type_short: {type: string}
+  instance_count: {type: integer, format: int32, default: 0}
+  page_count: {type: integer, format: int32, default: 0}

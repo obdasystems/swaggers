@@ -3,17 +3,17 @@ type: object
 required: [status, executionTime, numResults, percentage, numHighLevelQueries, numLowLevelQueries,
   numOntologyRewritings, numOptimizedQueries, hasError]
 properties:
-  executionTime: {type: integer, format: int32}
+  executionTime: {type: integer, format: int32, default: 0}
   errorMessages:
     type: array
     items: {type: string}
-  percentage: {type: integer, format: int32}
-  numLowLevelQueries: {type: integer, format: int32}
-  numResults: {type: integer, format: int32}
-  numOntologyRewritings: {type: integer, format: int32}
-  numOptimizedQueries: {type: integer, format: int32}
+  percentage: {type: integer, format: int32, default: 0}
+  numLowLevelQueries: {type: integer, format: int32, default: 0}
+  numResults: {type: integer, format: int32, default: 0}
+  numOntologyRewritings: {type: integer, format: int32, default: 0}
+  numOptimizedQueries: {type: integer, format: int32, default: 0}
   hasError: {type: boolean, default: false}
-  numHighLevelQueries: {type: integer, format: int32}
+  numHighLevelQueries: {type: integer, format: int32, default: 0}
   status:
     enum: [READY, FINISHED, UNAVAILABLE, ERROR, RUNNING, STOPPED, DISABLED]
   queryCode: {type: string}

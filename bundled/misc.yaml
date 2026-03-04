@@ -1281,6 +1281,7 @@ components:
         timestamp:
           type: integer
           format: int64
+          default: 0
     KGOpeningEvent:
       title: KGOpeningEvent
       type: object
@@ -1290,6 +1291,7 @@ components:
         timestamp:
           type: integer
           format: int64
+          default: 0
     Label:
       title: Label
       type: object
@@ -1349,9 +1351,11 @@ components:
         generationDate:
           type: integer
           format: int64
+          default: 0
         expirationDate:
           type: integer
           format: int64
+          default: 0
         project:
           type: string
         licenseInfoDetails:
@@ -1377,9 +1381,11 @@ components:
         totalSize:
           type: integer
           format: int64
+          default: 0
         fileCount:
           type: integer
           format: int32
+          default: 0
     OntologyStorageReport:
       title: OntologyStorageReport
       type: object
@@ -1387,6 +1393,7 @@ components:
         totalSize:
           type: integer
           format: int64
+          default: 0
         versions:
           type: object
           additionalProperties:
@@ -1394,6 +1401,7 @@ components:
         fileCount:
           type: integer
           format: int32
+          default: 0
     OntologiesStorageReport:
       title: OntologiesStorageReport
       type: object
@@ -1401,9 +1409,11 @@ components:
         totalSize:
           type: integer
           format: int64
+          default: 0
         fileCount:
           type: integer
           format: int32
+          default: 0
         ontologies:
           type: object
           additionalProperties:
@@ -1415,9 +1425,11 @@ components:
         totalSize:
           type: integer
           format: int64
+          default: 0
         fileCount:
           type: integer
           format: int32
+          default: 0
     SystemFoldersStorageReport:
       title: SystemFoldersStorageReport
       type: object
@@ -1425,9 +1437,11 @@ components:
         totalSize:
           type: integer
           format: int64
+          default: 0
         fileCount:
           type: integer
           format: int32
+          default: 0
         systemFoldersStorageReport:
           type: object
           additionalProperties:
@@ -1439,9 +1453,11 @@ components:
         totalSize:
           type: integer
           format: int64
+          default: 0
         fileCount:
           type: integer
           format: int32
+          default: 0
     KgsStorageReport:
       title: KgsStorageReport
       type: object
@@ -1449,6 +1465,7 @@ components:
         totalSize:
           type: integer
           format: int64
+          default: 0
         kgs:
           type: object
           additionalProperties:
@@ -1456,6 +1473,7 @@ components:
         fileCount:
           type: integer
           format: int32
+          default: 0
     SystemStorageReport:
       title: SystemStorageReport
       type: object
@@ -1463,6 +1481,7 @@ components:
         totalSize:
           type: integer
           format: int64
+          default: 0
         ontologiesStorageReport:
           $ref: '#/components/schemas/OntologiesStorageReport'
         user:
@@ -1470,6 +1489,7 @@ components:
         fileCount:
           type: integer
           format: int32
+          default: 0
         systemFoldersStorageReport:
           $ref: '#/components/schemas/SystemFoldersStorageReport'
         kgsStorageReport:
@@ -1477,6 +1497,7 @@ components:
         timestamp:
           type: integer
           format: int64
+          default: 0
     SystemFolderDeletionReport:
       title: SystemFolderDeletionReport
       type: object
@@ -1484,6 +1505,7 @@ components:
         deletedFilesCount:
           type: integer
           format: int32
+          default: 0
         deletedFiles:
           type: array
           items:
@@ -1495,6 +1517,7 @@ components:
         freeSpaceCreated:
           type: integer
           format: int64
+          default: 0
     SessionSnapshot:
       title: SessionSnapshot
       type: object
@@ -1504,18 +1527,22 @@ components:
         expirationTime:
           type: integer
           format: int64
+          default: 0
         neverExpires:
           type: boolean
           default: false
         lastUpdate:
           type: integer
           format: int64
+          default: 0
         operationsCount:
           type: integer
           format: int32
+          default: 0
         startTime:
           type: integer
           format: int64
+          default: 0
         id:
           type: string
         user:
@@ -1534,26 +1561,37 @@ components:
       properties:
         cachedTboxes:
           type: integer
+          default: 0
         cachedOwlOntologies:
           type: integer
+          default: 0
         cachedClosedOwlOntologies:
           type: integer
+          default: 0
         cachedMappingManagers:
           type: integer
+          default: 0
         cachedMastroAPIInstances:
           type: integer
+          default: 0
         cachedEndpointMastroAPIInstances:
           type: integer
+          default: 0
         cachedDataQualityCheckThreads:
           type: integer
+          default: 0
         cachedAnnotationProcessorThreads:
           type: integer
+          default: 0
         cachedCountEntityInstancesThreads:
           type: integer
+          default: 0
         cachedMinMaxDataPropertiesThread:
           type: integer
+          default: 0
         cachedInstanceCheckingThreads:
           type: integer
+          default: 0
     MemorySnapshot:
       title: MemorySnapshot
       type: object
@@ -1577,6 +1615,7 @@ components:
         currentlyActiveSessionCount:
           type: integer
           format: int32
+          default: 0
         memorySnapshot:
           $ref: '#/components/schemas/MemorySnapshot'
     MwsxUserLogMessage:
@@ -1603,6 +1642,7 @@ components:
             type: string
         statusCode:
           type: integer
+          default: 0
     GeocodingServer:
       title: GeocodingServer
       type: object
@@ -1714,6 +1754,7 @@ components:
           $ref: '#/components/schemas/OntologyID'
         count:
           type: integer
+          default: 0
     QueryUsageLog:
       type: object
       title: QueryUsageLog
@@ -1741,3 +1782,4 @@ components:
           $ref: '#/components/schemas/OntologyEntity'
         count:
           type: integer
+          default: 0

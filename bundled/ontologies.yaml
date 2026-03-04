@@ -1604,9 +1604,11 @@ components:
         numAxioms:
           type: integer
           format: int32
+          default: 0
         numIndividuals:
           type: integer
           format: int32
+          default: 0
         catalog:
           $ref: '#/components/schemas/OntologyCatalog'
         graphol:
@@ -1617,15 +1619,19 @@ components:
         numObjectProperties:
           type: integer
           format: int32
+          default: 0
         numDataProperties:
           type: integer
           format: int32
+          default: 0
         versionDate:
           type: integer
           format: int64
+          default: 0
         numClasses:
           type: integer
           format: int32
+          default: 0
         versionID:
           type: string
         ontologyID:
@@ -1830,6 +1836,7 @@ components:
         numberOfMappings:
           type: integer
           format: int32
+          default: 0
         entity:
           $ref: '#/components/schemas/OntologyEntity'
         empty:
@@ -2323,6 +2330,7 @@ components:
         ordering:
           description: 1 is ascending -1 descending 0 not defined
           type: integer
+          default: 0
         function:
           $ref: '#/components/schemas/Function'
         groupBy:
@@ -2379,6 +2387,7 @@ components:
       properties:
         id:
           type: integer
+          default: 0
         graphIds:
           description: Path of ids that describe optional.
           type: array
@@ -2415,8 +2424,10 @@ components:
             $ref: '#/components/schemas/Optional'
         limit:
           type: integer
+          default: 0
         offset:
           type: integer
+          default: 0
         sparql:
           type: string
     ChartConfiguration:
@@ -2438,6 +2449,7 @@ components:
         cutoff:
           type: integer
           format: int32
+          default: 0
     MwsxTag:
       title: MwsxTag
       type: object

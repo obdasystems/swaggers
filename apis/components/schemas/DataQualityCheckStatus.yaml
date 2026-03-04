@@ -1,12 +1,7 @@
 title: DataQualityCheckStatus
 type: object
 properties:
-  resultsCount:
-    type: integer
-    format: int32
-  id:
-    type: string
-  queryExecutionId:
-    type: string
-  status:
-    type: string
+  resultsCount: {type: integer, format: int32, default: 0}
+  id: {type: string}
+  queryExecutionId: {type: string}
+  status: {type: string}

@@ -3,7 +3,7 @@ type: object
 properties:
   chartConfiguration: {$ref: ./ChartConfiguration.yaml}
   endpoint: {type: string}
-  refreshRate: {type: integer, format: int32}
+  refreshRate: {type: integer, format: int32, default: 0}
   autorun: {type: boolean, default: false}
   queryCatalogType: {type: string}
   parameterSetting:

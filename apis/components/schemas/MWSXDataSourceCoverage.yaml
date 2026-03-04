@@ -3,25 +3,13 @@ type: object
 properties:
   tables:
     type: array
-    items:
-      $ref: ./MWSXDataSourceTableMetadata.yaml
-  unmappedTableCount:
-    type: integer
-    format: int32
-    default: 0
+    items: {$ref: ./MWSXDataSourceTableMetadata.yaml}
+  unmappedTableCount: {type: integer, format: int32, default: 0}
   mappedTables:
     type: array
-    items:
-      $ref: ./MWSXDataSourceTableMetadata.yaml
+    items: {$ref: ./MWSXDataSourceTableMetadata.yaml}
   unmappedTables:
     type: array
-    items:
-      $ref: ./MWSXDataSourceTableMetadata.yaml
-  mappedTableCount:
-    type: integer
-    format: int32
-    default: 0
-  totalTableCount:
-    type: integer
-    format: int32
-    default: 0
+    items: {$ref: ./MWSXDataSourceTableMetadata.yaml}
+  mappedTableCount: {type: integer, format: int32, default: 0}
+  totalTableCount: {type: integer, format: int32, default: 0}

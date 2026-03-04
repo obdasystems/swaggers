@@ -1,11 +1,6 @@
 title: MappingCount
 type: object
-required:
-  - numberOfMappings
-  - entity
+required: [numberOfMappings, entity]
 properties:
-  numberOfMappings:
-    type: integer
-    format: int32
-  entity:
-    $ref: ./OntologyEntity.yaml
+  numberOfMappings: {type: integer, format: int32, default: 0}
+  entity: {$ref: ./OntologyEntity.yaml}

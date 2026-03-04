@@ -1,10 +1,6 @@
 type: object
 title: EntityUsageLog
-required: 
-  - entity
-  - count
+required: [entity, count]
 properties:
-  entity:
-    $ref: OntologyEntity.yaml
-  count:
-    type: integer
+  entity: {$ref: OntologyEntity.yaml}
+  count: {type: integer, default: 0}

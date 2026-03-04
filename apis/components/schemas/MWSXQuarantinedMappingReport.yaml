@@ -1,23 +1,9 @@
 title: QuarantinedMappingReport
 type: object
 properties:
-  viewDefinitionsCount:
-    type: integer
-    format: int32
-    default: 0
-  mappingsCount:
-    type: integer
-    format: int32
-    default: 0
-  quarantinedMappingsCount:
-    type: integer
-    format: int32
-    default: 0
-  quarantineReasonsByViewName:
-    $ref: './MWSXQuarantineReason.yaml'
-  quarantineReasonsByMappingId:
-    $ref: './MWSXQuarantineReason.yaml'
-  quarantinedViewDefinitionsCount:
-    type: integer
-    format: int32
-    default: 0
+  viewDefinitionsCount: {type: integer, format: int32, default: 0}
+  mappingsCount: {type: integer, format: int32, default: 0}
+  quarantinedMappingsCount: {type: integer, format: int32, default: 0}
+  quarantineReasonsByViewName: {$ref: ./MWSXQuarantineReason.yaml}
+  quarantineReasonsByMappingId: {$ref: ./MWSXQuarantineReason.yaml}
+  quarantinedViewDefinitionsCount: {type: integer, format: int32, default: 0}

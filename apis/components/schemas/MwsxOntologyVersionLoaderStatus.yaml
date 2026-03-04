@@ -1,20 +1,9 @@
 title: MwsxOntologyVersionLoaderStatus
 type: object
 properties:
-  id:
-    type: string
-  state:
-    type: string
-  timeStart:
-    type: integer
-    format: int64
-    default: 0
-  timeElapsed:
-    type: integer
-    format: int64
-    default: 0
-  currentStep:
-    type: string
-  progress:
-    type: number
-    format: double
+  id: {type: string}
+  state: {type: string}
+  timeStart: {type: integer, format: int64, default: 0}
+  timeElapsed: {type: integer, format: int64, default: 0}
+  currentStep: {type: string}
+  progress: {type: number, format: double}

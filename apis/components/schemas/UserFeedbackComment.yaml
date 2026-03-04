@@ -1,10 +1,6 @@
 title: UserFeedbackComment
 type: object
 properties:
-  rating:
-    type: number
-  timestamp:
-    type: integer
-    format: int64
-  comment:
-    type: string
+  rating: {type: number}
+  timestamp: {type: integer, format: int64, default: 0}
+  comment: {type: string}

@@ -1,19 +1,12 @@
 type: object
-required:
-  - id
-  - name
+required: [id, name]
 properties:
-  id:
-    type: integer
-  name:
-    type: string
+  id: {type: integer, default: 0}
+  name: {type: string}
   nodes:
     type: array
-    items:
-      $ref: ./Node.yaml
+    items: {$ref: ./Node.yaml}
   edges:
     type: array
-    items:
-      $ref: ./Edge.yaml
-  lastViewportState:
-    $ref: ./Viewport.yaml
+    items: {$ref: ./Edge.yaml}
+  lastViewportState: {$ref: ./Viewport.yaml}

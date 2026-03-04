@@ -2,17 +2,17 @@ title: QueryRecordInfo
 type: object
 required: [id]
 properties:
-  ontologyRewritingEnabled: {type: integer, format: int32}
-  boolean: {type: integer, format: int32}
+  ontologyRewritingEnabled: {type: integer, format: int32, default: 0}
+  boolean: {type: integer, format: int32, default: 0}
   code: {type: string}
   catalogId: {type: string}
-  sQLEvaluationDisabled: {type: integer, format: int32}
+  sQLEvaluationDisabled: {type: integer, format: int32, default: 0}
   customParams:
     type: object
     additionalProperties: {type: string}
   description: {type: string}
   id: {type: string}
-  qid: {type: integer, format: int32}
+  qid: {type: integer, format: int32, default: 0}
   originalConstructCode: {type: string}
   agent: {type: string}
   user: {type: string}

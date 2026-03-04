@@ -38,7 +38,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.AddDefaultValueToPrimitiveObject.executor": "Debug",
+    "Application.AddDefaultValueToPrimitiveObject.executor": "Run",
     "Maven.SwaggerComposer [compile].executor": "Run",
     "Maven.SwaggerComposer [install].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -96,7 +96,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1772616818189</updated>
-      <workItem from="1772616819400" duration="1362000" />
+      <workItem from="1772616819400" duration="1632000" />
     </task>
     <servers />
   </component>

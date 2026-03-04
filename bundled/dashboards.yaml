@@ -242,22 +242,27 @@ components:
         x:
           type: integer
           format: int32
+          default: 0
         width:
           type: integer
           format: int32
+          default: 0
         'y':
           type: integer
           format: int32
+          default: 0
         description:
           type: string
         id:
           type: integer
           format: int32
+          default: 0
         title:
           type: string
         height:
           type: integer
           format: int32
+          default: 0
     DashboardTab:
       title: DashboardTab
       type: object

@@ -2992,15 +2992,19 @@ components:
         mappingDate:
           type: integer
           format: int64
+          default: 0
         numAssertions:
           type: integer
           format: int32
+          default: 0
         numViews:
           type: integer
           format: int32
+          default: 0
         numInclusionDependencies:
           type: integer
           format: int32
+          default: 0
         prefixes:
           type: array
           items:
@@ -3008,9 +3012,11 @@ components:
         numDenials:
           type: integer
           format: int32
+          default: 0
         numKeyDependencies:
           type: integer
           format: int32
+          default: 0
         fileType:
           type: string
         mappingOwner:
@@ -3122,6 +3128,7 @@ components:
         numberOfMappings:
           type: integer
           format: int32
+          default: 0
         entity:
           $ref: '#/components/schemas/OntologyEntity'
     MappingEntityCount:
@@ -3137,6 +3144,7 @@ components:
         countAnnotations:
           type: integer
           format: int32
+          default: 0
     MWSXTemplateRefactoring:
       title: TemplateRefactoring
       type: object

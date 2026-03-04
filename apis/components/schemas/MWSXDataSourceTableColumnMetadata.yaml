@@ -1,29 +1,12 @@
 title: DataSourceTableColumnMetadata
 type: object
-required:
-  - name
+required: [name]
 properties:
-  size:
-    type: integer
-    format: int32
-    default: 0
-  nullable:
-    type: string
-  generated:
-    type: string
-  dataTypeName:
-    type: string
-  decimals:
-    type: integer
-    format: int32
-    default: 0
-  name:
-    type: string
-  dataTypeId:
-    type: integer
-    format: int32
-    default: 0
-  ordinalPosition:
-    type: integer
-    format: int32
-    default: 0
+  size: {type: integer, format: int32, default: 0}
+  nullable: {type: string}
+  generated: {type: string}
+  dataTypeName: {type: string}
+  decimals: {type: integer, format: int32, default: 0}
+  name: {type: string}
+  dataTypeId: {type: integer, format: int32, default: 0}
+  ordinalPosition: {type: integer, format: int32, default: 0}

@@ -456,6 +456,7 @@ components:
           description: In case of replicated elements, this is the ID of the original element replicated in multiple occurrences, all of them with different IDs
         diagramId:
           type: integer
+          default: 0
         displayedName:
           type: string
         iri:
@@ -543,6 +544,7 @@ components:
       properties:
         id:
           type: integer
+          default: 0
         name:
           type: string
         nodes:
@@ -874,6 +876,7 @@ components:
                   - has-key
         selectedDiagramId:
           type: integer
+          default: 0
         modelType:
           type: string
           enum:
@@ -1033,6 +1036,7 @@ components:
             - 0
             - 1
             - 2
+          default: 0
         filters:
           type: array
           items:
@@ -1055,6 +1059,7 @@ components:
         lastModification:
           type: integer
           format: int64
+          default: 0
         rdfGraph:
           $ref: '#/components/schemas/RDFGraph'
         customNodeRenderings:

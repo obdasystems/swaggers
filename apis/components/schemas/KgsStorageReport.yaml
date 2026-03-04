@@ -1,13 +1,8 @@
 title: KgsStorageReport
 type: object
 properties:
-  totalSize:
-    type: integer
-    format: int64
+  totalSize: {type: integer, format: int64, default: 0}
   kgs:
     type: object
-    additionalProperties:
-      $ref: ./KgStorageReport.yaml
-  fileCount:
-    type: integer
-    format: int32
+    additionalProperties: {$ref: ./KgStorageReport.yaml}
+  fileCount: {type: integer, format: int32, default: 0}

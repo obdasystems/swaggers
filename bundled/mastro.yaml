@@ -18325,9 +18325,11 @@ components:
         numAxioms:
           type: integer
           format: int32
+          default: 0
         numIndividuals:
           type: integer
           format: int32
+          default: 0
         catalog:
           $ref: '#/components/schemas/OntologyCatalog'
         graphol:
@@ -18338,15 +18340,19 @@ components:
         numObjectProperties:
           type: integer
           format: int32
+          default: 0
         numDataProperties:
           type: integer
           format: int32
+          default: 0
         versionDate:
           type: integer
           format: int64
+          default: 0
         numClasses:
           type: integer
           format: int32
+          default: 0
         versionID:
           type: string
         ontologyID:
@@ -18551,6 +18557,7 @@ components:
         numberOfMappings:
           type: integer
           format: int32
+          default: 0
         entity:
           $ref: '#/components/schemas/OntologyEntity'
         empty:
@@ -19044,6 +19051,7 @@ components:
         ordering:
           description: 1 is ascending -1 descending 0 not defined
           type: integer
+          default: 0
         function:
           $ref: '#/components/schemas/Function'
         groupBy:
@@ -19104,6 +19112,7 @@ components:
       properties:
         id:
           type: integer
+          default: 0
         graphIds:
           description: Path of ids that describe optional.
           type: array
@@ -19140,8 +19149,10 @@ components:
             $ref: '#/components/schemas/Optional'
         limit:
           type: integer
+          default: 0
         offset:
           type: integer
+          default: 0
         sparql:
           type: string
     ChartConfiguration:
@@ -19163,6 +19174,7 @@ components:
         cutoff:
           type: integer
           format: int32
+          default: 0
     MwsxTag:
       title: MwsxTag
       type: object
@@ -19301,15 +19313,19 @@ components:
         mappingDate:
           type: integer
           format: int64
+          default: 0
         numAssertions:
           type: integer
           format: int32
+          default: 0
         numViews:
           type: integer
           format: int32
+          default: 0
         numInclusionDependencies:
           type: integer
           format: int32
+          default: 0
         prefixes:
           type: array
           items:
@@ -19317,9 +19333,11 @@ components:
         numDenials:
           type: integer
           format: int32
+          default: 0
         numKeyDependencies:
           type: integer
           format: int32
+          default: 0
         fileType:
           type: string
         mappingOwner:
@@ -19390,6 +19408,7 @@ components:
         numberOfMappings:
           type: integer
           format: int32
+          default: 0
         entity:
           $ref: '#/components/schemas/OntologyEntity'
     MappingEntityCount:
@@ -19405,6 +19424,7 @@ components:
         countAnnotations:
           type: integer
           format: int32
+          default: 0
     MWSXTemplateRefactoring:
       title: TemplateRefactoring
       type: object
@@ -20295,9 +20315,11 @@ components:
         numResults:
           type: integer
           format: int32
+          default: 0
         time:
           type: integer
           format: int32
+          default: 0
     SqlRewritings:
       title: SqlRewritings
       type: object
@@ -20384,6 +20406,7 @@ components:
         executionTime:
           type: integer
           format: int32
+          default: 0
         errorMessages:
           type: array
           items:
@@ -20391,24 +20414,30 @@ components:
         percentage:
           type: integer
           format: int32
+          default: 0
         numLowLevelQueries:
           type: integer
           format: int32
+          default: 0
         numResults:
           type: integer
           format: int32
+          default: 0
         numOntologyRewritings:
           type: integer
           format: int32
+          default: 0
         numOptimizedQueries:
           type: integer
           format: int32
+          default: 0
         hasError:
           type: boolean
           default: false
         numHighLevelQueries:
           type: integer
           format: int32
+          default: 0
         status:
           enum:
             - READY
@@ -20435,9 +20464,11 @@ components:
         ontologyRewritingEnabled:
           type: integer
           format: int32
+          default: 0
         boolean:
           type: integer
           format: int32
+          default: 0
         code:
           type: string
         catalogId:
@@ -20445,6 +20476,7 @@ components:
         sQLEvaluationDisabled:
           type: integer
           format: int32
+          default: 0
         customParams:
           type: object
           additionalProperties:
@@ -20456,6 +20488,7 @@ components:
         qid:
           type: integer
           format: int32
+          default: 0
         originalConstructCode:
           type: string
         agent:
@@ -20661,6 +20694,7 @@ components:
             different IDs
         diagramId:
           type: integer
+          default: 0
         displayedName:
           type: string
         iri:
@@ -20748,6 +20782,7 @@ components:
       properties:
         id:
           type: integer
+          default: 0
         name:
           type: string
         nodes:
@@ -21088,6 +21123,7 @@ components:
                   - has-key
         selectedDiagramId:
           type: integer
+          default: 0
         modelType:
           type: string
           enum:
@@ -21115,6 +21151,7 @@ components:
         count:
           type: integer
           format: int64
+          default: 0
         state:
           type: string
         error:
@@ -21140,9 +21177,11 @@ components:
         startTime:
           type: integer
           format: int64
+          default: 0
         endTime:
           type: integer
           format: int64
+          default: 0
         state:
           type: string
           enum:
@@ -21164,9 +21203,11 @@ components:
         startTime:
           type: integer
           format: int64
+          default: 0
         endTime:
           type: integer
           format: int64
+          default: 0
         state:
           type: string
           enum:
@@ -21209,9 +21250,11 @@ components:
         startTime:
           type: integer
           format: int64
+          default: 0
         endTime:
           type: integer
           format: int64
+          default: 0
         state:
           type: string
           enum:
@@ -21234,6 +21277,7 @@ components:
             type: string
         requestedNumberOfExamples:
           type: integer
+          default: 0
         error:
           type: string
         state:
@@ -21255,9 +21299,11 @@ components:
         startTime:
           type: integer
           format: int64
+          default: 0
         endTime:
           type: integer
           format: int64
+          default: 0
         state:
           type: string
           enum:
@@ -21805,6 +21851,7 @@ components:
             - 0
             - 1
             - 2
+          default: 0
         filters:
           type: array
           items:
@@ -21827,6 +21874,7 @@ components:
         lastModification:
           type: integer
           format: int64
+          default: 0
         rdfGraph:
           $ref: '#/components/schemas/RDFGraph'
         customNodeRenderings:
@@ -21881,6 +21929,7 @@ components:
         kgTriples:
           type: integer
           format: int64
+          default: 0
         kgContributors:
           type: array
           items:
@@ -21888,9 +21937,11 @@ components:
         kgCreationTs:
           type: integer
           format: int64
+          default: 0
         kgLastModifiedTs:
           type: integer
           format: int64
+          default: 0
         kgType:
           type: string
           enum:
@@ -21907,9 +21958,11 @@ components:
         modelsNumber:
           type: integer
           format: int32
+          default: 0
         triplesNumber:
           type: integer
           format: int32
+          default: 0
         status:
           type: string
     KnowledgeGraphDestination:
@@ -21935,6 +21988,7 @@ components:
         instancesNumber:
           type: integer
           format: int32
+          default: 0
         classIri:
           type: string
     InstanceLabelType:
@@ -22010,9 +22064,11 @@ components:
         instance_count:
           type: integer
           format: int32
+          default: 0
         page_count:
           type: integer
           format: int32
+          default: 0
     ObjectType:
       title: ObjectType
       type: object
@@ -22024,9 +22080,11 @@ components:
         instance_count:
           type: integer
           format: int32
+          default: 0
         page_count:
           type: integer
           format: int32
+          default: 0
     SubjectObjectProperty:
       title: SubjectObjectProperty
       type: object
@@ -22042,9 +22100,11 @@ components:
         instance_count:
           type: integer
           format: int32
+          default: 0
         page_count:
           type: integer
           format: int32
+          default: 0
     InstanceSubjectTripsGroup:
       title: InstanceSubjectTripsGroup
       type: object
@@ -22068,9 +22128,11 @@ components:
         instance_count:
           type: integer
           format: int32
+          default: 0
         page_count:
           type: integer
           format: int32
+          default: 0
     ObjectTriple:
       title: ObjectTriple
       type: object
@@ -22086,9 +22148,11 @@ components:
         instance_count:
           type: integer
           format: int32
+          default: 0
         page_count:
           type: integer
           format: int32
+          default: 0
     InstanceObjectTripsGroup:
       title: InstanceObjectTripsGroup
       type: object
@@ -22188,6 +22252,7 @@ components:
         timestamp:
           type: integer
           format: int64
+          default: 0
     KnowledgeGraphFileDestination:
       title: KnowledgeGraphFileDestination
       type: object
@@ -22205,14 +22270,17 @@ components:
         numberOfTriples:
           type: integer
           format: int64
+          default: 0
         fileName:
           type: string
         uploadDate:
           type: integer
           format: int64
+          default: 0
         importingTime:
           type: integer
           format: int64
+          default: 0
         imported:
           type: boolean
           default: false
@@ -22258,12 +22326,16 @@ components:
             type: string
         triplesCreatedCount:
           type: integer
+          default: 0
         csvLinesProcessedCount:
           type: integer
+          default: 0
         csvLinesImportedCount:
           type: integer
+          default: 0
         csvLinesErrorCount:
           type: integer
+          default: 0
         rejectedLines:
           type: object
           additionalProperties:
@@ -22281,13 +22353,16 @@ components:
         timeStart:
           type: integer
           format: int64
+          default: 0
         timeEnd:
           type: integer
           format: int64
+          default: 0
         generatedTriplesFile:
           type: string
         numberOfTriplesPerLine:
           type: integer
+          default: 0
     OntologyDraftInfo:
       type: object
       properties:
@@ -22300,6 +22375,7 @@ components:
         lastModification:
           type: integer
           format: int64
+          default: 0
         fileName:
           type: string
         creator:
@@ -22445,22 +22521,27 @@ components:
         x:
           type: integer
           format: int32
+          default: 0
         width:
           type: integer
           format: int32
+          default: 0
         'y':
           type: integer
           format: int32
+          default: 0
         description:
           type: string
         id:
           type: integer
           format: int32
+          default: 0
         title:
           type: string
         height:
           type: integer
           format: int32
+          default: 0
     DashboardTab:
       title: DashboardTab
       type: object
@@ -22590,6 +22671,7 @@ components:
         cardinality:
           type: integer
           format: int32
+          default: 0
     IdentificationPathElement:
       title: IdentificationPathElement
       type: object
@@ -22660,6 +22742,7 @@ components:
         priority:
           type: integer
           format: int32
+          default: 0
     DataQualityCheckSet:
       title: DataQualityCheckSet
       type: object
@@ -22686,6 +22769,7 @@ components:
         resultsCount:
           type: integer
           format: int32
+          default: 0
         id:
           type: string
         queryExecutionId:
@@ -22719,6 +22803,7 @@ components:
         priority:
           type: integer
           format: int32
+          default: 0
         type:
           type: string
         sqlQueries:
@@ -22728,9 +22813,11 @@ components:
         cardinality:
           type: integer
           format: int32
+          default: 0
         executionTime:
           type: integer
           format: int32
+          default: 0
         dataProperties:
           type: array
           items:
@@ -22738,11 +22825,13 @@ components:
         cardinalityType:
           type: integer
           format: int32
+          default: 0
         checkSemantics:
           type: string
         resultsCount:
           type: integer
           format: int32
+          default: 0
         property:
           $ref: '#/components/schemas/OntologyEntity'
         filler:
@@ -22774,6 +22863,7 @@ components:
         endTimestamp:
           type: integer
           format: int64
+          default: 0
         user:
           type: string
         checkSetId:
@@ -22781,6 +22871,7 @@ components:
         timestamp:
           type: integer
           format: int64
+          default: 0
     DataQualityCheckSetExecutionLogs:
       title: DataQualityCheckSetExecutionLogs
       type: object
@@ -22820,6 +22911,7 @@ components:
         timestamp:
           type: integer
           format: int64
+          default: 0
     KGOpeningEvent:
       title: KGOpeningEvent
       type: object
@@ -22829,6 +22921,7 @@ components:
         timestamp:
           type: integer
           format: int64
+          default: 0
     LicenseInfoDetail:
       title: LicenseInfoDetail
       type: object
@@ -22857,9 +22950,11 @@ components:
         generationDate:
           type: integer
           format: int64
+          default: 0
         expirationDate:
           type: integer
           format: int64
+          default: 0
         project:
           type: string
         licenseInfoDetails:
@@ -22885,9 +22980,11 @@ components:
         totalSize:
           type: integer
           format: int64
+          default: 0
         fileCount:
           type: integer
           format: int32
+          default: 0
     OntologyStorageReport:
       title: OntologyStorageReport
       type: object
@@ -22895,6 +22992,7 @@ components:
         totalSize:
           type: integer
           format: int64
+          default: 0
         versions:
           type: object
           additionalProperties:
@@ -22902,6 +23000,7 @@ components:
         fileCount:
           type: integer
           format: int32
+          default: 0
     OntologiesStorageReport:
       title: OntologiesStorageReport
       type: object
@@ -22909,9 +23008,11 @@ components:
         totalSize:
           type: integer
           format: int64
+          default: 0
         fileCount:
           type: integer
           format: int32
+          default: 0
         ontologies:
           type: object
           additionalProperties:
@@ -22923,9 +23024,11 @@ components:
         totalSize:
           type: integer
           format: int64
+          default: 0
         fileCount:
           type: integer
           format: int32
+          default: 0
     SystemFoldersStorageReport:
       title: SystemFoldersStorageReport
       type: object
@@ -22933,9 +23036,11 @@ components:
         totalSize:
           type: integer
           format: int64
+          default: 0
         fileCount:
           type: integer
           format: int32
+          default: 0
         systemFoldersStorageReport:
           type: object
           additionalProperties:
@@ -22947,9 +23052,11 @@ components:
         totalSize:
           type: integer
           format: int64
+          default: 0
         fileCount:
           type: integer
           format: int32
+          default: 0
     KgsStorageReport:
       title: KgsStorageReport
       type: object
@@ -22957,6 +23064,7 @@ components:
         totalSize:
           type: integer
           format: int64
+          default: 0
         kgs:
           type: object
           additionalProperties:
@@ -22964,6 +23072,7 @@ components:
         fileCount:
           type: integer
           format: int32
+          default: 0
     SystemStorageReport:
       title: SystemStorageReport
       type: object
@@ -22971,6 +23080,7 @@ components:
         totalSize:
           type: integer
           format: int64
+          default: 0
         ontologiesStorageReport:
           $ref: '#/components/schemas/OntologiesStorageReport'
         user:
@@ -22978,6 +23088,7 @@ components:
         fileCount:
           type: integer
           format: int32
+          default: 0
         systemFoldersStorageReport:
           $ref: '#/components/schemas/SystemFoldersStorageReport'
         kgsStorageReport:
@@ -22985,6 +23096,7 @@ components:
         timestamp:
           type: integer
           format: int64
+          default: 0
     SystemFolderDeletionReport:
       title: SystemFolderDeletionReport
       type: object
@@ -22992,6 +23104,7 @@ components:
         deletedFilesCount:
           type: integer
           format: int32
+          default: 0
         deletedFiles:
           type: array
           items:
@@ -23003,6 +23116,7 @@ components:
         freeSpaceCreated:
           type: integer
           format: int64
+          default: 0
     SessionSnapshot:
       title: SessionSnapshot
       type: object
@@ -23012,18 +23126,22 @@ components:
         expirationTime:
           type: integer
           format: int64
+          default: 0
         neverExpires:
           type: boolean
           default: false
         lastUpdate:
           type: integer
           format: int64
+          default: 0
         operationsCount:
           type: integer
           format: int32
+          default: 0
         startTime:
           type: integer
           format: int64
+          default: 0
         id:
           type: string
         user:
@@ -23042,26 +23160,37 @@ components:
       properties:
         cachedTboxes:
           type: integer
+          default: 0
         cachedOwlOntologies:
           type: integer
+          default: 0
         cachedClosedOwlOntologies:
           type: integer
+          default: 0
         cachedMappingManagers:
           type: integer
+          default: 0
         cachedMastroAPIInstances:
           type: integer
+          default: 0
         cachedEndpointMastroAPIInstances:
           type: integer
+          default: 0
         cachedDataQualityCheckThreads:
           type: integer
+          default: 0
         cachedAnnotationProcessorThreads:
           type: integer
+          default: 0
         cachedCountEntityInstancesThreads:
           type: integer
+          default: 0
         cachedMinMaxDataPropertiesThread:
           type: integer
+          default: 0
         cachedInstanceCheckingThreads:
           type: integer
+          default: 0
     MemorySnapshot:
       title: MemorySnapshot
       type: object
@@ -23085,6 +23214,7 @@ components:
         currentlyActiveSessionCount:
           type: integer
           format: int32
+          default: 0
         memorySnapshot:
           $ref: '#/components/schemas/MemorySnapshot'
     MwsxUserLogMessage:
@@ -23111,6 +23241,7 @@ components:
             type: string
         statusCode:
           type: integer
+          default: 0
     GeocodingServer:
       title: GeocodingServer
       type: object
@@ -23202,6 +23333,7 @@ components:
           $ref: '#/components/schemas/OntologyID'
         count:
           type: integer
+          default: 0
     QueryUsageLog:
       type: object
       title: QueryUsageLog
@@ -23229,6 +23361,7 @@ components:
           $ref: '#/components/schemas/OntologyEntity'
         count:
           type: integer
+          default: 0
     MwsxTaskSchedulerJobData:
       title: MwsxTaskSchedulerJobData
       type: object
@@ -23338,6 +23471,7 @@ components:
         timestamp:
           type: integer
           format: int64
+          default: 0
         comment:
           type: string
     UserFeedback:

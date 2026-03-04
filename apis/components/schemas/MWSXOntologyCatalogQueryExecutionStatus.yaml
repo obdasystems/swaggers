@@ -1,28 +1,12 @@
 title: MWSXOntologyCatalogQueryExecutionStatus
 type: object
-required:
-  - id
-  - timeStart
-  - timeEnd
-  - resultsNumber
+required: [id, timeStart, timeEnd, resultsNumber]
 properties:
-  id:
-    $ref: MWSXOntologyCatalogQueryExecutionId.yaml
-  timeStart:
-    type: integer
-    format: int64
-    default: 0
-  timeEnd:
-    type: integer
-    format: int64
-    default: 0
-  resultsNumber:
-    type: integer
-    format: int32
-    default: 0
+  id: {$ref: MWSXOntologyCatalogQueryExecutionId.yaml}
+  timeStart: {type: integer, format: int64, default: 0}
+  timeEnd: {type: integer, format: int64, default: 0}
+  resultsNumber: {type: integer, format: int32, default: 0}
   errorMessages:
     type: array
-    items:
-      type: string
-  status:
-    type: string
+    items: {type: string}
+  status: {type: string}

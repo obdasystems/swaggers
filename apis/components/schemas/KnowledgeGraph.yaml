@@ -3,39 +3,23 @@ type: object
 properties:
   kgDescriptions:
     type: array
-    items:
-      $ref: ./Label.yaml
+    items: {$ref: ./Label.yaml}
   kgTitle:
     type: array
-    items:
-      $ref: ./Label.yaml
-  kgRightsHolder:
-    $ref: ./Agent.yaml
-  kgIri:
-    type: string
-  kgCreator:
-    $ref: ./User.yaml
-  kgPublisher:
-    $ref: ./Agent.yaml
-  kgTriples:
-    type: integer
-    format: int64
+    items: {$ref: ./Label.yaml}
+  kgRightsHolder: {$ref: ./Agent.yaml}
+  kgIri: {type: string}
+  kgCreator: {$ref: ./User.yaml}
+  kgPublisher: {$ref: ./Agent.yaml}
+  kgTriples: {type: integer, format: int64, default: 0}
   kgContributors:
     type: array
-    items:
-      $ref: ./User.yaml
-  kgCreationTs:
-    type: integer
-    format: int64
-  kgLastModifiedTs:
-    type: integer
-    format: int64
+    items: {$ref: ./User.yaml}
+  kgCreationTs: {type: integer, format: int64, default: 0}
+  kgLastModifiedTs: {type: integer, format: int64, default: 0}
   kgType:
     type: string
-    enum:
-      - JENA
-      - RDF4J
+    enum: [JENA, RDF4J]
   prefixes:
     type: object
-    additionalProperties:
-      type: string
+    additionalProperties: {type: string}

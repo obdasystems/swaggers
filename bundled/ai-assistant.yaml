@@ -643,6 +643,7 @@ components:
         cutoff:
           type: integer
           format: int32
+          default: 0
     TypesEnum:
       description: |-
         Contiene tutti i tipi di nodi/archi orginirari dal Graphol per evitare di duplicare gli enumeratori. Nella rappresentazione Floaty/vkg vengono usati questi valori.
@@ -732,6 +733,7 @@ components:
           description: In case of replicated elements, this is the ID of the original element replicated in multiple occurrences, all of them with different IDs
         diagramId:
           type: integer
+          default: 0
         displayedName:
           type: string
         iri:
@@ -819,6 +821,7 @@ components:
       properties:
         id:
           type: integer
+          default: 0
         name:
           type: string
         nodes:
@@ -1150,6 +1153,7 @@ components:
                   - has-key
         selectedDiagramId:
           type: integer
+          default: 0
         modelType:
           type: string
           enum:

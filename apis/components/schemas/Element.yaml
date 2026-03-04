@@ -1,29 +1,17 @@
 type: object
-required:
-  - id
-  - type
+required: [id, type]
 properties:
-  id:
-    type: string
-  originalId:
-    type: string
-    description: >-
-      In case of replicated elements, this is the ID of the original element
-      replicated in multiple occurrences, all of them with different IDs
-  diagramId:
-    type: integer
-  displayedName:
-    type: string
-  iri:
-    type: string
-  type:
-    $ref: ./TypesEnum.yaml
+  id: {type: string}
+  originalId: {type: string, description: 'In case of replicated elements, this is
+      the ID of the original element replicated in multiple occurrences, all of them
+      with different IDs'}
+  diagramId: {type: integer, default: 0}
+  displayedName: {type: string}
+  iri: {type: string}
+  type: {$ref: ./TypesEnum.yaml}
   aiGenerated:
-    required:
-      - chunkId
+    required: [chunkId]
     type: object
     properties:
-      chunkId:
-        type: string
-      isNew:
-        type: boolean
+      chunkId: {type: string}
+      isNew: {type: boolean}

@@ -1937,6 +1937,7 @@ components:
         ordering:
           description: 1 is ascending -1 descending 0 not defined
           type: integer
+          default: 0
         function:
           $ref: '#/components/schemas/Function'
         groupBy:
@@ -1970,6 +1971,7 @@ components:
       properties:
         id:
           type: integer
+          default: 0
         graphIds:
           description: Path of ids that describe optional.
           type: array
@@ -2006,8 +2008,10 @@ components:
             $ref: '#/components/schemas/Optional'
         limit:
           type: integer
+          default: 0
         offset:
           type: integer
+          default: 0
         sparql:
           type: string
     OntologyPath:
@@ -2106,6 +2110,7 @@ components:
           description: In case of replicated elements, this is the ID of the original element replicated in multiple occurrences, all of them with different IDs
         diagramId:
           type: integer
+          default: 0
         displayedName:
           type: string
         iri:
@@ -2193,6 +2198,7 @@ components:
       properties:
         id:
           type: integer
+          default: 0
         name:
           type: string
         nodes:
@@ -2524,6 +2530,7 @@ components:
                   - has-key
         selectedDiagramId:
           type: integer
+          default: 0
         modelType:
           type: string
           enum:

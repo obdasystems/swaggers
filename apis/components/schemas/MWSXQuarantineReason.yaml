@@ -1,11 +1,6 @@
 title: QuarantinedReason
 type: object
 properties:
-  objectID:
-    type: string
-  objectType:
-    type: integer
-    format: int32
-    default: 0
-  reason:
-    type: string
+  objectID: {type: string}
+  objectType: {type: integer, format: int32, default: 0}
+  reason: {type: string}

@@ -677,6 +677,7 @@ components:
         cutoff:
           type: integer
           format: int32
+          default: 0
     MwsxTag:
       title: MwsxTag
       type: object

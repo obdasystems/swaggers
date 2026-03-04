@@ -1,8 +1,8 @@
 title: KnowledgeGraphFileInfo
 type: object
 properties:
-  numberOfTriples: {type: integer, format: int64}
+  numberOfTriples: {type: integer, format: int64, default: 0}
   fileName: {type: string}
-  uploadDate: {type: integer, format: int64}
-  importingTime: {type: integer, format: int64}
+  uploadDate: {type: integer, format: int64, default: 0}
+  importingTime: {type: integer, format: int64, default: 0}
   imported: {type: boolean, default: false}

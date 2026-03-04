@@ -3,25 +3,13 @@ type: object
 properties:
   predicates:
     type: array
-    items:
-      $ref: ./MWSXPredicate.yaml
+    items: {$ref: ./MWSXPredicate.yaml}
   unmappedPredicates:
     type: array
-    items:
-      $ref: ./MWSXPredicate.yaml
+    items: {$ref: ./MWSXPredicate.yaml}
   mappedPredicates:
     type: array
-    items:
-      $ref: ./MWSXPredicate.yaml
-  unmappedPredicatesCount:
-    type: integer
-    format: int32
-    default: 0
-  totalPredicatesCount:
-    type: integer
-    format: int32
-    default: 0
-  mappedPredicatesCount:
-    type: integer
-    format: int32
-    default: 0
+    items: {$ref: ./MWSXPredicate.yaml}
+  unmappedPredicatesCount: {type: integer, format: int32, default: 0}
+  totalPredicatesCount: {type: integer, format: int32, default: 0}
+  mappedPredicatesCount: {type: integer, format: int32, default: 0}

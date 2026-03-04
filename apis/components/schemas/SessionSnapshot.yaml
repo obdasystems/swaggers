@@ -2,11 +2,11 @@ title: SessionSnapshot
 type: object
 properties:
   expirationTimeText: {type: string}
-  expirationTime: {type: integer, format: int64}
+  expirationTime: {type: integer, format: int64, default: 0}
   neverExpires: {type: boolean, default: false}
-  lastUpdate: {type: integer, format: int64}
-  operationsCount: {type: integer, format: int32}
-  startTime: {type: integer, format: int64}
+  lastUpdate: {type: integer, format: int64, default: 0}
+  operationsCount: {type: integer, format: int32, default: 0}
+  startTime: {type: integer, format: int64, default: 0}
   id: {type: string}
   user: {type: string}
   startTimeText: {type: string}

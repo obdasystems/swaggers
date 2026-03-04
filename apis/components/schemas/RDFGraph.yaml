@@ -1,102 +1,64 @@
 type: object
-required:
-  - entities
-  - diagrams
-  - modelType
-  - metadata
+required: [entities, diagrams, modelType, metadata]
 properties:
   diagrams:
     type: array
-    items:
-      $ref: ./Diagram.yaml
+    items: {$ref: ./Diagram.yaml}
   entities:
     type: array
-    items:
-      $ref: ./GrapholscapeEntity.yaml
+    items: {$ref: ./GrapholscapeEntity.yaml}
   classInstanceEntities:
     type: array
-    items:
-      $ref: ./ClassInstanceEntity.yaml
+    items: {$ref: ./ClassInstanceEntity.yaml}
   metadata:
     type: object
-    required:
-      - namespaces
+    required: [namespaces]
     properties:
-      name:
-        type: string
-      iri:
-        type: string
-      version:
-        type: string
+      name: {type: string}
+      iri: {type: string}
+      version: {type: string}
       languages:
         type: array
-        items:
-          type: string
-      defaultLanguage:
-        type: string
+        items: {type: string}
+      defaultLanguage: {type: string}
       namespaces:
         type: array
-        items:
-          $ref: ./Namespace.yaml
+        items: {$ref: ./Namespace.yaml}
       annotations:
         type: array
-        items:
-          $ref: ./GrapholscapeAnnotation.yaml
+        items: {$ref: ./GrapholscapeAnnotation.yaml}
       annotationProperties:
         type: array
-        items:
-          type: string
+        items: {type: string}
   config:
     type: object
     properties:
       themes:
         type: array
-        items:
-          $ref: ./Theme.yaml
-      selectedTheme:
-        type: string
-      language:
-        type: string
+        items: {$ref: ./Theme.yaml}
+      selectedTheme: {type: string}
+      language: {type: string}
       entityNameType:
         type: string
-        enum:
-          - label
-          - prefixed_iri
-          - full_iri
+        enum: [label, prefixed_iri, full_iri]
       renderers:
         type: array
-        items:
-          type: string
-      widgets:
-        type: object
+        items: {type: string}
+      widgets: {type: object}
       filters:
         type: array
         items:
           type: string
-          enum:
-            - all
-            - data-property
-            - value-domain
-            - individual
-            - annotation-property
-            - universal_quantifier
-            - complement
-            - has-key
-  selectedDiagramId:
-    type: integer
+          enum: [all, data-property, value-domain, individual, annotation-property,
+            universal_quantifier, complement, has-key]
+  selectedDiagramId: {type: integer, default: 0}
   modelType:
     type: string
-    enum:
-      - ontology
-      - vkg
-      - rdf
+    enum: [ontology, vkg, rdf]
   actions:
     type: array
-    items:
-      $ref: ./Action.yaml
-  creator:
-    type: string
+    items: {$ref: ./Action.yaml}
+  creator: {type: string}
   constraints:
     type: array
-    items:
-      $ref: ./SHACLShape.yaml
+    items: {$ref: ./SHACLShape.yaml}
