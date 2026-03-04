@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="14f75810-87df-4545-b446-d171bd08c9d1" name="Changes" comment="" />
+    <list default="true" id="6d21d900-91bb-49eb-ae34-6c0ad2d9c8f7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,7 +34,7 @@
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 6
 }]]></component>
-  <component name="ProjectId" id="2zrRVQTxCYCqb7cxgOKzAi1QQI2" />
+  <component name="ProjectId" id="3ATW0bcPGp2hiFDmDfgr2FCb8Wj" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -36,8 +42,11 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.AddTags.executor": "Run",
+    "Application.AddDefaultValueToPrimitiveObject.executor": "Debug",
+    "Maven.SwaggerComposer [compile].executor": "Run",
+    "Maven.SwaggerComposer [install].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/giacomoronconi/git/swaggers/SwaggerComposer",
@@ -46,15 +55,18 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.obdasystems.swagger" />
+    </key>
+  </component>
   <component name="RunManager">
-    <configuration name="AddTags" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <classpathModifications>
-        <entry path="$MAVEN_REPOSITORY$/org/yaml/snakeyaml/2.4/snakeyaml-2.4.jar" />
-      </classpathModifications>
-      <option name="MAIN_CLASS_NAME" value="com.obdasystems.swagger.AddTags" />
+    <configuration name="AddDefaultValueToPrimitiveObject" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.obdasystems.swagger.AddDefaultValueToPrimitiveObject" />
       <module name="SwaggerComposer" />
       <extension name="coverage">
         <pattern>
@@ -68,7 +80,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.AddTags" />
+        <item itemvalue="Application.AddDefaultValueToPrimitiveObject" />
       </list>
     </recent_temporary>
   </component>
@@ -83,12 +95,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="14f75810-87df-4545-b446-d171bd08c9d1" name="Changes" comment="" />
-      <created>1752487228826</created>
+      <changelist id="6d21d900-91bb-49eb-ae34-6c0ad2d9c8f7" name="Changes" comment="" />
+      <created>1772616818189</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1752487228826</updated>
-      <workItem from="1752487230118" duration="1083000" />
+      <updated>1772616818189</updated>
+      <workItem from="1772616819400" duration="1207000" />
     </task>
     <servers />
   </component>

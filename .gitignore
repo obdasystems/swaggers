@@ -1,6 +1,8 @@
 # Intellij IDEA ignores
 /swaggers.iml
-/SwaggerComposer/target/classes
+/SwaggerComposer/target
+/SwaggerComposer/.idea
+.mvn
 
 # VS Code ignores
 .vscode/
