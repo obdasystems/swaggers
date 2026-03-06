@@ -3335,7 +3335,6 @@ components:
       title: GrapholscapeAnnotation
       type: object
       required:
-        - value
         - property
       properties:
         lexicalForm:

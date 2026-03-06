@@ -1,6 +1,6 @@
 title: GrapholscapeAnnotation
 type: object
-required: [value, property]
+required: [property]
 properties:
   lexicalForm: {type: string, deprecated: true, description: 'Has been renamed to
       `value`, kept for back-compatibility.'}
