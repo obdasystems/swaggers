@@ -8,12 +8,6 @@ put:
       required: true
       schema:
         type: string
-    - name: iriStyle
-      description: "`True` for camelCase, `False` for snake_case" 
-      in: query
-      schema:
-        type: boolean
-        default: true
   requestBody:
     content:
       application/json:
@@ -22,6 +16,10 @@ put:
           properties:
             text: { type: string }
             currentRdfGraph: { $ref: ../components/schemas/RDFGraph.yaml }
+            iriStyle:
+              type: boolean
+              default: true
+              description: "`True` for camelCase, `False` for snake_case"
   responses:
     "200":
       description: Successful operation
