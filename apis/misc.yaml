@@ -1,13 +1,13 @@
 openapi: 3.0.0
 servers:
-  - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+  - url: "{protocol}://{tenant}{port}/mws/rest/mwsx"
     variables:
       protocol:
         default: https
       tenant:
         default: localhost
       port:
-        default: ':8989'
+        default: ":8989"
 info:
   description: >-
     This is the API used for general purpose operations in Mastro.
@@ -85,6 +85,8 @@ paths:
     $ref: paths/logger_monitor.yaml
   /statics/sparql/extractProjectVarNames:
     $ref: paths/statics_sparql_extractProjectVarNames.yaml
+  /statics/sparql/constructify:
+    $ref: paths/statics_sparql_constructify.yaml
   /statics/sparql/templateSize:
     $ref: paths/statics_sparql_templateSize.yaml
   /statics/reporting/request:
@@ -107,12 +109,12 @@ paths:
     $ref: paths/statistics_{endpoint}_queries.yaml
   /statistics/{endpoint}/entities:
     $ref: paths/statistics_{endpoint}_entities.yaml
-components: 
-  securitySchemes: 
-    apiKey: 
-      $ref: './components/securitySchemes/api-key.yaml'
+components:
+  securitySchemes:
+    apiKey:
+      $ref: "./components/securitySchemes/api-key.yaml"
     jwt:
-      $ref: './components/securitySchemes/jwt.yaml'
-security: 
+      $ref: "./components/securitySchemes/jwt.yaml"
+security:
   - apiKey: []
   - jwt: []

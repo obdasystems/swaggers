@@ -20348,6 +20348,41 @@ paths:
       security:
         - apiKey: []
         - jwt: []
+  /statics/sparql/constructify:
+    servers:
+      - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+        variables:
+          protocol:
+            default: https
+          tenant:
+            default: localhost
+          port:
+            default: ':8989'
+    post:
+      tags:
+        - mastro_misc_Statics
+      summary: >-
+        Take a SPARQL query and tranfsorm it in a CONSTRUCT form by putting the
+        BGP in the CONSTRUCT body.
+      operationId: postConstructify
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              type: string
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
   /statics/sparql/templateSize:
     servers:
       - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'

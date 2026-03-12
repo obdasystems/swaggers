@@ -722,6 +722,27 @@ paths:
                   type: string
         '401':
           description: Unhauthorized
+  /statics/sparql/constructify:
+    post:
+      tags:
+        - Statics
+      summary: Take a SPARQL query and tranfsorm it in a CONSTRUCT form by putting the BGP in the CONSTRUCT body.
+      operationId: postConstructify
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              type: string
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
   /statics/sparql/templateSize:
     post:
       tags:
