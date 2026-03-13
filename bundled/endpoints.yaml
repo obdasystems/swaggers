@@ -2884,6 +2884,7 @@ components:
         - iri
         - xsd:dateTime
         - literal
+        - rdf:PlainLiteral
         - xsd:string
         - xsd:boolean
         - xsd:integer
