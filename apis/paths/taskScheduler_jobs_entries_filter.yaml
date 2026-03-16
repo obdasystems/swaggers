@@ -1,24 +1,27 @@
 post:
   tags: [Actions]
-  summary: Schedules a new job in the task scheduler, returns the ID of the scheduled
+  summary:
+    Schedules a new job in the task scheduler, returns the ID of the scheduled
     job
   operationId: postTaskSchedulerJobEntries
   parameters:
-  - name: mode
-    in: query
-    required: true
-    schema: {type: string}
+    - name: mode
+      in: query
+      schema: { type: string }
   requestBody:
     content:
       application/json:
         schema:
           type: object
-          additionalProperties: {type: string}
+          additionalProperties: { type: string }
     required: true
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/MwsxTaskSchedulerJobEntry.yaml}
-    '401': {description: Unhauthorized}
+          schema:
+            type: array
+            items:
+              { $ref: ../components/schemas/MwsxTaskSchedulerJobEntry.yaml }
+    "401": { description: Unhauthorized }
