@@ -1410,6 +1410,8 @@ components:
     OntologyStorageReport:
       title: OntologyStorageReport
       type: object
+      required:
+        - versions
       properties:
         totalSize:
           type: integer
@@ -1426,6 +1428,8 @@ components:
     OntologiesStorageReport:
       title: OntologiesStorageReport
       type: object
+      required:
+        - ontologies
       properties:
         totalSize:
           type: integer
@@ -1454,6 +1458,8 @@ components:
     SystemFoldersStorageReport:
       title: SystemFoldersStorageReport
       type: object
+      required:
+        - systemFoldersStorageReport
       properties:
         totalSize:
           type: integer
@@ -1482,6 +1488,8 @@ components:
     KgsStorageReport:
       title: KgsStorageReport
       type: object
+      required:
+        - kgs
       properties:
         totalSize:
           type: integer
@@ -1498,6 +1506,10 @@ components:
     SystemStorageReport:
       title: SystemStorageReport
       type: object
+      required:
+        - ontologiesStorageReport
+        - kgsStorageReport
+        - systemFoldersStorageReport
       properties:
         totalSize:
           type: integer

@@ -45,3 +45,4 @@ properties:
         type: string
   timestamp:
     type: number
+    default: 0

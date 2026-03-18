@@ -1,8 +1,10 @@
 title: OntologyStorageReport
 type: object
+required:
+  - versions
 properties:
-  totalSize: {type: integer, format: int64, default: 0}
+  totalSize: { type: integer, format: int64, default: 0 }
   versions:
     type: object
-    additionalProperties: {$ref: ./OntologyVersionStorageReport.yaml}
-  fileCount: {type: integer, format: int32, default: 0}
+    additionalProperties: { $ref: ./OntologyVersionStorageReport.yaml }
+  fileCount: { type: integer, format: int32, default: 0 }

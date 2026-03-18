@@ -1,5 +1,8 @@
 title: Role
 type: object
+required:
+  - name
+  - permissions
 properties:
   permissions:
     type: array

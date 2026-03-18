@@ -1,6 +1,8 @@
 title: UsersFeedback
 type: object
+required:
+  - usersFeedback
 properties:
   usersFeedback:
-    additionalProperties: 
+    additionalProperties:
       $ref: UserFeedback.yaml

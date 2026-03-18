@@ -1,8 +1,10 @@
 title: SystemFoldersStorageReport
 type: object
+required:
+  - systemFoldersStorageReport
 properties:
-  totalSize: {type: integer, format: int64, default: 0}
-  fileCount: {type: integer, format: int32, default: 0}
+  totalSize: { type: integer, format: int64, default: 0 }
+  fileCount: { type: integer, format: int32, default: 0 }
   systemFoldersStorageReport:
     type: object
-    additionalProperties: {$ref: ./SystemFolderStorageReport.yaml}
+    additionalProperties: { $ref: ./SystemFolderStorageReport.yaml }

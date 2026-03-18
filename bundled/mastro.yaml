@@ -18211,6 +18211,9 @@ components:
     Role:
       title: Role
       type: object
+      required:
+        - name
+        - permissions
       properties:
         permissions:
           type: array
@@ -18538,6 +18541,7 @@ components:
         progress:
           type: number
           format: double
+          default: 0
     MwsxOntologyVersionLoaderReport:
       title: MwsxOntologyVersionLoaderReport
       type: object
@@ -20745,9 +20749,11 @@ components:
         x:
           type: number
           format: float
+          default: 0
         'y':
           type: number
           format: float
+          default: 0
     Node:
       type: object
       allOf:
@@ -20800,6 +20806,7 @@ components:
         zoom:
           type: number
           format: float
+          default: 0
     Diagram:
       type: object
       required:
@@ -21024,6 +21031,7 @@ components:
               type: string
         timestamp:
           type: number
+          default: 0
     SHACLShape:
       type: object
       required:
@@ -21199,6 +21207,7 @@ components:
             $ref: '#/components/schemas/EntityCount'
         percentage:
           type: number
+          default: 0
         startTime:
           type: integer
           format: int64
@@ -21225,6 +21234,7 @@ components:
             $ref: '#/components/schemas/OntologyEntity'
         percentage:
           type: number
+          default: 0
         startTime:
           type: integer
           format: int64
@@ -21249,6 +21259,7 @@ components:
           $ref: '#/components/schemas/OntologyEntity'
         minMax:
           type: number
+          default: 0
         error:
           type: string
         state:
@@ -21290,6 +21301,7 @@ components:
             - STOPPED
         percentage:
           type: number
+          default: 0
     EntityExamples:
       title: EntityExamples
       type: object
@@ -21339,6 +21351,7 @@ components:
             - STOPPED
         percentage:
           type: number
+          default: 0
     MWSXDataSourceCoverage:
       title: DataSourceCoverage
       type: object
@@ -21780,6 +21793,7 @@ components:
           properties:
             size:
               type: number
+              default: 0
             color:
               type: string
             icon:
@@ -21819,6 +21833,7 @@ components:
                           type: array
                           items:
                             type: number
+                            default: 0
             icon:
               $ref: '#/components/schemas/BasePropertyInfo'
             location:
@@ -23013,6 +23028,8 @@ components:
     OntologyStorageReport:
       title: OntologyStorageReport
       type: object
+      required:
+        - versions
       properties:
         totalSize:
           type: integer
@@ -23029,6 +23046,8 @@ components:
     OntologiesStorageReport:
       title: OntologiesStorageReport
       type: object
+      required:
+        - ontologies
       properties:
         totalSize:
           type: integer
@@ -23057,6 +23076,8 @@ components:
     SystemFoldersStorageReport:
       title: SystemFoldersStorageReport
       type: object
+      required:
+        - systemFoldersStorageReport
       properties:
         totalSize:
           type: integer
@@ -23085,6 +23106,8 @@ components:
     KgsStorageReport:
       title: KgsStorageReport
       type: object
+      required:
+        - kgs
       properties:
         totalSize:
           type: integer
@@ -23101,6 +23124,10 @@ components:
     SystemStorageReport:
       title: SystemStorageReport
       type: object
+      required:
+        - ontologiesStorageReport
+        - kgsStorageReport
+        - systemFoldersStorageReport
       properties:
         totalSize:
           type: integer
@@ -23480,6 +23507,8 @@ components:
     RoleMonolith:
       title: RoleMonolith
       type: object
+      required:
+        - name
       properties:
         name:
           type: string
@@ -23493,6 +23522,7 @@ components:
       properties:
         rating:
           type: number
+          default: 0
         timestamp:
           type: integer
           format: int64
@@ -23510,6 +23540,8 @@ components:
     UsersFeedback:
       title: UsersFeedback
       type: object
+      required:
+        - usersFeedback
       properties:
         usersFeedback:
           additionalProperties:

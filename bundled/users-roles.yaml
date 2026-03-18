@@ -484,6 +484,9 @@ components:
     Role:
       title: Role
       type: object
+      required:
+        - name
+        - permissions
       properties:
         permissions:
           type: array
@@ -558,6 +561,8 @@ components:
     RoleMonolith:
       title: RoleMonolith
       type: object
+      required:
+        - name
       properties:
         name:
           type: string
@@ -571,6 +576,7 @@ components:
       properties:
         rating:
           type: number
+          default: 0
         timestamp:
           type: integer
           format: int64
@@ -588,6 +594,8 @@ components:
     UsersFeedback:
       title: UsersFeedback
       type: object
+      required:
+        - usersFeedback
       properties:
         usersFeedback:
           additionalProperties:
