@@ -132,7 +132,6 @@ paths:
       parameters:
         - name: mode
           in: query
-          required: true
           schema:
             type: string
       requestBody:
@@ -149,7 +148,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MwsxTaskSchedulerJobEntry'
+                type: array
+                items:
+                  $ref: '#/components/schemas/MwsxTaskSchedulerJobEntry'
         '401':
           description: Unhauthorized
   /taskScheduler/job/{jobId}/entry:

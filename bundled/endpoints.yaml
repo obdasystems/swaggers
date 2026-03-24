@@ -3256,9 +3256,11 @@ components:
         x:
           type: number
           format: float
+          default: 0
         'y':
           type: number
           format: float
+          default: 0
     Node:
       type: object
       allOf:
@@ -3311,6 +3313,7 @@ components:
         zoom:
           type: number
           format: float
+          default: 0
     Diagram:
       type: object
       required:
@@ -3526,6 +3529,7 @@ components:
               type: string
         timestamp:
           type: number
+          default: 0
     SHACLShape:
       type: object
       required:
@@ -3701,6 +3705,7 @@ components:
             $ref: '#/components/schemas/EntityCount'
         percentage:
           type: number
+          default: 0
         startTime:
           type: integer
           format: int64
@@ -3727,6 +3732,7 @@ components:
             $ref: '#/components/schemas/OntologyEntity'
         percentage:
           type: number
+          default: 0
         startTime:
           type: integer
           format: int64
@@ -3751,6 +3757,7 @@ components:
           $ref: '#/components/schemas/OntologyEntity'
         minMax:
           type: number
+          default: 0
         error:
           type: string
         state:
@@ -3792,6 +3799,7 @@ components:
             - STOPPED
         percentage:
           type: number
+          default: 0
     EntityExamples:
       title: EntityExamples
       type: object
@@ -3841,6 +3849,7 @@ components:
             - STOPPED
         percentage:
           type: number
+          default: 0
     MWSXDataSourceColumnReference:
       title: DataSourceColumnReference
       type: object

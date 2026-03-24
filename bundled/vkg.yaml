@@ -481,9 +481,11 @@ components:
         x:
           type: number
           format: float
+          default: 0
         'y':
           type: number
           format: float
+          default: 0
     Node:
       type: object
       allOf:
@@ -536,6 +538,7 @@ components:
         zoom:
           type: number
           format: float
+          default: 0
     Diagram:
       type: object
       required:
@@ -751,6 +754,7 @@ components:
               type: string
         timestamp:
           type: number
+          default: 0
     SHACLShape:
       type: object
       required:
@@ -943,6 +947,7 @@ components:
           properties:
             size:
               type: number
+              default: 0
             color:
               type: string
             icon:
@@ -978,6 +983,7 @@ components:
                           type: array
                           items:
                             type: number
+                            default: 0
             icon:
               $ref: '#/components/schemas/BasePropertyInfo'
             location:

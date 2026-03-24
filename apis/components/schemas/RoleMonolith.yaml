@@ -1,9 +1,11 @@
 title: RoleMonolith
 type: object
+required:
+  - name
 properties:
   name:
     type: string
   deactivatedMenus:
     type: array
-    items: 
+    items:
       type: string

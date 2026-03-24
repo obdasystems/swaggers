@@ -1568,6 +1568,9 @@ components:
     Role:
       title: Role
       type: object
+      required:
+        - name
+        - permissions
       properties:
         permissions:
           type: array
@@ -1792,6 +1795,7 @@ components:
         progress:
           type: number
           format: double
+          default: 0
     MwsxOntologyVersionLoaderReport:
       title: MwsxOntologyVersionLoaderReport
       type: object

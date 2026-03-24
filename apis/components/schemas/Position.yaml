@@ -1,11 +1,13 @@
 type: object
 required:
   - x
-  - 'y'
+  - "y"
 properties:
   x:
     type: number
     format: float
-  'y':
+    default: 0
+  "y":
     type: number
     format: float
+    default: 0
