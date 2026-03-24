@@ -31,8 +31,6 @@ paths:
     $ref: paths/owlOntology_{name}_version_mapping_{ID}_count.yaml
   /owlOntology/{name}/version/mapping/{mapID}/duplicate:
     $ref: paths/owlOntology_{name}_version_mapping_{mapID}_duplicate.yaml
-  /owlOntology/{name}/version/mapping/{mapID}/backup:
-    $ref: paths/owlOntology_{name}_version_mapping_{mapID}_backup.yaml
   /owlOntology/{name}/version/mapping/{mapID}/migrate:
     $ref: paths/owlOntology_{name}_version_mapping_{mapID}_migrate.yaml
   /owlOntology/{name}/version/mapping/{mapID}/fixDeprecated:
