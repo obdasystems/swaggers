@@ -9,7 +9,6 @@ delete:
     schema: {type: string}
   - name: namedGraph
     in: query
-    required: true
     schema: {type: string}
   - name: files
     in: query

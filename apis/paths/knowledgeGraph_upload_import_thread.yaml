@@ -3,42 +3,40 @@ get:
   summary: GET mwsx/knowledgeGraph/upload/import/thread
   operationId: getKnowledgeGraphUploadFileCsvImportThread
   parameters:
-  - name: iri
-    in: query
-    required: true
-    schema: {type: string}
-  - name: threadId
-    in: query
-    required: true
-    schema: {type: string}
-  - name: fileName
-    in: query
-    required: true
-    schema: {type: string}
+    - name: iri
+      in: query
+      required: true
+      schema: { type: string }
+    - name: threadId
+      in: query
+      schema: { type: string }
+    - name: fileName
+      in: query
+      schema: { type: string }
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/KgCsvImportReport.yaml}
-    '401': {description: Unhauthorized}
+          schema: { $ref: ../components/schemas/KgCsvImportReport.yaml }
+    "401": { description: Unhauthorized }
 delete:
   tags: [Upload]
   summary: DELETE mwsx/knowledgeGraph/upload/import/thread
   operationId: deleteKnowledgeGraphUploadFileCsvImportThread
   parameters:
-  - name: iri
-    in: query
-    required: true
-    schema: {type: string}
-  - name: threadId
-    in: query
-    required: true
-    schema: {type: string}
+    - name: iri
+      in: query
+      required: true
+      schema: { type: string }
+    - name: threadId
+      in: query
+      required: true
+      schema: { type: string }
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/KgCsvImportReport.yaml}
-    '401': {description: Unhauthorized}
+          schema: { $ref: ../components/schemas/KgCsvImportReport.yaml }
+    "401": { description: Unhauthorized }

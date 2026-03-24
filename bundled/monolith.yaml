@@ -2691,148 +2691,6 @@ paths:
       security:
         - apiKey: []
         - jwt: []
-  /owlOntology/{name}/version/mapping/{mapID}/backup:
-    servers:
-      - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
-        variables:
-          protocol:
-            default: https
-          tenant:
-            default: localhost
-          port:
-            default: ':8989'
-    get:
-      tags:
-        - mastro_mappings_Persistence
-      summary: Verifies whether a backup copy of a given mapping file exists
-      operationId: getOwlOntologyNameVersionMappingIDBackup
-      parameters:
-        - name: name
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: mapID
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: version
-          in: query
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: boolean
-        '401':
-          description: Unhauthorized
-      security:
-        - apiKey: []
-        - jwt: []
-    post:
-      tags:
-        - mastro_mappings_Persistence
-      summary: Creates a backup copy of a given mapping file
-      operationId: postOwlOntologyNameVersionMappingIDBackup
-      parameters:
-        - name: name
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: mapID
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: version
-          in: query
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: boolean
-        '401':
-          description: Unhauthorized
-      security:
-        - apiKey: []
-        - jwt: []
-    put:
-      tags:
-        - mastro_mappings_Persistence
-      summary: Restore a backup copy of a given mapping file
-      operationId: postOwlOntologyNameVersionMappingIDRestore
-      parameters:
-        - name: name
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: mapID
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: version
-          in: query
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: boolean
-        '401':
-          description: Unhauthorized
-      security:
-        - apiKey: []
-        - jwt: []
-    delete:
-      tags:
-        - mastro_mappings_Persistence
-      summary: Deletes the backup copy of a given mapping file
-      operationId: postOwlOntologyNameVersionMappingIDDelete
-      parameters:
-        - name: name
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: mapID
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: version
-          in: query
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: boolean
-        '401':
-          description: Unhauthorized
-      security:
-        - apiKey: []
-        - jwt: []
   /owlOntology/{name}/version/mapping/{mapID}/migrate:
     servers:
       - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
@@ -14580,12 +14438,11 @@ paths:
         - mastro_knowledge-graphs_Persistence
       summary: DELETE mwsx/knowledgeGraph
       operationId: deleteKnowledgeGraph
-      parameters:
-        - name: kg
-          in: query
-          required: true
-          schema:
-            type: string
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              type: string
       responses:
         '200':
           description: OK
@@ -14895,12 +14752,10 @@ paths:
             type: string
         - name: namedGraph
           in: query
-          required: true
           schema:
             type: string
         - name: fileName
           in: query
-          required: true
           schema:
             type: string
       responses:
@@ -15314,6 +15169,50 @@ paths:
       security:
         - apiKey: []
         - jwt: []
+  /knowledgeGraph/query/catalog/import:
+    servers:
+      - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+        variables:
+          protocol:
+            default: https
+          tenant:
+            default: localhost
+          port:
+            default: ':8989'
+    post:
+      tags:
+        - mastro_knowledge-graphs_Query
+      summary: POST mwsx/knowledgeGraph/query/catalog/export
+      operationId: postKnowledgeGraphQueryCatalogImport
+      parameters:
+        - name: additive
+          in: query
+          required: true
+          schema:
+            type: boolean
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileInfo'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OBDACatalog'
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
   /knowledgeGraph/query/catalog/{queryID}:
     servers:
       - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
@@ -15437,7 +15336,6 @@ paths:
             type: string
         - name: namedGraph
           in: query
-          required: true
           schema:
             type: string
       requestBody:
@@ -15486,7 +15384,6 @@ paths:
             type: string
         - name: namedGraph
           in: query
-          required: true
           schema:
             type: string
       responses:
@@ -15615,7 +15512,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/KGStatus'
+                $ref: '#/components/schemas/SPARQLStatus'
         '401':
           description: Unhauthorized
       security:
@@ -16128,7 +16025,6 @@ paths:
             type: string
         - name: namedGraph
           in: query
-          required: true
           schema:
             type: string
         - name: files
@@ -16236,12 +16132,10 @@ paths:
       parameters:
         - name: fileName
           in: query
-          required: true
           schema:
             type: string
         - name: uploadOnly
           in: query
-          required: true
           schema:
             type: boolean
         - name: endpointName
@@ -16524,12 +16418,10 @@ paths:
             type: string
         - name: threadId
           in: query
-          required: true
           schema:
             type: string
         - name: fileName
           in: query
-          required: true
           schema:
             type: string
       responses:
@@ -26629,6 +26521,8 @@ components:
     KnowledgeGraph:
       title: KnowledgeGraph
       type: object
+      required:
+        - kgIri
       properties:
         kgDescriptions:
           type: array

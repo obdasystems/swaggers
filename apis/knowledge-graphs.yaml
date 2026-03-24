@@ -56,6 +56,8 @@ paths:
     $ref: paths/knowledgeGraph_query_catalog.yaml
   /knowledgeGraph/query/catalog/export:
     $ref: paths/knowledgeGraph_query_catalog_export.yaml
+  /knowledgeGraph/query/catalog/import:
+    $ref: paths/knowledgeGraph_query_catalog_import.yaml
   /knowledgeGraph/query/catalog/{queryID}:
     $ref: paths/knowledgeGraph_query_catalog_{queryID}.yaml
   /knowledgeGraph/query/start:

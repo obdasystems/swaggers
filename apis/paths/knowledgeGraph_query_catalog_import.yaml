@@ -1,0 +1,25 @@
+post:
+  tags: [Query]
+  summary: POST mwsx/knowledgeGraph/query/catalog/export
+  operationId: postKnowledgeGraphQueryCatalogImport
+  parameters:
+    - name: additive
+      in: query
+      required: true
+      schema: { type: boolean }
+    - name: iri
+      in: query
+      required: true
+      schema: { type: string }
+  requestBody:
+    content:
+      application/json:
+        schema: { $ref: ../components/schemas/FileInfo.yaml }
+    required: true
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema: { $ref: ../components/schemas/OBDACatalog.yaml }
+    "401": { description: Unhauthorized }

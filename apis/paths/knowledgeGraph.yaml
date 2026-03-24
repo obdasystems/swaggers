@@ -2,31 +2,31 @@ delete:
   tags: [Persistence]
   summary: DELETE mwsx/knowledgeGraph
   operationId: deleteKnowledgeGraph
-  parameters:
-  - name: kg
-    in: query
-    required: true
-    schema: {type: string}
+  requestBody:
+    content:
+      text/plain:
+        schema:
+          type: string
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
-          schema: {type: boolean}
-    '401': {description: Unhauthorized}
+          schema: { type: boolean }
+    "401": { description: Unhauthorized }
 get:
   tags: [Persistence]
   summary: GET mwsx/knowledgeGraph
   operationId: getKnowledgeGraph
   parameters:
-  - name: iri
-    in: query
-    required: true
-    schema: {type: string}
+    - name: iri
+      in: query
+      required: true
+      schema: { type: string }
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/KnowledgeGraph.yaml}
-    '401': {description: Unhauthorized}
+          schema: { $ref: ../components/schemas/KnowledgeGraph.yaml }
+    "401": { description: Unhauthorized }

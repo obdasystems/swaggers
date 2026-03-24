@@ -3,22 +3,21 @@ post:
   summary: POST mwsx/knowledgeGraph/query/catalog/{queryID}/start
   operationId: postKnowledgeGraphQueryCatalogQueryIDStart
   parameters:
-  - name: queryID
-    in: path
-    required: true
-    schema: {type: string}
-  - name: iri
-    in: query
-    required: true
-    schema: {type: string}
-  - name: namedGraph
-    in: query
-    required: true
-    schema: {type: string}
+    - name: queryID
+      in: path
+      required: true
+      schema: { type: string }
+    - name: iri
+      in: query
+      required: true
+      schema: { type: string }
+    - name: namedGraph
+      in: query
+      schema: { type: string }
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/SPARQLQueryExecution.yaml}
-    '401': {description: Unhauthorized}
+          schema: { $ref: ../components/schemas/SPARQLQueryExecution.yaml }
+    "401": { description: Unhauthorized }

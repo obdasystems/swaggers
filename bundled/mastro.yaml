@@ -12038,12 +12038,11 @@ paths:
         - knowledge-graphs_Persistence
       summary: DELETE mwsx/knowledgeGraph
       operationId: deleteKnowledgeGraph
-      parameters:
-        - name: kg
-          in: query
-          required: true
-          schema:
-            type: string
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              type: string
       responses:
         '200':
           description: OK
@@ -12299,12 +12298,10 @@ paths:
             type: string
         - name: namedGraph
           in: query
-          required: true
           schema:
             type: string
         - name: fileName
           in: query
-          required: true
           schema:
             type: string
       responses:
@@ -12628,6 +12625,41 @@ paths:
       security:
         - apiKey: []
         - jwt: []
+  /knowledgeGraph/query/catalog/import:
+    post:
+      tags:
+        - knowledge-graphs_Query
+      summary: POST mwsx/knowledgeGraph/query/catalog/export
+      operationId: postKnowledgeGraphQueryCatalogImport
+      parameters:
+        - name: additive
+          in: query
+          required: true
+          schema:
+            type: boolean
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileInfo'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OBDACatalog'
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
   /knowledgeGraph/query/catalog/{queryID}:
     get:
       tags:
@@ -12733,7 +12765,6 @@ paths:
             type: string
         - name: namedGraph
           in: query
-          required: true
           schema:
             type: string
       requestBody:
@@ -12773,7 +12804,6 @@ paths:
             type: string
         - name: namedGraph
           in: query
-          required: true
           schema:
             type: string
       responses:
@@ -12875,7 +12905,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/KGStatus'
+                $ref: '#/components/schemas/SPARQLStatus'
         '401':
           description: Unhauthorized
       security:
@@ -13289,7 +13319,6 @@ paths:
             type: string
         - name: namedGraph
           in: query
-          required: true
           schema:
             type: string
         - name: files
@@ -13370,12 +13399,10 @@ paths:
       parameters:
         - name: fileName
           in: query
-          required: true
           schema:
             type: string
         - name: uploadOnly
           in: query
-          required: true
           schema:
             type: boolean
         - name: endpointName
@@ -13595,12 +13622,10 @@ paths:
             type: string
         - name: threadId
           in: query
-          required: true
           schema:
             type: string
         - name: fileName
           in: query
-          required: true
           schema:
             type: string
       responses:
@@ -21816,6 +21841,8 @@ components:
     KnowledgeGraph:
       title: KnowledgeGraph
       type: object
+      required:
+        - kgIri
       properties:
         kgDescriptions:
           type: array
