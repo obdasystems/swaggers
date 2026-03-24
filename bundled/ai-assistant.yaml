@@ -339,6 +339,14 @@ paths:
                   type: boolean
                   default: true
                   description: '`True` for camelCase, `False` for snake_case'
+                simpleNameLanguage:
+                  type: string
+                  default: en
+                  description: Language used for generating the variable part of entity IRIs. Value must be in ISO 2 chars format. Default "en"
+                annotationLanguage:
+                  type: string
+                  default: it
+                  description: Language used for generating annotations on entities. Namely "rdfs:label" and "rdfs:comment". Value must be in ISO 2 chars format. Default "it"
       responses:
         '200':
           description: Successful operation
