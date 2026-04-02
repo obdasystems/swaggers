@@ -605,6 +605,21 @@ paths:
                 $ref: '#/components/schemas/RDFGraph'
         '401':
           description: Unhauthorized
+  /ai/apisem/catalog:
+    get:
+      tags:
+        - APISemantiche
+      summary: Returns the current content of the ontology catalog used to generate semantic annotations for provided YAML service specifications
+      operationId: getApisemCatalog
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MWSXOntologyCatalogEntries'
+        '401':
+          description: Unhauthorized
 components:
   schemas:
     OntologyEntity:
@@ -630,6 +645,27 @@ components:
           type: string
         entityID:
           type: string
+    MWSXOntologyCatalogEntry:
+      title: OntologyCatalogEntry
+      type: object
+      required:
+        - ontologyName
+        - ontologyVersion
+      properties:
+        ontologyVersion:
+          type: string
+        ontologyName:
+          type: string
+    MWSXOntologyCatalogEntries:
+      title: OntologyCatalogEntries
+      type: object
+      required:
+        - entries
+      properties:
+        entries:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/MWSXOntologyCatalogEntry'
     ChartConfiguration:
       title: ChartConfiguration
       type: object

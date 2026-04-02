@@ -1,0 +1,12 @@
+get:
+  tags: [APISemantiche]
+  summary: Returns the current content of the ontology catalog used to generate semantic annotations for provided YAML service specifications
+  operationId: getApisemCatalog
+  responses:
+    "200":
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/MWSXOntologyCatalogEntries.yaml
+    "401": { description: Unhauthorized }
