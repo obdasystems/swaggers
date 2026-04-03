@@ -244,6 +244,8 @@ tags:
     x-displayName: RAG
   - name: ai-assistant_Convert
     x-displayName: Convert
+  - name: ai-assistant_APISemantiche
+    x-displayName: APISemantiche
 paths:
   /login:
     servers:
@@ -1865,6 +1867,10 @@ paths:
         - name: version
           in: query
           required: true
+          schema:
+            type: string
+        - name: excludedImports
+          in: query
           schema:
             type: string
       responses:
@@ -22763,6 +22769,34 @@ paths:
           description: Unhauthorized
       security:
         - jwt: []
+  /ai/apisem/catalog:
+    servers:
+      - url: '{protocol}://{tenant}{port}'
+        variables:
+          protocol:
+            default: https
+          tenant:
+            default: localhost
+          port:
+            default: ':8080'
+    get:
+      tags:
+        - ai-assistant_APISemantiche
+      summary: >-
+        Returns the current content of the ontology catalog used to generate
+        semantic annotations for provided YAML service specifications
+      operationId: getApisemCatalog
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MWSXOntologyCatalogEntries'
+        '401':
+          description: Unhauthorized
+      security:
+        - jwt: []
 components:
   securitySchemes:
     basicAuth:
@@ -28245,3 +28279,4 @@ x-tagGroups:
       - ai-assistant_Prompt
       - ai-assistant_RAG
       - ai-assistant_Convert
+      - ai-assistant_APISemantiche
