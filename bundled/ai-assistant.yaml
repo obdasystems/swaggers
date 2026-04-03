@@ -683,14 +683,7 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                ontologyName:
-                  type: string
-                ontologyVersion:
-                  type: string
-                currentRdfGraph:
-                  $ref: '#/components/schemas/RDFGraph'
+              $ref: '#/components/schemas/RDFGraph'
       responses:
         '200':
           description: Successful operation

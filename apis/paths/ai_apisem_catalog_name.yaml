@@ -18,11 +18,7 @@ put:
     content:
       application/json:
         schema:
-          type: object
-          properties:
-            ontologyName: { type: string }
-            ontologyVersion: { type: string }
-            currentRdfGraph: { $ref: ../components/schemas/RDFGraph.yaml }
+          $ref: ../components/schemas/RDFGraph.yaml
   responses:
     "200":
       description: Successful operation
