@@ -1567,7 +1567,7 @@ paths:
         - name: excludedImports
           in: query
           schema:
-            type: string
+            type: boolean
       responses:
         '200':
           description: OK
