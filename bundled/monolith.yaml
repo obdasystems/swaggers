@@ -1872,7 +1872,7 @@ paths:
         - name: excludedImports
           in: query
           schema:
-            type: string
+            type: boolean
       responses:
         '200':
           description: OK
@@ -22793,6 +22793,165 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/MWSXOntologyCatalogEntries'
+        '401':
+          description: Unhauthorized
+      security:
+        - jwt: []
+    post:
+      tags:
+        - ai-assistant_APISemantiche
+      summary: Adds a new ontology to the current ontology catalog
+      operationId: postApisemCatalog
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ontologyName:
+                  type: string
+                ontologyVersion:
+                  type: string
+                currentRdfGraph:
+                  $ref: '#/components/schemas/RDFGraph'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MWSXOntologyCatalogEntries'
+        '401':
+          description: Unhauthorized
+      security:
+        - jwt: []
+    delete:
+      tags:
+        - ai-assistant_APISemantiche
+      summary: Reset the content of the current catalog
+      operationId: deleteApisemCatalog
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: boolean
+                description: True if the operation succeed
+        '401':
+          description: Unhauthorized
+      security:
+        - jwt: []
+  /ai/apisem/catalog/{name}:
+    servers:
+      - url: '{protocol}://{tenant}{port}'
+        variables:
+          protocol:
+            default: https
+          tenant:
+            default: localhost
+          port:
+            default: ':8080'
+    put:
+      tags:
+        - ai-assistant_APISemantiche
+      summary: >-
+        Replace the given ontology in the catalog with the one provided in the
+        request body
+      operationId: putApisemCatalogName
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ontologyName:
+                  type: string
+                ontologyVersion:
+                  type: string
+                currentRdfGraph:
+                  $ref: '#/components/schemas/RDFGraph'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MWSXOntologyCatalogEntries'
+        '401':
+          description: Unhauthorized
+      security:
+        - jwt: []
+    delete:
+      tags:
+        - ai-assistant_APISemantiche
+      summary: Reset the content of the current catalog
+      operationId: deleteApisemCatalogName
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: boolean
+                description: True if the operation succeed
+        '401':
+          description: Unhauthorized
+      security:
+        - jwt: []
+  /ai/apisem/schema:
+    servers:
+      - url: '{protocol}://{tenant}{port}'
+        variables:
+          protocol:
+            default: https
+          tenant:
+            default: localhost
+          port:
+            default: ':8080'
+    post:
+      tags:
+        - ai-assistant_APISemantiche
+      summary: >-
+        Takes a YAML file containing the specification of a service and returns
+        the YAML specification annotated
+      operationId: postApisemSchema
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileInfo'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileInfo'
         '401':
           description: Unhauthorized
       security:

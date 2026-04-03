@@ -15,7 +15,7 @@ get:
       schema: { type: string }
     - name: excludedImports
       in: query
-      schema: { type: string }
+      schema: { type: boolean }
   responses:
     "200":
       description: OK
