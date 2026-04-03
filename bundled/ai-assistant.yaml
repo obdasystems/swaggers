@@ -620,6 +620,131 @@ paths:
                 $ref: '#/components/schemas/MWSXOntologyCatalogEntries'
         '401':
           description: Unhauthorized
+    post:
+      tags:
+        - APISemantiche
+      summary: Adds a new ontology to the current ontology catalog
+      operationId: postApisemCatalog
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ontologyName:
+                  type: string
+                ontologyVersion:
+                  type: string
+                currentRdfGraph:
+                  $ref: '#/components/schemas/RDFGraph'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MWSXOntologyCatalogEntries'
+        '401':
+          description: Unhauthorized
+    delete:
+      tags:
+        - APISemantiche
+      summary: Reset the content of the current catalog
+      operationId: deleteApisemCatalog
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: boolean
+                decription: True if the operation succeed
+        '401':
+          description: Unhauthorized
+  /ai/apisem/catalog/{name}:
+    put:
+      tags:
+        - APISemantiche
+      summary: Replace the given ontology in the catalog with the one provided in the request body
+      operationId: putApisemCatalogName
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ontologyName:
+                  type: string
+                ontologyVersion:
+                  type: string
+                currentRdfGraph:
+                  $ref: '#/components/schemas/RDFGraph'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MWSXOntologyCatalogEntries'
+        '401':
+          description: Unhauthorized
+    delete:
+      tags:
+        - APISemantiche
+      summary: Reset the content of the current catalog
+      operationId: deleteApisemCatalogName
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: boolean
+                decription: True if the operation succeed
+        '401':
+          description: Unhauthorized
+  /ai/apisem/schema:
+    post:
+      tags:
+        - APISemantiche
+      summary: Takes a YAML file containing the specification of a service and returns the YAML specification annotated
+      operationId: postApisemSchema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileInfo'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileInfo'
+        '401':
+          description: Unhauthorized
 components:
   schemas:
     OntologyEntity:
@@ -666,6 +791,16 @@ components:
           type: object
           additionalProperties:
             $ref: '#/components/schemas/MWSXOntologyCatalogEntry'
+    FileInfo:
+      title: FileInfo
+      type: object
+      properties:
+        fileName:
+          type: string
+        fileType:
+          type: string
+        content:
+          type: string
     ChartConfiguration:
       title: ChartConfiguration
       type: object

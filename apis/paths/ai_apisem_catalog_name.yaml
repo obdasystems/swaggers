@@ -1,19 +1,18 @@
-get:
+put:
   tags: [APISemantiche]
-  summary: Returns the current content of the ontology catalog used to generate semantic annotations for provided YAML service specifications
-  operationId: getApisemCatalog
-  responses:
-    "200":
-      description: Successful operation
-      content:
-        application/json:
-          schema:
-            $ref: ../components/schemas/MWSXOntologyCatalogEntries.yaml
-    "401": { description: Unhauthorized }
-post:
-  tags: [APISemantiche]
-  summary: Adds a new ontology to the current ontology catalog
-  operationId: postApisemCatalog
+  summary: Replace the given ontology in the catalog with the one provided in the request body
+  operationId: putApisemCatalogName
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: version
+      in: query
+      required: true
+      schema:
+        type: string
   requestBody:
     content:
       application/json:
@@ -34,7 +33,18 @@ post:
 delete:
   tags: [APISemantiche]
   summary: Reset the content of the current catalog
-  operationId: deleteApisemCatalog
+  operationId: deleteApisemCatalogName
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: version
+      in: query
+      required: true
+      schema:
+        type: string
   responses:
     "200":
       description: Successful operation
