@@ -3,6 +3,7 @@ post:
   summary: Takes a YAML file containing the specification of a service and returns the YAML specification annotated
   operationId: postApisemSchema
   requestBody:
+    required: true
     content:
       application/json:
         schema:
