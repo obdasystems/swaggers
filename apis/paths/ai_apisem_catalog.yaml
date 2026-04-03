@@ -42,5 +42,5 @@ delete:
         application/json:
           schema:
             type: boolean
-            decription: True if the operation succeed
+            description: True if the operation succeed
     "401": { description: Unhauthorized }
