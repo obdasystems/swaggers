@@ -889,7 +889,9 @@ components:
         - events
       properties:
         events:
-          $ref: '#/components/schemas/OntologyCatalogHistoryEvent'
+          type: array
+          items:
+            $ref: '#/components/schemas/OntologyCatalogHistoryEvent'
     ChartConfiguration:
       title: ChartConfiguration
       type: object
