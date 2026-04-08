@@ -18,6 +18,4 @@ properties:
     format: int64
     description: the timestamp of the operation
   ontologyCatalogEntry:
-    type: object
-    additionalProperties:
-      $ref: MWSXOntologyCatalogEntry.yaml
+    $ref: MWSXOntologyCatalogEntry.yaml

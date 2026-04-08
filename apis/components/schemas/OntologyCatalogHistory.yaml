@@ -5,6 +5,4 @@ required:
   - events
 properties:
   events:
-    type: object
-    additionalProperties: 
-      $ref: OntologyCatalogHistoryEvent.yaml
+    $ref: OntologyCatalogHistoryEvent.yaml
