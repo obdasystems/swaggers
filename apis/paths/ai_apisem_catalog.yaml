@@ -12,7 +12,7 @@ get:
     "401": { description: Unhauthorized }
 post:
   tags: [APISemantiche]
-  summary: Adds a new ontology to the current ontology catalog
+  summary: Adds a new ontology to the current ontology catalog, creates the corresponding vector DB instance
   operationId: postApisemCatalog
   requestBody:
     content:

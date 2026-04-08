@@ -1,0 +1,10 @@
+title: OntologyCatalogHistory
+type: object
+description: the list of operations executed on the ontology catalog
+required: 
+  - events
+properties:
+  events:
+    type: object
+    additionalProperties: 
+      $ref: OntologyCatalogHistoryEvent.yaml

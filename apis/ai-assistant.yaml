@@ -53,8 +53,12 @@ paths:
     $ref: paths/ai_ontologyDraft_convertOWL.yaml
   /ai/apisem/catalog:
     $ref: paths/ai_apisem_catalog.yaml
+  /ai/apisem/catalog/history:
+    $ref: paths/ai_apisem_catalog_history.yaml
   /ai/apisem/catalog/{name}:
     $ref: paths/ai_apisem_catalog_name.yaml
+  /ai/apisem/catalog/{name}/status:
+    $ref: paths/ai_apisem_catalog_name_status.yaml
   /ai/apisem/schema:
     $ref: paths/ai_apisem_schema.yaml
 components:
@@ -67,6 +71,12 @@ components:
       $ref: ./components/schemas/MWSXOntologyCatalogEntries.yaml
     FileInfo:
       $ref: ./components/schemas/FileInfo.yaml
+    OntologyCatalogEntryStatus:
+      $ref: ./components/schemas/OntologyCatalogEntryStatus.yaml
+    OntologyCatalogHistoryEvent:
+      $ref: ./components/schemas/OntologyCatalogHistoryEvent.yaml
+    OntologyCatalogHistory:
+      $ref: ./components/schemas/OntologyCatalogHistory.yaml
   securitySchemes:
     jwt:
       $ref: "./components/securitySchemes/jwt.yaml"

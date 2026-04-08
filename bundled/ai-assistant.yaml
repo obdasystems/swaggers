@@ -661,6 +661,21 @@ paths:
                 description: True if the operation succeed
         '401':
           description: Unhauthorized
+  /ai/apisem/catalog/history:
+    get:
+      tags:
+        - APISemantiche
+      summary: Returns the list of operations executed on the ontology catalog
+      operationId: getApisemCatalogHistory
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OntologyCatalogHistory'
+        '401':
+          description: Unhauthorized
   /ai/apisem/catalog/{name}:
     put:
       tags:
@@ -717,6 +732,32 @@ paths:
               schema:
                 type: boolean
                 description: True if the operation succeed
+        '401':
+          description: Unhauthorized
+  /ai/apisem/catalog/{name}/status:
+    get:
+      tags:
+        - APISemantiche
+      summary: Returns the current status of a given ontology catalog entry
+      operationId: getApisemCatalogNameStatus
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OntologyCatalogEntryStatus'
         '401':
           description: Unhauthorized
   /ai/apisem/schema:
@@ -796,6 +837,63 @@ components:
           type: string
         content:
           type: string
+    OntologyCatalogEntryStatus:
+      title: OntologyCatalogEntryStatus
+      type: object
+      description: The status of a given ontology catalog entry
+      properties:
+        status:
+          type: string
+          enum:
+            - NOT_INITIALIZED
+            - INITIALIZING
+            - FINISHED
+            - ERROR
+          description: The current status of the vector database.
+        errorMessage:
+          type: string
+          description: The error message if the status is ERROR.
+        percentage:
+          type: integer
+          description: The initialization progress percentage (0-100).
+        executionTime:
+          type: integer
+          description: The time taken for the last operation in milliseconds.
+    OntologyCatalogHistoryEvent:
+      title: OntologyCatalogEvent
+      type: object
+      description: Represents an opeartion occurred on the ontology catalog
+      required:
+        - opeartion
+        - timestamp
+        - ontologyCatalogEntry
+      properties:
+        operation:
+          type: string
+          enum:
+            - ADD
+            - MOD
+            - DEL
+          description: the type of operation this ontology catalog event contains
+        timestamp:
+          type: integer
+          format: int64
+          description: the timestamp of the operation
+        ontologyCatalogEntry:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/MWSXOntologyCatalogEntry'
+    OntologyCatalogHistory:
+      title: OntologyCatalogHistory
+      type: object
+      description: the list of operations executed on the ontology catalog
+      required:
+        - events
+      properties:
+        events:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/OntologyCatalogHistoryEvent'
     ChartConfiguration:
       title: ChartConfiguration
       type: object

@@ -1,0 +1,24 @@
+get:
+  tags: [APISemantiche]
+  summary: Returns the current status of a given ontology catalog entry
+  operationId: getApisemCatalogNameStatus
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: version
+      in: query
+      required: true
+      schema:
+        type: string
+  responses:
+    "200":
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/OntologyCatalogEntryStatus.yaml
+    "401":
+      description: Unhauthorized

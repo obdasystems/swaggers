@@ -1,0 +1,23 @@
+title: OntologyCatalogEvent
+type: object
+description: Represents an opeartion occurred on the ontology catalog
+required:
+  - opeartion
+  - timestamp
+  - ontologyCatalogEntry
+properties:
+  operation:
+    type: string
+    enum:
+      - ADD
+      - MOD
+      - DEL
+    description: the type of operation this ontology catalog event contains
+  timestamp:
+    type: integer
+    format: int64
+    description: the timestamp of the operation
+  ontologyCatalogEntry:
+    type: object
+    additionalProperties:
+      $ref: MWSXOntologyCatalogEntry.yaml
