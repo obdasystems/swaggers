@@ -8,3 +8,5 @@ properties:
   lang: {type: string}
   value: {type: string}
   isBlankNode: {type: boolean, default: false}
+  concreteValueDatatype: {type: string}
+  

@@ -20289,6 +20289,8 @@ components:
         isBlankNode:
           type: boolean
           default: false
+        concreteValueDatatype:
+          type: string
     SPARQLResults:
       title: SPARQLResults
       type: object
