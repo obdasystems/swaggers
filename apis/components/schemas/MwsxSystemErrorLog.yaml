@@ -1,0 +1,25 @@
+title: MwsxSystemErrorLog
+type: object
+required:
+- user
+- requestURL
+- timestamp
+- message
+- exceptionClass
+properties:
+  user:
+    $ref: ./User.yaml
+  requeslURL:
+    type: string
+  timestamp:
+    type: int
+    format: int64
+    default: 0
+  message:
+    type: string
+  exceptionClass:
+    type: string
+  involvedMwsxClass:
+    type: string
+  fullStackTrace:
+    type: string

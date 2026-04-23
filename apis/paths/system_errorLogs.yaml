@@ -1,0 +1,27 @@
+get:
+  tags: [System]
+  summary: Returns a list of error logs stored in the system
+  operationId: getErrorLogs
+  parameters:
+  - name: pagesize
+    in: query
+    description: number of logs in a single page
+    required: false
+    schema: {type: int}
+  - name: pagenumber
+    in: query
+    description: page numbers start at 1
+    required: false
+    schema: {type: int}
+  - name: user
+    in: query
+    description: add the name of a use to retrive error logs for that user
+    required: false
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/MwsxSystemErrorLogs.yaml}
+    '401': {description: Unhauthorized}

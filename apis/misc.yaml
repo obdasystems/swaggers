@@ -97,6 +97,8 @@ paths:
     $ref: paths/system_jdbcDriver_{driver}.yaml
   /system/jdbcDriver:
     $ref: paths/system_jdbcDriver.yaml
+  /system/errorLogs:
+    $ref: paths/system_errorLogs.yaml
   /queryTags:
     $ref: paths/queryTags.yaml
   /queryTags/{tagName}:
