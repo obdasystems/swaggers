@@ -12,7 +12,7 @@ properties:
   requeslURL:
     type: string
   timestamp:
-    type: int
+    type: integer
     format: int64
     default: 0
   message:
