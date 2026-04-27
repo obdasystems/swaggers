@@ -23302,7 +23302,7 @@ components:
       properties:
         user:
           $ref: '#/components/schemas/User'
-        requeslURL:
+        requestURL:
           type: string
         timestamp:
           type: integer

@@ -9,7 +9,7 @@ required:
 properties:
   user:
     $ref: ./User.yaml
-  requeslURL:
+  requestURL:
     type: string
   timestamp:
     type: integer
