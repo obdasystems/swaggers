@@ -902,13 +902,13 @@ paths:
           description: number of logs in a single page
           required: false
           schema:
-            type: int
+            type: integer
         - name: pagenumber
           in: query
           description: page numbers start at 1
           required: false
           schema:
-            type: int
+            type: integer
         - name: user
           in: query
           description: add the name of a use to retrive error logs for that user
@@ -1833,7 +1833,7 @@ components:
       properties:
         user:
           $ref: '#/components/schemas/User'
-        requeslURL:
+        requestURL:
           type: string
         timestamp:
           type: integer

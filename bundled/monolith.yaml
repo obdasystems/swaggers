@@ -20493,6 +20493,52 @@ paths:
       security:
         - apiKey: []
         - jwt: []
+  /system/errorLogs:
+    servers:
+      - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+        variables:
+          protocol:
+            default: https
+          tenant:
+            default: localhost
+          port:
+            default: ':8989'
+    get:
+      tags:
+        - mastro_misc_System
+      summary: Returns a list of error logs stored in the system
+      operationId: getErrorLogs
+      parameters:
+        - name: pagesize
+          in: query
+          description: number of logs in a single page
+          required: false
+          schema:
+            type: integer
+        - name: pagenumber
+          in: query
+          description: page numbers start at 1
+          required: false
+          schema:
+            type: integer
+        - name: user
+          in: query
+          description: add the name of a use to retrive error logs for that user
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MwsxSystemErrorLogs'
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
   /queryTags:
     servers:
       - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
@@ -25228,6 +25274,8 @@ components:
         isBlankNode:
           type: boolean
           default: false
+        concreteValueDatatype:
+          type: string
     SPARQLResults:
       title: SPARQLResults
       type: object
@@ -28191,6 +28239,40 @@ components:
           type: string
         version:
           type: string
+    MwsxSystemErrorLog:
+      title: MwsxSystemErrorLog
+      type: object
+      required:
+        - user
+        - requestURL
+        - timestamp
+        - message
+        - exceptionClass
+      properties:
+        user:
+          $ref: '#/components/schemas/User'
+        requestURL:
+          type: string
+        timestamp:
+          type: integer
+          format: int64
+          default: 0
+        message:
+          type: string
+        exceptionClass:
+          type: string
+        involvedMwsxClass:
+          type: string
+        fullStackTrace:
+          type: string
+    MwsxSystemErrorLogs:
+      title: MwsxSystemErrorLogs
+      type: object
+      properties:
+        logs:
+          type: array
+          items:
+            $ref: '#/components/schemas/MwsxSystemErrorLog'
     Tags:
       title: Tags
       type: object
