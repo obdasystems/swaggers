@@ -1,7 +1,0 @@
-title: MwsxSystemErrorLogs
-type: object
-properties:
-  logs:
-    type: array
-    items:
-      $ref: ./MwsxSystemErrorLog.yaml

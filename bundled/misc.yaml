@@ -921,7 +921,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MwsxSystemErrorLogs'
+                type: array
+                items:
+                  $ref: '#/components/schemas/MwsxSystemErrorLog'
         '401':
           description: Unhauthorized
   /queryTags:
@@ -1847,14 +1849,6 @@ components:
           type: string
         fullStackTrace:
           type: string
-    MwsxSystemErrorLogs:
-      title: MwsxSystemErrorLogs
-      type: object
-      properties:
-        logs:
-          type: array
-          items:
-            $ref: '#/components/schemas/MwsxSystemErrorLog'
     MwsxTag:
       title: MwsxTag
       type: object
