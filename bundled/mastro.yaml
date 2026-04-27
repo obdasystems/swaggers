@@ -16888,13 +16888,13 @@ paths:
           description: number of logs in a single page
           required: false
           schema:
-            type: int
+            type: integer
         - name: pagenumber
           in: query
           description: page numbers start at 1
           required: false
           schema:
-            type: int
+            type: integer
         - name: user
           in: query
           description: add the name of a use to retrive error logs for that user
@@ -16907,7 +16907,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MwsxSystemErrorLogs'
+                type: array
+                items:
+                  $ref: '#/components/schemas/MwsxSystemErrorLog'
         '401':
           description: Unhauthorized
       security:
@@ -23316,14 +23318,6 @@ components:
           type: string
         fullStackTrace:
           type: string
-    MwsxSystemErrorLogs:
-      title: MwsxSystemErrorLogs
-      type: object
-      properties:
-        logs:
-          type: array
-          items:
-            $ref: '#/components/schemas/MwsxSystemErrorLog'
     Tags:
       title: Tags
       type: object
