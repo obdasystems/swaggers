@@ -389,6 +389,56 @@ paths:
                       type: string
         '401':
           description: Unhauthorized
+  /ai/rag/ontologyRDFExamples:
+    get:
+      tags:
+        - RAG
+      summary: Returns an example of RDF instaces in Turtle format, based on the classes provided in the request body and the current RDF graph.
+      operationId: getOntologyRDFExamples
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                classes:
+                  type: array
+                  items:
+                    type: string
+                currentRdfGraph:
+                  $ref: '#/components/schemas/RDFGraph'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            text/plain:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+  /ai/rag/ontologySummary:
+    get:
+      tags:
+        - RAG
+      summary: Returns a summary of the ontology.
+      operationId: getOntologySummary
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                currentRdfGraph:
+                  $ref: '#/components/schemas/RDFGraph'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            text/plain:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
   /ai/rag/{ontologyName}/vectorDB/initialize:
     post:
       tags:

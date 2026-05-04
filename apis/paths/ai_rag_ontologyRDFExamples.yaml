@@ -1,0 +1,22 @@
+get:
+  tags: [ RAG ]
+  summary: Returns an example of RDF instaces in Turtle format, based on the classes provided in the request body and the current RDF graph.
+  operationId: getOntologyRDFExamples
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            classes:
+              type: array
+              items:
+                type: string
+            currentRdfGraph: { $ref: ../components/schemas/RDFGraph.yaml }
+  responses:
+    "200":
+      description: Successful operation
+      content:
+        text/plain:
+          schema: { type: string }
+    "401": { description: Unhauthorized }
