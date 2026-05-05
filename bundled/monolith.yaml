@@ -27938,6 +27938,10 @@ components:
       title: LicenseInfo
       type: object
       properties:
+        id:
+          type: string
+        orderNumber:
+          type: string
         licensor:
           type: string
         licensee:
