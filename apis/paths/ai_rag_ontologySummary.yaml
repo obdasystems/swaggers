@@ -1,7 +1,7 @@
-get:
+post:
   tags: [ RAG ]
   summary: Returns a summary of the ontology.
-  operationId: getOntologySummary
+  operationId: postOntologySummary
   requestBody:
     content:
       application/json:
