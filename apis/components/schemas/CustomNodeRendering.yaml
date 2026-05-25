@@ -5,6 +5,7 @@ properties:
     properties:
       size:
         type: number
+        default: 0
       color:
         type: string
       icon:
@@ -44,6 +45,7 @@ properties:
                     type: array
                     items:
                       type: number
+                      default: 0
       icon:
         $ref: ./BasePropertyInfo.yaml
       location:

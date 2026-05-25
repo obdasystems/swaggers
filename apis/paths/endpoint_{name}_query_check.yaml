@@ -1,6 +1,7 @@
 post:
+  tags: [Query]
   summary: Checks the syntax of the passed query on the given endpoint
-  operationId: check_query_on_endpoint
+  operationId: checkQueryOnEndpoint
   parameters:
   - name: name
     in: path
@@ -15,6 +16,6 @@ post:
     '200':
       description: OK
       content:
-        application/json:
+        text/plain:
           schema: {type: string}
     '401': {description: Unhauthorized}

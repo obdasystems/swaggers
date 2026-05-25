@@ -23,8 +23,10 @@ security:
 paths:
   /owlOntology/{name}/version/vkg/catalog:
     get:
+      tags:
+        - Persistence
       summary: Get the VKG Snaphot catalog for a given ontology (name, version)
-      operationId: get_vkg_snapshots
+      operationId: getVkgSnapshots
       parameters:
         - name: name
           in: path
@@ -48,8 +50,10 @@ paths:
         '401':
           description: Unhauthorized
     post:
+      tags:
+        - Persistence
       summary: Save a new VKG Snaphot in the catalog for a given ontology (name, version).
-      operationId: post_vkg_snapshot
+      operationId: postVkgSnapshot
       parameters:
         - name: name
           in: path
@@ -79,8 +83,10 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Persistence
       summary: DELETE the entire VKG Snapshot catalog for a given ontology (name, version)
-      operationId: delete_vkg_snapshots
+      operationId: deleteVkgSnapshots
       parameters:
         - name: name
           in: path
@@ -105,8 +111,10 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/vkg/catalog/{snapshotId}:
     put:
+      tags:
+        - Persistence
       summary: Overwrite a VKG Snapshot (given its snapshotId) in the catalog for a given ontology (name, version)
-      operationId: put_vkg_snapshot
+      operationId: putVkgSnapshot
       parameters:
         - name: name
           in: path
@@ -141,8 +149,10 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Persistence
       summary: Delete a given VKG Snapshot from catalog for a given ontology (name, version)
-      operationId: delete_vkg_snapshot
+      operationId: deleteVkgSnapshot
       parameters:
         - name: name
           in: path
@@ -172,8 +182,10 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/vkg/catalog/export:
     get:
+      tags:
+        - Persistence
       summary: Get the entire VKG Snapshot catalog for a given ontology (name, version) as a file
-      operationId: export_vkg_snapshots
+      operationId: exportVkgSnapshots
       parameters:
         - name: name
           in: path
@@ -196,8 +208,10 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/vkg/catalog/import:
     post:
+      tags:
+        - Persistence
       summary: Upload the JSON file of a VKG Snapshot catalog for a given ontology (name, version)
-      operationId: import_vkg_snapshots
+      operationId: importVkgSnapshots
       parameters:
         - name: name
           in: path
@@ -231,8 +245,10 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/vkg/node-rendering:
     get:
+      tags:
+        - NodeRendering
       summary: Returns the default VKG node rendering for the ontology version
-      operationId: get_default_node_rendering
+      operationId: getDefaultNodeRendering
       parameters:
         - name: name
           in: path
@@ -254,8 +270,10 @@ paths:
         '401':
           description: Unhauthorized
     post:
+      tags:
+        - NodeRendering
       summary: Set a default VKG node rendering for the ontology version
-      operationId: post_default_node_rendering
+      operationId: postDefaultNodeRendering
       parameters:
         - name: name
           in: path
@@ -283,8 +301,10 @@ paths:
         '401':
           description: Unhauthorized
     put:
+      tags:
+        - NodeRendering
       summary: Modifies the default VKG node rendering for the ontology version
-      operationId: put_default_node_rendering
+      operationId: putDefaultNodeRendering
       parameters:
         - name: name
           in: path
@@ -312,8 +332,10 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - NodeRendering
       summary: DELETE mwsx/owlOntology/{name}/version/vkg/node-rendering
-      operationId: delete_vkg_node_rendering
+      operationId: deleteVkgNodeRendering
       parameters:
         - name: name
           in: path
@@ -386,6 +408,41 @@ components:
         - membership
         - attribute-edge
         - iri
+      x-enum-varnames:
+        - CLASS
+        - OBJECT_PROPERTY
+        - DATA_PROPERTY
+        - ANNOTATION_PROPERTY
+        - INDIVIDUAL
+        - CLASS_INSTANCE
+        - DOMAIN_RESTRICTION
+        - RANGE_RESTRICTION
+        - UNION
+        - COMPLETE_UNION
+        - DISJOINT_UNION
+        - COMPLETE_DISJOINT_UNION
+        - COMPLEMENT
+        - INTERSECTION
+        - ENUMERATION
+        - HAS_KEY
+        - ROLE_INVERSE
+        - ROLE_CHAIN
+        - DATATYPE_RESTRICTION
+        - VALUE_DOMAIN
+        - PROPERTY_ASSERTION
+        - LITERAL
+        - FACET
+        - NEUTRAL
+        - VALUE
+        - INCLUSION
+        - EQUIVALENCE
+        - INSTANCE_OF
+        - INPUT
+        - SAME
+        - DIFFERENT
+        - MEMBERSHIP
+        - ATTRIBUTE_EDGE
+        - IRI
     Element:
       type: object
       required:
@@ -399,13 +456,14 @@ components:
           description: In case of replicated elements, this is the ID of the original element replicated in multiple occurrences, all of them with different IDs
         diagramId:
           type: integer
+          default: 0
         displayedName:
           type: string
         iri:
           type: string
         type:
           $ref: '#/components/schemas/TypesEnum'
-        ai_generated:
+        aiGenerated:
           required:
             - chunkId
           type: object
@@ -423,9 +481,11 @@ components:
         x:
           type: number
           format: float
+          default: 0
         'y':
           type: number
           format: float
+          default: 0
     Node:
       type: object
       allOf:
@@ -478,15 +538,16 @@ components:
         zoom:
           type: number
           format: float
+          default: 0
     Diagram:
       type: object
       required:
         - id
         - name
-        - elements
       properties:
         id:
           type: integer
+          default: 0
         name:
           type: string
         nodes:
@@ -499,10 +560,10 @@ components:
             $ref: '#/components/schemas/Edge'
         lastViewportState:
           $ref: '#/components/schemas/Viewport'
-    Annotation:
+    GrapholscapeAnnotation:
+      title: GrapholscapeAnnotation
       type: object
       required:
-        - value
         - property
       properties:
         lexicalForm:
@@ -513,6 +574,7 @@ components:
           type: string
         hasIriValue:
           type: boolean
+          default: false
         property:
           type: string
           example: rdfs:label
@@ -540,11 +602,12 @@ components:
         annotations:
           type: array
           items:
-            $ref: '#/components/schemas/Annotation'
+            $ref: '#/components/schemas/GrapholscapeAnnotation'
         datatype:
           type: string
         isDataPropertyFunctional:
           type: boolean
+          default: false
         functionProperties:
           type: array
           items:
@@ -691,6 +754,7 @@ components:
               type: string
         timestamp:
           type: number
+          default: 0
     SHACLShape:
       type: object
       required:
@@ -698,9 +762,12 @@ components:
         - targetClass
         - path
       properties:
+        id:
+          type: string
         type:
           type: string
           enum:
+            - Class
             - MinCount
             - MaxCount
             - MinExclusive
@@ -715,8 +782,6 @@ components:
             - Disjoint
             - LessThan
             - LessThanOrEquals
-            - GreaterThan
-            - GreaterThanOrEquals
         targetClass:
           type: string
         path:
@@ -771,7 +836,7 @@ components:
             annotations:
               type: array
               items:
-                $ref: '#/components/schemas/Annotation'
+                $ref: '#/components/schemas/GrapholscapeAnnotation'
             annotationProperties:
               type: array
               items:
@@ -814,6 +879,7 @@ components:
                   - has-key
         selectedDiagramId:
           type: integer
+          default: 0
         modelType:
           type: string
           enum:
@@ -830,30 +896,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SHACLShape'
-    VKGSnapshot:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
-        lastModification:
-          type: integer
-          format: int64
-        rdfGraph:
-          $ref: '#/components/schemas/RDFGraph'
-    FileInfo:
-      title: FileInfo
-      type: object
-      properties:
-        fileName:
-          type: string
-        fileType:
-          type: string
-        content:
-          type: string
     SparqlingEntity:
       type: object
       required:
@@ -889,12 +931,14 @@ components:
       properties:
         inherited:
           type: boolean
+          default: false
         dataPropertyIri:
           type: string
         pathToDataProperty:
           $ref: '#/components/schemas/OntologyPath'
         log:
           type: boolean
+          default: false
     CustomNodeRendering:
       type: object
       properties:
@@ -903,6 +947,7 @@ components:
           properties:
             size:
               type: number
+              default: 0
             color:
               type: string
             icon:
@@ -938,6 +983,7 @@ components:
                           type: array
                           items:
                             type: number
+                            default: 0
             icon:
               $ref: '#/components/schemas/BasePropertyInfo'
             location:
@@ -952,6 +998,93 @@ components:
                   type: string
                 dataPropertyIriY:
                   type: string
+    InstanceFilter:
+      type: object
+      required:
+        - operator
+        - values
+        - property
+      properties:
+        operator:
+          type: string
+        valid:
+          type: boolean
+          default: false
+        values:
+          type: array
+          items:
+            type: string
+        rangeClasses:
+          type: array
+          items:
+            type: string
+        rangeDataProperty:
+          type: string
+        property:
+          type: object
+          properties:
+            iri:
+              type: string
+            direct:
+              type: boolean
+            type:
+              $ref: '#/components/schemas/TypesEnum'
+    VKGCustomFilter:
+      type: object
+      required:
+        - active
+        - filters
+      properties:
+        active:
+          type: integer
+          enum:
+            - 0
+            - 1
+            - 2
+          default: 0
+        filters:
+          type: array
+          items:
+            $ref: '#/components/schemas/InstanceFilter'
+    VKGSnapshot:
+      type: object
+      title: VKGSnapshot
+      required:
+        - id
+        - name
+        - lastModification
+        - rdfGraph
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        lastModification:
+          type: integer
+          format: int64
+          default: 0
+        rdfGraph:
+          $ref: '#/components/schemas/RDFGraph'
+        customNodeRenderings:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/CustomNodeRendering'
+        customFilters:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/VKGCustomFilter'
+    FileInfo:
+      title: FileInfo
+      type: object
+      properties:
+        fileName:
+          type: string
+        fileType:
+          type: string
+        content:
+          type: string
     CustomNodeRenderingMap:
       description: Map <classIri, CustomRendering>
       type: object

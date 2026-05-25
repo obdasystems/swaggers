@@ -1,6 +1,7 @@
 get:
+  tags: [Persistence]
   summary: GET mwsx/ontologyCatalog/download
-  operationId: get_ontology_catalog_download
+  operationId: getOntologyCatalogDownload
   parameters:
   - name: format
     in: query
@@ -11,5 +12,5 @@ get:
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/Response.yaml}
+          schema: {$ref: ../components/schemas/FileInfo.yaml}
     '401': {description: Unhauthorized}

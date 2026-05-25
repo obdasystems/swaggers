@@ -1,0 +1,74 @@
+get:
+  tags: [SHACL]
+  summary: Returns the SHACL constraints defined over the ontology / version
+  operationId: getShaclConstraints
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items: {$ref: ../components/schemas/SHACLShape.yaml}
+    '401': {description: Unhauthorized}
+put:
+  tags: [SHACL]
+  summary: Add the given SHACL constraints for ontology / version
+  operationId: putShaclConstraints
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: array
+          items: {$ref: ../components/schemas/SHACLShape.yaml}
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {type: boolean}
+    '401': {description: Unhauthorized}
+delete:
+  tags: [SHACL]
+  summary: Delete the given SHACL constraint for ontology / version
+  operationId: deleteShaclConstraints
+  parameters:
+  - name: name
+    in: path
+    required: true
+    schema: {type: string}
+  - name: version
+    in: query
+    required: true
+    schema: {type: string}
+  requestBody:
+    content:
+      application/json:
+        schema: {$ref: ../components/schemas/SHACLShape.yaml}
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {type: boolean}
+    '401': {description: Unhauthorized}

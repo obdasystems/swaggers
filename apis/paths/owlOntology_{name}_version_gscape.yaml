@@ -1,40 +1,47 @@
 get:
-  summary: 'Returns the RDFGraph file of the version ''version'' of the ontology named
-    <code>name</code>.<br/> '
-  operationId: get__owlOntology_name_version_gscape
+  tags: [Visualize]
+  summary:
+    "Returns the RDFGraph file of the version 'version' of the ontology named
+    <code>name</code>.<br/> "
+  operationId: getOwlOntologyNameVersionGscape
   parameters:
-  - name: name
-    in: path
-    required: true
-    schema: {type: string}
-  - name: version
-    in: query
-    required: true
-    schema: {type: string}
+    - name: name
+      in: path
+      required: true
+      schema: { type: string }
+    - name: version
+      in: query
+      required: true
+      schema: { type: string }
+    - name: excludedImports
+      in: query
+      schema: { type: boolean }
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/FileInfo.yaml}
-    '401': {description: Unhauthorized}
+          schema: { $ref: ../components/schemas/FileInfo.yaml }
+    "401": { description: Unhauthorized }
 delete:
-  summary: 'Deletes the RDFGraph file of the version ''version'' of the ontology named
-    <code>name</code>.<br/> '
-  operationId: delete__owlOntology_name_version_gscape
+  tags: [Visualize]
+  summary:
+    "Deletes the RDFGraph file of the version 'version' of the ontology named
+    <code>name</code>.<br/> "
+  operationId: deleteOwlOntologyNameVersionGscape
   parameters:
-  - name: name
-    in: path
-    required: true
-    schema: {type: string}
-  - name: version
-    in: query
-    required: true
-    schema: {type: string}
+    - name: name
+      in: path
+      required: true
+      schema: { type: string }
+    - name: version
+      in: query
+      required: true
+      schema: { type: string }
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/FileInfo.yaml}
-    '401': {description: Unhauthorized}
+          schema: { $ref: ../components/schemas/FileInfo.yaml }
+    "401": { description: Unhauthorized }

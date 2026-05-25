@@ -1,9 +1,14 @@
 title: ExtensionalAnnotationMapping
 type: object
+required:
+  - template
+  - annotationProperty
 properties:
   template:
     $ref: ./MappingTemplate.yaml
   annotationProperty:
     $ref: ./OntologyEntity.yaml
   lang:
+    type: string
+  subjectTemplate:
     type: string

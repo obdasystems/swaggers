@@ -1,6 +1,7 @@
 get:
+  tags: [Persistence]
   summary: Returns all available endpoints
-  operationId: get_endpoints
+  operationId: getEndpoints
   responses:
     '200':
       description: OK
@@ -9,8 +10,9 @@ get:
           schema: {$ref: ../components/schemas/Endpoints.yaml}
     '401': {description: Unhauthorized}
 delete:
+  tags: [Persistence]
   summary: Deletes all available endpoints
-  operationId: delete_endpoints
+  operationId: deleteEndpoints
   responses:
     '200':
       description: OK

@@ -1,6 +1,7 @@
 post:
+  tags: [Persistence]
   summary: Creates a new data source information
-  operationId: post__datasource
+  operationId: postDatasource
   parameters:
   - name: buildSchema
     in: query
@@ -13,32 +14,36 @@ post:
   requestBody:
     content:
       application/json:
-        schema: {$ref: ../components/schemas/DataSourceInfoEntry.yaml}
+        schema: {$ref: ../components/schemas/MWSXDataSourceInfoEntry.yaml}
     required: true
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/DataSourceInfoEntry.yaml}
+          schema: {$ref: ../components/schemas/MWSXDataSourceInfoEntry.yaml}
     '401': {description: Unhauthorized}
 get:
+  tags: [Persistence]
   summary: Returns all the data source definitions available
-  operationId: get__datasource_list
+  operationId: getDatasourceList
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/DataSourceInfoEntry.yaml}
+          schema:
+            type: array
+            items: {$ref: ../components/schemas/MWSXDataSourceInfoEntry.yaml}
     '401': {description: Unhauthorized}
 delete:
+  tags: [Persistence]
   summary: Deletes all the available data source information
-  operationId: delete__all_datasource
+  operationId: deleteAllDatasource
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/DataSourceInfoEntry.yaml}
+          schema: {$ref: ../components/schemas/MWSXDataSourceInfoEntry.yaml}
     '401': {description: Unhauthorized}

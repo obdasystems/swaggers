@@ -23,6 +23,8 @@ security:
 paths:
   /log/{env}/{mode}:
     get:
+      tags:
+        - Logger
       summary: GET mwsx/log/{env}/{mode}
       operationId: setLogger
       parameters:
@@ -47,47 +49,55 @@ paths:
           description: Unhauthorized
   /mastro/version:
     get:
+      tags:
+        - Versions
       summary: Returns the version of Mastro
-      operationId: get__mastro_version
+      operationId: getMastroVersion
       responses:
         '200':
           description: OK
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
         '401':
           description: Unhauthorized
   /jena/version:
     get:
+      tags:
+        - Versions
       summary: Returns the version of the Jena library used by Mastro
-      operationId: get__jena_version
+      operationId: getJenaVersion
       responses:
         '200':
           description: OK
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
         '401':
           description: Unhauthorized
   /owlapi/version:
     get:
+      tags:
+        - Versions
       summary: Returns the version of the OWL API used by Mastro
-      operationId: get__owlapi_version
+      operationId: getOwlapiVersion
       responses:
         '200':
           description: OK
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
         '401':
           description: Unhauthorized
   /resources/ontologies:
     get:
+      tags:
+        - Resources
       summary: GET mwsx/resources/ontologies
-      operationId: get__resources_ids
+      operationId: getResourcesIds
       responses:
         '200':
           description: OK
@@ -101,8 +111,10 @@ paths:
           description: Unhauthorized
   /resources/ontology/{name}/versions:
     get:
+      tags:
+        - Resources
       summary: GET mwsx/resources/ontology/{name}/versions
-      operationId: get__resources_ids_versions
+      operationId: getResourcesIdsVersions
       parameters:
         - name: name
           in: path
@@ -122,8 +134,10 @@ paths:
           description: Unhauthorized
   /resources/ontology/{name}/version/mappings:
     get:
+      tags:
+        - Resources
       summary: GET mwsx/resources/ontology/{name}/version/mappings
-      operationId: get__resources_ids_mappings
+      operationId: getResourcesIdsMappings
       parameters:
         - name: name
           in: path
@@ -148,8 +162,10 @@ paths:
           description: Unhauthorized
   /resources/datasources:
     get:
+      tags:
+        - Resources
       summary: GET mwsx/resources/datasources
-      operationId: get__resources_ds_ids
+      operationId: getResourcesDsIds
       responses:
         '200':
           description: OK
@@ -163,8 +179,10 @@ paths:
           description: Unhauthorized
   /resources/endpoints:
     get:
+      tags:
+        - Resources
       summary: GET mwsx/resources/endpoints
-      operationId: get__resources_ep_ids
+      operationId: getResourcesEpIds
       responses:
         '200':
           description: OK
@@ -178,8 +196,10 @@ paths:
           description: Unhauthorized
   /mastro/instances:
     get:
+      tags:
+        - Mastro
       summary: GET mwsx/mastro/instances
-      operationId: get__available_instances
+      operationId: getAvailableInstances
       responses:
         '200':
           description: OK
@@ -193,8 +213,10 @@ paths:
           description: Unhauthorized
   /lastLoaded/ontology:
     get:
+      tags:
+        - LastLoaded
       summary: GET mwsx/lastLoaded/ontology
-      operationId: get_lastLoaded_ontology
+      operationId: getLastLoadedOntology
       responses:
         '200':
           description: OK
@@ -206,10 +228,29 @@ paths:
                   $ref: '#/components/schemas/OntologyOpeningEvent'
         '401':
           description: Unhauthorized
+  /lastLoaded/knowledgeGraph:
+    get:
+      tags:
+        - LastLoaded
+      summary: GET mwsx/lastLoaded/knowledgeGraph
+      operationId: getLastLoadedKnowledgeGraph
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/KGOpeningEvent'
+        '401':
+          description: Unhauthorized
   /globalAnnotations:
     get:
+      tags:
+        - GlobalAnnotation
       summary: GET mwsx/globalAnnotations
-      operationId: get_global_annotations
+      operationId: getGlobalAnnotations
       responses:
         '200':
           description: OK
@@ -223,8 +264,10 @@ paths:
           description: Unhauthorized
   /globalAnnotation:
     post:
+      tags:
+        - GlobalAnnotation
       summary: POST mwsx/globalAnnotation
-      operationId: post_global_annotation
+      operationId: postGlobalAnnotation
       requestBody:
         content:
           application/json:
@@ -244,8 +287,10 @@ paths:
           description: Unhauthorized
   /globalAnnotation/{entityId}:
     delete:
+      tags:
+        - GlobalAnnotation
       summary: DELETE mwsx/globalAnnotation/{entityId}
-      operationId: delete_global_annotation
+      operationId: deleteGlobalAnnotation
       parameters:
         - name: entityId
           in: path
@@ -265,8 +310,10 @@ paths:
           description: Unhauthorized
   /server/license/info:
     get:
-      summary: Computes and returns the system storage report
-      operationId: get_server_license_expiration_date
+      tags:
+        - Server
+      summary: Returns the license expiration date
+      operationId: getServerLicenseExpirationDate
       responses:
         '200':
           description: OK
@@ -276,10 +323,27 @@ paths:
                 $ref: '#/components/schemas/LicenseInfo'
         '401':
           description: Unhauthorized
+  /server/license/contactInfo:
+    get:
+      tags:
+        - Server
+      summary: Returns the license contact information
+      operationId: getServerLicenseContactInfo
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LicenseContactInfo'
+        '401':
+          description: Unauthorized
   /server/storage/report:
     get:
+      tags:
+        - Server
       summary: Computes and returns the system storage report
-      operationId: get_system_storage_report
+      operationId: getSystemStorageReport
       responses:
         '200':
           description: OK
@@ -291,8 +355,10 @@ paths:
           description: Unhauthorized
   /server/storage/{folder}:
     delete:
+      tags:
+        - Server
       summary: Computes and returns the system storage report
-      operationId: get_empty_folder
+      operationId: getEmptyFolder
       parameters:
         - name: folder
           in: path
@@ -310,8 +376,10 @@ paths:
           description: Unhauthorized
   /server/systemSnapshot:
     get:
+      tags:
+        - Server
       summary: Computes and returns the system storage report
-      operationId: get_system_snapshot
+      operationId: getSystemSnapshot
       responses:
         '200':
           description: OK
@@ -323,8 +391,10 @@ paths:
           description: Unhauthorized
   /server/systemMemory:
     get:
+      tags:
+        - Server
       summary: Computes and returns the system storage report
-      operationId: get_system_memory
+      operationId: getSystemMemory
       responses:
         '200':
           description: OK
@@ -336,8 +406,10 @@ paths:
           description: Unhauthorized
   /server/userlog/{username}/count:
     get:
+      tags:
+        - Server
       summary: Returns the user log lines count
-      operationId: get_userlog_count
+      operationId: getUserlogCount
       parameters:
         - name: username
           in: path
@@ -355,8 +427,10 @@ paths:
           description: Unhauthorized
   /server/userlog/{username}:
     get:
+      tags:
+        - Server
       summary: Returns the user log lines count
-      operationId: get_userlog_count_user
+      operationId: getUserlogCountUser
       parameters:
         - name: username
           in: path
@@ -388,8 +462,10 @@ paths:
           description: Unhauthorized
   /geocoding/servers:
     get:
+      tags:
+        - Geocoding
       summary: Returns the list of available Geocoding servers
-      operationId: get_geocoding_servers
+      operationId: getGeocodingServers
       responses:
         '200':
           description: OK
@@ -401,8 +477,10 @@ paths:
           description: Unhauthorized
   /geocoding/server/{serverId}:
     put:
+      tags:
+        - Geocoding
       summary: Adds or modifies the specified Geocoding server and returns the new list of available servers
-      operationId: put_geocoding_server
+      operationId: putGeocodingServer
       parameters:
         - name: serverId
           in: path
@@ -425,8 +503,10 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Geocoding
       summary: Removes the specified server from the list of available servers
-      operationId: delete_geocoding_server
+      operationId: deleteGeocodingServer
       parameters:
         - name: serverId
           in: path
@@ -444,8 +524,10 @@ paths:
           description: Unhauthorized
   /logger/mastroapi:
     get:
+      tags:
+        - Logger
       summary: GET mwsx/logger/mastroapi
-      operationId: get_set_mastroapi_logger
+      operationId: getSetMastroapiLogger
       parameters:
         - name: mode
           in: query
@@ -464,8 +546,10 @@ paths:
           description: Unhauthorized
   /logger/service:
     get:
+      tags:
+        - Logger
       summary: GET mwsx/logger/service
-      operationId: get_set_service_logger
+      operationId: getSetServiceLogger
       parameters:
         - name: mode
           in: query
@@ -484,8 +568,10 @@ paths:
           description: Unhauthorized
   /logger:
     get:
+      tags:
+        - Logger
       summary: GET mwsx/logger
-      operationId: get_set_logger
+      operationId: getSetLogger
       parameters:
         - name: className
           in: query
@@ -514,8 +600,10 @@ paths:
           description: Unhauthorized
   /logger/class:
     get:
+      tags:
+        - Logger
       summary: GET mwsx/logger/class
-      operationId: get_set_service_class
+      operationId: getSetServiceClass
       parameters:
         - name: className
           in: query
@@ -544,8 +632,10 @@ paths:
           description: Unhauthorized
   /logger/package:
     get:
+      tags:
+        - Logger
       summary: GET mwsx/logger/package
-      operationId: get_set_service_package
+      operationId: getSetServicePackage
       parameters:
         - name: packageName
           in: query
@@ -574,8 +664,10 @@ paths:
           description: Unhauthorized
   /logger/list:
     get:
+      tags:
+        - Logger
       summary: GET mwsx/logger/list
-      operationId: get_set_service_logger_list
+      operationId: getSetServiceLoggerList
       responses:
         '200':
           description: OK
@@ -587,8 +679,10 @@ paths:
           description: Unhauthorized
   /logger/monitor:
     get:
+      tags:
+        - Logger
       summary: GET mwsx/logger/monitor
-      operationId: get_set_monitor_logger
+      operationId: getSetMonitorLogger
       parameters:
         - name: mode
           in: query
@@ -607,8 +701,10 @@ paths:
           description: Unhauthorized
   /statics/sparql/extractProjectVarNames:
     post:
+      tags:
+        - Statics
       summary: POST mwsx/statics/sparql/extractProjectVarNames
-      operationId: post_extract_query_head
+      operationId: postExtractQueryHead
       requestBody:
         content:
           text/plain:
@@ -626,10 +722,33 @@ paths:
                   type: string
         '401':
           description: Unhauthorized
+  /statics/sparql/constructify:
+    post:
+      tags:
+        - Statics
+      summary: Take a SPARQL query and tranfsorm it in a CONSTRUCT form by putting the BGP in the CONSTRUCT body.
+      operationId: postConstructify
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              type: string
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
   /statics/sparql/templateSize:
     post:
+      tags:
+        - Statics
       summary: POST mwsx/statics/sparql/templateSize
-      operationId: post_extract_template_size
+      operationId: postExtractTemplateSize
       requestBody:
         content:
           application/json:
@@ -647,8 +766,10 @@ paths:
           description: Unhauthorized
   /statics/reporting/request:
     post:
+      tags:
+        - Statics
       summary: POST mwsx/statics/reporting/request
-      operationId: post_extract_issue_report
+      operationId: postExtractIssueReport
       requestBody:
         content:
           application/json:
@@ -666,6 +787,8 @@ paths:
           description: Unhauthorized
   /system/jdbcDrivers:
     get:
+      tags:
+        - System
       summary: Returns the available JDBC drivers
       operationId: getJdbcDrivers
       responses:
@@ -681,6 +804,8 @@ paths:
           description: Unhauthorized
   /system/jdbcDriver/{driver}:
     get:
+      tags:
+        - System
       summary: Returns information about a specific JDBC driver
       operationId: getJdbcDriver
       parameters:
@@ -699,6 +824,8 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - System
       summary: Adds information about a new JDBC driver to the system
       operationId: DELETEJdbcDrivers
       parameters:
@@ -717,6 +844,8 @@ paths:
         '401':
           description: Unhauthorized
     put:
+      tags:
+        - System
       summary: Adds information about a new JDBC driver to the system
       operationId: putJdbcDrivers
       parameters:
@@ -742,6 +871,8 @@ paths:
           description: Unhauthorized
   /system/jdbcDriver:
     post:
+      tags:
+        - System
       summary: Adds information about a new JDBC driver to the system
       operationId: postJdbcDrivers
       requestBody:
@@ -759,10 +890,48 @@ paths:
                 $ref: '#/components/schemas/JDBCDriver'
         '401':
           description: Unhauthorized
+  /system/errorLogs:
+    get:
+      tags:
+        - System
+      summary: Returns a list of error logs stored in the system
+      operationId: getErrorLogs
+      parameters:
+        - name: pagesize
+          in: query
+          description: number of logs in a single page
+          required: false
+          schema:
+            type: integer
+        - name: pagenumber
+          in: query
+          description: page numbers start at 1
+          required: false
+          schema:
+            type: integer
+        - name: user
+          in: query
+          description: add the name of a use to retrive error logs for that user
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MwsxSystemErrorLog'
+        '401':
+          description: Unhauthorized
   /queryTags:
     get:
+      tags:
+        - QueryTags
       summary: Returns all the available query tags
-      operationId: get_queryTags
+      operationId: getQueryTags
       responses:
         '200':
           description: OK
@@ -773,13 +942,15 @@ paths:
         '401':
           description: Unhauthorized
     post:
+      tags:
+        - QueryTags
       summary: Adds a new query tag to the set of available tags
-      operationId: post_queryTags
+      operationId: postQueryTags
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Tag'
+              $ref: '#/components/schemas/MwsxTag'
         required: true
       responses:
         '200':
@@ -792,8 +963,10 @@ paths:
           description: Unhauthorized
   /queryTags/{tagName}:
     delete:
+      tags:
+        - QueryTags
       summary: Deletes the given query tag from the list of available tags
-      operationId: delete_queryTags_tagName
+      operationId: deleteQueryTagsTagName
       parameters:
         - name: tagName
           in: path
@@ -811,8 +984,10 @@ paths:
           description: Unhauthorized
   /statistics/accesses:
     get:
+      tags:
+        - Statistics
       summary: Returns the access log
-      operationId: get_accesses_statistics
+      operationId: getAccessesStatistics
       responses:
         '200':
           description: OK
@@ -825,8 +1000,10 @@ paths:
         '401':
           description: Unhauthorized
     post:
+      tags:
+        - Statistics
       summary: Replace the current access log with the one provided
-      operationId: post_accesses_statistics
+      operationId: postAccessesStatistics
       requestBody:
         content:
           application/json:
@@ -847,8 +1024,10 @@ paths:
         '401':
           description: Unhauthorized
     put:
+      tags:
+        - Statistics
       summary: Adds the provided access log to the one registered in the system
-      operationId: put_accesses_statistics
+      operationId: putAccessesStatistics
       requestBody:
         content:
           application/json:
@@ -869,8 +1048,10 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Statistics
       summary: Replace the current access log with the one provided
-      operationId: delete_accesses_statistics
+      operationId: deleteAccessesStatistics
       responses:
         '200':
           description: OK
@@ -884,8 +1065,10 @@ paths:
           description: Unhauthorized
   /statistics/ontologies:
     get:
+      tags:
+        - Statistics
       summary: Returns the ontologies statistics
-      operationId: get_ontologies_statistics
+      operationId: getOntologiesStatistics
       responses:
         '200':
           description: OK
@@ -898,8 +1081,10 @@ paths:
         '401':
           description: Unhauthorized
     post:
+      tags:
+        - Statistics
       summary: Replace the current ontologies statistics with the one provided
-      operationId: post_ontologies_statistics
+      operationId: postOntologiesStatistics
       requestBody:
         content:
           application/json:
@@ -920,8 +1105,10 @@ paths:
         '401':
           description: Unhauthorized
     put:
-      summary: Adds the provided access log to the one registered in the system
-      operationId: put_ontologies_statistics
+      tags:
+        - Statistics
+      summary: Adds the provided ontologies statistics to the one registered in the system
+      operationId: putOntologiesStatistics
       requestBody:
         content:
           application/json:
@@ -942,8 +1129,10 @@ paths:
         '401':
           description: Unhauthorized
     delete:
-      summary: Adds the provided access log to the one registered in the system
-      operationId: delete_ontologies_statistics
+      tags:
+        - Statistics
+      summary: Delete the provided ontologies statistics from the system
+      operationId: deleteOntologiesStatistics
       responses:
         '200':
           description: OK
@@ -957,8 +1146,10 @@ paths:
           description: Unhauthorized
   /statistics/{endpoint}/queries:
     get:
+      tags:
+        - Statistics
       summary: Returns the query statistics for the given endpoint
-      operationId: get_statistics_endpoint_queries
+      operationId: getStatisticsEndpointQueries
       parameters:
         - name: endpoint
           in: path
@@ -977,8 +1168,10 @@ paths:
         '401':
           description: Unhauthorized
     post:
+      tags:
+        - Statistics
       summary: Replace the current query statistics with the one provided for the given endpoint
-      operationId: post_statistics_endpoint_queries
+      operationId: postStatisticsEndpointQueries
       parameters:
         - name: endpoint
           in: path
@@ -1005,8 +1198,10 @@ paths:
         '401':
           description: Unhauthorized
     put:
+      tags:
+        - Statistics
       summary: Adds the provided query statistics for the given endpoint to the one registered in the system
-      operationId: put_statistics_endpoint_queries
+      operationId: putStatisticsEndpointQueries
       parameters:
         - name: endpoint
           in: path
@@ -1033,8 +1228,10 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Statistics
       summary: Deletes from the system the query statistics for the given endpoint
-      operationId: delete_statistics_endpoint_queries
+      operationId: deleteStatisticsEndpointQueries
       parameters:
         - name: endpoint
           in: path
@@ -1054,8 +1251,10 @@ paths:
           description: Unhauthorized
   /statistics/{endpoint}/entities:
     get:
+      tags:
+        - Statistics
       summary: Returns the entities statistics for the given endpoint
-      operationId: get_statistics_endpoint_entities
+      operationId: getStatisticsEndpointEntities
       parameters:
         - name: endpoint
           in: path
@@ -1103,6 +1302,9 @@ components:
     OntologyID:
       title: OntologyID
       type: object
+      required:
+        - ontologyName
+        - ontologyVersion
       properties:
         ontologyVersion:
           type: string
@@ -1111,6 +1313,10 @@ components:
     MastroID:
       title: MastroID
       type: object
+      required:
+        - ontologyID
+        - mappingID
+        - datasourceID
       properties:
         mappingID:
           type: string
@@ -1126,11 +1332,23 @@ components:
       properties:
         deleted:
           type: boolean
+          default: false
         onto:
           $ref: '#/components/schemas/OntologyID'
         timestamp:
           type: integer
           format: int64
+          default: 0
+    KGOpeningEvent:
+      title: KGOpeningEvent
+      type: object
+      properties:
+        iri:
+          type: string
+        timestamp:
+          type: integer
+          format: int64
+          default: 0
     Label:
       title: Label
       type: object
@@ -1142,6 +1360,8 @@ components:
     OntologyEntity:
       title: OntologyEntity
       type: object
+      required:
+        - entityIRI
       properties:
         entityLabels:
           type: array
@@ -1149,6 +1369,7 @@ components:
             $ref: '#/components/schemas/Label'
         deprecated:
           type: boolean
+          default: false
         entityIRI:
           type: string
         entityType:
@@ -1164,39 +1385,56 @@ components:
       type: object
       properties:
         detailName:
-          type: string
+          enum:
+            - SERVER_IP_ADDRESS
+            - MAX_NUMBER_OF_USERS_ALLOWED
+            - MAX_NUMBER_OF_ONTOLOGIES_ALLOWED
         detailValue:
           type: string
     LicenseInfo:
       title: LicenseInfo
       type: object
       properties:
-        licenseType:
+        id:
           type: string
-        SERVER_IP_ADDRESS:
+        orderNumber:
           type: string
-        productVersion:
+        licensor:
           type: string
         licensee:
           type: string
-        licensor:
+        productName:
+          type: string
+        productVersion:
+          type: string
+        licenseType:
           type: string
         generationDate:
           type: integer
           format: int64
-        MAX_NUMBER_OF_ONTOLOGIES_ALLOWED:
-          type: string
-        productName:
+          default: 0
+        expirationDate:
+          type: integer
+          format: int64
+          default: 0
+        project:
           type: string
         licenseInfoDetails:
           type: array
           items:
             $ref: '#/components/schemas/LicenseInfoDetail'
-        MAX_NUMBER_OF_USERS_ALLOWED:
+    LicenseContactInfo:
+      title: LicenseContactInfo
+      type: object
+      properties:
+        licensee:
           type: string
-        expirationDate:
-          type: integer
-          format: int64
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
     OntologyVersionStorageReport:
       title: OntologyVersionStorageReport
       type: object
@@ -1204,16 +1442,21 @@ components:
         totalSize:
           type: integer
           format: int64
+          default: 0
         fileCount:
           type: integer
           format: int32
+          default: 0
     OntologyStorageReport:
       title: OntologyStorageReport
       type: object
+      required:
+        - versions
       properties:
         totalSize:
           type: integer
           format: int64
+          default: 0
         versions:
           type: object
           additionalProperties:
@@ -1221,16 +1464,21 @@ components:
         fileCount:
           type: integer
           format: int32
+          default: 0
     OntologiesStorageReport:
       title: OntologiesStorageReport
       type: object
+      required:
+        - ontologies
       properties:
         totalSize:
           type: integer
           format: int64
+          default: 0
         fileCount:
           type: integer
           format: int32
+          default: 0
         ontologies:
           type: object
           additionalProperties:
@@ -1242,19 +1490,25 @@ components:
         totalSize:
           type: integer
           format: int64
+          default: 0
         fileCount:
           type: integer
           format: int32
+          default: 0
     SystemFoldersStorageReport:
       title: SystemFoldersStorageReport
       type: object
+      required:
+        - systemFoldersStorageReport
       properties:
         totalSize:
           type: integer
           format: int64
+          default: 0
         fileCount:
           type: integer
           format: int32
+          default: 0
         systemFoldersStorageReport:
           type: object
           additionalProperties:
@@ -1266,16 +1520,21 @@ components:
         totalSize:
           type: integer
           format: int64
+          default: 0
         fileCount:
           type: integer
           format: int32
+          default: 0
     KgsStorageReport:
       title: KgsStorageReport
       type: object
+      required:
+        - kgs
       properties:
         totalSize:
           type: integer
           format: int64
+          default: 0
         kgs:
           type: object
           additionalProperties:
@@ -1283,13 +1542,19 @@ components:
         fileCount:
           type: integer
           format: int32
+          default: 0
     SystemStorageReport:
       title: SystemStorageReport
       type: object
+      required:
+        - ontologiesStorageReport
+        - kgsStorageReport
+        - systemFoldersStorageReport
       properties:
         totalSize:
           type: integer
           format: int64
+          default: 0
         ontologiesStorageReport:
           $ref: '#/components/schemas/OntologiesStorageReport'
         user:
@@ -1297,6 +1562,7 @@ components:
         fileCount:
           type: integer
           format: int32
+          default: 0
         systemFoldersStorageReport:
           $ref: '#/components/schemas/SystemFoldersStorageReport'
         kgsStorageReport:
@@ -1304,6 +1570,7 @@ components:
         timestamp:
           type: integer
           format: int64
+          default: 0
     SystemFolderDeletionReport:
       title: SystemFolderDeletionReport
       type: object
@@ -1311,6 +1578,7 @@ components:
         deletedFilesCount:
           type: integer
           format: int32
+          default: 0
         deletedFiles:
           type: array
           items:
@@ -1322,6 +1590,7 @@ components:
         freeSpaceCreated:
           type: integer
           format: int64
+          default: 0
     SessionSnapshot:
       title: SessionSnapshot
       type: object
@@ -1331,23 +1600,79 @@ components:
         expirationTime:
           type: integer
           format: int64
+          default: 0
         neverExpires:
           type: boolean
+          default: false
         lastUpdate:
           type: integer
           format: int64
+          default: 0
         operationsCount:
           type: integer
           format: int32
+          default: 0
         startTime:
           type: integer
           format: int64
+          default: 0
         id:
           type: string
         user:
           type: string
         startTimeText:
           type: string
+    EndpointMemorySnapshot:
+      title: MemorySnapshot
+      type: object
+      properties:
+        endpointsMemorySnapshot:
+          type: object
+    CacheMemorySnapshot:
+      title: MemorySnapshot
+      type: object
+      properties:
+        cachedTboxes:
+          type: integer
+          default: 0
+        cachedOwlOntologies:
+          type: integer
+          default: 0
+        cachedClosedOwlOntologies:
+          type: integer
+          default: 0
+        cachedMappingManagers:
+          type: integer
+          default: 0
+        cachedMastroAPIInstances:
+          type: integer
+          default: 0
+        cachedEndpointMastroAPIInstances:
+          type: integer
+          default: 0
+        cachedDataQualityCheckThreads:
+          type: integer
+          default: 0
+        cachedAnnotationProcessorThreads:
+          type: integer
+          default: 0
+        cachedCountEntityInstancesThreads:
+          type: integer
+          default: 0
+        cachedMinMaxDataPropertiesThread:
+          type: integer
+          default: 0
+        cachedInstanceCheckingThreads:
+          type: integer
+          default: 0
+    MemorySnapshot:
+      title: MemorySnapshot
+      type: object
+      properties:
+        endpointMemorySnapshot:
+          $ref: '#/components/schemas/EndpointMemorySnapshot'
+        cacheMemorySnapshot:
+          $ref: '#/components/schemas/CacheMemorySnapshot'
     Snapshot:
       title: Snapshot
       type: object
@@ -1363,6 +1688,9 @@ components:
         currentlyActiveSessionCount:
           type: integer
           format: int32
+          default: 0
+        memorySnapshot:
+          $ref: '#/components/schemas/MemorySnapshot'
     MwsxUserLogMessage:
       title: MwsxUserLogMessage
       type: object
@@ -1371,16 +1699,23 @@ components:
           type: string
         timestamp:
           type: integer
+          format: int64
+          default: 0
         resource:
           type: string
         method:
           type: string
         templateParams:
           type: object
+          additionalProperties:
+            type: string
         queryParams:
           type: object
+          additionalProperties:
+            type: string
         statusCode:
           type: integer
+          default: 0
     GeocodingServer:
       title: GeocodingServer
       type: object
@@ -1451,8 +1786,75 @@ components:
           type: string
         version:
           type: string
-    Tag:
-      title: Tag
+    Permission:
+      title: Permission
+      type: object
+      properties:
+        domain:
+          type: string
+        action:
+          type: string
+        id:
+          type: string
+    Role:
+      title: Role
+      type: object
+      required:
+        - name
+        - permissions
+      properties:
+        permissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Permission'
+        name:
+          type: string
+    User:
+      title: User
+      type: object
+      required:
+        - name
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Role'
+        name:
+          type: string
+        email:
+          type: string
+    MwsxSystemErrorLog:
+      title: MwsxSystemErrorLog
+      type: object
+      required:
+        - user
+        - requestURL
+        - timestamp
+        - message
+        - exceptionClass
+      properties:
+        user:
+          $ref: '#/components/schemas/User'
+        requestURL:
+          type: string
+        timestamp:
+          type: integer
+          format: int64
+          default: 0
+        message:
+          type: string
+        exceptionClass:
+          type: string
+        involvedMwsxClass:
+          type: string
+        fullStackTrace:
+          type: string
+    MwsxTag:
+      title: MwsxTag
       type: object
       properties:
         color:
@@ -1468,14 +1870,20 @@ components:
         tags:
           type: array
           items:
-            $ref: '#/components/schemas/Tag'
+            $ref: '#/components/schemas/MwsxTag'
     AccessLog:
       type: object
+      title: AccessLog
+      required:
+        - username
+        - timestamp
       properties:
         username:
           type: string
         timestamp:
           type: integer
+          format: int64
+          default: 0
     OntologyUsageLog:
       type: object
       required:
@@ -1486,19 +1894,32 @@ components:
           $ref: '#/components/schemas/OntologyID'
         count:
           type: integer
+          default: 0
     QueryUsageLog:
       type: object
+      title: QueryUsageLog
+      required:
+        - username
+        - timestamp
+        - queryCode
       properties:
         username:
           type: string
         timestamp:
           type: integer
+          format: int64
+          default: 0
         queryCode:
           type: string
     EntityUsageLog:
       type: object
+      title: EntityUsageLog
+      required:
+        - entity
+        - count
       properties:
         entity:
           $ref: '#/components/schemas/OntologyEntity'
         count:
           type: integer
+          default: 0

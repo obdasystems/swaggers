@@ -6,7 +6,7 @@ properties:
   ontologyVersion:
     type: string
   profile:
-    $ref: ./AuthorizationViewProfile.yaml
+    $ref: ./MWSXAuthorizationViewProfile.yaml
   ontologyName:
     type: string
   description:

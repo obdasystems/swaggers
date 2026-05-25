@@ -1,4 +1,5 @@
 get:
+  tags: [Logger]
   summary: GET mwsx/log/{env}/{mode}
   operationId: setLogger
   parameters:

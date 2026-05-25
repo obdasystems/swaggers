@@ -1,4 +1,5 @@
 get:
+  tags: [System]
   summary: Returns information about a specific JDBC driver
   operationId: getJdbcDriver
   parameters:
@@ -14,6 +15,7 @@ get:
           schema: {$ref: ../components/schemas/JDBCDriver.yaml}
     '401': {description: Unhauthorized}
 delete:
+  tags: [System]
   summary: Adds information about a new JDBC driver to the system
   operationId: DELETEJdbcDrivers
   parameters:
@@ -29,6 +31,7 @@ delete:
           schema: {$ref: ../components/schemas/JDBCDriver.yaml}
     '401': {description: Unhauthorized}
 put:
+  tags: [System]
   summary: Adds information about a new JDBC driver to the system
   operationId: putJdbcDrivers
   parameters:

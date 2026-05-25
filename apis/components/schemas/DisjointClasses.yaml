@@ -1,5 +1,7 @@
 title: DisjointClasses
 type: object
+allOf: 
+  -  $ref: AbstractDataQualityConstraint.yaml
 properties:
   disjointClass:
     $ref: ./OntologyEntity.yaml

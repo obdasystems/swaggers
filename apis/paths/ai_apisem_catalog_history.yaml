@@ -1,0 +1,13 @@
+get:
+  tags: [APISemantiche]
+  summary: Returns the list of operations executed on the ontology catalog
+  operationId: getApisemCatalogHistory
+  responses:
+    "200":
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/OntologyCatalogHistory.yaml
+    "401":
+      description: Unhauthorized

@@ -1,7 +1,8 @@
 put:
+  tags: [Template]
   summary: Applies templates refactoring to mapping specification and returns a list
     of affected mappings ids
-  operationId: get__owlOntology_name_version_mapping_ID_templates_refactoring
+  operationId: getOwlOntologyNameVersionMappingIDTemplatesRefactoring
   parameters:
   - name: name
     in: path
@@ -18,7 +19,7 @@ put:
   requestBody:
     content:
       application/json:
-        schema: {$ref: ../components/schemas/TemplateRefactoring.yaml}
+        schema: {$ref: ../components/schemas/MWSXTemplateRefactoring.yaml}
     required: true
   responses:
     '200':

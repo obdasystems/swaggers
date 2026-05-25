@@ -1,8 +1,6 @@
 title: DataQualityCheck
 type: object
+required: [id]
 properties:
-  id:
-    type: string
-  priority:
-    type: integer
-    format: int32
+  id: {type: string}
+  priority: {type: integer, format: int32, default: 0}

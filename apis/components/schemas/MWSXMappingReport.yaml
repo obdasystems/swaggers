@@ -1,0 +1,11 @@
+title: MappingReport
+type: object
+properties:
+  dataSourceCoverage:
+    $ref: ./MWSXDataSourceCoverage.yaml
+  ontologyPredicatesStatistics:
+    $ref: ./MWSXOntologyPredicatesStatistics.yaml
+  ontologyCoverage:
+    $ref: ./MWSXOntologyCoverage.yaml
+  quarantinedMappingReport:
+    $ref: ./MWSXQuarantinedMappingReport.yaml

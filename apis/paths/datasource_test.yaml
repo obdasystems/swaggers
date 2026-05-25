@@ -1,10 +1,11 @@
 post:
+  tags: [Test]
   summary: Test a given data source connection
   operationId: testDatasource
   requestBody:
     content:
       application/json:
-        schema: {$ref: ../components/schemas/DataSourceInfoEntry.yaml}
+        schema: {$ref: ../components/schemas/MWSXDataSourceInfoEntry.yaml}
     required: true
   responses:
     '200':

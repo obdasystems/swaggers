@@ -1,6 +1,7 @@
 post:
+  tags: [CheckSet]
   summary: Create a new data quality check set
-  operationId: post_ontologyConstraints_check_start
+  operationId: postOntologyConstraintsCheckSet
   parameters:
   - name: name
     in: path
@@ -23,8 +24,9 @@ post:
           schema: {type: boolean}
     '401': {description: Unhauthorized}
 get:
+  tags: [CheckSet]
   summary: Returns a list of the check sets available for the ontology / version
-  operationId: get_ontologyConstraints_check_sets
+  operationId: getOntologyConstraintsCheckSets
   parameters:
   - name: name
     in: path

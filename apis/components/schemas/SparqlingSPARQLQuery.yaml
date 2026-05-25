@@ -1,5 +1,7 @@
 title: SparqlingSPARQLQuery
 type: object
+required:
+  - sparqlQuery
 properties:
   queryGraph:
     $ref: ./QueryGraph.yaml

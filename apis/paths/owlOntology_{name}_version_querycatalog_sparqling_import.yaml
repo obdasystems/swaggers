@@ -1,8 +1,9 @@
 post:
+  tags: [Persistence]
   summary: 'Imports a new catalog of SPARQLING queries: if the additive switch is
     true, all new queries will be added to the existing ones, otherwise the old catalog
     will be overwritten'
-  operationId: post__owlOntology_name_version_querycatalog_sparqling_import
+  operationId: postOwlOntologyNameVersionQuerycatalogSparqlingImport
   parameters:
   - name: name
     in: path
@@ -15,7 +16,7 @@ post:
   - name: additive
     in: query
     required: true
-    schema: {type: string}
+    schema: {type: boolean}
   requestBody:
     content:
       application/json:

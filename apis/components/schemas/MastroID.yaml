@@ -1,5 +1,9 @@
 title: MastroID
 type: object
+required:
+  - ontologyID
+  - mappingID
+  - datasourceID
 properties:
   mappingID:
     type: string

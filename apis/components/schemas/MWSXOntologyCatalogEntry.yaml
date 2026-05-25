@@ -1,0 +1,10 @@
+title: OntologyCatalogEntry
+type: object
+required:
+  - ontologyName
+  - ontologyVersion
+properties:
+  ontologyVersion:
+    type: string
+  ontologyName:
+    type: string

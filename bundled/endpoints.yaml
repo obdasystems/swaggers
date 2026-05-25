@@ -23,8 +23,10 @@ security:
 paths:
   /endpoints:
     get:
+      tags:
+        - Persistence
       summary: Returns all available endpoints
-      operationId: get_endpoints
+      operationId: getEndpoints
       responses:
         '200':
           description: OK
@@ -35,8 +37,10 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Persistence
       summary: Deletes all available endpoints
-      operationId: delete_endpoints
+      operationId: deleteEndpoints
       responses:
         '200':
           description: OK
@@ -48,8 +52,10 @@ paths:
           description: Unhauthorized
   /endpoints/referencing/owlOntology/{name}/version:
     get:
+      tags:
+        - Referring
       summary: Returns all available endpoints defined on a given ontology name and ontology version
-      operationId: get_endpoints_referencing_onto
+      operationId: getEndpointsReferencingOnto
       parameters:
         - name: name
           in: path
@@ -72,8 +78,10 @@ paths:
           description: Unhauthorized
   /endpoints/referencing/owlOntology/{name}/version/mapping/{ID}:
     get:
+      tags:
+        - Referring
       summary: Returns all available endpoints defined on a given ontology name, ontology version and mapping
-      operationId: get_endpoints_referencing_onto_mapping
+      operationId: getEndpointsReferencingOntoMapping
       parameters:
         - name: name
           in: path
@@ -101,8 +109,10 @@ paths:
           description: Unhauthorized
   /endpoints/referencing/datasource/{name}:
     get:
+      tags:
+        - Referring
       summary: Returns all available endpoints that are defined for a specific datasource
-      operationId: get_endpoints_referencing_datasource
+      operationId: getEndpointsReferencingDatasource
       parameters:
         - name: name
           in: path
@@ -120,8 +130,10 @@ paths:
           description: Unhauthorized
   /endpoints/running:
     get:
+      tags:
+        - Persistence
       summary: Returns all endpoints with status running
-      operationId: get_running_endpoints
+      operationId: getRunningEndpoints
       responses:
         '200':
           description: OK
@@ -133,8 +145,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}:
     get:
+      tags:
+        - Persistence
       summary: Returns an endpoint by its name
-      operationId: get_endpoint
+      operationId: getEndpoint
       parameters:
         - name: name
           in: path
@@ -151,8 +165,10 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Persistence
       summary: Deletes the endpoint by its name
-      operationId: delete_endpoint
+      operationId: deleteEndpoint
       parameters:
         - name: name
           in: path
@@ -169,8 +185,10 @@ paths:
         '401':
           description: Unhauthorized
     put:
+      tags:
+        - Persistence
       summary: Updates the endpoint with the new values provided
-      operationId: put_endpoint
+      operationId: putEndpoint
       parameters:
         - name: name
           in: path
@@ -194,8 +212,10 @@ paths:
           description: Unhauthorized
   /endpoint:
     post:
+      tags:
+        - Persistence
       summary: Creates a new endpoint
-      operationId: post_endpoint
+      operationId: postEndpoint
       requestBody:
         content:
           application/json:
@@ -213,8 +233,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/prefixes:
     get:
+      tags:
+        - Info
       summary: Returns the set of prefixes that are relevant for a given endpoint
-      operationId: get__owlOntology_name_version_mapping_ID_prefixes
+      operationId: getOwlOntologyNameVersionMappingIDPrefixes
       parameters:
         - name: name
           in: path
@@ -234,8 +256,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/start:
     put:
+      tags:
+        - Status
       summary: Starts the given endpoint, returns 0 if the operation succeeds
-      operationId: start_endpoint
+      operationId: startEndpoint
       parameters:
         - name: name
           in: path
@@ -259,8 +283,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/stop:
     put:
+      tags:
+        - Status
       summary: Stops the given endpoint, returns 0 if the stop operation succeeds
-      operationId: stop_endpoint
+      operationId: stopEndpoint
       parameters:
         - name: name
           in: path
@@ -278,8 +304,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/status:
     get:
+      tags:
+        - Status
       summary: Returns the status of the given endpoint
-      operationId: get_endpoint_status
+      operationId: getEndpointStatus
       parameters:
         - name: name
           in: path
@@ -297,8 +325,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/empties:
     get:
+      tags:
+        - Empties
       summary: Returns the collection of empty entities relevant for the given endpoint
-      operationId: get_endpoint_empties
+      operationId: getEndpointEmpties
       parameters:
         - name: name
           in: path
@@ -316,8 +346,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/emptyUnfoldingEntities:
     get:
+      tags:
+        - Empties
       summary: Returns the collection of entities with empty unfolding that are relevant for the given endpoint
-      operationId: get_endpoint_empty_unfolding_entities
+      operationId: getEndpointEmptyUnfoldingEntities
       parameters:
         - name: name
           in: path
@@ -335,8 +367,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/highlights/annotations:
     get:
+      tags:
+        - Highlights
       summary: Returns the collection of entities with empty unfolding that are relevant for the given endpoint
-      operationId: get_endpoint_highlights_annotations
+      operationId: getEndpointHighlightsAnnotations
       parameters:
         - name: name
           in: path
@@ -361,8 +395,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/query/count/{queryId}/stop:
     put:
+      tags:
+        - QueryCount
       summary: Forces the count thread of the given SPARQL query to stop
-      operationId: get_query_count_stop
+      operationId: putQueryCountStop
       parameters:
         - name: name
           in: path
@@ -385,8 +421,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/query/count/{queryId}:
     delete:
+      tags:
+        - QueryCount
       summary: Deletes the count thread on the given endpoint for a SPARQL query
-      operationId: delete_query_count
+      operationId: deleteQueryCount
       parameters:
         - name: name
           in: path
@@ -409,8 +447,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/query/count/{queryId}/result:
     get:
+      tags:
+        - QueryCount
       summary: Returns the counts the results of a SPARQL query executed on the given endpoint
-      operationId: get_query_count_result
+      operationId: getQueryCountResult
       parameters:
         - name: name
           in: path
@@ -433,8 +473,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/query/check:
     post:
+      tags:
+        - Query
       summary: Checks the syntax of the passed query on the given endpoint
-      operationId: check_query_on_endpoint
+      operationId: checkQueryOnEndpoint
       parameters:
         - name: name
           in: path
@@ -451,15 +493,17 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
         '401':
           description: Unhauthorized
   /endpoint/{name}/query/quarantinedMappingsByEntity:
     post:
+      tags:
+        - Query
       summary: Given a SPARQL query, returns a map with entity as key and a set of quarantined mapping identifiers as a value
-      operationId: check_query_on_endpoint_for_quarantinedMappings
+      operationId: checkQueryOnEndpointForQuarantinedMappings
       parameters:
         - name: name
           in: path
@@ -487,8 +531,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/query/{queryID}/start:
     post:
+      tags:
+        - Query
       summary: Starts a new instance of a query on the given endpoint
-      operationId: start_catalog_query_on_endpoint
+      operationId: startCatalogQueryOnEndpoint
       parameters:
         - name: name
           in: path
@@ -517,44 +563,46 @@ paths:
             type: string
         - name: answersBufferSize
           in: query
-          required: true
           schema:
-            type: string
+            type: integer
         - name: skipSqlEvaluation
           in: query
-          required: true
           schema:
-            type: string
+            type: boolean
         - name: useReplaceForUrlEncoding
           in: query
-          required: true
           schema:
-            type: string
+            type: boolean
         - name: filterNullValuesOnIri
           in: query
-          required: true
           schema:
-            type: string
+            type: boolean
         - name: lang
           in: query
-          required: true
           schema:
             type: string
         - name: agent
           in: query
-          required: true
           schema:
             type: string
         - name: unfolderCountThreshold
           in: query
           required: true
           schema:
-            type: string
+            type: integer
+        - name: addDistinctOnCores
+          in: query
+          required: true
+          schema:
+            type: boolean
       requestBody:
         content:
           '*/*':
             schema:
-              type: string
+              description: Mapping parameters values
+              type: object
+              additionalProperties:
+                type: string
         required: true
       responses:
         '200':
@@ -567,8 +615,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/query/{queryID}/stop:
     put:
+      tags:
+        - Query
       summary: Forces the termination of the query running on the given endpoint
-      operationId: stop_catalog_query_on_endpoint
+      operationId: stopCatalogQueryOnEndpoint
       parameters:
         - name: name
           in: path
@@ -591,8 +641,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/query/{queryID}/exportFile:
     get:
+      tags:
+        - Query
       summary: Returns the file containing exported results for a query on the given endpoint
-      operationId: export_catalog_query_on_endpoint
+      operationId: exportCatalogQueryOnEndpoint
       parameters:
         - name: name
           in: path
@@ -606,7 +658,6 @@ paths:
             type: string
         - name: fileName
           in: query
-          required: true
           schema:
             type: string
       responses:
@@ -620,8 +671,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/query/{queryID}/fullSparqlDetails:
     get:
+      tags:
+        - Query
       summary: Returns the report of a Full Sparql query executed on the given endpoint
-      operationId: get_eqldeatils_catalog_query_on_endpoint
+      operationId: getEqldeatilsCatalogQueryOnEndpoint
       parameters:
         - name: name
           in: path
@@ -639,13 +692,15 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FullSparqlQueryReport'
+                $ref: '#/components/schemas/MWSXFullSparqlQueryReport'
         '401':
           description: Unhauthorized
   /endpoint/{name}/query/{queryID}/ontologyRewritings:
     get:
+      tags:
+        - Query
       summary: Returns the ontology rewriting of a query executed on the given endpoint
-      operationId: get__owlOntology_name_version_query_ID_ontologyRewritings
+      operationId: getOwlOntologyNameVersionQueryIDOntologyRewritings
       parameters:
         - name: name
           in: path
@@ -680,8 +735,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/query/{queryID}/viewRewritings:
     get:
+      tags:
+        - Query
       summary: Returns the view rewritings of a query executed on the given endpoint
-      operationId: get__owlOntology_name_version_query_ID_viewRewritings
+      operationId: getOwlOntologyNameVersionQueryIDViewRewritings
       parameters:
         - name: name
           in: path
@@ -716,8 +773,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/query/{queryID}/viewOptimizedRewritings:
     get:
+      tags:
+        - Query
       summary: Returns the optimized view rewritings of a query executed on the given endpoint
-      operationId: get__owlOntology_name_version_query_ID_viewOptimizedRewritings
+      operationId: getOwlOntologyNameVersionQueryIDViewOptimizedRewritings
       parameters:
         - name: name
           in: path
@@ -752,8 +811,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/query/{queryID}/sqlRewritings:
     get:
+      tags:
+        - Query
       summary: Returns the SQL rewritings of a query executed on the given endpoint
-      operationId: get__owlOntology_name_version_query_ID_sqlRewritings
+      operationId: getOwlOntologyNameVersionQueryIDSqlRewritings
       parameters:
         - name: name
           in: path
@@ -788,8 +849,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/query/{queryID}/sqlDebugRewritings:
     get:
+      tags:
+        - Query
       summary: Returns the currently running SQL rewritings of a query executed on the given endpoint
-      operationId: get__owlOntology_name_version_query_ID_sqlDebugRewritings
+      operationId: getOwlOntologyNameVersionQueryIDSqlDebugRewritings
       parameters:
         - name: name
           in: path
@@ -814,8 +877,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/query/{queryID}/results:
     get:
+      tags:
+        - Query
       summary: Returns the results of the query running on the given endpoint, the results returned contain a page (pagenumber) of a given size (pagesize)
-      operationId: get__owlOntology_name_version_query_ID_results
+      operationId: getOwlOntologyNameVersionQueryIDResults
       parameters:
         - name: name
           in: path
@@ -850,8 +915,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/query/{queryID}/status:
     get:
+      tags:
+        - Query
       summary: Returns the status of a query running on the given endpoint
-      operationId: get__owlOntology_name_version_query_ID_status
+      operationId: getOwlOntologyNameVersionQueryIDStatus
       parameters:
         - name: name
           in: path
@@ -874,8 +941,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/queryRecordInfos:
     get:
+      tags:
+        - Query
       summary: Returns the query record info of all the queries running on the given endpoint
-      operationId: get__owlOntology_name_version_query_ID_record_infos
+      operationId: getOwlOntologyNameVersionQueryIDRecordInfos
       parameters:
         - name: name
           in: path
@@ -895,8 +964,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/query/{queryID}/queryRecordInfo:
     get:
+      tags:
+        - Query
       summary: Returns the query record info of a certain query running on the given endpoint
-      operationId: get__owlOntology_name_version_query_ID_record_info
+      operationId: getOwlOntologyNameVersionQueryIDRecordInfo
       parameters:
         - name: name
           in: path
@@ -919,8 +990,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/query/exportQueryResults:
     post:
+      tags:
+        - ExportedQuery
       summary: Exports on a separate thread the results of a query running on the given endpoint, the export thread identifier is returned
-      operationId: post__owlOntology_name_version_query_ID_export_results
+      operationId: postOwlOntologyNameVersionQueryIDExportResults
       parameters:
         - name: name
           in: path
@@ -931,21 +1004,23 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ExportInfo'
+              $ref: '#/components/schemas/MWSXExportInfo'
         required: true
       responses:
         '200':
           description: OK
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
         '401':
           description: Unhauthorized
   /endpoint/{name}/query/export/direct:
     get:
+      tags:
+        - ExportedQuery
       summary: Returns the stream of the results of a query running on the given endpoint
-      operationId: post__owlOntology_name_version_query_ID_export_directcsv
+      operationId: postOwlOntologyNameVersionQueryIDExportDirectcsv
       parameters:
         - name: name
           in: path
@@ -969,8 +1044,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/exportThreads:
     get:
+      tags:
+        - ExportedQuery
       summary: Returns the export thread identifiers available on the given endpoint
-      operationId: get__owlOntology_name_version_query_ID_export_threads
+      operationId: getOwlOntologyNameVersionQueryIDExportThreads
       parameters:
         - name: name
           in: path
@@ -990,8 +1067,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/exported:
     get:
+      tags:
+        - ExportedQuery
       summary: Returns the collection of export information available for the given endpoint
-      operationId: get__owlOntology_name_version_query_ID_exported
+      operationId: getOwlOntologyNameVersionQueryIDExported
       parameters:
         - name: name
           in: path
@@ -1006,13 +1085,15 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ExportInfo'
+                  $ref: '#/components/schemas/MWSXExportInfo'
         '401':
           description: Unhauthorized
   /endpoint/{name}/exported/{fileName}:
     get:
+      tags:
+        - ExportedQuery
       summary: Returns the content of an export file for the given endpoint
-      operationId: get__owlOntology_name_version_query_ID_exported_fileName
+      operationId: getOwlOntologyNameVersionQueryIDExportedFileName
       parameters:
         - name: name
           in: path
@@ -1034,8 +1115,10 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - ExportedQuery
       summary: Deletes the export file for the given endpoint from the server, returns 0 in the deletion succeeded
-      operationId: delete__owlOntology_name_version_query_ID_exported_fileName
+      operationId: deleteOwlOntologyNameVersionQueryIDExportedFileName
       parameters:
         - name: name
           in: path
@@ -1058,8 +1141,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/exportThread/{id}/status:
     get:
+      tags:
+        - ExportedQuery
       summary: Returns the status of an export thread running on the given endpoint
-      operationId: get__owlOntology_name_version_query_ID_export_thread_id_status
+      operationId: getOwlOntologyNameVersionQueryIDExportThreadIdStatus
       parameters:
         - name: name
           in: path
@@ -1075,15 +1160,17 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
         '401':
           description: Unhauthorized
   /endpoint/{name}/exportThread/{id}/errors:
     get:
+      tags:
+        - ExportedQuery
       summary: Returns the status of an export thread running on the given endpoint
-      operationId: get__owlOntology_name_version_query_ID_export_thread_id_errors
+      operationId: getOwlOntologyNameVersionQueryIDExportThreadIdErrors
       parameters:
         - name: name
           in: path
@@ -1108,8 +1195,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/exportThread/{id}/stop:
     put:
+      tags:
+        - ExportedQuery
       summary: Stops the execution of an export thread on the given endpoint
-      operationId: put__owlOntology_name_version_query_ID_export_thread_id_status
+      operationId: putOwlOntologyNameVersionQueryIDExportThreadIdStop
       parameters:
         - name: name
           in: path
@@ -1132,8 +1221,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/exportThread/{id}/stats:
     get:
+      tags:
+        - ExportedQuery
       summary: Returns statistics of an export thread running on the given endpoint
-      operationId: get__owlOntology_name_version_query_ID_export_thread_id_stats
+      operationId: getOwlOntologyNameVersionQueryIDExportThreadIdStats
       parameters:
         - name: name
           in: path
@@ -1151,13 +1242,15 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ExportStats'
+                $ref: '#/components/schemas/MWSXExportStats'
         '401':
           description: Unhauthorized
   /endpoint/{name}/exportThread/{id}/file:
     get:
+      tags:
+        - ExportedQuery
       summary: Streams the file content of an export thread run on the given endpoint
-      operationId: get__owlOntology_name_version_query_ID_export_thread_id_file
+      operationId: getOwlOntologyNameVersionQueryIDExportThreadIdFile
       parameters:
         - name: name
           in: path
@@ -1181,8 +1274,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/exportThread/{id}/preview/{lines}:
     get:
+      tags:
+        - ExportedQuery
       summary: Returns the first 'lines' lines of the exported file content
-      operationId: get__owlOntology_name_version_query_ID_export_thread_id_preview
+      operationId: getOwlOntologyNameVersionQueryIDExportThreadIdPreview
       parameters:
         - name: name
           in: path
@@ -1211,8 +1306,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/exportThread/{id}:
     delete:
+      tags:
+        - ExportedQuery
       summary: DELETE mwsx/endpoint/{name}/exportThread/{id}
-      operationId: delete__owlOntology_name_version_query_ID_export_thread_id
+      operationId: deleteOwlOntologyNameVersionQueryIDExportThreadId
       parameters:
         - name: name
           in: path
@@ -1235,8 +1332,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/cquery/start:
     post:
+      tags:
+        - ConstructQuery
       summary: Starts the SPARQL construct query on the given endpoint
-      operationId: post__owlOntology_name_version_construct_query_start
+      operationId: postOwlOntologyNameVersionConstructQueryStart
       parameters:
         - name: name
           in: path
@@ -1260,39 +1359,37 @@ paths:
             type: string
         - name: answersBufferSize
           in: query
-          required: true
           schema:
-            type: string
+            type: integer
         - name: skipSqlEvaluation
           in: query
-          required: true
           schema:
-            type: string
+            type: boolean
         - name: useReplaceForUrlEncoding
           in: query
-          required: true
           schema:
-            type: string
+            type: boolean
         - name: filterNullValuesOnIri
           in: query
-          required: true
           schema:
-            type: string
+            type: boolean
         - name: lang
           in: query
-          required: true
           schema:
             type: string
         - name: agent
           in: query
-          required: true
           schema:
             type: string
         - name: unfolderCountThreshold
           in: query
+          schema:
+            type: integer
+        - name: addDistinctOnCores
+          in: query
           required: true
           schema:
-            type: string
+            type: boolean
       requestBody:
         content:
           application/json:
@@ -1310,8 +1407,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/cquery/{queryID}/start:
     post:
+      tags:
+        - ConstructQuery
       summary: Starts the construct query with the provided identified on the given endpoint
-      operationId: post__owlOntology_name_version_construct_query_ID_start
+      operationId: postOwlOntologyNameVersionConstructQueryIDStart
       parameters:
         - name: name
           in: path
@@ -1340,44 +1439,45 @@ paths:
             type: string
         - name: answersBufferSize
           in: query
-          required: true
           schema:
-            type: string
+            type: integer
         - name: skipSqlEvaluation
           in: query
-          required: true
           schema:
-            type: string
+            type: boolean
         - name: useReplaceForUrlEncoding
           in: query
-          required: true
           schema:
-            type: string
+            type: boolean
         - name: filterNullValuesOnIri
           in: query
-          required: true
           schema:
-            type: string
+            type: boolean
         - name: lang
           in: query
-          required: true
           schema:
             type: string
         - name: agent
           in: query
-          required: true
           schema:
             type: string
         - name: unfolderCountThreshold
           in: query
+          schema:
+            type: integer
+        - name: addDistinctOnCores
+          in: query
           required: true
           schema:
-            type: string
+            type: boolean
       requestBody:
         content:
           '*/*':
             schema:
-              type: string
+              description: Mapping parameters values
+              type: object
+              additionalProperties:
+                type: string
         required: true
       responses:
         '200':
@@ -1390,8 +1490,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/cquery/{queryID}/status:
     get:
+      tags:
+        - ConstructQuery
       summary: Returns the execution status of construct query on the given endpoint
-      operationId: get__owlOntology_name_version_construct_query_ID_status
+      operationId: getOwlOntologyNameVersionConstructQueryIDStatus
       parameters:
         - name: name
           in: path
@@ -1414,8 +1516,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/cquery/exportQueryResults:
     post:
+      tags:
+        - ConstructQuery
       summary: Starts the export thread for a construct query on the given endpoint, the export thread identifier is returned
-      operationId: post__owlOntology_name_version_cquery_ID_export_results
+      operationId: postOwlOntologyNameVersionCqueryIDExportResults
       parameters:
         - name: name
           in: path
@@ -1426,21 +1530,23 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ExportInfo'
+              $ref: '#/components/schemas/MWSXExportInfo'
         required: true
       responses:
         '200':
           description: OK
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
         '401':
           description: Unhauthorized
   /endpoint/{name}/cquery/{queryID}/export:
     get:
+      tags:
+        - ConstructQuery
       summary: Returns the file content of the export thread of a construct query running on the given endpoint
-      operationId: get__owlOntology_name_version_construct_query_ID_export
+      operationId: getOwlOntologyNameVersionConstructQueryIDExport
       parameters:
         - name: name
           in: path
@@ -1468,8 +1574,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/cquery/{queryID}/results:
     get:
+      tags:
+        - ConstructQuery
       summary: Returns a page of a given size of results of a construct query running on the given endpoint
-      operationId: get__owlOntology_name_version_construct_query_ID_results
+      operationId: getOwlOntologyNameVersionConstructQueryIDResults
       parameters:
         - name: name
           in: path
@@ -1504,8 +1612,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/cquery/{queryID}/results/triples:
     get:
+      tags:
+        - ConstructQuery
       summary: Returns the results for a given construct query in a triples format
-      operationId: get__owlOntology_name_version_construct_query_ID_results_triples
+      operationId: getOwlOntologyNameVersionConstructQueryIDResultsTriples
       parameters:
         - name: name
           in: path
@@ -1542,8 +1652,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/cquery/{queryID}/results/tabular:
     get:
+      tags:
+        - ConstructQuery
       summary: Returns the results for a given construct query in tabular format
-      operationId: get__owlOntology_name_version_construct_query_ID_results_tabular
+      operationId: getOwlOntologyNameVersionConstructQueryIDResultsTabular
       parameters:
         - name: name
           in: path
@@ -1581,7 +1693,7 @@ paths:
       tags:
         - VKG
       summary: Returns the results for a given construct query in tabular format
-      operationId: getRDFGraphConstruct
+      operationId: getOwlOntologyNameVersionConstructQueryIDResultsRdfGraph
       parameters:
         - name: name
           description: Endpoint name
@@ -1616,8 +1728,10 @@ paths:
           description: Unhauthorized
   /endpoint/{eName}/countEntityInstances:
     get:
+      tags:
+        - CountEntityInstances
       summary: Count the number of instances of the Class or the Object Property of the ontology
-      operationId: get__endpoint_instances
+      operationId: getEndpointInstances
       parameters:
         - name: eName
           in: path
@@ -1645,8 +1759,10 @@ paths:
           description: Unhauthorized
   /endpoint/{eName}/countEntityInstances/start:
     get:
+      tags:
+        - CountEntityInstances
       summary: Starts the executions of the queries that will count the number of instances of each Class and Object Property of the ontology
-      operationId: get__start_endpoint_entity_instances
+      operationId: getStartEndpointEntityInstances
       parameters:
         - name: eName
           in: path
@@ -1664,8 +1780,10 @@ paths:
           description: Unhauthorized
   /endpoint/{eName}/countEntityInstances/stop:
     get:
+      tags:
+        - CountEntityInstances
       summary: Starts the executions of the queries that will count the number of instances of each Class of the ontology
-      operationId: get__stop_endpoint_entity_instances
+      operationId: getStopEndpointEntityInstances
       parameters:
         - name: eName
           in: path
@@ -1683,8 +1801,10 @@ paths:
           description: Unhauthorized
   /endpoint/{eName}/countEntityInstances/info:
     get:
+      tags:
+        - CountEntityInstances
       summary: Get the info about the queries that will count the number of instances of each Class of the ontology
-      operationId: get__endpoint_entity_instances_info
+      operationId: getEndpointEntityInstancesInfo
       parameters:
         - name: eName
           in: path
@@ -1702,8 +1822,10 @@ paths:
           description: Unhauthorized
   /endpoint/{eName}/instanceChecking/start:
     post:
+      tags:
+        - InstanceChecking
       summary: Starts the executions of the queries that will count the number of instances of each Class of the ontology
-      operationId: get__start_endpoint_instance_checking
+      operationId: getStartEndpointInstanceChecking
       parameters:
         - name: eName
           in: path
@@ -1751,8 +1873,10 @@ paths:
           description: Unhauthorized
   /endpoint/{eName}/instanceChecking/{threadId}/stop:
     get:
+      tags:
+        - InstanceChecking
       summary: Starts the executions of the queries that will count the number of instances of each Class of the ontology
-      operationId: get__stop_endpoint_instance_checking
+      operationId: getStopEndpointInstanceChecking
       parameters:
         - name: eName
           in: path
@@ -1776,8 +1900,10 @@ paths:
           description: Unhauthorized
   /endpoint/{eName}/instanceChecking/{threadId}/info:
     get:
+      tags:
+        - InstanceChecking
       summary: Get the info about the queries that will count the number of instances of each Class of the ontology
-      operationId: get__endpoint_class_instance_checking
+      operationId: getEndpointClassInstanceChecking
       parameters:
         - name: eName
           in: path
@@ -1801,8 +1927,10 @@ paths:
           description: Unhauthorized
   /endpoint/{eName}/minMaxDataproperties/start:
     get:
+      tags:
+        - MinMaxDataProperties
       summary: Starts the executions of the queries that will count the number of instances of each Class and Object Property of the ontology
-      operationId: get__start_endpoint_min_max_dataproperties
+      operationId: getStartEndpointMinMaxDataproperties
       parameters:
         - name: eName
           in: path
@@ -1820,8 +1948,10 @@ paths:
           description: Unhauthorized
   /endpoint/{eName}/minMaxDataproperties/stop:
     get:
+      tags:
+        - MinMaxDataProperties
       summary: Starts the executions of the queries that will count the number of instances of each Class of the ontology
-      operationId: get__stop_endpoint_min_max_dataproperties
+      operationId: getStopEndpointMinMaxDataproperties
       parameters:
         - name: eName
           in: path
@@ -1839,8 +1969,10 @@ paths:
           description: Unhauthorized
   /endpoint/{eName}/minMaxDataproperties/info:
     get:
+      tags:
+        - MinMaxDataProperties
       summary: Get the info about the queries that will count the number of instances of each Class of the ontology
-      operationId: get__endpoint_min_max_dataproperties
+      operationId: getEndpointMinMaxDataproperties
       parameters:
         - name: eName
           in: path
@@ -1856,10 +1988,86 @@ paths:
                 $ref: '#/components/schemas/MinMaxDatapropertiesInfo'
         '401':
           description: Unhauthorized
+  /endpoint/{eName}/entitiesExamples/start:
+    post:
+      tags:
+        - EntitiesExamples
+      summary: Starts the executions of the queries that save some examples of data properties values and class individuals
+      operationId: postStartEndpointEntitiesExamples
+      parameters:
+        - name: eName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: numberOfExamples
+          in: query
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+        '401':
+          description: Unhauthorized
+  /endpoint/{eName}/entitiesExamples/stop:
+    get:
+      tags:
+        - EntitiesExamples
+      summary: Stops the executions of the queries that compute entities examples
+      operationId: getStopEndpointEntitiesExamples
+      parameters:
+        - name: eName
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+        '401':
+          description: Unhauthorized
+  /endpoint/{eName}/entitiesExamples/info:
+    get:
+      tags:
+        - EntitiesExamples
+      summary: Get the info about the queries that will count the number of instances of each Class of the ontology
+      operationId: getEndpointEntitiesExamplesInfo
+      parameters:
+        - name: eName
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntitiesExamplesInfo'
+        '401':
+          description: Unhauthorized
   /endpoint/{name}/queries:
     get:
+      tags:
+        - Query
       summary: Returns the current state of all the queries in status <code>status</code> loaded in the endpoint named <code>name</code>
-      operationId: list_query_statuses_on_endpoint
+      operationId: listQueryStatusesOnEndpoint
       parameters:
         - name: name
           in: path
@@ -1884,8 +2092,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/queries/ids:
     get:
+      tags:
+        - Query
       summary: Returns the IDs of queries loaded in the given endpoint
-      operationId: list_query_ids_on_endpoint
+      operationId: listQueryIdsOnEndpoint
       parameters:
         - name: name
           in: path
@@ -1910,8 +2120,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/query/{executionId}:
     delete:
+      tags:
+        - Query
       summary: Returns the IDs of queries loaded in the given endpoint
-      operationId: delete_query_execution_on_endpoint
+      operationId: deleteQueryExecutionOnEndpoint
       parameters:
         - name: name
           in: path
@@ -1934,8 +2146,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/query/start:
     post:
+      tags:
+        - Query
       summary: Starts a new query
-      operationId: start_new_query_on_endpoint
+      operationId: startNewQueryOnEndpoint
       parameters:
         - name: name
           in: path
@@ -1959,39 +2173,38 @@ paths:
             type: string
         - name: answersBufferSize
           in: query
-          required: true
           schema:
-            type: string
+            type: integer
         - name: skipSqlEvaluation
           in: query
-          required: true
           schema:
-            type: string
+            type: boolean
         - name: useReplaceForUrlEncoding
           in: query
-          required: true
           schema:
-            type: string
+            type: boolean
         - name: filterNullValuesOnIri
           in: query
-          required: true
           schema:
-            type: string
+            type: boolean
         - name: lang
           in: query
-          required: true
           schema:
             type: string
         - name: agent
           in: query
-          required: true
           schema:
             type: string
         - name: unfolderCountThreshold
           in: query
           required: true
           schema:
-            type: string
+            type: integer
+        - name: addDistinctOnCores
+          in: query
+          required: true
+          schema:
+            type: boolean
       requestBody:
         content:
           '*/*':
@@ -2009,8 +2222,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/query/start-sync:
     post:
+      tags:
+        - Query
       summary: Starts a new query in synchronous mode on the given endpoint
-      operationId: start_new_sync_query_on_endpoint
+      operationId: startNewSyncQueryOnEndpoint
       parameters:
         - name: name
           in: path
@@ -2034,39 +2249,37 @@ paths:
             type: string
         - name: answersBufferSize
           in: query
-          required: true
           schema:
-            type: string
+            type: integer
         - name: skipSqlEvaluation
           in: query
-          required: true
           schema:
-            type: string
+            type: boolean
         - name: useReplaceForUrlEncoding
           in: query
-          required: true
           schema:
-            type: string
+            type: boolean
         - name: filterNullValuesOnIri
           in: query
-          required: true
           schema:
-            type: string
+            type: boolean
         - name: lang
           in: query
-          required: true
           schema:
             type: string
         - name: agent
           in: query
-          required: true
           schema:
             type: string
         - name: unfolderCountThreshold
           in: query
+          schema:
+            type: integer
+        - name: addDistinctOnCores
+          in: query
           required: true
           schema:
-            type: string
+            type: boolean
       requestBody:
         content:
           '*/*':
@@ -2084,8 +2297,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/query/count:
     post:
+      tags:
+        - QueryCount
       summary: Counts the results of the given SPARQL query
-      operationId: start_new_query_on_count
+      operationId: startNewQueryOnCount
       parameters:
         - name: name
           in: path
@@ -2116,7 +2331,7 @@ paths:
           in: query
           required: true
           schema:
-            type: string
+            type: integer
       requestBody:
         content:
           '*/*':
@@ -2134,8 +2349,10 @@ paths:
           description: Unhauthorized
   /endpoint/{name}/query/count/{queryId}/state:
     get:
+      tags:
+        - QueryCount
       summary: Returns the current state of the count thread for the given SPARQL query
-      operationId: get_query_count_state
+      operationId: getQueryCountState
       parameters:
         - name: name
           in: path
@@ -2151,15 +2368,17 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
         '401':
           description: Unhauthorized
   /endpoint/{name}/query/count/{queryId}/error:
     get:
+      tags:
+        - QueryCount
       summary: Returns the current state of the count thread for the given SPARQL query
-      operationId: get_query_count_error
+      operationId: getQueryCountError
       parameters:
         - name: name
           in: path
@@ -2175,44 +2394,17 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
         '401':
           description: Unhauthorized
-  /endpoint/{name}/virtualEntity/{veName}:
-    get:
-      summary: Returns the virtual entity from a given endpoint by its name
-      operationId: get__owlOntology_name_version_endpoint_virtuslEntity_results
-      parameters:
-        - name: name
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: veName
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: unfolderCountThreshold
-          in: query
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SPARQLResults'
-        '401':
-          description: Unhauthorized
   /endpoint/{eName}/mappingAnalysisReport:
     get:
+      tags:
+        - MappingAnalysis
       summary: GET mwsx/endpoint/{eName}/mappingAnalysisReport
-      operationId: get__owlOntology_name_version_mapping_ID_analysisReport
+      operationId: getOwlOntologyNameVersionMappingIDAnalysisReport
       parameters:
         - name: eName
           in: path
@@ -2225,13 +2417,15 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MappingReport'
+                $ref: '#/components/schemas/MWSXMappingReport'
         '401':
           description: Unhauthorized
-  /endpoint/{eName}/saturetedOntology:
+  /endpoint/{eName}/saturatedOntology:
     post:
-      summary: POST mwsx/endpoint/{eName}/saturetedOntology
-      operationId: get__endpoint_ename_saturetedOntology
+      tags:
+        - Info
+      summary: POST mwsx/endpoint/{eName}/saturatedOntology
+      operationId: getEndpointEnameSaturatedOntology
       parameters:
         - name: eName
           in: path
@@ -2312,6 +2506,9 @@ components:
     OntologyID:
       title: OntologyID
       type: object
+      required:
+        - ontologyName
+        - ontologyVersion
       properties:
         ontologyVersion:
           type: string
@@ -2320,6 +2517,10 @@ components:
     MastroID:
       title: MastroID
       type: object
+      required:
+        - ontologyID
+        - mappingID
+        - datasourceID
       properties:
         mappingID:
           type: string
@@ -2329,12 +2530,63 @@ components:
           type: string
         ontologyID:
           $ref: '#/components/schemas/OntologyID'
+    Label:
+      title: Label
+      type: object
+      properties:
+        lang:
+          type: string
+        content:
+          type: string
+    OntologyEntity:
+      title: OntologyEntity
+      type: object
+      required:
+        - entityIRI
+      properties:
+        entityLabels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Label'
+        deprecated:
+          type: boolean
+          default: false
+        entityIRI:
+          type: string
+        entityType:
+          type: string
+        entityPrefixIRI:
+          type: string
+        entityRemainder:
+          type: string
+        entityID:
+          type: string
+    EmptyUnfoldingEntities:
+      title: EmptyUnfoldingEntities
+      type: object
+      properties:
+        emptyUnfoldingDataProperties:
+          type: array
+          items:
+            $ref: '#/components/schemas/OntologyEntity'
+        emptyUnfoldingObjectProperties:
+          type: array
+          items:
+            $ref: '#/components/schemas/OntologyEntity'
+        emptyUnfoldingClasses:
+          type: array
+          items:
+            $ref: '#/components/schemas/OntologyEntity'
     Endpoint:
       title: Endpoint
       type: object
+      required:
+        - name
+        - mastroID
       properties:
         restartNeeded:
           type: boolean
+          default: false
         name:
           type: string
         description:
@@ -2343,6 +2595,11 @@ components:
           type: string
         mastroID:
           $ref: '#/components/schemas/MastroID'
+        autoStart:
+          type: boolean
+          default: false
+        emptyUnfoldingEntities:
+          $ref: '#/components/schemas/EmptyUnfoldingEntities'
     Endpoints:
       title: Endpoints
       type: object
@@ -2378,62 +2635,41 @@ components:
     OBDAStatus:
       title: OBDAStatus
       type: object
+      required:
+        - id
+        - status
       properties:
-        LOADING:
-          type: string
-        lastError:
-          type: string
-        RUNNING:
-          type: string
-        UNAVAILABLE:
-          type: string
-        ERROR:
-          type: string
         id:
           $ref: '#/components/schemas/MastroID'
         status:
           type: string
+          enum:
+            - LOADING
+            - RUNNING
+            - UNAVAILABLE
+            - ERROR
+        lastError:
+          type: string
     EndpointStatus:
       title: EndpointStatus
       type: object
+      required:
+        - status
       properties:
         restartNeeded:
           type: boolean
+          default: false
         config:
           $ref: '#/components/schemas/MastroProperties'
         status:
           $ref: '#/components/schemas/OBDAStatus'
-    Label:
-      title: Label
-      type: object
-      properties:
-        lang:
-          type: string
-        content:
-          type: string
-    OntologyEntity:
-      title: OntologyEntity
-      type: object
-      properties:
-        entityLabels:
-          type: array
-          items:
-            $ref: '#/components/schemas/Label'
-        deprecated:
-          type: boolean
-        entityIRI:
-          type: string
-        entityType:
-          type: string
-        entityPrefixIRI:
-          type: string
-        entityRemainder:
-          type: string
-        entityID:
-          type: string
     EmptyEntities:
       title: EmptyEntities
       type: object
+      required:
+        - emptyObjectProperties
+        - emptyDataProperties
+        - emptyClasses
       properties:
         emptyObjectProperties:
           type: array
@@ -2447,25 +2683,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/OntologyEntity'
-    EmptyUnfoldingEntities:
-      title: EmptyUnfoldingEntities
-      type: object
-      properties:
-        emptyUnfoldingDataProperties:
-          type: array
-          items:
-            $ref: '#/components/schemas/OntologyEntity'
-        emptyUnfoldingObjectProperties:
-          type: array
-          items:
-            $ref: '#/components/schemas/OntologyEntity'
-        emptyUnfoldingClasses:
-          type: array
-          items:
-            $ref: '#/components/schemas/OntologyEntity'
     ChartConfiguration:
       title: ChartConfiguration
       type: object
+      required:
+        - yVariables
       properties:
         yVariables:
           type: array
@@ -2480,8 +2702,9 @@ components:
         cutoff:
           type: integer
           format: int32
-    Tag:
-      title: Tag
+          default: 0
+    MwsxTag:
+      title: MwsxTag
       type: object
       properties:
         color:
@@ -2490,7 +2713,7 @@ components:
           type: string
         description:
           type: string
-    VirtualEntityQueryInfos:
+    MWSXVirtualEntityQueryInfos:
       title: VirtualEntityQueryInfos
       type: object
       properties:
@@ -2505,6 +2728,8 @@ components:
     SPARQLQuery:
       title: SPARQLQuery
       type: object
+      required:
+        - queryID
       properties:
         selectedMappingIds:
           type: array
@@ -2519,13 +2744,17 @@ components:
           additionalProperties:
             type: string
         semantics:
-          type: string
+          enum:
+            - auto
+            - cq
+            - eql
+            - newcq
         constructCode:
           type: string
         queryTags:
           type: array
           items:
-            $ref: '#/components/schemas/Tag'
+            $ref: '#/components/schemas/MwsxTag'
         queryDescription:
           type: string
         queryID:
@@ -2534,10 +2763,32 @@ components:
           type: string
         construct:
           type: boolean
+          default: false
         constructResultsRDFSyntax:
           type: string
         virtualEntityQueryInfos:
-          $ref: '#/components/schemas/VirtualEntityQueryInfos'
+          $ref: '#/components/schemas/MWSXVirtualEntityQueryInfos'
+        creator:
+          type: string
+        entryCreation:
+          type: integer
+          format: int64
+          default: 0
+        entryLastModification:
+          type: integer
+          format: int64
+          default: 0
+        public:
+          type: boolean
+          default: false
+        publicationRequestDate:
+          type: integer
+          format: int64
+          default: 0
+        publicationResponseDate:
+          type: integer
+          format: int64
+          default: 0
     OBDARunQueryInstance:
       title: OBDARunQueryInstance
       type: object
@@ -2546,10 +2797,14 @@ components:
           type: string
         count:
           type: boolean
+          default: false
         computedSemantics:
           type: string
         sparql:
           $ref: '#/components/schemas/SPARQLQuery'
+        deleted:
+          type: boolean
+          default: false
     FileInfo:
       title: FileInfo
       type: object
@@ -2560,7 +2815,7 @@ components:
           type: string
         content:
           type: string
-    CoreQueryInfo:
+    MWSXCoreQueryInfo:
       title: CoreQueryInfo
       type: object
       properties:
@@ -2568,14 +2823,14 @@ components:
           type: string
         sparqlCode:
           type: string
-    FullSparqlQueryReport:
+    MWSXFullSparqlQueryReport:
       title: FullSparqlQueryReport
       type: object
       properties:
         coreQueryInfos:
           type: array
           items:
-            $ref: '#/components/schemas/CoreQueryInfo'
+            $ref: '#/components/schemas/MWSXCoreQueryInfo'
         sqlCode:
           type: string
         id:
@@ -2605,9 +2860,11 @@ components:
         numResults:
           type: integer
           format: int32
+          default: 0
         time:
           type: integer
           format: int32
+          default: 0
     SqlRewritings:
       title: SqlRewritings
       type: object
@@ -2616,6 +2873,23 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SqlRewriting'
+    SPARQLResultsHeadTypes:
+      title: SPARQLResultsHeadTypes
+      enum:
+        - OBJECT
+        - VALUE
+        - UNSPECIFIED
+        - xsd:double
+        - iri
+        - xsd:dateTime
+        - literal
+        - rdf:PlainLiteral
+        - xsd:string
+        - xsd:boolean
+        - xsd:integer
+        - numeric
+        - xsd:decimal
+        - xsd:float
     SPARQLResult:
       title: SPARQLResult
       type: object
@@ -2624,13 +2898,25 @@ components:
           type: string
         type:
           type: string
+          enum:
+            - INDIVIDUAL
+            - IRI
+            - VALUE
         lang:
           type: string
         value:
           type: string
+        isBlankNode:
+          type: boolean
+          default: false
+        concreteValueDatatype:
+          type: string
     SPARQLResults:
       title: SPARQLResults
       type: object
+      required:
+        - headTerms
+        - headTypes
       properties:
         headTerms:
           type: array
@@ -2638,8 +2924,13 @@ components:
             type: string
         headTypes:
           type: object
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/SPARQLResultsHeadTypes'
         construct:
           type: boolean
+          default: false
         results:
           type: array
           items:
@@ -2649,10 +2940,21 @@ components:
     SPARQLStatus:
       title: SPARQLStatus
       type: object
+      required:
+        - status
+        - executionTime
+        - numResults
+        - percentage
+        - numHighLevelQueries
+        - numLowLevelQueries
+        - numOntologyRewritings
+        - numOptimizedQueries
+        - hasError
       properties:
         executionTime:
           type: integer
           format: int32
+          default: 0
         errorMessages:
           type: array
           items:
@@ -2660,35 +2962,61 @@ components:
         percentage:
           type: integer
           format: int32
+          default: 0
         numLowLevelQueries:
           type: integer
           format: int32
+          default: 0
         numResults:
           type: integer
           format: int32
+          default: 0
         numOntologyRewritings:
           type: integer
           format: int32
+          default: 0
         numOptimizedQueries:
           type: integer
           format: int32
+          default: 0
         hasError:
           type: boolean
+          default: false
         numHighLevelQueries:
           type: integer
           format: int32
+          default: 0
         status:
+          enum:
+            - READY
+            - FINISHED
+            - UNAVAILABLE
+            - ERROR
+            - RUNNING
+            - STOPPED
+            - DISABLED
+        queryCode:
           type: string
+        constructQueryCode:
+          type: string
+        evaluationStepTimes:
+          type: object
+          additionalProperties:
+            type: string
     QueryRecordInfo:
       title: QueryRecordInfo
       type: object
+      required:
+        - id
       properties:
         ontologyRewritingEnabled:
           type: integer
           format: int32
+          default: 0
         boolean:
           type: integer
           format: int32
+          default: 0
         code:
           type: string
         catalogId:
@@ -2696,6 +3024,7 @@ components:
         sQLEvaluationDisabled:
           type: integer
           format: int32
+          default: 0
         customParams:
           type: object
           additionalProperties:
@@ -2707,9 +3036,17 @@ components:
         qid:
           type: integer
           format: int32
+          default: 0
         originalConstructCode:
           type: string
-    ExportInfo:
+        agent:
+          type: string
+        user:
+          type: string
+        unfolderThresholdReached:
+          type: boolean
+          default: false
+    MWSXExportInfo:
       title: ExportInfo
       type: object
       properties:
@@ -2721,6 +3058,7 @@ components:
             type: string
         reasoning:
           type: boolean
+          default: false
         sqlCode:
           type: string
         qidsys:
@@ -2740,12 +3078,15 @@ components:
         answersNumber:
           type: integer
           format: int32
+          default: 0
         size:
           type: integer
           format: int64
+          default: 0
         answersBufferSize:
           type: integer
           format: int32
+          default: 0
         sparqlCode:
           type: string
         sparqlConstructCode:
@@ -2753,19 +3094,23 @@ components:
         executionTimestamp:
           type: integer
           format: int64
+          default: 0
         elapsedTime:
           type: integer
           format: int64
-    ExportStats:
+          default: 0
+    MWSXExportStats:
       title: ExportStats
       type: object
       properties:
         resultsNumber:
           type: integer
           format: int32
+          default: 0
         exportTime:
           type: integer
           format: int64
+          default: 0
     CsvPreview:
       title: CsvPreview
       type: object
@@ -2839,6 +3184,41 @@ components:
         - membership
         - attribute-edge
         - iri
+      x-enum-varnames:
+        - CLASS
+        - OBJECT_PROPERTY
+        - DATA_PROPERTY
+        - ANNOTATION_PROPERTY
+        - INDIVIDUAL
+        - CLASS_INSTANCE
+        - DOMAIN_RESTRICTION
+        - RANGE_RESTRICTION
+        - UNION
+        - COMPLETE_UNION
+        - DISJOINT_UNION
+        - COMPLETE_DISJOINT_UNION
+        - COMPLEMENT
+        - INTERSECTION
+        - ENUMERATION
+        - HAS_KEY
+        - ROLE_INVERSE
+        - ROLE_CHAIN
+        - DATATYPE_RESTRICTION
+        - VALUE_DOMAIN
+        - PROPERTY_ASSERTION
+        - LITERAL
+        - FACET
+        - NEUTRAL
+        - VALUE
+        - INCLUSION
+        - EQUIVALENCE
+        - INSTANCE_OF
+        - INPUT
+        - SAME
+        - DIFFERENT
+        - MEMBERSHIP
+        - ATTRIBUTE_EDGE
+        - IRI
     Element:
       type: object
       required:
@@ -2852,13 +3232,14 @@ components:
           description: In case of replicated elements, this is the ID of the original element replicated in multiple occurrences, all of them with different IDs
         diagramId:
           type: integer
+          default: 0
         displayedName:
           type: string
         iri:
           type: string
         type:
           $ref: '#/components/schemas/TypesEnum'
-        ai_generated:
+        aiGenerated:
           required:
             - chunkId
           type: object
@@ -2876,9 +3257,11 @@ components:
         x:
           type: number
           format: float
+          default: 0
         'y':
           type: number
           format: float
+          default: 0
     Node:
       type: object
       allOf:
@@ -2931,15 +3314,16 @@ components:
         zoom:
           type: number
           format: float
+          default: 0
     Diagram:
       type: object
       required:
         - id
         - name
-        - elements
       properties:
         id:
           type: integer
+          default: 0
         name:
           type: string
         nodes:
@@ -2952,10 +3336,10 @@ components:
             $ref: '#/components/schemas/Edge'
         lastViewportState:
           $ref: '#/components/schemas/Viewport'
-    Annotation:
+    GrapholscapeAnnotation:
+      title: GrapholscapeAnnotation
       type: object
       required:
-        - value
         - property
       properties:
         lexicalForm:
@@ -2966,6 +3350,7 @@ components:
           type: string
         hasIriValue:
           type: boolean
+          default: false
         property:
           type: string
           example: rdfs:label
@@ -2993,11 +3378,12 @@ components:
         annotations:
           type: array
           items:
-            $ref: '#/components/schemas/Annotation'
+            $ref: '#/components/schemas/GrapholscapeAnnotation'
         datatype:
           type: string
         isDataPropertyFunctional:
           type: boolean
+          default: false
         functionProperties:
           type: array
           items:
@@ -3144,6 +3530,7 @@ components:
               type: string
         timestamp:
           type: number
+          default: 0
     SHACLShape:
       type: object
       required:
@@ -3151,9 +3538,12 @@ components:
         - targetClass
         - path
       properties:
+        id:
+          type: string
         type:
           type: string
           enum:
+            - Class
             - MinCount
             - MaxCount
             - MinExclusive
@@ -3168,8 +3558,6 @@ components:
             - Disjoint
             - LessThan
             - LessThanOrEquals
-            - GreaterThan
-            - GreaterThanOrEquals
         targetClass:
           type: string
         path:
@@ -3224,7 +3612,7 @@ components:
             annotations:
               type: array
               items:
-                $ref: '#/components/schemas/Annotation'
+                $ref: '#/components/schemas/GrapholscapeAnnotation'
             annotationProperties:
               type: array
               items:
@@ -3267,6 +3655,7 @@ components:
                   - has-key
         selectedDiagramId:
           type: integer
+          default: 0
         modelType:
           type: string
           enum:
@@ -3286,10 +3675,15 @@ components:
     EntityCount:
       title: EntityCount
       type: object
+      required:
+        - entity
+        - count
+        - state
       properties:
         count:
           type: integer
           format: int64
+          default: 0
         state:
           type: string
         error:
@@ -3299,6 +3693,12 @@ components:
     CountEntityInstancesInfo:
       title: CountEntityInstancesInfo
       type: object
+      required:
+        - countsMap
+        - percentage
+        - startTime
+        - endTime
+        - state
       properties:
         countsMap:
           type: object
@@ -3306,14 +3706,23 @@ components:
             $ref: '#/components/schemas/EntityCount'
         percentage:
           type: number
+          default: 0
         startTime:
           type: integer
           format: int64
+          default: 0
         endTime:
           type: integer
           format: int64
+          default: 0
         state:
           type: string
+          enum:
+            - RUNNING
+            - READY
+            - FINISHED
+            - ERROR
+            - STOPPED
     InstanceCheckingInfo:
       title: InstanceCheckingInfo
       type: object
@@ -3324,14 +3733,23 @@ components:
             $ref: '#/components/schemas/OntologyEntity'
         percentage:
           type: number
+          default: 0
         startTime:
           type: integer
           format: int64
+          default: 0
         endTime:
           type: integer
           format: int64
+          default: 0
         state:
           type: string
+          enum:
+            - READY
+            - RUNNING
+            - FINISHED
+            - ERROR
+            - STOPPED
     EntityMinMax:
       title: EntityMinMax
       type: object
@@ -3340,6 +3758,7 @@ components:
           $ref: '#/components/schemas/OntologyEntity'
         minMax:
           type: number
+          default: 0
         error:
           type: string
         state:
@@ -3347,6 +3766,13 @@ components:
     MinMaxDatapropertiesInfo:
       title: MinMaxDatapropertiesInfo
       type: object
+      required:
+        - mins
+        - maxs
+        - startTime
+        - endTime
+        - state
+        - percentage
       properties:
         mins:
           type: object
@@ -3358,13 +3784,74 @@ components:
             $ref: '#/components/schemas/EntityMinMax'
         startTime:
           type: integer
+          format: int64
+          default: 0
         endTime:
           type: integer
+          format: int64
+          default: 0
         state:
           type: string
+          enum:
+            - RUNNING
+            - READY
+            - FINISHED
+            - ERROR
+            - STOPPED
         percentage:
           type: number
-    DataSourceColumnReference:
+          default: 0
+    EntityExamples:
+      title: EntityExamples
+      type: object
+      properties:
+        entity:
+          $ref: '#/components/schemas/OntologyEntity'
+        examples:
+          type: array
+          items:
+            type: string
+        requestedNumberOfExamples:
+          type: integer
+          default: 0
+        error:
+          type: string
+        state:
+          type: string
+    EntitiesExamplesInfo:
+      title: EntitiesExamplesInfo
+      type: object
+      required:
+        - values
+        - startTime
+        - endTime
+        - state
+        - percentage
+      properties:
+        values:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/EntityExamples'
+        startTime:
+          type: integer
+          format: int64
+          default: 0
+        endTime:
+          type: integer
+          format: int64
+          default: 0
+        state:
+          type: string
+          enum:
+            - RUNNING
+            - READY
+            - FINISHED
+            - ERROR
+            - STOPPED
+        percentage:
+          type: number
+          default: 0
+    MWSXDataSourceColumnReference:
       title: DataSourceColumnReference
       type: object
       properties:
@@ -3372,21 +3859,24 @@ components:
           type: string
         columnName:
           type: string
-    DataSourceForeignKeyMetadata:
+    MWSXDataSourceForeignKeyMetadata:
       title: DataSourceForeignKeyMetadata
       type: object
       properties:
         references:
           type: object
           additionalProperties:
-            $ref: '#/components/schemas/DataSourceColumnReference'
-    DataSourceTableColumnMetadata:
+            $ref: '#/components/schemas/MWSXDataSourceColumnReference'
+    MWSXDataSourceTableColumnMetadata:
       title: DataSourceTableColumnMetadata
       type: object
+      required:
+        - name
       properties:
         size:
           type: integer
           format: int32
+          default: 0
         nullable:
           type: string
         generated:
@@ -3396,15 +3886,18 @@ components:
         decimals:
           type: integer
           format: int32
+          default: 0
         name:
           type: string
         dataTypeId:
           type: integer
           format: int32
+          default: 0
         ordinalPosition:
           type: integer
           format: int32
-    DataSourceKeyMetadata:
+          default: 0
+    MWSXDataSourceKeyMetadata:
       title: DataSourceKeyMetadata
       type: object
       properties:
@@ -3418,54 +3911,61 @@ components:
           type: array
           items:
             type: integer
+            default: 0
         tableName:
           type: string
-    DataSourceTableMetadata:
+    MWSXDataSourceTableMetadata:
       title: DataSourceTableMetadata
       type: object
+      required:
+        - name
+        - columns
       properties:
         catalogName:
           type: string
         foreignKeys:
           type: array
           items:
-            $ref: '#/components/schemas/DataSourceForeignKeyMetadata'
+            $ref: '#/components/schemas/MWSXDataSourceForeignKeyMetadata'
         columns:
           type: array
           items:
-            $ref: '#/components/schemas/DataSourceTableColumnMetadata'
+            $ref: '#/components/schemas/MWSXDataSourceTableColumnMetadata'
         keys:
-          $ref: '#/components/schemas/DataSourceKeyMetadata'
+          $ref: '#/components/schemas/MWSXDataSourceKeyMetadata'
         name:
           type: string
         schemaName:
           type: string
-    DataSourceCoverage:
+    MWSXDataSourceCoverage:
       title: DataSourceCoverage
       type: object
       properties:
         tables:
           type: array
           items:
-            $ref: '#/components/schemas/DataSourceTableMetadata'
+            $ref: '#/components/schemas/MWSXDataSourceTableMetadata'
         unmappedTableCount:
           type: integer
           format: int32
+          default: 0
         mappedTables:
           type: array
           items:
-            $ref: '#/components/schemas/DataSourceTableMetadata'
+            $ref: '#/components/schemas/MWSXDataSourceTableMetadata'
         unmappedTables:
           type: array
           items:
-            $ref: '#/components/schemas/DataSourceTableMetadata'
+            $ref: '#/components/schemas/MWSXDataSourceTableMetadata'
         mappedTableCount:
           type: integer
           format: int32
+          default: 0
         totalTableCount:
           type: integer
           format: int32
-    OntologyPredicatesStatistics:
+          default: 0
+    MWSXOntologyPredicatesStatistics:
       title: OntologyPredicatesStatistics
       type: object
       properties:
@@ -3473,91 +3973,120 @@ components:
           type: object
           additionalProperties:
             type: integer
+            format: int32
+            default: 0
         classesStatistics:
           type: object
           additionalProperties:
             type: integer
+            format: int32
+            default: 0
         dataPropertiesStatistics:
           type: object
           additionalProperties:
             type: integer
+            format: int32
+            default: 0
         objectPropertiesStatistics:
           type: object
           additionalProperties:
             type: integer
-    Predicate:
+            format: int32
+            default: 0
+    MWSXPredicate:
       title: Predicate
       type: object
       properties:
         arity:
           type: integer
           format: int32
+          default: 0
         serialVersionUID:
           type: integer
           format: int64
+          default: 0
         name:
           type: string
         shortName:
           type: string
-    OntologyCoverage:
+    MWSXOntologyCoverage:
       title: OntologyCoverage
       type: object
       properties:
         predicates:
           type: array
           items:
-            $ref: '#/components/schemas/Predicate'
+            $ref: '#/components/schemas/MWSXPredicate'
         unmappedPredicates:
           type: array
           items:
-            $ref: '#/components/schemas/Predicate'
+            $ref: '#/components/schemas/MWSXPredicate'
         mappedPredicates:
           type: array
           items:
-            $ref: '#/components/schemas/Predicate'
+            $ref: '#/components/schemas/MWSXPredicate'
         unmappedPredicatesCount:
           type: integer
           format: int32
+          default: 0
         totalPredicatesCount:
           type: integer
           format: int32
+          default: 0
         mappedPredicatesCount:
           type: integer
           format: int32
-    QuarantinedMappingReport:
+          default: 0
+    MWSXQuarantineReason:
+      title: QuarantinedReason
+      type: object
+      properties:
+        objectID:
+          type: string
+        objectType:
+          type: integer
+          format: int32
+          default: 0
+        reason:
+          type: string
+    MWSXQuarantinedMappingReport:
       title: QuarantinedMappingReport
       type: object
       properties:
         viewDefinitionsCount:
           type: integer
           format: int32
+          default: 0
         mappingsCount:
           type: integer
           format: int32
+          default: 0
         quarantinedMappingsCount:
           type: integer
           format: int32
+          default: 0
         quarantineReasonsByViewName:
-          type: object
+          $ref: '#/components/schemas/MWSXQuarantineReason'
         quarantineReasonsByMappingId:
-          type: object
+          $ref: '#/components/schemas/MWSXQuarantineReason'
         quarantinedViewDefinitionsCount:
           type: integer
           format: int32
-    MappingReport:
+          default: 0
+    MWSXMappingReport:
       title: MappingReport
       type: object
       properties:
         dataSourceCoverage:
-          $ref: '#/components/schemas/DataSourceCoverage'
+          $ref: '#/components/schemas/MWSXDataSourceCoverage'
         ontologyPredicatesStatistics:
-          $ref: '#/components/schemas/OntologyPredicatesStatistics'
+          $ref: '#/components/schemas/MWSXOntologyPredicatesStatistics'
         ontologyCoverage:
-          $ref: '#/components/schemas/OntologyCoverage'
+          $ref: '#/components/schemas/MWSXOntologyCoverage'
         quarantinedMappingReport:
-          $ref: '#/components/schemas/QuarantinedMappingReport'
+          $ref: '#/components/schemas/MWSXQuarantinedMappingReport'
     OntologySaturationParameters:
-      title: AbstractDataQualityConstraint
+      title: OntologySaturationParameters
       type: object
       properties:
         classes:
@@ -3580,8 +4109,10 @@ components:
         cyclic:
           type: boolean
           description: It is true when domain and range are the same class.
+          default: false
         direct:
           type: boolean
+          default: false
         relatedClasses:
           type: array
           items:

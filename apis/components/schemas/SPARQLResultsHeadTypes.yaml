@@ -1,0 +1,16 @@
+title: SPARQLResultsHeadTypes
+enum:
+  - OBJECT
+  - VALUE
+  - UNSPECIFIED
+  - xsd:double
+  - iri
+  - xsd:dateTime
+  - literal
+  - rdf:PlainLiteral
+  - xsd:string
+  - xsd:boolean
+  - xsd:integer
+  - numeric
+  - xsd:decimal
+  - xsd:float

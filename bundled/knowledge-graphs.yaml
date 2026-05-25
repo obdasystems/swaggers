@@ -23,8 +23,10 @@ security:
 paths:
   /knowledgeGraphs:
     get:
+      tags:
+        - Persistence
       summary: GET mwsx/knowledgeGraphs
-      operationId: get__knowledgeGraphs
+      operationId: getKnowledgeGraphs
       responses:
         '200':
           description: OK
@@ -37,8 +39,10 @@ paths:
         '401':
           description: Unhauthorized
     post:
+      tags:
+        - Persistence
       summary: POST mwsx/knowledgeGraphs
-      operationId: post__knowledgeGraphs
+      operationId: postKnowledgeGraphs
       requestBody:
         content:
           application/json:
@@ -56,8 +60,15 @@ paths:
           description: Unhauthorized
   /knowledgeGraph:
     delete:
+      tags:
+        - Persistence
       summary: DELETE mwsx/knowledgeGraph
-      operationId: delete__knowledgeGraph
+      operationId: deleteKnowledgeGraph
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              type: string
       responses:
         '200':
           description: OK
@@ -68,8 +79,10 @@ paths:
         '401':
           description: Unhauthorized
     get:
+      tags:
+        - Persistence
       summary: GET mwsx/knowledgeGraph
-      operationId: get__knowledgeGraph
+      operationId: getKnowledgeGraph
       parameters:
         - name: iri
           in: query
@@ -87,8 +100,10 @@ paths:
           description: Unhauthorized
   /knowledgeGraph/info:
     get:
+      tags:
+        - Persistence
       summary: GET mwsx/knowledgeGraph/info
-      operationId: get__knowledgeGraph_info
+      operationId: getKnowledgeGraphInfo
       parameters:
         - name: iri
           in: query
@@ -106,8 +121,10 @@ paths:
           description: Unhauthorized
   /knowledgeGraph/prefixes:
     post:
+      tags:
+        - General
       summary: POST mwsx/knowledgeGraph/prefixes
-      operationId: post__knowledgeGraph_prefixes
+      operationId: postKnowledgeGraphPrefixes
       parameters:
         - name: iri
           in: query
@@ -123,7 +140,10 @@ paths:
         content:
           application/json:
             schema:
-              type: string
+              type: object
+              description: Prefixes to be added or updated
+              additionalProperties:
+                type: string
         required: true
       responses:
         '200':
@@ -135,8 +155,10 @@ paths:
         '401':
           description: Unhauthorized
     get:
+      tags:
+        - General
       summary: GET mwsx/knowledgeGraph/prefixes
-      operationId: get__knowledgeGraph_prefixes
+      operationId: getKnowledgeGraphPrefixes
       parameters:
         - name: iri
           in: query
@@ -154,8 +176,10 @@ paths:
           description: Unhauthorized
   /knowledgeGraph/folder:
     get:
+      tags:
+        - FileSystem
       summary: GET mwsx/knowledgeGraph/folder
-      operationId: get__knowledgeGraph_folder
+      operationId: getKnowledgeGraphFolder
       parameters:
         - name: iri
           in: query
@@ -166,15 +190,17 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
         '401':
           description: Unhauthorized
   /knowledgeGraph/status:
     get:
+      tags:
+        - Status
       summary: GET mwsx/knowledgeGraph/status
-      operationId: get__knowledgeGraph_status
+      operationId: getKnowledgeGraphStatus
       parameters:
         - name: iri
           in: query
@@ -192,8 +218,10 @@ paths:
           description: Unhauthorized
   /knowledgeGraph/status/list:
     get:
+      tags:
+        - Status
       summary: GET mwsx/knowledgeGraph/status/list
-      operationId: get__knowledgeGraph_status_list
+      operationId: getKnowledgeGraphStatusList
       responses:
         '200':
           description: OK
@@ -207,25 +235,12 @@ paths:
                     type: string
         '401':
           description: Unhauthorized
-  /lastLoaded/knowledgeGraph:
-    get:
-      summary: GET mwsx/lastLoaded/knowledgeGraph
-      operationId: get_lastLoaded_knowledgeGraph
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/KGOpeningEvent'
-        '401':
-          description: Unhauthorized
   /knowledgeGraph/file:
     put:
+      tags:
+        - Persistence
       summary: PUT mwsx/knowledgeGraph/file
-      operationId: patch__knowledgeGraph_file
+      operationId: patchKnowledgeGraphFile
       requestBody:
         content:
           application/json:
@@ -242,8 +257,16 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Persistence
       summary: DELETE mwsx/knowledgeGraph/file
-      operationId: delete__knowledgeGraph_file
+      operationId: deleteKnowledgeGraphFile
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KnowledgeGraphFile'
+        required: true
       responses:
         '200':
           description: OK
@@ -254,8 +277,10 @@ paths:
         '401':
           description: Unhauthorized
     get:
+      tags:
+        - Persistence
       summary: GET mwsx/knowledgeGraph/file
-      operationId: get__knowledgeGraph_file
+      operationId: getKnowledgeGraphFile
       parameters:
         - name: iri
           in: query
@@ -269,12 +294,10 @@ paths:
             type: string
         - name: namedGraph
           in: query
-          required: true
           schema:
             type: string
         - name: fileName
           in: query
-          required: true
           schema:
             type: string
       responses:
@@ -288,8 +311,10 @@ paths:
           description: Unhauthorized
   /knowledgeGraph/classes:
     get:
+      tags:
+        - Classes
       summary: GET mwsx/knowledgeGraph/classes
-      operationId: get__knowledgeGraph_mentioned_classes
+      operationId: getKnowledgeGraphMentionedClasses
       parameters:
         - name: iri
           in: query
@@ -314,8 +339,10 @@ paths:
           description: Unhauthorized
   /knowledgeGraph/classes/stats:
     get:
+      tags:
+        - Classes
       summary: GET mwsx/knowledgeGraph/classes/stats
-      operationId: get__knowledgeGraph_mentioned_classes_stats
+      operationId: getKnowledgeGraphMentionedClassesStats
       parameters:
         - name: iri
           in: query
@@ -340,8 +367,10 @@ paths:
           description: Unhauthorized
   /knowledgeGraph/class/instances:
     get:
+      tags:
+        - Classes
       summary: GET mwsx/knowledgeGraph/class/instances
-      operationId: get__knowledgeGraph_mentioned_instances_by_class
+      operationId: getKnowledgeGraphMentionedInstancesByClass
       parameters:
         - name: kgIri
           in: query
@@ -376,8 +405,10 @@ paths:
           description: Unhauthorized
   /knowledgeGraph/namedGraphs:
     get:
+      tags:
+        - General
       summary: GET mwsx/knowledgeGraph/namedGraphs
-      operationId: get__knowledgeGraph_named_graphs
+      operationId: getKnowledgeGraphNamedGraphs
       parameters:
         - name: iri
           in: query
@@ -397,8 +428,10 @@ paths:
           description: Unhauthorized
   /knowledgeGraph/instances:
     get:
+      tags:
+        - Instances
       summary: GET mwsx/knowledgeGraph/instances
-      operationId: get__knowledgeGraph_instances
+      operationId: getKnowledgeGraphInstances
       parameters:
         - name: iri
           in: query
@@ -423,8 +456,10 @@ paths:
           description: Unhauthorized
   /knowledgeGraph/union:
     put:
+      tags:
+        - Union
       summary: PUT mwsx/knowledgeGraph/union
-      operationId: patch__knowledgeGraph_union
+      operationId: patchKnowledgeGraphUnion
       requestBody:
         content:
           application/json:
@@ -442,8 +477,10 @@ paths:
           description: Unhauthorized
   /knowledgeGraph/union/ontology:
     put:
+      tags:
+        - Union
       summary: PUT mwsx/knowledgeGraph/union/ontology
-      operationId: patch__knowledgeGraph_union_ontology
+      operationId: patchKnowledgeGraphUnionOntology
       requestBody:
         content:
           application/json:
@@ -461,8 +498,10 @@ paths:
           description: Unhauthorized
   /knowledgeGraph/union/queryKg:
     put:
+      tags:
+        - Union
       summary: PUT mwsx/knowledgeGraph/union/queryKg
-      operationId: patch__knowledgeGraph_union_queryKg
+      operationId: patchKnowledgeGraphUnionQueryKg
       requestBody:
         content:
           application/json:
@@ -480,8 +519,10 @@ paths:
           description: Unhauthorized
   /knowledgeGraph/query/catalog:
     get:
+      tags:
+        - Query
       summary: GET mwsx/knowledgeGraph/query/catalog
-      operationId: get__knowledgeGraph_query_catalog
+      operationId: getKnowledgeGraphQueryCatalog
       parameters:
         - name: iri
           in: query
@@ -498,8 +539,10 @@ paths:
         '401':
           description: Unhauthorized
     post:
+      tags:
+        - Query
       summary: POST mwsx/knowledgeGraph/query/catalog
-      operationId: post__knowledgeGraph_query_catalog
+      operationId: postKnowledgeGraphQueryCatalog
       parameters:
         - name: iri
           in: query
@@ -523,8 +566,10 @@ paths:
           description: Unhauthorized
   /knowledgeGraph/query/catalog/export:
     get:
+      tags:
+        - Query
       summary: GET mwsx/knowledgeGraph/query/catalog/export
-      operationId: get__knowledgeGraph_query_catalog_export
+      operationId: getKnowledgeGraphQueryCatalogExport
       parameters:
         - name: iri
           in: query
@@ -537,13 +582,47 @@ paths:
           content:
             application/json:
               schema:
-                type: object
+                $ref: '#/components/schemas/FileInfo'
+        '401':
+          description: Unhauthorized
+  /knowledgeGraph/query/catalog/import:
+    post:
+      tags:
+        - Query
+      summary: POST mwsx/knowledgeGraph/query/catalog/export
+      operationId: postKnowledgeGraphQueryCatalogImport
+      parameters:
+        - name: additive
+          in: query
+          required: true
+          schema:
+            type: boolean
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileInfo'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OBDACatalog'
         '401':
           description: Unhauthorized
   /knowledgeGraph/query/catalog/{queryID}:
     get:
+      tags:
+        - Query
       summary: GET mwsx/knowledgeGraph/query/catalog/{queryID}
-      operationId: get__knowledgeGraph_query_catalog_queryID
+      operationId: getKnowledgeGraphQueryCatalogQueryID
       parameters:
         - name: queryID
           in: path
@@ -565,8 +644,10 @@ paths:
         '401':
           description: Unhauthorized
     put:
+      tags:
+        - Query
       summary: PUT mwsx/knowledgeGraph/query/catalog/{queryID}
-      operationId: put__knowledgeGraph_query_catalog_queryID
+      operationId: putKnowledgeGraphQueryCatalogQueryID
       parameters:
         - name: queryID
           in: path
@@ -594,8 +675,10 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Query
       summary: DELETE mwsx/knowledgeGraph/query/catalog/{queryID}
-      operationId: delete__knowledgeGraph_query_catalog_queryID
+      operationId: deleteKnowledgeGraphQueryCatalogQueryID
       parameters:
         - name: queryID
           in: path
@@ -618,8 +701,10 @@ paths:
           description: Unhauthorized
   /knowledgeGraph/query/start:
     post:
+      tags:
+        - Query
       summary: POST mwsx/knowledgeGraph/query/start
-      operationId: post__knowledgeGraph_query_start
+      operationId: postKnowledgeGraphQueryStart
       parameters:
         - name: iri
           in: query
@@ -628,7 +713,6 @@ paths:
             type: string
         - name: namedGraph
           in: query
-          required: true
           schema:
             type: string
       requestBody:
@@ -648,8 +732,10 @@ paths:
           description: Unhauthorized
   /knowledgeGraph/query/catalog/{queryID}/start:
     post:
+      tags:
+        - Query
       summary: POST mwsx/knowledgeGraph/query/catalog/{queryID}/start
-      operationId: post__knowledgeGraph_query_catalog_queryID_start
+      operationId: postKnowledgeGraphQueryCatalogQueryIDStart
       parameters:
         - name: queryID
           in: path
@@ -663,7 +749,6 @@ paths:
             type: string
         - name: namedGraph
           in: query
-          required: true
           schema:
             type: string
       responses:
@@ -677,8 +762,10 @@ paths:
           description: Unhauthorized
   /knowledgeGraph/query/{queryID}/stop:
     put:
+      tags:
+        - Query
       summary: PUT mwsx/knowledgeGraph/query/{queryID}/stop
-      operationId: get__knowledgeGraph_query_executionID_stop
+      operationId: getKnowledgeGraphQueryExecutionIDStop
       parameters:
         - name: queryID
           in: path
@@ -701,8 +788,10 @@ paths:
           description: Unhauthorized
   /knowledgeGraph/query/{queryID}/exportResults:
     get:
+      tags:
+        - Query
       summary: GET mwsx/knowledgeGraph/query/{queryID}/exportResults
-      operationId: get__knowledgeGraph_query_executionID_exportResults
+      operationId: getKnowledgeGraphQueryExecutionIDExportResults
       parameters:
         - name: queryID
           in: path
@@ -731,8 +820,10 @@ paths:
           description: Unhauthorized
   /knowledgeGraph/query/{queryID}/status:
     get:
+      tags:
+        - Query
       summary: GET mwsx/knowledgeGraph/query/{queryID}/status
-      operationId: get__knowledgeGraph_query_executionID_status
+      operationId: getKnowledgeGraphQueryExecutionIDStatus
       parameters:
         - name: queryID
           in: path
@@ -750,13 +841,15 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/KGStatus'
+                $ref: '#/components/schemas/SPARQLStatus'
         '401':
           description: Unhauthorized
   /knowledgeGraph/query/{queryId}:
     delete:
+      tags:
+        - Query
       summary: DELETE mwsx/knowledgeGraph/query/{queryId}
-      operationId: delete__knowledgeGraph_query_executionID_thread
+      operationId: deleteKnowledgeGraphQueryExecutionIDThread
       parameters:
         - name: queryId
           in: path
@@ -779,8 +872,10 @@ paths:
           description: Unhauthorized
   /knowledgeGraph/query/{queryID}/results:
     get:
+      tags:
+        - Query
       summary: GET mwsx/knowledgeGraph/query/{queryID}/results
-      operationId: get__knowledgeGraph_query_executionID_results
+      operationId: getKnowledgeGraphQueryExecutionIDResults
       parameters:
         - name: queryID
           in: path
@@ -815,8 +910,10 @@ paths:
           description: Unhauthorized
   /knowledgeGraph/instance/page:
     get:
+      tags:
+        - Instances
       summary: GET mwsx/knowledgeGraph/instance/page
-      operationId: get__knowledgeGraph_instance_page
+      operationId: getKnowledgeGraphInstancePage
       parameters:
         - name: instanceIri
           in: query
@@ -849,8 +946,10 @@ paths:
           description: Unhauthorized
   /knowledgeGraph/instance/objectType:
     get:
+      tags:
+        - Instances
       summary: GET mwsx/knowledgeGraph/instance/objectType
-      operationId: get__knowledgeGraph_instance_objectType
+      operationId: getKnowledgeGraphInstanceObjectType
       parameters:
         - name: kgIri
           in: query
@@ -899,8 +998,10 @@ paths:
           description: Unhauthorized
   /knowledgeGraph/instance/subjectType:
     get:
+      tags:
+        - Instances
       summary: GET mwsx/knowledgeGraph/instance/subjectType
-      operationId: get__knowledgeGraph_instance_subjectType
+      operationId: getKnowledgeGraphInstanceSubjectType
       parameters:
         - name: kgIri
           in: query
@@ -949,8 +1050,10 @@ paths:
           description: Unhauthorized
   /knowledgeGraph/store/file:
     post:
+      tags:
+        - FileSystem
       summary: POST mwsx/knowledgeGraph/store/file
-      operationId: post__knowledgeGraph_store_file
+      operationId: postKnowledgeGraphStoreFile
       requestBody:
         content:
           application/json:
@@ -967,8 +1070,10 @@ paths:
         '401':
           description: Unhauthorized
     get:
+      tags:
+        - FileSystem
       summary: GET mwsx/knowledgeGraph/store/file
-      operationId: get__knowledgeGraph_store_files
+      operationId: getKnowledgeGraphStoreFile
       responses:
         '200':
           description: OK
@@ -982,8 +1087,10 @@ paths:
           description: Unhauthorized
   /knowledgeGraph/store/file/{name}:
     delete:
+      tags:
+        - FileSystem
       summary: DELETE mwsx/knowledgeGraph/store/file/{name}
-      operationId: delete__knowledgeGraph_store_file
+      operationId: deleteKnowledgeGraphStoreFile
       parameters:
         - name: name
           in: path
@@ -1000,8 +1107,10 @@ paths:
         '401':
           description: Unhauthorized
     get:
+      tags:
+        - FileSystem
       summary: GET mwsx/knowledgeGraph/store/file/{name}
-      operationId: get__knowledgeGraph_store_file
+      operationId: getKnowledgeGraphStoreFileName
       parameters:
         - name: name
           in: path
@@ -1019,8 +1128,10 @@ paths:
           description: Unhauthorized
   /knowledgeGraph/upload/file:
     post:
+      tags:
+        - Upload
       summary: POST mwsx/knowledgeGraph/upload/file
-      operationId: post__knowledgeGraph_upload_file
+      operationId: postKnowledgeGraphUploadFile
       parameters:
         - name: iri
           in: query
@@ -1044,8 +1155,10 @@ paths:
           description: Unhauthorized
   /knowledgeGraph/upload/import:
     put:
+      tags:
+        - Upload
       summary: PUT mwsx/knowledgeGraph/upload/import
-      operationId: put__knowledgeGraph_upload_import
+      operationId: putKnowledgeGraphUploadImport
       requestBody:
         content:
           application/json:
@@ -1063,14 +1176,23 @@ paths:
           description: Unhauthorized
   /knowledgeGraph/delete/file:
     delete:
+      tags:
+        - Persistence
       summary: DELETE mwsx/knowledgeGraph/delete/file
-      operationId: delete__knowledgeGraph_delete_file
+      operationId: deleteKnowledgeGraphDeleteFile
       parameters:
         - name: iri
           in: query
           required: true
           schema:
             type: string
+        - name: files
+          in: query
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
       responses:
         '200':
           description: OK
@@ -1082,8 +1204,10 @@ paths:
           description: Unhauthorized
   /knowledgeGraph/delete/file/triples:
     delete:
+      tags:
+        - Persistence
       summary: DELETE mwsx/knowledgeGraph/delete/file/triples
-      operationId: delete__knowledgeGraph_delete_file_triples
+      operationId: deleteKnowledgeGraphDeleteFileTriples
       parameters:
         - name: iri
           in: query
@@ -1092,9 +1216,15 @@ paths:
             type: string
         - name: namedGraph
           in: query
-          required: true
           schema:
             type: string
+        - name: files
+          in: query
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
       responses:
         '200':
           description: OK
@@ -1106,8 +1236,16 @@ paths:
           description: Unhauthorized
   /knowledgeGraph/upload/remove:
     delete:
+      tags:
+        - Upload
       summary: DELETE mwsx/knowledgeGraph/upload/remove
-      operationId: delete__knowledgeGraph_upload_remove
+      operationId: deleteKnowledgeGraphUploadRemove
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KnowledgeGraphFileDestination'
+        required: true
       responses:
         '200':
           description: OK
@@ -1119,8 +1257,10 @@ paths:
           description: Unhauthorized
   /knowledgeGraph/upload/files:
     get:
+      tags:
+        - Upload
       summary: GET mwsx/knowledgeGraph/upload/files
-      operationId: get__knowledgeGraph_upload_files
+      operationId: getKnowledgeGraphUploadFiles
       parameters:
         - name: iri
           in: query
@@ -1140,17 +1280,17 @@ paths:
           description: Unhauthorized
   /knowledgeGraph/union/queryOBDA:
     put:
+      tags:
+        - Union
       summary: PUT mwsx/knowledgeGraph/union/queryOBDA
-      operationId: put__knowledgeGraph_union_queryOBDA
+      operationId: putKnowledgeGraphUnionQueryOBDA
       parameters:
         - name: fileName
           in: query
-          required: true
           schema:
             type: string
         - name: uploadOnly
           in: query
-          required: true
           schema:
             type: boolean
         - name: endpointName
@@ -1175,8 +1315,10 @@ paths:
           description: Unhauthorized
   /knowledgeGraph/upload/file/csv:
     post:
+      tags:
+        - Upload
       summary: POST mwsx/knowledgeGraph/upload/file/csv
-      operationId: post__knowledgeGraph_upload_file_csv
+      operationId: postKnowledgeGraphUploadFileCsv
       parameters:
         - name: hasHeadersRow
           in: query
@@ -1220,8 +1362,10 @@ paths:
           description: Unhauthorized
   /knowledgeGraph/upload/files/csv:
     get:
+      tags:
+        - Upload
       summary: GET mwsx/knowledgeGraph/upload/files/csv
-      operationId: get__knowledgeGraph_upload_file_csv
+      operationId: getKnowledgeGraphUploadFileCsv
       responses:
         '200':
           description: OK
@@ -1235,8 +1379,10 @@ paths:
           description: Unhauthorized
   /knowledgeGraph/delete/file/csv/{fileName}:
     delete:
+      tags:
+        - CSV
       summary: DELETE mwsx/knowledgeGraph/delete/file/csv/{fileName}
-      operationId: delete__knowledgeGraph_upload_file_csv
+      operationId: deleteKnowledgeGraphUploadFileCsv
       parameters:
         - name: fileName
           in: path
@@ -1254,8 +1400,10 @@ paths:
           description: Unhauthorized
   /knowledgeGraph/file/csv/{fileName}/preview:
     get:
+      tags:
+        - CSV
       summary: GET mwsx/knowledgeGraph/file/csv/{fileName}/preview
-      operationId: get__knowledgeGraph_upload_file_csv_preview
+      operationId: getKnowledgeGraphUploadFileCsvPreview
       parameters:
         - name: fileName
           in: path
@@ -1279,8 +1427,10 @@ paths:
           description: Unhauthorized
   /knowledgeGraph/upload/import/csv:
     put:
+      tags:
+        - Upload
       summary: PUT mwsx/knowledgeGraph/upload/import/csv
-      operationId: put__knowledgeGraph_upload_file_csv_import
+      operationId: putKnowledgeGraphUploadFileCsvImport
       parameters:
         - name: synchronousMode
           in: query
@@ -1297,15 +1447,17 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
         '401':
           description: Unhauthorized
   /knowledgeGraph/upload/import/threads:
     get:
+      tags:
+        - Upload
       summary: GET mwsx/knowledgeGraph/upload/import/threads
-      operationId: get__knowledgeGraph_upload_file_csv_import
+      operationId: getKnowledgeGraphUploadFileCsvImport
       parameters:
         - name: iri
           in: query
@@ -1325,8 +1477,10 @@ paths:
           description: Unhauthorized
   /knowledgeGraph/upload/import/thread:
     get:
+      tags:
+        - Upload
       summary: GET mwsx/knowledgeGraph/upload/import/thread
-      operationId: get__knowledgeGraph_upload_file_csv_import_thread
+      operationId: getKnowledgeGraphUploadFileCsvImportThread
       parameters:
         - name: iri
           in: query
@@ -1335,10 +1489,33 @@ paths:
             type: string
         - name: threadId
           in: query
-          required: true
           schema:
             type: string
         - name: fileName
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KgCsvImportReport'
+        '401':
+          description: Unhauthorized
+    delete:
+      tags:
+        - Upload
+      summary: DELETE mwsx/knowledgeGraph/upload/import/thread
+      operationId: deleteKnowledgeGraphUploadFileCsvImportThread
+      parameters:
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: threadId
           in: query
           required: true
           schema:
@@ -1352,27 +1529,30 @@ paths:
                 $ref: '#/components/schemas/KgCsvImportReport'
         '401':
           description: Unhauthorized
-    delete:
-      summary: DELETE mwsx/knowledgeGraph/upload/import/thread
-      operationId: delete__knowledgeGraph_upload_file_csv_import_thread
+  /knowledgeGraph/import/metadata:
+    post:
+      tags:
+        - Upload
+      summary: 'Import metadata triples like /owlOntology/{name}/version/loaderThreads/metadata:'
+      operationId: postKnowledgeGraphImportMetadata
       parameters:
         - name: iri
           in: query
           required: true
           schema:
             type: string
-        - name: threadId
-          in: query
-          required: true
-          schema:
-            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MWSXOntologyCatalogOntologyMetadataSet'
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/KgCsvImportReport'
+                type: boolean
         '401':
           description: Unhauthorized
 components:
@@ -1427,6 +1607,9 @@ components:
     Role:
       title: Role
       type: object
+      required:
+        - name
+        - permissions
       properties:
         permissions:
           type: array
@@ -1437,6 +1620,8 @@ components:
     User:
       title: User
       type: object
+      required:
+        - name
       properties:
         firstName:
           type: string
@@ -1453,6 +1638,8 @@ components:
     KnowledgeGraph:
       title: KnowledgeGraph
       type: object
+      required:
+        - kgIri
       properties:
         kgDescriptions:
           type: array
@@ -1473,6 +1660,7 @@ components:
         kgTriples:
           type: integer
           format: int64
+          default: 0
         kgContributors:
           type: array
           items:
@@ -1480,9 +1668,20 @@ components:
         kgCreationTs:
           type: integer
           format: int64
+          default: 0
         kgLastModifiedTs:
           type: integer
           format: int64
+          default: 0
+        kgType:
+          type: string
+          enum:
+            - JENA
+            - RDF4J
+        prefixes:
+          type: object
+          additionalProperties:
+            type: string
     KGStatus:
       title: KGStatus
       type: object
@@ -1490,20 +1689,13 @@ components:
         modelsNumber:
           type: integer
           format: int32
+          default: 0
         triplesNumber:
           type: integer
           format: int32
+          default: 0
         status:
           type: string
-    KGOpeningEvent:
-      title: KGOpeningEvent
-      type: object
-      properties:
-        iri:
-          type: string
-        timestamp:
-          type: integer
-          format: int64
     FileInfo:
       title: FileInfo
       type: object
@@ -1537,6 +1729,7 @@ components:
         instancesNumber:
           type: integer
           format: int32
+          default: 0
         classIri:
           type: string
     InstanceLabelType:
@@ -1564,6 +1757,8 @@ components:
     OntologyEntity:
       title: OntologyEntity
       type: object
+      required:
+        - entityIRI
       properties:
         entityLabels:
           type: array
@@ -1571,6 +1766,7 @@ components:
             $ref: '#/components/schemas/Label'
         deprecated:
           type: boolean
+          default: false
         entityIRI:
           type: string
         entityType:
@@ -1664,27 +1860,34 @@ components:
         numAxioms:
           type: integer
           format: int32
+          default: 0
         numIndividuals:
           type: integer
           format: int32
+          default: 0
         catalog:
           $ref: '#/components/schemas/OntologyCatalog'
         graphol:
           type: boolean
+          default: false
         individualInfos:
           $ref: '#/components/schemas/IndividualInfos'
         numObjectProperties:
           type: integer
           format: int32
+          default: 0
         numDataProperties:
           type: integer
           format: int32
+          default: 0
         versionDate:
           type: integer
           format: int64
+          default: 0
         numClasses:
           type: integer
           format: int32
+          default: 0
         versionID:
           type: string
         ontologyID:
@@ -1693,6 +1896,7 @@ components:
           type: string
         gscape:
           type: boolean
+          default: false
         versionOwner:
           $ref: '#/components/schemas/User'
     KnowledgeGraphOntologyUnion:
@@ -1728,6 +1932,8 @@ components:
     ChartConfiguration:
       title: ChartConfiguration
       type: object
+      required:
+        - yVariables
       properties:
         yVariables:
           type: array
@@ -1742,8 +1948,9 @@ components:
         cutoff:
           type: integer
           format: int32
-    Tag:
-      title: Tag
+          default: 0
+    MwsxTag:
+      title: MwsxTag
       type: object
       properties:
         color:
@@ -1752,7 +1959,7 @@ components:
           type: string
         description:
           type: string
-    VirtualEntityQueryInfos:
+    MWSXVirtualEntityQueryInfos:
       title: VirtualEntityQueryInfos
       type: object
       properties:
@@ -1767,6 +1974,8 @@ components:
     SPARQLQuery:
       title: SPARQLQuery
       type: object
+      required:
+        - queryID
       properties:
         selectedMappingIds:
           type: array
@@ -1781,13 +1990,17 @@ components:
           additionalProperties:
             type: string
         semantics:
-          type: string
+          enum:
+            - auto
+            - cq
+            - eql
+            - newcq
         constructCode:
           type: string
         queryTags:
           type: array
           items:
-            $ref: '#/components/schemas/Tag'
+            $ref: '#/components/schemas/MwsxTag'
         queryDescription:
           type: string
         queryID:
@@ -1796,10 +2009,32 @@ components:
           type: string
         construct:
           type: boolean
+          default: false
         constructResultsRDFSyntax:
           type: string
         virtualEntityQueryInfos:
-          $ref: '#/components/schemas/VirtualEntityQueryInfos'
+          $ref: '#/components/schemas/MWSXVirtualEntityQueryInfos'
+        creator:
+          type: string
+        entryCreation:
+          type: integer
+          format: int64
+          default: 0
+        entryLastModification:
+          type: integer
+          format: int64
+          default: 0
+        public:
+          type: boolean
+          default: false
+        publicationRequestDate:
+          type: integer
+          format: int64
+          default: 0
+        publicationResponseDate:
+          type: integer
+          format: int64
+          default: 0
     OBDACatalog:
       title: OBDACatalog
       type: object
@@ -1811,10 +2046,21 @@ components:
     SPARQLStatus:
       title: SPARQLStatus
       type: object
+      required:
+        - status
+        - executionTime
+        - numResults
+        - percentage
+        - numHighLevelQueries
+        - numLowLevelQueries
+        - numOntologyRewritings
+        - numOptimizedQueries
+        - hasError
       properties:
         executionTime:
           type: integer
           format: int32
+          default: 0
         errorMessages:
           type: array
           items:
@@ -1822,25 +2068,64 @@ components:
         percentage:
           type: integer
           format: int32
+          default: 0
         numLowLevelQueries:
           type: integer
           format: int32
+          default: 0
         numResults:
           type: integer
           format: int32
+          default: 0
         numOntologyRewritings:
           type: integer
           format: int32
+          default: 0
         numOptimizedQueries:
           type: integer
           format: int32
+          default: 0
         hasError:
           type: boolean
+          default: false
         numHighLevelQueries:
           type: integer
           format: int32
+          default: 0
         status:
+          enum:
+            - READY
+            - FINISHED
+            - UNAVAILABLE
+            - ERROR
+            - RUNNING
+            - STOPPED
+            - DISABLED
+        queryCode:
           type: string
+        constructQueryCode:
+          type: string
+        evaluationStepTimes:
+          type: object
+          additionalProperties:
+            type: string
+    SPARQLResultsHeadTypes:
+      title: SPARQLResultsHeadTypes
+      enum:
+        - OBJECT
+        - VALUE
+        - UNSPECIFIED
+        - xsd:double
+        - iri
+        - xsd:dateTime
+        - literal
+        - rdf:PlainLiteral
+        - xsd:string
+        - xsd:boolean
+        - xsd:integer
+        - numeric
+        - xsd:decimal
+        - xsd:float
     SPARQLResult:
       title: SPARQLResult
       type: object
@@ -1849,13 +2134,25 @@ components:
           type: string
         type:
           type: string
+          enum:
+            - INDIVIDUAL
+            - IRI
+            - VALUE
         lang:
           type: string
         value:
           type: string
+        isBlankNode:
+          type: boolean
+          default: false
+        concreteValueDatatype:
+          type: string
     SPARQLResults:
       title: SPARQLResults
       type: object
+      required:
+        - headTerms
+        - headTypes
       properties:
         headTerms:
           type: array
@@ -1863,8 +2160,13 @@ components:
             type: string
         headTypes:
           type: object
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/SPARQLResultsHeadTypes'
         construct:
           type: boolean
+          default: false
         results:
           type: array
           items:
@@ -1892,9 +2194,11 @@ components:
         instance_count:
           type: integer
           format: int32
+          default: 0
         page_count:
           type: integer
           format: int32
+          default: 0
     ObjectType:
       title: ObjectType
       type: object
@@ -1906,9 +2210,11 @@ components:
         instance_count:
           type: integer
           format: int32
+          default: 0
         page_count:
           type: integer
           format: int32
+          default: 0
     SubjectObjectProperty:
       title: SubjectObjectProperty
       type: object
@@ -1924,9 +2230,11 @@ components:
         instance_count:
           type: integer
           format: int32
+          default: 0
         page_count:
           type: integer
           format: int32
+          default: 0
     InstanceSubjectTripsGroup:
       title: InstanceSubjectTripsGroup
       type: object
@@ -1950,9 +2258,11 @@ components:
         instance_count:
           type: integer
           format: int32
+          default: 0
         page_count:
           type: integer
           format: int32
+          default: 0
     ObjectTriple:
       title: ObjectTriple
       type: object
@@ -1968,9 +2278,11 @@ components:
         instance_count:
           type: integer
           format: int32
+          default: 0
         page_count:
           type: integer
           format: int32
+          default: 0
     InstanceObjectTripsGroup:
       title: InstanceObjectTripsGroup
       type: object
@@ -2070,6 +2382,7 @@ components:
         timestamp:
           type: integer
           format: int64
+          default: 0
     KnowledgeGraphFileDestination:
       title: KnowledgeGraphFileDestination
       type: object
@@ -2087,19 +2400,26 @@ components:
         numberOfTriples:
           type: integer
           format: int64
+          default: 0
         fileName:
           type: string
         uploadDate:
           type: integer
           format: int64
+          default: 0
         importingTime:
           type: integer
           format: int64
+          default: 0
         imported:
           type: boolean
+          default: false
     OntologyID:
       title: OntologyID
       type: object
+      required:
+        - ontologyName
+        - ontologyVersion
       properties:
         ontologyVersion:
           type: string
@@ -2108,6 +2428,10 @@ components:
     MastroID:
       title: MastroID
       type: object
+      required:
+        - ontologyID
+        - mappingID
+        - datasourceID
       properties:
         mappingID:
           type: string
@@ -2173,12 +2497,16 @@ components:
             type: string
         triplesCreatedCount:
           type: integer
+          default: 0
         csvLinesProcessedCount:
           type: integer
+          default: 0
         csvLinesImportedCount:
           type: integer
+          default: 0
         csvLinesErrorCount:
           type: integer
+          default: 0
         rejectedLines:
           type: object
           additionalProperties:
@@ -2195,9 +2523,61 @@ components:
           type: object
         timeStart:
           type: integer
+          format: int64
+          default: 0
         timeEnd:
           type: integer
+          format: int64
+          default: 0
         generatedTriplesFile:
           type: string
         numberOfTriplesPerLine:
           type: integer
+          default: 0
+    MWSXMetadataSubject:
+      type: object
+      properties:
+        iri:
+          type: string
+        impliedClassIri:
+          type: string
+    MWSXMetadataPredicate:
+      type: object
+      properties:
+        iri:
+          type: string
+    MWSXMetadataObject:
+      type: object
+      properties:
+        iri:
+          type: string
+        impliedClassIri:
+          type: string
+        value:
+          type: string
+        lang:
+          type: string
+        datatypeIri:
+          type: string
+        isIri:
+          type: boolean
+          default: false
+        isBlankNode:
+          type: boolean
+          default: false
+    MWSXMetadataTriple:
+      type: object
+      properties:
+        subject:
+          $ref: '#/components/schemas/MWSXMetadataSubject'
+        predicate:
+          $ref: '#/components/schemas/MWSXMetadataPredicate'
+        object:
+          $ref: '#/components/schemas/MWSXMetadataObject'
+    MWSXOntologyCatalogOntologyMetadataSet:
+      type: object
+      properties:
+        metadataTriples:
+          type: array
+          items:
+            $ref: '#/components/schemas/MWSXMetadataTriple'

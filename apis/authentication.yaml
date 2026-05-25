@@ -1,0 +1,34 @@
+openapi: 3.0.0
+servers:
+  - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+    variables:
+      protocol:
+        default: https
+      tenant:
+        default: localhost
+      port:
+        default: ':8989'
+info:
+  description: >-
+    This is the API to obtain the X-MONOLITH-SESSION-ID using mastro authentication.
+  version: 1.0.0
+  title: Authentication API
+  contact:
+    email: info@obdasystems.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+paths:
+  /login:
+    $ref: paths/login.yaml
+  /logout:
+    $ref: paths/logout.yaml
+  /logout/{username}:
+    $ref: paths/logout_{username}.yaml
+components: 
+  securitySchemes:
+      basicAuth:
+        type: http
+        scheme: basic
+security:
+  - basicAuth: []

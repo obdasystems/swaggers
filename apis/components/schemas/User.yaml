@@ -1,5 +1,7 @@
 title: User
 type: object
+required: 
+  - name
 properties:
   firstName:
     type: string

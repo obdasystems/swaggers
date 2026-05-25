@@ -4,4 +4,4 @@ properties:
   sparqlingSPARQLQuery:
     $ref: ./SparqlingSPARQLQuery.yaml
   entity:
-    $ref: ./VirtualEntity.yaml
+    $ref: ./MWSXVirtualEntity.yaml

@@ -1,0 +1,53 @@
+put:
+  tags: [APISemantiche]
+  summary: Replace the given ontology in the catalog with the one provided in the request body
+  operationId: putApisemCatalogName
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: version
+      in: query
+      required: true
+      schema:
+        type: string
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/RDFGraph.yaml
+  responses:
+    "200":
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/MWSXOntologyCatalogEntries.yaml
+    "401": { description: Unhauthorized }
+delete:
+  tags: [APISemantiche]
+  summary: Reset the content of the current catalog
+  operationId: deleteApisemCatalogName
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: version
+      in: query
+      required: true
+      schema:
+        type: string
+  responses:
+    "200":
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            type: boolean
+            description: True if the operation succeed
+    "401": { description: Unhauthorized }

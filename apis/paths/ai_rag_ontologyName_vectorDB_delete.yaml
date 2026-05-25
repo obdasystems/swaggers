@@ -1,0 +1,24 @@
+delete:
+  tags: [RAG]
+  summary: Delete the vector database for a specific ontology version.
+  operationId: deleteVectorDB
+  parameters:
+    - name: ontologyName
+      in: path
+      schema:
+        type: string
+      required: true
+    - name: ontologyVersion
+      in: query
+      schema:
+        type: string
+      required: true
+  responses:
+    "200":
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            type: boolean
+            description: Returns true if the deletion was successful.
+    "401": { description: Unhauthorized }

@@ -1,7 +1,8 @@
 get:
   summary: REST call for basic authentication, returns the session ID as a response
     header
-  operationId: get__login
+  tags: [Login]
+  operationId: getLogin
   responses:
     '200':
       description: OK

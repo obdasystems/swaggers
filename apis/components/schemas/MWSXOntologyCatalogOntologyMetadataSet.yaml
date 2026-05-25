@@ -1,0 +1,6 @@
+type: object
+properties:
+  metadataTriples:
+    type: array
+    items:
+      $ref: ./MWSXMetadataTriple.yaml

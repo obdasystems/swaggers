@@ -1,6 +1,7 @@
 put:
+  tags: [Upload]
   summary: PUT mwsx/knowledgeGraph/upload/import/csv
-  operationId: put__knowledgeGraph_upload_file_csv_import
+  operationId: putKnowledgeGraphUploadFileCsvImport
   parameters:
   - name: synchronousMode
     in: query
@@ -15,6 +16,6 @@ put:
     '200':
       description: OK
       content:
-        application/json:
+        text/plain:
           schema: {type: string}
     '401': {description: Unhauthorized}

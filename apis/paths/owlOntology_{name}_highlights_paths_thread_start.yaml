@@ -1,6 +1,7 @@
 post:
+  tags: [Highlights]
   summary: Start a thread computing a shortest path on the ontology
-  operationId: post_shortest_path_thread_start
+  operationId: postShortestPathThreadStart
   parameters:
   - name: name
     in: path
@@ -26,6 +27,6 @@ post:
     '200':
       description: OK
       content:
-        application/json:
+        text/plain:
           schema: {type: string}
     '401': {description: Unhauthorized}

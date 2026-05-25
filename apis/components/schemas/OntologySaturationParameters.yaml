@@ -1,4 +1,4 @@
-title: AbstractDataQualityConstraint
+title: OntologySaturationParameters
 type: object
 properties:
   classes:

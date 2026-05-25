@@ -1,6 +1,7 @@
 post:
+  tags: [Persistence]
   summary: POST mwsx/owlOntology/{name}/version/virtualEntity/semantics
-  operationId: post_virtualEntity_semantics
+  operationId: postOwlOntologyNameVersionOntologyVirtualEntitySemantics
   parameters:
   - name: name
     in: path
@@ -19,6 +20,6 @@ post:
     '200':
       description: OK
       content:
-        application/json:
-          schema: {type: string}
+        text/plain:
+          schema: { type: string }
     '401': {description: Unhauthorized}

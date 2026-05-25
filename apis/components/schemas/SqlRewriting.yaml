@@ -1,11 +1,6 @@
 title: SqlRewriting
 type: object
 properties:
-  query:
-    type: string
-  numResults:
-    type: integer
-    format: int32
-  time:
-    type: integer
-    format: int32
+  query: {type: string}
+  numResults: {type: integer, format: int32, default: 0}
+  time: {type: integer, format: int32, default: 0}

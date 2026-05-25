@@ -1,0 +1,11 @@
+title: LicenseContactInfo
+type: object
+properties:
+  licensee:
+    type: string
+  firstName:
+    type: string
+  lastName:
+    type: string
+  email:
+    type: string

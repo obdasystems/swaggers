@@ -1,4 +1,5 @@
 get:
+  tags: [Metadata]
   summary: Returns the source table info available for the table tableName in the
     catalog of a given datasource
   operationId: getTable

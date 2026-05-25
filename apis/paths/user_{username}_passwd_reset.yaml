@@ -1,6 +1,7 @@
 put:
+  tags: [User]
   summary: PUT mwsx/user/{username}/passwd/reset
-  operationId: put__user_passwd_reset
+  operationId: putUserPasswdReset
   parameters:
   - name: username
     in: path
@@ -14,6 +15,6 @@ put:
     '200':
       description: OK
       content:
-        application/json:
+        text/plain:
           schema: {type: string}
     '401': {description: Unhauthorized}

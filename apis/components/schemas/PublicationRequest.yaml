@@ -1,5 +1,9 @@
 title: PublicationRequest
 type: object
+required: 
+  - ontologyName
+  - ontologyVersion
+  - sparqlingSparqlQuery
 properties:
   ontologyName:
     type: string 

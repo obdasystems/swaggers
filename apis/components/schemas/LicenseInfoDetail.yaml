@@ -2,6 +2,9 @@ title: LicenseInfoDetail
 type: object
 properties:
   detailName:
-    type: string
+    enum:
+      - SERVER_IP_ADDRESS
+      - MAX_NUMBER_OF_USERS_ALLOWED
+      - MAX_NUMBER_OF_ONTOLOGIES_ALLOWED
   detailValue:
     type: string

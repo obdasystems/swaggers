@@ -1,6 +1,7 @@
 get:
+  tags: [Persistence]
   summary: Returns the query identified by ID
-  operationId: get__owlOntology_name_version_query_sparqling_ID
+  operationId: getOwlOntologyNameVersionQuerySparqlingID
   parameters:
   - name: name
     in: path
@@ -22,8 +23,9 @@ get:
           schema: {$ref: ../components/schemas/SparqlingSPARQLQuery.yaml}
     '401': {description: Unhauthorized}
 put:
+  tags: [Persistence]
   summary: Updates the definition of the given query
-  operationId: put__owlOntology_name_version_query_sparqling_ID
+  operationId: putOwlOntologyNameVersionQuerySparqlingID
   parameters:
   - name: name
     in: path
@@ -50,8 +52,9 @@ put:
           schema: {$ref: ../components/schemas/SparqlingSPARQLQuery.yaml}
     '401': {description: Unhauthorized}
 delete:
+  tags: [Persistence]
   summary: Remove the query identified by ID from the current catalog
-  operationId: delete__owlOntology_name_version_query_sparqling_ID
+  operationId: deleteOwlOntologyNameVersionQuerySparqlingID
   parameters:
   - name: name
     in: path

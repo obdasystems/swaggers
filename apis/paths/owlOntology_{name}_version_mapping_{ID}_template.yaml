@@ -1,6 +1,7 @@
 post:
+  tags: [Template]
   summary: Adds a new template to a mappng file
-  operationId: post__owlOntology_name_version_mapping_ID_template
+  operationId: postOwlOntologyNameVersionMappingIDTemplate
   parameters:
   - name: name
     in: path
@@ -23,12 +24,13 @@ post:
     '200':
       description: OK
       content:
-        application/json:
+        text/plain:
           schema: {type: string}
     '401': {description: Unhauthorized}
 delete:
+  tags: [Template]
   summary: Deletes a template from a mapping file
-  operationId: delete__owlOntology_name_version_mapping_ID_template
+  operationId: deleteOwlOntologyNameVersionMappingIDTemplate
   parameters:
   - name: name
     in: path
@@ -50,6 +52,6 @@ delete:
     '200':
       description: OK
       content:
-        application/json:
+        text/plain:
           schema: {type: string}
     '401': {description: Unhauthorized}

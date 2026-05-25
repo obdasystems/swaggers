@@ -1,13 +1,13 @@
 openapi: 3.0.0
 servers:
-  - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+  - url: "{protocol}://{tenant}{port}/mws/rest/mwsx"
     variables:
       protocol:
         default: https
       tenant:
         default: localhost
       port:
-        default: ':8989'
+        default: ":8989"
 info:
   description: This is the API for managing the Ontology Catalog
   version: 1.0.0
@@ -20,20 +20,54 @@ info:
 paths:
   /ontologyCatalog:
     $ref: paths/ontologyCatalog.yaml
+  /ontologyCatalog/querycatalog:
+    $ref: paths/ontologyCatalog_querycatalog.yaml
+  /ontologyCatalog/querycatalog/export:
+    $ref: paths/ontologyCatalog_querycatalog_export.yaml
+  /ontologyCatalog/querycatalog/import:
+    $ref: paths/ontologyCatalog_querycatalog_import.yaml
+  /ontologyCatalog/querycatalog/query:
+    $ref: paths/ontologyCatalog_querycatalog_query.yaml
+  /ontologyCatalog/querycatalog/query/{ID}:
+    $ref: paths/ontologyCatalog_querycatalog_query_{ID}.yaml
+  /ontologyCatalog/cache/results/{queryname}:
+    $ref: paths/ontologyCatalog_cache_results_{queryname}.yaml
+  /ontologyCatalog/cache/results/{queryname}/{language}:
+    $ref: paths/ontologyCatalog_cache_results_{queryname}_{language}.yaml
+  /ontologyCatalog/cache/update:
+    $ref: paths/ontologyCatalog_cache_update.yaml
+  /ontologyCatalog/cache/update/languages/add:
+    $ref: paths/ontologyCatalog_cache_update_languages_add.yaml
+  /ontologyCatalog/cache/update/languages/set:
+    $ref: paths/ontologyCatalog_cache_update_languages_set.yaml
+  /ontologyCatalog/crossOntologiesMetadata:
+    $ref: paths/ontologyCatalog_crossOntologiesMetadata.yaml
+  /ontologyCatalog/download:
+    $ref: paths/ontologyCatalog_download.yaml
+  /ontologyCatalog/query/results/export/formats:
+    $ref: paths/ontologyCatalog_query_results_export_formats.yaml
   /ontologyCatalog/query/start:
     $ref: paths/ontologyCatalog_query_start.yaml
-  /ontologyCatalog/query/{queryID}/stop:
-    $ref: paths/ontologyCatalog_query_{queryID}_stop.yaml
-  /ontologyCatalog/query/{queryID}/status:
-    $ref: paths/ontologyCatalog_query_{queryID}_status.yaml
-  /ontologyCatalog/query/{queryID}/results:
-    $ref: paths/ontologyCatalog_query_{queryID}_results.yaml
-components: 
-  securitySchemes: 
-    apiKey: 
-      $ref: './components/securitySchemes/api-key.yaml'
+  /ontologyCatalog/query/{queryId}:
+    $ref: paths/ontologyCatalog_query_{queryId}.yaml
+  /ontologyCatalog/query/{queryId}/results:
+    $ref: paths/ontologyCatalog_query_{queryId}_results.yaml
+  /ontologyCatalog/query/{queryId}/results/export:
+    $ref: paths/ontologyCatalog_query_{queryId}_results_export.yaml
+  /ontologyCatalog/query/{queryId}/status:
+    $ref: paths/ontologyCatalog_query_{queryId}_status.yaml
+  /ontologyCatalog/query/{queryId}/stop:
+    $ref: paths/ontologyCatalog_query_{queryId}_stop.yaml
+  /ontologyCatalog/sparql11-endpoint/query:
+    $ref: paths/ontologyCatalog_sparql11-endpoint_query.yaml
+  /ontologyCatalog/sparql11-endpoint/update:
+    $ref: paths/ontologyCatalog_sparql11-endpoint_update.yaml
+components:
+  securitySchemes:
+    apiKey:
+      $ref: "./components/securitySchemes/api-key.yaml"
     jwt:
-      $ref: './components/securitySchemes/jwt.yaml'
-security: 
+      $ref: "./components/securitySchemes/jwt.yaml"
+security:
   - apiKey: []
   - jwt: []

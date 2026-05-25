@@ -4,9 +4,9 @@ extends:
 apis:
   mastro:
     root: apis/_mastro.yaml
-  login:
-    root: apis/login.yaml
-    output: bundled/login.yaml
+  authentication:
+    root: apis/authentication.yaml
+    output: bundled/authentication.yaml
   ontologies:
     root: apis/ontologies.yaml
     output: bundled/ontologies.yaml

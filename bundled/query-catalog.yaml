@@ -23,8 +23,10 @@ security:
 paths:
   /owlOntology/{name}/version/querycatalog:
     get:
+      tags:
+        - Persistence
       summary: Returns the query catalog available for the given version of the ontology
-      operationId: get__owlOntology_name_version_querycatalog
+      operationId: getOwlOntologyNameVersionQuerycatalog
       parameters:
         - name: name
           in: path
@@ -46,8 +48,10 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Persistence
       summary: Deletes the query catalog available for the given version of the ontology
-      operationId: delete__owlOntology_name_version_querycatalog
+      operationId: deleteOwlOntologyNameVersionQuerycatalog
       parameters:
         - name: name
           in: path
@@ -70,8 +74,10 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/querycatalog/converted2sparqling:
     get:
+      tags:
+        - Utils
       summary: Returns a list of SparqlingSPARQLQuery obtaining converted the SPARQLQuery queries available in the catalog to SparqlingSPARQLQuery
-      operationId: get__owlOntology_name_version_querycatalog_converted2spargling
+      operationId: getOwlOntologyNameVersionQuerycatalogConverted2spargling
       parameters:
         - name: name
           in: path
@@ -96,8 +102,10 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/query/{queryID}/publication:
     post:
+      tags:
+        - Publication
       summary: Requires the publication of a query from a given user catalog
-      operationId: post__owlOntology_name_version_querycatalog_request_publication
+      operationId: postOwlOntologyNameVersionQuerycatalogRequestPublication
       parameters:
         - name: name
           in: path
@@ -125,8 +133,10 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/querycatalog/publicationRequests:
     get:
+      tags:
+        - Publication
       summary: Requires the publication of a query from a given user catalog
-      operationId: get__owlOntology_name_version_querycatalog_request_publication
+      operationId: getOwlOntologyNameVersionQuerycatalogRequestPublication
       parameters:
         - name: name
           in: path
@@ -151,8 +161,10 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/querycatalog/{userCatalog}/query/{queryID}/publication:
     put:
+      tags:
+        - Publication
       summary: Accept the publication of a query for which a publication request has been formerly requested
-      operationId: put__owlOntology_name_version_querycatalog_accept_publication
+      operationId: putOwlOntologyNameVersionQuerycatalogAcceptPublication
       parameters:
         - name: name
           in: path
@@ -189,8 +201,10 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Publication
       summary: Accept the publication of a query for which a publication request has been formerly requested
-      operationId: delete__owlOntology_name_version_querycatalog_accept_publication
+      operationId: deleteOwlOntologyNameVersionQuerycatalogAcceptPublication
       parameters:
         - name: name
           in: path
@@ -223,8 +237,10 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/querycatalog/export:
     get:
+      tags:
+        - Persistence
       summary: Exports the ontology catalog returning its JSON representation
-      operationId: get__owlOntology_name_version_querycatalog_export
+      operationId: getOwlOntologyNameVersionQuerycatalogExport
       parameters:
         - name: name
           in: path
@@ -247,8 +263,10 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/querycatalog/import:
     post:
+      tags:
+        - Persistence
       summary: 'Imports a new catalog for the given version of the ontology: if the additive switch is true, all new queries will be added to the existing ones, otherwise the old catalog will be overwritten'
-      operationId: get__owlOntology_name_version_querycatalog_import
+      operationId: getOwlOntologyNameVersionQuerycatalogImport
       parameters:
         - name: name
           in: path
@@ -282,8 +300,10 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/querycatalog/sparqling/import:
     post:
+      tags:
+        - Persistence
       summary: 'Imports a new catalog of SPARQLING queries: if the additive switch is true, all new queries will be added to the existing ones, otherwise the old catalog will be overwritten'
-      operationId: post__owlOntology_name_version_querycatalog_sparqling_import
+      operationId: postOwlOntologyNameVersionQuerycatalogSparqlingImport
       parameters:
         - name: name
           in: path
@@ -299,7 +319,7 @@ paths:
           in: query
           required: true
           schema:
-            type: string
+            type: boolean
       requestBody:
         content:
           application/json:
@@ -317,8 +337,10 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/querycatalog/sparqling/migrate:
     post:
+      tags:
+        - Persistence
       summary: Migrates a query catalog of SPARQLING queries between two ontology versions
-      operationId: post__owlOntology_name_version_querycatalog_sparqling_migrate
+      operationId: postOwlOntologyNameVersionQuerycatalogSparqlingMigrate
       parameters:
         - name: name
           in: path
@@ -351,8 +373,10 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/querycatalog/sparqling:
     delete:
+      tags:
+        - Persistence
       summary: Deletes the catalog of SPARQLING queries available for this version of the ontology
-      operationId: delete__owlOntology_name_version_querycatalog_sparqling
+      operationId: deleteOwlOntologyNameVersionQuerycatalogSparqling
       parameters:
         - name: name
           in: path
@@ -375,8 +399,10 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/querycatalog/sparqling/export:
     get:
+      tags:
+        - Persistence
       summary: Exports the SPARQLING query catalog
-      operationId: get__owlOntology_name_version_querycatalog_sparqling_export
+      operationId: getOwlOntologyNameVersionQuerycatalogSparqlingExport
       parameters:
         - name: name
           in: path
@@ -399,8 +425,10 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/query/{ID}:
     get:
+      tags:
+        - Persistence
       summary: Returns the SPARQLQuery identified by the passed ID value
-      operationId: get__owlOntology_name_version_query_ID
+      operationId: getOwlOntologyNameVersionQueryID
       parameters:
         - name: name
           in: path
@@ -427,8 +455,10 @@ paths:
         '401':
           description: Unhauthorized
     put:
+      tags:
+        - Persistence
       summary: Updates the definition of a specific query within the available catalog
-      operationId: put__owlOntology_name_version_query_ID
+      operationId: putOwlOntologyNameVersionQueryID
       parameters:
         - name: name
           in: path
@@ -461,8 +491,10 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Persistence
       summary: Removes a specific query from the catalog available for this version of the ontology
-      operationId: delete__owlOntology_name_version_query_ID
+      operationId: deleteOwlOntologyNameVersionQueryID
       parameters:
         - name: name
           in: path
@@ -490,8 +522,10 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/query:
     post:
+      tags:
+        - Persistence
       summary: Adds a new query to the catalog
-      operationId: post__owlOntology_name_version_query_ID
+      operationId: postOwlOntologyNameVersionQueryID
       parameters:
         - name: name
           in: path
@@ -520,8 +554,10 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/queries/sparqling:
     get:
+      tags:
+        - Persistence
       summary: Returns a list of the SPARQLING queries currently stored in the catalog
-      operationId: get__owlOntology_name_version_queries_sparqling
+      operationId: getOwlOntologyNameVersionQueriesSparqling
       parameters:
         - name: name
           in: path
@@ -546,8 +582,10 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/query/sparqling/{ID}:
     get:
+      tags:
+        - Persistence
       summary: Returns the query identified by ID
-      operationId: get__owlOntology_name_version_query_sparqling_ID
+      operationId: getOwlOntologyNameVersionQuerySparqlingID
       parameters:
         - name: name
           in: path
@@ -574,8 +612,10 @@ paths:
         '401':
           description: Unhauthorized
     put:
+      tags:
+        - Persistence
       summary: Updates the definition of the given query
-      operationId: put__owlOntology_name_version_query_sparqling_ID
+      operationId: putOwlOntologyNameVersionQuerySparqlingID
       parameters:
         - name: name
           in: path
@@ -608,8 +648,10 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Persistence
       summary: Remove the query identified by ID from the current catalog
-      operationId: delete__owlOntology_name_version_query_sparqling_ID
+      operationId: deleteOwlOntologyNameVersionQuerySparqlingID
       parameters:
         - name: name
           in: path
@@ -637,8 +679,10 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/query/sparqling:
     post:
+      tags:
+        - Persistence
       summary: Adds a new SPARQLING query to the catalog
-      operationId: post__owlOntology_name_version_query_sparqling_ID
+      operationId: postOwlOntologyNameVersionQuerySparqlingID
       parameters:
         - name: name
           in: path
@@ -683,6 +727,8 @@ components:
     ChartConfiguration:
       title: ChartConfiguration
       type: object
+      required:
+        - yVariables
       properties:
         yVariables:
           type: array
@@ -697,8 +743,9 @@ components:
         cutoff:
           type: integer
           format: int32
-    Tag:
-      title: Tag
+          default: 0
+    MwsxTag:
+      title: MwsxTag
       type: object
       properties:
         color:
@@ -707,7 +754,7 @@ components:
           type: string
         description:
           type: string
-    VirtualEntityQueryInfos:
+    MWSXVirtualEntityQueryInfos:
       title: VirtualEntityQueryInfos
       type: object
       properties:
@@ -722,6 +769,8 @@ components:
     SPARQLQuery:
       title: SPARQLQuery
       type: object
+      required:
+        - queryID
       properties:
         selectedMappingIds:
           type: array
@@ -736,13 +785,17 @@ components:
           additionalProperties:
             type: string
         semantics:
-          type: string
+          enum:
+            - auto
+            - cq
+            - eql
+            - newcq
         constructCode:
           type: string
         queryTags:
           type: array
           items:
-            $ref: '#/components/schemas/Tag'
+            $ref: '#/components/schemas/MwsxTag'
         queryDescription:
           type: string
         queryID:
@@ -751,10 +804,32 @@ components:
           type: string
         construct:
           type: boolean
+          default: false
         constructResultsRDFSyntax:
           type: string
         virtualEntityQueryInfos:
-          $ref: '#/components/schemas/VirtualEntityQueryInfos'
+          $ref: '#/components/schemas/MWSXVirtualEntityQueryInfos'
+        creator:
+          type: string
+        entryCreation:
+          type: integer
+          format: int64
+          default: 0
+        entryLastModification:
+          type: integer
+          format: int64
+          default: 0
+        public:
+          type: boolean
+          default: false
+        publicationRequestDate:
+          type: integer
+          format: int64
+          default: 0
+        publicationResponseDate:
+          type: integer
+          format: int64
+          default: 0
     OBDACatalog:
       title: OBDACatalog
       type: object
@@ -818,6 +893,7 @@ components:
       properties:
         distinct:
           type: boolean
+          default: false
         aggregateFunction:
           type: string
           enum:
@@ -866,6 +942,7 @@ components:
         ordering:
           description: 1 is ascending -1 descending 0 not defined
           type: integer
+          default: 0
         function:
           $ref: '#/components/schemas/Function'
         groupBy:
@@ -922,6 +999,7 @@ components:
       properties:
         id:
           type: integer
+          default: 0
         graphIds:
           description: Path of ids that describe optional.
           type: array
@@ -936,6 +1014,7 @@ components:
       properties:
         distinct:
           type: boolean
+          default: false
         count_star:
           type: boolean
           default: false
@@ -957,13 +1036,17 @@ components:
             $ref: '#/components/schemas/Optional'
         limit:
           type: integer
+          default: 0
         offset:
           type: integer
+          default: 0
         sparql:
           type: string
     SparqlingSPARQLQuery:
       title: SparqlingSPARQLQuery
       type: object
+      required:
+        - sparqlQuery
       properties:
         queryGraph:
           $ref: '#/components/schemas/QueryGraph'

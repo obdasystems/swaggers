@@ -1,5 +1,7 @@
 title: Mappings
 type: object
+required:
+  - mappingList
 properties:
   mappingList:
     type: array

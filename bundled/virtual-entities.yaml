@@ -23,8 +23,10 @@ security:
 paths:
   /owlOntology/{name}/version/virtualEntities:
     get:
+      tags:
+        - Persistence
       summary: Returns the virtual entities available for a given ontology
-      operationId: get_virtualEntities
+      operationId: getOwlOntologyNameVersionOntologyVirtualEntities
       parameters:
         - name: name
           in: path
@@ -48,8 +50,10 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Persistence
       summary: Deletes the virtual entities for a given ontology
-      operationId: delete_virtualEntities
+      operationId: deleteOwlOntologyNameVersionOntologyVirtualEntities
       parameters:
         - name: name
           in: path
@@ -72,8 +76,10 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/virtualEntities/export:
     get:
+      tags:
+        - Persistence
       summary: Returns the virtual entities available for a given ontology
-      operationId: export_virtualEntities
+      operationId: getOwlOntologyNameVersionOntologyVirtualEntitiesExport
       parameters:
         - name: name
           in: path
@@ -96,8 +102,10 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/virtualEntities/import:
     post:
+      tags:
+        - Persistence
       summary: Upload virtual entities for a given ontology
-      operationId: import_virtualEntities
+      operationId: postOwlOntologyNameVersionOntologyVirtualEntitiesImport
       parameters:
         - name: name
           in: path
@@ -113,7 +121,7 @@ paths:
           in: query
           required: true
           schema:
-            type: string
+            type: boolean
       requestBody:
         content:
           application/json:
@@ -131,8 +139,10 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/virtualEntity/{vname}:
     get:
+      tags:
+        - Persistence
       summary: Get a virtual entity by name for a given ontology
-      operationId: get_virtualEntity
+      operationId: getOwlOntologyNameVersionOntologyVirtualEntity
       parameters:
         - name: name
           in: path
@@ -159,8 +169,10 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Persistence
       summary: DELETE a virtual entity by name for a given ontology
-      operationId: delete_virtualEntity
+      operationId: deleteOwlOntologyNameVersionOntologyVirtualEntity
       parameters:
         - name: name
           in: path
@@ -188,8 +200,10 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/virtualEntity:
     post:
+      tags:
+        - Persistence
       summary: Create a new virtual entity for a given ontology
-      operationId: post_virtualEntity
+      operationId: postOwlOntologyNameVersionOntologyVirtualEntity
       parameters:
         - name: name
           in: path
@@ -217,8 +231,10 @@ paths:
         '401':
           description: Unhauthorized
     put:
+      tags:
+        - Persistence
       summary: Overwrite a virtual entity for a given ontology
-      operationId: put_virtualEntity
+      operationId: putOwlOntologyNameVersionOntologyVirtualEntity
       parameters:
         - name: name
           in: path
@@ -247,8 +263,10 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/virtualEntity/semantics:
     post:
+      tags:
+        - Persistence
       summary: POST mwsx/owlOntology/{name}/version/virtualEntity/semantics
-      operationId: post_virtualEntity_semantics
+      operationId: postOwlOntologyNameVersionOntologyVirtualEntitySemantics
       parameters:
         - name: name
           in: path
@@ -270,9 +288,40 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
+        '401':
+          description: Unhauthorized
+  /endpoint/{name}/virtualEntity/{veName}:
+    get:
+      tags:
+        - Persistence
+      summary: Returns the virtual entity from a given endpoint by its name
+      operationId: getOwlOntologyNameVersionEndpointVirtualEntityResults
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: veName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: unfolderCountThreshold
+          in: query
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SPARQLResults'
         '401':
           description: Unhauthorized
 components:
@@ -345,6 +394,7 @@ components:
       properties:
         distinct:
           type: boolean
+          default: false
         aggregateFunction:
           type: string
           enum:
@@ -393,6 +443,7 @@ components:
         ordering:
           description: 1 is ascending -1 descending 0 not defined
           type: integer
+          default: 0
         function:
           $ref: '#/components/schemas/Function'
         groupBy:
@@ -449,6 +500,7 @@ components:
       properties:
         id:
           type: integer
+          default: 0
         graphIds:
           description: Path of ids that describe optional.
           type: array
@@ -463,6 +515,7 @@ components:
       properties:
         distinct:
           type: boolean
+          default: false
         count_star:
           type: boolean
           default: false
@@ -484,13 +537,17 @@ components:
             $ref: '#/components/schemas/Optional'
         limit:
           type: integer
+          default: 0
         offset:
           type: integer
+          default: 0
         sparql:
           type: string
     ChartConfiguration:
       title: ChartConfiguration
       type: object
+      required:
+        - yVariables
       properties:
         yVariables:
           type: array
@@ -505,8 +562,9 @@ components:
         cutoff:
           type: integer
           format: int32
-    Tag:
-      title: Tag
+          default: 0
+    MwsxTag:
+      title: MwsxTag
       type: object
       properties:
         color:
@@ -515,7 +573,7 @@ components:
           type: string
         description:
           type: string
-    VirtualEntityQueryInfos:
+    MWSXVirtualEntityQueryInfos:
       title: VirtualEntityQueryInfos
       type: object
       properties:
@@ -530,6 +588,8 @@ components:
     SPARQLQuery:
       title: SPARQLQuery
       type: object
+      required:
+        - queryID
       properties:
         selectedMappingIds:
           type: array
@@ -544,13 +604,17 @@ components:
           additionalProperties:
             type: string
         semantics:
-          type: string
+          enum:
+            - auto
+            - cq
+            - eql
+            - newcq
         constructCode:
           type: string
         queryTags:
           type: array
           items:
-            $ref: '#/components/schemas/Tag'
+            $ref: '#/components/schemas/MwsxTag'
         queryDescription:
           type: string
         queryID:
@@ -559,13 +623,37 @@ components:
           type: string
         construct:
           type: boolean
+          default: false
         constructResultsRDFSyntax:
           type: string
         virtualEntityQueryInfos:
-          $ref: '#/components/schemas/VirtualEntityQueryInfos'
+          $ref: '#/components/schemas/MWSXVirtualEntityQueryInfos'
+        creator:
+          type: string
+        entryCreation:
+          type: integer
+          format: int64
+          default: 0
+        entryLastModification:
+          type: integer
+          format: int64
+          default: 0
+        public:
+          type: boolean
+          default: false
+        publicationRequestDate:
+          type: integer
+          format: int64
+          default: 0
+        publicationResponseDate:
+          type: integer
+          format: int64
+          default: 0
     SparqlingSPARQLQuery:
       title: SparqlingSPARQLQuery
       type: object
+      required:
+        - sparqlQuery
       properties:
         queryGraph:
           $ref: '#/components/schemas/QueryGraph'
@@ -573,7 +661,7 @@ components:
           $ref: '#/components/schemas/SPARQLQuery'
         user:
           type: string
-    VirtualEntityField:
+    MWSXVirtualEntityField:
       title: VirtualEntityField
       type: object
       properties:
@@ -581,18 +669,20 @@ components:
           type: string
         nullable:
           type: boolean
+          default: false
         key:
           type: boolean
+          default: false
         fieldType:
           type: string
-    VirtualEntity:
+    MWSXVirtualEntity:
       title: VirtualEntity
       type: object
       properties:
         signature:
           type: array
           items:
-            $ref: '#/components/schemas/VirtualEntityField'
+            $ref: '#/components/schemas/MWSXVirtualEntityField'
         name:
           type: string
         description:
@@ -608,7 +698,7 @@ components:
         sparqlingSPARQLQuery:
           $ref: '#/components/schemas/SparqlingSPARQLQuery'
         entity:
-          $ref: '#/components/schemas/VirtualEntity'
+          $ref: '#/components/schemas/MWSXVirtualEntity'
     SparqlingVirtualEntities:
       title: SparqlingVirtualEntities
       type: object
@@ -617,3 +707,67 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SparqlingVirtualEntity'
+    SPARQLResultsHeadTypes:
+      title: SPARQLResultsHeadTypes
+      enum:
+        - OBJECT
+        - VALUE
+        - UNSPECIFIED
+        - xsd:double
+        - iri
+        - xsd:dateTime
+        - literal
+        - rdf:PlainLiteral
+        - xsd:string
+        - xsd:boolean
+        - xsd:integer
+        - numeric
+        - xsd:decimal
+        - xsd:float
+    SPARQLResult:
+      title: SPARQLResult
+      type: object
+      properties:
+        shortIRI:
+          type: string
+        type:
+          type: string
+          enum:
+            - INDIVIDUAL
+            - IRI
+            - VALUE
+        lang:
+          type: string
+        value:
+          type: string
+        isBlankNode:
+          type: boolean
+          default: false
+        concreteValueDatatype:
+          type: string
+    SPARQLResults:
+      title: SPARQLResults
+      type: object
+      required:
+        - headTerms
+        - headTypes
+      properties:
+        headTerms:
+          type: array
+          items:
+            type: string
+        headTypes:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/SPARQLResultsHeadTypes'
+        construct:
+          type: boolean
+          default: false
+        results:
+          type: array
+          items:
+            type: array
+            items:
+              $ref: '#/components/schemas/SPARQLResult'

@@ -1,6 +1,7 @@
 post:
+  tags: [General]
   summary: POST mwsx/knowledgeGraph/prefixes
-  operationId: post__knowledgeGraph_prefixes
+  operationId: postKnowledgeGraphPrefixes
   parameters:
   - name: iri
     in: query
@@ -13,7 +14,10 @@ post:
   requestBody:
     content:
       application/json:
-        schema: {type: string}
+        schema:
+          type: object
+          description: Prefixes to be added or updated
+          additionalProperties: {type: string}
     required: true
   responses:
     '200':
@@ -23,8 +27,9 @@ post:
           schema: {type: object}
     '401': {description: Unhauthorized}
 get:
+  tags: [General]
   summary: GET mwsx/knowledgeGraph/prefixes
-  operationId: get__knowledgeGraph_prefixes
+  operationId: getKnowledgeGraphPrefixes
   parameters:
   - name: iri
     in: query

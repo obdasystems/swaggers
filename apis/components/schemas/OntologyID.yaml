@@ -1,5 +1,8 @@
 title: OntologyID
 type: object
+required:
+  - ontologyName
+  - ontologyVersion
 properties:
   ontologyVersion:
     type: string

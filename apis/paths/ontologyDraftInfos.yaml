@@ -1,5 +1,5 @@
 get:
-  tags: [Ontology Designer]
+  tags: [Persistence]
   summary: Returns the list of all ontology drafts made by the user
   operationId: getOntologyDrafts
   responses:

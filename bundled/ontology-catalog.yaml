@@ -24,10 +24,10 @@ paths:
   /ontologyCatalog:
     post:
       tags:
-        - Ontology Catalog
+        - Persistence
       summary: Perform an action for ontology to the catalog
       description: Modifies the ontology catalog byacoording to the action provided
-      operationId: editCatalog
+      operationId: postOntologyCatalog
       parameters:
         - name: action
           in: query
@@ -37,114 +37,426 @@ paths:
             enum:
               - add
               - delete
+        - name: overwrite
+          in: query
+          schema:
+            type: boolean
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/OntologyID'
+              $ref: '#/components/schemas/MWSXOntologyCatalogEntry'
       responses:
         '200':
           description: Successful operation
           content:
             application/json:
               schema:
-                type: boolean
+                $ref: '#/components/schemas/MWSXOntologyCatalogEntries'
         '401':
           description: Unhauthorized
     get:
+      tags:
+        - Persistence
       summary: GET mwsx/ontologyCatalog
-      operationId: get_ontology_catalog
+      operationId: getOntologyCatalog
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OntologyCatalogEntries'
+                $ref: '#/components/schemas/MWSXOntologyCatalogEntries'
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Persistence
       summary: DELETE mwsx/ontologyCatalog
-      operationId: delete_ontology_catalog
+      operationId: deleteOntologyCatalog
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                type: object
+                type: boolean
         '401':
           description: Unhauthorized
-  /ontologyCatalog/query/start:
+  /ontologyCatalog/querycatalog:
+    get:
+      tags:
+        - Query
+      summary: Returns the query catalog available for the given version of the ontology
+      operationId: getOntologycatalogQuerycatalog
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OBDACatalog'
+        '401':
+          description: Unhauthorized
+    delete:
+      tags:
+        - Query
+      summary: Deletes the query catalog available for the given version of the ontology
+      operationId: deleteOntologycatalogQuerycatalog
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OBDACatalog'
+        '401':
+          description: Unhauthorized
+  /ontologyCatalog/querycatalog/export:
+    get:
+      tags:
+        - Query
+      summary: Exports the ontology catalog returning its JSON representation
+      operationId: getOntologycatalogQuerycatalogExport
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileInfo'
+        '401':
+          description: Unhauthorized
+  /ontologyCatalog/querycatalog/import:
     post:
       tags:
-        - Ontology Catalog
-      summary: Starts a SPARQL query over the catalog
-      operationId: startQuery
+        - Query
+      summary: 'Imports a new catalog for the given version of the ontology: if the additive switch is true, all new queries will be added to the existing ones, otherwise the old catalog will be overwritten'
+      operationId: getOntologycatalogQuerycatalogImport
+      parameters:
+        - name: additive
+          in: query
+          required: true
+          schema:
+            type: boolean
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileInfo'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OBDACatalog'
+        '401':
+          description: Unhauthorized
+  /ontologyCatalog/querycatalog/query:
+    post:
+      tags:
+        - Query
+      summary: Adds a new query to the catalog
+      operationId: postOntologycatalogQueryID
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/SPARQLQuery'
-      responses:
-        '200':
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SPARQLQueryExecution'
-        '401':
-          description: Unhauthorized
-  /ontologyCatalog/query/{queryID}/stop:
-    put:
-      tags:
-        - Ontology Catalog
-      summary: Stops a SPARQL query over the catalog
-      operationId: stopQuery
-      parameters:
-        - name: queryID
-          in: path
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                type: boolean
-        '401':
-          description: Unhauthorized
-  /ontologyCatalog/query/{queryID}/status:
-    get:
-      summary: Check the status of a SPARQL query
-      description: Check the status of a SPARQL query
-      operationId: check_ontology_catalog_query_status
-      parameters:
-        - name: queryID
-          in: path
-          required: true
-          schema:
-            type: string
-      tags:
-        - Ontology Catalog
+        required: true
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SPARQLStatus'
+                $ref: '#/components/schemas/SPARQLQuery'
         '401':
           description: Unhauthorized
-  /ontologyCatalog/query/{queryID}/results:
+  /ontologyCatalog/querycatalog/query/{ID}:
     get:
+      tags:
+        - Query
+      summary: Returns the SPARQLQuery identified by the passed ID value
+      operationId: getOntologycatalogQueryID
+      parameters:
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SPARQLQuery'
+        '401':
+          description: Unhauthorized
+    put:
+      tags:
+        - Query
+      summary: Updates the definition of a specific query within the available catalog
+      operationId: putOntologycatalogQueryID
+      parameters:
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SPARQLQuery'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SPARQLQuery'
+        '401':
+          description: Unhauthorized
+    delete:
+      tags:
+        - Query
+      summary: Removes a specific query from the catalog available for this version of the ontology
+      operationId: deleteOntologycatalogQueryID
+      parameters:
+        - name: ID
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SPARQLQuery'
+        '401':
+          description: Unhauthorized
+  /ontologyCatalog/cache/results/{queryname}:
+    get:
+      tags:
+        - Cache
+      summary: GET mwsx/ontologyCatalog/cache/results/{queryname}
+      operationId: getOntologyCatalogCacheManagerQueryResults
+      parameters:
+        - name: queryname
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SPARQLResults'
+        '401':
+          description: Unhauthorized
+  /ontologyCatalog/cache/results/{queryname}/{language}:
+    get:
+      tags:
+        - Cache
+      summary: GET mwsx/ontologyCatalog/cache/results/{queryname}/{language}
+      operationId: getOntologyCatalogCacheManagerQueryResultsLanguage
+      parameters:
+        - name: queryname
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: language
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SPARQLResults'
+        '401':
+          description: Unhauthorized
+  /ontologyCatalog/cache/update:
+    put:
+      tags:
+        - Cache
+      summary: PUT mwsx/ontologyCatalog/cache/update
+      operationId: putOntologyCatalogCacheManagerUpdate
+      parameters:
+        - name: languages
+          in: query
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unhauthorized
+  /ontologyCatalog/cache/update/languages/add:
+    put:
+      tags:
+        - Cache
+      summary: PUT mwsx/ontologyCatalog/cache/update/languages/add
+      operationId: putOntologyCatalogCacheManagerAddLanguage
+      parameters:
+        - name: language
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unhauthorized
+  /ontologyCatalog/cache/update/languages/set:
+    put:
+      tags:
+        - Cache
+      summary: PUT mwsx/ontologyCatalog/cache/update/languages/set
+      operationId: putOntologyCatalogCacheManagerSetLanguages
+      parameters:
+        - name: languages
+          in: query
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unhauthorized
+  /ontologyCatalog/crossOntologiesMetadata:
+    post:
+      tags:
+        - Metadata
+      summary: POST mwsx/ontologyCatalog/crossOntologiesMetadata
+      operationId: postCrossOntologiesIndividualsMetadata
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MWSXOntologyCatalogOntologyMetadataSet'
+        required: true
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unhauthorized
+    delete:
+      summary: DELETE mwsx/ontologyCatalog/crossOntologiesMetadata
+      operationId: deleteOntologyCatalogMetadata
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unhauthorized
+  /ontologyCatalog/download:
+    get:
+      tags:
+        - Persistence
+      summary: GET mwsx/ontologyCatalog/download
+      operationId: getOntologyCatalogDownload
+      parameters:
+        - name: format
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileInfo'
+        '401':
+          description: Unhauthorized
+  /ontologyCatalog/query/results/export/formats:
+    get:
+      tags:
+        - Query
+      summary: GET mwsx/ontologyCatalog/query/results/export/formats
+      operationId: getOntologyCatalogQueryResultsExportFormats
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        '401':
+          description: Unhauthorized
+  /ontologyCatalog/query/start:
+    post:
+      tags:
+        - Query
+      summary: Starts a SPARQL query over the catalog
+      operationId: postOntologyCatalogQueryStart
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MWSXOntologyCatalogQuery'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MWSXOntologyCatalogQueryExecutionId'
+        '401':
+          description: Unhauthorized
+  /ontologyCatalog/query/{queryId}:
+    delete:
+      tags:
+        - Query
+      summary: DELETE mwsx/ontologyCatalog/query/{queryId}
+      operationId: deleteOntologyCatalogQueryThreadDelete
+      parameters:
+        - name: queryId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '401':
+          description: Unhauthorized
+  /ontologyCatalog/query/{queryId}/results:
+    get:
+      tags:
+        - Query
       summary: Retrieve the results of a SPARQL query
       description: Retrieve the results of a SPARQL query
-      operationId: get_ontology_catalog_query_results
+      operationId: getOntologyCatalogQueryResults
       parameters:
-        - name: queryID
+        - name: queryId
           in: path
           required: true
           schema:
@@ -161,8 +473,6 @@ paths:
           schema:
             type: integer
             format: int32
-      tags:
-        - Ontology Catalog
       responses:
         '200':
           description: OK
@@ -170,6 +480,146 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SPARQLResults'
+        '401':
+          description: Unhauthorized
+  /ontologyCatalog/query/{queryId}/results/export:
+    get:
+      tags:
+        - Query
+      summary: GET mwsx/ontologyCatalog/query/{queryId}/results/export
+      operationId: getOntologyCatalogQueryResultsExport
+      parameters:
+        - name: queryId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: format
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        '401':
+          description: Unhauthorized
+  /ontologyCatalog/query/{queryId}/status:
+    get:
+      tags:
+        - Query
+      summary: Check the status of a SPARQL query
+      description: Check the status of a SPARQL query
+      operationId: getOntologyCatalogQueryStatus
+      parameters:
+        - name: queryId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MWSXOntologyCatalogQueryExecutionStatus'
+        '401':
+          description: Unhauthorized
+  /ontologyCatalog/query/{queryId}/stop:
+    put:
+      tags:
+        - Query
+      summary: Stops a SPARQL query over the catalog
+      operationId: putOntologyCatalogQueryStop
+      parameters:
+        - name: queryId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '401':
+          description: Unhauthorized
+  /ontologyCatalog/sparql11-endpoint/query:
+    post:
+      tags:
+        - Query
+      summary: POST mwsx/ontologyCatalog/sparql11-endpoint/query
+      operationId: postOntologyCatalogSparql11EndpointQueryFormEncoded
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              required:
+                - query
+                - default-graph-uri
+                - named-graph-uri
+              properties:
+                query:
+                  type: string
+                default-graph-uri:
+                  type: array
+                  items:
+                    type: string
+                named-graph-uri:
+                  type: array
+                  items:
+                    type: string
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+        '401':
+          description: Unhauthorized
+  /ontologyCatalog/sparql11-endpoint/update:
+    post:
+      tags:
+        - Query
+      summary: POST mwsx/ontologyCatalog/sparql11-endpoint/update
+      operationId: postOntologyCatalogSparql11EndpointUpdateFormEncoded
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              required:
+                - update
+                - using-graph-uri
+                - using-named-graph-uri
+              properties:
+                update:
+                  type: string
+                using-graph-uri:
+                  type: array
+                  items:
+                    type: string
+                using-named-graph-uri:
+                  type: array
+                  items:
+                    type: string
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
         '401':
           description: Unhauthorized
 components:
@@ -187,25 +637,32 @@ components:
       scheme: bearer
       bearerFormat: JWT
   schemas:
-    OntologyID:
-      title: OntologyID
+    MWSXOntologyCatalogEntry:
+      title: OntologyCatalogEntry
       type: object
+      required:
+        - ontologyName
+        - ontologyVersion
       properties:
         ontologyVersion:
           type: string
         ontologyName:
           type: string
-    OntologyCatalogEntries:
+    MWSXOntologyCatalogEntries:
       title: OntologyCatalogEntries
       type: object
+      required:
+        - entries
       properties:
         entries:
           type: object
           additionalProperties:
-            $ref: '#/components/schemas/OntologyID'
+            $ref: '#/components/schemas/MWSXOntologyCatalogEntry'
     ChartConfiguration:
       title: ChartConfiguration
       type: object
+      required:
+        - yVariables
       properties:
         yVariables:
           type: array
@@ -220,8 +677,9 @@ components:
         cutoff:
           type: integer
           format: int32
-    Tag:
-      title: Tag
+          default: 0
+    MwsxTag:
+      title: MwsxTag
       type: object
       properties:
         color:
@@ -230,7 +688,7 @@ components:
           type: string
         description:
           type: string
-    VirtualEntityQueryInfos:
+    MWSXVirtualEntityQueryInfos:
       title: VirtualEntityQueryInfos
       type: object
       properties:
@@ -245,6 +703,8 @@ components:
     SPARQLQuery:
       title: SPARQLQuery
       type: object
+      required:
+        - queryID
       properties:
         selectedMappingIds:
           type: array
@@ -259,13 +719,17 @@ components:
           additionalProperties:
             type: string
         semantics:
-          type: string
+          enum:
+            - auto
+            - cq
+            - eql
+            - newcq
         constructCode:
           type: string
         queryTags:
           type: array
           items:
-            $ref: '#/components/schemas/Tag'
+            $ref: '#/components/schemas/MwsxTag'
         queryDescription:
           type: string
         queryID:
@@ -274,49 +738,67 @@ components:
           type: string
         construct:
           type: boolean
+          default: false
         constructResultsRDFSyntax:
           type: string
         virtualEntityQueryInfos:
-          $ref: '#/components/schemas/VirtualEntityQueryInfos'
-    SPARQLQueryExecution:
-      title: SPARQLQueryExecution
-      type: object
-      properties:
-        queryID:
+          $ref: '#/components/schemas/MWSXVirtualEntityQueryInfos'
+        creator:
           type: string
-    SPARQLStatus:
-      title: SPARQLStatus
+        entryCreation:
+          type: integer
+          format: int64
+          default: 0
+        entryLastModification:
+          type: integer
+          format: int64
+          default: 0
+        public:
+          type: boolean
+          default: false
+        publicationRequestDate:
+          type: integer
+          format: int64
+          default: 0
+        publicationResponseDate:
+          type: integer
+          format: int64
+          default: 0
+    OBDACatalog:
+      title: OBDACatalog
       type: object
       properties:
-        executionTime:
-          type: integer
-          format: int32
-        errorMessages:
+        queryCatalog:
           type: array
           items:
-            type: string
-        percentage:
-          type: integer
-          format: int32
-        numLowLevelQueries:
-          type: integer
-          format: int32
-        numResults:
-          type: integer
-          format: int32
-        numOntologyRewritings:
-          type: integer
-          format: int32
-        numOptimizedQueries:
-          type: integer
-          format: int32
-        hasError:
-          type: boolean
-        numHighLevelQueries:
-          type: integer
-          format: int32
-        status:
+            $ref: '#/components/schemas/SPARQLQuery'
+    FileInfo:
+      title: FileInfo
+      type: object
+      properties:
+        fileName:
           type: string
+        fileType:
+          type: string
+        content:
+          type: string
+    SPARQLResultsHeadTypes:
+      title: SPARQLResultsHeadTypes
+      enum:
+        - OBJECT
+        - VALUE
+        - UNSPECIFIED
+        - xsd:double
+        - iri
+        - xsd:dateTime
+        - literal
+        - rdf:PlainLiteral
+        - xsd:string
+        - xsd:boolean
+        - xsd:integer
+        - numeric
+        - xsd:decimal
+        - xsd:float
     SPARQLResult:
       title: SPARQLResult
       type: object
@@ -325,13 +807,25 @@ components:
           type: string
         type:
           type: string
+          enum:
+            - INDIVIDUAL
+            - IRI
+            - VALUE
         lang:
           type: string
         value:
           type: string
+        isBlankNode:
+          type: boolean
+          default: false
+        concreteValueDatatype:
+          type: string
     SPARQLResults:
       title: SPARQLResults
       type: object
+      required:
+        - headTerms
+        - headTypes
       properties:
         headTerms:
           type: array
@@ -339,11 +833,108 @@ components:
             type: string
         headTypes:
           type: object
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/SPARQLResultsHeadTypes'
         construct:
           type: boolean
+          default: false
         results:
           type: array
           items:
             type: array
             items:
               $ref: '#/components/schemas/SPARQLResult'
+    MWSXMetadataSubject:
+      type: object
+      properties:
+        iri:
+          type: string
+        impliedClassIri:
+          type: string
+    MWSXMetadataPredicate:
+      type: object
+      properties:
+        iri:
+          type: string
+    MWSXMetadataObject:
+      type: object
+      properties:
+        iri:
+          type: string
+        impliedClassIri:
+          type: string
+        value:
+          type: string
+        lang:
+          type: string
+        datatypeIri:
+          type: string
+        isIri:
+          type: boolean
+          default: false
+        isBlankNode:
+          type: boolean
+          default: false
+    MWSXMetadataTriple:
+      type: object
+      properties:
+        subject:
+          $ref: '#/components/schemas/MWSXMetadataSubject'
+        predicate:
+          $ref: '#/components/schemas/MWSXMetadataPredicate'
+        object:
+          $ref: '#/components/schemas/MWSXMetadataObject'
+    MWSXOntologyCatalogOntologyMetadataSet:
+      type: object
+      properties:
+        metadataTriples:
+          type: array
+          items:
+            $ref: '#/components/schemas/MWSXMetadataTriple'
+    MWSXOntologyCatalogQuery:
+      title: MWSXOntologyCatalogQuery
+      properties:
+        queryCode:
+          type: string
+        isConstruct:
+          type: boolean
+          default: false
+    MWSXOntologyCatalogQueryExecutionId:
+      title: MWSXOntologyCatalogQueryExecutionId
+      type: object
+      required:
+        - queryExecutionId
+      properties:
+        queryExecutionId:
+          type: string
+    MWSXOntologyCatalogQueryExecutionStatus:
+      title: MWSXOntologyCatalogQueryExecutionStatus
+      type: object
+      required:
+        - id
+        - timeStart
+        - timeEnd
+        - resultsNumber
+      properties:
+        id:
+          $ref: '#/components/schemas/MWSXOntologyCatalogQueryExecutionId'
+        timeStart:
+          type: integer
+          format: int64
+          default: 0
+        timeEnd:
+          type: integer
+          format: int64
+          default: 0
+        resultsNumber:
+          type: integer
+          format: int32
+          default: 0
+        errorMessages:
+          type: array
+          items:
+            type: string
+        status:
+          type: string

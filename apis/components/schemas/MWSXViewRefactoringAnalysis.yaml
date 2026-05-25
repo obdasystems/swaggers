@@ -1,0 +1,19 @@
+title: ViewRefactoringAnalysis
+type: object
+required: [safenessAnalisys]
+properties:
+  refactoring: {$ref: ./MWSXMappingViewAtomRefactoring.yaml}
+  invalidatedInclusionDependency:
+    type: array
+    items: {type: string}
+  safenessAnalisys:
+    type: object
+    additionalProperties: {$ref: ./MWSXViewRefactoringSafenessOutcome.yaml}
+  unsafeDenialConstraints:
+    type: array
+    items: {type: string}
+  invalidatedKeyDependency:
+    type: array
+    items: {type: string}
+  generallyUnsafe: {type: boolean, default: false}
+  message: {type: string}

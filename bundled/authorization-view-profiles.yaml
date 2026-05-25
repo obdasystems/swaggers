@@ -23,8 +23,10 @@ security:
 paths:
   /owlOntology/{name}/version/avpOntologyTree:
     get:
+      tags:
+        - Logical
       summary: GET mwsx/owlOntology/{name}/version/avpOntologyTree
-      operationId: get__owlOntology_name_version_avpOntologyTreet
+      operationId: getOwlOntologyNameVersionAvpOntologyTreet
       parameters:
         - name: name
           in: path
@@ -47,8 +49,10 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/authorizationViewProfiles:
     get:
+      tags:
+        - Persistence
       summary: GET mwsx/owlOntology/{name}/version/authorizationViewProfiles
-      operationId: get_authorizationViewProfiles
+      operationId: getAuthorizationViewProfiles
       parameters:
         - name: name
           in: path
@@ -72,8 +76,10 @@ paths:
         '401':
           description: Unhauthorized
     post:
+      tags:
+        - Persistence
       summary: POST mwsx/owlOntology/{name}/version/authorizationViewProfiles
-      operationId: post_authorizationViewProfiles
+      operationId: postAuthorizationViewProfiles
       parameters:
         - name: name
           in: path
@@ -102,8 +108,10 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/authorizationViewProfile/{avpId}:
     put:
+      tags:
+        - Persistence
       summary: PUT mwsx/owlOntology/{name}/version/authorizationViewProfile/{avpId}
-      operationId: put_authorizationViewProfiles
+      operationId: putAuthorizationViewProfiles
       parameters:
         - name: name
           in: path
@@ -136,8 +144,10 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Persistence
       summary: DELETE mwsx/owlOntology/{name}/version/authorizationViewProfile/{avpId}
-      operationId: delete_authorizationViewProfiles
+      operationId: deleteAuthorizationViewProfiles
       parameters:
         - name: name
           in: path
@@ -201,6 +211,8 @@ components:
     OntologyEntity:
       title: OntologyEntity
       type: object
+      required:
+        - entityIRI
       properties:
         entityLabels:
           type: array
@@ -208,6 +220,7 @@ components:
             $ref: '#/components/schemas/Label'
         deprecated:
           type: boolean
+          default: false
         entityIRI:
           type: string
         entityType:
@@ -234,7 +247,7 @@ components:
       properties:
         avpTree:
           $ref: '#/components/schemas/AvpTree'
-    AuthorizationViewProfile:
+    MWSXAuthorizationViewProfile:
       title: AuthorizationViewProfile
       type: object
       properties:
@@ -261,7 +274,7 @@ components:
         ontologyVersion:
           type: string
         profile:
-          $ref: '#/components/schemas/AuthorizationViewProfile'
+          $ref: '#/components/schemas/MWSXAuthorizationViewProfile'
         ontologyName:
           type: string
         description:

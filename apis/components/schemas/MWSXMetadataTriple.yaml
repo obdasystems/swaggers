@@ -1,0 +1,8 @@
+type: object
+properties:
+  subject:
+    $ref: ./MWSXMetadataSubject.yaml
+  predicate:
+    $ref: ./MWSXMetadataPredicate.yaml
+  object:
+    $ref: ./MWSXMetadataObject.yaml

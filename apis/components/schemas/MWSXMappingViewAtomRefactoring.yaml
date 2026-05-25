@@ -1,0 +1,29 @@
+title: MappingViewAtomRefactoring
+type: object
+properties:
+  oldSignature:
+    type: array
+    items:
+      type: string
+  viewName:
+    type: string
+  newSqlBody:
+    type: string
+  keptTerms:
+    type: object
+    additionalProperties:
+      $ref: ./MWSXTermDisplacement.yaml
+  addedTerms:
+    type: object
+    additionalProperties:
+      $ref: ./MWSXTermDisplacement.yaml
+  newSignature:
+    type: array
+    items:
+      type: string
+  removedTerms:
+    type: object
+    additionalProperties:
+      $ref: ./MWSXTermDisplacement.yaml
+  newDescription:
+    type: string

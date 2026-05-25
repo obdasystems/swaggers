@@ -1,6 +1,7 @@
 get:
+  tags: [Query]
   summary: GET mwsx/knowledgeGraph/query/catalog/export
-  operationId: get__knowledgeGraph_query_catalog_export
+  operationId: getKnowledgeGraphQueryCatalogExport
   parameters:
   - name: iri
     in: query
@@ -11,5 +12,5 @@ get:
       description: OK
       content:
         application/json:
-          schema: {type: object}
+          schema: {$ref: ../components/schemas/FileInfo.yaml}
     '401': {description: Unhauthorized}

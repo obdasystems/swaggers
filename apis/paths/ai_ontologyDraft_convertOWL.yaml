@@ -1,0 +1,22 @@
+post:
+  tags: [Convert]
+  summary: Convert an OWL file in RDFGraph model
+  operationId: postOntologyDraftAIConvertOWL
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            file:
+              type: string
+              format: binary
+    required: true
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/RDFGraph.yaml
+    "401": { description: Unhauthorized }

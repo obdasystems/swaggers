@@ -8,3 +8,4 @@ properties:
   zoom:
     type: number
     format: float
+    default: 0

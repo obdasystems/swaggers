@@ -1,12 +1,6 @@
 type: object
 properties:
-  distinct:
-    type: boolean
+  distinct: {type: boolean, default: false}
   aggregateFunction:
     type: string
-    enum:
-      - count
-      - sum
-      - min
-      - max
-      - average
+    enum: [count, sum, min, max, average]

@@ -24,7 +24,7 @@ paths:
   /ontologyDraftInfos:
     get:
       tags:
-        - Ontology Designer
+        - Persistence
       summary: Returns the list of all ontology drafts made by the user
       operationId: getOntologyDrafts
       responses:
@@ -41,7 +41,7 @@ paths:
   /ontologyDraft/{ontologyName}:
     get:
       tags:
-        - Ontology Designer
+        - Persistence
       summary: Returns the ontology draft {ontologyName}
       operationId: getOntologyDraft
       parameters:
@@ -61,9 +61,9 @@ paths:
           description: Unhauthorized
     post:
       tags:
-        - Ontology Designer
+        - Persistence
       summary: Adds a new draft to the list of all ontology drafts
-      operationId: postOntologyDrafts
+      operationId: postOntologyDraft
       parameters:
         - name: ontologyName
           in: path
@@ -88,7 +88,7 @@ paths:
           description: Unhauthorized
     put:
       tags:
-        - Ontology Designer
+        - Persistence
       summary: Modifies the ontology draft {ontologyName} (called when using the ontology builder to save the draft)
       operationId: putOntologyDraft
       parameters:
@@ -115,7 +115,7 @@ paths:
           description: Unhauthorized
     delete:
       tags:
-        - Ontology Designer
+        - Persistence
       summary: Deletes the ontology draft {ontologyName}
       operationId: deleteOntologyDraft
       parameters:
@@ -138,9 +138,14 @@ paths:
   /ontologyDraft/download:
     post:
       tags:
-        - Ontology Designer
-      summary: Download the ontology draft {ontologyName} converted in OWL2
-      operationId: downloadOntologyDraft
+        - Persistence
+      summary: Download the ontology draft converted in OWL2
+      operationId: getOntologyDraftDownload
+      parameters:
+        - name: format
+          in: query
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -152,8 +157,28 @@ paths:
           content:
             application/json:
               schema:
-                type: string
-                description: FileInfo object
+                $ref: '#/components/schemas/FileInfo'
+        '401':
+          description: Unhauthorized
+  /ontologyDraft/convertOWL:
+    post:
+      tags:
+        - Persistence
+      summary: Convert an OWL file in RDFGraph model
+      operationId: postOntologyDraftConvertOWL
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileInfo'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RDFGraph'
         '401':
           description: Unhauthorized
 components:
@@ -182,6 +207,12 @@ components:
           type: string
         lastModification:
           type: integer
+          format: int64
+          default: 0
+        fileName:
+          type: string
+        creator:
+          type: string
     TypesEnum:
       description: |-
         Contiene tutti i tipi di nodi/archi orginirari dal Graphol per evitare di duplicare gli enumeratori. Nella rappresentazione Floaty/vkg vengono usati questi valori.
@@ -223,6 +254,41 @@ components:
         - membership
         - attribute-edge
         - iri
+      x-enum-varnames:
+        - CLASS
+        - OBJECT_PROPERTY
+        - DATA_PROPERTY
+        - ANNOTATION_PROPERTY
+        - INDIVIDUAL
+        - CLASS_INSTANCE
+        - DOMAIN_RESTRICTION
+        - RANGE_RESTRICTION
+        - UNION
+        - COMPLETE_UNION
+        - DISJOINT_UNION
+        - COMPLETE_DISJOINT_UNION
+        - COMPLEMENT
+        - INTERSECTION
+        - ENUMERATION
+        - HAS_KEY
+        - ROLE_INVERSE
+        - ROLE_CHAIN
+        - DATATYPE_RESTRICTION
+        - VALUE_DOMAIN
+        - PROPERTY_ASSERTION
+        - LITERAL
+        - FACET
+        - NEUTRAL
+        - VALUE
+        - INCLUSION
+        - EQUIVALENCE
+        - INSTANCE_OF
+        - INPUT
+        - SAME
+        - DIFFERENT
+        - MEMBERSHIP
+        - ATTRIBUTE_EDGE
+        - IRI
     Element:
       type: object
       required:
@@ -236,13 +302,14 @@ components:
           description: In case of replicated elements, this is the ID of the original element replicated in multiple occurrences, all of them with different IDs
         diagramId:
           type: integer
+          default: 0
         displayedName:
           type: string
         iri:
           type: string
         type:
           $ref: '#/components/schemas/TypesEnum'
-        ai_generated:
+        aiGenerated:
           required:
             - chunkId
           type: object
@@ -260,9 +327,11 @@ components:
         x:
           type: number
           format: float
+          default: 0
         'y':
           type: number
           format: float
+          default: 0
     Node:
       type: object
       allOf:
@@ -315,15 +384,16 @@ components:
         zoom:
           type: number
           format: float
+          default: 0
     Diagram:
       type: object
       required:
         - id
         - name
-        - elements
       properties:
         id:
           type: integer
+          default: 0
         name:
           type: string
         nodes:
@@ -336,10 +406,10 @@ components:
             $ref: '#/components/schemas/Edge'
         lastViewportState:
           $ref: '#/components/schemas/Viewport'
-    Annotation:
+    GrapholscapeAnnotation:
+      title: GrapholscapeAnnotation
       type: object
       required:
-        - value
         - property
       properties:
         lexicalForm:
@@ -350,6 +420,7 @@ components:
           type: string
         hasIriValue:
           type: boolean
+          default: false
         property:
           type: string
           example: rdfs:label
@@ -377,11 +448,12 @@ components:
         annotations:
           type: array
           items:
-            $ref: '#/components/schemas/Annotation'
+            $ref: '#/components/schemas/GrapholscapeAnnotation'
         datatype:
           type: string
         isDataPropertyFunctional:
           type: boolean
+          default: false
         functionProperties:
           type: array
           items:
@@ -528,6 +600,7 @@ components:
               type: string
         timestamp:
           type: number
+          default: 0
     SHACLShape:
       type: object
       required:
@@ -535,9 +608,12 @@ components:
         - targetClass
         - path
       properties:
+        id:
+          type: string
         type:
           type: string
           enum:
+            - Class
             - MinCount
             - MaxCount
             - MinExclusive
@@ -552,8 +628,6 @@ components:
             - Disjoint
             - LessThan
             - LessThanOrEquals
-            - GreaterThan
-            - GreaterThanOrEquals
         targetClass:
           type: string
         path:
@@ -608,7 +682,7 @@ components:
             annotations:
               type: array
               items:
-                $ref: '#/components/schemas/Annotation'
+                $ref: '#/components/schemas/GrapholscapeAnnotation'
             annotationProperties:
               type: array
               items:
@@ -651,6 +725,7 @@ components:
                   - has-key
         selectedDiagramId:
           type: integer
+          default: 0
         modelType:
           type: string
           enum:
@@ -667,3 +742,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SHACLShape'
+    FileInfo:
+      title: FileInfo
+      type: object
+      properties:
+        fileName:
+          type: string
+        fileType:
+          type: string
+        content:
+          type: string

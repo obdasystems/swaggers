@@ -5,6 +5,7 @@ properties:
     $ref: ./OntologyEntity.yaml
   minMax:
     type: number
+    default: 0
   error:
     type: string
   state:

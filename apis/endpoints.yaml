@@ -151,6 +151,12 @@ paths:
     $ref: paths/endpoint_{eName}_minMaxDataproperties_stop.yaml
   /endpoint/{eName}/minMaxDataproperties/info:
     $ref: paths/endpoint_{eName}_minMaxDataproperties_info.yaml
+  /endpoint/{eName}/entitiesExamples/start:
+    $ref: paths/endpoint_{eName}_entitiesExamples_start.yaml
+  /endpoint/{eName}/entitiesExamples/stop:
+    $ref: paths/endpoint_{eName}_entitiesExamples_stop.yaml
+  /endpoint/{eName}/entitiesExamples/info:
+    $ref: paths/endpoint_{eName}_entitiesExamples_info.yaml
   /endpoint/{name}/queries:
     $ref: paths/endpoint_{name}_queries.yaml
   /endpoint/{name}/queries/ids:
@@ -167,12 +173,10 @@ paths:
     $ref: paths/endpoint_{name}_query_count_{queryId}_state.yaml
   /endpoint/{name}/query/count/{queryId}/error:
     $ref: paths/endpoint_{name}_query_count_{queryId}_error.yaml
-  /endpoint/{name}/virtualEntity/{veName}:
-    $ref: paths/endpoint_{name}_virtualEntity_{veName}.yaml
   /endpoint/{eName}/mappingAnalysisReport:
     $ref: paths/endpoint_{eName}_mappingAnalysisReport.yaml
-  /endpoint/{eName}/saturetedOntology:
-    $ref: paths/endpoint_{eName}_saturetedOntology.yaml
+  /endpoint/{eName}/saturatedOntology:
+    $ref: paths/endpoint_{eName}_saturatedOntology.yaml
   /endpoint/{endpointName}/highligthsSharedViewsProps:
     $ref: paths/endpoint_{endpointName}_highligthsSharedViewsProps.yaml
 components: 

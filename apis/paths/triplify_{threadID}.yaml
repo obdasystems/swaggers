@@ -1,6 +1,7 @@
 delete:
+  tags: [Execution]
   summary: Stops the thread identified by threadID
-  operationId: delete_mappings_triplification_thread
+  operationId: deleteMappingsTriplificationThread
   parameters:
   - name: threadID
     in: path
@@ -10,6 +11,6 @@ delete:
     '200':
       description: OK
       content:
-        application/json:
+        text/plain:
           schema: {type: string}
     '401': {description: Unhauthorized}

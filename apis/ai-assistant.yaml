@@ -1,13 +1,13 @@
 openapi: 3.0.0
 servers:
-  - url: '{protocol}://{tenant}{port}'
+  - url: "{protocol}://{tenant}{port}"
     variables:
       protocol:
         default: https
       tenant:
         default: localhost
-      port: 
-        default: ':8080'
+      port:
+        default: ":8080"
 info:
   description: >-
     This is the API for the AI assistant module
@@ -19,8 +19,6 @@ info:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
 paths:
-  /ontologyDraft/ai/{name}:
-    $ref: paths/ontologyDraft_ai_{name}.yaml
   /ai/entity_description:
     $ref: paths/ai_entity_description.yaml
   /ai/individual_description:
@@ -31,9 +29,60 @@ paths:
     $ref: paths/ai_class_subclasses.yaml
   /ai/sparql_description:
     $ref: paths/ai_sparql_description.yaml
-components: 
-  securitySchemes: 
+  /ai/autochart:
+    $ref: paths/ai_autochart.yaml
+  /ai/autochart_description:
+    $ref: paths/ai_autochart_description.yaml
+  /ai/text2sparql:
+    $ref: paths/ai_text2sparql.yaml
+  /ai/rag/ontologyDraft/{name}:
+    $ref: paths/ai_rag_ontologyDraft_name.yaml
+  /ai/rag/ontologyQuery:
+    $ref: paths/ai_rag_ontologyQuery.yaml
+  /ai/rag/ontologyRDFExamples:
+    $ref: paths/ai_rag_ontologyRDFExamples.yaml
+  /ai/rag/ontologySummary:
+    $ref: paths/ai_rag_ontologySummary.yaml
+  /ai/rag/{ontologyName}/vectorDB/initialize:
+    $ref: paths/ai_rag_ontologyName_vectorDB_initialize.yaml
+  /ai/rag/{ontologyName}/vectorDB/status:
+    $ref: paths/ai_rag_ontologyName_vectorDB_status.yaml
+  /ai/rag/{ontologyName}/vectorDB/delete:
+    $ref: paths/ai_rag_ontologyName_vectorDB_delete.yaml
+  /ai/rag/{ontologyName}/vectorDB/nlq:
+    $ref: paths/ai_rag_ontologyName_vectorDB_nlq.yaml
+  /ai/ontologyDraft/download:
+    $ref: paths/ai_ontologyDraft_download.yaml
+  /ai/ontologyDraft/convertOWL:
+    $ref: paths/ai_ontologyDraft_convertOWL.yaml
+  /ai/apisem/catalog:
+    $ref: paths/ai_apisem_catalog.yaml
+  /ai/apisem/catalog/history:
+    $ref: paths/ai_apisem_catalog_history.yaml
+  /ai/apisem/catalog/{name}:
+    $ref: paths/ai_apisem_catalog_name.yaml
+  /ai/apisem/catalog/{name}/status:
+    $ref: paths/ai_apisem_catalog_name_status.yaml
+  /ai/apisem/schema:
+    $ref: paths/ai_apisem_schema.yaml
+components:
+  schemas:
+    OntologyEntity:
+      $ref: ./components/schemas/OntologyEntity.yaml
+    MWSXOntologyCatalogEntry:
+      $ref: ./components/schemas/MWSXOntologyCatalogEntry.yaml
+    MWSXOntologyCatalogEntries:
+      $ref: ./components/schemas/MWSXOntologyCatalogEntries.yaml
+    FileInfo:
+      $ref: ./components/schemas/FileInfo.yaml
+    OntologyCatalogEntryStatus:
+      $ref: ./components/schemas/OntologyCatalogEntryStatus.yaml
+    OntologyCatalogHistoryEvent:
+      $ref: ./components/schemas/OntologyCatalogHistoryEvent.yaml
+    OntologyCatalogHistory:
+      $ref: ./components/schemas/OntologyCatalogHistory.yaml
+  securitySchemes:
     jwt:
-      $ref: './components/securitySchemes/jwt.yaml'
-security: 
+      $ref: "./components/securitySchemes/jwt.yaml"
+security:
   - jwt: []

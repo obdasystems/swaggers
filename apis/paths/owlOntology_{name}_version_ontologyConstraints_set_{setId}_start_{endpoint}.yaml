@@ -1,6 +1,7 @@
 put:
+  tags: [CheckSet]
   summary: Starts a new execution of the given check set over a specific endpoint
-  operationId: put_ontologyConstraints_check_start
+  operationId: putOntologyConstraintsCheckStart
   parameters:
   - name: name
     in: path
@@ -21,20 +22,26 @@ put:
   - name: answersBufferSize
     in: query
     required: true
-    schema: {type: string}
+    schema: {type: integer}
   - name: autosave
     in: query
     required: true
-    schema: {type: string}
+    schema: {type: boolean}
   - name: concurrentChecksNumber
     in: query
     required: true
-    schema: {type: string}
+    schema: {type: number}
+  - name: addDistinctOnCores
+    in: query
+    required: true
+    schema: {type: boolean}
   requestBody:
     content:
       application/json:
-        schema: {type: string}
-    required: true
+        schema:
+          description: Mapping parameters values
+          type: object
+          additionalProperties: {type: string}
   responses:
     '200':
       description: OK

@@ -1,6 +1,7 @@
 get:
+  tags: [Highlights]
   summary: Get the error of a thread computing a shortest path on the ontology
-  operationId: get_shortest_path_thread_error
+  operationId: getShortestPathThreadError
   parameters:
   - name: name
     in: path
@@ -18,6 +19,6 @@ get:
     '200':
       description: OK
       content:
-        application/json:
+        text/plain:
           schema: {type: string}
     '401': {description: Unhauthorized}

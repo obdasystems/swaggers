@@ -1,12 +1,7 @@
 title: DashboardCardSettingsOntology
 type: object
 properties:
-  diagram:
-    type: string
-  renderer:
-    type: string
-  zoom:
-    type: integer
-    format: int32
-  centeredNodeId:
-    type: string
+  diagram: {type: string}
+  renderer: {type: string}
+  zoom: {type: integer, format: int32, default: 0}
+  centeredNodeId: {type: string}

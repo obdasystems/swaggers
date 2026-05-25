@@ -1,0 +1,2 @@
+title: HighlightsPathsThreadState
+enum: [RUNNING, FINISHED, READY]

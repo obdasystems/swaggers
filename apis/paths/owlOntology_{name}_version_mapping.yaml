@@ -1,6 +1,7 @@
 get:
+  tags: [Persistence]
   summary: Returns the list of mappings available for a given ontology version
-  operationId: get__owlOntology_name_version_mapping
+  operationId: getOwlOntologyNameVersionMapping
   parameters:
   - name: name
     in: path
@@ -18,8 +19,9 @@ get:
           schema: {$ref: ../components/schemas/Mappings.yaml}
     '401': {description: Unhauthorized}
 post:
+  tags: [Persistence]
   summary: Creates a new set of mappings
-  operationId: post__owlOntology_name_version_mapping_ID
+  operationId: postOwlOntologyNameVersionMappingID
   parameters:
   - name: name
     in: path
@@ -31,21 +33,18 @@ post:
     schema: {type: string}
   - name: create
     in: query
-    required: true
     schema: {type: string}
   - name: check
     in: query
-    required: true
-    schema: {type: string}
+    schema: {type: boolean}
   - name: checkDeprecation
     in: query
-    required: true
     schema: {type: string}
   requestBody:
     content:
       application/json:
         schema: {$ref: ../components/schemas/FileInfo.yaml}
-    required: true
+    required: false
   responses:
     '200':
       description: OK

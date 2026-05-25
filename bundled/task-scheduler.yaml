@@ -23,8 +23,10 @@ security:
 paths:
   /taskScheduler/state:
     get:
+      tags:
+        - State
       summary: Starts the task scheduler
-      operationId: get__task_scheduler_state
+      operationId: getTaskSchedulerState
       responses:
         '200':
           description: OK
@@ -35,8 +37,10 @@ paths:
         '401':
           description: Unhauthorized
     put:
+      tags:
+        - State
       summary: Starts the task scheduler
-      operationId: put__task_scheduler_state
+      operationId: putTaskSchedulerState
       parameters:
         - name: action
           in: query
@@ -50,8 +54,10 @@ paths:
           description: Unhauthorized
   /taskScheduler/jobs:
     post:
+      tags:
+        - Actions
       summary: Schedules a new job in the task scheduler, returns the ID of the scheduled job
-      operationId: post__task_scheduler_jobs
+      operationId: postTaskSchedulerJobs
       requestBody:
         content:
           application/json:
@@ -62,14 +68,16 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            text/plain:
               schema:
                 type: string
         '401':
           description: Unhauthorized
     get:
+      tags:
+        - Actions
       summary: Schedules a new job in the task scheduler, returns the ID of the scheduled job
-      operationId: get__task_scheduler_jobs
+      operationId: getTaskSchedulerJobs
       responses:
         '200':
           description: OK
@@ -83,8 +91,10 @@ paths:
           description: Unhauthorized
   /taskScheduler/jobs/available:
     get:
+      tags:
+        - Persistence
       summary: Lists the jobs available in the scheduler folder
-      operationId: get__task_scheduler_jobs_available
+      operationId: getTaskSchedulerJobsAvailable
       responses:
         '200':
           description: OK
@@ -98,8 +108,10 @@ paths:
           description: Unhauthorized
   /taskScheduler/jobs/entries:
     get:
-      summary: Schedules a new job in the task scheduler, returns the ID of the scheduled job
-      operationId: get__task_scheduler_job_entries
+      tags:
+        - Persistence
+      summary: Get the list of job entries in the task scheduler
+      operationId: getTaskSchedulerJobEntries
       responses:
         '200':
           description: OK
@@ -113,19 +125,22 @@ paths:
           description: Unhauthorized
   /taskScheduler/jobs/entries/filter:
     post:
+      tags:
+        - Actions
       summary: Schedules a new job in the task scheduler, returns the ID of the scheduled job
-      operationId: post__task_scheduler_job_entries
+      operationId: postTaskSchedulerJobEntries
       parameters:
         - name: mode
           in: query
-          required: true
           schema:
             type: string
       requestBody:
         content:
           application/json:
             schema:
-              type: string
+              type: object
+              additionalProperties:
+                type: string
         required: true
       responses:
         '200':
@@ -133,13 +148,17 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MwsxTaskSchedulerJobEntry'
+                type: array
+                items:
+                  $ref: '#/components/schemas/MwsxTaskSchedulerJobEntry'
         '401':
           description: Unhauthorized
   /taskScheduler/job/{jobId}/entry:
     get:
+      tags:
+        - Persistence
       summary: Returns the main entry of the job ID
-      operationId: get__task_scheduler_job_entry
+      operationId: getTaskSchedulerJobEntry
       parameters:
         - name: jobId
           in: path
@@ -157,8 +176,10 @@ paths:
           description: Unhauthorized
   /taskScheduler/job/{jobId}/execution/{execId}:
     get:
+      tags:
+        - Execution
       summary: Returns the execution entry (identified by execId) of the job (identified by jobId)
-      operationId: get__task_scheduler_job_entries_execution_id
+      operationId: getTaskSchedulerJobEntriesExecutionId
       parameters:
         - name: jobId
           in: path
@@ -181,8 +202,10 @@ paths:
           description: Unhauthorized
   /taskScheduler/job/{jobId}/execution/entries:
     get:
+      tags:
+        - Execution
       summary: Returns the execution entries of the job ID
-      operationId: get__task_scheduler_job_execution_entries
+      operationId: getTaskSchedulerJobExecutionEntries
       parameters:
         - name: jobId
           in: path
@@ -202,8 +225,10 @@ paths:
           description: Unhauthorized
   /taskScheduler/job/{jobId}:
     delete:
+      tags:
+        - Actions
       summary: Un-schedules and deletes a job in the task scheduler
-      operationId: delete__task_scheduler_job_entries
+      operationId: deleteTaskSchedulerJobEntries
       parameters:
         - name: jobId
           in: path
@@ -221,8 +246,10 @@ paths:
           description: Unhauthorized
   /taskScheduler/job/{jobId}/executionsIds:
     get:
+      tags:
+        - Execution
       summary: Un-schedules and deletes a job in the task scheduler
-      operationId: get__task_scheduler_job_entries_executions_ids
+      operationId: getTaskSchedulerJobEntriesExecutionsIds
       parameters:
         - name: jobId
           in: path
@@ -263,6 +290,8 @@ components:
           type: string
         jobData:
           type: object
+          additionalProperties:
+            type: string
         cronExpression:
           type: string
     MwsxTaskSchedulerJobEntry:
@@ -275,10 +304,16 @@ components:
           $ref: '#/components/schemas/MwsxTaskSchedulerJobData'
         creationTime:
           type: integer
+          format: int64
+          default: 0
         startTime:
           type: integer
+          format: int64
+          default: 0
         endTime:
           type: integer
+          format: int64
+          default: 0
         state:
           type: string
         messages:

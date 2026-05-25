@@ -1,17 +1,11 @@
 title: SystemFolderDeletionReport
 type: object
 properties:
-  deletedFilesCount:
-    type: integer
-    format: int32
+  deletedFilesCount: {type: integer, format: int32, default: 0}
   deletedFiles:
     type: array
-    items:
-      type: string
+    items: {type: string}
   failedDelationFiles:
     type: array
-    items:
-      type: string
-  freeSpaceCreated:
-    type: integer
-    format: int64
+    items: {type: string}
+  freeSpaceCreated: {type: integer, format: int64, default: 0}

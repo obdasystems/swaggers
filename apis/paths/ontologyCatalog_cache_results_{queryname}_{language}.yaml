@@ -1,6 +1,7 @@
 get:
+  tags: [Cache]
   summary: GET mwsx/ontologyCatalog/cache/results/{queryname}/{language}
-  operationId: get_ontology_catalog_cache_manager_query_results_language
+  operationId: getOntologyCatalogCacheManagerQueryResultsLanguage
   parameters:
   - name: queryname
     in: path
@@ -15,5 +16,5 @@ get:
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/Response.yaml}
+          schema: {$ref: ../components/schemas/SPARQLResults.yaml}
     '401': {description: Unhauthorized}

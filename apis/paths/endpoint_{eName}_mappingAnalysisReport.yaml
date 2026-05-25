@@ -1,6 +1,7 @@
 get:
+  tags: [MappingAnalysis]
   summary: GET mwsx/endpoint/{eName}/mappingAnalysisReport
-  operationId: get__owlOntology_name_version_mapping_ID_analysisReport
+  operationId: getOwlOntologyNameVersionMappingIDAnalysisReport
   parameters:
   - name: eName
     in: path
@@ -11,5 +12,5 @@ get:
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/MappingReport.yaml}
+          schema: {$ref: ../components/schemas/MWSXMappingReport.yaml}
     '401': {description: Unhauthorized}

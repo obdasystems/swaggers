@@ -1,6 +1,7 @@
 get:
+  tags: [IntensionalAnnotation]
   summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/annotation/{mapID}
-  operationId: get__owlOntology_name_version_intensional_annotation_mapping_mapId
+  operationId: getOwlOntologyNameVersionIntensionalAnnotationMappingMapId
   parameters:
   - name: name
     in: path
@@ -26,8 +27,9 @@ get:
           schema: {$ref: ../components/schemas/IntensionalAnnotationMappingAssertion.yaml}
     '401': {description: Unhauthorized}
 delete:
+  tags: [IntensionalAnnotation]
   summary: DELETE mwsx/owlOntology/{name}/version/mapping/{ID}/annotation/{mapID}
-  operationId: delete__owlOntology_name_version_intensional_annotation_mapping_mapId
+  operationId: deleteOwlOntologyNameVersionIntensionalAnnotationMappingMapId
   parameters:
   - name: name
     in: path
@@ -53,8 +55,9 @@ delete:
           schema: {$ref: ../components/schemas/IntensionalAnnotationMappingAssertion.yaml}
     '401': {description: Unhauthorized}
 put:
+  tags: [IntensionalAnnotation]
   summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/annotation/{mapID}
-  operationId: put__owlOntology_name_version_intensional_annotation_mapping_mapId
+  operationId: putOwlOntologyNameVersionIntensionalAnnotationMappingMapId
   parameters:
   - name: name
     in: path

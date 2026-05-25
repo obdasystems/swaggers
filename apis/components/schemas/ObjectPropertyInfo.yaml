@@ -3,63 +3,43 @@ type: object
 properties:
   disjointObjectProperties:
     type: array
-    items:
-      $ref: ./OntologyEntity.yaml
-  iri:
-    $ref: ./IRI.yaml
-  currentEntity:
-    $ref: ./OntologyEntity.yaml
-  objectPropertyInverseFunctional:
-    type: boolean
+    items: {$ref: ./OntologyEntity.yaml}
+  iri: {$ref: ./IRI.yaml}
+  currentEntity: {$ref: ./OntologyEntity.yaml}
+  objectPropertyInverseFunctional: {type: boolean, default: false}
   objectPropertyDescriptions:
     type: array
-    items:
-      $ref: ./Label.yaml
+    items: {$ref: ./Label.yaml}
   equivalentObjectProperties:
     type: array
-    items:
-      $ref: ./OntologyEntity.yaml
-  objectPropertySymmetric:
-    type: boolean
+    items: {$ref: ./OntologyEntity.yaml}
+  objectPropertySymmetric: {type: boolean, default: false}
   superObjectProperties:
     type: array
-    items:
-      $ref: ./OntologyEntity.yaml
+    items: {$ref: ./OntologyEntity.yaml}
   objectPropertyCharacteristics:
     type: array
-    items:
-      type: string
+    items: {type: string}
   subObjectProperties:
     type: array
-    items:
-      $ref: ./OntologyEntity.yaml
+    items: {$ref: ./OntologyEntity.yaml}
   objectPropertyIndividuals:
     type: array
-    items:
-      $ref: ./OntologyEntity.yaml
+    items: {$ref: ./OntologyEntity.yaml}
   inverseObjectProperties:
     type: array
-    items:
-      $ref: ./OntologyEntity.yaml
+    items: {$ref: ./OntologyEntity.yaml}
   objectPropertyDomain:
     type: array
-    items:
-      $ref: ./OntologyEntity.yaml
-  objectPropertyReflexive:
-    type: boolean
+    items: {$ref: ./OntologyEntity.yaml}
+  objectPropertyReflexive: {type: boolean, default: false}
   objectPropertyRange:
     type: array
-    items:
-      $ref: ./OntologyEntity.yaml
-  objectPropertyTransitive:
-    type: boolean
-  objectPropertyIrreflexive:
-    type: boolean
+    items: {$ref: ./OntologyEntity.yaml}
+  objectPropertyTransitive: {type: boolean, default: false}
+  objectPropertyIrreflexive: {type: boolean, default: false}
   entityDiagrams:
     type: array
-    items:
-      $ref: ./DiagramNode.yaml
-  objectPropertyFunctional:
-    type: boolean
-  objectPropertyAsymmetric:
-    type: boolean
+    items: {$ref: ./DiagramNode.yaml}
+  objectPropertyFunctional: {type: boolean, default: false}
+  objectPropertyAsymmetric: {type: boolean, default: false}

@@ -1,0 +1,46 @@
+get:
+  tags: [APISemantiche]
+  summary: Returns the current content of the ontology catalog used to generate semantic annotations for provided YAML service specifications
+  operationId: getApisemCatalog
+  responses:
+    "200":
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/MWSXOntologyCatalogEntries.yaml
+    "401": { description: Unhauthorized }
+post:
+  tags: [APISemantiche]
+  summary: Adds a new ontology to the current ontology catalog, creates the corresponding vector DB instance
+  operationId: postApisemCatalog
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            ontologyName: { type: string }
+            ontologyVersion: { type: string }
+            currentRdfGraph: { $ref: ../components/schemas/RDFGraph.yaml }
+  responses:
+    "200":
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/MWSXOntologyCatalogEntries.yaml
+    "401": { description: Unhauthorized }
+delete:
+  tags: [APISemantiche]
+  summary: Reset the content of the current catalog
+  operationId: deleteApisemCatalog
+  responses:
+    "200":
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            type: boolean
+            description: True if the operation succeed
+    "401": { description: Unhauthorized }

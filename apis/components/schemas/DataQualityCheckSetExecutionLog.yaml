@@ -3,19 +3,10 @@ type: object
 properties:
   ontologyConstraints:
     type: array
-    items:
-      $ref: ./DataQualityCheckExecutionLog.yaml
-  endpoint:
-    type: string
-  endpointInfo:
-    $ref: ./Endpoint.yaml
-  endTimestamp:
-    type: integer
-    format: int64
-  user:
-    type: string
-  checkSetId:
-    type: string
-  timestamp:
-    type: integer
-    format: int64
+    items: {$ref: ./DataQualityCheckExecutionLog.yaml}
+  endpoint: {type: string}
+  endpointInfo: {$ref: ./Endpoint.yaml}
+  endTimestamp: {type: integer, format: int64, default: 0}
+  user: {type: string}
+  checkSetId: {type: string}
+  timestamp: {type: integer, format: int64, default: 0}

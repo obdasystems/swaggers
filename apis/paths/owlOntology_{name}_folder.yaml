@@ -1,6 +1,7 @@
 get:
+  tags: [FileSystem]
   summary: Returns the folder where ontology named <code>name</code> is stored in
-  operationId: get__owlOntology_folder_name
+  operationId: getOwlOntologyFolderName
   parameters:
   - name: name
     in: path
@@ -10,6 +11,6 @@ get:
     '200':
       description: OK
       content:
-        application/json:
+        text/plain:
           schema: {type: string}
     '401': {description: Unhauthorized}

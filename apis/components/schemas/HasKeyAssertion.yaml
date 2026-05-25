@@ -1,5 +1,7 @@
 title: HasKeyAssertion
 type: object
+allOf: 
+  -  $ref: AbstractDataQualityConstraint.yaml
 properties:
   dataProperties:
     type: array

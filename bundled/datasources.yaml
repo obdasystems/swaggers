@@ -23,8 +23,10 @@ security:
 paths:
   /datasource/{name}:
     get:
+      tags:
+        - Persistence
       summary: Returns the data source information by its name
-      operationId: get__datasource
+      operationId: getDatasource
       parameters:
         - name: name
           in: path
@@ -37,12 +39,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DataSourceInfoEntry'
+                $ref: '#/components/schemas/MWSXDataSourceInfoEntry'
         '401':
           description: Unhauthorized
     put:
+      tags:
+        - Persistence
       summary: Modifies the data source information by its name
-      operationId: put__datasource
+      operationId: putDatasource
       parameters:
         - name: name
           in: path
@@ -53,7 +57,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DataSourceInfoEntry'
+              $ref: '#/components/schemas/MWSXDataSourceInfoEntry'
         required: true
       responses:
         '200':
@@ -61,12 +65,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DataSourceInfoEntry'
+                $ref: '#/components/schemas/MWSXDataSourceInfoEntry'
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Persistence
       summary: Deletes a data source information by its name
-      operationId: delete__datasource
+      operationId: deleteDatasource
       parameters:
         - name: name
           in: path
@@ -79,13 +85,15 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DataSourceInfoEntry'
+                $ref: '#/components/schemas/MWSXDataSourceInfoEntry'
         '401':
           description: Unhauthorized
   /datasource/{name}/downloadMetadata:
     get:
+      tags:
+        - Metadata
       summary: Returns the data source information by its name
-      operationId: get__datasource_downloadMetadata
+      operationId: getDatasourceDownloadMetadata
       parameters:
         - name: name
           in: path
@@ -103,8 +111,10 @@ paths:
           description: Unhauthorized
   /datasource/{name}/metadata:
     get:
+      tags:
+        - Metadata
       summary: Returns the data source information by its name
-      operationId: get__datasource_metadata
+      operationId: getDatasourceMetadata
       parameters:
         - name: name
           in: path
@@ -117,13 +127,15 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DataSourceMetadata'
+                $ref: '#/components/schemas/MWSXDataSourceMetadata'
         '401':
           description: Unhauthorized
   /datasource/{name}/updateMetadata:
     put:
+      tags:
+        - Metadata
       summary: Updates the data source metadata information retrieving it from the JDBC connection
-      operationId: put__datasource_updateMetadata
+      operationId: putDatasourceUpdateMetadata
       parameters:
         - name: name
           in: path
@@ -141,13 +153,15 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DataSourceMetadata'
+                $ref: '#/components/schemas/MWSXDataSourceMetadata'
         '401':
           description: Unhauthorized
   /datasource/{name}/uploadMetadata:
     put:
+      tags:
+        - Metadata
       summary: Uploads the data source metadata information for the specified datasource
-      operationId: put__datasource_uploadMetadata
+      operationId: putDatasourceUploadMetadata
       parameters:
         - name: name
           in: path
@@ -158,7 +172,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DataSourceMetadata'
+              $ref: '#/components/schemas/MWSXDataSourceMetadata'
         required: true
       responses:
         '200':
@@ -166,13 +180,15 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DataSourceMetadata'
+                $ref: '#/components/schemas/MWSXDataSourceMetadata'
         '401':
           description: Unhauthorized
   /datasource:
     post:
+      tags:
+        - Persistence
       summary: Creates a new data source information
-      operationId: post__datasource
+      operationId: postDatasource
       parameters:
         - name: buildSchema
           in: query
@@ -188,7 +204,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DataSourceInfoEntry'
+              $ref: '#/components/schemas/MWSXDataSourceInfoEntry'
         required: true
       responses:
         '200':
@@ -196,37 +212,45 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DataSourceInfoEntry'
+                $ref: '#/components/schemas/MWSXDataSourceInfoEntry'
         '401':
           description: Unhauthorized
     get:
+      tags:
+        - Persistence
       summary: Returns all the data source definitions available
-      operationId: get__datasource_list
+      operationId: getDatasourceList
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DataSourceInfoEntry'
+                type: array
+                items:
+                  $ref: '#/components/schemas/MWSXDataSourceInfoEntry'
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Persistence
       summary: Deletes all the available data source information
-      operationId: delete__all_datasource
+      operationId: deleteAllDatasource
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DataSourceInfoEntry'
+                $ref: '#/components/schemas/MWSXDataSourceInfoEntry'
         '401':
           description: Unhauthorized
   /datasource/drivers:
     get:
+      tags:
+        - Drivers
       summary: Returns the list of available JDBC driver class names
-      operationId: get__datasource_driver
+      operationId: getDatasourceDriver
       responses:
         '200':
           description: OK
@@ -240,13 +264,15 @@ paths:
           description: Unhauthorized
   /datasource/test:
     post:
+      tags:
+        - Test
       summary: Test a given data source connection
       operationId: testDatasource
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DataSourceInfoEntry'
+              $ref: '#/components/schemas/MWSXDataSourceInfoEntry'
         required: true
       responses:
         '200':
@@ -259,13 +285,15 @@ paths:
           description: Unhauthorized
   /datasource/schemas:
     post:
+      tags:
+        - Metadata
       summary: Returns the list of schema names available at the datasource
       operationId: getDatasourceSchemas
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DataSourceInfoEntry'
+              $ref: '#/components/schemas/MWSXDataSourceInfoEntry'
         required: true
       responses:
         '200':
@@ -280,6 +308,8 @@ paths:
           description: Unhauthorized
   /datasource/{id}/schemas:
     get:
+      tags:
+        - Metadata
       summary: Returns the list of schemas available in the catalog of a given datasource
       operationId: getSchemas
       parameters:
@@ -301,6 +331,8 @@ paths:
           description: Unhauthorized
   /datasource/schema/{schemaName}/tableNames:
     post:
+      tags:
+        - Metadata
       summary: Returns the list of table names available at the datasource within the provided schema name
       operationId: getDatasourceTablesForSchema
       parameters:
@@ -313,7 +345,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DataSourceInfoEntry'
+              $ref: '#/components/schemas/MWSXDataSourceInfoEntry'
         required: true
       responses:
         '200':
@@ -326,6 +358,8 @@ paths:
           description: Unhauthorized
   /datasource/{id}/tables:
     get:
+      tags:
+        - Metadata
       summary: Returns the list of SourceTables available in the catalog of a given datasource
       operationId: getTables
       parameters:
@@ -345,6 +379,8 @@ paths:
           description: Unhauthorized
   /datasource/{id}/tables/results:
     post:
+      tags:
+        - Test
       summary: Returns the preview of a given SQLQuery executed over a given datasource
       operationId: postSQLEx
       parameters:
@@ -359,6 +395,10 @@ paths:
           schema:
             type: integer
             format: int32
+        - name: bypassQueryChecks
+          in: query
+          schema:
+            type: boolean
       requestBody:
         content:
           application/json:
@@ -376,6 +416,8 @@ paths:
           description: Unhauthorized
   /datasource/{id}/table/{tableName}:
     get:
+      tags:
+        - Metadata
       summary: Returns the source table info available for the table tableName in the catalog of a given datasource
       operationId: getTable
       parameters:
@@ -413,8 +455,10 @@ components:
       scheme: bearer
       bearerFormat: JWT
   schemas:
-    DataSourceInfoEntry:
+    MWSXDataSourceInfoEntry:
       title: DataSourceInfoEntry
+      required:
+        - id
       type: object
       properties:
         jdbcDriver:
@@ -431,6 +475,7 @@ components:
           type: string
         metadataPresent:
           type: boolean
+          default: false
         jdbcUsername:
           type: string
     FileInfo:
@@ -443,7 +488,7 @@ components:
           type: string
         content:
           type: string
-    DataSourceColumnReference:
+    MWSXDataSourceColumnReference:
       title: DataSourceColumnReference
       type: object
       properties:
@@ -451,21 +496,24 @@ components:
           type: string
         columnName:
           type: string
-    DataSourceForeignKeyMetadata:
+    MWSXDataSourceForeignKeyMetadata:
       title: DataSourceForeignKeyMetadata
       type: object
       properties:
         references:
           type: object
           additionalProperties:
-            $ref: '#/components/schemas/DataSourceColumnReference'
-    DataSourceTableColumnMetadata:
+            $ref: '#/components/schemas/MWSXDataSourceColumnReference'
+    MWSXDataSourceTableColumnMetadata:
       title: DataSourceTableColumnMetadata
       type: object
+      required:
+        - name
       properties:
         size:
           type: integer
           format: int32
+          default: 0
         nullable:
           type: string
         generated:
@@ -475,15 +523,18 @@ components:
         decimals:
           type: integer
           format: int32
+          default: 0
         name:
           type: string
         dataTypeId:
           type: integer
           format: int32
+          default: 0
         ordinalPosition:
           type: integer
           format: int32
-    DataSourceKeyMetadata:
+          default: 0
+    MWSXDataSourceKeyMetadata:
       title: DataSourceKeyMetadata
       type: object
       properties:
@@ -497,43 +548,51 @@ components:
           type: array
           items:
             type: integer
+            default: 0
         tableName:
           type: string
-    DataSourceTableMetadata:
+    MWSXDataSourceTableMetadata:
       title: DataSourceTableMetadata
       type: object
+      required:
+        - name
+        - columns
       properties:
         catalogName:
           type: string
         foreignKeys:
           type: array
           items:
-            $ref: '#/components/schemas/DataSourceForeignKeyMetadata'
+            $ref: '#/components/schemas/MWSXDataSourceForeignKeyMetadata'
         columns:
           type: array
           items:
-            $ref: '#/components/schemas/DataSourceTableColumnMetadata'
+            $ref: '#/components/schemas/MWSXDataSourceTableColumnMetadata'
         keys:
-          $ref: '#/components/schemas/DataSourceKeyMetadata'
+          $ref: '#/components/schemas/MWSXDataSourceKeyMetadata'
         name:
           type: string
         schemaName:
           type: string
-    DataSourceSchemaMetadata:
+    MWSXDataSourceSchemaMetadata:
       title: DataSourceSchemaMetadata
       type: object
+      required:
+        - tables
       properties:
         tables:
           type: object
           additionalProperties:
-            $ref: '#/components/schemas/DataSourceTableMetadata'
+            $ref: '#/components/schemas/MWSXDataSourceTableMetadata'
         views:
           type: object
           additionalProperties:
-            $ref: '#/components/schemas/DataSourceTableMetadata'
-    DataSourceMetadata:
+            $ref: '#/components/schemas/MWSXDataSourceTableMetadata'
+    MWSXDataSourceMetadata:
       title: DataSourceMetadata
       type: object
+      required:
+        - schemaMetadata
       properties:
         catalogName:
           type: string
@@ -544,13 +603,13 @@ components:
         schemaMetadata:
           type: object
           additionalProperties:
-            $ref: '#/components/schemas/DataSourceSchemaMetadata'
+            $ref: '#/components/schemas/MWSXDataSourceSchemaMetadata'
         DEFAULT_SCHEMA_NAME:
           type: string
         dataSourceName:
           type: string
         info:
-          $ref: '#/components/schemas/DataSourceInfoEntry'
+          $ref: '#/components/schemas/MWSXDataSourceInfoEntry'
     SourceTableInfo:
       title: SourceTableInfo
       type: object

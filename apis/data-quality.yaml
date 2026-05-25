@@ -23,6 +23,8 @@ info:
 paths:
   /owlOntology/{name}/version/ontologyConstraints:
     $ref: paths/owlOntology_{name}_version_ontologyConstraints.yaml
+  /owlOntology/{name}/version/shaclConstraints:
+    $ref: paths/owlOntology_{name}_version_shaclConstraints.yaml
   /owlOntology/{name}/version/ontologyConstraints/set:
     $ref: paths/owlOntology_{name}_version_ontologyConstraints_set.yaml
   /owlOntology/{name}/version/ontologyConstraints/set/{setId}:
@@ -59,6 +61,10 @@ paths:
     $ref: paths/owlOntology_{name}_version_ontologyConstraints_set_{setId}_dump.yaml
   /owlOntology/{name}/version/ontologyConstraints/sets/dump:
     $ref: paths/owlOntology_{name}_version_ontologyConstraints_sets_dump.yaml
+  /owlOntology/{name}/version/shacl:
+    $ref: paths/owlOntology_{name}_version_shacl.yaml
+  /owlOntology/{name}/version/shacl/check:
+    $ref: paths/owlOntology_{name}_version_shacl_check.yaml
 components: 
   securitySchemes: 
     apiKey: 

@@ -20,41 +20,10 @@ servers:
 security:
   - jwt: []
 paths:
-  /ontologyDraft/ai/{name}:
-    put:
-      tags:
-        - Ontology Designer
-      summary: Ask for AI support in ontology design.
-      operationId: putOntologyDraftAI
-      parameters:
-        - name: name
-          in: path
-          required: true
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                text:
-                  type: string
-                currentRdfGraph:
-                  $ref: '#/components/schemas/RDFGraph'
-      responses:
-        '200':
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/RDFGraph'
-        '401':
-          description: Unhauthorized
   /ai/entity_description:
     post:
       tags:
-        - AI
+        - Prompt
       summary: Returns the description for an entity
       operationId: describeOntologyEntity
       requestBody:
@@ -103,7 +72,7 @@ paths:
   /ai/individual_description:
     post:
       tags:
-        - AI
+        - Prompt
       summary: Returns the description for an individual (class instance)
       operationId: describeIndividual
       requestBody:
@@ -114,7 +83,6 @@ paths:
               required:
                 - individualName
                 - context
-                - entityType
               properties:
                 individualName:
                   description: the name (probably the label) of the individual to describe
@@ -143,7 +111,7 @@ paths:
   /ai/class_data_properties:
     post:
       tags:
-        - AI
+        - Prompt
       summary: Returns a list of possible data properties for a given class
       operationId: suggestClassDataProperties
       requestBody:
@@ -183,7 +151,7 @@ paths:
   /ai/class_subclasses:
     post:
       tags:
-        - AI
+        - Prompt
       summary: Returns a list of possible subclasses for a given class
       operationId: suggestClassSubclasses
       requestBody:
@@ -223,7 +191,7 @@ paths:
   /ai/sparql_description:
     post:
       tags:
-        - AI
+        - Prompt
       summary: Returns a description of a sparql query
       operationId: describeSparqlQuery
       requestBody:
@@ -250,15 +218,750 @@ paths:
                 type: string
         '401':
           description: Unhauthorized
+  /ai/autochart:
+    post:
+      tags:
+        - Prompt
+      summary: Returns a chart configuration for a SPARQL query suggested by AI
+      operationId: autoChart
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - queryCode
+              properties:
+                queryCode:
+                  description: Code of the query that provides the results that the user want to visualize in the chart
+                  type: string
+                language:
+                  description: the language to use for the answer.
+                  type: string
+                  default: English
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChartConfiguration'
+        '401':
+          description: Unhauthorized
+  /ai/autochart_description:
+    post:
+      tags:
+        - Prompt
+      summary: Returns a description of a chart
+      operationId: describeChart
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - chartConfiguration
+                - queryCode
+              properties:
+                chartConfiguration:
+                  description: the chart configuration to describe
+                  $ref: '#/components/schemas/ChartConfiguration'
+                queryCode:
+                  description: the SPARQL code that generates the data for the chart
+                  type: string
+                queryDescription:
+                  description: the description of the query to use. If not provided, LLM will generate one.
+                  type: string
+                language:
+                  description: the language to use for the answer.
+                  type: string
+                  default: English
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+  /ai/text2sparql:
+    post:
+      tags:
+        - Prompt
+      summary: Converts a natural language text into a SPARQL query
+      operationId: text2sparql
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  description: The natural language text to convert
+                  type: string
+                owl:
+                  description: The OWL ontology serialization in one of the supported formats (e.g., RDF/XML, Turtle).
+                  type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: string
+                description: The generated SPARQL query
+        '401':
+          description: Unhauthorized
+  /ai/rag/ontologyDraft/{name}:
+    put:
+      tags:
+        - RAG
+      summary: Ask for AI support in ontology design.
+      operationId: putOntologyDraftAI
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+                currentRdfGraph:
+                  $ref: '#/components/schemas/RDFGraph'
+                iriStyle:
+                  type: boolean
+                  default: true
+                  description: '`True` for camelCase, `False` for snake_case'
+                simpleNameLanguage:
+                  type: string
+                  default: en
+                  description: Language used for generating the variable part of entity IRIs. Value must be in ISO 2 chars format. Default "en"
+                annotationLanguage:
+                  type: string
+                  default: it
+                  description: Language used for generating annotations on entities. Namely "rdfs:label" and "rdfs:comment". Value must be in ISO 2 chars format. Default "it"
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RDFGraph'
+        '401':
+          description: Unhauthorized
+  /ai/rag/ontologyQuery:
+    put:
+      tags:
+        - RAG
+      summary: Ask anything about this ontology, and get an answer with the relevant entities.
+      operationId: putOntologyQueryAI
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+                currentRdfGraph:
+                  $ref: '#/components/schemas/RDFGraph'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  queryAnswer:
+                    type: string
+                  ontologyEntities:
+                    type: object
+                    description: A map of the relevant words in the answer to the corresponding entities in the ontology, with their IRIs.
+                    additionalProperties:
+                      type: string
+        '401':
+          description: Unhauthorized
+  /ai/rag/ontologyRDFExamples:
+    post:
+      tags:
+        - RAG
+      summary: Returns an example of RDF instaces in Turtle format, based on the classes provided in the request body and the current RDF graph.
+      operationId: postOntologyRDFExamples
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                classes:
+                  type: array
+                  items:
+                    type: string
+                currentRdfGraph:
+                  $ref: '#/components/schemas/RDFGraph'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            text/plain:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+  /ai/rag/ontologySummary:
+    post:
+      tags:
+        - RAG
+      summary: Returns a summary of the ontology.
+      operationId: postOntologySummary
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                currentRdfGraph:
+                  $ref: '#/components/schemas/RDFGraph'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            text/plain:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+  /ai/rag/{ontologyName}/vectorDB/initialize:
+    post:
+      tags:
+        - RAG
+      summary: Initialize the vector database for a specific ontology version
+      operationId: initializeVectorDB
+      parameters:
+        - name: ontologyName
+          in: path
+          required: true
+          schema:
+            type: string
+            description: The name used my mastro to identify an ontology collection.
+        - name: ontologyVersion
+          in: query
+          schema:
+            type: string
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - highlightedGraph
+                - baseGraph
+              properties:
+                highlightedGraph:
+                  $ref: '#/components/schemas/RDFGraph'
+                  description: The RDF graph containing ontology graph with properties expanded by Mastro reasoner.
+                baseGraph:
+                  $ref: '#/components/schemas/RDFGraph'
+                  description: The RDF graph representing the base ontology for vectorization.
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: boolean
+                description: Returns true if the initialization was successful.
+        '401':
+          description: Unhauthorized
+  /ai/rag/{ontologyName}/vectorDB/status:
+    get:
+      tags:
+        - RAG
+      summary: Check the vector database status for a specific ontology version.
+      operationId: checkVectorDBStatus
+      parameters:
+        - name: ontologyName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ontologyVersion
+          in: query
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                title: VectorDBStatus
+                type: object
+                description: The status of the vector database.
+                properties:
+                  status:
+                    type: string
+                    enum:
+                      - NOT_INITIALIZED
+                      - INITIALIZING
+                      - FINISHED
+                      - ERROR
+                    description: The current status of the vector database.
+                  errorMessage:
+                    type: string
+                    description: The error message if the status is ERROR.
+                  percentage:
+                    type: integer
+                    description: The initialization progress percentage (0-100).
+                  executionTime:
+                    type: integer
+                    description: The time taken for the last operation in milliseconds.
+        '401':
+          description: Unhauthorized
+  /ai/rag/{ontologyName}/vectorDB/delete:
+    delete:
+      tags:
+        - RAG
+      summary: Delete the vector database for a specific ontology version.
+      operationId: deleteVectorDB
+      parameters:
+        - name: ontologyName
+          in: path
+          schema:
+            type: string
+          required: true
+        - name: ontologyVersion
+          in: query
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: boolean
+                description: Returns true if the deletion was successful.
+        '401':
+          description: Unhauthorized
+  /ai/rag/{ontologyName}/vectorDB/nlq:
+    post:
+      tags:
+        - RAG
+      summary: Generate a SPARQL query from a natural language query using the vector database for a specific ontology version.
+      operationId: naturalLanguageQuery
+      parameters:
+        - name: ontologyName
+          in: path
+          schema:
+            type: string
+          required: true
+        - name: ontologyVersion
+          in: query
+          schema:
+            type: string
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  description: The natural language query to convert
+                  type: string
+                examples:
+                  description: A map (entityIRI -> examples of instances) to show some examples of the instances for a certain entity.
+                  type: object
+                  additionalProperties:
+                    type: array
+                    items:
+                      type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                description: The generated SPARQL query from the natural language input.
+                properties:
+                  sparqlQuery:
+                    type: string
+                    description: The generated SPARQL query.
+                  description:
+                    type: string
+                    description: A brief explanation of the generated query.
+        '401':
+          description: Unhauthorized
+  /ai/ontologyDraft/download:
+    post:
+      tags:
+        - Convert
+      summary: Download the ontology draft converted in OWL2
+      operationId: getOntologyDraftAIDownload
+      parameters:
+        - name: format
+          in: query
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RDFGraph'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            text/plain:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+  /ai/ontologyDraft/convertOWL:
+    post:
+      tags:
+        - Convert
+      summary: Convert an OWL file in RDFGraph model
+      operationId: postOntologyDraftAIConvertOWL
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RDFGraph'
+        '401':
+          description: Unhauthorized
+  /ai/apisem/catalog:
+    get:
+      tags:
+        - APISemantiche
+      summary: Returns the current content of the ontology catalog used to generate semantic annotations for provided YAML service specifications
+      operationId: getApisemCatalog
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MWSXOntologyCatalogEntries'
+        '401':
+          description: Unhauthorized
+    post:
+      tags:
+        - APISemantiche
+      summary: Adds a new ontology to the current ontology catalog, creates the corresponding vector DB instance
+      operationId: postApisemCatalog
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ontologyName:
+                  type: string
+                ontologyVersion:
+                  type: string
+                currentRdfGraph:
+                  $ref: '#/components/schemas/RDFGraph'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MWSXOntologyCatalogEntries'
+        '401':
+          description: Unhauthorized
+    delete:
+      tags:
+        - APISemantiche
+      summary: Reset the content of the current catalog
+      operationId: deleteApisemCatalog
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: boolean
+                description: True if the operation succeed
+        '401':
+          description: Unhauthorized
+  /ai/apisem/catalog/history:
+    get:
+      tags:
+        - APISemantiche
+      summary: Returns the list of operations executed on the ontology catalog
+      operationId: getApisemCatalogHistory
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OntologyCatalogHistory'
+        '401':
+          description: Unhauthorized
+  /ai/apisem/catalog/{name}:
+    put:
+      tags:
+        - APISemantiche
+      summary: Replace the given ontology in the catalog with the one provided in the request body
+      operationId: putApisemCatalogName
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RDFGraph'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MWSXOntologyCatalogEntries'
+        '401':
+          description: Unhauthorized
+    delete:
+      tags:
+        - APISemantiche
+      summary: Reset the content of the current catalog
+      operationId: deleteApisemCatalogName
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: boolean
+                description: True if the operation succeed
+        '401':
+          description: Unhauthorized
+  /ai/apisem/catalog/{name}/status:
+    get:
+      tags:
+        - APISemantiche
+      summary: Returns the current status of a given ontology catalog entry
+      operationId: getApisemCatalogNameStatus
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OntologyCatalogEntryStatus'
+        '401':
+          description: Unhauthorized
+  /ai/apisem/schema:
+    post:
+      tags:
+        - APISemantiche
+      summary: Takes a YAML file containing the specification of a service and returns the YAML specification annotated
+      operationId: postApisemSchema
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileInfo'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileInfo'
+        '401':
+          description: Unhauthorized
 components:
-  securitySchemes:
-    jwt:
-      description: |
-        Generate your JWT when you log in. JWT configurations should be placed in `$MASTRO_HOME/config/mastro.jwt` file
-      type: http
-      scheme: bearer
-      bearerFormat: JWT
   schemas:
+    OntologyEntity:
+      title: OntologyEntity
+      type: object
+      required:
+        - entityIRI
+      properties:
+        entityLabels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Label'
+        deprecated:
+          type: boolean
+          default: false
+        entityIRI:
+          type: string
+        entityType:
+          type: string
+        entityPrefixIRI:
+          type: string
+        entityRemainder:
+          type: string
+        entityID:
+          type: string
+    MWSXOntologyCatalogEntry:
+      title: OntologyCatalogEntry
+      type: object
+      required:
+        - ontologyName
+        - ontologyVersion
+      properties:
+        ontologyVersion:
+          type: string
+        ontologyName:
+          type: string
+    MWSXOntologyCatalogEntries:
+      title: OntologyCatalogEntries
+      type: object
+      required:
+        - entries
+      properties:
+        entries:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/MWSXOntologyCatalogEntry'
+    FileInfo:
+      title: FileInfo
+      type: object
+      properties:
+        fileName:
+          type: string
+        fileType:
+          type: string
+        content:
+          type: string
+    OntologyCatalogEntryStatus:
+      title: OntologyCatalogEntryStatus
+      type: object
+      description: The status of a given ontology catalog entry
+      properties:
+        status:
+          type: string
+          enum:
+            - NOT_INITIALIZED
+            - INITIALIZING
+            - FINISHED
+            - ERROR
+          description: The current status of the vector database.
+        errorMessage:
+          type: string
+          description: The error message if the status is ERROR.
+        percentage:
+          type: integer
+          description: The initialization progress percentage (0-100).
+        executionTime:
+          type: integer
+          description: The time taken for the last operation in milliseconds.
+    OntologyCatalogHistoryEvent:
+      title: OntologyCatalogEvent
+      type: object
+      description: Represents an opeartion occurred on the ontology catalog
+      required:
+        - opeartion
+        - timestamp
+        - ontologyCatalogEntry
+      properties:
+        operation:
+          type: string
+          enum:
+            - ADD
+            - MOD
+            - DEL
+          description: the type of operation this ontology catalog event contains
+        timestamp:
+          type: integer
+          format: int64
+          description: the timestamp of the operation
+        ontologyCatalogEntry:
+          $ref: '#/components/schemas/MWSXOntologyCatalogEntry'
+    OntologyCatalogHistory:
+      title: OntologyCatalogHistory
+      type: object
+      description: the list of operations executed on the ontology catalog
+      required:
+        - events
+      properties:
+        events:
+          type: array
+          items:
+            $ref: '#/components/schemas/OntologyCatalogHistoryEvent'
+    ChartConfiguration:
+      title: ChartConfiguration
+      type: object
+      required:
+        - yVariables
+      properties:
+        yVariables:
+          type: array
+          items:
+            type: string
+        series:
+          type: string
+        xVariable:
+          type: string
+        chartType:
+          type: string
+        cutoff:
+          type: integer
+          format: int32
+          default: 0
     TypesEnum:
       description: |-
         Contiene tutti i tipi di nodi/archi orginirari dal Graphol per evitare di duplicare gli enumeratori. Nella rappresentazione Floaty/vkg vengono usati questi valori.
@@ -300,6 +1003,41 @@ components:
         - membership
         - attribute-edge
         - iri
+      x-enum-varnames:
+        - CLASS
+        - OBJECT_PROPERTY
+        - DATA_PROPERTY
+        - ANNOTATION_PROPERTY
+        - INDIVIDUAL
+        - CLASS_INSTANCE
+        - DOMAIN_RESTRICTION
+        - RANGE_RESTRICTION
+        - UNION
+        - COMPLETE_UNION
+        - DISJOINT_UNION
+        - COMPLETE_DISJOINT_UNION
+        - COMPLEMENT
+        - INTERSECTION
+        - ENUMERATION
+        - HAS_KEY
+        - ROLE_INVERSE
+        - ROLE_CHAIN
+        - DATATYPE_RESTRICTION
+        - VALUE_DOMAIN
+        - PROPERTY_ASSERTION
+        - LITERAL
+        - FACET
+        - NEUTRAL
+        - VALUE
+        - INCLUSION
+        - EQUIVALENCE
+        - INSTANCE_OF
+        - INPUT
+        - SAME
+        - DIFFERENT
+        - MEMBERSHIP
+        - ATTRIBUTE_EDGE
+        - IRI
     Element:
       type: object
       required:
@@ -313,13 +1051,14 @@ components:
           description: In case of replicated elements, this is the ID of the original element replicated in multiple occurrences, all of them with different IDs
         diagramId:
           type: integer
+          default: 0
         displayedName:
           type: string
         iri:
           type: string
         type:
           $ref: '#/components/schemas/TypesEnum'
-        ai_generated:
+        aiGenerated:
           required:
             - chunkId
           type: object
@@ -337,9 +1076,11 @@ components:
         x:
           type: number
           format: float
+          default: 0
         'y':
           type: number
           format: float
+          default: 0
     Node:
       type: object
       allOf:
@@ -392,15 +1133,16 @@ components:
         zoom:
           type: number
           format: float
+          default: 0
     Diagram:
       type: object
       required:
         - id
         - name
-        - elements
       properties:
         id:
           type: integer
+          default: 0
         name:
           type: string
         nodes:
@@ -413,10 +1155,10 @@ components:
             $ref: '#/components/schemas/Edge'
         lastViewportState:
           $ref: '#/components/schemas/Viewport'
-    Annotation:
+    GrapholscapeAnnotation:
+      title: GrapholscapeAnnotation
       type: object
       required:
-        - value
         - property
       properties:
         lexicalForm:
@@ -427,6 +1169,7 @@ components:
           type: string
         hasIriValue:
           type: boolean
+          default: false
         property:
           type: string
           example: rdfs:label
@@ -454,11 +1197,12 @@ components:
         annotations:
           type: array
           items:
-            $ref: '#/components/schemas/Annotation'
+            $ref: '#/components/schemas/GrapholscapeAnnotation'
         datatype:
           type: string
         isDataPropertyFunctional:
           type: boolean
+          default: false
         functionProperties:
           type: array
           items:
@@ -605,6 +1349,7 @@ components:
               type: string
         timestamp:
           type: number
+          default: 0
     SHACLShape:
       type: object
       required:
@@ -612,9 +1357,12 @@ components:
         - targetClass
         - path
       properties:
+        id:
+          type: string
         type:
           type: string
           enum:
+            - Class
             - MinCount
             - MaxCount
             - MinExclusive
@@ -629,8 +1377,6 @@ components:
             - Disjoint
             - LessThan
             - LessThanOrEquals
-            - GreaterThan
-            - GreaterThanOrEquals
         targetClass:
           type: string
         path:
@@ -685,7 +1431,7 @@ components:
             annotations:
               type: array
               items:
-                $ref: '#/components/schemas/Annotation'
+                $ref: '#/components/schemas/GrapholscapeAnnotation'
             annotationProperties:
               type: array
               items:
@@ -728,6 +1474,7 @@ components:
                   - has-key
         selectedDiagramId:
           type: integer
+          default: 0
         modelType:
           type: string
           enum:
@@ -744,3 +1491,18 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SHACLShape'
+    Label:
+      title: Label
+      type: object
+      properties:
+        lang:
+          type: string
+        content:
+          type: string
+  securitySchemes:
+    jwt:
+      description: |
+        Generate your JWT when you log in. JWT configurations should be placed in `$MASTRO_HOME/config/mastro.jwt` file
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

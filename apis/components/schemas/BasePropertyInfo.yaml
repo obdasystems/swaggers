@@ -1,10 +1,6 @@
 type: object
 properties:
-  inherited:
-    type: boolean
-  dataPropertyIri:
-    type: string
-  pathToDataProperty:
-    $ref: OntologyPath.yaml
-  log:
-    type: boolean
+  inherited: {type: boolean, default: false}
+  dataPropertyIri: {type: string}
+  pathToDataProperty: {$ref: OntologyPath.yaml}
+  log: {type: boolean, default: false}

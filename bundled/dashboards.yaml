@@ -23,8 +23,10 @@ security:
 paths:
   /owlOntology/{name}/version/dashboards:
     get:
+      tags:
+        - Persistence
       summary: GET mwsx/owlOntology/{name}/version/dashboards
-      operationId: get__owlOntology_version_dashboards
+      operationId: getOwlOntologyVersionDashboards
       parameters:
         - name: name
           in: path
@@ -46,8 +48,10 @@ paths:
         '401':
           description: Unhauthorized
     post:
+      tags:
+        - Persistence
       summary: POST mwsx/owlOntology/{name}/version/dashboards
-      operationId: post__owlOntology_version_dashboards
+      operationId: postOwlOntologyVersionDashboards
       parameters:
         - name: name
           in: path
@@ -76,8 +80,10 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/dashboard/{dashboardId}/migrate:
     post:
+      tags:
+        - Persistence
       summary: Migrates dashboard with ID dashboardId from version 'version' to 'version' targetVersion for ontology named 'name'
-      operationId: post__owlOntology_version_dashboard_migrate
+      operationId: postOwlOntologyVersionDashboardMigrate
       parameters:
         - name: name
           in: path
@@ -110,8 +116,10 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/dashboards/migrate:
     post:
+      tags:
+        - Persistence
       summary: Migrates all dashboards from version 'version' to 'version' targetVersion for ontology named 'name'
-      operationId: post__owlOntology_version_dashboards_migrate
+      operationId: postOwlOntologyVersionDashboardsMigrate
       parameters:
         - name: name
           in: path
@@ -139,8 +147,10 @@ paths:
           description: Unhauthorized
   /owlOntology/{name}/version/dashboard/{dashboardId}:
     put:
+      tags:
+        - Persistence
       summary: PUT mwsx/owlOntology/{name}/version/dashboard/{dashboardId}
-      operationId: put__owlOntology_version_dashboards
+      operationId: putOwlOntologyVersionDashboards
       parameters:
         - name: name
           in: path
@@ -173,8 +183,10 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Persistence
       summary: DELETE mwsx/owlOntology/{name}/version/dashboard/{dashboardId}
-      operationId: delete__owlOntology_version_dashboards
+      operationId: deleteOwlOntologyVersionDashboards
       parameters:
         - name: name
           in: path
@@ -230,22 +242,27 @@ components:
         x:
           type: integer
           format: int32
+          default: 0
         width:
           type: integer
           format: int32
+          default: 0
         'y':
           type: integer
           format: int32
+          default: 0
         description:
           type: string
         id:
           type: integer
           format: int32
+          default: 0
         title:
           type: string
         height:
           type: integer
           format: int32
+          default: 0
     DashboardTab:
       title: DashboardTab
       type: object

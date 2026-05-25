@@ -1,6 +1,7 @@
 get:
+  tags: [Query]
   summary: GET mwsx/knowledgeGraph/query/{queryID}/status
-  operationId: get__knowledgeGraph_query_executionID_status
+  operationId: getKnowledgeGraphQueryExecutionIDStatus
   parameters:
   - name: queryID
     in: path
@@ -15,5 +16,5 @@ get:
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/KGStatus.yaml}
+          schema: {$ref: ../components/schemas/SPARQLStatus.yaml}
     '401': {description: Unhauthorized}

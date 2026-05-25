@@ -1,10 +1,11 @@
 post:
+  tags: [Metadata]
   summary: Returns the list of schema names available at the datasource
   operationId: getDatasourceSchemas
   requestBody:
     content:
       application/json:
-        schema: {$ref: ../components/schemas/DataSourceInfoEntry.yaml}
+        schema: {$ref: ../components/schemas/MWSXDataSourceInfoEntry.yaml}
     required: true
   responses:
     '200':

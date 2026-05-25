@@ -1,4 +1,5 @@
 get:
+  tags: [System]
   summary: Returns the available JDBC drivers
   operationId: getJdbcDrivers
   responses:

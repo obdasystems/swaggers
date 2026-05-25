@@ -17,3 +17,5 @@ properties:
     type: array
     items:
       type: string
+  ontologyMetricsNoImport:
+    $ref: ./OntologyMetrics.yaml

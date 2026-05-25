@@ -1,7 +1,0 @@
-title: MappingParameters
-type: object
-properties:
-  mappingParameters:
-    type: array
-    items:
-      $ref: ./MappingParameter.yaml

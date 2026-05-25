@@ -1,6 +1,7 @@
 post:
+  tags: [Parameters]
   summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/parameter
-  operationId: post__owlOntology_name_version_mapping_ID_parameter
+  operationId: postOwlOntologyNameVersionMappingIDParameter
   parameters:
   - name: name
     in: path
@@ -17,18 +18,19 @@ post:
   requestBody:
     content:
       application/json:
-        schema: {$ref: ../components/schemas/MappingParameter.yaml}
+        schema: {$ref: ../components/schemas/MWSXMappingParameter.yaml}
     required: true
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/MappingParameter.yaml}
+          schema: {$ref: ../components/schemas/MWSXMappingParameter.yaml}
     '401': {description: Unhauthorized}
 put:
+  tags: [Parameters]
   summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/parameter
-  operationId: put__owlOntology_name_version_mapping_ID_parameter
+  operationId: putOwlOntologyNameVersionMappingIDParameter
   parameters:
   - name: name
     in: path
@@ -45,12 +47,12 @@ put:
   requestBody:
     content:
       application/json:
-        schema: {$ref: ../components/schemas/MappingParameter.yaml}
+        schema: {$ref: ../components/schemas/MWSXMappingParameter.yaml}
     required: true
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/MappingParameter.yaml}
+          schema: {$ref: ../components/schemas/MWSXMappingParameter.yaml}
     '401': {description: Unhauthorized}

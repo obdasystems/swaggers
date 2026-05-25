@@ -1,0 +1,21 @@
+post:
+  tags: [Info]
+  summary: POST mwsx/endpoint/{eName}/saturatedOntology
+  operationId: getEndpointEnameSaturatedOntology
+  parameters:
+  - name: eName
+    in: path
+    required: true
+    schema: {type: string}
+  requestBody:
+    content:
+      application/json:
+        schema: {$ref: ../components/schemas/OntologySaturationParameters.yaml}
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/FileInfo.yaml}
+    '401': {description: Unhauthorized}

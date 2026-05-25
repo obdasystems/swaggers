@@ -1,0 +1,11 @@
+title: FullSparqlQueryReport
+type: object
+properties:
+  coreQueryInfos:
+    type: array
+    items:
+      $ref: ./MWSXCoreQueryInfo.yaml
+  sqlCode:
+    type: string
+  id:
+    type: string

@@ -52,10 +52,6 @@ paths:
     $ref: paths/user_{username}_feedback.yaml
   /user/feedback/comment:
     $ref: paths/user_feedback_comment.yaml
-  /logout:
-    $ref: paths/logout.yaml
-  /logout/{username}:
-    $ref: paths/logout_{username}.yaml
 components: 
   securitySchemes: 
     apiKey: 

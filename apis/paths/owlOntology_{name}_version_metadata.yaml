@@ -1,6 +1,7 @@
 get:
+  tags: [Metadata]
   summary: GET mwsx/owlOntology/{name}/version/metadata
-  operationId: get_ontology_metadata_snapshot
+  operationId: getOntologyMetadataSnapshot
   parameters:
   - name: name
     in: path
@@ -15,5 +16,5 @@ get:
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/OntologyCatalogOntologyMetadataSet.yaml}
+          schema: {$ref: ../components/schemas/MWSXOntologyCatalogOntologyMetadataSet.yaml}
     '401': {description: Unhauthorized}
