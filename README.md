@@ -14,7 +14,7 @@ Generated with th following command:
 npx @redocly/cli@latest join -o bundled/mastro.yaml --prefix-tags-with-filename
 ```
 
-If you are interested in a subset of API we distribute also this smaller bundles:
+If you are interested in a subset of API we distribute also these smaller bundles:
 
 - [authentication](https://obdasystems.github.io/swaggers/ui/?api=authentication)
 - [ontologies](https://obdasystems.github.io/swaggers/ui/?api=ontologies)
