@@ -39,6 +39,10 @@ paths:
     $ref: paths/ai_rag_ontologyDraft_name.yaml
   /ai/rag/ontologyQuery:
     $ref: paths/ai_rag_ontologyQuery.yaml
+  /ai/rag/ontologyRDFExamples:
+    $ref: paths/ai_rag_ontologyRDFExamples.yaml
+  /ai/rag/ontologySummary:
+    $ref: paths/ai_rag_ontologySummary.yaml
   /ai/rag/{ontologyName}/vectorDB/initialize:
     $ref: paths/ai_rag_ontologyName_vectorDB_initialize.yaml
   /ai/rag/{ontologyName}/vectorDB/status:

@@ -1,0 +1,18 @@
+post:
+  tags: [ RAG ]
+  summary: Returns a summary of the ontology.
+  operationId: postOntologySummary
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            currentRdfGraph: { $ref: ../components/schemas/RDFGraph.yaml }
+  responses:
+    "200":
+      description: Successful operation
+      content:
+        text/plain:
+          schema: { type: string }
+    "401": { description: Unhauthorized }
