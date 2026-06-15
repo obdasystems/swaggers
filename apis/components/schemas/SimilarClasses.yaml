@@ -1,0 +1,16 @@
+title: SimilarClasses
+type: object
+description: the list of similar classes as computed by the LLM for the APISEM project
+required:
+  - schemaComponent
+  - similarClasses
+properties:
+  schemaComponent:
+    description: the name of the schema component which the similar classes refers to
+    type: string    
+  similarClasses:
+    description: the list of similar classes
+    type: array
+    items:
+      type: 
+        $ref: ./SimilarClass.yaml

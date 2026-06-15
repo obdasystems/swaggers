@@ -23061,6 +23061,40 @@ paths:
           description: Unhauthorized
       security:
         - jwt: []
+  /ai/apisem/schema/multiprompt:
+    servers:
+      - url: '{protocol}://{tenant}{port}'
+        variables:
+          protocol:
+            default: https
+          tenant:
+            default: localhost
+          port:
+            default: ':8080'
+    post:
+      tags:
+        - ai-assistant_APISemantiche
+      summary: >-
+        Takes a YAML schema component in textual format and returns the list of
+        classes that are similar to the schema provided
+      operationId: postApisemSchemaMultiprompt
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SchemaAndExclusionsIRIs'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SimilarClasses'
+        '401':
+          description: Unhauthorized
+      security:
+        - jwt: []
 components:
   securitySchemes:
     basicAuth:
@@ -28514,6 +28548,81 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/OntologyCatalogHistoryEvent'
+    SimilarClass:
+      title: SimilarClass
+      type: object
+      description: >-
+        base data structure for similar classes list returned by APISEM system
+        algorithm
+      required:
+        - classIRI
+        - similarityRanking
+      properties:
+        classIRI:
+          type: string
+          description: the IRI of the similar class
+        similarityRanking:
+          type: integer
+          default: 0
+          description: the ranking of the similarity measured by the LLM
+    SimilarClasses:
+      title: SimilarClasses
+      type: object
+      description: >-
+        the list of similar classes as computed by the LLM for the APISEM
+        project
+      required:
+        - schemaComponent
+        - similarClasses
+      properties:
+        schemaComponent:
+          description: the name of the schema component which the similar classes refers to
+          type: string
+        similarClasses:
+          description: the list of similar classes
+          type: array
+          items:
+            type:
+              title: SimilarClass
+              type: object
+              description: >-
+                base data structure for similar classes list returned by APISEM
+                system algorithm
+              required:
+                - classIRI
+                - similarityRanking
+              properties:
+                classIRI:
+                  type: string
+                  description: the IRI of the similar class
+                similarityRanking:
+                  type: integer
+                  default: 0
+                  description: the ranking of the similarity measured by the LLM
+    SchemaAndExclusionsIRIs:
+      title: SchemaAndExclusionsIRIs
+      type: object
+      description: the schema component definition text and the list of exclusions IRIs
+      required:
+        - schemaComponentDefinition
+        - exclusionsIRIs
+      properties:
+        schemaComponentDefinition:
+          description: the schema component text definition in YAML syntax
+          type: string
+        exclusionsIRIs:
+          description: the list of IRIs the system algorithm should not return as an answer
+          type: array
+          items:
+            type: string
+        promptType:
+          description: the identifier of the prompt to be used for querying the LLM
+          type: string
+          default: PROMPT_1
+        maxSimilarClasses:
+          description: the maximun number of similar classes to be returnes (default 5)
+          type: integer
+          default: 5
 x-tagGroups:
   - name: Mastro API model
     tags:

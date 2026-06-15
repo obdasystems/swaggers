@@ -1,0 +1,23 @@
+title: SchemaAndExclusionsIRIs
+type: object
+description: the schema component definition text and the list of exclusions IRIs
+required:
+  - schemaComponentDefinition
+  - exclusionsIRIs
+properties:
+  schemaComponentDefinition:
+    description: the schema component text definition in YAML syntax
+    type: string
+  exclusionsIRIs:
+    description: the list of IRIs the system algorithm should not return as an answer
+    type: array
+    items:
+      type: string
+  promptType:
+    description: the identifier of the prompt to be used for querying the LLM
+    type: string
+    default: PROMPT_1
+  maxSimilarClasses:
+    description: the maximun number of similar classes to be returnes (default 5)
+    type: integer
+    default: 5

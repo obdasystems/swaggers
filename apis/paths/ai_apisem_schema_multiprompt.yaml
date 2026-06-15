@@ -1,0 +1,18 @@
+post:
+  tags: [APISemantiche]
+  summary: Takes a YAML schema component in textual format and returns the list of classes that are similar to the schema provided
+  operationId: postApisemSchemaMultiprompt
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/SchemaAndExclusionsIRIs.yaml
+  responses:
+    "200":
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/SimilarClasses.yaml
+    "401": { description: Unhauthorized }

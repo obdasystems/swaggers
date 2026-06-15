@@ -61,6 +61,8 @@ paths:
     $ref: paths/ai_apisem_catalog_name_status.yaml
   /ai/apisem/schema:
     $ref: paths/ai_apisem_schema.yaml
+  /ai/apisem/schema/multiprompt:
+    $ref: paths/ai_apisem_schema_multiprompt.yaml
 components:
   schemas:
     OntologyEntity:
@@ -77,6 +79,12 @@ components:
       $ref: ./components/schemas/OntologyCatalogHistoryEvent.yaml
     OntologyCatalogHistory:
       $ref: ./components/schemas/OntologyCatalogHistory.yaml
+    SimilarClass:
+      $ref: ./components/schemas/SimilarClass.yaml
+    SimilarClasses:
+      $ref: ./components/schemas/SimilarClasses.yaml
+    SchemaAndExclusionsIRIs:
+      $ref: ./components/schemas/SchemaAndExclusionsIRIs.yaml
   securitySchemes:
     jwt:
       $ref: "./components/securitySchemes/jwt.yaml"
