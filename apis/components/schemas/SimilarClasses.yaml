@@ -12,5 +12,4 @@ properties:
     description: the list of similar classes
     type: array
     items:
-      type: 
-        $ref: ./SimilarClass.yaml
+      $ref: ./SimilarClass.yaml

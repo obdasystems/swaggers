@@ -993,21 +993,7 @@ components:
           description: the list of similar classes
           type: array
           items:
-            type:
-              title: SimilarClass
-              type: object
-              description: base data structure for similar classes list returned by APISEM system algorithm
-              required:
-                - classIRI
-                - similarityRanking
-              properties:
-                classIRI:
-                  type: string
-                  description: the IRI of the similar class
-                similarityRanking:
-                  type: integer
-                  default: 0
-                  description: the ranking of the similarity measured by the LLM
+            $ref: '#/components/schemas/SimilarClass'
     SchemaAndExclusionsIRIs:
       title: SchemaAndExclusionsIRIs
       type: object
