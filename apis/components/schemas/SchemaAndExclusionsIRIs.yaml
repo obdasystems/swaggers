@@ -4,9 +4,17 @@ description: the schema component definition text and the list of exclusions IRI
 required:
   - schemaComponentDefinition
   - exclusionsIRIs
+  - ontologyName
+  - ontologyVersion
 properties:
   schemaComponentDefinition:
     description: the schema component text definition in YAML syntax
+    type: string
+  ontologyName:
+    description: the name of the ontology to perform the request on
+    type: string
+  ontologyVersion:
+    description: the version of the ontology to perform the request on
     type: string
   exclusionsIRIs:
     description: the list of IRIs the system algorithm should not return as an answer
