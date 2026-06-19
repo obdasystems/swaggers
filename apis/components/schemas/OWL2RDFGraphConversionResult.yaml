@@ -6,6 +6,6 @@ required:
   - originalAxioms 
 properties:
   rdfGraph: { $ref: ./RDFGraph.yaml }
-  rejectedAxioms: { type: number, default: 0 }
-  acceptedAxioms: { type: number, default: 0 }
-  originalAxioms: { type: number, default: 0 }
+  rejectedAxioms: { type: integer, default: 0, format: int32 }
+  acceptedAxioms: { type: integer, default: 0, format: int32 }
+  originalAxioms: { type: integer, default: 0, format: int32 }

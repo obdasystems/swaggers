@@ -22373,14 +22373,17 @@ components:
         rdfGraph:
           $ref: '#/components/schemas/RDFGraph'
         rejectedAxioms:
-          type: number
+          type: integer
           default: 0
+          format: int32
         acceptedAxioms:
-          type: number
+          type: integer
           default: 0
+          format: int32
         originalAxioms:
-          type: number
+          type: integer
           default: 0
+          format: int32
     MWSXOntologyCatalogEntry:
       title: OntologyCatalogEntry
       type: object
