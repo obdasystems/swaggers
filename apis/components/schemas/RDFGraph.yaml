@@ -62,3 +62,6 @@ properties:
   constraints:
     type: array
     items: {$ref: ./SHACLShape.yaml}
+  importDeclarations:
+    type: array
+    items: { type: string }
