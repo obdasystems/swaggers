@@ -1,0 +1,6 @@
+type: object
+properties:
+  rdfGraph: { $ref: ./RDFGraph.yaml }
+  rejectedAxioms: { type: number }
+  acceptedAxioms: { type: number }
+  originalAxioms: { type: number }

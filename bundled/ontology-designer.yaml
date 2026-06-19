@@ -178,7 +178,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RDFGraph'
+                $ref: '#/components/schemas/OWL2RDFGraphConversionResult'
         '401':
           description: Unhauthorized
 components:
@@ -742,6 +742,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SHACLShape'
+        importDeclarations:
+          type: array
+          items:
+            type: string
     FileInfo:
       title: FileInfo
       type: object
@@ -752,3 +756,14 @@ components:
           type: string
         content:
           type: string
+    OWL2RDFGraphConversionResult:
+      type: object
+      properties:
+        rdfGraph:
+          $ref: '#/components/schemas/RDFGraph'
+        rejectedAxioms:
+          type: number
+        acceptedAxioms:
+          type: number
+        originalAxioms:
+          type: number

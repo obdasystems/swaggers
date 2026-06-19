@@ -18,5 +18,5 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/RDFGraph.yaml
+            $ref: ../components/schemas/OWL2RDFGraphConversionResult.yaml
     "401": { description: Unhauthorized }

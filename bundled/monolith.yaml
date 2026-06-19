@@ -16722,7 +16722,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RDFGraph'
+                $ref: '#/components/schemas/OWL2RDFGraphConversionResult'
         '401':
           description: Unhauthorized
       security:
@@ -22885,7 +22885,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RDFGraph'
+                $ref: '#/components/schemas/OWL2RDFGraphConversionResult'
         '401':
           description: Unhauthorized
       security:
@@ -26166,6 +26166,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SHACLShape'
+        importDeclarations:
+          type: array
+          items:
+            type: string
     EntityCount:
       title: EntityCount
       type: object
@@ -27415,6 +27419,17 @@ components:
           type: string
         creator:
           type: string
+    OWL2RDFGraphConversionResult:
+      type: object
+      properties:
+        rdfGraph:
+          $ref: '#/components/schemas/RDFGraph'
+        rejectedAxioms:
+          type: number
+        acceptedAxioms:
+          type: number
+        originalAxioms:
+          type: number
     MWSXOntologyCatalogEntry:
       title: OntologyCatalogEntry
       type: object
