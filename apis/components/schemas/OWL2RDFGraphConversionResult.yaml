@@ -1,6 +1,11 @@
 type: object
+required:
+  - rdfGraph
+  - rejectedAxioms
+  - acceptedAxioms
+  - originalAxioms 
 properties:
   rdfGraph: { $ref: ./RDFGraph.yaml }
-  rejectedAxioms: { type: number }
-  acceptedAxioms: { type: number }
-  originalAxioms: { type: number }
+  rejectedAxioms: { type: number, default: 0 }
+  acceptedAxioms: { type: number, default: 0 }
+  originalAxioms: { type: number, default: 0 }
