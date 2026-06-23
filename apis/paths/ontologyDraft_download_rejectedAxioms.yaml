@@ -9,18 +9,14 @@ post:
         type: string
   requestBody:
     content:
-      multipart/form-data:
+      application/json:
         schema:
-          type: object
-          properties:
-            file:
-              type: string
-              format: binary
+          $ref: ../components/schemas/FileInfo.yaml
     required: true
   responses:
     "200":
       description: Successful operation
       content:
-        text/plain:
-          schema: { type: string }
+        application/json:
+          schema: { $ref: ../components/schemas/FileInfo.yaml }
     "401": { description: Unhauthorized }
