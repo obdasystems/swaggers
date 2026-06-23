@@ -9,8 +9,14 @@ post:
         type: string
   requestBody:
     content:
-      application/json:
-        schema: { $ref: ../components/schemas/RDFGraph.yaml }
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            file:
+              type: string
+              format: binary
+    required: true
   responses:
     "200":
       description: Successful operation

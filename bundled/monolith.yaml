@@ -16717,9 +16717,14 @@ paths:
             type: string
       requestBody:
         content:
-          application/json:
+          multipart/form-data:
             schema:
-              $ref: '#/components/schemas/RDFGraph'
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+        required: true
       responses:
         '200':
           description: Successful operation
@@ -22913,9 +22918,14 @@ paths:
             type: string
       requestBody:
         content:
-          application/json:
+          multipart/form-data:
             schema:
-              $ref: '#/components/schemas/RDFGraph'
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+        required: true
       responses:
         '200':
           description: Successful operation
