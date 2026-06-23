@@ -16695,6 +16695,43 @@ paths:
       security:
         - apiKey: []
         - jwt: []
+  /ontologyDraft/download/rejectedAxioms:
+    servers:
+      - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+        variables:
+          protocol:
+            default: https
+          tenant:
+            default: localhost
+          port:
+            default: ':8989'
+    post:
+      tags:
+        - mastro_ontology-designer_Persistence
+      summary: Download the rejected axioms in OWL2
+      operationId: getOntologyDraftDownloadRejectedAxioms
+      parameters:
+        - name: format
+          in: query
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RDFGraph'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            text/plain:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
   /ontologyDraft/convertOWL:
     servers:
       - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
@@ -22833,6 +22870,42 @@ paths:
         - ai-assistant_Convert
       summary: Download the ontology draft converted in OWL2
       operationId: getOntologyDraftAIDownload
+      parameters:
+        - name: format
+          in: query
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RDFGraph'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            text/plain:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+      security:
+        - jwt: []
+  /ai/ontologyDraft/download/rejectedAxioms:
+    servers:
+      - url: '{protocol}://{tenant}{port}'
+        variables:
+          protocol:
+            default: https
+          tenant:
+            default: localhost
+          port:
+            default: ':8080'
+    post:
+      tags:
+        - ai-assistant_Convert
+      summary: Download the rejected axioms in OWL2
+      operationId: getOntologyDraftAIDownloadRejectedAxioms
       parameters:
         - name: format
           in: query

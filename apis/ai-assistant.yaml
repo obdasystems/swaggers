@@ -53,6 +53,8 @@ paths:
     $ref: paths/ai_rag_ontologyName_vectorDB_nlq.yaml
   /ai/ontologyDraft/download:
     $ref: paths/ai_ontologyDraft_download.yaml
+  /ai/ontologyDraft/download/rejectedAxioms:
+    $ref: paths/ai_ontologyDraft_download_rejectedAxioms.yaml
   /ai/ontologyDraft/convertOWL:
     $ref: paths/ai_ontologyDraft_convertOWL.yaml
   /ai/apisem/catalog:

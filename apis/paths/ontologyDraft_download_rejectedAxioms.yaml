@@ -1,0 +1,20 @@
+post:
+  tags: [Persistence]
+  summary: Download the rejected axioms in OWL2
+  operationId: getOntologyDraftDownloadRejectedAxioms
+  parameters:
+    - name: format
+      in: query
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema: { $ref: ../components/schemas/RDFGraph.yaml }
+  responses:
+    "200":
+      description: Successful operation
+      content:
+        text/plain:
+          schema: { type: string }
+    "401": { description: Unhauthorized }

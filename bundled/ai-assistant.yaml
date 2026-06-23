@@ -630,6 +630,31 @@ paths:
                 type: string
         '401':
           description: Unhauthorized
+  /ai/ontologyDraft/download/rejectedAxioms:
+    post:
+      tags:
+        - Convert
+      summary: Download the rejected axioms in OWL2
+      operationId: getOntologyDraftAIDownloadRejectedAxioms
+      parameters:
+        - name: format
+          in: query
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RDFGraph'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            text/plain:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
   /ai/ontologyDraft/convertOWL:
     post:
       tags:
