@@ -1,7 +1,12 @@
 post:
   tags: [Convert]
-  summary: Convert an OWL file in RDFGraph model
-  operationId: postOntologyDraftAIConvertOWL
+  summary: Download the rejected axioms in OWL2
+  operationId: getOntologyDraftAIDownloadRejectedAxioms
+  parameters:
+    - name: format
+      in: query
+      schema:
+        type: string
   requestBody:
     content:
       multipart/form-data:
@@ -14,9 +19,8 @@ post:
     required: true
   responses:
     "200":
-      description: OK
+      description: Successful operation
       content:
-        application/json:
-          schema:
-            $ref: ../components/schemas/OWL2RDFGraphConversionResult.yaml
+        text/plain:
+          schema: { type: string }
     "401": { description: Unhauthorized }

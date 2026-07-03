@@ -16695,6 +16695,44 @@ paths:
       security:
         - apiKey: []
         - jwt: []
+  /ontologyDraft/download/rejectedAxioms:
+    servers:
+      - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+        variables:
+          protocol:
+            default: https
+          tenant:
+            default: localhost
+          port:
+            default: ':8989'
+    post:
+      tags:
+        - mastro_ontology-designer_Persistence
+      summary: Download the rejected axioms in OWL2
+      operationId: getOntologyDraftDownloadRejectedAxioms
+      parameters:
+        - name: format
+          in: query
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileInfo'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileInfo'
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
   /ontologyDraft/convertOWL:
     servers:
       - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
@@ -16722,7 +16760,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RDFGraph'
+                $ref: '#/components/schemas/OWL2RDFGraphConversionResult'
         '401':
           description: Unhauthorized
       security:
@@ -22854,6 +22892,47 @@ paths:
           description: Unhauthorized
       security:
         - jwt: []
+  /ai/ontologyDraft/download/rejectedAxioms:
+    servers:
+      - url: '{protocol}://{tenant}{port}'
+        variables:
+          protocol:
+            default: https
+          tenant:
+            default: localhost
+          port:
+            default: ':8080'
+    post:
+      tags:
+        - ai-assistant_Convert
+      summary: Download the rejected axioms in OWL2
+      operationId: getOntologyDraftAIDownloadRejectedAxioms
+      parameters:
+        - name: format
+          in: query
+          schema:
+            type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            text/plain:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+      security:
+        - jwt: []
   /ai/ontologyDraft/convertOWL:
     servers:
       - url: '{protocol}://{tenant}{port}'
@@ -22885,7 +22964,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RDFGraph'
+                $ref: '#/components/schemas/OWL2RDFGraphConversionResult'
         '401':
           description: Unhauthorized
       security:
@@ -26208,6 +26287,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SHACLShape'
+        importDeclarations:
+          type: array
+          items:
+            type: string
     EntityCount:
       title: EntityCount
       type: object
@@ -27457,6 +27540,28 @@ components:
           type: string
         creator:
           type: string
+    OWL2RDFGraphConversionResult:
+      type: object
+      required:
+        - rdfGraph
+        - rejectedAxioms
+        - acceptedAxioms
+        - originalAxioms
+      properties:
+        rdfGraph:
+          $ref: '#/components/schemas/RDFGraph'
+        rejectedAxioms:
+          type: integer
+          default: 0
+          format: int32
+        acceptedAxioms:
+          type: integer
+          default: 0
+          format: int32
+        originalAxioms:
+          type: integer
+          default: 0
+          format: int32
     MWSXOntologyCatalogEntry:
       title: OntologyCatalogEntry
       type: object

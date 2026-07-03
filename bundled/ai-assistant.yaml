@@ -630,6 +630,36 @@ paths:
                 type: string
         '401':
           description: Unhauthorized
+  /ai/ontologyDraft/download/rejectedAxioms:
+    post:
+      tags:
+        - Convert
+      summary: Download the rejected axioms in OWL2
+      operationId: getOntologyDraftAIDownloadRejectedAxioms
+      parameters:
+        - name: format
+          in: query
+          schema:
+            type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            text/plain:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
   /ai/ontologyDraft/convertOWL:
     post:
       tags:
@@ -652,7 +682,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RDFGraph'
+                $ref: '#/components/schemas/OWL2RDFGraphConversionResult'
         '401':
           description: Unhauthorized
   /ai/apisem/catalog:
@@ -1676,6 +1706,32 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SHACLShape'
+        importDeclarations:
+          type: array
+          items:
+            type: string
+    OWL2RDFGraphConversionResult:
+      type: object
+      required:
+        - rdfGraph
+        - rejectedAxioms
+        - acceptedAxioms
+        - originalAxioms
+      properties:
+        rdfGraph:
+          $ref: '#/components/schemas/RDFGraph'
+        rejectedAxioms:
+          type: integer
+          default: 0
+          format: int32
+        acceptedAxioms:
+          type: integer
+          default: 0
+          format: int32
+        originalAxioms:
+          type: integer
+          default: 0
+          format: int32
     Label:
       title: Label
       type: object

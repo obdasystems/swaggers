@@ -13861,6 +13861,35 @@ paths:
       security:
         - apiKey: []
         - jwt: []
+  /ontologyDraft/download/rejectedAxioms:
+    post:
+      tags:
+        - ontology-designer_Persistence
+      summary: Download the rejected axioms in OWL2
+      operationId: getOntologyDraftDownloadRejectedAxioms
+      parameters:
+        - name: format
+          in: query
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileInfo'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileInfo'
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
   /ontologyDraft/convertOWL:
     post:
       tags:
@@ -13879,7 +13908,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RDFGraph'
+                $ref: '#/components/schemas/OWL2RDFGraphConversionResult'
         '401':
           description: Unhauthorized
       security:
@@ -21109,6 +21138,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SHACLShape'
+        importDeclarations:
+          type: array
+          items:
+            type: string
     EntityCount:
       title: EntityCount
       type: object
@@ -22358,6 +22391,28 @@ components:
           type: string
         creator:
           type: string
+    OWL2RDFGraphConversionResult:
+      type: object
+      required:
+        - rdfGraph
+        - rejectedAxioms
+        - acceptedAxioms
+        - originalAxioms
+      properties:
+        rdfGraph:
+          $ref: '#/components/schemas/RDFGraph'
+        rejectedAxioms:
+          type: integer
+          default: 0
+          format: int32
+        acceptedAxioms:
+          type: integer
+          default: 0
+          format: int32
+        originalAxioms:
+          type: integer
+          default: 0
+          format: int32
     MWSXOntologyCatalogEntry:
       title: OntologyCatalogEntry
       type: object

@@ -2550,3 +2550,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SHACLShape'
+        importDeclarations:
+          type: array
+          items:
+            type: string
