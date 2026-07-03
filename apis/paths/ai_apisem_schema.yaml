@@ -1,13 +1,13 @@
 post:
   tags: [APISemantiche]
-  summary: Takes a YAML file containing the specification of a service and returns the YAML specification annotated
+  summary: Takes a JSON file containing the specification of a service, plus the list of semantic annotations for every schema component being annotated, and returns the JSON specification decorated with such annotations
   operationId: postApisemSchema
   requestBody:
     required: true
     content:
       application/json:
         schema:
-          $ref: ../components/schemas/FileInfo.yaml
+          $ref: ../components/schemas/FileInfoAndSemanticAnnotations.yaml
   responses:
     "200":
       description: Successful operation

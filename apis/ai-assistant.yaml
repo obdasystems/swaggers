@@ -67,6 +67,8 @@ paths:
     $ref: paths/ai_apisem_schema.yaml
   /ai/apisem/schema/multiprompt:
     $ref: paths/ai_apisem_schema_multiprompt.yaml
+  /ai/apisem/schema/{name}/annotation:
+    $ref: paths/ai_apisem_schema_name_annotations.yaml
 components:
   schemas:
     OntologyEntity:
@@ -89,6 +91,14 @@ components:
       $ref: ./components/schemas/SimilarClasses.yaml
     SchemaAndExclusionsIRIs:
       $ref: ./components/schemas/SchemaAndExclusionsIRIs.yaml
+    ComplexContextElement:
+      $ref: ./components/schemas/ComplexContextElement.yaml
+    SimpleContextElement:
+      $ref: ./components/schemas/SimpleContextElement.yaml
+    SemanticAnnotations:
+      $ref: ./components/schemas/SemanticAnnotations.yaml
+    FileInfoAndSemanticAnnotations:
+      $ref: ./components/schemas/FileInfoAndSemanticAnnotations.yaml
   securitySchemes:
     jwt:
       $ref: "./components/securitySchemes/jwt.yaml"

@@ -1,0 +1,26 @@
+title: SemanticAnnotations
+type: object
+description: Object for the representation of the full set of semantic annotations the system produces and adds to a schema component definition during the semantic enrichment algorithm
+properties:
+  X_JSONLD_TYPE:
+    type: string
+    description: contains the IRI of the class semantically equivalent (or similar) to the given schema component 
+  X_JSONLD_CONTEXT:
+    type: object
+    description: contains the context annotations specifying the object or data properties semantically equivalent (or similar) to the properties of the given schema component
+    properties:
+      vocab:
+        type: string
+        description: the ontology declaring the equivalent class for the given schema component 
+      elements:
+        type: array
+        description: the set of context elements describing the object or data properties that are semantically equivalent to eh properties of the given schema component
+        items:
+          oneOf:
+            - $ref: ./SimpleContextElement.yaml
+            - $ref: ./ComplexContextElement.yaml
+  example:
+    type: object
+    description: this property shall contein an example value for every property of the given schema component
+    additionalProperties:
+      type: string

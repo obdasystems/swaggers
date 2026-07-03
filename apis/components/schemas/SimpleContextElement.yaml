@@ -1,0 +1,10 @@
+title: SimpleContextElement
+type: object
+description: the representation of a simple semantic annotation (i.e. the ones used to indicate which data property is semantically associated to a given schema property)
+properties:
+  simpleContexElementName:
+    type: string
+    description: the name of the schema property
+  simpleContexElementValue:
+    type: string
+    description: the IRI of the related data property

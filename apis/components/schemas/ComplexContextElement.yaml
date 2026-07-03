@@ -1,0 +1,22 @@
+title: ComplexContextElement
+type: object
+description: the representation of a complex-context semantic annotation (i.e. the ones used to indicate which object property is semantically associated to a given schema property)
+properties:
+  complexContextElementName:
+    type: string
+    description: the name of the schema component
+  id:
+    type: string
+    description: the name of the object property semantically equivalent to the property of the given schema component
+  type:
+    type: string
+  context:
+    type: object
+    properties:
+      base:
+        type: string
+        description: describes the IRI of the target ontology (or controlled vocabulary) which the range of the object property refers to
+      id:
+        type: string
+      label:
+        type: string

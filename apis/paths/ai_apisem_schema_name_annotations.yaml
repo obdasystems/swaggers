@@ -1,0 +1,25 @@
+get:
+  tags: [APISemantiche]
+  summary: Takes a YAML schema component in textual format and returns the list of classes that are similar to the schema provided
+  operationId: postApisemSchemaNameAnnotation
+  parameters:
+    - name: name
+      in: path
+      required: true
+      description: the name of the schema component
+      schema:
+        type: string
+    - name: similarClass
+      in: query
+      required: true
+      description: the value of the similar class identified by the operator
+      schema:
+        type: string
+  responses:
+    "200":
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/SemanticAnnotations.yaml
+    "401": { description: Unhauthorized }
