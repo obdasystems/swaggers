@@ -883,7 +883,7 @@ paths:
         '401':
           description: Unhauthorized
   /ai/apisem/schema/{name}/annotations:
-    get:
+    post:
       tags:
         - APISemantiche
       summary: Takes as input the name of a schema component (as a path parameter) and the name of a similar class previously identified by the operator (as a query parameter) and returns the full set of semantic annotations for the given schema component w.r.t. to the similar class provided
@@ -901,6 +901,12 @@ paths:
           description: the value of the similar class identified by the operator
           schema:
             type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SchemaAndExclusionsIRIs'
       responses:
         '200':
           description: Successful operation
