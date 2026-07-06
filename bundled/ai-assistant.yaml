@@ -882,12 +882,12 @@ paths:
                 $ref: '#/components/schemas/SimilarClasses'
         '401':
           description: Unhauthorized
-  /ai/apisem/schema/{name}/annotation:
+  /ai/apisem/schema/{name}/annotations:
     get:
       tags:
         - APISemantiche
-      summary: Takes a YAML schema component in textual format and returns the list of classes that are similar to the schema provided
-      operationId: postApisemSchemaNameAnnotation
+      summary: Takes as input the name of a schema component (as a path parameter) and the name of a similar class previously identified by the operator (as a query parameter) and returns the full set of semantic annotations for the given schema component w.r.t. to the similar class provided
+      operationId: postApisemSchemaNameAnnotations
       parameters:
         - name: name
           in: path

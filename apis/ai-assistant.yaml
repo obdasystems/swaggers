@@ -69,7 +69,7 @@ paths:
     $ref: paths/ai_apisem_schema.yaml
   /ai/apisem/schema/multiprompt:
     $ref: paths/ai_apisem_schema_multiprompt.yaml
-  /ai/apisem/schema/{name}/annotation:
+  /ai/apisem/schema/{name}/annotations:
     $ref: paths/ai_apisem_schema_name_annotations.yaml
 components:
   schemas:
