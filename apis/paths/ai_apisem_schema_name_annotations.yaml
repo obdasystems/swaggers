@@ -16,11 +16,20 @@ post:
       schema:
         type: string
   requestBody:
-    required: true
     content:
       application/json:
         schema:
-          $ref: ../components/schemas/SchemaAndExclusionsIRIs.yaml
+          type: object
+          properties:
+            schemaComponentDefinition:
+              type: string
+              required: true
+            ontologyName:
+              type: string
+              required: true
+            ontologyVersion:
+              type: string
+              required: true
   responses:
     "200":
       description: Successful operation
