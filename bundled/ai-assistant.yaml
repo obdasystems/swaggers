@@ -685,6 +685,42 @@ paths:
                 $ref: '#/components/schemas/OWL2RDFGraphConversionResult'
         '401':
           description: Unhauthorized
+  /ai/ontologyDraft/metadata:
+    post:
+      tags:
+        - Metadata
+      summary: Download a new version to the ontology enriched with the metadata provided in the request body.
+      operationId: postAIOntologyDraftMetadata
+      parameters:
+        - name: format
+          in: query
+          schema:
+            type: string
+        - name: newVersion
+          in: query
+          schema:
+            type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                metadata:
+                  $ref: '#/components/schemas/MWSXOntologyCatalogOntologyMetadataSet'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
   /ai/apisem/catalog:
     get:
       tags:
@@ -1745,6 +1781,53 @@ components:
           type: integer
           default: 0
           format: int32
+    MWSXMetadataSubject:
+      type: object
+      properties:
+        iri:
+          type: string
+        impliedClassIri:
+          type: string
+    MWSXMetadataPredicate:
+      type: object
+      properties:
+        iri:
+          type: string
+    MWSXMetadataObject:
+      type: object
+      properties:
+        iri:
+          type: string
+        impliedClassIri:
+          type: string
+        value:
+          type: string
+        lang:
+          type: string
+        datatypeIri:
+          type: string
+        isIri:
+          type: boolean
+          default: false
+        isBlankNode:
+          type: boolean
+          default: false
+    MWSXMetadataTriple:
+      type: object
+      properties:
+        subject:
+          $ref: '#/components/schemas/MWSXMetadataSubject'
+        predicate:
+          $ref: '#/components/schemas/MWSXMetadataPredicate'
+        object:
+          $ref: '#/components/schemas/MWSXMetadataObject'
+    MWSXOntologyCatalogOntologyMetadataSet:
+      type: object
+      properties:
+        metadataTriples:
+          type: array
+          items:
+            $ref: '#/components/schemas/MWSXMetadataTriple'
     Label:
       title: Label
       type: object

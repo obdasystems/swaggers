@@ -57,6 +57,8 @@ paths:
     $ref: paths/ai_ontologyDraft_download_rejectedAxioms.yaml
   /ai/ontologyDraft/convertOWL:
     $ref: paths/ai_ontologyDraft_convertOWL.yaml
+  /ai/ontologyDraft/metadata:
+    $ref: paths/ai_ontologyDraft_metadata.yaml
   /ai/apisem/catalog:
     $ref: paths/ai_apisem_catalog.yaml
   /ai/apisem/catalog/history:

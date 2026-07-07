@@ -1,0 +1,32 @@
+post:
+  tags: [Metadata]
+  summary: "Download a new version to the ontology enriched with the metadata provided in the request body."
+  operationId: postAIOntologyDraftMetadata
+  parameters:
+    - name: format
+      in: query
+      schema:
+        type: string
+    - name: newVersion
+      in: query
+      schema:
+        type: string
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            file:
+              type: string
+              format: binary
+            metadata:
+              $ref: ../components/schemas/MWSXOntologyCatalogOntologyMetadataSet.yaml
+    required: true
+  responses:
+    "200":
+      description: OK
+      content:
+        text/plain:
+          schema: { type: string }
+    "401": { description: Unhauthorized }
