@@ -56,7 +56,9 @@ paths:
   /ai/ontologyDraft/download/rejectedAxioms:
     $ref: paths/ai_ontologyDraft_download_rejectedAxioms.yaml
   /ai/ontologyDraft/convertOWL:
-    $ref: paths/ai_ontologyDraft_convertOWL.yaml  
+    $ref: paths/ai_ontologyDraft_convertOWL.yaml
+  /ai/ontologyDraft/metadata:
+    $ref: paths/ai_ontologyDraft_metadata.yaml
 components:
   schemas:    
   securitySchemes:
