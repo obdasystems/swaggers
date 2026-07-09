@@ -48,4 +48,4 @@ npx @redocly/cli@latest bundle
 
 ## API Semantiche APIs
 
-- [API Semantiche](https://obdasystems.github.io/swaggers/ui/?api=apisem)
+- [apisem](https://obdasystems.github.io/swaggers/ui/?api=apisem)
