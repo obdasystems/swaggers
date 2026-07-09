@@ -45,3 +45,7 @@ npx @redocly/cli@latest bundle
 ## AI Assistant APIs
 
 - [ai-assistant](https://obdasystems.github.io/swaggers/ui/?api=ai-assistant)
+
+## API Semantiche APIs
+
+- [API Semantiche](https://obdasystems.github.io/swaggers/ui/?api=apisem)
