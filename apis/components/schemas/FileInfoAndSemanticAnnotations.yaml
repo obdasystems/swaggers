@@ -1,11 +1,14 @@
 title: FileInfoAndSemanticAnnotations
 type: object
 description: the payload for the route which performs API specification decoration with semantic annotations
+required:
+  - fileInfo
+  - semanticAnnotations
 properties:
   fileInfo:
     $ref: ./FileInfo.yaml
-    description: representation of the content of the JSON OpenAPI specification that is being decorated with semantic annotations
   semanticAnnotations:
     type: object
+    description: the map linking the set of semantic annotation to each schema component defined in the OpenAPI spec contained in the fileInfo param 
     additionalProperties:
       $ref: ./SemanticAnnotations.yaml

@@ -12,7 +12,6 @@ post:
             - queryCode
           properties:
             chartConfiguration:
-              description: the chart configuration to describe
               $ref: ../components/schemas/ChartConfiguration.yaml
             queryCode:
               description: the SPARQL code that generates the data for the chart

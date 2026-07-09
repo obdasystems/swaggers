@@ -56,51 +56,9 @@ paths:
   /ai/ontologyDraft/download/rejectedAxioms:
     $ref: paths/ai_ontologyDraft_download_rejectedAxioms.yaml
   /ai/ontologyDraft/convertOWL:
-    $ref: paths/ai_ontologyDraft_convertOWL.yaml
-  /ai/apisem/catalog:
-    $ref: paths/ai_apisem_catalog.yaml
-  /ai/apisem/catalog/history:
-    $ref: paths/ai_apisem_catalog_history.yaml
-  /ai/apisem/catalog/{name}:
-    $ref: paths/ai_apisem_catalog_name.yaml
-  /ai/apisem/catalog/{name}/status:
-    $ref: paths/ai_apisem_catalog_name_status.yaml
-  /ai/apisem/schema:
-    $ref: paths/ai_apisem_schema.yaml
-  /ai/apisem/schema/multiprompt:
-    $ref: paths/ai_apisem_schema_multiprompt.yaml
-  /ai/apisem/schema/{name}/annotations:
-    $ref: paths/ai_apisem_schema_name_annotations.yaml
+    $ref: paths/ai_ontologyDraft_convertOWL.yaml  
 components:
-  schemas:
-    OntologyEntity:
-      $ref: ./components/schemas/OntologyEntity.yaml
-    MWSXOntologyCatalogEntry:
-      $ref: ./components/schemas/MWSXOntologyCatalogEntry.yaml
-    MWSXOntologyCatalogEntries:
-      $ref: ./components/schemas/MWSXOntologyCatalogEntries.yaml
-    FileInfo:
-      $ref: ./components/schemas/FileInfo.yaml
-    OntologyCatalogEntryStatus:
-      $ref: ./components/schemas/OntologyCatalogEntryStatus.yaml
-    OntologyCatalogHistoryEvent:
-      $ref: ./components/schemas/OntologyCatalogHistoryEvent.yaml
-    OntologyCatalogHistory:
-      $ref: ./components/schemas/OntologyCatalogHistory.yaml
-    SimilarClass:
-      $ref: ./components/schemas/SimilarClass.yaml
-    SimilarClasses:
-      $ref: ./components/schemas/SimilarClasses.yaml
-    SchemaAndExclusionsIRIs:
-      $ref: ./components/schemas/SchemaAndExclusionsIRIs.yaml
-    ComplexContextElement:
-      $ref: ./components/schemas/ComplexContextElement.yaml
-    SimpleContextElement:
-      $ref: ./components/schemas/SimpleContextElement.yaml
-    SemanticAnnotations:
-      $ref: ./components/schemas/SemanticAnnotations.yaml
-    FileInfoAndSemanticAnnotations:
-      $ref: ./components/schemas/FileInfoAndSemanticAnnotations.yaml
+  schemas:    
   securitySchemes:
     jwt:
       $ref: "./components/securitySchemes/jwt.yaml"

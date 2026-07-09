@@ -25,10 +25,8 @@ post:
           properties:
             highlightedGraph:
               $ref: ../components/schemas/RDFGraph.yaml
-              description: The RDF graph containing ontology graph with properties expanded by Mastro reasoner.
             baseGraph:
               $ref: ../components/schemas/RDFGraph.yaml
-              description: The RDF graph representing the base ontology for vectorization.
   responses:
     "200":
       description: Successful operation

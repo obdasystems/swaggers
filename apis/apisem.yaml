@@ -1,0 +1,67 @@
+openapi: 3.0.0
+servers:
+  - url: "{protocol}://{tenant}{port}"
+    variables:
+      protocol:
+        default: https
+      tenant:
+        default: localhost
+      port:
+        default: ":8080"
+info:
+  description: >-
+    This is the draft of the API for the semantic enrichment module of the Mastro system
+  version: 1.0.1-beta
+  title: Semantic Enrichment API proposal
+  contact:
+    email: m.ruzzi@almaviva.it
+paths:
+  /ai/apisem/catalog:
+    $ref: paths/ai_apisem_catalog.yaml
+  /ai/apisem/catalog/history:
+    $ref: paths/ai_apisem_catalog_history.yaml
+  /ai/apisem/catalog/{name}:
+    $ref: paths/ai_apisem_catalog_name.yaml
+  /ai/apisem/catalog/{name}/status:
+    $ref: paths/ai_apisem_catalog_name_status.yaml
+  /ai/apisem/schema:
+    $ref: paths/ai_apisem_schema.yaml
+  /ai/apisem/schema/multiprompt:
+    $ref: paths/ai_apisem_schema_multiprompt.yaml
+  /ai/apisem/schema/{name}/annotations:
+    $ref: paths/ai_apisem_schema_name_annotations.yaml
+components:
+  schemas:
+    MWSXOntologyCatalogEntry:
+      $ref: ./components/schemas/MWSXOntologyCatalogEntry.yaml
+    MWSXOntologyCatalogEntries:
+      $ref: ./components/schemas/MWSXOntologyCatalogEntries.yaml
+    FileInfo:
+      $ref: ./components/schemas/FileInfo.yaml
+    OntologyCatalogEntryStatus:
+      $ref: ./components/schemas/OntologyCatalogEntryStatus.yaml
+    OntologyCatalogHistoryEvent:
+      $ref: ./components/schemas/OntologyCatalogHistoryEvent.yaml
+    OntologyCatalogHistory:
+      $ref: ./components/schemas/OntologyCatalogHistory.yaml
+    SimilarClass:
+      $ref: ./components/schemas/SimilarClass.yaml
+    SimilarClasses:
+      $ref: ./components/schemas/SimilarClasses.yaml
+    SchemaAndExclusionsIRIs:
+      $ref: ./components/schemas/SchemaAndExclusionsIRIs.yaml
+    ComplexContextElement:
+      $ref: ./components/schemas/ComplexContextElement.yaml
+    SimpleContextElement:
+      $ref: ./components/schemas/SimpleContextElement.yaml
+    SemanticAnnotations:
+      $ref: ./components/schemas/SemanticAnnotations.yaml
+    FileInfoAndSemanticAnnotations:
+      $ref: ./components/schemas/FileInfoAndSemanticAnnotations.yaml
+    RDFGraph:
+      $ref: ./components/schemas/RDFGraph.yaml
+  securitySchemes:
+    jwt:
+      $ref: "./components/securitySchemes/jwt.yaml"
+security:
+  - jwt: []

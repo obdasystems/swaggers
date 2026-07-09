@@ -1,0 +1,1024 @@
+openapi: 3.0.0
+info:
+  description: This is the draft of the API for the semantic enrichment module of the Mastro system
+  version: 1.0.1-beta
+  title: Semantic Enrichment API proposal
+  contact:
+    email: m.ruzzi@almaviva.it
+servers:
+  - url: '{protocol}://{tenant}{port}'
+    variables:
+      protocol:
+        default: https
+      tenant:
+        default: localhost
+      port:
+        default: ':8080'
+security:
+  - jwt: []
+paths:
+  /ai/apisem/catalog:
+    get:
+      tags:
+        - APISemantiche
+      summary: Returns the current content of the ontology catalog used to generate semantic annotations for provided YAML service specifications
+      operationId: getApisemCatalog
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MWSXOntologyCatalogEntries'
+        '401':
+          description: Unhauthorized
+    post:
+      tags:
+        - APISemantiche
+      summary: Adds a new ontology to the current ontology catalog, creates the corresponding vector DB instance
+      operationId: postApisemCatalog
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ontologyName:
+                  type: string
+                ontologyVersion:
+                  type: string
+                currentRdfGraph:
+                  $ref: '#/components/schemas/RDFGraph'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MWSXOntologyCatalogEntries'
+        '401':
+          description: Unhauthorized
+    delete:
+      tags:
+        - APISemantiche
+      summary: Reset the content of the current catalog
+      operationId: deleteApisemCatalog
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: boolean
+                description: True if the operation succeed
+        '401':
+          description: Unhauthorized
+  /ai/apisem/catalog/history:
+    get:
+      tags:
+        - APISemantiche
+      summary: Returns the list of operations executed on the ontology catalog
+      operationId: getApisemCatalogHistory
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OntologyCatalogHistory'
+        '401':
+          description: Unhauthorized
+  /ai/apisem/catalog/{name}:
+    put:
+      tags:
+        - APISemantiche
+      summary: Replace the given ontology in the catalog with the one provided in the request body
+      operationId: putApisemCatalogName
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RDFGraph'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MWSXOntologyCatalogEntries'
+        '401':
+          description: Unhauthorized
+    delete:
+      tags:
+        - APISemantiche
+      summary: Reset the content of the current catalog
+      operationId: deleteApisemCatalogName
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: boolean
+                description: True if the operation succeed
+        '401':
+          description: Unhauthorized
+  /ai/apisem/catalog/{name}/status:
+    get:
+      tags:
+        - APISemantiche
+      summary: Returns the current status of a given ontology catalog entry
+      operationId: getApisemCatalogNameStatus
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OntologyCatalogEntryStatus'
+        '401':
+          description: Unhauthorized
+  /ai/apisem/schema:
+    post:
+      tags:
+        - APISemantiche
+      summary: Takes a JSON file containing the specification of a service, plus the list of semantic annotations for every schema component being annotated, and returns the JSON specification decorated with such annotations
+      operationId: postApisemSchema
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileInfoAndSemanticAnnotations'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileInfo'
+        '401':
+          description: Unhauthorized
+  /ai/apisem/schema/multiprompt:
+    post:
+      tags:
+        - APISemantiche
+      summary: Takes a YAML schema component in textual format and returns the list of classes that are similar to the schema provided
+      operationId: postApisemSchemaMultiprompt
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SchemaAndExclusionsIRIs'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SimilarClasses'
+        '401':
+          description: Unhauthorized
+  /ai/apisem/schema/{name}/annotations:
+    post:
+      tags:
+        - APISemantiche
+      summary: Takes as input the name of a schema component (as a path parameter) and the name of a similar class previously identified by the operator (as a query parameter) and returns the full set of semantic annotations for the given schema component w.r.t. to the similar class provided
+      operationId: postApisemSchemaNameAnnotations
+      parameters:
+        - name: name
+          in: path
+          required: true
+          description: the name of the schema component
+          schema:
+            type: string
+        - name: similarClass
+          in: query
+          required: true
+          description: the value of the similar class identified by the operator
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                schemaComponentDefinition:
+                  type: string
+                ontologyName:
+                  type: string
+                ontologyVersion:
+                  type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SemanticAnnotations'
+        '401':
+          description: Unhauthorized
+components:
+  schemas:
+    MWSXOntologyCatalogEntry:
+      title: OntologyCatalogEntry
+      type: object
+      required:
+        - ontologyName
+        - ontologyVersion
+      properties:
+        ontologyVersion:
+          type: string
+        ontologyName:
+          type: string
+    MWSXOntologyCatalogEntries:
+      title: OntologyCatalogEntries
+      type: object
+      required:
+        - entries
+      properties:
+        entries:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/MWSXOntologyCatalogEntry'
+    FileInfo:
+      title: FileInfo
+      type: object
+      properties:
+        fileName:
+          type: string
+        fileType:
+          type: string
+        content:
+          type: string
+    OntologyCatalogEntryStatus:
+      title: OntologyCatalogEntryStatus
+      type: object
+      description: The status of a given ontology catalog entry
+      properties:
+        status:
+          type: string
+          enum:
+            - NOT_INITIALIZED
+            - INITIALIZING
+            - FINISHED
+            - ERROR
+          description: The current status of the vector database.
+        errorMessage:
+          type: string
+          description: The error message if the status is ERROR.
+        percentage:
+          type: integer
+          description: The initialization progress percentage (0-100).
+        executionTime:
+          type: integer
+          description: The time taken for the last operation in milliseconds.
+    OntologyCatalogHistoryEvent:
+      title: OntologyCatalogEvent
+      type: object
+      description: Represents an opeartion occurred on the ontology catalog
+      required:
+        - opeartion
+        - timestamp
+        - ontologyCatalogEntry
+      properties:
+        operation:
+          type: string
+          enum:
+            - ADD
+            - MOD
+            - DEL
+          description: the type of operation this ontology catalog event contains
+        timestamp:
+          type: integer
+          format: int64
+          description: the timestamp of the operation
+        ontologyCatalogEntry:
+          $ref: '#/components/schemas/MWSXOntologyCatalogEntry'
+    OntologyCatalogHistory:
+      title: OntologyCatalogHistory
+      type: object
+      description: the list of operations executed on the ontology catalog
+      required:
+        - events
+      properties:
+        events:
+          type: array
+          items:
+            $ref: '#/components/schemas/OntologyCatalogHistoryEvent'
+    SimilarClass:
+      title: SimilarClass
+      type: object
+      description: base data structure for similar classes list returned by APISEM system algorithm
+      required:
+        - classIRI
+        - similarityRanking
+      properties:
+        classIRI:
+          type: string
+          description: the IRI of the similar class
+        similarityRanking:
+          type: integer
+          default: 0
+          description: the ranking of the similarity measured by the LLM
+    SimilarClasses:
+      title: SimilarClasses
+      type: object
+      description: the list of similar classes as computed by the LLM for the APISEM project
+      required:
+        - schemaComponent
+        - similarClasses
+      properties:
+        schemaComponent:
+          description: the name of the schema component which the similar classes refers to
+          type: string
+        similarClasses:
+          description: the list of similar classes
+          type: array
+          items:
+            $ref: '#/components/schemas/SimilarClass'
+    SchemaAndExclusionsIRIs:
+      title: SchemaAndExclusionsIRIs
+      type: object
+      description: the schema component definition text and the list of exclusions IRIs
+      required:
+        - schemaComponentDefinition
+        - exclusionsIRIs
+        - ontologyName
+        - ontologyVersion
+      properties:
+        schemaComponentDefinition:
+          description: the schema component text definition in YAML syntax
+          type: string
+        ontologyName:
+          description: the name of the ontology to perform the request on
+          type: string
+        ontologyVersion:
+          description: the version of the ontology to perform the request on
+          type: string
+        exclusionsIRIs:
+          description: the list of IRIs the system algorithm should not return as an answer
+          type: array
+          items:
+            type: string
+        promptType:
+          description: the identifier of the prompt to be used for querying the LLM
+          type: string
+          default: PROMPT_1
+        maxSimilarClasses:
+          description: the maximun number of similar classes to be returnes (default 5)
+          type: integer
+          default: 5
+    ComplexContextElement:
+      title: ComplexContextElement
+      type: object
+      description: the representation of a complex-context semantic annotation (i.e. the ones used to indicate which object property is semantically associated to a given schema property)
+      properties:
+        complexContextElementName:
+          type: string
+          description: the name of the schema component
+        id:
+          type: string
+          description: the name of the object property semantically equivalent to the property of the given schema component
+        type:
+          type: string
+        context:
+          type: object
+          properties:
+            base:
+              type: string
+              description: describes the IRI of the target ontology (or controlled vocabulary) which the range of the object property refers to
+            id:
+              type: string
+            label:
+              type: string
+    SimpleContextElement:
+      title: SimpleContextElement
+      type: object
+      description: the representation of a simple semantic annotation (i.e. the ones used to indicate which data property is semantically associated to a given schema property)
+      properties:
+        simpleContexElementName:
+          type: string
+          description: the name of the schema property
+        simpleContexElementValue:
+          type: string
+          description: the IRI of the related data property
+    SemanticAnnotations:
+      title: SemanticAnnotations
+      type: object
+      description: Object for the representation of the full set of semantic annotations the system produces and adds to a schema component definition during the semantic enrichment algorithm
+      properties:
+        X_JSONLD_TYPE:
+          type: string
+          description: contains the IRI of the class semantically equivalent (or similar) to the given schema component
+        X_JSONLD_CONTEXT:
+          type: object
+          description: contains the context annotations specifying the object or data properties semantically equivalent (or similar) to the properties of the given schema component
+          properties:
+            vocab:
+              type: string
+              description: the ontology declaring the equivalent class for the given schema component
+            elements:
+              type: array
+              description: the set of context elements describing the object or data properties that are semantically equivalent to eh properties of the given schema component
+              items:
+                oneOf:
+                  - $ref: '#/components/schemas/SimpleContextElement'
+                  - $ref: '#/components/schemas/ComplexContextElement'
+        example:
+          type: object
+          description: this property shall contein an example value for every property of the given schema component
+          additionalProperties:
+            type: string
+    FileInfoAndSemanticAnnotations:
+      title: FileInfoAndSemanticAnnotations
+      type: object
+      description: the payload for the route which performs API specification decoration with semantic annotations
+      required:
+        - fileInfo
+        - semanticAnnotations
+      properties:
+        fileInfo:
+          $ref: '#/components/schemas/FileInfo'
+        semanticAnnotations:
+          type: object
+          description: the map linking the set of semantic annotation to each schema component defined in the OpenAPI spec contained in the fileInfo param
+          additionalProperties:
+            $ref: '#/components/schemas/SemanticAnnotations'
+    RDFGraph:
+      type: object
+      required:
+        - entities
+        - diagrams
+        - modelType
+        - metadata
+      properties:
+        diagrams:
+          type: array
+          items:
+            $ref: '#/components/schemas/Diagram'
+        entities:
+          type: array
+          items:
+            $ref: '#/components/schemas/GrapholscapeEntity'
+        classInstanceEntities:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClassInstanceEntity'
+        metadata:
+          type: object
+          required:
+            - namespaces
+          properties:
+            name:
+              type: string
+            iri:
+              type: string
+            version:
+              type: string
+            languages:
+              type: array
+              items:
+                type: string
+            defaultLanguage:
+              type: string
+            namespaces:
+              type: array
+              items:
+                $ref: '#/components/schemas/Namespace'
+            annotations:
+              type: array
+              items:
+                $ref: '#/components/schemas/GrapholscapeAnnotation'
+            annotationProperties:
+              type: array
+              items:
+                type: string
+        config:
+          type: object
+          properties:
+            themes:
+              type: array
+              items:
+                $ref: '#/components/schemas/Theme'
+            selectedTheme:
+              type: string
+            language:
+              type: string
+            entityNameType:
+              type: string
+              enum:
+                - label
+                - prefixed_iri
+                - full_iri
+            renderers:
+              type: array
+              items:
+                type: string
+            widgets:
+              type: object
+            filters:
+              type: array
+              items:
+                type: string
+                enum:
+                  - all
+                  - data-property
+                  - value-domain
+                  - individual
+                  - annotation-property
+                  - universal_quantifier
+                  - complement
+                  - has-key
+        selectedDiagramId:
+          type: integer
+          default: 0
+        modelType:
+          type: string
+          enum:
+            - ontology
+            - vkg
+            - rdf
+        actions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Action'
+        creator:
+          type: string
+        constraints:
+          type: array
+          items:
+            $ref: '#/components/schemas/SHACLShape'
+        importDeclarations:
+          type: array
+          items:
+            type: string
+    TypesEnum:
+      description: |-
+        Contiene tutti i tipi di nodi/archi orginirari dal Graphol per evitare di duplicare gli enumeratori. Nella rappresentazione Floaty/vkg vengono usati questi valori.
+        NODI class data-property class-instance (vkg) individual (floaty) union disjoint-union iri (floaty iri range di annotazioni che non sono entità)
+        ARCHI object-property annotation-property instance-of input inclusion equivalence attribute-edge union disjoint-union complete-union complete-disjoint-union
+      type: string
+      enum:
+        - class
+        - object-property
+        - data-property
+        - annotation-property
+        - individual
+        - class-instance
+        - domain-restriction
+        - range-restriction
+        - union
+        - complete-union
+        - disjoint-union
+        - complete-disjoint-union
+        - complement
+        - intersection
+        - enumeration
+        - has-key
+        - role-inverse
+        - role-chain
+        - datatype-restriction
+        - value-domain
+        - property-assertion
+        - literal
+        - facet
+        - neutral
+        - value
+        - inclusion
+        - equivalence
+        - instance-of
+        - input
+        - same
+        - different
+        - membership
+        - attribute-edge
+        - iri
+      x-enum-varnames:
+        - CLASS
+        - OBJECT_PROPERTY
+        - DATA_PROPERTY
+        - ANNOTATION_PROPERTY
+        - INDIVIDUAL
+        - CLASS_INSTANCE
+        - DOMAIN_RESTRICTION
+        - RANGE_RESTRICTION
+        - UNION
+        - COMPLETE_UNION
+        - DISJOINT_UNION
+        - COMPLETE_DISJOINT_UNION
+        - COMPLEMENT
+        - INTERSECTION
+        - ENUMERATION
+        - HAS_KEY
+        - ROLE_INVERSE
+        - ROLE_CHAIN
+        - DATATYPE_RESTRICTION
+        - VALUE_DOMAIN
+        - PROPERTY_ASSERTION
+        - LITERAL
+        - FACET
+        - NEUTRAL
+        - VALUE
+        - INCLUSION
+        - EQUIVALENCE
+        - INSTANCE_OF
+        - INPUT
+        - SAME
+        - DIFFERENT
+        - MEMBERSHIP
+        - ATTRIBUTE_EDGE
+        - IRI
+    Element:
+      type: object
+      required:
+        - id
+        - type
+      properties:
+        id:
+          type: string
+        originalId:
+          type: string
+          description: In case of replicated elements, this is the ID of the original element replicated in multiple occurrences, all of them with different IDs
+        diagramId:
+          type: integer
+          default: 0
+        displayedName:
+          type: string
+        iri:
+          type: string
+        type:
+          $ref: '#/components/schemas/TypesEnum'
+        aiGenerated:
+          required:
+            - chunkId
+          type: object
+          properties:
+            chunkId:
+              type: string
+            isNew:
+              type: boolean
+    Position:
+      type: object
+      required:
+        - x
+        - 'y'
+      properties:
+        x:
+          type: number
+          format: float
+          default: 0
+        'y':
+          type: number
+          format: float
+          default: 0
+    Node:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Element'
+        - type: object
+          properties:
+            position:
+              $ref: '#/components/schemas/Position'
+            labelPosition:
+              $ref: '#/components/schemas/Position'
+            geoPosition:
+              $ref: '#/components/schemas/Position'
+    Edge:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Element'
+        - type: object
+          required:
+            - sourceId
+            - targetId
+          properties:
+            sourceId:
+              type: string
+            targetId:
+              type: string
+            breakpoints:
+              type: array
+              items:
+                $ref: '#/components/schemas/Position'
+            domainTyped:
+              type: boolean
+              default: true
+            rangeTyped:
+              type: boolean
+              default: true
+            domainMandatory:
+              type: boolean
+              default: false
+            rangeMandatory:
+              type: boolean
+              default: false
+    Viewport:
+      type: object
+      required:
+        - pan
+        - zoom
+      properties:
+        pan:
+          $ref: '#/components/schemas/Position'
+        zoom:
+          type: number
+          format: float
+          default: 0
+    Diagram:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: integer
+          default: 0
+        name:
+          type: string
+        nodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Node'
+        edges:
+          type: array
+          items:
+            $ref: '#/components/schemas/Edge'
+        lastViewportState:
+          $ref: '#/components/schemas/Viewport'
+    GrapholscapeAnnotation:
+      title: GrapholscapeAnnotation
+      type: object
+      required:
+        - property
+      properties:
+        lexicalForm:
+          type: string
+          deprecated: true
+          description: Has been renamed to `value`, kept for back-compatibility.
+        value:
+          type: string
+        hasIriValue:
+          type: boolean
+          default: false
+        property:
+          type: string
+          example: rdfs:label
+        language:
+          type: string
+        datatype:
+          type: string
+    FunctionPropertiesEnum:
+      type: string
+      enum:
+        - functional
+        - inverseFunctional
+        - transitive
+        - symmetric
+        - asymmetric
+        - reflexive
+        - irreflexive
+    GrapholscapeEntity:
+      type: object
+      required:
+        - fullIri
+      properties:
+        fullIri:
+          type: string
+        annotations:
+          type: array
+          items:
+            $ref: '#/components/schemas/GrapholscapeAnnotation'
+        datatype:
+          type: string
+        isDataPropertyFunctional:
+          type: boolean
+          default: false
+        functionProperties:
+          type: array
+          items:
+            $ref: '#/components/schemas/FunctionPropertiesEnum'
+    DataPropertyValue:
+      type: object
+      required:
+        - value
+        - iri
+      properties:
+        value:
+          type: string
+        iri:
+          type: string
+        language:
+          type: string
+        datatype:
+          type: string
+        renderingProperties:
+          type: array
+          items:
+            type: string
+    ClassInstanceEntity:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/GrapholscapeEntity'
+        - type: object
+          properties:
+            parentClasses:
+              type: array
+              items:
+                type: string
+            dataProperties:
+              type: array
+              items:
+                $ref: '#/components/schemas/DataPropertyValue'
+            shortIri:
+              type: string
+    Namespace:
+      type: object
+      required:
+        - value
+        - prefixes
+      properties:
+        value:
+          type: string
+        prefixes:
+          type: array
+          items:
+            type: string
+    Theme:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        colours:
+          type: object
+    Hierarchy:
+      type: object
+      required:
+        - id
+        - type
+        - inputs
+        - superclasses
+      properties:
+        id:
+          type: string
+        type:
+          $ref: '#/components/schemas/TypesEnum'
+        inputs:
+          type: array
+          items:
+            $ref: '#/components/schemas/GrapholscapeEntity'
+        superclasses:
+          type: array
+          items:
+            required:
+              - classEntity
+              - complete
+            properties:
+              classEntity:
+                $ref: '#/components/schemas/GrapholscapeEntity'
+              complete:
+                type: boolean
+    ActionInvolvedElements:
+      description: Other elements involved in an action. Only for Remove actions. The remove action on an Entity might involve other elements. i.e. object properties on removed classes
+      type: object
+      properties:
+        nodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Node'
+        edges:
+          type: array
+          items:
+            $ref: '#/components/schemas/Edge'
+        Hierarchies:
+          type: array
+          items:
+            $ref: '#/components/schemas/Hierarchy'
+    Action:
+      description: |-
+        Actions describes what user has done on a single element or element's metadata. The user can add, edit or remove something. The "something" is described by the operation involved in the action, it can be an operation over an entity, a diagram, a hierarchy and so on.
+        Reverting an action means reverting the operation that has been done and it depends on the type of the action. - Add => Remove - Remove => Add - Edit => restore the previous state of the subject of the operation made
+      type: object
+      required:
+        - operationType
+        - subject
+        - user
+        - timestamp
+      properties:
+        operationType:
+          type: string
+          enum:
+            - add
+            - edit
+            - remove
+        subject:
+          type: object
+        previousState:
+          type: object
+        involvedElements:
+          $ref: '#/components/schemas/ActionInvolvedElements'
+        subactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Action'
+        user:
+          type: object
+          required:
+            - name
+          properties:
+            name:
+              type: string
+            firstName:
+              type: string
+            lastName:
+              type: string
+            email:
+              type: string
+        timestamp:
+          type: number
+          default: 0
+    SHACLShape:
+      type: object
+      required:
+        - type
+        - targetClass
+        - path
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          enum:
+            - Class
+            - MinCount
+            - MaxCount
+            - MinExclusive
+            - MaxExclusive
+            - MinInclusive
+            - MaxInclusive
+            - MinLength
+            - MaxLength
+            - Pattern
+            - In
+            - Equals
+            - Disjoint
+            - LessThan
+            - LessThanOrEquals
+        targetClass:
+          type: string
+        path:
+          type: string
+        property:
+          type: string
+        constraintValue:
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    jwt:
+      description: |
+        Generate your JWT when you log in. JWT configurations should be placed in `$MASTRO_HOME/config/mastro.jwt` file
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
