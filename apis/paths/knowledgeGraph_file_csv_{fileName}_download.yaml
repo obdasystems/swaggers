@@ -1,0 +1,16 @@
+get:
+  tags: [CSV]
+  summary: GET mwsx/knowledgeGraph/file/csv/{fileName}/download
+  operationId: getKnowledgeGraphUploadFileCsvDownload
+  parameters:
+  - name: fileName
+    in: path
+    required: true
+    schema: {type: string}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/FileInfo.yaml}
+    '401': {description: Unhauthorized}

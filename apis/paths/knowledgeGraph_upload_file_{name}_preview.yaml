@@ -1,0 +1,24 @@
+get:
+  tags: [Upload]
+  summary: Preview an uploaded RDF file
+  operationId: getKnowledgeGraphUploadFilePreview
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema: { type: string }
+    - name: iri
+      in: query
+      required: true
+      schema: { type: string }
+    - name: lines
+      in: query
+      required: true
+      schema: { type: integer, format: int32 }
+  responses:
+    "200":
+      description: OK
+      content:
+        text/plain:
+          schema: { type: string }
+    "401": { description: Unhauthorized }

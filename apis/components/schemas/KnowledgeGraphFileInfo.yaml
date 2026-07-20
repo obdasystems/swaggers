@@ -1,8 +1,17 @@
 title: KnowledgeGraphFileInfo
 type: object
+required: [fileName, originType]
 properties:
-  numberOfTriples: {type: integer, format: int64, default: 0}
-  fileName: {type: string}
-  uploadDate: {type: integer, format: int64, default: 0}
-  importingTime: {type: integer, format: int64, default: 0}
-  imported: {type: boolean, default: false}
+  numberOfTriples: { type: integer, format: int64, default: 0 }
+  fileName: { type: string }
+  uploadDate: { type: integer, format: int64, default: 0 }
+  importingTime: { type: integer, format: int64, default: 0 }
+  imported: { type: boolean, default: false }
+  originType:
+    enum: [RDF, CSV, QUERY, ONTOLOGY]
+  originDetail:
+    type: string
+    description: Valorized only when originType != RDF. 
+      If the origin type is QUERY it contains the query code,
+      if it is CSV it contains the name of the CSV from which it was created,
+      if it is ONTOLOGY it contains the IRI of the ontology.

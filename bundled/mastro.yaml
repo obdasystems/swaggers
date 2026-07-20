@@ -13253,6 +13253,70 @@ paths:
       security:
         - apiKey: []
         - jwt: []
+  /knowledgeGraph/upload/file/{name}/preview:
+    get:
+      tags:
+        - knowledge-graphs_Upload
+      summary: Preview an uploaded RDF file
+      operationId: getKnowledgeGraphUploadFilePreview
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: lines
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
+  /knowledgeGraph/upload/file/{name}/download:
+    get:
+      tags:
+        - knowledge-graphs_Upload
+      summary: Download an uploaded RDF file
+      operationId: getKnowledgeGraphUploadFileDownload
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: iri
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileInfo'
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
   /knowledgeGraph/upload/import:
     put:
       tags:
@@ -13550,6 +13614,30 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CsvPreview'
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
+  /knowledgeGraph/file/csv/{fileName}/download:
+    get:
+      tags:
+        - knowledge-graphs_CSV
+      summary: GET mwsx/knowledgeGraph/file/csv/{fileName}/download
+      operationId: getKnowledgeGraphUploadFileCsvDownload
+      parameters:
+        - name: fileName
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileInfo'
         '401':
           description: Unhauthorized
       security:
@@ -22038,6 +22126,8 @@ components:
       properties:
         queryID:
           type: string
+        queryCode:
+          type: string
     KgConstructResults:
       title: KgConstructResults
       type: object
@@ -22277,6 +22367,9 @@ components:
     KnowledgeGraphFileInfo:
       title: KnowledgeGraphFileInfo
       type: object
+      required:
+        - fileName
+        - originType
       properties:
         numberOfTriples:
           type: integer
@@ -22295,6 +22388,19 @@ components:
         imported:
           type: boolean
           default: false
+        originType:
+          enum:
+            - RDF
+            - CSV
+            - QUERY
+            - ONTOLOGY
+        originDetail:
+          type: string
+          description: >-
+            Valorized only when originType != RDF. If the origin type is QUERY
+            it contains the query code, if it is CSV it contains the name of the
+            CSV from which it was created, if it is ONTOLOGY it contains the IRI
+            of the ontology.
     OBDAConstructResults:
       title: OBDAConstructResults
       type: object

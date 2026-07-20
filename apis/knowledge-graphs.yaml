@@ -86,6 +86,10 @@ paths:
     $ref: paths/knowledgeGraph_store_file_{name}.yaml
   /knowledgeGraph/upload/file:
     $ref: paths/knowledgeGraph_upload_file.yaml
+  /knowledgeGraph/upload/file/{name}/preview:
+    $ref: paths/knowledgeGraph_upload_file_{name}_preview.yaml
+  /knowledgeGraph/upload/file/{name}/download:
+    $ref: paths/knowledgeGraph_upload_file_{name}_download.yaml
   /knowledgeGraph/upload/import:
     $ref: paths/knowledgeGraph_upload_import.yaml
   /knowledgeGraph/delete/file:
@@ -106,6 +110,9 @@ paths:
     $ref: paths/knowledgeGraph_delete_file_csv_{fileName}.yaml
   /knowledgeGraph/file/csv/{fileName}/preview:
     $ref: paths/knowledgeGraph_file_csv_{fileName}_preview.yaml
+  /knowledgeGraph/file/csv/{fileName}/download:
+    $ref: paths/knowledgeGraph_file_csv_{fileName}_download.yaml
+    
   /knowledgeGraph/upload/import/csv:
     $ref: paths/knowledgeGraph_upload_import_csv.yaml
   /knowledgeGraph/upload/import/threads:
@@ -114,6 +121,7 @@ paths:
     $ref: paths/knowledgeGraph_upload_import_thread.yaml
   /knowledgeGraph/import/metadata:
     $ref: paths/knowledgeGraph_import_metadata.yaml
+  
 components: 
   securitySchemes: 
     apiKey: 
