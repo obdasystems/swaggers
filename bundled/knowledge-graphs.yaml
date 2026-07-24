@@ -16,7 +16,7 @@ servers:
       tenant:
         default: localhost
       port:
-        default: ':8989'
+        default: :8989
 security:
   - apiKey: []
   - jwt: []
@@ -1761,6 +1761,18 @@ components:
           type: object
           additionalProperties:
             type: string
+    IMwsxThreadState:
+      type: string
+      enum:
+        - READY
+        - FINISHED
+        - UNAVAILABLE
+        - ERROR
+        - RUNNING
+        - STOPPED
+        - DISABLED
+        - LOADING
+        - NEW
     KGStatus:
       title: KGStatus
       type: object
@@ -1774,7 +1786,7 @@ components:
           format: int32
           default: 0
         status:
-          type: string
+          $ref: '#/components/schemas/IMwsxThreadState'
     FileInfo:
       title: FileInfo
       type: object
@@ -2174,14 +2186,7 @@ components:
           format: int32
           default: 0
         status:
-          enum:
-            - READY
-            - FINISHED
-            - UNAVAILABLE
-            - ERROR
-            - RUNNING
-            - STOPPED
-            - DISABLED
+          $ref: '#/components/schemas/IMwsxThreadState'
         queryCode:
           type: string
         constructQueryCode:

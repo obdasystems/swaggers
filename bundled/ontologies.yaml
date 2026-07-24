@@ -16,7 +16,7 @@ servers:
       tenant:
         default: localhost
       port:
-        default: ':8989'
+        default: :8989
 security:
   - apiKey: []
   - jwt: []
@@ -1678,6 +1678,18 @@ components:
           type: string
         content:
           type: string
+    IMwsxThreadState:
+      type: string
+      enum:
+        - READY
+        - FINISHED
+        - UNAVAILABLE
+        - ERROR
+        - RUNNING
+        - STOPPED
+        - DISABLED
+        - LOADING
+        - NEW
     MwsxOntologyVersionCloserStatus:
       title: MwsxOntologyVersionCloserStatus
       type: object
@@ -1685,7 +1697,7 @@ components:
         id:
           type: string
         state:
-          type: string
+          $ref: '#/components/schemas/IMwsxThreadState'
         timeStart:
           type: integer
           format: int64
@@ -1785,7 +1797,7 @@ components:
         id:
           type: string
         state:
-          type: string
+          $ref: '#/components/schemas/IMwsxThreadState'
         timeStart:
           type: integer
           format: int64
@@ -1807,7 +1819,7 @@ components:
         id:
           type: string
         state:
-          type: string
+          $ref: '#/components/schemas/IMwsxThreadState'
         timeStart:
           type: integer
           format: int64

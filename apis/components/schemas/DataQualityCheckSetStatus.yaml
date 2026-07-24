@@ -5,5 +5,4 @@ properties:
     type: array
     items:
       $ref: ./DataQualityCheckStatus.yaml
-  status:
-    type: string
+  status: { $ref: ./IMwsxThreadState.yaml }

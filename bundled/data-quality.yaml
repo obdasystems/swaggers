@@ -16,7 +16,7 @@ servers:
       tenant:
         default: localhost
       port:
-        default: ':8989'
+        default: :8989
 security:
   - apiKey: []
   - jwt: []
@@ -1112,6 +1112,18 @@ components:
           type: string
         user:
           type: string
+    IMwsxThreadState:
+      type: string
+      enum:
+        - READY
+        - FINISHED
+        - UNAVAILABLE
+        - ERROR
+        - RUNNING
+        - STOPPED
+        - DISABLED
+        - LOADING
+        - NEW
     DataQualityCheckStatus:
       title: DataQualityCheckStatus
       type: object
@@ -1125,7 +1137,7 @@ components:
         queryExecutionId:
           type: string
         status:
-          type: string
+          $ref: '#/components/schemas/IMwsxThreadState'
     DataQualityCheckSetStatus:
       title: DataQualityCheckSetStatus
       type: object
@@ -1135,7 +1147,7 @@ components:
           items:
             $ref: '#/components/schemas/DataQualityCheckStatus'
         status:
-          type: string
+          $ref: '#/components/schemas/IMwsxThreadState'
     SPARQLResultsHeadTypes:
       title: SPARQLResultsHeadTypes
       enum:
@@ -1259,7 +1271,7 @@ components:
         entity:
           $ref: '#/components/schemas/OntologyEntity'
         status:
-          type: string
+          $ref: '#/components/schemas/IMwsxThreadState'
         disjointEntity:
           $ref: '#/components/schemas/OntologyEntity'
     OntologyID:

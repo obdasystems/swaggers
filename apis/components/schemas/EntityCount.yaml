@@ -2,7 +2,7 @@ title: EntityCount
 type: object
 required: [entity, count, state]
 properties:
-  count: {type: integer, format: int64, default: 0}
-  state: {type: string}
-  error: {type: string}
-  entity: {$ref: ./OntologyEntity.yaml}
+  count: { type: integer, format: int64, default: 0 }
+  state: { $ref: ./IMwsxThreadState.yaml }
+  error: { type: string }
+  entity: { $ref: ./OntologyEntity.yaml }

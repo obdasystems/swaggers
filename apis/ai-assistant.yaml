@@ -60,7 +60,6 @@ paths:
   /ai/ontologyDraft/metadata:
     $ref: paths/ai_ontologyDraft_metadata.yaml
 components:
-  schemas:    
   securitySchemes:
     jwt:
       $ref: "./components/securitySchemes/jwt.yaml"

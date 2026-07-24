@@ -7,7 +7,5 @@ properties:
     additionalProperties: { $ref: ./EntityExamples.yaml }
   startTime: { type: integer, format: int64, default: 0 }
   endTime: { type: integer, format: int64, default: 0 }
-  state:
-    type: string
-    enum: [RUNNING, READY, FINISHED, ERROR, STOPPED]
+  state: { $ref: ./IMwsxThreadState.yaml }
   percentage: { type: number, default: 0 }

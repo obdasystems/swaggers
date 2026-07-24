@@ -16,7 +16,7 @@ servers:
       tenant:
         default: localhost
       port:
-        default: ':8989'
+        default: :8989
 security:
   - apiKey: []
   - jwt: []
@@ -2632,6 +2632,18 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/MastroConfigurationParam'
+    IMwsxThreadState:
+      type: string
+      enum:
+        - READY
+        - FINISHED
+        - UNAVAILABLE
+        - ERROR
+        - RUNNING
+        - STOPPED
+        - DISABLED
+        - LOADING
+        - NEW
     OBDAStatus:
       title: OBDAStatus
       type: object
@@ -2642,12 +2654,7 @@ components:
         id:
           $ref: '#/components/schemas/MastroID'
         status:
-          type: string
-          enum:
-            - LOADING
-            - RUNNING
-            - UNAVAILABLE
-            - ERROR
+          $ref: '#/components/schemas/IMwsxThreadState'
         lastError:
           type: string
     EndpointStatus:
@@ -2987,14 +2994,7 @@ components:
           format: int32
           default: 0
         status:
-          enum:
-            - READY
-            - FINISHED
-            - UNAVAILABLE
-            - ERROR
-            - RUNNING
-            - STOPPED
-            - DISABLED
+          $ref: '#/components/schemas/IMwsxThreadState'
         queryCode:
           type: string
         constructQueryCode:
@@ -3689,7 +3689,7 @@ components:
           format: int64
           default: 0
         state:
-          type: string
+          $ref: '#/components/schemas/IMwsxThreadState'
         error:
           type: string
         entity:
@@ -3720,13 +3720,7 @@ components:
           format: int64
           default: 0
         state:
-          type: string
-          enum:
-            - RUNNING
-            - READY
-            - FINISHED
-            - ERROR
-            - STOPPED
+          $ref: '#/components/schemas/IMwsxThreadState'
     InstanceCheckingInfo:
       title: InstanceCheckingInfo
       type: object
@@ -3747,13 +3741,7 @@ components:
           format: int64
           default: 0
         state:
-          type: string
-          enum:
-            - READY
-            - RUNNING
-            - FINISHED
-            - ERROR
-            - STOPPED
+          $ref: '#/components/schemas/IMwsxThreadState'
     EntityMinMax:
       title: EntityMinMax
       type: object
@@ -3766,7 +3754,7 @@ components:
         error:
           type: string
         state:
-          type: string
+          $ref: '#/components/schemas/IMwsxThreadState'
     MinMaxDatapropertiesInfo:
       title: MinMaxDatapropertiesInfo
       type: object
@@ -3795,13 +3783,7 @@ components:
           format: int64
           default: 0
         state:
-          type: string
-          enum:
-            - RUNNING
-            - READY
-            - FINISHED
-            - ERROR
-            - STOPPED
+          $ref: '#/components/schemas/IMwsxThreadState'
         percentage:
           type: number
           default: 0
@@ -3821,7 +3803,7 @@ components:
         error:
           type: string
         state:
-          type: string
+          $ref: '#/components/schemas/IMwsxThreadState'
     EntitiesExamplesInfo:
       title: EntitiesExamplesInfo
       type: object
@@ -3845,13 +3827,7 @@ components:
           format: int64
           default: 0
         state:
-          type: string
-          enum:
-            - RUNNING
-            - READY
-            - FINISHED
-            - ERROR
-            - STOPPED
+          $ref: '#/components/schemas/IMwsxThreadState'
         percentage:
           type: number
           default: 0

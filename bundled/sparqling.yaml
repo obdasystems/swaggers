@@ -17,7 +17,7 @@ servers:
       tenant:
         default: localhost
       port:
-        default: ':8989'
+        default: :8989
 security:
   - apiKey: []
   - jwt: []
@@ -269,7 +269,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HighlightsPathsThreadState'
+                $ref: '#/components/schemas/IMwsxThreadState'
         '401':
           description: Unhauthorized
   /owlOntology/{name}/highlights/paths/thread/error:
@@ -1827,12 +1827,18 @@ components:
           description: The list of edges connecting two nodes
           items:
             $ref: '#/components/schemas/ObjectPropertiesMultiEdge'
-    HighlightsPathsThreadState:
-      title: HighlightsPathsThreadState
+    IMwsxThreadState:
+      type: string
       enum:
-        - RUNNING
-        - FINISHED
         - READY
+        - FINISHED
+        - UNAVAILABLE
+        - ERROR
+        - RUNNING
+        - STOPPED
+        - DISABLED
+        - LOADING
+        - NEW
     VarOrConstant:
       type: object
       properties:
