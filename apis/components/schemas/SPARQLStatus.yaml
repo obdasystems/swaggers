@@ -1,23 +1,32 @@
 title: SPARQLStatus
 type: object
-required: [status, executionTime, numResults, percentage, numHighLevelQueries, numLowLevelQueries,
-  numOntologyRewritings, numOptimizedQueries, hasError]
+required:
+  [
+    status,
+    executionTime,
+    numResults,
+    percentage,
+    numHighLevelQueries,
+    numLowLevelQueries,
+    numOntologyRewritings,
+    numOptimizedQueries,
+    hasError,
+  ]
 properties:
-  executionTime: {type: integer, format: int32, default: 0}
+  executionTime: { type: integer, format: int32, default: 0 }
   errorMessages:
     type: array
-    items: {type: string}
-  percentage: {type: integer, format: int32, default: 0}
-  numLowLevelQueries: {type: integer, format: int32, default: 0}
-  numResults: {type: integer, format: int32, default: 0}
-  numOntologyRewritings: {type: integer, format: int32, default: 0}
-  numOptimizedQueries: {type: integer, format: int32, default: 0}
-  hasError: {type: boolean, default: false}
-  numHighLevelQueries: {type: integer, format: int32, default: 0}
-  status:
-    enum: [READY, FINISHED, UNAVAILABLE, ERROR, RUNNING, STOPPED, DISABLED]
-  queryCode: {type: string}
-  constructQueryCode: {type: string}
+    items: { type: string }
+  percentage: { type: integer, format: int32, default: 0 }
+  numLowLevelQueries: { type: integer, format: int32, default: 0 }
+  numResults: { type: integer, format: int32, default: 0 }
+  numOntologyRewritings: { type: integer, format: int32, default: 0 }
+  numOptimizedQueries: { type: integer, format: int32, default: 0 }
+  hasError: { type: boolean, default: false }
+  numHighLevelQueries: { type: integer, format: int32, default: 0 }
+  status: { $ref: ./IMwsxThreadState.yaml }
+  queryCode: { type: string }
+  constructQueryCode: { type: string }
   evaluationStepTimes:
     type: object
-    additionalProperties: {type: string}
+    additionalProperties: { type: string }

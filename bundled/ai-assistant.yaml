@@ -16,7 +16,7 @@ servers:
       tenant:
         default: localhost
       port:
-        default: ':8080'
+        default: :8080
 security:
   - jwt: []
 paths:
@@ -719,6 +719,13 @@ paths:
         '401':
           description: Unhauthorized
 components:
+  securitySchemes:
+    jwt:
+      description: |
+        Generate your JWT when you log in. JWT configurations should be placed in `$MASTRO_HOME/config/mastro.jwt` file
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
   schemas:
     ChartConfiguration:
       title: ChartConfiguration
@@ -1342,10 +1349,3 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/MWSXMetadataTriple'
-  securitySchemes:
-    jwt:
-      description: |
-        Generate your JWT when you log in. JWT configurations should be placed in `$MASTRO_HOME/config/mastro.jwt` file
-      type: http
-      scheme: bearer
-      bearerFormat: JWT

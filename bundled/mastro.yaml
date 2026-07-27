@@ -20,7 +20,7 @@ servers:
       tenant:
         default: localhost
       port:
-        default: ':8989'
+        default: :8989
 tags:
   - name: authentication_Login
     x-displayName: Login
@@ -9329,7 +9329,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HighlightsPathsThreadState'
+                $ref: '#/components/schemas/IMwsxThreadState'
         '401':
           description: Unhauthorized
       security:
@@ -18471,6 +18471,18 @@ components:
           type: string
         content:
           type: string
+    IMwsxThreadState:
+      type: string
+      enum:
+        - READY
+        - FINISHED
+        - UNAVAILABLE
+        - ERROR
+        - RUNNING
+        - STOPPED
+        - DISABLED
+        - LOADING
+        - NEW
     MwsxOntologyVersionCloserStatus:
       title: MwsxOntologyVersionCloserStatus
       type: object
@@ -18478,7 +18490,7 @@ components:
         id:
           type: string
         state:
-          type: string
+          $ref: '#/components/schemas/IMwsxThreadState'
         timeStart:
           type: integer
           format: int64
@@ -18578,7 +18590,7 @@ components:
         id:
           type: string
         state:
-          type: string
+          $ref: '#/components/schemas/IMwsxThreadState'
         timeStart:
           type: integer
           format: int64
@@ -18600,7 +18612,7 @@ components:
         id:
           type: string
         state:
-          type: string
+          $ref: '#/components/schemas/IMwsxThreadState'
         timeStart:
           type: integer
           format: int64
@@ -20293,12 +20305,7 @@ components:
         id:
           $ref: '#/components/schemas/MastroID'
         status:
-          type: string
-          enum:
-            - LOADING
-            - RUNNING
-            - UNAVAILABLE
-            - ERROR
+          $ref: '#/components/schemas/IMwsxThreadState'
         lastError:
           type: string
     EndpointStatus:
@@ -20522,14 +20529,7 @@ components:
           format: int32
           default: 0
         status:
-          enum:
-            - READY
-            - FINISHED
-            - UNAVAILABLE
-            - ERROR
-            - RUNNING
-            - STOPPED
-            - DISABLED
+          $ref: '#/components/schemas/IMwsxThreadState'
         queryCode:
           type: string
         constructQueryCode:
@@ -21243,7 +21243,7 @@ components:
           format: int64
           default: 0
         state:
-          type: string
+          $ref: '#/components/schemas/IMwsxThreadState'
         error:
           type: string
         entity:
@@ -21274,13 +21274,7 @@ components:
           format: int64
           default: 0
         state:
-          type: string
-          enum:
-            - RUNNING
-            - READY
-            - FINISHED
-            - ERROR
-            - STOPPED
+          $ref: '#/components/schemas/IMwsxThreadState'
     InstanceCheckingInfo:
       title: InstanceCheckingInfo
       type: object
@@ -21301,13 +21295,7 @@ components:
           format: int64
           default: 0
         state:
-          type: string
-          enum:
-            - READY
-            - RUNNING
-            - FINISHED
-            - ERROR
-            - STOPPED
+          $ref: '#/components/schemas/IMwsxThreadState'
     EntityMinMax:
       title: EntityMinMax
       type: object
@@ -21320,7 +21308,7 @@ components:
         error:
           type: string
         state:
-          type: string
+          $ref: '#/components/schemas/IMwsxThreadState'
     MinMaxDatapropertiesInfo:
       title: MinMaxDatapropertiesInfo
       type: object
@@ -21349,13 +21337,7 @@ components:
           format: int64
           default: 0
         state:
-          type: string
-          enum:
-            - RUNNING
-            - READY
-            - FINISHED
-            - ERROR
-            - STOPPED
+          $ref: '#/components/schemas/IMwsxThreadState'
         percentage:
           type: number
           default: 0
@@ -21375,7 +21357,7 @@ components:
         error:
           type: string
         state:
-          type: string
+          $ref: '#/components/schemas/IMwsxThreadState'
     EntitiesExamplesInfo:
       title: EntitiesExamplesInfo
       type: object
@@ -21399,13 +21381,7 @@ components:
           format: int64
           default: 0
         state:
-          type: string
-          enum:
-            - RUNNING
-            - READY
-            - FINISHED
-            - ERROR
-            - STOPPED
+          $ref: '#/components/schemas/IMwsxThreadState'
         percentage:
           type: number
           default: 0
@@ -21683,12 +21659,6 @@ components:
           description: The list of edges connecting two nodes
           items:
             $ref: '#/components/schemas/ObjectPropertiesMultiEdge'
-    HighlightsPathsThreadState:
-      title: HighlightsPathsThreadState
-      enum:
-        - RUNNING
-        - FINISHED
-        - READY
     OntologyPath:
       properties:
         entities:
@@ -21739,7 +21709,7 @@ components:
           format: int64
           default: 0
         status:
-          type: string
+          $ref: '#/components/schemas/IMwsxThreadState'
     MWSXOBDATriplificationMappingReport:
       title: OBDATriplificationMappingReport
       type: object
@@ -22063,7 +22033,7 @@ components:
           format: int32
           default: 0
         status:
-          type: string
+          $ref: '#/components/schemas/IMwsxThreadState'
     KnowledgeGraphDestination:
       title: KnowledgeGraphDestination
       type: object
@@ -22584,7 +22554,7 @@ components:
           items:
             type: string
         status:
-          type: string
+          $ref: '#/components/schemas/IMwsxThreadState'
     AvpTreeNode:
       title: AvpTreeNode
       type: object
@@ -22914,7 +22884,7 @@ components:
         queryExecutionId:
           type: string
         status:
-          type: string
+          $ref: '#/components/schemas/IMwsxThreadState'
     DataQualityCheckSetStatus:
       title: DataQualityCheckSetStatus
       type: object
@@ -22924,7 +22894,7 @@ components:
           items:
             $ref: '#/components/schemas/DataQualityCheckStatus'
         status:
-          type: string
+          $ref: '#/components/schemas/IMwsxThreadState'
     DataQualityCheckExecutionLog:
       title: DataQualityCheckExecutionLog
       type: object
@@ -22984,7 +22954,7 @@ components:
         entity:
           $ref: '#/components/schemas/OntologyEntity'
         status:
-          type: string
+          $ref: '#/components/schemas/IMwsxThreadState'
         disjointEntity:
           $ref: '#/components/schemas/OntologyEntity'
     DataQualityCheckSetExecutionLog:
@@ -23576,7 +23546,7 @@ components:
           format: int64
           default: 0
         state:
-          type: string
+          $ref: '#/components/schemas/IMwsxThreadState'
         messages:
           type: array
           items:

@@ -16,7 +16,7 @@ servers:
       tenant:
         default: localhost
       port:
-        default: ':8989'
+        default: :8989
 security:
   - apiKey: []
   - jwt: []
@@ -309,6 +309,18 @@ components:
           type: string
         dataSource:
           type: string
+    IMwsxThreadState:
+      type: string
+      enum:
+        - READY
+        - FINISHED
+        - UNAVAILABLE
+        - ERROR
+        - RUNNING
+        - STOPPED
+        - DISABLED
+        - LOADING
+        - NEW
     MWSXOBDATriplificationProgress:
       title: OBDATriplificationProgress
       type: object
@@ -328,7 +340,7 @@ components:
           format: int64
           default: 0
         status:
-          type: string
+          $ref: '#/components/schemas/IMwsxThreadState'
     MWSXOBDATriplificationMappingReport:
       title: OBDATriplificationMappingReport
       type: object

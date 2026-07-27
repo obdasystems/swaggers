@@ -6,12 +6,6 @@ required:
 properties:
   id:
     $ref: ./MastroID.yaml
-  status:
-    type: string
-    enum:
-      - LOADING
-      - RUNNING
-      - UNAVAILABLE
-      - ERROR
+  status: { $ref: ./IMwsxThreadState.yaml }
   lastError:
     type: string

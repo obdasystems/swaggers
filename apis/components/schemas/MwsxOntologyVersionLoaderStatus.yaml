@@ -2,7 +2,7 @@ title: MwsxOntologyVersionLoaderStatus
 type: object
 properties:
   id: { type: string }
-  state: { type: string }
+  state: { $ref: ./IMwsxThreadState.yaml }
   timeStart: { type: integer, format: int64, default: 0 }
   timeElapsed: { type: integer, format: int64, default: 0 }
   currentStep: { type: string }

@@ -8,6 +8,4 @@ properties:
   percentage: { type: number, default: 0 }
   startTime: { type: integer, format: int64, default: 0 }
   endTime: { type: integer, format: int64, default: 0 }
-  state:
-    type: string
-    enum: [RUNNING, READY, FINISHED, ERROR, STOPPED]
+  state: { $ref: ./IMwsxThreadState.yaml }

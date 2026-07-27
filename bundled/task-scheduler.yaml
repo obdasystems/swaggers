@@ -16,7 +16,7 @@ servers:
       tenant:
         default: localhost
       port:
-        default: ':8989'
+        default: :8989
 security:
   - apiKey: []
   - jwt: []
@@ -294,6 +294,18 @@ components:
             type: string
         cronExpression:
           type: string
+    IMwsxThreadState:
+      type: string
+      enum:
+        - READY
+        - FINISHED
+        - UNAVAILABLE
+        - ERROR
+        - RUNNING
+        - STOPPED
+        - DISABLED
+        - LOADING
+        - NEW
     MwsxTaskSchedulerJobEntry:
       title: MwsxTaskSchedulerJobEntry
       type: object
@@ -315,7 +327,7 @@ components:
           format: int64
           default: 0
         state:
-          type: string
+          $ref: '#/components/schemas/IMwsxThreadState'
         messages:
           type: array
           items:

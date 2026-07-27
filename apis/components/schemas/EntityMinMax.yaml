@@ -8,5 +8,4 @@ properties:
     default: 0
   error:
     type: string
-  state:
-    type: string
+  state: { $ref: ./IMwsxThreadState.yaml }

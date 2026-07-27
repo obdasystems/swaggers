@@ -16,7 +16,7 @@ servers:
       tenant:
         default: localhost
       port:
-        default: ':8989'
+        default: :8989
 security:
   - basicAuth: []
 paths:
