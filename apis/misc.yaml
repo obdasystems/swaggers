@@ -23,8 +23,6 @@ paths:
     $ref: paths/log_{env}_{mode}.yaml
   /mastro/version:
     $ref: paths/mastro_version.yaml
-  /jena/version:
-    $ref: paths/jena_version.yaml
   /owlapi/version:
     $ref: paths/owlapi_version.yaml
   /resources/ontologies:
