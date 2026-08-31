@@ -19361,33 +19361,6 @@ paths:
       security:
         - apiKey: []
         - jwt: []
-  /jena/version:
-    servers:
-      - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
-        variables:
-          protocol:
-            default: https
-          tenant:
-            default: localhost
-          port:
-            default: :8989
-    get:
-      tags:
-        - mastro_misc_Versions
-      summary: Returns the version of the Jena library used by Mastro
-      operationId: getJenaVersion
-      responses:
-        '200':
-          description: OK
-          content:
-            text/plain:
-              schema:
-                type: string
-        '401':
-          description: Unhauthorized
-      security:
-        - apiKey: []
-        - jwt: []
   /owlapi/version:
     servers:
       - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'

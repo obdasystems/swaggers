@@ -16041,24 +16041,6 @@ paths:
       security:
         - apiKey: []
         - jwt: []
-  /jena/version:
-    get:
-      tags:
-        - misc_Versions
-      summary: Returns the version of the Jena library used by Mastro
-      operationId: getJenaVersion
-      responses:
-        '200':
-          description: OK
-          content:
-            text/plain:
-              schema:
-                type: string
-        '401':
-          description: Unhauthorized
-      security:
-        - apiKey: []
-        - jwt: []
   /owlapi/version:
     get:
       tags:
