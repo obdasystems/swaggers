@@ -137,6 +137,12 @@ paths:
     $ref: paths/endpoint_{eName}_countEntityInstances_stop.yaml
   /endpoint/{eName}/countEntityInstances/info:
     $ref: paths/endpoint_{eName}_countEntityInstances_info.yaml
+  /endpoint/{eName}/instanceBFS/start:
+    $ref: paths/endpoint_{eName}_instanceBFS_start.yaml
+  /endpoint/{eName}/instanceBFS/{threadId}/stop:
+    $ref: paths/endpoint_{eName}_instanceBFS_{threadId}_stop.yaml
+  /endpoint/{eName}/instanceBFS/{threadId}/info:
+    $ref: paths/endpoint_{eName}_instanceBFS_{threadId}_info.yaml
   /endpoint/{eName}/instanceChecking/start:
     $ref: paths/endpoint_{eName}_instanceChecking_start.yaml
   /endpoint/{eName}/instanceChecking/{threadId}/stop:
@@ -177,6 +183,7 @@ paths:
     $ref: paths/endpoint_{eName}_saturatedOntology.yaml
   /endpoint/{endpointName}/highligthsSharedViewsProps:
     $ref: paths/endpoint_{endpointName}_highligthsSharedViewsProps.yaml
+  
 components: 
   securitySchemes: 
     apiKey: 

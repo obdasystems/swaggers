@@ -453,6 +453,7 @@ components:
           items:
             $ref: '#/components/schemas/Filter'
     SparqlingEntity:
+      title: SparqlingEntity
       type: object
       required:
         - type

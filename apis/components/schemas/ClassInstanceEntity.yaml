@@ -1,3 +1,4 @@
+title: ClassInstanceEntity
 type: object
 allOf:
   - $ref: ./GrapholscapeEntity.yaml

@@ -1,0 +1,42 @@
+post:
+  tags: [InstanceBFS]
+  summary: Starts the executions of the queries that will expand the source instance to find paths to the target instance.
+  operationId: startEndpointInstanceBFS
+  parameters:
+    - name: eName
+      in: path
+      required: true
+      schema: { type: string }
+    - name: numberOfPaths
+      in: query
+      schema: 
+        type: integer
+        default: 3
+    - name: limit
+      in: query
+      description: The max number of answers for each single query
+      schema: 
+        type: integer
+        default: 3
+    - name: maxNodes
+      in: query
+      description: The max number of nodes in one path
+      schema: 
+        type: integer
+        default: 10
+  requestBody:
+    description: "An array: [sourceNode, targetNode_0 ... targetNode_n]"
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: ../components/schemas/ClassInstanceEntity.yaml
+    required: true
+  responses:
+    "200":
+      description: The thread id for the polling the info or stop the execution
+      content:
+        application/json:
+          schema: { type: integer }
+    "401": { description: Unhauthorized }

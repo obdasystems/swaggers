@@ -1,3 +1,4 @@
+title: SparqlingEntity
 type: object
 required:
   - type

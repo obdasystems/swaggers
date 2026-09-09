@@ -1,0 +1,12 @@
+title: BFSEdge
+description: It represents an edge of a virtual graph used to search paths between instances
+type: object
+properties:
+  iri:
+    type: string
+  source_iri:
+    type: string
+  target_iri:
+    type: string
+  is_inverse:
+    type: boolean

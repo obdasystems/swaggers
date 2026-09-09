@@ -1,3 +1,4 @@
+title: GrapholscapeEntity
 type: object
 required: [fullIri]
 properties:

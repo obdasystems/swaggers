@@ -1,0 +1,14 @@
+title: BFSPath
+description: It represents a path of a virtual graph used to search paths between instances
+type: object
+properties:
+  id:
+    type: string
+  nodes:
+    type: array
+    items:
+      $ref: ClassInstanceEntity.yaml
+  edges:
+    type: array
+    items:
+      $ref: ./BFSEdge.yaml

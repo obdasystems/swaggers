@@ -1,0 +1,18 @@
+title: BFSInfo
+description: It represents the state of the BFS
+type: object
+properties:
+  status:
+    $ref: IMwsxThreadState.yaml
+  percentage:
+    type: integer
+  currentPath:
+    $ref: BFSPath.yaml
+  foundPaths:
+    type: array
+    items: 
+      $ref: BFSPath.yaml
+  rejectedPaths:
+    type: array
+    items: 
+      $ref: BFSPath.yaml

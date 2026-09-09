@@ -1,0 +1,20 @@
+get:
+  tags: [InstanceBFS]
+  summary: Starts the executions of the queries that expand the BFS
+  operationId: getStopEndpointInstanceBFS
+  parameters:
+  - name: eName
+    in: path
+    required: true
+    schema: {type: string}
+  - name: threadId
+    in: path
+    required: true
+    schema: {type: integer, format: int64}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {type: integer}
+    '401': {description: Unhauthorized}

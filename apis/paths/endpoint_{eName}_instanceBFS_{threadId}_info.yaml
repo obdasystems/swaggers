@@ -1,0 +1,20 @@
+get:
+  tags: [InstanceBFS]
+  summary: Get the info about the results of the current BFS
+  operationId: getEndpointInstanceBFS
+  parameters:
+  - name: eName
+    in: path
+    required: true
+    schema: {type: string}
+  - name: threadId
+    in: path
+    required: true
+    schema: {type: integer, format: int64}
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/BFSInfo.yaml}
+    '401': {description: Unhauthorized}

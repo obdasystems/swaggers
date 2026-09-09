@@ -93,6 +93,8 @@ tags:
     x-displayName: VKG
   - name: mastro_endpoints_CountEntityInstances
     x-displayName: CountEntityInstances
+  - name: mastro_endpoints_InstanceBFS
+    x-displayName: InstanceBFS
   - name: mastro_endpoints_InstanceChecking
     x-displayName: InstanceChecking
   - name: mastro_endpoints_MinMaxDataProperties
@@ -9051,6 +9053,145 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CountEntityInstancesInfo'
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
+  /endpoint/{eName}/instanceBFS/start:
+    servers:
+      - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+        variables:
+          protocol:
+            default: https
+          tenant:
+            default: localhost
+          port:
+            default: :8989
+    post:
+      tags:
+        - mastro_endpoints_InstanceBFS
+      summary: >-
+        Starts the executions of the queries that will expand the source
+        instance to find paths to the target instance.
+      operationId: startEndpointInstanceBFS
+      parameters:
+        - name: eName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: numberOfPaths
+          in: query
+          schema:
+            type: integer
+            default: 3
+        - name: limit
+          in: query
+          description: The max number of answers for each single query
+          schema:
+            type: integer
+            default: 3
+        - name: maxNodes
+          in: query
+          description: The max number of nodes in one path
+          schema:
+            type: integer
+            default: 10
+      requestBody:
+        description: 'An array: [sourceNode, targetNode_0 ... targetNode_n]'
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ClassInstanceEntity'
+        required: true
+      responses:
+        '200':
+          description: The thread id for the polling the info or stop the execution
+          content:
+            application/json:
+              schema:
+                type: integer
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
+  /endpoint/{eName}/instanceBFS/{threadId}/stop:
+    servers:
+      - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+        variables:
+          protocol:
+            default: https
+          tenant:
+            default: localhost
+          port:
+            default: :8989
+    get:
+      tags:
+        - mastro_endpoints_InstanceBFS
+      summary: Starts the executions of the queries that expand the BFS
+      operationId: getStopEndpointInstanceBFS
+      parameters:
+        - name: eName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: threadId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
+  /endpoint/{eName}/instanceBFS/{threadId}/info:
+    servers:
+      - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+        variables:
+          protocol:
+            default: https
+          tenant:
+            default: localhost
+          port:
+            default: :8989
+    get:
+      tags:
+        - mastro_endpoints_InstanceBFS
+      summary: Get the info about the results of the current BFS
+      operationId: getEndpointInstanceBFS
+      parameters:
+        - name: eName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: threadId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BFSInfo'
         '401':
           description: Unhauthorized
       security:
@@ -24023,6 +24164,7 @@ components:
           items:
             $ref: '#/components/schemas/Filter'
     SparqlingEntity:
+      title: SparqlingEntity
       type: object
       required:
         - type
@@ -25784,6 +25926,7 @@ components:
         - reflexive
         - irreflexive
     GrapholscapeEntity:
+      title: GrapholscapeEntity
       type: object
       required:
         - fullIri
@@ -25822,6 +25965,7 @@ components:
           items:
             type: string
     ClassInstanceEntity:
+      title: ClassInstanceEntity
       type: object
       allOf:
         - $ref: '#/components/schemas/GrapholscapeEntity'
@@ -26145,6 +26289,57 @@ components:
           default: 0
         state:
           $ref: '#/components/schemas/IMwsxThreadState'
+    BFSEdge:
+      title: BFSEdge
+      description: >-
+        It represents an edge of a virtual graph used to search paths between
+        instances
+      type: object
+      properties:
+        iri:
+          type: string
+        source_iri:
+          type: string
+        target_iri:
+          type: string
+        is_inverse:
+          type: boolean
+    BFSPath:
+      title: BFSPath
+      description: >-
+        It represents a path of a virtual graph used to search paths between
+        instances
+      type: object
+      properties:
+        id:
+          type: string
+        nodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClassInstanceEntity'
+        edges:
+          type: array
+          items:
+            $ref: '#/components/schemas/BFSEdge'
+    BFSInfo:
+      title: BFSInfo
+      description: It represents the state of the BFS
+      type: object
+      properties:
+        status:
+          $ref: '#/components/schemas/IMwsxThreadState'
+        percentage:
+          type: integer
+        currentPath:
+          $ref: '#/components/schemas/BFSPath'
+        foundPaths:
+          type: array
+          items:
+            $ref: '#/components/schemas/BFSPath'
+        rejectedPaths:
+          type: array
+          items:
+            $ref: '#/components/schemas/BFSPath'
     InstanceCheckingInfo:
       title: InstanceCheckingInfo
       type: object
@@ -28558,6 +28753,7 @@ x-tagGroups:
       - mastro_endpoints_ConstructQuery
       - mastro_endpoints_VKG
       - mastro_endpoints_CountEntityInstances
+      - mastro_endpoints_InstanceBFS
       - mastro_endpoints_InstanceChecking
       - mastro_endpoints_MinMaxDataProperties
       - mastro_endpoints_EntitiesExamples

@@ -1774,6 +1774,7 @@ components:
           items:
             type: string
     SparqlingEntity:
+      title: SparqlingEntity
       type: object
       required:
         - type
@@ -2253,6 +2254,7 @@ components:
         - reflexive
         - irreflexive
     GrapholscapeEntity:
+      title: GrapholscapeEntity
       type: object
       required:
         - fullIri
@@ -2291,6 +2293,7 @@ components:
           items:
             type: string
     ClassInstanceEntity:
+      title: ClassInstanceEntity
       type: object
       allOf:
         - $ref: '#/components/schemas/GrapholscapeEntity'
