@@ -1118,6 +1118,39 @@ paths:
       security:
         - apiKey: []
         - jwt: []
+  /owlOntology/{name}/version/ontologyTags:
+    get:
+      tags:
+        - ontologies_Logical
+      summary: >-
+        Gets the set of ontology entity tags of version 'version' of the
+        ontology named <code>name</code>.<br/> 
+      operationId: getOwlOntologyNameVersionEntitiesTags
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OntologyEntityTag'
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
   /owlOntology/{name}/version/entities/classes:
     get:
       tags:
@@ -18417,6 +18450,9 @@ components:
           type: string
         entityID:
           type: string
+        entityTagName:
+          type: string
+          description: The ID of the ontology entity tag associated with the entity
     OntologyCatalog:
       title: OntologyCatalog
       type: object
@@ -18863,6 +18899,20 @@ components:
             type: string
         ontologyMetricsNoImport:
           $ref: '#/components/schemas/OntologyMetrics'
+    OntologyEntityTag:
+      title: OntologyEntityTag
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        subtags:
+          type: array
+          items:
+            $ref: '#/components/schemas/OntologyEntityTag'
     Participation:
       title: Participation
       type: object
