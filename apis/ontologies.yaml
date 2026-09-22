@@ -55,6 +55,8 @@ paths:
     $ref: paths/owlOntology_{name}_version_catalog.yaml
   /owlOntology/{name}/version/info:
     $ref: paths/owlOntology_{name}_version_info.yaml
+  /owlOntology/{name}/version/ontologyTags:
+    $ref: paths/owlOntology_{name}_version_ontologyEntitiesTags.yaml
   /owlOntology/{name}/version/entities/classes:
     $ref: paths/owlOntology_{name}_version_entities_classes.yaml
   /owlOntology/{name}/version/entities/objectProperties:
@@ -78,6 +80,7 @@ paths:
   /owlOntology/{name}/version/alphabet/dataProperties/domainAndRange:
     $ref: >-
       paths/owlOntology_{name}_version_alphabet_dataProperties_domainAndRange.yaml
+
   /owlOntology/{name}/version/graphol:
     $ref: paths/owlOntology_{name}_version_graphol.yaml
   /owlOntology/{name}/version/gscape:
