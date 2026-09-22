@@ -993,6 +993,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/FunctionPropertiesEnum'
+        mainOccurrences:
+          type: object
+          additionalProperties:
+            type: string
+          example:
+            graphol: n0
+            floaty: e1
     DataPropertyValue:
       type: object
       required:

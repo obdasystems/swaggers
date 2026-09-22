@@ -11,3 +11,9 @@ properties:
   functionProperties:
     type: array
     items: {$ref: ./FunctionPropertiesEnum.yaml}
+  mainOccurrences: 
+    type: object
+    additionalProperties:
+      type: string
+    example:
+      { "graphol": "n0", "floaty": "e1" }
