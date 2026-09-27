@@ -13,11 +13,11 @@ get:
     in: path
     required: true
     schema: {type: string}
-  - name: pageSize
+  - name: pagesize
     in: query
     required: true
     schema: {type: integer}
-  - name: pageNumber
+  - name: pagenumber
     in: query
     required: true
     schema: {type: integer}

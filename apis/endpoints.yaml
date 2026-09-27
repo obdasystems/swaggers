@@ -129,6 +129,8 @@ paths:
     $ref: paths/endpoint_{name}_cquery_{queryID}_results_tabular.yaml
   /endpoint/{name}/cquery/{queryID}/results/rdfGraph:
     $ref: paths/endpoint_{name}_cquery_{queryID}_results_rdfGraph.yaml
+  /endpoint/{name}/sparqlResultsToRdfGraph:
+    $ref: paths/endpoint_{name}_sparqlResultsToRdfGraph.yaml
   /endpoint/{eName}/countEntityInstances:
     $ref: paths/endpoint_{eName}_countEntityInstances.yaml
   /endpoint/{eName}/countEntityInstances/start:

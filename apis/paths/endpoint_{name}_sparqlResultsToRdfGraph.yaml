@@ -1,0 +1,22 @@
+post:
+  tags: [VKG]
+  summary: Convert an array of SPARQLResult from a construct query to an RDFGraph
+  operationId: getOwlOntologyNameVersionConstructSparqlResultsRdfGraph
+  parameters:
+  - name: name
+    description: Endpoint name
+    in: path
+    required: true
+    schema: {type: string}
+  requestBody:
+    content:
+      '*/*':
+        schema: {$ref: ../components/schemas/SPARQLResults.yaml}
+    required: true
+  responses:
+    '200':
+      description: Successful operation
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/RDFGraph.yaml}
+    '401': {description: Unhauthorized}

@@ -7402,16 +7402,47 @@ paths:
           required: true
           schema:
             type: string
-        - name: pageSize
+        - name: pagesize
           in: query
           required: true
           schema:
             type: integer
-        - name: pageNumber
+        - name: pagenumber
           in: query
           required: true
           schema:
             type: integer
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RDFGraph'
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
+  /endpoint/{name}/sparqlResultsToRdfGraph:
+    post:
+      tags:
+        - endpoints_VKG
+      summary: Convert an array of SPARQLResult from a construct query to an RDFGraph
+      operationId: getOwlOntologyNameVersionConstructSparqlResultsRdfGraph
+      parameters:
+        - name: name
+          description: Endpoint name
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/SPARQLResults'
+        required: true
       responses:
         '200':
           description: Successful operation
