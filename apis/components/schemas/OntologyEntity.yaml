@@ -4,10 +4,13 @@ required: [entityIRI]
 properties:
   entityLabels:
     type: array
-    items: {$ref: ./Label.yaml}
-  deprecated: {type: boolean, default: false}
-  entityIRI: {type: string}
-  entityType: {type: string}
-  entityPrefixIRI: {type: string}
-  entityRemainder: {type: string}
-  entityID: {type: string}
+    items: { $ref: ./Label.yaml }
+  deprecated: { type: boolean, default: false }
+  entityIRI: { type: string }
+  entityType: { type: string }
+  entityPrefixIRI: { type: string }
+  entityRemainder: { type: string }
+  entityID: { type: string }
+  entityTagName:
+    type: string
+    description: The ID of the ontology entity tag associated with the entity

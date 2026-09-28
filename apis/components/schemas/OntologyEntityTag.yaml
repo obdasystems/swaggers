@@ -1,0 +1,12 @@
+title: OntologyEntityTag
+type: object
+required: [name]
+properties:
+  name:
+    type: string
+  description:
+    type: string
+  subtags:
+    type: array
+    items:
+      $ref: ./OntologyEntityTag.yaml

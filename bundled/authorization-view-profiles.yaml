@@ -231,6 +231,9 @@ components:
           type: string
         entityID:
           type: string
+        entityTagName:
+          type: string
+          description: The ID of the ontology entity tag associated with the entity
     AvpTree:
       title: AvpTree
       type: object
