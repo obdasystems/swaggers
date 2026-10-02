@@ -709,6 +709,50 @@ paths:
                 $ref: '#/components/schemas/SparqlingSPARQLQuery'
         '401':
           description: Unhauthorized
+  /owlOntology/{name}/version/querycatalog/queryTemplates:
+    post:
+      tags:
+        - Utils
+      summary: |
+        Retrieves a set of queries from catalog containing variables with rdftype to a given class
+        with a filter containing a set of instances
+      operationId: getOwlOntologyNameVersionQuerycatalogQueryTemplates
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                classes:
+                  type: array
+                  items:
+                    type: string
+                individuals:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SPARQLQuery'
+        '401':
+          description: Unhauthorized
 components:
   securitySchemes:
     apiKey:

@@ -24,6 +24,15 @@ post:
       schema: 
         type: integer
         default: 10
+    - name: ignoredEntities
+      in: query
+      description: list of entities iri to ignore when exploring neighbours
+      schema:
+        default: []
+        type: array
+        items:  
+          type: string
+      
   requestBody:
     description: "An array: [sourceNode, targetNode_0 ... targetNode_n]"
     content:
