@@ -9180,6 +9180,14 @@ paths:
           schema:
             type: integer
             default: 10
+        - name: ignoredEntities
+          in: query
+          description: list of entities iri to ignore when exploring neighbours
+          schema:
+            default: []
+            type: array
+            items:
+              type: string
       requestBody:
         description: 'An array: [sourceNode, targetNode_0 ... targetNode_n]'
         content:
@@ -11131,6 +11139,64 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SparqlingSPARQLQuery'
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
+  /owlOntology/{name}/version/querycatalog/queryTemplates:
+    servers:
+      - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+        variables:
+          protocol:
+            default: https
+          tenant:
+            default: localhost
+          port:
+            default: :8989
+    post:
+      tags:
+        - mastro_query-catalog_Utils
+      summary: >
+        Retrieves a set of queries from catalog containing variables with
+        rdftype to a given class
+
+        with a filter containing a set of instances
+      operationId: getOwlOntologyNameVersionQuerycatalogQueryTemplates
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                classes:
+                  type: array
+                  items:
+                    type: string
+                individuals:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SPARQLQuery'
         '401':
           description: Unhauthorized
       security:

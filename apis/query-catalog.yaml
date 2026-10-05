@@ -52,6 +52,8 @@ paths:
     $ref: paths/owlOntology_{name}_version_query_sparqling_{ID}.yaml
   /owlOntology/{name}/version/query/sparqling:
     $ref: paths/owlOntology_{name}_version_query_sparqling.yaml
+  /owlOntology/{name}/version/querycatalog/queryTemplates:
+    $ref: paths/owlOntology_{name}_version_querycatalog_queryTemplates.yaml
 components: 
   securitySchemes: 
     apiKey: 
