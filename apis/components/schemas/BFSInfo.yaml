@@ -6,6 +6,15 @@ properties:
     $ref: IMwsxThreadState.yaml
   percentage:
     type: integer
+    default: 0
+  startTime:
+    type: integer
+    default: 0
+    format: int64
+  endTime:
+    type: integer
+    default: 0
+    format: int64
   currentPath:
     $ref: BFSPath.yaml
   foundPaths:

@@ -21506,6 +21506,15 @@ components:
           $ref: '#/components/schemas/IMwsxThreadState'
         percentage:
           type: integer
+          default: 0
+        startTime:
+          type: integer
+          default: 0
+          format: int64
+        endTime:
+          type: integer
+          default: 0
+          format: int64
         currentPath:
           $ref: '#/components/schemas/BFSPath'
         foundPaths:
