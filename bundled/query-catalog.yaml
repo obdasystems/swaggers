@@ -728,20 +728,19 @@ paths:
           required: true
           schema:
             type: string
+        - name: parentClassIri
+          in: query
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                classes:
-                  type: array
-                  items:
-                    type: string
-                individuals:
-                  type: array
-                  items:
-                    type: string
+              description: A list of individuals (IRIs) so the queries get filtered on those individuals
+              type: array
+              items:
+                type: string
       responses:
         '200':
           description: OK
