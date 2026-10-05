@@ -49,6 +49,8 @@ paths:
     $ref: paths/endpoint_{name}_empties.yaml
   /endpoint/{name}/emptyUnfoldingEntities:
     $ref: paths/endpoint_{name}_emptyUnfoldingEntities.yaml
+  /endpoint/{name}/highlights:
+    $ref: paths/endpoint_{name}_highlights.yaml
   /endpoint/{name}/highlights/annotations:
     $ref: paths/endpoint_{name}_highlights_annotations.yaml
   /endpoint/{name}/query/count/{queryId}/stop:

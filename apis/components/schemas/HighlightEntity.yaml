@@ -1,0 +1,9 @@
+title: Highlight Entity
+type: object
+properties:
+  iri:
+    type: string
+    description: The IRI of the highlighted entity.
+  emptyUnfolding:
+    type: boolean
+    description: Indicates if the entity has an empty unfolding.

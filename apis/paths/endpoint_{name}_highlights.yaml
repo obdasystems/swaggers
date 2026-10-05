@@ -1,0 +1,22 @@
+get:
+  summary:
+    Returns the collection of entities with empty unfolding that are relevant
+    for the given endpoint. It's the same as owlOntology/{ontologyName}/highlights but it
+    will consider the mappings for the empty unfoldings.
+  operationId: get_endpoint_highlights
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema: { type: string }
+    - name: classIRI
+      in: query
+      required: true
+      schema: { type: string }
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema: { $ref: ../components/schemas/Highlights.yaml }
+    "401": { description: Unhauthorized }
