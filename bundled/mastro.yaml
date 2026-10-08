@@ -22943,7 +22943,7 @@ components:
       title: OntologyCatalogInstances
       type: object
       required:
-        - entries
+        - instances
       properties:
         instances:
           type: array
