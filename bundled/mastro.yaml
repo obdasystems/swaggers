@@ -22945,9 +22945,9 @@ components:
       required:
         - entries
       properties:
-        entries:
-          type: object
-          additionalProperties:
+        instances:
+          type: array
+          items:
             $ref: '#/components/schemas/MWSXOntologyCatalogInstanceId'
     MWSXOntologyCatalogQuery:
       title: MWSXOntologyCatalogQuery
