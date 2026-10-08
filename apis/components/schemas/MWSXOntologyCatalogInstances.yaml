@@ -1,0 +1,9 @@
+title: OntologyCatalogInstances
+type: object
+required: 
+  - entries
+properties:
+  entries:
+    type: object
+    additionalProperties: 
+      $ref: MWSXOntologyCatalogInstanceId.yaml

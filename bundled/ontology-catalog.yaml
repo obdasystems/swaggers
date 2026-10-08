@@ -83,6 +83,96 @@ paths:
                 type: boolean
         '401':
           description: Unhauthorized
+  /ontologyCatalog/instances:
+    post:
+      tags:
+        - Management
+      summary: Creates a new ontology catalog instance
+      description: adds a new ontology catalog to the ones available in this Mastro installation
+      operationId: postOntologyCatalogInstances
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MWSXOntologyCatalogInstanceId'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MWSXOntologyCatalogInstances'
+        '401':
+          description: Unhauthorized
+    get:
+      tags:
+        - Management
+      summary: GET mwsx/ontologyCatalog/instances
+      operationId: getOntologyCatalogInstances
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MWSXOntologyCatalogInstances'
+        '401':
+          description: Unhauthorized
+    delete:
+      tags:
+        - Management
+      summary: deletes the ontology catalog instances passed in the body from the ones available in this mastro installation
+      description: deletes the ontology catalog instances passed in the body from the ones available in this mastro installation
+      operationId: deleteOntologyCatalogInstances
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MWSXOntologyCatalogInstances'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '401':
+          description: Unhauthorized
+  /ontologyCatalog/instance/active:
+    put:
+      tags:
+        - Management
+      summary: Sets the new active instance of the query catalog as the one passed in the body
+      description: Sets the new active instance of the query catalog as the one passed in the body
+      operationId: putOntologyCatalogInstanceActive
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MWSXOntologyCatalogInstanceId'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MWSXOntologyCatalogInstanceId'
+        '401':
+          description: Unhauthorized
+    get:
+      tags:
+        - Management
+      summary: GET mwsx/ontologyCatalog/instances
+      operationId: getOntologyCatalogInstanceActive
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MWSXOntologyCatalogInstanceId'
+        '401':
+          description: Unhauthorized
   /ontologyCatalog/querycatalog:
     get:
       tags:
@@ -658,6 +748,26 @@ components:
           type: object
           additionalProperties:
             $ref: '#/components/schemas/MWSXOntologyCatalogEntry'
+    MWSXOntologyCatalogInstanceId:
+      title: OntologyCatalogInstanceId
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+        description:
+          type: string
+    MWSXOntologyCatalogInstances:
+      title: OntologyCatalogInstances
+      type: object
+      required:
+        - entries
+      properties:
+        entries:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/MWSXOntologyCatalogInstanceId'
     ChartConfiguration:
       title: ChartConfiguration
       type: object

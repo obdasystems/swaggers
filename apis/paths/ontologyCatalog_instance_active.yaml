@@ -1,0 +1,27 @@
+put:
+  tags: [Management]
+  summary: Sets the new active instance of the query catalog as the one passed in the body
+  description: Sets the new active instance of the query catalog as the one passed in the body
+  operationId: putOntologyCatalogInstanceActive
+  requestBody:
+    content:
+      application/json:
+        schema: {$ref: ../components/schemas/MWSXOntologyCatalogInstanceId.yaml}
+  responses:
+    '200':
+      description: Successful operation
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/MWSXOntologyCatalogInstanceId.yaml}
+    '401': {description: Unhauthorized}
+get:
+  tags: [Management]
+  summary: GET mwsx/ontologyCatalog/instances
+  operationId: getOntologyCatalogInstanceActive
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/MWSXOntologyCatalogInstanceId.yaml}
+    '401': {description: Unhauthorized}

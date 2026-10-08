@@ -1,0 +1,9 @@
+title: OntologyCatalogInstanceId
+type: object
+required:
+  - id
+properties:
+  id:
+    type: string
+  description:
+    type: string

@@ -191,6 +191,8 @@ tags:
     x-displayName: Persistence
   - name: ontology-catalog_Persistence
     x-displayName: Persistence
+  - name: ontology-catalog_Management
+    x-displayName: Management
   - name: ontology-catalog_Query
     x-displayName: Query
   - name: ontology-catalog_Cache
@@ -3369,8 +3371,7 @@ paths:
       summary: >-
         POST
         mwsx/owlOntology/{name}/version/mapping/{ID}/generateIntensionalAnnotationsOntology
-      operationId: >-
-        postOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntology
+      operationId: postOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntology
       parameters:
         - name: name
           in: path
@@ -3412,8 +3413,7 @@ paths:
       summary: >-
         GET
         mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/state
-      operationId: >-
-        getOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntologyThreadState
+      operationId: getOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntologyThreadState
       parameters:
         - name: name
           in: path
@@ -3454,8 +3454,7 @@ paths:
       summary: >-
         GET
         mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/error
-      operationId: >-
-        getOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntologyError
+      operationId: getOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntologyError
       parameters:
         - name: name
           in: path
@@ -3496,8 +3495,7 @@ paths:
       summary: >-
         GET
         mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/export
-      operationId: >-
-        getOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntologyExport
+      operationId: getOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntologyExport
       parameters:
         - name: name
           in: path
@@ -3538,8 +3536,7 @@ paths:
       summary: >-
         PUT
         mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/stop
-      operationId: >-
-        putOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntologyStop
+      operationId: putOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntologyStop
       parameters:
         - name: name
           in: path
@@ -3580,8 +3577,7 @@ paths:
       summary: >-
         DELETE
         mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}
-      operationId: >-
-        deleteOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntology
+      operationId: deleteOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntology
       parameters:
         - name: name
           in: path
@@ -14309,6 +14305,121 @@ paths:
       security:
         - apiKey: []
         - jwt: []
+  /ontologyCatalog/instances:
+    post:
+      tags:
+        - ontology-catalog_Management
+      summary: Creates a new ontology catalog instance
+      description: >-
+        adds a new ontology catalog to the ones available in this Mastro
+        installation
+      operationId: postOntologyCatalogInstances
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MWSXOntologyCatalogInstanceId'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MWSXOntologyCatalogInstances'
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
+    get:
+      tags:
+        - ontology-catalog_Management
+      summary: GET mwsx/ontologyCatalog/instances
+      operationId: getOntologyCatalogInstances
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MWSXOntologyCatalogInstances'
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
+    delete:
+      tags:
+        - ontology-catalog_Management
+      summary: >-
+        deletes the ontology catalog instances passed in the body from the ones
+        available in this mastro installation
+      description: >-
+        deletes the ontology catalog instances passed in the body from the ones
+        available in this mastro installation
+      operationId: deleteOntologyCatalogInstances
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MWSXOntologyCatalogInstances'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
+  /ontologyCatalog/instance/active:
+    put:
+      tags:
+        - ontology-catalog_Management
+      summary: >-
+        Sets the new active instance of the query catalog as the one passed in
+        the body
+      description: >-
+        Sets the new active instance of the query catalog as the one passed in
+        the body
+      operationId: putOntologyCatalogInstanceActive
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MWSXOntologyCatalogInstanceId'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MWSXOntologyCatalogInstanceId'
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
+    get:
+      tags:
+        - ontology-catalog_Management
+      summary: GET mwsx/ontologyCatalog/instances
+      operationId: getOntologyCatalogInstanceActive
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MWSXOntologyCatalogInstanceId'
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
   /ontologyCatalog/querycatalog:
     get:
       tags:
@@ -22818,6 +22929,26 @@ components:
           type: object
           additionalProperties:
             $ref: '#/components/schemas/MWSXOntologyCatalogEntry'
+    MWSXOntologyCatalogInstanceId:
+      title: OntologyCatalogInstanceId
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+        description:
+          type: string
+    MWSXOntologyCatalogInstances:
+      title: OntologyCatalogInstances
+      type: object
+      required:
+        - entries
+      properties:
+        entries:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/MWSXOntologyCatalogInstanceId'
     MWSXOntologyCatalogQuery:
       title: MWSXOntologyCatalogQuery
       properties:
@@ -24056,6 +24187,7 @@ x-tagGroups:
   - name: Ontology Catalog API model
     tags:
       - ontology-catalog_Persistence
+      - ontology-catalog_Management
       - ontology-catalog_Query
       - ontology-catalog_Cache
       - ontology-catalog_Metadata

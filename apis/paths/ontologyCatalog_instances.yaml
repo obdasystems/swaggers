@@ -1,0 +1,43 @@
+post:
+  tags: [Management]
+  summary: Creates a new ontology catalog instance
+  description: adds a new ontology catalog to the ones available in this Mastro installation
+  operationId: postOntologyCatalogInstances
+  requestBody:
+    content:
+      application/json:
+        schema: {$ref: ../components/schemas/MWSXOntologyCatalogInstanceId.yaml}
+  responses:
+    '200':
+      description: Successful operation
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/MWSXOntologyCatalogInstances.yaml}
+    '401': {description: Unhauthorized}
+get:
+  tags: [Management]
+  summary: GET mwsx/ontologyCatalog/instances
+  operationId: getOntologyCatalogInstances
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {$ref: ../components/schemas/MWSXOntologyCatalogInstances.yaml}
+    '401': {description: Unhauthorized}
+delete:
+  tags: [Management]
+  summary: deletes the ontology catalog instances passed in the body from the ones available in this mastro installation
+  description: deletes the ontology catalog instances passed in the body from the ones available in this mastro installation
+  operationId: deleteOntologyCatalogInstances
+  requestBody:
+    content:
+      application/json:
+        schema: {$ref: ../components/schemas/MWSXOntologyCatalogInstances.yaml}  
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema: {type: boolean}
+    '401': {description: Unhauthorized}

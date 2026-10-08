@@ -20,6 +20,10 @@ info:
 paths:
   /ontologyCatalog:
     $ref: paths/ontologyCatalog.yaml
+  /ontologyCatalog/instances:
+    $ref: paths/ontologyCatalog_instances.yaml
+  /ontologyCatalog/instance/active:
+    $ref: paths/ontologyCatalog_instance_active.yaml
   /ontologyCatalog/querycatalog:
     $ref: paths/ontologyCatalog_querycatalog.yaml
   /ontologyCatalog/querycatalog/export:
