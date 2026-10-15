@@ -182,6 +182,8 @@ tags:
     x-displayName: Persistence
   - name: mastro_ontology-catalog_Persistence
     x-displayName: Persistence
+  - name: mastro_ontology-catalog_Management
+    x-displayName: Management
   - name: mastro_ontology-catalog_Query
     x-displayName: Query
   - name: mastro_ontology-catalog_Cache
@@ -3998,8 +4000,7 @@ paths:
       summary: >-
         POST
         mwsx/owlOntology/{name}/version/mapping/{ID}/generateIntensionalAnnotationsOntology
-      operationId: >-
-        postOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntology
+      operationId: postOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntology
       parameters:
         - name: name
           in: path
@@ -4050,8 +4051,7 @@ paths:
       summary: >-
         GET
         mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/state
-      operationId: >-
-        getOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntologyThreadState
+      operationId: getOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntologyThreadState
       parameters:
         - name: name
           in: path
@@ -4101,8 +4101,7 @@ paths:
       summary: >-
         GET
         mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/error
-      operationId: >-
-        getOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntologyError
+      operationId: getOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntologyError
       parameters:
         - name: name
           in: path
@@ -4152,8 +4151,7 @@ paths:
       summary: >-
         GET
         mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/export
-      operationId: >-
-        getOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntologyExport
+      operationId: getOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntologyExport
       parameters:
         - name: name
           in: path
@@ -4203,8 +4201,7 @@ paths:
       summary: >-
         PUT
         mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/stop
-      operationId: >-
-        putOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntologyStop
+      operationId: putOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntologyStop
       parameters:
         - name: name
           in: path
@@ -4254,8 +4251,7 @@ paths:
       summary: >-
         DELETE
         mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}
-      operationId: >-
-        deleteOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntology
+      operationId: deleteOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntology
       parameters:
         - name: name
           in: path
@@ -17251,6 +17247,139 @@ paths:
       security:
         - apiKey: []
         - jwt: []
+  /ontologyCatalog/instances:
+    servers:
+      - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+        variables:
+          protocol:
+            default: https
+          tenant:
+            default: localhost
+          port:
+            default: :8989
+    post:
+      tags:
+        - mastro_ontology-catalog_Management
+      summary: Creates a new ontology catalog instance
+      description: >-
+        adds a new ontology catalog to the ones available in this Mastro
+        installation
+      operationId: postOntologyCatalogInstances
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MWSXOntologyCatalogInstanceId'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MWSXOntologyCatalogInstances'
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
+    get:
+      tags:
+        - mastro_ontology-catalog_Management
+      summary: GET mwsx/ontologyCatalog/instances
+      operationId: getOntologyCatalogInstances
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MWSXOntologyCatalogInstances'
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
+    delete:
+      tags:
+        - mastro_ontology-catalog_Management
+      summary: >-
+        deletes the ontology catalog instances passed in the body from the ones
+        available in this mastro installation
+      description: >-
+        deletes the ontology catalog instances passed in the body from the ones
+        available in this mastro installation
+      operationId: deleteOntologyCatalogInstances
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MWSXOntologyCatalogInstances'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
+  /ontologyCatalog/instance/active:
+    servers:
+      - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
+        variables:
+          protocol:
+            default: https
+          tenant:
+            default: localhost
+          port:
+            default: :8989
+    put:
+      tags:
+        - mastro_ontology-catalog_Management
+      summary: >-
+        Sets the new active instance of the query catalog as the one passed in
+        the body
+      description: >-
+        Sets the new active instance of the query catalog as the one passed in
+        the body
+      operationId: putOntologyCatalogInstanceActive
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MWSXOntologyCatalogInstanceId'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MWSXOntologyCatalogInstanceId'
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
+    get:
+      tags:
+        - mastro_ontology-catalog_Management
+      summary: GET mwsx/ontologyCatalog/instances
+      operationId: getOntologyCatalogInstanceActive
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MWSXOntologyCatalogInstanceId'
+        '401':
+          description: Unhauthorized
+      security:
+        - apiKey: []
+        - jwt: []
   /ontologyCatalog/querycatalog:
     servers:
       - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
@@ -27760,6 +27889,26 @@ components:
           type: object
           additionalProperties:
             $ref: '#/components/schemas/MWSXOntologyCatalogEntry'
+    MWSXOntologyCatalogInstanceId:
+      title: OntologyCatalogInstanceId
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+        description:
+          type: string
+    MWSXOntologyCatalogInstances:
+      title: OntologyCatalogInstances
+      type: object
+      required:
+        - instances
+      properties:
+        instances:
+          type: array
+          items:
+            $ref: '#/components/schemas/MWSXOntologyCatalogInstanceId'
     MWSXOntologyCatalogQuery:
       title: MWSXOntologyCatalogQuery
       properties:
@@ -28974,6 +29123,7 @@ x-tagGroups:
       - mastro_knowledge-graphs_CSV
       - mastro_ontology-designer_Persistence
       - mastro_ontology-catalog_Persistence
+      - mastro_ontology-catalog_Management
       - mastro_ontology-catalog_Query
       - mastro_ontology-catalog_Cache
       - mastro_ontology-catalog_Metadata
