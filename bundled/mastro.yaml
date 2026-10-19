@@ -22038,7 +22038,7 @@ components:
         - query
       properties:
         query:
-          $ref: '#/components/schemas/SPARQLQuery'
+          $ref: '#/components/schemas/SparqlingSPARQLQuery'
         editedQueryCode:
           type: string
     Highlights:
