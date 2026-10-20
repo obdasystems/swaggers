@@ -33,6 +33,6 @@ post:
           schema:
             type: array
             items:
-              $ref: ../components/schemas/SPARQLQuery.yaml
+              $ref: ../components/schemas/VKGQueryTemplate.yaml
     '401': {description: Unhauthorized}
 

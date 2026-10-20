@@ -749,7 +749,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/SPARQLQuery'
+                  $ref: '#/components/schemas/VKGQueryTemplate'
         '401':
           description: Unhauthorized
 components:
@@ -1116,3 +1116,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SparqlingSPARQLQuery'
+    VKGQueryTemplate:
+      title: VKGQueryTemplate
+      type: object
+      required:
+        - query
+      properties:
+        query:
+          $ref: '#/components/schemas/SparqlingSPARQLQuery'
+        editedQueryCode:
+          type: string

@@ -1,0 +1,7 @@
+title: VKGQueryTemplate
+type: object
+required: [query]
+properties:
+  query: { $ref: SparqlingSPARQLQuery.yaml }
+  editedQueryCode:
+    type: string
