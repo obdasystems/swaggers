@@ -429,10 +429,6 @@ components:
               type: string
             label:
               type: string
-        contextElementType:
-          type: string
-          description: the type of the context element (i.e. SimpleContextElement or ComplexContextElement)
-          default: ComplexContextElement
     SimpleContextElement:
       title: SimpleContextElement
       type: object
@@ -444,10 +440,6 @@ components:
         simpleContexElementValue:
           type: string
           description: the IRI of the related data property
-        contextElementType:
-          type: string
-          description: the type of the context element (i.e. SimpleContextElement or ComplexContextElement)
-          default: SimpleContextElement
     SemanticAnnotations:
       title: SemanticAnnotations
       type: object
@@ -463,15 +455,16 @@ components:
             vocab:
               type: string
               description: the ontology declaring the equivalent class for the given schema component
-            elements:
+            simpleElements:
               type: array
-              description: the set of context elements describing the object or data properties that are semantically equivalent to eh properties of the given schema component
+              description: the set of simple context elements describing the object or data properties that are semantically equivalent to eh properties of the given schema component
               items:
-                oneOf:
-                  - $ref: '#/components/schemas/SimpleContextElement'
-                  - $ref: '#/components/schemas/ComplexContextElement'
-                discriminator:
-                  propertyName: contextElementType
+                $ref: '#/components/schemas/SimpleContextElement'
+            complexElements:
+              type: array
+              description: the set of complex context elements describing the object or data properties that are semantically equivalent to the properties of the given schema component
+              items:
+                $ref: '#/components/schemas/ComplexContextElement'
         example:
           type: object
           description: this property shall contein an example value for every property of the given schema component

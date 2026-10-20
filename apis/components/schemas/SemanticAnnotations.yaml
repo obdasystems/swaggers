@@ -12,15 +12,16 @@ properties:
       vocab:
         type: string
         description: the ontology declaring the equivalent class for the given schema component 
-      elements:
+      simpleElements:
         type: array
-        description: the set of context elements describing the object or data properties that are semantically equivalent to eh properties of the given schema component
+        description: the set of simple context elements describing the object or data properties that are semantically equivalent to eh properties of the given schema component
         items:
-          oneOf:
-            - $ref: ./SimpleContextElement.yaml
-            - $ref: ./ComplexContextElement.yaml
-          discriminator:
-            propertyName: contextElementType
+          $ref: ./SimpleContextElement.yaml
+      complexElements:
+        type: array
+        description: the set of complex context elements describing the object or data properties that are semantically equivalent to the properties of the given schema component
+        items:
+          $ref: ./ComplexContextElement.yaml
   example:
     type: object
     description: this property shall contein an example value for every property of the given schema component
