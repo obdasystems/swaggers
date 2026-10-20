@@ -13,7 +13,7 @@ servers:
       tenant:
         default: localhost
       port:
-        default: ':8080'
+        default: :8080
 security:
   - jwt: []
 paths:
@@ -429,6 +429,10 @@ components:
               type: string
             label:
               type: string
+        contextElementType:
+          type: string
+          description: the type of the context element (i.e. SimpleContextElement or ComplexContextElement)
+          default: ComplexContextElement
     SimpleContextElement:
       title: SimpleContextElement
       type: object
@@ -440,6 +444,10 @@ components:
         simpleContexElementValue:
           type: string
           description: the IRI of the related data property
+        contextElementType:
+          type: string
+          description: the type of the context element (i.e. SimpleContextElement or ComplexContextElement)
+          default: SimpleContextElement
     SemanticAnnotations:
       title: SemanticAnnotations
       type: object
@@ -462,6 +470,8 @@ components:
                 oneOf:
                   - $ref: '#/components/schemas/SimpleContextElement'
                   - $ref: '#/components/schemas/ComplexContextElement'
+                discriminator:
+                  propertyName: contextElementType
         example:
           type: object
           description: this property shall contein an example value for every property of the given schema component
@@ -816,6 +826,7 @@ components:
         - reflexive
         - irreflexive
     GrapholscapeEntity:
+      title: GrapholscapeEntity
       type: object
       required:
         - fullIri
@@ -835,6 +846,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/FunctionPropertiesEnum'
+        mainOccurrences:
+          type: object
+          additionalProperties:
+            type: string
+          example:
+            graphol: n0
+            floaty: e1
     DataPropertyValue:
       type: object
       required:
@@ -854,6 +872,7 @@ components:
           items:
             type: string
     ClassInstanceEntity:
+      title: ClassInstanceEntity
       type: object
       allOf:
         - $ref: '#/components/schemas/GrapholscapeEntity'

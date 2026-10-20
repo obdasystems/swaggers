@@ -20,3 +20,7 @@ properties:
         type: string
       label:
         type: string
+  contextElementType:
+    type: string
+    description: the type of the context element (i.e. SimpleContextElement or ComplexContextElement)
+    default: ComplexContextElement

@@ -8,3 +8,7 @@ properties:
   simpleContexElementValue:
     type: string
     description: the IRI of the related data property
+  contextElementType:
+    type: string
+    description: the type of the context element (i.e. SimpleContextElement or ComplexContextElement)
+    default: SimpleContextElement

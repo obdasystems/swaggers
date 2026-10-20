@@ -19,6 +19,8 @@ properties:
           oneOf:
             - $ref: ./SimpleContextElement.yaml
             - $ref: ./ComplexContextElement.yaml
+          discriminator:
+            propertyName: contextElementType
   example:
     type: object
     description: this property shall contein an example value for every property of the given schema component
