@@ -23610,9 +23610,15 @@ components:
           type: string
         entityID:
           type: string
-        entityTagName:
+        entityTagId:
           type: string
           description: The ID of the ontology entity tag associated with the entity
+        defined:
+          type: boolean
+          default: false
+          description: >-
+            Indicates whether the entity is defined in the ontology (true) or is
+            a reference to an external entity (false)
     OntologyCatalog:
       title: OntologyCatalog
       type: object
