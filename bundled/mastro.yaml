@@ -22387,6 +22387,8 @@ components:
           type: object
           additionalProperties:
             $ref: '#/components/schemas/VKGCustomFilter'
+        thumbnail:
+          type: string
     CustomNodeRenderingMap:
       description: Map <classIri, CustomRendering>
       type: object

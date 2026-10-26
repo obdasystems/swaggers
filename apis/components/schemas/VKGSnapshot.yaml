@@ -13,3 +13,5 @@ properties:
   customFilters:
     type: object
     additionalProperties: {$ref: ./VKGCustomFilter.yaml}
+  thumbnail:
+    type: string

@@ -1089,6 +1089,8 @@ components:
           type: object
           additionalProperties:
             $ref: '#/components/schemas/VKGCustomFilter'
+        thumbnail:
+          type: string
     FileInfo:
       title: FileInfo
       type: object
