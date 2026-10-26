@@ -758,6 +758,10 @@ components:
           type: string
         description:
           type: string
+        entries:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/MWSXOntologyCatalogEntry'
     MWSXOntologyCatalogInstances:
       title: OntologyCatalogInstances
       type: object

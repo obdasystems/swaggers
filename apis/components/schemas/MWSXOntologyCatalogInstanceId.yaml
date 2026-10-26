@@ -7,3 +7,7 @@ properties:
     type: string
   description:
     type: string
+  entries:
+    type: object
+    additionalProperties: 
+      $ref: MWSXOntologyCatalogEntry.yaml
