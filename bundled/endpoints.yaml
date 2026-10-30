@@ -1692,7 +1692,7 @@ paths:
     get:
       tags:
         - VKG
-      summary: Returns the results for a given construct query in tabular format
+      summary: Returns the results for a given construct query in RDFGraph to be visualized in the VKG
       operationId: getOwlOntologyNameVersionConstructQueryIDResultsRdfGraph
       parameters:
         - name: name
