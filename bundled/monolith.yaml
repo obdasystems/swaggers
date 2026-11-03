@@ -190,8 +190,6 @@ tags:
     x-displayName: Cache
   - name: mastro_ontology-catalog_Metadata
     x-displayName: Metadata
-  - name: mastro_ontology-catalog_other
-    x-displayName: other
   - name: mastro_authorization-view-profiles_Logical
     x-displayName: Logical
   - name: mastro_authorization-view-profiles_Persistence
@@ -17811,6 +17809,8 @@ paths:
         - apiKey: []
         - jwt: []
     delete:
+      tags:
+        - mastro_ontology-catalog_Metadata
       summary: DELETE mwsx/ontologyCatalog/crossOntologiesMetadata
       operationId: deleteOntologyCatalogMetadata
       responses:
@@ -17818,8 +17818,6 @@ paths:
           description: OK
         '401':
           description: Unhauthorized
-      tags:
-        - mastro_ontology-catalog_other
       security:
         - apiKey: []
         - jwt: []
@@ -29151,7 +29149,6 @@ x-tagGroups:
       - mastro_ontology-catalog_Query
       - mastro_ontology-catalog_Cache
       - mastro_ontology-catalog_Metadata
-      - mastro_ontology-catalog_other
       - mastro_authorization-view-profiles_Logical
       - mastro_authorization-view-profiles_Persistence
       - mastro_dashboards_Persistence

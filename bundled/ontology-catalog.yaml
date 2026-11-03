@@ -452,6 +452,8 @@ paths:
         '401':
           description: Unhauthorized
     delete:
+      tags:
+        - Metadata
       summary: DELETE mwsx/ontologyCatalog/crossOntologiesMetadata
       operationId: deleteOntologyCatalogMetadata
       responses:

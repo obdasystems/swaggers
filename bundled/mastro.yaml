@@ -199,8 +199,6 @@ tags:
     x-displayName: Cache
   - name: ontology-catalog_Metadata
     x-displayName: Metadata
-  - name: ontology-catalog_other
-    x-displayName: other
   - name: authorization-view-profiles_Logical
     x-displayName: Logical
   - name: authorization-view-profiles_Persistence
@@ -14752,6 +14750,8 @@ paths:
         - apiKey: []
         - jwt: []
     delete:
+      tags:
+        - ontology-catalog_Metadata
       summary: DELETE mwsx/ontologyCatalog/crossOntologiesMetadata
       operationId: deleteOntologyCatalogMetadata
       responses:
@@ -14759,8 +14759,6 @@ paths:
           description: OK
         '401':
           description: Unhauthorized
-      tags:
-        - ontology-catalog_other
       security:
         - apiKey: []
         - jwt: []
@@ -24215,7 +24213,6 @@ x-tagGroups:
       - ontology-catalog_Query
       - ontology-catalog_Cache
       - ontology-catalog_Metadata
-      - ontology-catalog_other
   - name: AVPs API model
     tags:
       - authorization-view-profiles_Logical
