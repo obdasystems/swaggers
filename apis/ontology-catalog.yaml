@@ -48,6 +48,8 @@ paths:
     $ref: paths/ontologyCatalog_crossOntologiesMetadata.yaml
   /ontologyCatalog/download:
     $ref: paths/ontologyCatalog_download.yaml
+  /ontologyCatalog/merged:
+    $ref: paths/ontologyCatalog_merged.yaml  
   /ontologyCatalog/query/results/export/formats:
     $ref: paths/ontologyCatalog_query_results_export_formats.yaml
   /ontologyCatalog/query/start:
