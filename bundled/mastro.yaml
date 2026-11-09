@@ -199,6 +199,8 @@ tags:
     x-displayName: Cache
   - name: ontology-catalog_Metadata
     x-displayName: Metadata
+  - name: ontology-catalog_Visualize
+    x-displayName: Visualize
   - name: authorization-view-profiles_Logical
     x-displayName: Logical
   - name: authorization-view-profiles_Persistence
@@ -14789,7 +14791,7 @@ paths:
   /ontologyCatalog/merged:
     get:
       tags:
-        - ontology-catalog_Persistence
+        - ontology-catalog_Visualize
       summary: GET mwsx/ontologyCatalog/merged
       description: >-
         Returns the merged ontology (in GSCAPE format) obtained by merging all
@@ -24235,6 +24237,7 @@ x-tagGroups:
       - ontology-catalog_Query
       - ontology-catalog_Cache
       - ontology-catalog_Metadata
+      - ontology-catalog_Visualize
   - name: AVPs API model
     tags:
       - authorization-view-profiles_Logical
