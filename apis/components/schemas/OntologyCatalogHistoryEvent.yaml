@@ -1,8 +1,8 @@
 title: OntologyCatalogEvent
 type: object
-description: Represents an opeartion occurred on the ontology catalog
+description: Represents an operation occurred on the ontology catalog
 required:
-  - opeartion
+  - operation
   - timestamp
   - ontologyCatalogEntry
 properties:
