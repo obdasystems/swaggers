@@ -1,5 +1,5 @@
 put:
-  tags: [APISemantiche]
+  tags: [SemanticAPI]
   summary: Replace the given ontology in the catalog with the one provided in the request body
   operationId: putApisemCatalogName
   parameters:
@@ -28,7 +28,7 @@ put:
             $ref: ../components/schemas/MWSXOntologyCatalogEntries.yaml
     "401": { description: Unhauthorized }
 delete:
-  tags: [APISemantiche]
+  tags: [SemanticAPI]
   summary: Reset the content of the current catalog
   operationId: deleteApisemCatalogName
   parameters:

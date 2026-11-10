@@ -1,5 +1,5 @@
 post:
-  tags: [APISemantiche]
+  tags: [SemanticAPI]
   summary: Takes a JSON file containing the specification of a service, plus the list of semantic annotations for every schema component being annotated, and returns the JSON specification decorated with such annotations
   operationId: postApisemSchema
   requestBody:

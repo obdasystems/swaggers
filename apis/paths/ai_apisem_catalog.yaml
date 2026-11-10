@@ -1,5 +1,5 @@
 get:
-  tags: [APISemantiche]
+  tags: [SemanticAPI]
   summary: Returns the current content of the ontology catalog used to generate semantic annotations for provided YAML service specifications
   operationId: getApisemCatalog
   responses:
@@ -11,7 +11,7 @@ get:
             $ref: ../components/schemas/MWSXOntologyCatalogEntries.yaml
     "401": { description: Unhauthorized }
 post:
-  tags: [APISemantiche]
+  tags: [SemanticAPI]
   summary: Adds a new ontology to the current ontology catalog, creates the corresponding vector DB instance
   operationId: postApisemCatalog
   requestBody:
@@ -32,7 +32,7 @@ post:
             $ref: ../components/schemas/MWSXOntologyCatalogEntries.yaml
     "401": { description: Unhauthorized }
 delete:
-  tags: [APISemantiche]
+  tags: [SemanticAPI]
   summary: Reset the content of the current catalog
   operationId: deleteApisemCatalog
   responses:

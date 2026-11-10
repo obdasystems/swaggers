@@ -1,5 +1,5 @@
 get:
-  tags: [APISemantiche]
+  tags: [SemanticAPI]
   summary: Returns the current status of a given ontology catalog entry
   operationId: getApisemCatalogNameStatus
   parameters:

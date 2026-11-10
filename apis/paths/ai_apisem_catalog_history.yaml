@@ -1,5 +1,5 @@
 get:
-  tags: [APISemantiche]
+  tags: [SemanticAPI]
   summary: Returns the list of operations executed on the ontology catalog
   operationId: getApisemCatalogHistory
   responses:

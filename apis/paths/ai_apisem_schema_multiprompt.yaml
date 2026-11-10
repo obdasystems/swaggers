@@ -1,5 +1,5 @@
 post:
-  tags: [APISemantiche]
+  tags: [SemanticAPI]
   summary: Takes a YAML schema component in textual format and returns the list of classes that are similar to the schema provided
   operationId: postApisemSchemaMultiprompt
   requestBody:

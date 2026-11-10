@@ -10,7 +10,7 @@ servers:
         default: ":8080"
 info:
   description: >-
-    This is the API for the AI assistant module
+    This is the API for the Mastro AI assistant module
   version: 1.0.0
   title: AI assistant API model
   contact:
@@ -59,6 +59,20 @@ paths:
     $ref: paths/ai_ontologyDraft_convertOWL.yaml
   /ai/ontologyDraft/metadata:
     $ref: paths/ai_ontologyDraft_metadata.yaml
+  /ai/apisem/catalog:
+    $ref: paths/ai_apisem_catalog.yaml
+  /ai/apisem/catalog/history:
+    $ref: paths/ai_apisem_catalog_history.yaml
+  /ai/apisem/catalog/{name}:
+    $ref: paths/ai_apisem_catalog_name.yaml
+  /ai/apisem/catalog/{name}/status:
+    $ref: paths/ai_apisem_catalog_name_status.yaml
+  /ai/apisem/schema:
+    $ref: paths/ai_apisem_schema.yaml
+  /ai/apisem/schema/multiprompt:
+    $ref: paths/ai_apisem_schema_multiprompt.yaml
+  /ai/apisem/schema/{name}/annotations:
+    $ref: paths/ai_apisem_schema_name_annotations.yaml
 components:
   securitySchemes:
     jwt:
