@@ -242,15 +242,15 @@ tags:
     x-displayName: Roles
   - name: mastro_users-roles_MonolithRole
     x-displayName: MonolithRole
-  - name: ai-assistant_Prompt
+  - name: mastro-ai_Prompt
     x-displayName: Prompt
-  - name: ai-assistant_RAG
+  - name: mastro-ai_RAG
     x-displayName: RAG
-  - name: ai-assistant_Convert
+  - name: mastro-ai_Convert
     x-displayName: Convert
-  - name: ai-assistant_Metadata
+  - name: mastro-ai_Metadata
     x-displayName: Metadata
-  - name: ai-assistant_SemanticAPI
+  - name: mastro-ai_SemanticAPI
     x-displayName: SemanticAPI
 paths:
   /login:
@@ -22609,7 +22609,7 @@ paths:
             default: :8080
     post:
       tags:
-        - ai-assistant_Prompt
+        - mastro-ai_Prompt
       summary: Returns the description for an entity
       operationId: describeOntologyEntity
       requestBody:
@@ -22674,7 +22674,7 @@ paths:
             default: :8080
     post:
       tags:
-        - ai-assistant_Prompt
+        - mastro-ai_Prompt
       summary: Returns the description for an individual (class instance)
       operationId: describeIndividual
       requestBody:
@@ -22726,7 +22726,7 @@ paths:
             default: :8080
     post:
       tags:
-        - ai-assistant_Prompt
+        - mastro-ai_Prompt
       summary: Returns a list of possible data properties for a given class
       operationId: suggestClassDataProperties
       requestBody:
@@ -22781,7 +22781,7 @@ paths:
             default: :8080
     post:
       tags:
-        - ai-assistant_Prompt
+        - mastro-ai_Prompt
       summary: Returns a list of possible subclasses for a given class
       operationId: suggestClassSubclasses
       requestBody:
@@ -22836,7 +22836,7 @@ paths:
             default: :8080
     post:
       tags:
-        - ai-assistant_Prompt
+        - mastro-ai_Prompt
       summary: Returns a description of a sparql query
       operationId: describeSparqlQuery
       requestBody:
@@ -22877,7 +22877,7 @@ paths:
             default: :8080
     post:
       tags:
-        - ai-assistant_Prompt
+        - mastro-ai_Prompt
       summary: Returns a chart configuration for a SPARQL query suggested by AI
       operationId: autoChart
       requestBody:
@@ -22920,7 +22920,7 @@ paths:
             default: :8080
     post:
       tags:
-        - ai-assistant_Prompt
+        - mastro-ai_Prompt
       summary: Returns a description of a chart
       operationId: describeChart
       requestBody:
@@ -22969,7 +22969,7 @@ paths:
             default: :8080
     post:
       tags:
-        - ai-assistant_Prompt
+        - mastro-ai_Prompt
       summary: Converts a natural language text into a SPARQL query
       operationId: text2sparql
       requestBody:
@@ -23010,7 +23010,7 @@ paths:
             default: :8080
     put:
       tags:
-        - ai-assistant_RAG
+        - mastro-ai_RAG
       summary: Ask for AI support in ontology design.
       operationId: putOntologyDraftAI
       parameters:
@@ -23069,7 +23069,7 @@ paths:
             default: :8080
     put:
       tags:
-        - ai-assistant_RAG
+        - mastro-ai_RAG
       summary: >-
         Ask anything about this ontology, and get an answer with the relevant
         entities.
@@ -23117,7 +23117,7 @@ paths:
             default: :8080
     post:
       tags:
-        - ai-assistant_RAG
+        - mastro-ai_RAG
       summary: >-
         Returns an example of RDF instaces in Turtle format, based on the
         classes provided in the request body and the current RDF graph.
@@ -23157,7 +23157,7 @@ paths:
             default: :8080
     post:
       tags:
-        - ai-assistant_RAG
+        - mastro-ai_RAG
       summary: Returns a summary of the ontology.
       operationId: postOntologySummary
       requestBody:
@@ -23191,7 +23191,7 @@ paths:
             default: :8080
     post:
       tags:
-        - ai-assistant_RAG
+        - mastro-ai_RAG
       summary: Initialize the vector database for a specific ontology version
       operationId: initializeVectorDB
       parameters:
@@ -23243,7 +23243,7 @@ paths:
             default: :8080
     get:
       tags:
-        - ai-assistant_RAG
+        - mastro-ai_RAG
       summary: Check the vector database status for a specific ontology version.
       operationId: checkVectorDBStatus
       parameters:
@@ -23300,7 +23300,7 @@ paths:
             default: :8080
     delete:
       tags:
-        - ai-assistant_RAG
+        - mastro-ai_RAG
       summary: Delete the vector database for a specific ontology version.
       operationId: deleteVectorDB
       parameters:
@@ -23338,7 +23338,7 @@ paths:
             default: :8080
     post:
       tags:
-        - ai-assistant_RAG
+        - mastro-ai_RAG
       summary: >-
         Generate a SPARQL query from a natural language query using the vector
         database for a specific ontology version.
@@ -23403,7 +23403,7 @@ paths:
             default: :8080
     post:
       tags:
-        - ai-assistant_Convert
+        - mastro-ai_Convert
       summary: Download the ontology draft converted in OWL2
       operationId: getOntologyDraftAIDownload
       parameters:
@@ -23439,7 +23439,7 @@ paths:
             default: :8080
     post:
       tags:
-        - ai-assistant_Convert
+        - mastro-ai_Convert
       summary: Download the rejected axioms in OWL2
       operationId: getOntologyDraftAIDownloadRejectedAxioms
       parameters:
@@ -23480,7 +23480,7 @@ paths:
             default: :8080
     post:
       tags:
-        - ai-assistant_Convert
+        - mastro-ai_Convert
       summary: Convert an OWL file in RDFGraph model
       operationId: postOntologyDraftAIConvertOWL
       requestBody:
@@ -23516,7 +23516,7 @@ paths:
             default: :8080
     post:
       tags:
-        - ai-assistant_Metadata
+        - mastro-ai_Metadata
       summary: >-
         Download a new version to the ontology enriched with the metadata
         provided in the request body.
@@ -23565,7 +23565,7 @@ paths:
             default: :8080
     get:
       tags:
-        - ai-assistant_SemanticAPI
+        - mastro-ai_SemanticAPI
       summary: >-
         Returns the current content of the ontology catalog used to generate
         semantic annotations for provided YAML service specifications
@@ -23583,7 +23583,7 @@ paths:
         - jwt: []
     post:
       tags:
-        - ai-assistant_SemanticAPI
+        - mastro-ai_SemanticAPI
       summary: >-
         Adds a new ontology to the current ontology catalog, creates the
         corresponding vector DB instance
@@ -23613,7 +23613,7 @@ paths:
         - jwt: []
     delete:
       tags:
-        - ai-assistant_SemanticAPI
+        - mastro-ai_SemanticAPI
       summary: Reset the content of the current catalog
       operationId: deleteApisemCatalog
       responses:
@@ -23640,7 +23640,7 @@ paths:
             default: :8080
     get:
       tags:
-        - ai-assistant_SemanticAPI
+        - mastro-ai_SemanticAPI
       summary: Returns the list of operations executed on the ontology catalog
       operationId: getApisemCatalogHistory
       responses:
@@ -23666,7 +23666,7 @@ paths:
             default: :8080
     put:
       tags:
-        - ai-assistant_SemanticAPI
+        - mastro-ai_SemanticAPI
       summary: >-
         Replace the given ontology in the catalog with the one provided in the
         request body
@@ -23701,7 +23701,7 @@ paths:
         - jwt: []
     delete:
       tags:
-        - ai-assistant_SemanticAPI
+        - mastro-ai_SemanticAPI
       summary: Reset the content of the current catalog
       operationId: deleteApisemCatalogName
       parameters:
@@ -23739,7 +23739,7 @@ paths:
             default: :8080
     get:
       tags:
-        - ai-assistant_SemanticAPI
+        - mastro-ai_SemanticAPI
       summary: Returns the current status of a given ontology catalog entry
       operationId: getApisemCatalogNameStatus
       parameters:
@@ -23776,7 +23776,7 @@ paths:
             default: :8080
     post:
       tags:
-        - ai-assistant_SemanticAPI
+        - mastro-ai_SemanticAPI
       summary: >-
         Takes a JSON file containing the specification of a service, plus the
         list of semantic annotations for every schema component being annotated,
@@ -23811,7 +23811,7 @@ paths:
             default: :8080
     post:
       tags:
-        - ai-assistant_SemanticAPI
+        - mastro-ai_SemanticAPI
       summary: >-
         Takes a YAML schema component in textual format and returns the list of
         classes that are similar to the schema provided
@@ -23845,7 +23845,7 @@ paths:
             default: :8080
     post:
       tags:
-        - ai-assistant_SemanticAPI
+        - mastro-ai_SemanticAPI
       summary: >-
         Takes as input the name of a schema component (as a path parameter) and
         the name of a similar class previously identified by the operator (as a
@@ -29500,10 +29500,10 @@ components:
         to indicate which data property is semantically associated to a given
         schema property)
       properties:
-        simpleContexElementName:
+        simpleContextElementName:
           type: string
           description: the name of the schema property
-        simpleContexElementValue:
+        simpleContextElementValue:
           type: string
           description: the IRI of the related data property
     ComplexContextElement:
@@ -29780,10 +29780,10 @@ x-tagGroups:
       - mastro_users-roles_User
       - mastro_users-roles_Roles
       - mastro_users-roles_MonolithRole
-  - name: AI assistant API model
+  - name: Mastro AI assistant API model
     tags:
-      - ai-assistant_Prompt
-      - ai-assistant_RAG
-      - ai-assistant_Convert
-      - ai-assistant_Metadata
-      - ai-assistant_SemanticAPI
+      - mastro-ai_Prompt
+      - mastro-ai_RAG
+      - mastro-ai_Convert
+      - mastro-ai_Metadata
+      - mastro-ai_SemanticAPI

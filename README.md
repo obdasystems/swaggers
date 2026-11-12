@@ -42,6 +42,6 @@ Generated with th following command:
 npx @redocly/cli@latest bundle
 ```
 
-## AI Assistant APIs
+## Mastro AI APIs
 
-- [ai-assistant](https://obdasystems.github.io/swaggers/ui/?api=ai-assistant)
+- [mastro-ai](https://obdasystems.github.io/swaggers/ui/?api=mastro-ai)

@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   description: This is the API for the Mastro AI assistant module
   version: 1.0.0
-  title: AI assistant API model
+  title: Mastro AI assistant API model
   contact:
     email: info@obdasystems.com
   license:
