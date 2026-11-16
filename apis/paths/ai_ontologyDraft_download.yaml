@@ -1,4 +1,5 @@
 post:
+  deprecated: true
   tags: [Convert]
   summary: Download the ontology draft converted in OWL2
   operationId: getOntologyDraftAIDownload

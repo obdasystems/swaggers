@@ -1,4 +1,5 @@
 post:
+  deprecated: true
   tags: [Convert]
   summary: Convert an OWL file in RDFGraph model
   operationId: postOntologyDraftAIConvertOWL

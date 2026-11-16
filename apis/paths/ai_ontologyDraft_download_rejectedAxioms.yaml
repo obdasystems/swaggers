@@ -1,4 +1,5 @@
 post:
+  deprecated: true
   tags: [Convert]
   summary: Download the rejected axioms in OWL2
   operationId: getOntologyDraftAIDownloadRejectedAxioms

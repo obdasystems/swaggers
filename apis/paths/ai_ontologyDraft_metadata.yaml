@@ -1,4 +1,5 @@
 post:
+  deprecated: true
   tags: [Metadata]
   summary: "Download a new version to the ontology enriched with the metadata provided in the request body."
   operationId: postAIOntologyDraftMetadata
