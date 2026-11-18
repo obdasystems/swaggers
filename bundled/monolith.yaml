@@ -242,6 +242,10 @@ tags:
     x-displayName: Roles
   - name: mastro_users-roles_MonolithRole
     x-displayName: MonolithRole
+  - name: mastro-ai_Convert
+    x-displayName: Convert
+  - name: mastro-ai_Metadata
+    x-displayName: Metadata
   - name: mastro-ai_Prompt
     x-displayName: Prompt
   - name: mastro-ai_RAG
@@ -22593,6 +22597,172 @@ paths:
       security:
         - apiKey: []
         - jwt: []
+  /ai/ontologyDraft/download:
+    servers:
+      - url: '{protocol}://{tenant}{port}'
+        variables:
+          protocol:
+            default: https
+          tenant:
+            default: localhost
+          port:
+            default: :8080
+    post:
+      deprecated: true
+      tags:
+        - mastro-ai_Convert
+      summary: Download the ontology draft converted in OWL2
+      operationId: getOntologyDraftAIDownload
+      parameters:
+        - name: format
+          in: query
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RDFGraph'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            text/plain:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+      security:
+        - jwt: []
+  /ai/ontologyDraft/download/rejectedAxioms:
+    servers:
+      - url: '{protocol}://{tenant}{port}'
+        variables:
+          protocol:
+            default: https
+          tenant:
+            default: localhost
+          port:
+            default: :8080
+    post:
+      deprecated: true
+      tags:
+        - mastro-ai_Convert
+      summary: Download the rejected axioms in OWL2
+      operationId: getOntologyDraftAIDownloadRejectedAxioms
+      parameters:
+        - name: format
+          in: query
+          schema:
+            type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            text/plain:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+      security:
+        - jwt: []
+  /ai/ontologyDraft/convertOWL:
+    servers:
+      - url: '{protocol}://{tenant}{port}'
+        variables:
+          protocol:
+            default: https
+          tenant:
+            default: localhost
+          port:
+            default: :8080
+    post:
+      deprecated: true
+      tags:
+        - mastro-ai_Convert
+      summary: Convert an OWL file in RDFGraph model
+      operationId: postOntologyDraftAIConvertOWL
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OWL2RDFGraphConversionResult'
+        '401':
+          description: Unhauthorized
+      security:
+        - jwt: []
+  /ai/ontologyDraft/metadata:
+    servers:
+      - url: '{protocol}://{tenant}{port}'
+        variables:
+          protocol:
+            default: https
+          tenant:
+            default: localhost
+          port:
+            default: :8080
+    post:
+      deprecated: true
+      tags:
+        - mastro-ai_Metadata
+      summary: >-
+        Download a new version to the ontology enriched with the metadata
+        provided in the request body.
+      operationId: postAIOntologyDraftMetadata
+      parameters:
+        - name: format
+          in: query
+          schema:
+            type: string
+        - name: newVersion
+          in: query
+          schema:
+            type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                metadata:
+                  $ref: '#/components/schemas/MWSXOntologyCatalogOntologyMetadataSet'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+      security:
+        - jwt: []
   /ai/entity_description:
     servers:
       - url: '{protocol}://{tenant}{port}'
@@ -29616,6 +29786,8 @@ x-tagGroups:
       - mastro_users-roles_MonolithRole
   - name: Mastro AI assistant API model
     tags:
+      - mastro-ai_Convert
+      - mastro-ai_Metadata
       - mastro-ai_Prompt
       - mastro-ai_RAG
       - mastro-ai_SemanticAPI
