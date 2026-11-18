@@ -22,7 +22,8 @@ post:
               type: string
               format: binary
             metadata:
-              $ref: ../components/schemas/MWSXOntologyCatalogOntologyMetadataSet.yaml
+              type: string
+              format: binary
     required: true
   responses:
     "200":

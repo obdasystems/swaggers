@@ -1,10 +1,6 @@
 openapi: 3.0.0
 info:
-  description: >-
-    This is the API for Mastro an Ontology-based Data Management System. You can
-    create modify ontologies, map them to a datasource and query the ontology
-    directlty with user friendly tools as the Query Builder and the Virtual
-    Knowledge Graph.
+  description: This is the API for Mastro an Ontology-based Data Management System. You can create modify ontologies, map them to a datasource and query the ontology directlty with user friendly tools as the Query Builder and the Virtual Knowledge Graph.
   version: 1.0.0
   title: Mastro API model
   contact:
@@ -119,18 +115,10 @@ tags:
   - name: query-catalog_Publication
     x-displayName: Publication
   - name: sparqling_OntologyGraph
-    description: >-
-      Depending on the selected node and the clicked node the ontology graph
-      will change the highlightments. These results will be used essentially by
-      GRAPHOLscape.
+    description: Depending on the selected node and the clicked node the ontology graph will change the highlightments. These results will be used essentially by GRAPHOLscape.
     x-displayName: OntologyGraph
   - name: sparqling_QueryGraphBGP
-    description: >-
-      Depending on the selected node and the clicked node the server will
-      compute the query graph which will be rendered by Sparqling front end.
-      These result will be used to render the query graph and the query head and
-      the SPARQL code. These operations will modify only the basic graph
-      pattern.
+    description: Depending on the selected node and the clicked node the server will compute the query graph which will be rendered by Sparqling front end. These result will be used to render the query graph and the query head and the SPARQL code. These operations will modify only the basic graph pattern.
     x-displayName: QueryGraphBGP
   - name: sparqling_QueryGraphHead
     description: These operations will modify the query graph head.
@@ -145,9 +133,7 @@ tags:
     description: These are extra operations for the query graph.
     x-displayName: QueryGraphExtra
   - name: sparqling_VisualizeSPARQL
-    description: >-
-      These operations will translate a SPARQL query in a query graph to be
-      visualized and modified in Sparqling
+    description: These operations will translate a SPARQL query in a query graph to be visualized and modified in Sparqling
     x-displayName: VisualizeSPARQL
   - name: sparqling_Highlights
     x-displayName: Highlights
@@ -254,9 +240,7 @@ tags:
 paths:
   /login:
     get:
-      summary: >-
-        REST call for basic authentication, returns the session ID as a response
-        header
+      summary: REST call for basic authentication, returns the session ID as a response header
       tags:
         - authentication_Login
       operationId: getLogin
@@ -275,9 +259,7 @@ paths:
     get:
       tags:
         - authentication_Logout
-      summary: >-
-        REST call for basic authentication, returns the session ID as a response
-        header
+      summary: REST call for basic authentication, returns the session ID as a response header
       operationId: getLogout
       responses:
         '200':
@@ -288,9 +270,7 @@ paths:
         - basicAuth: []
   /logout/{username}:
     put:
-      summary: >-
-        Closes the MWS session opened by the user 'username' - returns 0 if the
-        closing operation succeed
+      summary: Closes the MWS session opened by the user 'username' - returns 0 if the closing operation succeed
       tags:
         - authentication_Logout
       operationId: putLogoutByUsername
@@ -398,10 +378,7 @@ paths:
     post:
       tags:
         - ontologies_Persistence
-      summary: >-
-        Adds a new version to the ontology <code>name</code>.<br/> The 'syntax'
-        parameter assumes one of the following values: <br/>'MANCHESTER_SYNTAX',
-        'FUNCTIONAL_SYNTAX'
+      summary: 'Adds a new version to the ontology <code>name</code>.<br/> The ''syntax'' parameter assumes one of the following values: <br/>''MANCHESTER_SYNTAX'', ''FUNCTIONAL_SYNTAX'''
       operationId: postOwlOntologyNameVersion
       parameters:
         - name: name
@@ -459,10 +436,7 @@ paths:
     get:
       tags:
         - ontologies_Persistence
-      summary: >-
-        Returns the file containing the definition of the ontology
-        <code>name</code>, with version 'version'. <br/>The format parameter
-        assumes one of the following values: 'graphol', 'fss', 'xml', 'turtle'
+      summary: 'Returns the file containing the definition of the ontology <code>name</code>, with version ''version''. <br/>The format parameter assumes one of the following values: ''graphol'', ''fss'', ''xml'', ''turtle'''
       operationId: getOwlOntologyNameVersion
       parameters:
         - name: name
@@ -560,10 +534,7 @@ paths:
     get:
       tags:
         - ontologies_Reasoning
-      summary: >-
-        Returns the file containing the definition of the closed ontology
-        <code>name</code>, with version 'version'. <br/>The format parameter
-        assumes one of the following values: 'graphol', 'fss', 'xml', 'turtle'
+      summary: 'Returns the file containing the definition of the closed ontology <code>name</code>, with version ''version''. <br/>The format parameter assumes one of the following values: ''graphol'', ''fss'', ''xml'', ''turtle'''
       operationId: getOwlOntologyNameVersionClosed
       parameters:
         - name: name
@@ -596,9 +567,7 @@ paths:
     delete:
       tags:
         - ontologies_Reasoning
-      summary: >-
-        Deletes the closed ontology <code>name</code>, with version 'version'.
-        <br/>
+      summary: Deletes the closed ontology <code>name</code>, with version 'version'. <br/>
       operationId: deleteOwlOntologyNameVersionClosed
       parameters:
         - name: name
@@ -626,10 +595,7 @@ paths:
     post:
       tags:
         - ontologies_Reasoning
-      summary: >-
-        Starts the thread for the computation of the deductive closure of
-        ontology <code>name</code>, with version 'version'.Returns the ID of the
-        thread
+      summary: Starts the thread for the computation of the deductive closure of ontology <code>name</code>, with version 'version'.Returns the ID of the thread
       operationId: postOwlOntologyNameVersionClosed
       parameters:
         - name: name
@@ -668,9 +634,7 @@ paths:
     get:
       tags:
         - ontologies_Reasoning
-      summary: >-
-        Returns the status of the deductive closure thread identified by
-        'threadId'
+      summary: Returns the status of the deductive closure thread identified by 'threadId'
       operationId: getOwlOntologyNameVersionClosedThreadIdStatus
       parameters:
         - name: name
@@ -709,9 +673,7 @@ paths:
     get:
       tags:
         - ontologies_Reasoning
-      summary: >-
-        Returns 0 if the closed ontology <code>name</code>, with version
-        'version', has been computed, 1 otherwise.
+      summary: Returns 0 if the closed ontology <code>name</code>, with version 'version', has been computed, 1 otherwise.
       operationId: getOwlOntologyNameVersionClosedComputed
       parameters:
         - name: name
@@ -740,10 +702,7 @@ paths:
     get:
       tags:
         - ontologies_Reasoning
-      summary: >-
-        Returns the file containing the definition of the closed ontology
-        <code>name</code>, with version 'version'. <br/>The format parameter
-        assumes one of the following values: 'graphol', 'fss', 'xml', 'turtle'
+      summary: 'Returns the file containing the definition of the closed ontology <code>name</code>, with version ''version''. <br/>The format parameter assumes one of the following values: ''graphol'', ''fss'', ''xml'', ''turtle'''
       operationId: getOwlOntologyNameVersionClosingReport
       parameters:
         - name: name
@@ -772,10 +731,7 @@ paths:
     get:
       tags:
         - ontologies_Reasoning
-      summary: >-
-        Returns the file containing the definition of the closed ontology
-        <code>name</code>, with version 'version'. <br/>The format parameter
-        assumes one of the following values: 'graphol', 'fss', 'xml', 'turtle'
+      summary: 'Returns the file containing the definition of the closed ontology <code>name</code>, with version ''version''. <br/>The format parameter assumes one of the following values: ''graphol'', ''fss'', ''xml'', ''turtle'''
       operationId: getOwlOntologyNameVersionClosingReportComputed
       parameters:
         - name: name
@@ -804,10 +760,7 @@ paths:
     get:
       tags:
         - ontologies_Logical
-      summary: >-
-        Returns the file containing the definition of the ontology
-        <code>name</code>, with version 'version' used to render the hierarchy
-        class and property trees
+      summary: Returns the file containing the definition of the ontology <code>name</code>, with version 'version' used to render the hierarchy class and property trees
       operationId: getOwlOntologyNameVersionHierarchyOwl
       parameters:
         - name: name
@@ -836,10 +789,7 @@ paths:
     post:
       tags:
         - ontologies_Upload
-      summary: >-
-        Adds a new version to the ontology <code>name</code>.<br/> The 'syntax'
-        parameter assumes one of the following values: <br/>'MANCHESTER_SYNTAX',
-        'FUNCTIONAL_SYNTAX'
+      summary: 'Adds a new version to the ontology <code>name</code>.<br/> The ''syntax'' parameter assumes one of the following values: <br/>''MANCHESTER_SYNTAX'', ''FUNCTIONAL_SYNTAX'''
       operationId: postOwlOntologyNameVersionAsync
       parameters:
         - name: name
@@ -885,10 +835,7 @@ paths:
     post:
       tags:
         - ontologies_Metadata
-      summary: >-
-        Adds a new version to the ontology <code>name</code>.<br/> The 'syntax'
-        parameter assumes one of the following values: <br/>'MANCHESTER_SYNTAX',
-        'FUNCTIONAL_SYNTAX'
+      summary: 'Adds a new version to the ontology <code>name</code>.<br/> The ''syntax'' parameter assumes one of the following values: <br/>''MANCHESTER_SYNTAX'', ''FUNCTIONAL_SYNTAX'''
       operationId: postOwlOntologyNameVersionMetadataAsync
       parameters:
         - name: name
@@ -1093,9 +1040,7 @@ paths:
     get:
       tags:
         - ontologies_Logical
-      summary: >-
-        Gets the info of the version 'version' of the ontology named
-        <code>name</code>.<br/> 
+      summary: 'Gets the info of the version ''version'' of the ontology named <code>name</code>.<br/> '
       operationId: getOwlOntologyNameVersionInfo
       parameters:
         - name: name
@@ -1124,9 +1069,7 @@ paths:
     get:
       tags:
         - ontologies_Logical
-      summary: >-
-        Gets the set of ontology entity tags of version 'version' of the
-        ontology named <code>name</code>.<br/> 
+      summary: 'Gets the set of ontology entity tags of version ''version'' of the ontology named <code>name</code>.<br/> '
       operationId: getOwlOntologyNameVersionEntitiesTags
       parameters:
         - name: name
@@ -1157,9 +1100,7 @@ paths:
     get:
       tags:
         - ontologies_Logical
-      summary: >-
-        Gets the set of class entities of version 'version' of the ontology
-        named <code>name</code>.<br/> 
+      summary: 'Gets the set of class entities of version ''version'' of the ontology named <code>name</code>.<br/> '
       operationId: getOwlOntologyNameVersionEntitiesClasses
       parameters:
         - name: name
@@ -1190,9 +1131,7 @@ paths:
     get:
       tags:
         - ontologies_Logical
-      summary: >-
-        Gets the set of entities of object property version 'version' of the
-        ontology named <code>name</code>.<br/> 
+      summary: 'Gets the set of entities of object property version ''version'' of the ontology named <code>name</code>.<br/> '
       operationId: getOwlOntologyNameVersionEntitiesObjectProperties
       parameters:
         - name: name
@@ -1223,9 +1162,7 @@ paths:
     get:
       tags:
         - ontologies_Logical
-      summary: >-
-        Gets the set of data property entities of version 'version' of the
-        ontology named <code>name</code>.<br/> 
+      summary: 'Gets the set of data property entities of version ''version'' of the ontology named <code>name</code>.<br/> '
       operationId: getOwlOntologyNameVersionEntitiesDataProperties
       parameters:
         - name: name
@@ -1256,9 +1193,7 @@ paths:
     get:
       tags:
         - ontologies_Logical
-      summary: >-
-        Gets the set of annotation property entities of version 'version' of the
-        ontology named <code>name</code>.<br/> 
+      summary: 'Gets the set of annotation property entities of version ''version'' of the ontology named <code>name</code>.<br/> '
       operationId: getOwlOntologyNameVersionEntitiesAnnotationProperties
       parameters:
         - name: name
@@ -1289,9 +1224,7 @@ paths:
     get:
       tags:
         - ontologies_Logical
-      summary: >-
-        Gets the set of entities of version 'version' of the ontology named
-        <code>name</code>.<br/> 
+      summary: 'Gets the set of entities of version ''version'' of the ontology named <code>name</code>.<br/> '
       operationId: getOwlOntologyNameVersionEntities
       parameters:
         - name: name
@@ -1492,9 +1425,7 @@ paths:
     get:
       tags:
         - ontologies_Logical
-      summary: >-
-        GET
-        mwsx/owlOntology/{name}/version/alphabet/dataProperties/domainAndRange
+      summary: GET mwsx/owlOntology/{name}/version/alphabet/dataProperties/domainAndRange
       operationId: getOwlOntologyNameVersionAlphabetDataPropertiesDomainAndRange
       parameters:
         - name: name
@@ -1525,9 +1456,7 @@ paths:
     get:
       tags:
         - ontologies_Visualize
-      summary: >-
-        Returns the Graphol file of the version 'version' of the ontology named
-        <code>name</code>.<br/> 
+      summary: 'Returns the Graphol file of the version ''version'' of the ontology named <code>name</code>.<br/> '
       operationId: getOwlOntologyNameVersionGraphol
       parameters:
         - name: name
@@ -1555,9 +1484,7 @@ paths:
     delete:
       tags:
         - ontologies_Visualize
-      summary: >-
-        Deletes the Graphol file of the version 'version' of the ontology named
-        <code>name</code>.<br/> 
+      summary: 'Deletes the Graphol file of the version ''version'' of the ontology named <code>name</code>.<br/> '
       operationId: deleteOwlOntologyNameVersionGraphol
       parameters:
         - name: name
@@ -1586,9 +1513,7 @@ paths:
     get:
       tags:
         - ontologies_Visualize
-      summary: >-
-        Returns the RDFGraph file of the version 'version' of the ontology named
-        <code>name</code>.<br/> 
+      summary: 'Returns the RDFGraph file of the version ''version'' of the ontology named <code>name</code>.<br/> '
       operationId: getOwlOntologyNameVersionGscape
       parameters:
         - name: name
@@ -1620,9 +1545,7 @@ paths:
     delete:
       tags:
         - ontologies_Visualize
-      summary: >-
-        Deletes the RDFGraph file of the version 'version' of the ontology named
-        <code>name</code>.<br/> 
+      summary: 'Deletes the RDFGraph file of the version ''version'' of the ontology named <code>name</code>.<br/> '
       operationId: deleteOwlOntologyNameVersionGscape
       parameters:
         - name: name
@@ -1709,9 +1632,7 @@ paths:
     get:
       tags:
         - ontologies_Persistence
-      summary: >-
-        Returns the OWL file of the version 'version' of the ontology named
-        <code>name</code>.<br/> 
+      summary: 'Returns the OWL file of the version ''version'' of the ontology named <code>name</code>.<br/> '
       operationId: getOwlOntologyNameVersionOwl
       parameters:
         - name: name
@@ -1907,9 +1828,7 @@ paths:
     get:
       tags:
         - ontologies_Publication
-      summary: >-
-        Removes a specific query from the catalog available for this version of
-        the ontology
+      summary: Removes a specific query from the catalog available for this version of the ontology
       operationId: getQueryPublicationRequests
       responses:
         '200':
@@ -2096,9 +2015,7 @@ paths:
     put:
       tags:
         - mappings_Persistence
-      summary: >-
-        Updates mapping infos (passed as a Base64 encoded object
-        NewMappingFileInfo in the query string) 
+      summary: 'Updates mapping infos (passed as a Base64 encoded object NewMappingFileInfo in the query string) '
       operationId: putOwlOntologyNameVersionMappingID
       parameters:
         - name: name
@@ -2289,9 +2206,7 @@ paths:
     post:
       tags:
         - mappings_Persistence
-      summary: >-
-        Copy a given set of mappins from a source ontology version to a target
-        ontology version (works under the same ontology name)
+      summary: Copy a given set of mappins from a source ontology version to a target ontology version (works under the same ontology name)
       operationId: postOwlOntologyNameVersionMappingIDMigrate
       parameters:
         - name: name
@@ -2488,9 +2403,7 @@ paths:
     put:
       tags:
         - mappings_Template
-      summary: >-
-        Applies templates refactoring to mapping specification and returns a
-        list of affected mappings ids
+      summary: Applies templates refactoring to mapping specification and returns a list of affected mappings ids
       operationId: getOwlOntologyNameVersionMappingIDTemplatesRefactoring
       parameters:
         - name: name
@@ -2809,9 +2722,7 @@ paths:
     get:
       tags:
         - mappings_SQLView
-      summary: >-
-        Returns the list of view definitions declared in a  given set of
-        mappings
+      summary: Returns the list of view definitions declared in a  given set of mappings
       operationId: getOwlOntologyNameVersionMappingIDViews
       parameters:
         - name: name
@@ -2884,9 +2795,7 @@ paths:
     get:
       tags:
         - mappings_Database
-      summary: >-
-        Returns the view definition identified by view_name in a given set of
-        mappings
+      summary: Returns the view definition identified by view_name in a given set of mappings
       operationId: getOwlOntologyNameVersionMappingIDViewRefTables
       parameters:
         - name: name
@@ -2927,9 +2836,7 @@ paths:
     get:
       tags:
         - mappings_Database
-      summary: >-
-        Returns the whole map of tables referenced by view definitions of a
-        given set of mappings
+      summary: Returns the whole map of tables referenced by view definitions of a given set of mappings
       operationId: getOwlOntologyNameVersionMappingIDViewsAllRefTablesMap
       parameters:
         - name: name
@@ -2969,9 +2876,7 @@ paths:
     put:
       tags:
         - mappings_SQLView
-      summary: >-
-        Returns the view definition identified by view_name in a given set of
-        mappings
+      summary: Returns the view definition identified by view_name in a given set of mappings
       operationId: putOwlOntologyNameVersionMappingIDViews
       parameters:
         - name: name
@@ -3368,9 +3273,7 @@ paths:
     post:
       tags:
         - mappings_IntensionalAnnotation
-      summary: >-
-        POST
-        mwsx/owlOntology/{name}/version/mapping/{ID}/generateIntensionalAnnotationsOntology
+      summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/generateIntensionalAnnotationsOntology
       operationId: postOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntology
       parameters:
         - name: name
@@ -3410,9 +3313,7 @@ paths:
     get:
       tags:
         - mappings_IntensionalAnnotation
-      summary: >-
-        GET
-        mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/state
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/state
       operationId: getOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntologyThreadState
       parameters:
         - name: name
@@ -3451,9 +3352,7 @@ paths:
     get:
       tags:
         - mappings_IntensionalAnnotation
-      summary: >-
-        GET
-        mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/error
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/error
       operationId: getOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntologyError
       parameters:
         - name: name
@@ -3492,9 +3391,7 @@ paths:
     get:
       tags:
         - mappings_IntensionalAnnotation
-      summary: >-
-        GET
-        mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/export
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/export
       operationId: getOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntologyExport
       parameters:
         - name: name
@@ -3533,9 +3430,7 @@ paths:
     put:
       tags:
         - mappings_IntensionalAnnotation
-      summary: >-
-        PUT
-        mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/stop
+      summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}/stop
       operationId: putOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntologyStop
       parameters:
         - name: name
@@ -3574,9 +3469,7 @@ paths:
     delete:
       tags:
         - mappings_IntensionalAnnotation
-      summary: >-
-        DELETE
-        mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}
+      summary: DELETE mwsx/owlOntology/{name}/version/mapping/{ID}/annotationProcessorThread/{threadId}
       operationId: deleteOwlOntologyNameVersionMappingIDGenerateIntensionalAnnotationsOntology
       parameters:
         - name: name
@@ -3684,9 +3577,7 @@ paths:
     post:
       tags:
         - mappings_Dependencies
-      summary: >-
-        POST
-        mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/inclusions
+      summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/inclusions
       operationId: postOwlOntologyNameVersionMappingIDDependenciesInclusions
       parameters:
         - name: name
@@ -3726,9 +3617,7 @@ paths:
     get:
       tags:
         - mappings_Dependencies
-      summary: >-
-        GET
-        mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/inclusion/{incID}
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/inclusion/{incID}
       operationId: getOwlOntologyNameVersionMappingIDDependenciesInclusionIncID
       parameters:
         - name: name
@@ -3766,9 +3655,7 @@ paths:
     put:
       tags:
         - mappings_Dependencies
-      summary: >-
-        PUT
-        mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/inclusion/{incID}
+      summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/inclusion/{incID}
       operationId: putOwlOntologyNameVersionMappingIDDependenciesInclusionIncID
       parameters:
         - name: name
@@ -3812,9 +3699,7 @@ paths:
     delete:
       tags:
         - mappings_Dependencies
-      summary: >-
-        DELETE
-        mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/inclusion/{incID}
+      summary: DELETE mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/inclusion/{incID}
       operationId: deleteOwlOntologyNameVersionMappingIDDependenciesInclusionIncID
       parameters:
         - name: name
@@ -3928,9 +3813,7 @@ paths:
     get:
       tags:
         - mappings_Dependencies
-      summary: >-
-        GET
-        mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/key/{keyID}
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/key/{keyID}
       operationId: getOwlOntologyNameVersionMappingIDDependenciesKeyKeyID
       parameters:
         - name: name
@@ -3968,9 +3851,7 @@ paths:
     delete:
       tags:
         - mappings_Dependencies
-      summary: >-
-        DELETE
-        mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/key/{keyID}
+      summary: DELETE mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/key/{keyID}
       operationId: deleteOwlOntologyNameVersionMappingIDDependenciesKeyKeyID
       parameters:
         - name: name
@@ -4008,9 +3889,7 @@ paths:
     put:
       tags:
         - mappings_Dependencies
-      summary: >-
-        PUT
-        mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/key/{keyID}
+      summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/key/{keyID}
       operationId: putOwlOntologyNameVersionMappingIDDependenciesKeyKeyID
       parameters:
         - name: name
@@ -4130,9 +4009,7 @@ paths:
     get:
       tags:
         - mappings_Dependencies
-      summary: >-
-        GET
-        mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/denial/{denyID}
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/denial/{denyID}
       operationId: getOwlOntologyNameVersionMappingIDDependenciesDenialDenyID
       parameters:
         - name: name
@@ -4170,9 +4047,7 @@ paths:
     put:
       tags:
         - mappings_Dependencies
-      summary: >-
-        PUT
-        mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/denial/{denyID}
+      summary: PUT mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/denial/{denyID}
       operationId: putOwlOntologyNameVersionMappingIDDependenciesDenialDenyID
       parameters:
         - name: name
@@ -4216,9 +4091,7 @@ paths:
     delete:
       tags:
         - mappings_Dependencies
-      summary: >-
-        DELETE
-        mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/denial/{denyID}
+      summary: DELETE mwsx/owlOntology/{name}/version/mapping/{ID}/dependencies/denial/{denyID}
       operationId: deleteOwlOntologyNameVersionMappingIDDependenciesDenialDenyID
       parameters:
         - name: name
@@ -4370,9 +4243,7 @@ paths:
     delete:
       tags:
         - mappings_Parameters
-      summary: >-
-        DELETE
-        mwsx/owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}
+      summary: DELETE mwsx/owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}
       operationId: deleteOwlOntologyNameVersionMappingIDParameter
       parameters:
         - name: name
@@ -4411,9 +4282,7 @@ paths:
     get:
       tags:
         - mappings_Parameters
-      summary: >-
-        GET
-        mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/parameters
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/parameters
       operationId: getOwlOntologyNameVersionMappingIDAssParameters
       parameters:
         - name: name
@@ -4454,9 +4323,7 @@ paths:
     get:
       tags:
         - mappings_Database
-      summary: >-
-        GET
-        mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/referencedTables
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/referencedTables
       operationId: getOwlOntologyNameVersionMappingIDAssRefTables
       parameters:
         - name: name
@@ -4497,9 +4364,7 @@ paths:
     get:
       tags:
         - mappings_Test
-      summary: >-
-        GET
-        mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/testSQLQuery
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/testSQLQuery
       operationId: getOwlOntologyNameVersionMappingIDAssTestSQLQuery
       parameters:
         - name: name
@@ -4549,9 +4414,7 @@ paths:
     post:
       tags:
         - mappings_Test
-      summary: >-
-        POST
-        mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/testCustomSQLQuery
+      summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/testCustomSQLQuery
       operationId: postOwlOntologyNameVersionMappingIDAssTestCustomSQLQuery
       parameters:
         - name: name
@@ -4607,9 +4470,7 @@ paths:
     post:
       tags:
         - mappings_Test
-      summary: >-
-        POST
-        mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/testCustomSQLQuery
+      summary: POST mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/testCustomSQLQuery
       operationId: postOwlOntologyNameVersionMappingIDAssTestCustomSQLQueryFromMapAssertion
       parameters:
         - name: name
@@ -4660,9 +4521,7 @@ paths:
     get:
       tags:
         - mappings_Test
-      summary: >-
-        GET
-        mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/typeCheckingReport
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/assertion/{mapID}/typeCheckingReport
       operationId: getOwlOntologyNameVersionMappingIDAssTypeCheckingReport
       parameters:
         - name: name
@@ -4708,9 +4567,7 @@ paths:
     get:
       tags:
         - mappings_SQLView
-      summary: >-
-        GET
-        mwsx/owlOntology/{name}/version/mapping/{ID}/view/{viewName}/parameters
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/view/{viewName}/parameters
       operationId: getOwlOntologyNameVersionMappingIDViewParameters
       parameters:
         - name: name
@@ -4751,9 +4608,7 @@ paths:
     get:
       tags:
         - mappings_Parameters
-      summary: >-
-        GET
-        mwsx/owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}/views
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}/views
       operationId: getOwlOntologyNameVersionMappingIDParameterViews
       parameters:
         - name: name
@@ -4794,9 +4649,7 @@ paths:
     get:
       tags:
         - mappings_Parameters
-      summary: >-
-        GET
-        mwsx/owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}/assertions
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{ID}/parameter/{paramName}/assertions
       operationId: getOwlOntologyNameVersionMappingIDParameterAssertions
       parameters:
         - name: name
@@ -4835,9 +4688,7 @@ paths:
         - jwt: []
   /owlOntology/{name}/version/mapping/{mapID}/query/{queryID}/delete:
     delete:
-      summary: >-
-        DELETE
-        mwsx/owlOntology/{name}/version/mapping/{mapID}/query/{queryID}/delete
+      summary: DELETE mwsx/owlOntology/{name}/version/mapping/{mapID}/query/{queryID}/delete
       operationId: deleteOwlOntologyNameVersionQueryIDStop
       parameters:
         - name: name
@@ -4878,9 +4729,7 @@ paths:
     get:
       tags:
         - mappings_Template
-      summary: >-
-        GET
-        mwsx/owlOntology/{name}/version/mapping/{mapID}/suggestedTemplate/{entityID}
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{mapID}/suggestedTemplate/{entityID}
       operationId: getOwlOntologyNameVersionMapIDSuggestedTemplateEntityID
       parameters:
         - name: name
@@ -4926,9 +4775,7 @@ paths:
     get:
       tags:
         - mappings_DataLineage
-      summary: >-
-        GET
-        mwsx/owlOntology/{name}/version/mapping/{mapID}/dataLineage/{entityID}
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{mapID}/dataLineage/{entityID}
       operationId: getOwlOntologyNameVersionMapIDEntityIDDataLineage
       parameters:
         - name: name
@@ -4972,9 +4819,7 @@ paths:
     get:
       tags:
         - mappings_DataLineage
-      summary: >-
-        GET
-        mwsx/owlOntology/{name}/version/mapping/{mapID}/dataLineageProperty/{entityID}
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{mapID}/dataLineageProperty/{entityID}
       operationId: getOwlOntologyNameVersionMapIDEntityIDDataLineageProperty
       parameters:
         - name: name
@@ -5013,9 +4858,7 @@ paths:
     get:
       tags:
         - mappings_DataLineage
-      summary: >-
-        GET
-        mwsx/owlOntology/{name}/version/mapping/{mapID}/dataLineageAnnotationProperty
+      summary: GET mwsx/owlOntology/{name}/version/mapping/{mapID}/dataLineageAnnotationProperty
       operationId: getOwlOntologyNameVersionMapIDEntityIDDataLineageAnnotationProperty
       parameters:
         - name: name
@@ -5178,9 +5021,7 @@ paths:
     put:
       tags:
         - datasources_Metadata
-      summary: >-
-        Updates the data source metadata information retrieving it from the JDBC
-        connection
+      summary: Updates the data source metadata information retrieving it from the JDBC connection
       operationId: putDatasourceUpdateMetadata
       parameters:
         - name: name
@@ -5209,9 +5050,7 @@ paths:
     put:
       tags:
         - datasources_Metadata
-      summary: >-
-        Uploads the data source metadata information for the specified
-        datasource
+      summary: Uploads the data source metadata information for the specified datasource
       operationId: putDatasourceUploadMetadata
       parameters:
         - name: name
@@ -5382,9 +5221,7 @@ paths:
     get:
       tags:
         - datasources_Metadata
-      summary: >-
-        Returns the list of schemas available in the catalog of a given
-        datasource
+      summary: Returns the list of schemas available in the catalog of a given datasource
       operationId: getSchemas
       parameters:
         - name: id
@@ -5410,9 +5247,7 @@ paths:
     post:
       tags:
         - datasources_Metadata
-      summary: >-
-        Returns the list of table names available at the datasource within the
-        provided schema name
+      summary: Returns the list of table names available at the datasource within the provided schema name
       operationId: getDatasourceTablesForSchema
       parameters:
         - name: schemaName
@@ -5442,9 +5277,7 @@ paths:
     get:
       tags:
         - datasources_Metadata
-      summary: >-
-        Returns the list of SourceTables available in the catalog of a given
-        datasource
+      summary: Returns the list of SourceTables available in the catalog of a given datasource
       operationId: getTables
       parameters:
         - name: id
@@ -5508,9 +5341,7 @@ paths:
     get:
       tags:
         - datasources_Metadata
-      summary: >-
-        Returns the source table info available for the table tableName in the
-        catalog of a given datasource
+      summary: Returns the source table info available for the table tableName in the catalog of a given datasource
       operationId: getTable
       parameters:
         - name: id
@@ -5574,9 +5405,7 @@ paths:
     get:
       tags:
         - endpoints_Referring
-      summary: >-
-        Returns all available endpoints defined on a given ontology name and
-        ontology version
+      summary: Returns all available endpoints defined on a given ontology name and ontology version
       operationId: getEndpointsReferencingOnto
       parameters:
         - name: name
@@ -5605,9 +5434,7 @@ paths:
     get:
       tags:
         - endpoints_Referring
-      summary: >-
-        Returns all available endpoints defined on a given ontology name,
-        ontology version and mapping
+      summary: Returns all available endpoints defined on a given ontology name, ontology version and mapping
       operationId: getEndpointsReferencingOntoMapping
       parameters:
         - name: name
@@ -5641,9 +5468,7 @@ paths:
     get:
       tags:
         - endpoints_Referring
-      summary: >-
-        Returns all available endpoints that are defined for a specific
-        datasource
+      summary: Returns all available endpoints that are defined for a specific datasource
       operationId: getEndpointsReferencingDatasource
       parameters:
         - name: name
@@ -5913,9 +5738,7 @@ paths:
     get:
       tags:
         - endpoints_Empties
-      summary: >-
-        Returns the collection of entities with empty unfolding that are
-        relevant for the given endpoint
+      summary: Returns the collection of entities with empty unfolding that are relevant for the given endpoint
       operationId: getEndpointEmptyUnfoldingEntities
       parameters:
         - name: name
@@ -5939,9 +5762,7 @@ paths:
     get:
       tags:
         - endpoints_Highlights
-      summary: >-
-        Returns the collection of entities with empty unfolding that are
-        relevant for the given endpoint
+      summary: Returns the collection of entities with empty unfolding that are relevant for the given endpoint
       operationId: getEndpointHighlightsAnnotations
       parameters:
         - name: name
@@ -6030,9 +5851,7 @@ paths:
     get:
       tags:
         - endpoints_QueryCount
-      summary: >-
-        Returns the counts the results of a SPARQL query executed on the given
-        endpoint
+      summary: Returns the counts the results of a SPARQL query executed on the given endpoint
       operationId: getQueryCountResult
       parameters:
         - name: name
@@ -6091,9 +5910,7 @@ paths:
     post:
       tags:
         - endpoints_Query
-      summary: >-
-        Given a SPARQL query, returns a map with entity as key and a set of
-        quarantined mapping identifiers as a value
+      summary: Given a SPARQL query, returns a map with entity as key and a set of quarantined mapping identifiers as a value
       operationId: checkQueryOnEndpointForQuarantinedMappings
       parameters:
         - name: name
@@ -6243,9 +6060,7 @@ paths:
     get:
       tags:
         - endpoints_Query
-      summary: >-
-        Returns the file containing exported results for a query on the given
-        endpoint
+      summary: Returns the file containing exported results for a query on the given endpoint
       operationId: exportCatalogQueryOnEndpoint
       parameters:
         - name: name
@@ -6389,9 +6204,7 @@ paths:
     get:
       tags:
         - endpoints_Query
-      summary: >-
-        Returns the optimized view rewritings of a query executed on the given
-        endpoint
+      summary: Returns the optimized view rewritings of a query executed on the given endpoint
       operationId: getOwlOntologyNameVersionQueryIDViewOptimizedRewritings
       parameters:
         - name: name
@@ -6473,9 +6286,7 @@ paths:
     get:
       tags:
         - endpoints_Query
-      summary: >-
-        Returns the currently running SQL rewritings of a query executed on the
-        given endpoint
+      summary: Returns the currently running SQL rewritings of a query executed on the given endpoint
       operationId: getOwlOntologyNameVersionQueryIDSqlDebugRewritings
       parameters:
         - name: name
@@ -6506,9 +6317,7 @@ paths:
     get:
       tags:
         - endpoints_Query
-      summary: >-
-        Returns the results of the query running on the given endpoint, the
-        results returned contain a page (pagenumber) of a given size (pagesize)
+      summary: Returns the results of the query running on the given endpoint, the results returned contain a page (pagenumber) of a given size (pagesize)
       operationId: getOwlOntologyNameVersionQueryIDResults
       parameters:
         - name: name
@@ -6578,9 +6387,7 @@ paths:
     get:
       tags:
         - endpoints_Query
-      summary: >-
-        Returns the query record info of all the queries running on the given
-        endpoint
+      summary: Returns the query record info of all the queries running on the given endpoint
       operationId: getOwlOntologyNameVersionQueryIDRecordInfos
       parameters:
         - name: name
@@ -6606,9 +6413,7 @@ paths:
     get:
       tags:
         - endpoints_Query
-      summary: >-
-        Returns the query record info of a certain query running on the given
-        endpoint
+      summary: Returns the query record info of a certain query running on the given endpoint
       operationId: getOwlOntologyNameVersionQueryIDRecordInfo
       parameters:
         - name: name
@@ -6637,9 +6442,7 @@ paths:
     post:
       tags:
         - endpoints_ExportedQuery
-      summary: >-
-        Exports on a separate thread the results of a query running on the given
-        endpoint, the export thread identifier is returned
+      summary: Exports on a separate thread the results of a query running on the given endpoint, the export thread identifier is returned
       operationId: postOwlOntologyNameVersionQueryIDExportResults
       parameters:
         - name: name
@@ -6669,9 +6472,7 @@ paths:
     get:
       tags:
         - endpoints_ExportedQuery
-      summary: >-
-        Returns the stream of the results of a query running on the given
-        endpoint
+      summary: Returns the stream of the results of a query running on the given endpoint
       operationId: postOwlOntologyNameVersionQueryIDExportDirectcsv
       parameters:
         - name: name
@@ -6727,9 +6528,7 @@ paths:
     get:
       tags:
         - endpoints_ExportedQuery
-      summary: >-
-        Returns the collection of export information available for the given
-        endpoint
+      summary: Returns the collection of export information available for the given endpoint
       operationId: getOwlOntologyNameVersionQueryIDExported
       parameters:
         - name: name
@@ -6783,9 +6582,7 @@ paths:
     delete:
       tags:
         - endpoints_ExportedQuery
-      summary: >-
-        Deletes the export file for the given endpoint from the server, returns
-        0 in the deletion succeeded
+      summary: Deletes the export file for the given endpoint from the server, returns 0 in the deletion succeeded
       operationId: deleteOwlOntologyNameVersionQueryIDExportedFileName
       parameters:
         - name: name
@@ -7104,9 +6901,7 @@ paths:
     post:
       tags:
         - endpoints_ConstructQuery
-      summary: >-
-        Starts the construct query with the provided identified on the given
-        endpoint
+      summary: Starts the construct query with the provided identified on the given endpoint
       operationId: postOwlOntologyNameVersionConstructQueryIDStart
       parameters:
         - name: name
@@ -7221,9 +7016,7 @@ paths:
     post:
       tags:
         - endpoints_ConstructQuery
-      summary: >-
-        Starts the export thread for a construct query on the given endpoint,
-        the export thread identifier is returned
+      summary: Starts the export thread for a construct query on the given endpoint, the export thread identifier is returned
       operationId: postOwlOntologyNameVersionCqueryIDExportResults
       parameters:
         - name: name
@@ -7253,9 +7046,7 @@ paths:
     get:
       tags:
         - endpoints_ConstructQuery
-      summary: >-
-        Returns the file content of the export thread of a construct query
-        running on the given endpoint
+      summary: Returns the file content of the export thread of a construct query running on the given endpoint
       operationId: getOwlOntologyNameVersionConstructQueryIDExport
       parameters:
         - name: name
@@ -7289,9 +7080,7 @@ paths:
     get:
       tags:
         - endpoints_ConstructQuery
-      summary: >-
-        Returns a page of a given size of results of a construct query running
-        on the given endpoint
+      summary: Returns a page of a given size of results of a construct query running on the given endpoint
       operationId: getOwlOntologyNameVersionConstructQueryIDResults
       parameters:
         - name: name
@@ -7416,9 +7205,7 @@ paths:
     get:
       tags:
         - endpoints_VKG
-      summary: >-
-        Returns the results for a given construct query in RDFGraph to be
-        visualized in the VKG
+      summary: Returns the results for a given construct query in RDFGraph to be visualized in the VKG
       operationId: getOwlOntologyNameVersionConstructQueryIDResultsRdfGraph
       parameters:
         - name: name
@@ -7490,9 +7277,7 @@ paths:
     get:
       tags:
         - endpoints_CountEntityInstances
-      summary: >-
-        Count the number of instances of the Class or the Object Property of the
-        ontology
+      summary: Count the number of instances of the Class or the Object Property of the ontology
       operationId: getEndpointInstances
       parameters:
         - name: eName
@@ -7526,9 +7311,7 @@ paths:
     get:
       tags:
         - endpoints_CountEntityInstances
-      summary: >-
-        Starts the executions of the queries that will count the number of
-        instances of each Class and Object Property of the ontology
+      summary: Starts the executions of the queries that will count the number of instances of each Class and Object Property of the ontology
       operationId: getStartEndpointEntityInstances
       parameters:
         - name: eName
@@ -7552,9 +7335,7 @@ paths:
     get:
       tags:
         - endpoints_CountEntityInstances
-      summary: >-
-        Starts the executions of the queries that will count the number of
-        instances of each Class of the ontology
+      summary: Starts the executions of the queries that will count the number of instances of each Class of the ontology
       operationId: getStopEndpointEntityInstances
       parameters:
         - name: eName
@@ -7578,9 +7359,7 @@ paths:
     get:
       tags:
         - endpoints_CountEntityInstances
-      summary: >-
-        Get the info about the queries that will count the number of instances
-        of each Class of the ontology
+      summary: Get the info about the queries that will count the number of instances of each Class of the ontology
       operationId: getEndpointEntityInstancesInfo
       parameters:
         - name: eName
@@ -7604,9 +7383,7 @@ paths:
     post:
       tags:
         - endpoints_InstanceBFS
-      summary: >-
-        Starts the executions of the queries that will expand the source
-        instance to find paths to the target instance.
+      summary: Starts the executions of the queries that will expand the source instance to find paths to the target instance.
       operationId: startEndpointInstanceBFS
       parameters:
         - name: eName
@@ -7724,9 +7501,7 @@ paths:
     post:
       tags:
         - endpoints_InstanceChecking
-      summary: >-
-        Starts the executions of the queries that will count the number of
-        instances of each Class of the ontology
+      summary: Starts the executions of the queries that will count the number of instances of each Class of the ontology
       operationId: getStartEndpointInstanceChecking
       parameters:
         - name: eName
@@ -7780,9 +7555,7 @@ paths:
     get:
       tags:
         - endpoints_InstanceChecking
-      summary: >-
-        Starts the executions of the queries that will count the number of
-        instances of each Class of the ontology
+      summary: Starts the executions of the queries that will count the number of instances of each Class of the ontology
       operationId: getStopEndpointInstanceChecking
       parameters:
         - name: eName
@@ -7812,9 +7585,7 @@ paths:
     get:
       tags:
         - endpoints_InstanceChecking
-      summary: >-
-        Get the info about the queries that will count the number of instances
-        of each Class of the ontology
+      summary: Get the info about the queries that will count the number of instances of each Class of the ontology
       operationId: getEndpointClassInstanceChecking
       parameters:
         - name: eName
@@ -7844,9 +7615,7 @@ paths:
     get:
       tags:
         - endpoints_MinMaxDataProperties
-      summary: >-
-        Starts the executions of the queries that will count the number of
-        instances of each Class and Object Property of the ontology
+      summary: Starts the executions of the queries that will count the number of instances of each Class and Object Property of the ontology
       operationId: getStartEndpointMinMaxDataproperties
       parameters:
         - name: eName
@@ -7870,9 +7639,7 @@ paths:
     get:
       tags:
         - endpoints_MinMaxDataProperties
-      summary: >-
-        Starts the executions of the queries that will count the number of
-        instances of each Class of the ontology
+      summary: Starts the executions of the queries that will count the number of instances of each Class of the ontology
       operationId: getStopEndpointMinMaxDataproperties
       parameters:
         - name: eName
@@ -7896,9 +7663,7 @@ paths:
     get:
       tags:
         - endpoints_MinMaxDataProperties
-      summary: >-
-        Get the info about the queries that will count the number of instances
-        of each Class of the ontology
+      summary: Get the info about the queries that will count the number of instances of each Class of the ontology
       operationId: getEndpointMinMaxDataproperties
       parameters:
         - name: eName
@@ -7922,9 +7687,7 @@ paths:
     post:
       tags:
         - endpoints_EntitiesExamples
-      summary: >-
-        Starts the executions of the queries that save some examples of data
-        properties values and class individuals
+      summary: Starts the executions of the queries that save some examples of data properties values and class individuals
       operationId: postStartEndpointEntitiesExamples
       parameters:
         - name: eName
@@ -7983,9 +7746,7 @@ paths:
     get:
       tags:
         - endpoints_EntitiesExamples
-      summary: >-
-        Get the info about the queries that will count the number of instances
-        of each Class of the ontology
+      summary: Get the info about the queries that will count the number of instances of each Class of the ontology
       operationId: getEndpointEntitiesExamplesInfo
       parameters:
         - name: eName
@@ -8009,9 +7770,7 @@ paths:
     get:
       tags:
         - endpoints_Query
-      summary: >-
-        Returns the current state of all the queries in status
-        <code>status</code> loaded in the endpoint named <code>name</code>
+      summary: Returns the current state of all the queries in status <code>status</code> loaded in the endpoint named <code>name</code>
       operationId: listQueryStatusesOnEndpoint
       parameters:
         - name: name
@@ -8426,17 +8185,8 @@ paths:
     get:
       tags:
         - endpoints_VKG
-      summary: >-
-        Get the IRIs of the ontology entities "related" to the clicked and
-        selected grouped by the views their mappings referes to.
-      description: >-
-        This route is used by the VKG to ask properties of an instance creating
-        a query for each group of properties sharing a view. Shared views by
-        entities are computed based on the mappings of the specified endpoint.
-        -- The neighbours can be classes (brother classes or child classes),
-        object properties (the class or one of his father partecipate or are
-        typed to domain/range) or data properties (the class or one of its
-        fathers partecipates or is typed to its domain).
+      summary: Get the IRIs of the ontology entities "related" to the clicked and selected grouped by the views their mappings referes to.
+      description: This route is used by the VKG to ask properties of an instance creating a query for each group of properties sharing a view. Shared views by entities are computed based on the mappings of the specified endpoint. -- The neighbours can be classes (brother classes or child classes), object properties (the class or one of his father partecipate or are typed to domain/range) or data properties (the class or one of its fathers partecipates or is typed to its domain).
       operationId: highligthsSharedViewsProps
       parameters:
         - name: endpointName
@@ -8453,9 +8203,7 @@ paths:
             type: string
         - name: params
           in: query
-          description: >-
-            Possible value: `subClassOnly` in order to get only the subclasses
-            of the clicked class
+          description: 'Possible value: `subClassOnly` in order to get only the subclasses of the clicked class'
           required: false
           schema:
             type: array
@@ -8481,9 +8229,7 @@ paths:
     get:
       tags:
         - query-catalog_Persistence
-      summary: >-
-        Returns the query catalog available for the given version of the
-        ontology
+      summary: Returns the query catalog available for the given version of the ontology
       operationId: getOwlOntologyNameVersionQuerycatalog
       parameters:
         - name: name
@@ -8511,9 +8257,7 @@ paths:
     delete:
       tags:
         - query-catalog_Persistence
-      summary: >-
-        Deletes the query catalog available for the given version of the
-        ontology
+      summary: Deletes the query catalog available for the given version of the ontology
       operationId: deleteOwlOntologyNameVersionQuerycatalog
       parameters:
         - name: name
@@ -8542,9 +8286,7 @@ paths:
     get:
       tags:
         - query-catalog_Utils
-      summary: >-
-        Returns a list of SparqlingSPARQLQuery obtaining converted the
-        SPARQLQuery queries available in the catalog to SparqlingSPARQLQuery
+      summary: Returns a list of SparqlingSPARQLQuery obtaining converted the SPARQLQuery queries available in the catalog to SparqlingSPARQLQuery
       operationId: getOwlOntologyNameVersionQuerycatalogConverted2spargling
       parameters:
         - name: name
@@ -8640,9 +8382,7 @@ paths:
     put:
       tags:
         - query-catalog_Publication
-      summary: >-
-        Accept the publication of a query for which a publication request has
-        been formerly requested
+      summary: Accept the publication of a query for which a publication request has been formerly requested
       operationId: putOwlOntologyNameVersionQuerycatalogAcceptPublication
       parameters:
         - name: name
@@ -8685,9 +8425,7 @@ paths:
     delete:
       tags:
         - query-catalog_Publication
-      summary: >-
-        Accept the publication of a query for which a publication request has
-        been formerly requested
+      summary: Accept the publication of a query for which a publication request has been formerly requested
       operationId: deleteOwlOntologyNameVersionQuerycatalogAcceptPublication
       parameters:
         - name: name
@@ -8755,10 +8493,7 @@ paths:
     post:
       tags:
         - query-catalog_Persistence
-      summary: >-
-        Imports a new catalog for the given version of the ontology: if the
-        additive switch is true, all new queries will be added to the existing
-        ones, otherwise the old catalog will be overwritten
+      summary: 'Imports a new catalog for the given version of the ontology: if the additive switch is true, all new queries will be added to the existing ones, otherwise the old catalog will be overwritten'
       operationId: getOwlOntologyNameVersionQuerycatalogImport
       parameters:
         - name: name
@@ -8798,10 +8533,7 @@ paths:
     post:
       tags:
         - query-catalog_Persistence
-      summary: >-
-        Imports a new catalog of SPARQLING queries: if the additive switch is
-        true, all new queries will be added to the existing ones, otherwise the
-        old catalog will be overwritten
+      summary: 'Imports a new catalog of SPARQLING queries: if the additive switch is true, all new queries will be added to the existing ones, otherwise the old catalog will be overwritten'
       operationId: postOwlOntologyNameVersionQuerycatalogSparqlingImport
       parameters:
         - name: name
@@ -8841,9 +8573,7 @@ paths:
     post:
       tags:
         - query-catalog_Persistence
-      summary: >-
-        Migrates a query catalog of SPARQLING queries between two ontology
-        versions
+      summary: Migrates a query catalog of SPARQLING queries between two ontology versions
       operationId: postOwlOntologyNameVersionQuerycatalogSparqlingMigrate
       parameters:
         - name: name
@@ -8882,9 +8612,7 @@ paths:
     delete:
       tags:
         - query-catalog_Persistence
-      summary: >-
-        Deletes the catalog of SPARQLING queries available for this version of
-        the ontology
+      summary: Deletes the catalog of SPARQLING queries available for this version of the ontology
       operationId: deleteOwlOntologyNameVersionQuerycatalogSparqling
       parameters:
         - name: name
@@ -9014,9 +8742,7 @@ paths:
     delete:
       tags:
         - query-catalog_Persistence
-      summary: >-
-        Removes a specific query from the catalog available for this version of
-        the ontology
+      summary: Removes a specific query from the catalog available for this version of the ontology
       operationId: deleteOwlOntologyNameVersionQueryID
       parameters:
         - name: name
@@ -9257,10 +8983,8 @@ paths:
     post:
       tags:
         - query-catalog_Utils
-      summary: >
-        Retrieves a set of queries from catalog containing variables with
-        rdftype to a given class
-
+      summary: |
+        Retrieves a set of queries from catalog containing variables with rdftype to a given class
         with a filter containing a set of instances
       operationId: getOwlOntologyNameVersionQuerycatalogQueryTemplates
       parameters:
@@ -9283,9 +9007,7 @@ paths:
         content:
           application/json:
             schema:
-              description: >-
-                A list of individuals (IRIs) so the queries get filtered on
-                those individuals
+              description: A list of individuals (IRIs) so the queries get filtered on those individuals
               type: array
               items:
                 type: string
@@ -9307,15 +9029,8 @@ paths:
     get:
       tags:
         - sparqling_OntologyGraph
-      summary: >-
-        Get the IRIs of the ontology entities "related" to the clicked and
-        selected.
-      description: >-
-        This route is used to highlight the negihbours of the selected class.
-        The neighbours can be classes (brother classes or child classes), object
-        properties (the class or one of his father partecipate or are typed to
-        domain/range) or data properties (the class or one of its fathers
-        partecipates or is typed to its domain).
+      summary: Get the IRIs of the ontology entities "related" to the clicked and selected.
+      description: This route is used to highlight the negihbours of the selected class. The neighbours can be classes (brother classes or child classes), object properties (the class or one of his father partecipate or are typed to domain/range) or data properties (the class or one of its fathers partecipates or is typed to its domain).
       operationId: highligths
       parameters:
         - name: ontologyName
@@ -9338,9 +9053,7 @@ paths:
             type: string
         - name: params
           in: query
-          description: >-
-            Possible value: `subClassOnly` in order to get only the subclasses
-            of the clicked class
+          description: 'Possible value: `subClassOnly` in order to get only the subclasses of the clicked class'
           required: false
           schema:
             type: array
@@ -9367,9 +9080,7 @@ paths:
       tags:
         - sparqling_OntologyGraph
       summary: Find paths between selected class and clicked class.
-      description: >-
-        The results should be based on Dijkstra algorithm for shortest paths.
-        ISA wieght is 0 while role weight is 1.
+      description: The results should be based on Dijkstra algorithm for shortest paths. ISA wieght is 0 while role weight is 1.
       operationId: highligthsSharedViewsDataProps
       parameters:
         - name: ontologyName
@@ -9501,9 +9212,7 @@ paths:
     get:
       tags:
         - sparqling_Highlights
-      summary: >-
-        GET results of a thread computing ontology paths with multi edges over a
-        given ontology
+      summary: GET results of a thread computing ontology paths with multi edges over a given ontology
       operationId: getShortestPathThreadResult
       parameters:
         - name: name
@@ -9608,13 +9317,7 @@ paths:
       tags:
         - sparqling_QueryGraphBGP
       summary: This is the first route to call in order to build the query graph.
-      description: >-
-        Starting from only the clicked class get the query graph that will be
-        rendered by Sparqling, the query head, the sparql code. The sparql query
-        returned will be somthing like `select ?x { ?x a <clickedClassIRI>` }.
-        The variable `?x` should be called according to the entity remainder or
-        label. The variable will be added to the head of the query in order to
-        create a valid SPARQL query.
+      description: Starting from only the clicked class get the query graph that will be rendered by Sparqling, the query head, the sparql code. The sparql query returned will be somthing like `select ?x { ?x a <clickedClassIRI>` }. The variable `?x` should be called according to the entity remainder or label. The variable will be added to the head of the query in order to create a valid SPARQL query.
       operationId: getQueryGraph
       parameters:
         - name: ontologyName
@@ -9655,14 +9358,8 @@ paths:
     put:
       tags:
         - sparqling_QueryGraphBGP
-      summary: >-
-        Starting from the current query graph continue to build the query graph
-        through a class.
-      description: >-
-        This call is used when the user click on a highlighted class and should
-        add a triple pattern of the form like `?x rdf:type <targetClassIRI>`.
-        The server should find `?x` in the SPARQL code as the variable
-        associated to the `sourceClassIRI`.
+      summary: Starting from the current query graph continue to build the query graph through a class.
+      description: This call is used when the user click on a highlighted class and should add a triple pattern of the form like `?x rdf:type <targetClassIRI>`. The server should find `?x` in the SPARQL code as the variable associated to the `sourceClassIRI`.
       operationId: putQueryGraphClass
       parameters:
         - name: ontologyName
@@ -9685,9 +9382,7 @@ paths:
             type: string
         - name: sourceClassIRI
           in: query
-          description: >-
-            The IRI of the last selected class. It could be selected from the
-            ontology graph or from the query graph.
+          description: The IRI of the last selected class. It could be selected from the ontology graph or from the query graph.
           required: true
           schema:
             type: string
@@ -9723,23 +9418,8 @@ paths:
     put:
       tags:
         - sparqling_QueryGraphBGP
-      summary: >-
-        Starting from the current query graph continue to build the query graph
-        through a object property.
-      description: >-
-        This route is used when the user click a highlighted object property
-        with ornly one `relatedClasses` or, in the case of more than one
-        `relatedClasses` immediatly after choosing one of them. In this case the
-        triple pattern to add is something like `?x <predicateIRI> ?y` where
-        `?x` and `?y` should be derived from the direction indicated by
-        `isPredicateDirect` of the object property with respect to
-        `sourceClassIRI` and `targetClassIRI`. If there is a cyclic object
-        property the user also should specify the direction if order to
-        correctly assign `?x` and `?y`. Either `?x` or `?y` should be a fresh
-        new variable which should be linked to a new triple pattern `?y rdf:type
-        <targetClassIRI>`. The variable `?y` should be called according to the
-        entity remainder or label and should add a counter if there is an
-        already defined variable for that class.
+      summary: Starting from the current query graph continue to build the query graph through a object property.
+      description: This route is used when the user click a highlighted object property with ornly one `relatedClasses` or, in the case of more than one `relatedClasses` immediatly after choosing one of them. In this case the triple pattern to add is something like `?x <predicateIRI> ?y` where `?x` and `?y` should be derived from the direction indicated by `isPredicateDirect` of the object property with respect to `sourceClassIRI` and `targetClassIRI`. If there is a cyclic object property the user also should specify the direction if order to correctly assign `?x` and `?y`. Either `?x` or `?y` should be a fresh new variable which should be linked to a new triple pattern `?y rdf:type <targetClassIRI>`. The variable `?y` should be called according to the entity remainder or label and should add a counter if there is an already defined variable for that class.
       operationId: putQueryGraphObjectProperty
       parameters:
         - name: ontologyName
@@ -9762,9 +9442,7 @@ paths:
             type: string
         - name: sourceClassIRI
           in: query
-          description: >-
-            The IRI of the last selected class. It could be selected from the
-            ontology graph or from the query graph.
+          description: The IRI of the last selected class. It could be selected from the ontology graph or from the query graph.
           required: true
           schema:
             type: string
@@ -9783,9 +9461,7 @@ paths:
         - name: isPredicateDirect
           in: query
           required: true
-          description: >-
-            If true sourceClassIRI is the domain of predicateIRI, if false
-            sourceClassIRI is the range of predicateIRI.
+          description: If true sourceClassIRI is the domain of predicateIRI, if false sourceClassIRI is the range of predicateIRI.
           schema:
             type: boolean
       requestBody:
@@ -9814,17 +9490,8 @@ paths:
     put:
       tags:
         - sparqling_QueryGraphBGP
-      summary: >-
-        Starting from the current query graph continue to build the query graph
-        through a data property.
-      description: >-
-        This route is used when the user click a highlighted data property. The
-        triple pattern to add is something like `?x <predicateIRI> ?y` where
-        `?x` should be derived from `selectedClassIRI`. Note that `?y` is fresh
-        new variable that should be added also to the head of the query (we
-        assume data property values are interesting). The variable `?y` should
-        be called according to the entity remainder or label and should add a
-        counter if there is an already defined variable for that data property.
+      summary: Starting from the current query graph continue to build the query graph through a data property.
+      description: This route is used when the user click a highlighted data property. The triple pattern to add is something like `?x <predicateIRI> ?y` where `?x` should be derived from `selectedClassIRI`. Note that `?y` is fresh new variable that should be added also to the head of the query (we assume data property values are interesting). The variable `?y` should be called according to the entity remainder or label and should add a counter if there is an already defined variable for that data property.
       operationId: putQueryGraphDataProperty
       parameters:
         - name: ontologyName
@@ -9847,9 +9514,7 @@ paths:
             type: string
         - name: sourceClassIRI
           in: query
-          description: >-
-            The IRI of the last selected class. It could be selected from the
-            ontology graph or from the query graph.
+          description: The IRI of the last selected class. It could be selected from the ontology graph or from the query graph.
           required: true
           schema:
             type: string
@@ -9885,17 +9550,8 @@ paths:
     put:
       tags:
         - sparqling_QueryGraphBGP
-      summary: >-
-        Starting from the current query graph continue to build the query graph
-        through a data property.
-      description: >-
-        This route is used when the user click a highlighted data property. The
-        triple pattern to add is something like `?x <predicateIRI> ?y` where
-        `?x` should be derived from `selectedClassIRI`. Note that `?y` is fresh
-        new variable that should be added also to the head of the query (we
-        assume data property values are interesting). The variable `?y` should
-        be called according to the entity remainder or label and should add a
-        counter if there is an already defined variable for that data property.
+      summary: Starting from the current query graph continue to build the query graph through a data property.
+      description: This route is used when the user click a highlighted data property. The triple pattern to add is something like `?x <predicateIRI> ?y` where `?x` should be derived from `selectedClassIRI`. Note that `?y` is fresh new variable that should be added also to the head of the query (we assume data property values are interesting). The variable `?y` should be called according to the entity remainder or label and should add a counter if there is an already defined variable for that data property.
       operationId: putQueryGraphAnnotation
       parameters:
         - name: ontologyName
@@ -9918,9 +9574,7 @@ paths:
             type: string
         - name: sourceClassIRI
           in: query
-          description: >-
-            The IRI of the last selected class. It could be selected from the
-            ontology graph or from the query graph.
+          description: The IRI of the last selected class. It could be selected from the ontology graph or from the query graph.
           required: true
           schema:
             type: string
@@ -9957,12 +9611,7 @@ paths:
       tags:
         - sparqling_QueryGraphBGP
       summary: Join two GraphNodeElement in one.
-      description: >-
-        Starting from a query graph which has two nodes representing the same
-        class(es), it returns the query graph in which the two nodes have been
-        joined into a single one. The children of the selected nodes will be
-        grouped in `graphElementId1` and each time we add a children through the
-        previous routes they will be added to this node.
+      description: Starting from a query graph which has two nodes representing the same class(es), it returns the query graph in which the two nodes have been joined into a single one. The children of the selected nodes will be grouped in `graphElementId1` and each time we add a children through the previous routes they will be added to this node.
       operationId: putQueryGraphJoin
       parameters:
         - name: ontologyName
@@ -10015,16 +9664,8 @@ paths:
     put:
       tags:
         - sparqling_QueryGraphBGP
-      summary: >-
-        Delete the GraphElement (and all its children) from the query graph and
-        head.
-      description: >-
-        This route is used when the user wants to delete a node from the query
-        graph. All the children of this node will be deleted as well as we do
-        not want to create query with completly separated branches. All the
-        variables that are going to be deleted should also be deleted from the
-        head of the query. **WARNING**, if the node has multiple occurrences
-        (due to join operations) every node should be deleted.
+      summary: Delete the GraphElement (and all its children) from the query graph and head.
+      description: This route is used when the user wants to delete a node from the query graph. All the children of this node will be deleted as well as we do not want to create query with completly separated branches. All the variables that are going to be deleted should also be deleted from the head of the query. **WARNING**, if the node has multiple occurrences (due to join operations) every node should be deleted.
       operationId: deleteGraphElementId
       parameters:
         - name: ontologyName
@@ -10299,31 +9940,19 @@ paths:
       tags:
         - sparqling_QueryGraphOptional
       summary: Add the `graphElementId` to a new optional.
-      description: >
+      description: |
         Create a new optional in the query and add the triple pattern(s)
-
         identified by the GraphElementId.
 
-
         - If it is a class the query parameter
-
-        should be used and the triple pattern `?graphElementId rdf:type
-        <classIRI>`
-
+        should be used and the triple pattern `?graphElementId rdf:type <classIRI>`
         will be moved from the bgp to the new optional.
 
-
         - If it is a data property
-
-        the tp `?graphElementIdVar1 <graphElementIdDataPropertyIRI>
-        ?graphElementIdVar2`
-
+        the tp `?graphElementIdVar1 <graphElementIdDataPropertyIRI> ?graphElementIdVar2`
         will be added to the new optional.
 
-
-        - If it is a object property the tps `?graphElementIdVar1
-        <graphElementIdDataPropertyIRI> ?graphElementIdVar2. ?graphElementIdVar2
-        rdf:type <classIRI>` till the leaves will be moved to the new optional.
+        - If it is a object property the tps `?graphElementIdVar1 <graphElementIdDataPropertyIRI> ?graphElementIdVar2. ?graphElementIdVar2 rdf:type <classIRI>` till the leaves will be moved to the new optional.
       operationId: newOptionalGraphElementId
       parameters:
         - name: ontologyName
@@ -10370,31 +9999,19 @@ paths:
       tags:
         - sparqling_QueryGraphOptional
       summary: Remove the graphElementId from the optional and move it back to the bgp.
-      description: >
+      description: |
         Remove the triple pattern(s) identified by the `graphElementId`
-
         from all the optional that contains the graphElementId.
 
-
         - If it is a class the query parameter
-
-        should be used and the triple pattern `?graphElementId rdf:type
-        <classIRI>`
-
+        should be used and the triple pattern `?graphElementId rdf:type <classIRI>`
         will be moved from the optional to the bgp.
-
 
         - If it is a data property
-
-        the tp `?graphElementIdVar1 <graphElementIdDataPropertyIRI>
-        ?graphElementIdVar2`
-
+        the tp `?graphElementIdVar1 <graphElementIdDataPropertyIRI> ?graphElementIdVar2`
         will be moved from the optional to the bgp.
 
-
-        - If it is a object property the tps `?graphElementIdVar1
-        <graphElementIdDataPropertyIRI> ?graphElementIdVar2. ?graphElementIdVar2
-        rdf:type <classIRI>` will be moved from the optional to the bgp.
+        - If it is a object property the tps `?graphElementIdVar1 <graphElementIdDataPropertyIRI> ?graphElementIdVar2. ?graphElementIdVar2 rdf:type <classIRI>` will be moved from the optional to the bgp.
       operationId: removeOptionalGraphElementId
       parameters:
         - name: ontologyName
@@ -10481,11 +10098,7 @@ paths:
       tags:
         - sparqling_QueryGraphHead
       summary: Add the head term to the query graph.
-      description: >-
-        Explicitley add a term to the query head. All the data property
-        variables are added automatically to the head during the query graph
-        construction. This will add to the head only variables associated to
-        classes (`rdf:type` triple pattern) or data properties.
+      description: Explicitley add a term to the query head. All the data property variables are added automatically to the head during the query graph construction. This will add to the head only variables associated to classes (`rdf:type` triple pattern) or data properties.
       operationId: addHeadTerm
       parameters:
         - name: ontologyName
@@ -10673,10 +10286,7 @@ paths:
       tags:
         - sparqling_QueryGraphHead
       summary: Set a function to the head term from the query graph.
-      description: >-
-        The function is defined in the head term of the query graph in the
-        request body. Remember to set the alias of the head based on function
-        name and variable.
+      description: The function is defined in the head term of the query graph in the request body. Remember to set the alias of the head based on function name and variable.
       operationId: functionHeadTerm
       parameters:
         - name: ontologyName
@@ -10723,10 +10333,7 @@ paths:
       tags:
         - sparqling_QueryGraphHead
       summary: Set the aggregation function to the head term.
-      description: >-
-        The aggregation function is defined in the group by field of the query
-        graph in the request body along with the HAVING clause. Remember to set
-        the alias of the head based on function name and variable.
+      description: The aggregation function is defined in the group by field of the query graph in the request body along with the HAVING clause. Remember to set the alias of the head based on function name and variable.
       operationId: aggregationHeadTerm
       parameters:
         - name: ontologyName
@@ -10858,9 +10465,7 @@ paths:
     put:
       tags:
         - sparqling_QueryGraphExtra
-      summary: >-
-        Create or remove an external query to the original one in order to count
-        results.
+      summary: Create or remove an external query to the original one in order to count results.
       operationId: countStarQueryGraph
       parameters:
         - name: ontologyName
@@ -10997,15 +10602,8 @@ paths:
     put:
       tags:
         - sparqling_QueryGraphBGP
-      summary: >-
-        Get the query graph that will be rendered by Sparqling, the query head,
-        the sparql code based on the chosen path.
-      description: >-
-        This path should be used to build the query graph using the path
-        interaction. As a result there will be added to the query several triple
-        pattern (depending on the length of the path) as a sequence of classes
-        and object properties. Data properties never appear in paths, in order
-        to add them use the simple PUT route.
+      summary: Get the query graph that will be rendered by Sparqling, the query head, the sparql code based on the chosen path.
+      description: This path should be used to build the query graph using the path interaction. As a result there will be added to the query several triple pattern (depending on the length of the path) as a sequence of classes and object properties. Data properties never appear in paths, in order to add them use the simple PUT route.
       operationId: addPathToQueryGraph
       parameters:
         - name: ontologyName
@@ -11056,9 +10654,7 @@ paths:
     post:
       tags:
         - sparqling_Construct
-      summary: >-
-        Return the CONSTRUCT query based on the shortest path between an
-        instance and another instance or class
+      summary: Return the CONSTRUCT query based on the shortest path between an instance and another instance or class
       operationId: instanceShortestPathPost
       parameters:
         - name: ontologyName
@@ -11203,9 +10799,7 @@ paths:
       tags:
         - sparqling_Highlights
       operationId: highlightedRDFGraph
-      summary: >-
-        Get the gscape file representing the highlighted RDF graph. It is used
-        to implement Natural Language Query.
+      summary: Get the gscape file representing the highlighted RDF graph. It is used to implement Natural Language Query.
       parameters:
         - name: name
           in: path
@@ -11474,9 +11068,7 @@ paths:
     get:
       tags:
         - triplify_Start
-      summary: >-
-        Triplifies the OBDA mapping specification, streaming the produced
-        triples to the client
+      summary: Triplifies the OBDA mapping specification, streaming the produced triples to the client
       operationId: getOwlOntologyNameVersionQueryIDExportDirectcsv
       parameters:
         - name: name
@@ -11884,9 +11476,7 @@ paths:
     post:
       tags:
         - vkg_Persistence
-      summary: >-
-        Save a new VKG Snaphot in the catalog for a given ontology (name,
-        version).
+      summary: Save a new VKG Snaphot in the catalog for a given ontology (name, version).
       operationId: postVkgSnapshot
       parameters:
         - name: name
@@ -11922,9 +11512,7 @@ paths:
     delete:
       tags:
         - vkg_Persistence
-      summary: >-
-        DELETE the entire VKG Snapshot catalog for a given ontology (name,
-        version)
+      summary: DELETE the entire VKG Snapshot catalog for a given ontology (name, version)
       operationId: deleteVkgSnapshots
       parameters:
         - name: name
@@ -11955,9 +11543,7 @@ paths:
     put:
       tags:
         - vkg_Persistence
-      summary: >-
-        Overwrite a VKG Snapshot (given its snapshotId) in the catalog for a
-        given ontology (name, version)
+      summary: Overwrite a VKG Snapshot (given its snapshotId) in the catalog for a given ontology (name, version)
       operationId: putVkgSnapshot
       parameters:
         - name: name
@@ -11998,9 +11584,7 @@ paths:
     delete:
       tags:
         - vkg_Persistence
-      summary: >-
-        Delete a given VKG Snapshot from catalog for a given ontology (name,
-        version)
+      summary: Delete a given VKG Snapshot from catalog for a given ontology (name, version)
       operationId: deleteVkgSnapshot
       parameters:
         - name: name
@@ -12036,9 +11620,7 @@ paths:
     get:
       tags:
         - vkg_Persistence
-      summary: >-
-        Get the entire VKG Snapshot catalog for a given ontology (name, version)
-        as a file
+      summary: Get the entire VKG Snapshot catalog for a given ontology (name, version) as a file
       operationId: exportVkgSnapshots
       parameters:
         - name: name
@@ -12067,9 +11649,7 @@ paths:
     post:
       tags:
         - vkg_Persistence
-      summary: >-
-        Upload the JSON file of a VKG Snapshot catalog for a given ontology
-        (name, version)
+      summary: Upload the JSON file of a VKG Snapshot catalog for a given ontology (name, version)
       operationId: importVkgSnapshots
       parameters:
         - name: name
@@ -13997,9 +13577,7 @@ paths:
     post:
       tags:
         - knowledge-graphs_Upload
-      summary: >-
-        Import metadata triples like
-        /owlOntology/{name}/version/loaderThreads/metadata:
+      summary: 'Import metadata triples like /owlOntology/{name}/version/loaderThreads/metadata:'
       operationId: postKnowledgeGraphImportMetadata
       parameters:
         - name: iri
@@ -14101,9 +13679,7 @@ paths:
     put:
       tags:
         - ontology-designer_Persistence
-      summary: >-
-        Modifies the ontology draft {ontologyName} (called when using the
-        ontology builder to save the draft)
+      summary: Modifies the ontology draft {ontologyName} (called when using the ontology builder to save the draft)
       operationId: putOntologyDraft
       parameters:
         - name: ontologyName
@@ -14312,9 +13888,7 @@ paths:
       tags:
         - ontology-catalog_Management
       summary: Creates a new ontology catalog instance
-      description: >-
-        adds a new ontology catalog to the ones available in this Mastro
-        installation
+      description: adds a new ontology catalog to the ones available in this Mastro installation
       operationId: postOntologyCatalogInstances
       requestBody:
         content:
@@ -14353,12 +13927,8 @@ paths:
     delete:
       tags:
         - ontology-catalog_Management
-      summary: >-
-        deletes the ontology catalog instances passed in the body from the ones
-        available in this mastro installation
-      description: >-
-        deletes the ontology catalog instances passed in the body from the ones
-        available in this mastro installation
+      summary: deletes the ontology catalog instances passed in the body from the ones available in this mastro installation
+      description: deletes the ontology catalog instances passed in the body from the ones available in this mastro installation
       operationId: deleteOntologyCatalogInstances
       requestBody:
         content:
@@ -14381,12 +13951,8 @@ paths:
     put:
       tags:
         - ontology-catalog_Management
-      summary: >-
-        Sets the new active instance of the query catalog as the one passed in
-        the body
-      description: >-
-        Sets the new active instance of the query catalog as the one passed in
-        the body
+      summary: Sets the new active instance of the query catalog as the one passed in the body
+      description: Sets the new active instance of the query catalog as the one passed in the body
       operationId: putOntologyCatalogInstanceActive
       requestBody:
         content:
@@ -14426,9 +13992,7 @@ paths:
     get:
       tags:
         - ontology-catalog_Query
-      summary: >-
-        Returns the query catalog available for the given version of the
-        ontology
+      summary: Returns the query catalog available for the given version of the ontology
       operationId: getOntologycatalogQuerycatalog
       responses:
         '200':
@@ -14445,9 +14009,7 @@ paths:
     delete:
       tags:
         - ontology-catalog_Query
-      summary: >-
-        Deletes the query catalog available for the given version of the
-        ontology
+      summary: Deletes the query catalog available for the given version of the ontology
       operationId: deleteOntologycatalogQuerycatalog
       responses:
         '200':
@@ -14483,10 +14045,7 @@ paths:
     post:
       tags:
         - ontology-catalog_Query
-      summary: >-
-        Imports a new catalog for the given version of the ontology: if the
-        additive switch is true, all new queries will be added to the existing
-        ones, otherwise the old catalog will be overwritten
+      summary: 'Imports a new catalog for the given version of the ontology: if the additive switch is true, all new queries will be added to the existing ones, otherwise the old catalog will be overwritten'
       operationId: getOntologycatalogQuerycatalogImport
       parameters:
         - name: additive
@@ -14592,9 +14151,7 @@ paths:
     delete:
       tags:
         - ontology-catalog_Query
-      summary: >-
-        Removes a specific query from the catalog available for this version of
-        the ontology
+      summary: Removes a specific query from the catalog available for this version of the ontology
       operationId: deleteOntologycatalogQueryID
       parameters:
         - name: ID
@@ -14793,10 +14350,7 @@ paths:
       tags:
         - ontology-catalog_Visualize
       summary: GET mwsx/ontologyCatalog/merged
-      description: >-
-        Returns the merged ontology (in GSCAPE format) obtained by merging all
-        the ontologies in the catalog. The merged catalog is generated by
-        merging all the ontologies in the catalog.
+      description: Returns the merged ontology (in GSCAPE format) obtained by merging all the ontologies in the catalog. The merged catalog is generated by merging all the ontologies in the catalog.
       operationId: getOntologyCatalogMerged
       responses:
         '200':
@@ -15303,9 +14857,7 @@ paths:
     post:
       tags:
         - dashboards_Persistence
-      summary: >-
-        Migrates dashboard with ID dashboardId from version 'version' to
-        'version' targetVersion for ontology named 'name'
+      summary: Migrates dashboard with ID dashboardId from version 'version' to 'version' targetVersion for ontology named 'name'
       operationId: postOwlOntologyVersionDashboardMigrate
       parameters:
         - name: name
@@ -15344,9 +14896,7 @@ paths:
     post:
       tags:
         - dashboards_Persistence
-      summary: >-
-        Migrates all dashboards from version 'version' to 'version'
-        targetVersion for ontology named 'name'
+      summary: Migrates all dashboards from version 'version' to 'version' targetVersion for ontology named 'name'
       operationId: postOwlOntologyVersionDashboardsMigrate
       parameters:
         - name: name
@@ -15983,9 +15533,7 @@ paths:
     get:
       tags:
         - data-quality_CheckSet
-      summary: >-
-        Returns the execution log of the last execution of the specified check
-        set
+      summary: Returns the execution log of the last execution of the specified check set
       operationId: getOntologyConstraintsCheckSetIdExecutionLog
       parameters:
         - name: name
@@ -16052,9 +15600,7 @@ paths:
     get:
       tags:
         - data-quality_CheckSet
-      summary: >-
-        Returns a list of the available timestamps for a check set of the given
-        ontology/version
+      summary: Returns a list of the available timestamps for a check set of the given ontology/version
       operationId: getOntologyConstraintsCheckSetIdExecutionTimestamps
       parameters:
         - name: name
@@ -16167,9 +15713,7 @@ paths:
     delete:
       tags:
         - data-quality_CheckSet
-      summary: >-
-        Deletes all the data quality check set execution logs saved on the
-        server for the given ontology/version
+      summary: Deletes all the data quality check set execution logs saved on the server for the given ontology/version
       operationId: deleteOntologyConstraintsCheckSetIdExecutionTimestamps
       parameters:
         - name: name
@@ -16237,9 +15781,7 @@ paths:
     post:
       tags:
         - data-quality_CheckSet
-      summary: >-
-        Imports a data quality check set dump and returns a report of the
-        performed operation
+      summary: Imports a data quality check set dump and returns a report of the performed operation
       operationId: postOntologyConstraintsCheckSetIdImport
       parameters:
         - name: name
@@ -16279,9 +15821,7 @@ paths:
     get:
       tags:
         - data-quality_SHACL
-      summary: >-
-        Returns the JSON constraints file of the version 'version' of the
-        ontology named <code>name</code>.<br/> 
+      summary: 'Returns the JSON constraints file of the version ''version'' of the ontology named <code>name</code>.<br/> '
       operationId: getOwlOntologyNameVersionJsonConstraints
       parameters:
         - name: name
@@ -16309,9 +15849,7 @@ paths:
     delete:
       tags:
         - data-quality_SHACL
-      summary: >-
-        Deletes the JSON constraints file of the version 'version' of the
-        ontology named <code>name</code>.<br/> 
+      summary: 'Deletes the JSON constraints file of the version ''version'' of the ontology named <code>name</code>.<br/> '
       operationId: deleteOwlOntologyNameVersionJsonConstraints
       parameters:
         - name: name
@@ -16877,9 +16415,7 @@ paths:
     put:
       tags:
         - misc_Geocoding
-      summary: >-
-        Adds or modifies the specified Geocoding server and returns the new list
-        of available servers
+      summary: Adds or modifies the specified Geocoding server and returns the new list of available servers
       operationId: putGeocodingServer
       parameters:
         - name: serverId
@@ -17156,9 +16692,7 @@ paths:
     post:
       tags:
         - misc_Statics
-      summary: >-
-        Take a SPARQL query and tranfsorm it in a CONSTRUCT form by putting the
-        BGP in the CONSTRUCT body.
+      summary: Take a SPARQL query and tranfsorm it in a CONSTRUCT form by putting the BGP in the CONSTRUCT body.
       operationId: postConstructify
       requestBody:
         content:
@@ -17593,9 +17127,7 @@ paths:
     put:
       tags:
         - misc_Statistics
-      summary: >-
-        Adds the provided ontologies statistics to the one registered in the
-        system
+      summary: Adds the provided ontologies statistics to the one registered in the system
       operationId: putOntologiesStatistics
       requestBody:
         content:
@@ -17667,9 +17199,7 @@ paths:
     post:
       tags:
         - misc_Statistics
-      summary: >-
-        Replace the current query statistics with the one provided for the given
-        endpoint
+      summary: Replace the current query statistics with the one provided for the given endpoint
       operationId: postStatisticsEndpointQueries
       parameters:
         - name: endpoint
@@ -17702,9 +17232,7 @@ paths:
     put:
       tags:
         - misc_Statistics
-      summary: >-
-        Adds the provided query statistics for the given endpoint to the one
-        registered in the system
+      summary: Adds the provided query statistics for the given endpoint to the one registered in the system
       operationId: putStatisticsEndpointQueries
       parameters:
         - name: endpoint
@@ -17838,9 +17366,7 @@ paths:
     post:
       tags:
         - task-scheduler_Actions
-      summary: >-
-        Schedules a new job in the task scheduler, returns the ID of the
-        scheduled job
+      summary: Schedules a new job in the task scheduler, returns the ID of the scheduled job
       operationId: postTaskSchedulerJobs
       requestBody:
         content:
@@ -17863,9 +17389,7 @@ paths:
     get:
       tags:
         - task-scheduler_Actions
-      summary: >-
-        Schedules a new job in the task scheduler, returns the ID of the
-        scheduled job
+      summary: Schedules a new job in the task scheduler, returns the ID of the scheduled job
       operationId: getTaskSchedulerJobs
       responses:
         '200':
@@ -17925,9 +17449,7 @@ paths:
     post:
       tags:
         - task-scheduler_Actions
-      summary: >-
-        Schedules a new job in the task scheduler, returns the ID of the
-        scheduled job
+      summary: Schedules a new job in the task scheduler, returns the ID of the scheduled job
       operationId: postTaskSchedulerJobEntries
       parameters:
         - name: mode
@@ -17984,9 +17506,7 @@ paths:
     get:
       tags:
         - task-scheduler_Execution
-      summary: >-
-        Returns the execution entry (identified by execId) of the job
-        (identified by jobId)
+      summary: Returns the execution entry (identified by execId) of the job (identified by jobId)
       operationId: getTaskSchedulerJobEntriesExecutionId
       parameters:
         - name: jobId
@@ -18591,13 +18111,11 @@ components:
       type: apiKey
       in: header
       name: X-MONOLITH-SESSION-ID
-      description: >
-        This session ID is generated from Basic Authentication on the login
-        route.
+      description: |
+        This session ID is generated from Basic Authentication on the login route.
     jwt:
-      description: >
-        Generate your JWT when you log in. JWT configurations should be placed
-        in `$MASTRO_HOME/config/mastro.jwt` file
+      description: |
+        Generate your JWT when you log in. JWT configurations should be placed in `$MASTRO_HOME/config/mastro.jwt` file
       type: http
       scheme: bearer
       bearerFormat: JWT
@@ -18680,9 +18198,7 @@ components:
         defined:
           type: boolean
           default: false
-          description: >-
-            Indicates whether the entity is defined in the ontology (true) or is
-            a reference to an external entity (false)
+          description: Indicates whether the entity is defined in the ontology (true) or is a reference to an external entity (false)
     OntologyCatalog:
       title: OntologyCatalog
       type: object
@@ -19563,16 +19079,12 @@ components:
           description: This id corrensopond to the variable when entity type is a class.
         variables:
           type: array
-          description: >-
-            This element could refer to one variable (if it's a class) or to two
-            variables (if it's a property)
+          description: This element could refer to one variable (if it's a class) or to two variables (if it's a property)
           items:
             type: string
         entities:
           type: array
-          description: >-
-            It could have more than one entity only when entity type is a class
-            (could be derived after clicking on two borther classes)
+          description: It could have more than one entity only when entity type is a class (could be derived after clicking on two borther classes)
           items:
             $ref: '#/components/schemas/SparqlingEntity'
         children:
@@ -21059,17 +20571,10 @@ components:
           items:
             $ref: '#/components/schemas/ConstructTriple'
     TypesEnum:
-      description: >-
-        Contiene tutti i tipi di nodi/archi orginirari dal Graphol per evitare
-        di duplicare gli enumeratori. Nella rappresentazione Floaty/vkg vengono
-        usati questi valori.
-
-        NODI class data-property class-instance (vkg) individual (floaty) union
-        disjoint-union iri (floaty iri range di annotazioni che non sono entità)
-
-        ARCHI object-property annotation-property instance-of input inclusion
-        equivalence attribute-edge union disjoint-union complete-union
-        complete-disjoint-union
+      description: |-
+        Contiene tutti i tipi di nodi/archi orginirari dal Graphol per evitare di duplicare gli enumeratori. Nella rappresentazione Floaty/vkg vengono usati questi valori.
+        NODI class data-property class-instance (vkg) individual (floaty) union disjoint-union iri (floaty iri range di annotazioni che non sono entità)
+        ARCHI object-property annotation-property instance-of input inclusion equivalence attribute-edge union disjoint-union complete-union complete-disjoint-union
       type: string
       enum:
         - class
@@ -21151,10 +20656,7 @@ components:
           type: string
         originalId:
           type: string
-          description: >-
-            In case of replicated elements, this is the ID of the original
-            element replicated in multiple occurrences, all of them with
-            different IDs
+          description: In case of replicated elements, this is the ID of the original element replicated in multiple occurrences, all of them with different IDs
         diagramId:
           type: integer
           default: 0
@@ -21407,10 +20909,7 @@ components:
               complete:
                 type: boolean
     ActionInvolvedElements:
-      description: >-
-        Other elements involved in an action. Only for Remove actions. The
-        remove action on an Entity might involve other elements. i.e. object
-        properties on removed classes
+      description: Other elements involved in an action. Only for Remove actions. The remove action on an Entity might involve other elements. i.e. object properties on removed classes
       type: object
       properties:
         nodes:
@@ -21426,15 +20925,9 @@ components:
           items:
             $ref: '#/components/schemas/Hierarchy'
     Action:
-      description: >-
-        Actions describes what user has done on a single element or element's
-        metadata. The user can add, edit or remove something. The "something" is
-        described by the operation involved in the action, it can be an
-        operation over an entity, a diagram, a hierarchy and so on.
-
-        Reverting an action means reverting the operation that has been done and
-        it depends on the type of the action. - Add => Remove - Remove => Add -
-        Edit => restore the previous state of the subject of the operation made
+      description: |-
+        Actions describes what user has done on a single element or element's metadata. The user can add, edit or remove something. The "something" is described by the operation involved in the action, it can be an operation over an entity, a diagram, a hierarchy and so on.
+        Reverting an action means reverting the operation that has been done and it depends on the type of the action. - Add => Remove - Remove => Add - Edit => restore the previous state of the subject of the operation made
       type: object
       required:
         - operationType
@@ -21666,9 +21159,7 @@ components:
           $ref: '#/components/schemas/IMwsxThreadState'
     BFSEdge:
       title: BFSEdge
-      description: >-
-        It represents an edge of a virtual graph used to search paths between
-        instances
+      description: It represents an edge of a virtual graph used to search paths between instances
       type: object
       properties:
         iri:
@@ -21681,9 +21172,7 @@ components:
           type: boolean
     BFSPath:
       title: BFSPath
-      description: >-
-        It represents a path of a virtual graph used to search paths between
-        instances
+      description: It represents a path of a virtual graph used to search paths between instances
       type: object
       properties:
         id:
@@ -22122,9 +21611,7 @@ components:
       properties:
         entities:
           type: array
-          description: >-
-            Starts with lastSelectedIRI and ends with clickedIRI. In between the
-            nodes and edges traversed in the path (ISA edge are marked as ISA)
+          description: Starts with lastSelectedIRI and ends with clickedIRI. In between the nodes and edges traversed in the path (ISA edge are marked as ISA)
           items:
             $ref: '#/components/schemas/SparqlingEntity'
     MWSXOBDATriplificationRequest:
@@ -22308,14 +21795,10 @@ components:
                         - scaleID
                       properties:
                         scaleID:
-                          description: >-
-                            Color scale identifier for chroma.js (i.e "OrRd"),
-                            @see https://gka.github.io/chroma.js/#chroma-brewer
+                          description: Color scale identifier for chroma.js (i.e "OrRd"), @see https://gka.github.io/chroma.js/#chroma-brewer
                           type: string
                         intervals:
-                          description: >-
-                            Custom scale intervals, to be used with chroma.js.
-                            @see https://gka.github.io/chroma.js/#scale-classes
+                          description: Custom scale intervals, to be used with chroma.js. @see https://gka.github.io/chroma.js/#scale-classes
                           type: array
                           items:
                             type: number
@@ -22827,11 +22310,7 @@ components:
             - ONTOLOGY
         originDetail:
           type: string
-          description: >-
-            Valorized only when originType != RDF. If the origin type is QUERY
-            it contains the query code, if it is CSV it contains the name of the
-            CSV from which it was created, if it is ONTOLOGY it contains the IRI
-            of the ontology.
+          description: Valorized only when originType != RDF. If the origin type is QUERY it contains the query code, if it is CSV it contains the name of the CSV from which it was created, if it is ONTOLOGY it contains the IRI of the ontology.
     OBDAConstructResults:
       title: OBDAConstructResults
       type: object

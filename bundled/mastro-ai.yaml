@@ -129,7 +129,8 @@ paths:
                   type: string
                   format: binary
                 metadata:
-                  $ref: '#/components/schemas/MWSXOntologyCatalogOntologyMetadataSet'
+                  type: string
+                  format: binary
         required: true
       responses:
         '200':
@@ -961,14 +962,14 @@ paths:
         '401':
           description: Unhauthorized
 components:
-  securitySchemes:
-    jwt:
-      description: |
-        Generate your JWT when you log in. JWT configurations should be placed in `$MASTRO_HOME/config/mastro.jwt` file
-      type: http
-      scheme: bearer
-      bearerFormat: JWT
   schemas:
+    MWSXOntologyCatalogOntologyMetadataSet:
+      type: object
+      properties:
+        metadataTriples:
+          type: array
+          items:
+            $ref: '#/components/schemas/MWSXMetadataTriple'
     TypesEnum:
       description: |-
         Contiene tutti i tipi di nodi/archi orginirari dal Graphol per evitare di duplicare gli enumeratori. Nella rappresentazione Floaty/vkg vengono usati questi valori.
@@ -1533,53 +1534,6 @@ components:
           type: integer
           default: 0
           format: int32
-    MWSXMetadataSubject:
-      type: object
-      properties:
-        iri:
-          type: string
-        impliedClassIri:
-          type: string
-    MWSXMetadataPredicate:
-      type: object
-      properties:
-        iri:
-          type: string
-    MWSXMetadataObject:
-      type: object
-      properties:
-        iri:
-          type: string
-        impliedClassIri:
-          type: string
-        value:
-          type: string
-        lang:
-          type: string
-        datatypeIri:
-          type: string
-        isIri:
-          type: boolean
-          default: false
-        isBlankNode:
-          type: boolean
-          default: false
-    MWSXMetadataTriple:
-      type: object
-      properties:
-        subject:
-          $ref: '#/components/schemas/MWSXMetadataSubject'
-        predicate:
-          $ref: '#/components/schemas/MWSXMetadataPredicate'
-        object:
-          $ref: '#/components/schemas/MWSXMetadataObject'
-    MWSXOntologyCatalogOntologyMetadataSet:
-      type: object
-      properties:
-        metadataTriples:
-          type: array
-          items:
-            $ref: '#/components/schemas/MWSXMetadataTriple'
     ChartConfiguration:
       title: ChartConfiguration
       type: object
@@ -1828,3 +1782,50 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SimilarClass'
+    MWSXMetadataSubject:
+      type: object
+      properties:
+        iri:
+          type: string
+        impliedClassIri:
+          type: string
+    MWSXMetadataPredicate:
+      type: object
+      properties:
+        iri:
+          type: string
+    MWSXMetadataObject:
+      type: object
+      properties:
+        iri:
+          type: string
+        impliedClassIri:
+          type: string
+        value:
+          type: string
+        lang:
+          type: string
+        datatypeIri:
+          type: string
+        isIri:
+          type: boolean
+          default: false
+        isBlankNode:
+          type: boolean
+          default: false
+    MWSXMetadataTriple:
+      type: object
+      properties:
+        subject:
+          $ref: '#/components/schemas/MWSXMetadataSubject'
+        predicate:
+          $ref: '#/components/schemas/MWSXMetadataPredicate'
+        object:
+          $ref: '#/components/schemas/MWSXMetadataObject'
+  securitySchemes:
+    jwt:
+      description: |
+        Generate your JWT when you log in. JWT configurations should be placed in `$MASTRO_HOME/config/mastro.jwt` file
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
