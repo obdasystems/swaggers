@@ -1,0 +1,64 @@
+openapi: 3.0.0
+servers:
+  - url: "{protocol}://{tenant}{port}"
+    variables:
+      protocol:
+        default: https
+      tenant:
+        default: localhost
+      port:
+        default: ":8080"
+info:
+  description: >-
+    This is the API for the AI assistant module
+  version: 1.0.0
+  title: AI assistant API model
+  contact:
+    email: info@obdasystems.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+paths:
+  /ai/ontologyDraft/download:
+    $ref: paths/ai_ontologyDraft_download.yaml
+  /ai/ontologyDraft/download/rejectedAxioms:
+    $ref: paths/ai_ontologyDraft_download_rejectedAxioms.yaml
+  /ai/ontologyDraft/convertOWL:
+    $ref: paths/ai_ontologyDraft_convertOWL.yaml
+  /ai/ontologyDraft/metadata:
+    $ref: paths/ai_ontologyDraft_metadata.yaml
+  /ai/entity_description:
+    $ref: paths/ai_entity_description.yaml
+  /ai/individual_description:
+    $ref: paths/ai_individual_description.yaml
+  /ai/class_data_properties:
+    $ref: paths/ai_class_data_properties.yaml
+  /ai/class_subclasses:
+    $ref: paths/ai_class_subclasses.yaml
+  /ai/sparql_description:
+    $ref: paths/ai_sparql_description.yaml
+  /ai/autochart:
+    $ref: paths/ai_autochart.yaml
+  /ai/autochart_description:
+    $ref: paths/ai_autochart_description.yaml
+  /ai/text2sparql:
+    $ref: paths/ai_text2sparql.yaml
+  /ai/rag/ontologyDraft/{name}:
+    $ref: paths/ai_rag_ontologyDraft_name.yaml
+  /ai/rag/ontologyQuery:
+    $ref: paths/ai_rag_ontologyQuery.yaml
+  /ai/rag/ontologyRDFExamples:
+    $ref: paths/ai_rag_ontologyRDFExamples.yaml
+  /ai/rag/ontologySummary:
+    $ref: paths/ai_rag_ontologySummary.yaml
+  /ai/rag/{ontologyName}/vectorDB/status:
+    $ref: paths/ai_rag_ontologyName_vectorDB_status.yaml
+components:
+  schemas:
+    MWSXOntologyCatalogOntologyMetadataSet:
+      $ref: components/schemas/MWSXOntologyCatalogOntologyMetadataSet.yaml
+  securitySchemes:
+    jwt:
+      $ref: "./components/securitySchemes/jwt.yaml"
+security:
+  - jwt: []

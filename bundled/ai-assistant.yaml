@@ -1,0 +1,1247 @@
+openapi: 3.0.0
+info:
+  description: This is the API for the AI assistant module
+  version: 1.0.0
+  title: AI assistant API model
+  contact:
+    email: info@obdasystems.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+  - url: '{protocol}://{tenant}{port}'
+    variables:
+      protocol:
+        default: https
+      tenant:
+        default: localhost
+      port:
+        default: :8080
+security:
+  - jwt: []
+paths:
+  /ai/ontologyDraft/download:
+    post:
+      deprecated: true
+      tags:
+        - Convert
+      summary: Download the ontology draft converted in OWL2
+      operationId: getOntologyDraftAIDownload
+      parameters:
+        - name: format
+          in: query
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RDFGraph'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            text/plain:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+  /ai/ontologyDraft/download/rejectedAxioms:
+    post:
+      deprecated: true
+      tags:
+        - Convert
+      summary: Download the rejected axioms in OWL2
+      operationId: getOntologyDraftAIDownloadRejectedAxioms
+      parameters:
+        - name: format
+          in: query
+          schema:
+            type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            text/plain:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+  /ai/ontologyDraft/convertOWL:
+    post:
+      deprecated: true
+      tags:
+        - Convert
+      summary: Convert an OWL file in RDFGraph model
+      operationId: postOntologyDraftAIConvertOWL
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OWL2RDFGraphConversionResult'
+        '401':
+          description: Unhauthorized
+  /ai/ontologyDraft/metadata:
+    post:
+      deprecated: true
+      tags:
+        - Metadata
+      summary: Download a new version to the ontology enriched with the metadata provided in the request body.
+      operationId: postAIOntologyDraftMetadata
+      parameters:
+        - name: format
+          in: query
+          schema:
+            type: string
+        - name: newVersion
+          in: query
+          schema:
+            type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                metadata:
+                  type: string
+                  format: binary
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+  /ai/entity_description:
+    post:
+      tags:
+        - Prompt
+      summary: Returns the description for an entity
+      operationId: describeOntologyEntity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - entityName
+                - entityType
+                - context
+              properties:
+                entityName:
+                  description: the name of the entity to describe
+                  type: string
+                entityType:
+                  type: string
+                  enum:
+                    - class
+                    - attribute
+                    - relationship
+                context:
+                  description: the context in which the individual exists, most likely the name of the ontology
+                  type: string
+                propertyInfo:
+                  description: if the entity is a data or object property, this objects contains domain and range names. In case of data properties, the range is its datatype (string, number, ...)
+                  type: object
+                  properties:
+                    domainName:
+                      type: string
+                    rangeName:
+                      type: string
+                language:
+                  description: the language to use for the answer.
+                  type: string
+                  default: English
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+  /ai/individual_description:
+    post:
+      tags:
+        - Prompt
+      summary: Returns the description for an individual (class instance)
+      operationId: describeIndividual
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - individualName
+                - context
+              properties:
+                individualName:
+                  description: the name (probably the label) of the individual to describe
+                  type: string
+                context:
+                  description: the context in which the individual exists, most likely the name of the ontology
+                  type: string
+                individualTypes:
+                  description: a list of classes for which the individual is instance of
+                  type: array
+                  items:
+                    type: string
+                language:
+                  description: the language to use for the answer.
+                  type: string
+                  default: English
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+  /ai/class_data_properties:
+    post:
+      tags:
+        - Prompt
+      summary: Returns a list of possible data properties for a given class
+      operationId: suggestClassDataProperties
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - className
+                - context
+              properties:
+                className:
+                  description: the name (probably the label) of the class for which the data properties are extracted
+                  type: string
+                context:
+                  description: the context in which the class exists, most likely the name of the ontology
+                  type: string
+                numberResults:
+                  description: the number of data properties to return
+                  type: number
+                  default: 5
+                language:
+                  description: the language to use for the answer.
+                  type: string
+                  default: English
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        '401':
+          description: Unhauthorized
+  /ai/class_subclasses:
+    post:
+      tags:
+        - Prompt
+      summary: Returns a list of possible subclasses for a given class
+      operationId: suggestClassSubclasses
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - className
+                - context
+              properties:
+                className:
+                  description: the name (probably the label) of the class for which the data properties are extracted
+                  type: string
+                context:
+                  description: the context in which the class exists, most likely the name of the ontology
+                  type: string
+                numberResults:
+                  description: the number of data properties to return
+                  type: number
+                  default: 5
+                language:
+                  description: the language to use for the answer.
+                  type: string
+                  default: English
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        '401':
+          description: Unhauthorized
+  /ai/sparql_description:
+    post:
+      tags:
+        - Prompt
+      summary: Returns a description of a sparql query
+      operationId: describeSparqlQuery
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - queryCode
+              properties:
+                queryCode:
+                  description: the sparql query code to describe
+                  type: string
+                language:
+                  description: the language to use for the answer.
+                  type: string
+                  default: English
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+  /ai/autochart:
+    post:
+      tags:
+        - Prompt
+      summary: Returns a chart configuration for a SPARQL query suggested by AI
+      operationId: autoChart
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - queryCode
+              properties:
+                queryCode:
+                  description: Code of the query that provides the results that the user want to visualize in the chart
+                  type: string
+                language:
+                  description: the language to use for the answer.
+                  type: string
+                  default: English
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChartConfiguration'
+        '401':
+          description: Unhauthorized
+  /ai/autochart_description:
+    post:
+      tags:
+        - Prompt
+      summary: Returns a description of a chart
+      operationId: describeChart
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - chartConfiguration
+                - queryCode
+              properties:
+                chartConfiguration:
+                  $ref: '#/components/schemas/ChartConfiguration'
+                queryCode:
+                  description: the SPARQL code that generates the data for the chart
+                  type: string
+                queryDescription:
+                  description: the description of the query to use. If not provided, LLM will generate one.
+                  type: string
+                language:
+                  description: the language to use for the answer.
+                  type: string
+                  default: English
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+  /ai/text2sparql:
+    post:
+      tags:
+        - Prompt
+      summary: Converts a natural language text into a SPARQL query
+      operationId: text2sparql
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  description: The natural language text to convert
+                  type: string
+                owl:
+                  description: The OWL ontology serialization in one of the supported formats (e.g., RDF/XML, Turtle).
+                  type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: string
+                description: The generated SPARQL query
+        '401':
+          description: Unhauthorized
+  /ai/rag/ontologyDraft/{name}:
+    put:
+      tags:
+        - RAG
+      summary: Ask for AI support in ontology design.
+      operationId: putOntologyDraftAI
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+                currentRdfGraph:
+                  $ref: '#/components/schemas/RDFGraph'
+                iriStyle:
+                  type: boolean
+                  default: true
+                  description: '`True` for camelCase, `False` for snake_case'
+                simpleNameLanguage:
+                  type: string
+                  default: en
+                  description: Language used for generating the variable part of entity IRIs. Value must be in ISO 2 chars format. Default "en"
+                annotationLanguage:
+                  type: string
+                  default: it
+                  description: Language used for generating annotations on entities. Namely "rdfs:label" and "rdfs:comment". Value must be in ISO 2 chars format. Default "it"
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RDFGraph'
+        '401':
+          description: Unhauthorized
+  /ai/rag/ontologyQuery:
+    put:
+      tags:
+        - RAG
+      summary: Ask anything about this ontology, and get an answer with the relevant entities.
+      operationId: putOntologyQueryAI
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+                currentRdfGraph:
+                  $ref: '#/components/schemas/RDFGraph'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  queryAnswer:
+                    type: string
+                  ontologyEntities:
+                    type: object
+                    description: A map of the relevant words in the answer to the corresponding entities in the ontology, with their IRIs.
+                    additionalProperties:
+                      type: string
+        '401':
+          description: Unhauthorized
+  /ai/rag/ontologyRDFExamples:
+    post:
+      tags:
+        - RAG
+      summary: Returns an example of RDF instaces in Turtle format, based on the classes provided in the request body and the current RDF graph.
+      operationId: postOntologyRDFExamples
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                classes:
+                  type: array
+                  items:
+                    type: string
+                currentRdfGraph:
+                  $ref: '#/components/schemas/RDFGraph'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            text/plain:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+  /ai/rag/ontologySummary:
+    post:
+      tags:
+        - RAG
+      summary: Returns a summary of the ontology.
+      operationId: postOntologySummary
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                currentRdfGraph:
+                  $ref: '#/components/schemas/RDFGraph'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            text/plain:
+              schema:
+                type: string
+        '401':
+          description: Unhauthorized
+  /ai/rag/{ontologyName}/vectorDB/status:
+    get:
+      tags:
+        - RAG
+      summary: Check the vector database status for a specific ontology version.
+      operationId: checkVectorDBStatus
+      parameters:
+        - name: ontologyName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ontologyVersion
+          in: query
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                title: VectorDBStatus
+                type: object
+                description: The status of the vector database.
+                properties:
+                  status:
+                    type: string
+                    enum:
+                      - NOT_INITIALIZED
+                      - INITIALIZING
+                      - FINISHED
+                      - ERROR
+                    description: The current status of the vector database.
+                  errorMessage:
+                    type: string
+                    description: The error message if the status is ERROR.
+                  percentage:
+                    type: integer
+                    description: The initialization progress percentage (0-100).
+                  executionTime:
+                    type: integer
+                    description: The time taken for the last operation in milliseconds.
+        '401':
+          description: Unhauthorized
+components:
+  schemas:
+    MWSXOntologyCatalogOntologyMetadataSet:
+      type: object
+      properties:
+        metadataTriples:
+          type: array
+          items:
+            $ref: '#/components/schemas/MWSXMetadataTriple'
+    TypesEnum:
+      description: |-
+        Contiene tutti i tipi di nodi/archi orginirari dal Graphol per evitare di duplicare gli enumeratori. Nella rappresentazione Floaty/vkg vengono usati questi valori.
+        NODI class data-property class-instance (vkg) individual (floaty) union disjoint-union iri (floaty iri range di annotazioni che non sono entità)
+        ARCHI object-property annotation-property instance-of input inclusion equivalence attribute-edge union disjoint-union complete-union complete-disjoint-union
+      type: string
+      enum:
+        - class
+        - object-property
+        - data-property
+        - annotation-property
+        - individual
+        - class-instance
+        - domain-restriction
+        - range-restriction
+        - union
+        - complete-union
+        - disjoint-union
+        - complete-disjoint-union
+        - complement
+        - intersection
+        - enumeration
+        - has-key
+        - role-inverse
+        - role-chain
+        - datatype-restriction
+        - value-domain
+        - property-assertion
+        - literal
+        - facet
+        - neutral
+        - value
+        - inclusion
+        - equivalence
+        - instance-of
+        - input
+        - same
+        - different
+        - membership
+        - attribute-edge
+        - iri
+      x-enum-varnames:
+        - CLASS
+        - OBJECT_PROPERTY
+        - DATA_PROPERTY
+        - ANNOTATION_PROPERTY
+        - INDIVIDUAL
+        - CLASS_INSTANCE
+        - DOMAIN_RESTRICTION
+        - RANGE_RESTRICTION
+        - UNION
+        - COMPLETE_UNION
+        - DISJOINT_UNION
+        - COMPLETE_DISJOINT_UNION
+        - COMPLEMENT
+        - INTERSECTION
+        - ENUMERATION
+        - HAS_KEY
+        - ROLE_INVERSE
+        - ROLE_CHAIN
+        - DATATYPE_RESTRICTION
+        - VALUE_DOMAIN
+        - PROPERTY_ASSERTION
+        - LITERAL
+        - FACET
+        - NEUTRAL
+        - VALUE
+        - INCLUSION
+        - EQUIVALENCE
+        - INSTANCE_OF
+        - INPUT
+        - SAME
+        - DIFFERENT
+        - MEMBERSHIP
+        - ATTRIBUTE_EDGE
+        - IRI
+    Element:
+      type: object
+      required:
+        - id
+        - type
+      properties:
+        id:
+          type: string
+        originalId:
+          type: string
+          description: In case of replicated elements, this is the ID of the original element replicated in multiple occurrences, all of them with different IDs
+        diagramId:
+          type: integer
+          default: 0
+        displayedName:
+          type: string
+        iri:
+          type: string
+        type:
+          $ref: '#/components/schemas/TypesEnum'
+        aiGenerated:
+          required:
+            - chunkId
+          type: object
+          properties:
+            chunkId:
+              type: string
+            isNew:
+              type: boolean
+    Position:
+      type: object
+      required:
+        - x
+        - 'y'
+      properties:
+        x:
+          type: number
+          format: float
+          default: 0
+        'y':
+          type: number
+          format: float
+          default: 0
+    Node:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Element'
+        - type: object
+          properties:
+            position:
+              $ref: '#/components/schemas/Position'
+            labelPosition:
+              $ref: '#/components/schemas/Position'
+            geoPosition:
+              $ref: '#/components/schemas/Position'
+    Edge:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Element'
+        - type: object
+          required:
+            - sourceId
+            - targetId
+          properties:
+            sourceId:
+              type: string
+            targetId:
+              type: string
+            breakpoints:
+              type: array
+              items:
+                $ref: '#/components/schemas/Position'
+            domainTyped:
+              type: boolean
+              default: true
+            rangeTyped:
+              type: boolean
+              default: true
+            domainMandatory:
+              type: boolean
+              default: false
+            rangeMandatory:
+              type: boolean
+              default: false
+    Viewport:
+      type: object
+      required:
+        - pan
+        - zoom
+      properties:
+        pan:
+          $ref: '#/components/schemas/Position'
+        zoom:
+          type: number
+          format: float
+          default: 0
+    Diagram:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: integer
+          default: 0
+        name:
+          type: string
+        nodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Node'
+        edges:
+          type: array
+          items:
+            $ref: '#/components/schemas/Edge'
+        lastViewportState:
+          $ref: '#/components/schemas/Viewport'
+    GrapholscapeAnnotation:
+      title: GrapholscapeAnnotation
+      type: object
+      required:
+        - property
+      properties:
+        lexicalForm:
+          type: string
+          deprecated: true
+          description: Has been renamed to `value`, kept for back-compatibility.
+        value:
+          type: string
+        hasIriValue:
+          type: boolean
+          default: false
+        property:
+          type: string
+          example: rdfs:label
+        language:
+          type: string
+        datatype:
+          type: string
+    FunctionPropertiesEnum:
+      type: string
+      enum:
+        - functional
+        - inverseFunctional
+        - transitive
+        - symmetric
+        - asymmetric
+        - reflexive
+        - irreflexive
+    GrapholscapeEntity:
+      title: GrapholscapeEntity
+      type: object
+      required:
+        - fullIri
+      properties:
+        fullIri:
+          type: string
+        annotations:
+          type: array
+          items:
+            $ref: '#/components/schemas/GrapholscapeAnnotation'
+        datatype:
+          type: string
+        isDataPropertyFunctional:
+          type: boolean
+          default: false
+        functionProperties:
+          type: array
+          items:
+            $ref: '#/components/schemas/FunctionPropertiesEnum'
+        mainOccurrences:
+          type: object
+          additionalProperties:
+            type: string
+          example:
+            graphol: n0
+            floaty: e1
+    DataPropertyValue:
+      type: object
+      required:
+        - value
+        - iri
+      properties:
+        value:
+          type: string
+        iri:
+          type: string
+        language:
+          type: string
+        datatype:
+          type: string
+        renderingProperties:
+          type: array
+          items:
+            type: string
+    ClassInstanceEntity:
+      title: ClassInstanceEntity
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/GrapholscapeEntity'
+        - type: object
+          properties:
+            parentClasses:
+              type: array
+              items:
+                type: string
+            dataProperties:
+              type: array
+              items:
+                $ref: '#/components/schemas/DataPropertyValue'
+            shortIri:
+              type: string
+    Namespace:
+      type: object
+      required:
+        - value
+        - prefixes
+      properties:
+        value:
+          type: string
+        prefixes:
+          type: array
+          items:
+            type: string
+    Theme:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        colours:
+          type: object
+    Hierarchy:
+      type: object
+      required:
+        - id
+        - type
+        - inputs
+        - superclasses
+      properties:
+        id:
+          type: string
+        type:
+          $ref: '#/components/schemas/TypesEnum'
+        inputs:
+          type: array
+          items:
+            $ref: '#/components/schemas/GrapholscapeEntity'
+        superclasses:
+          type: array
+          items:
+            required:
+              - classEntity
+              - complete
+            properties:
+              classEntity:
+                $ref: '#/components/schemas/GrapholscapeEntity'
+              complete:
+                type: boolean
+    ActionInvolvedElements:
+      description: Other elements involved in an action. Only for Remove actions. The remove action on an Entity might involve other elements. i.e. object properties on removed classes
+      type: object
+      properties:
+        nodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Node'
+        edges:
+          type: array
+          items:
+            $ref: '#/components/schemas/Edge'
+        Hierarchies:
+          type: array
+          items:
+            $ref: '#/components/schemas/Hierarchy'
+    Action:
+      description: |-
+        Actions describes what user has done on a single element or element's metadata. The user can add, edit or remove something. The "something" is described by the operation involved in the action, it can be an operation over an entity, a diagram, a hierarchy and so on.
+        Reverting an action means reverting the operation that has been done and it depends on the type of the action. - Add => Remove - Remove => Add - Edit => restore the previous state of the subject of the operation made
+      type: object
+      required:
+        - operationType
+        - subject
+        - user
+        - timestamp
+      properties:
+        operationType:
+          type: string
+          enum:
+            - add
+            - edit
+            - remove
+        subject:
+          type: object
+        previousState:
+          type: object
+        involvedElements:
+          $ref: '#/components/schemas/ActionInvolvedElements'
+        subactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Action'
+        user:
+          type: object
+          required:
+            - name
+          properties:
+            name:
+              type: string
+            firstName:
+              type: string
+            lastName:
+              type: string
+            email:
+              type: string
+        timestamp:
+          type: number
+          default: 0
+    SHACLShape:
+      type: object
+      required:
+        - type
+        - targetClass
+        - path
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          enum:
+            - Class
+            - MinCount
+            - MaxCount
+            - MinExclusive
+            - MaxExclusive
+            - MinInclusive
+            - MaxInclusive
+            - MinLength
+            - MaxLength
+            - Pattern
+            - In
+            - Equals
+            - Disjoint
+            - LessThan
+            - LessThanOrEquals
+        targetClass:
+          type: string
+        path:
+          type: string
+        property:
+          type: string
+        constraintValue:
+          type: array
+          items:
+            type: string
+    RDFGraph:
+      type: object
+      required:
+        - entities
+        - diagrams
+        - modelType
+        - metadata
+      properties:
+        diagrams:
+          type: array
+          items:
+            $ref: '#/components/schemas/Diagram'
+        entities:
+          type: array
+          items:
+            $ref: '#/components/schemas/GrapholscapeEntity'
+        classInstanceEntities:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClassInstanceEntity'
+        metadata:
+          type: object
+          required:
+            - namespaces
+          properties:
+            name:
+              type: string
+            iri:
+              type: string
+            version:
+              type: string
+            languages:
+              type: array
+              items:
+                type: string
+            defaultLanguage:
+              type: string
+            namespaces:
+              type: array
+              items:
+                $ref: '#/components/schemas/Namespace'
+            annotations:
+              type: array
+              items:
+                $ref: '#/components/schemas/GrapholscapeAnnotation'
+            annotationProperties:
+              type: array
+              items:
+                type: string
+        config:
+          type: object
+          properties:
+            themes:
+              type: array
+              items:
+                $ref: '#/components/schemas/Theme'
+            selectedTheme:
+              type: string
+            language:
+              type: string
+            entityNameType:
+              type: string
+              enum:
+                - label
+                - prefixed_iri
+                - full_iri
+            renderers:
+              type: array
+              items:
+                type: string
+            widgets:
+              type: object
+            filters:
+              type: array
+              items:
+                type: string
+                enum:
+                  - all
+                  - data-property
+                  - value-domain
+                  - individual
+                  - annotation-property
+                  - universal_quantifier
+                  - complement
+                  - has-key
+        selectedDiagramId:
+          type: integer
+          default: 0
+        modelType:
+          type: string
+          enum:
+            - ontology
+            - vkg
+            - rdf
+        actions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Action'
+        creator:
+          type: string
+        constraints:
+          type: array
+          items:
+            $ref: '#/components/schemas/SHACLShape'
+        importDeclarations:
+          type: array
+          items:
+            type: string
+    OWL2RDFGraphConversionResult:
+      type: object
+      required:
+        - rdfGraph
+        - rejectedAxioms
+        - acceptedAxioms
+        - originalAxioms
+      properties:
+        rdfGraph:
+          $ref: '#/components/schemas/RDFGraph'
+        rejectedAxioms:
+          type: integer
+          default: 0
+          format: int32
+        acceptedAxioms:
+          type: integer
+          default: 0
+          format: int32
+        originalAxioms:
+          type: integer
+          default: 0
+          format: int32
+    ChartConfiguration:
+      title: ChartConfiguration
+      type: object
+      required:
+        - yVariables
+      properties:
+        yVariables:
+          type: array
+          items:
+            type: string
+        series:
+          type: string
+        xVariable:
+          type: string
+        chartType:
+          type: string
+        cutoff:
+          type: integer
+          format: int32
+          default: 0
+    MWSXMetadataSubject:
+      type: object
+      properties:
+        iri:
+          type: string
+        impliedClassIri:
+          type: string
+    MWSXMetadataPredicate:
+      type: object
+      properties:
+        iri:
+          type: string
+    MWSXMetadataObject:
+      type: object
+      properties:
+        iri:
+          type: string
+        impliedClassIri:
+          type: string
+        value:
+          type: string
+        lang:
+          type: string
+        datatypeIri:
+          type: string
+        isIri:
+          type: boolean
+          default: false
+        isBlankNode:
+          type: boolean
+          default: false
+    MWSXMetadataTriple:
+      type: object
+      properties:
+        subject:
+          $ref: '#/components/schemas/MWSXMetadataSubject'
+        predicate:
+          $ref: '#/components/schemas/MWSXMetadataPredicate'
+        object:
+          $ref: '#/components/schemas/MWSXMetadataObject'
+  securitySchemes:
+    jwt:
+      description: |
+        Generate your JWT when you log in. JWT configurations should be placed in `$MASTRO_HOME/config/mastro.jwt` file
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
