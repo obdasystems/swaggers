@@ -372,18 +372,19 @@ paths:
       requestBody:
         content:
           application/json:
-            type: object
-            required:
-              - classIri
-              - queryID
-              - autoExpand
-            properties:
-              classIRI:
-                type: string
-              queryID:
-                type: string
-              autoExpand:
-                type: boolean
+            schema:
+              type: object
+              required:
+                - classIRI
+                - queryID
+                - autoExpand
+              properties:
+                classIRI:
+                  type: string
+                queryID:
+                  type: string
+                autoExpand:
+                  type: boolean
         required: true
       responses:
         '200':
