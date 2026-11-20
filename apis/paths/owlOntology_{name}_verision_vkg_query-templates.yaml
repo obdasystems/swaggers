@@ -1,0 +1,37 @@
+put:
+  tags: [NodeSettings]
+  summary: Modifies only the query template field for a given class in the default VKG node settings for the ontology version
+  operationId: putClassDefaultQueryTemplate
+  parameters:
+    - name: name
+      in: path
+      required: true
+      schema: { type: string }
+    - name: version
+      in: query
+      required: true
+      schema: { type: string }
+  requestBody:
+    content:
+      application/json:
+        type: object
+        required:
+          - classIri
+          - queryID
+          - autoExpand
+        properties:
+          classIRI:
+            type: string
+          queryID:
+            type: string
+          autoExpand:
+            type: boolean
+
+    required: true
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema: { $ref: ../components/schemas/NodeSettingsMap.yaml }
+    "401": { description: Unhauthorized }

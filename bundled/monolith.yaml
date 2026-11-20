@@ -142,8 +142,8 @@ tags:
     x-displayName: Persistence
   - name: mastro_vkg_Persistence
     x-displayName: Persistence
-  - name: mastro_vkg_NodeRendering
-    x-displayName: NodeRendering
+  - name: mastro_vkg_NodeSettings
+    x-displayName: NodeSettings
   - name: mastro_knowledge-graphs_Persistence
     x-displayName: Persistence
   - name: mastro_knowledge-graphs_General
@@ -14116,7 +14116,7 @@ paths:
       security:
         - apiKey: []
         - jwt: []
-  /owlOntology/{name}/version/vkg/node-rendering:
+  /owlOntology/{name}/version/vkg/node-settings:
     servers:
       - url: '{protocol}://{tenant}{port}/mws/rest/mwsx'
         variables:
@@ -14128,9 +14128,9 @@ paths:
             default: :8989
     get:
       tags:
-        - mastro_vkg_NodeRendering
-      summary: Returns the default VKG node rendering for the ontology version
-      operationId: getDefaultNodeRendering
+        - mastro_vkg_NodeSettings
+      summary: Returns the default VKG node settings for the ontology version
+      operationId: getDefaultNodeSettings
       parameters:
         - name: name
           in: path
@@ -14148,7 +14148,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CustomNodeRenderingMap'
+                $ref: '#/components/schemas/NodeSettingsMap'
         '401':
           description: Unhauthorized
       security:
@@ -14156,9 +14156,9 @@ paths:
         - jwt: []
     post:
       tags:
-        - mastro_vkg_NodeRendering
-      summary: Set a default VKG node rendering for the ontology version
-      operationId: postDefaultNodeRendering
+        - mastro_vkg_NodeSettings
+      summary: Set a default VKG node settings for the ontology version
+      operationId: postDefaultNodeSettings
       parameters:
         - name: name
           in: path
@@ -14174,7 +14174,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CustomNodeRenderingMap'
+              $ref: '#/components/schemas/NodeSettingsMap'
         required: true
       responses:
         '200':
@@ -14182,7 +14182,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CustomNodeRenderingMap'
+                $ref: '#/components/schemas/NodeSettingsMap'
         '401':
           description: Unhauthorized
       security:
@@ -14190,9 +14190,9 @@ paths:
         - jwt: []
     put:
       tags:
-        - mastro_vkg_NodeRendering
-      summary: Modifies the default VKG node rendering for the ontology version
-      operationId: putDefaultNodeRendering
+        - mastro_vkg_NodeSettings
+      summary: Modifies the default VKG node settings for the ontology version
+      operationId: putDefaultNodeSettings
       parameters:
         - name: name
           in: path
@@ -14208,7 +14208,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CustomNodeRenderingMap'
+              $ref: '#/components/schemas/NodeSettingsMap'
         required: true
       responses:
         '200':
@@ -14216,7 +14216,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CustomNodeRenderingMap'
+                $ref: '#/components/schemas/NodeSettingsMap'
         '401':
           description: Unhauthorized
       security:
@@ -14224,9 +14224,9 @@ paths:
         - jwt: []
     delete:
       tags:
-        - mastro_vkg_NodeRendering
-      summary: DELETE mwsx/owlOntology/{name}/version/vkg/node-rendering
-      operationId: deleteVkgNodeRendering
+        - mastro_vkg_NodeSettings
+      summary: Delete the default VKG node settings for the ontology verion
+      operationId: deleteVkgNodeSettings
       parameters:
         - name: name
           in: path
@@ -27017,8 +27017,9 @@ components:
         log:
           type: boolean
           default: false
-    CustomNodeRendering:
+    NodeRendering:
       type: object
+      description: Settings changing the appearance of class nodes and class instances nodes
       properties:
         classNodes:
           type: object
@@ -27148,18 +27149,34 @@ components:
         customNodeRenderings:
           type: object
           additionalProperties:
-            $ref: '#/components/schemas/CustomNodeRendering'
+            $ref: '#/components/schemas/NodeRendering'
         customFilters:
           type: object
           additionalProperties:
             $ref: '#/components/schemas/VKGCustomFilter'
         thumbnail:
           type: string
-    CustomNodeRenderingMap:
-      description: Map <classIri, CustomRendering>
+    NodeSettings:
+      description: Object defining settings for a Class in the VKG
+      type: object
+      properties:
+        nodeRendering:
+          $ref: '#/components/schemas/NodeRendering'
+        defaultQueryTemplate:
+          type: object
+          required:
+            - queryID
+            - autoExpand
+          properties:
+            queryID:
+              type: string
+            autoExpand:
+              type: boolean
+    NodeSettingsMap:
+      description: Map <classIri, NodeSettings>
       type: object
       additionalProperties:
-        $ref: '#/components/schemas/CustomNodeRendering'
+        $ref: '#/components/schemas/NodeSettings'
     Agent:
       title: Agent
       type: object
@@ -29131,7 +29148,7 @@ x-tagGroups:
       - mastro_triplify_Start
       - mastro_virtual-entities_Persistence
       - mastro_vkg_Persistence
-      - mastro_vkg_NodeRendering
+      - mastro_vkg_NodeSettings
       - mastro_knowledge-graphs_Persistence
       - mastro_knowledge-graphs_General
       - mastro_knowledge-graphs_FileSystem

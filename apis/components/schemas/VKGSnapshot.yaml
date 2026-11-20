@@ -9,7 +9,7 @@ properties:
   rdfGraph: {$ref: ./RDFGraph.yaml}
   customNodeRenderings:
     type: object
-    additionalProperties: {$ref: ./CustomNodeRendering.yaml}
+    additionalProperties: {$ref: NodeRendering.yaml}
   customFilters:
     type: object
     additionalProperties: {$ref: ./VKGCustomFilter.yaml}

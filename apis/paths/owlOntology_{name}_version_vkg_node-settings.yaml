@@ -1,7 +1,7 @@
 get:
-  tags: [NodeRendering]
-  summary: Returns the default VKG node rendering for the ontology version
-  operationId: getDefaultNodeRendering
+  tags: [NodeSettings]
+  summary: Returns the default VKG node settings for the ontology version
+  operationId: getDefaultNodeSettings
   parameters:
   - name: name
     in: path
@@ -16,12 +16,12 @@ get:
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/CustomNodeRenderingMap.yaml}
+          schema: {$ref: ../components/schemas/NodeSettingsMap.yaml}
     '401': {description: Unhauthorized}
 post:
-  tags: [NodeRendering]
-  summary: Set a default VKG node rendering for the ontology version
-  operationId: postDefaultNodeRendering
+  tags: [NodeSettings]
+  summary: Set a default VKG node settings for the ontology version
+  operationId: postDefaultNodeSettings
   parameters:
   - name: name
     in: path
@@ -34,19 +34,19 @@ post:
   requestBody:
     content:
       application/json:
-        schema: {$ref: ../components/schemas/CustomNodeRenderingMap.yaml}
+        schema: {$ref: ../components/schemas/NodeSettingsMap.yaml}
     required: true
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/CustomNodeRenderingMap.yaml}
+          schema: {$ref: ../components/schemas/NodeSettingsMap.yaml}
     '401': {description: Unhauthorized}
 put:
-  tags: [NodeRendering]
-  summary: Modifies the default VKG node rendering for the ontology version
-  operationId: putDefaultNodeRendering
+  tags: [NodeSettings]
+  summary: Modifies the default VKG node settings for the ontology version
+  operationId: putDefaultNodeSettings
   parameters:
   - name: name
     in: path
@@ -59,19 +59,19 @@ put:
   requestBody:
     content:
       application/json:
-        schema: {$ref: ../components/schemas/CustomNodeRenderingMap.yaml}
+        schema: {$ref: ../components/schemas/NodeSettingsMap.yaml}
     required: true
   responses:
     '200':
       description: OK
       content:
         application/json:
-          schema: {$ref: ../components/schemas/CustomNodeRenderingMap.yaml}
+          schema: {$ref: ../components/schemas/NodeSettingsMap.yaml}
     '401': {description: Unhauthorized}
 delete:
-  tags: [NodeRendering]
-  summary: DELETE mwsx/owlOntology/{name}/version/vkg/node-rendering
-  operationId: deleteVkgNodeRendering
+  tags: [NodeSettings]
+  summary: Delete the default VKG node settings for the ontology verion
+  operationId: deleteVkgNodeSettings
   parameters:
   - name: name
     in: path

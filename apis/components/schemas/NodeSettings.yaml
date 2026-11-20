@@ -1,0 +1,15 @@
+description: Object defining settings for a Class in the VKG
+type: object
+properties:
+  nodeRendering:
+    $ref: NodeRendering.yaml
+  defaultQueryTemplate:
+    type: object
+    required:
+      - queryID
+      - autoExpand
+    properties:
+      queryID:
+        type: string
+      autoExpand:
+        type: boolean

@@ -28,8 +28,8 @@ paths:
     $ref: paths/owlOntology_{name}_version_vkg_catalog_export.yaml
   /owlOntology/{name}/version/vkg/catalog/import:
     $ref: paths/owlOntology_{name}_version_vkg_catalog_import.yaml
-  /owlOntology/{name}/version/vkg/node-rendering:
-    $ref: paths/owlOntology_{name}_version_vkg_node-rendering.yaml
+  /owlOntology/{name}/version/vkg/node-settings:
+    $ref: paths/owlOntology_{name}_version_vkg_node-settings.yaml
 components: 
   securitySchemes: 
     apiKey: 

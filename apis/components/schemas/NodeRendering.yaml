@@ -1,4 +1,5 @@
 type: object
+description: Settings changing the appearance of class nodes and class instances nodes
 properties:
   classNodes:
     type: object
