@@ -30,6 +30,8 @@ paths:
     $ref: paths/owlOntology_{name}_version_vkg_catalog_import.yaml
   /owlOntology/{name}/version/vkg/node-settings:
     $ref: paths/owlOntology_{name}_version_vkg_node-settings.yaml
+  /owlOntology/{name}/version/vkg/query-templates:
+    $ref: paths/owlOntology_{name}_verision_vkg_query-templates.yaml
 components: 
   securitySchemes: 
     apiKey: 
