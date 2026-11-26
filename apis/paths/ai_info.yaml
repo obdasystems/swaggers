@@ -1,0 +1,24 @@
+get:
+  tags: [Info]
+  summary: Returns information about the Mastro AI service
+  operationId: getInfo
+  responses:
+    "200":
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/AIinfo.yaml
+    "401": { description: Unhauthorized }
+delete:
+  tags: [Info]
+  summary: Returns information about the Mastro AI service
+  operationId: deleteInfo
+  responses:
+    "200":
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            type: boolean
+    "401": { description: Unhauthorized }

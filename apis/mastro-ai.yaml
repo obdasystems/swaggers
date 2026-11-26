@@ -73,6 +73,8 @@ paths:
     $ref: paths/ai_apisem_schema_multiprompt.yaml
   /ai/apisem/schema/{name}/annotations:
     $ref: paths/ai_apisem_schema_name_annotations.yaml
+  /ai/info:
+    $ref: paths/ai_info.yaml
 components:
   schemas:
     MWSXOntologyCatalogOntologyMetadataSet:
